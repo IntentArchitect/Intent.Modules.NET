@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#eb0819ed-0d3c-45a7-a3c9-38946c1d4401</correlationId>
+      <path>TrainingModel.Tests.Application/Brands/GetBrands/GetBrandsQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:10:55.3412657Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:10:55.3412676Z</approvedAt>
+      <deviationsHash>73A8EBF4934AD6F0654FC745A9204B5BEE6FC3496E17C223D3D2B86F5D45923B</deviationsHash>
+      <fileHash>C63034DC048D8E6525C14740D55469A16AD0A83D8D257ED729957B8E13FDE26C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#d4c2591e-aadb-48e5-9453-3754b6c73ba9</correlationId>
+      <path>TrainingModel.Tests.Application/Products/GetProductsSearch/GetProductsSearchQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:10:55.3277356Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:10:55.3278777Z</approvedAt>
+      <deviationsHash>F51C20E3F46CBBF13BED84763893C5F72733296503651524775197003F8F1B59</deviationsHash>
+      <fileHash>F9901CBB5A63347B69D5F6F69AC140B704B696DCE55F29020CEE78AE497571C1</fileHash>
+    </file>
+  </files>
+</deviationsLog>

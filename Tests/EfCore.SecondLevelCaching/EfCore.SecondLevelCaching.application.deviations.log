@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#1ed6ced4-2fa2-4126-a5de-743b1288fe7b</correlationId>
+      <path>EfCore.SecondLevelCaching.Application/Invoices/GetInvoices/GetInvoicesQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:47:16.617716Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:47:16.6179116Z</approvedAt>
+      <deviationsHash>08B8C81ABC630A8DFBFB55E1070D4B5D265F6DFC827A5176AA460D4B1CC34ABE</deviationsHash>
+      <fileHash>0515DD8FD23DDEEE5551E1A1754EBF5D05C42AF45312C26D93150DBCE619D9D7</fileHash>
+    </file>
+  </files>
+</deviationsLog>

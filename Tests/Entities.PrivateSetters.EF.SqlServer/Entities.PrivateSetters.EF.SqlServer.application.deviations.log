@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.Identity.CurrentUserService</correlationId>
+      <path>Entities.PrivateSetters.EF.SqlServer.Api/Services/CurrentUserService.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:08:10.9070771Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:08:10.9072956Z</approvedAt>
+      <deviationsHash>F760D1DD431B4EF407FCC307E34378A07EE234F69F4967A9C371A12319258D6A</deviationsHash>
+      <fileHash>66797592C531AD2F173B8AB68DD984F474ABD51BE71B49FB2FE23AF69DFDED41</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#a4aec523-8b6f-4c7a-af22-ac8e9d510699</correlationId>
+      <path>Entities.PrivateSetters.EF.SqlServer.Application/Implementation/AuditedService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:08:10.9196525Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:08:10.9196544Z</approvedAt>
+      <deviationsHash>EDAE46754C6CEA31A039A9F20248D99B4DA8AA929D48957057DE01D18AEFCD04</deviationsHash>
+      <fileHash>0AC280AB4FD9D86C4FA5C111AEB1F514267DCEE514D3EF2B77B1F4CF0628A373</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#673b370f-ecd0-4c16-a959-6db8ea834ee8</correlationId>
+      <path>Entities.PrivateSetters.EF.SqlServer.Application/Implementation/InvoiceService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:08:10.9209696Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:08:10.920972Z</approvedAt>
+      <deviationsHash>AF3E47E3FF69199C35D1A7FF50967A1E8EE7EFD8CD35BA93771A9DAED8BE4FE8</deviationsHash>
+      <fileHash>9023DCCB86BCB0D45B416298300DA5F39C1B978EBD41A5B4F0F5EFF9ACA5719E</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#fa2ff0bb-e969-40e9-9e8a-d34fe671e143</correlationId>
+      <path>Entities.PrivateSetters.EF.SqlServer.Application/Implementation/TagService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:08:10.9220776Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:08:10.9220802Z</approvedAt>
+      <deviationsHash>1231218C291F347B8EC832A21F959B7699AFA63BDC5A3C1B421B16C376CB56A7</deviationsHash>
+      <fileHash>F71C747A8B8129C6C88D3842EA123EEE8CB587E033BAB4F2455FFF4948D5C991</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#562d3bb7-74c8-4d46-9e22-2d335e32caaf</correlationId>
+      <path>Entities.PrivateSetters.EF.SqlServer.Domain/Entities/Invoice.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:08:10.9230193Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:08:10.9230221Z</approvedAt>
+      <deviationsHash>FD9BED09D8C1254F6FA830AFAC48F39EF41908593637BDFF6AE9757F37485074</deviationsHash>
+      <fileHash>ED7CB053C893D23637509D9BA1E1979BFF13D206D96441D959E6A04792158918</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#c1e377b0-1bef-4ab9-8530-13773c217194</correlationId>
+      <path>Entities.PrivateSetters.EF.SqlServer.Domain/Entities/Line.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:08:10.9240521Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:08:10.9240537Z</approvedAt>
+      <deviationsHash>4FD14B2EEFA6B6AACDBE3053521AB1FA139D09E651D8CBA742375FCD6EB12FFF</deviationsHash>
+      <fileHash>45C7B7BB20881C9A5211EB7F67B959902987A642D1B8CC24E00E1D26345CD414</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#fbe6ac53-a292-46a9-9ba6-5a645230625f</correlationId>
+      <path>Entities.PrivateSetters.EF.SqlServer.Domain/Entities/Tag.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:08:10.9248911Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:08:10.9248928Z</approvedAt>
+      <deviationsHash>5DB1F02730356498B6DEC6B326DEA907D3E3F742F869430E091CDAA6A3F1C5DF</deviationsHash>
+      <fileHash>3DC5CD7C95A0AB8A19A07FFCCFEC2B6CDC692BDA2ADF8B737E6E350CD775A81B</fileHash>
+    </file>
+  </files>
+</deviationsLog>

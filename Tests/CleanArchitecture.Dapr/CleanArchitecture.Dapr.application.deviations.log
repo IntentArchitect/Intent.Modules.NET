@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#da7a9046-7741-4362-88e7-a527ee20b5fd</correlationId>
+      <path>CleanArchitecture.Dapr.Application/DerivedOfTS/CreateDerivedOfT/CreateDerivedOfTCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.1820441Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.1820465Z</approvedAt>
+      <deviationsHash>45AE2B8FE7DDDFD002F0797D39E152BBF60BA44B9D07000CD65AB52012C20288</deviationsHash>
+      <fileHash>B26AF15785CB7087855F9120F7945FBB40203232D663185EC69007964ED59775</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#99341199-ac94-4e34-8fa3-963c5cdcaf23</correlationId>
+      <path>CleanArchitecture.Dapr.Application/DerivedOfTS/DeleteDerivedOfT/DeleteDerivedOfTCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.1652598Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.1655687Z</approvedAt>
+      <deviationsHash>BDA88DD54B2BBE1B5A5EE7E0EB34BFF5386BC924123D57797A9D47E69ADDCF8F</deviationsHash>
+      <fileHash>3A8EE83DDBE60ECC6911DC5D761BFABD6EF9A81901D15CBE94214582EDFC4551</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#f76706e2-6da1-416f-b5f1-5f608b972640</correlationId>
+      <path>CleanArchitecture.Dapr.Application/DerivedOfTS/GetDerivedOfTById/GetDerivedOfTByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.1852558Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.1852583Z</approvedAt>
+      <deviationsHash>DEABA21C1FB267F54A78D8FEC05764FE663057FF5087A96E3D81045FD4AC9AC2</deviationsHash>
+      <fileHash>D7AB6FD343BB170BE8D5368F4F1667BA665246A5CEB47C7880E6E97429E01DCD</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#f76706e2-6da1-416f-b5f1-5f608b972640</correlationId>
+      <path>CleanArchitecture.Dapr.Application/DerivedOfTS/GetDerivedOfTById/GetDerivedOfTByIdQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.1867895Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.186792Z</approvedAt>
+      <deviationsHash>85CAAA70555AD0EA036E294ACC087E652BFF8B50B8D211314EFC72D588CF208B</deviationsHash>
+      <fileHash>08AC9090B477CEF2F5608285F9E39123F55C4BA1E65760F2EC903A29479AD1CF</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#2b6c4e6f-f452-487d-b912-476abc806652</correlationId>
+      <path>CleanArchitecture.Dapr.Application/DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.1837943Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.1837972Z</approvedAt>
+      <deviationsHash>EBE537B66900AE20FE21703B37B9236800C5DF04C9E64EA59EB633D131618FA3</deviationsHash>
+      <fileHash>76E7D845B1E68DB443920762D8FEBCFD837C5A85BB9B987048E42245492EA4DF</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#2b6c4e6f-f452-487d-b912-476abc806652</correlationId>
+      <path>CleanArchitecture.Dapr.Application/DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.1881779Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.1881797Z</approvedAt>
+      <deviationsHash>D47A336C1C24EBFBC782095FB149B9F5017669D3DC067C32F70C3ABBEA522EFB</deviationsHash>
+      <fileHash>FB1013BBB6FFB3F10ABA4914A473A15BC2856CD040182B3CE3E332DE0D16B31B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#b42c51ce-6491-4a99-879e-e22e1e5c3346</correlationId>
+      <path>CleanArchitecture.Dapr.Application/DerivedOfTS/UpdateDerivedOfT/UpdateDerivedOfTCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.1911569Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.1911595Z</approvedAt>
+      <deviationsHash>2F1E3AD799A6402AFA43AB08F6DC232B255C3E5B25DD68E10293AA9E6C904A6A</deviationsHash>
+      <fileHash>D7E43C63482443F4315A7EB30798E4809FB84F21B1DCBBB86EA9D9E284E5535E</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#3465eef6-9880-4c33-9578-4ca1763e7b57</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Clients/CreateClient/CreateClientCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.1928517Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.1928543Z</approvedAt>
+      <deviationsHash>92F2E1414BCF6C014748837D7EF17AE25E9DA8475DC68DB587051CC71EF0BFCF</deviationsHash>
+      <fileHash>C2C168EFC3F719CA3D859E7A7FE2EED4D0D68445084A3754ADC8609C419C5CF7</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#86534d3d-f7d7-4301-8412-2583d06d059a</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Clients/DeleteClient/DeleteClientCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.1944305Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.194433Z</approvedAt>
+      <deviationsHash>6EE168BBA9AEDC8F89B5805EB5C8D50CF22C1E93F5FBBDFC81D25B5EC0761EBC</deviationsHash>
+      <fileHash>1A88B7D4B817673EB28B2BDFCDFE683BEF2872D0D338CC254EB1277FFC21DE81</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#7b44dd72-69b4-49f3-8dfc-876a41d1d8b2</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Clients/GetClientById/GetClientByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.1961693Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.1961718Z</approvedAt>
+      <deviationsHash>3F59B13D4009D852D597921E1B1733E96480B222FA2478A60A50FC1BDB89B5FB</deviationsHash>
+      <fileHash>E0E00438274BDD2478C217300BBD0382FB2DB736893CEDF549A696CCC5BEA538</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#7b44dd72-69b4-49f3-8dfc-876a41d1d8b2</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Clients/GetClientById/GetClientByIdQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.1984118Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.1984144Z</approvedAt>
+      <deviationsHash>ADBE10B5B03AFF05EEDD303686674D28B8AF9F3F6244EC90923B2DAE8768E52A</deviationsHash>
+      <fileHash>6430BAB204D1404A2BABEC1747966487FBA1A2B179E657288C0B64BC2F81B86D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#78b100b2-e54a-4824-bfe2-d36512c0633a</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Clients/GetClients/GetClientsQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2001173Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2001201Z</approvedAt>
+      <deviationsHash>31D9B52680D108B7637896A7CF11C4EAE3BAC41D6BE76E807344B8548D8F4CBA</deviationsHash>
+      <fileHash>CE240B9AA0413658D68D9B77E4E65926AB831E4F1162EDB687795BD0AB392A07</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#78b100b2-e54a-4824-bfe2-d36512c0633a</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Clients/GetClients/GetClientsQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2020137Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2020165Z</approvedAt>
+      <deviationsHash>704DA81EAD805617CC290CA814614362EBDA87F0FD7FD3C9DE47A6AEBAF0F426</deviationsHash>
+      <fileHash>23A029EBAA37B07BF8F50BEC4F0057BABE16C28802134C50F8CC32F6D670A2FB</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#37d98021-8b9d-41b4-969e-c2103e3bd52f</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Clients/UpdateClient/UpdateClientCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2052185Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2052208Z</approvedAt>
+      <deviationsHash>0994788643E09A87F968EDE8D9C9F7B42EA6C259CC3F68792949869B1058500D</deviationsHash>
+      <fileHash>AEA41CCE9C01476DFF9EA9F62F3B01A39DE778F2BA5FBC68AEB3F11412B8156C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#8716f54f-3117-4ad3-82a8-3f56e0f8d2b6</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Deriveds/CreateDerived/CreateDerivedCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2035877Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2035902Z</approvedAt>
+      <deviationsHash>FE083E135850429355F6024D16020BD346F5C5265FEC3F60B3761B46427D5166</deviationsHash>
+      <fileHash>8801C646514423161B9A26D1E1C5042CB00307BEC7598110536D902222803D36</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6dd934cb-82cb-41be-bbc3-9e8306f8248b</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Deriveds/DeleteDerived/DeleteDerivedCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2068884Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2068908Z</approvedAt>
+      <deviationsHash>8CF2299CB33D7EC6CED863FF777071C37E56E2DA61D31FD34FDB2CF2B3B822EB</deviationsHash>
+      <fileHash>25E01E159C9910C7375457EB506ABC5B9451383E814E96706B19687BE943B177</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#a410c202-6012-4ac4-807b-69207ceb05f6</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Deriveds/GetDerivedById/GetDerivedByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2114035Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2114066Z</approvedAt>
+      <deviationsHash>7D5F9AC252D3A487923FA78E0F3C4208E48A01B440DBF2BCB7D331C1E8954ED2</deviationsHash>
+      <fileHash>BA812FB08EED738D5704EBA6EA4D20DF17D547B3AD5E89FEE885DCB8C20D944A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#a410c202-6012-4ac4-807b-69207ceb05f6</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Deriveds/GetDerivedById/GetDerivedByIdQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2147252Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2147277Z</approvedAt>
+      <deviationsHash>4360A47D58C1CBEC7496FE28AEB751807F8604401458D5C41C06C7534EF7F1C9</deviationsHash>
+      <fileHash>B51C070E810B4B5BE95DD2C069148DC421667EBC273EE0779600475371E174D1</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#df962310-cd4d-400b-8603-bbf8de083d44</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Deriveds/GetDeriveds/GetDerivedsQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2176402Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2176429Z</approvedAt>
+      <deviationsHash>93021A95EB7C11ED477201ACD6CB48C3C6510F098DBC50346A088E0D3162D634</deviationsHash>
+      <fileHash>5F950F7635157A1A2CF5F5C047695CBC086DD823DD19AD750F4E997CAB612D7D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#df962310-cd4d-400b-8603-bbf8de083d44</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Deriveds/GetDeriveds/GetDerivedsQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2194334Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2194355Z</approvedAt>
+      <deviationsHash>E3E001B2D0E49C3E1055AE4CCD844304CF8B06082F6EDDA35811E85803DFDDEF</deviationsHash>
+      <fileHash>DFE71FD52AAF3B75D2572E9DBAC3A9AD9565AA643C724BDE791766193E5D0837</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#d00cbe7e-065d-4951-9129-5fc2af669abf</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Deriveds/UpdateDerived/UpdateDerivedCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2222587Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2222612Z</approvedAt>
+      <deviationsHash>C7884A87ECDBDB78461F1B3729F35F19B173DC360288C924B22570C01B5BA1C6</deviationsHash>
+      <fileHash>D9D0CEE9ED6B79F765B32FBC287061DA39FD2894E2F50D436FC96465AA28FE73</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6666456b-c288-4d56-91f0-47702f744ebe</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Invoices/CreateInvoice/CreateInvoiceCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2250371Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2250395Z</approvedAt>
+      <deviationsHash>F345862808B4A7182842ED7872299023DDF0C33FAEDBF2EB12E3522924EE710D</deviationsHash>
+      <fileHash>9EA29077C8B79F28B175B501BF804A407AEFDD240E80033C3B2B3294A5512AFF</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#44c97589-d356-4759-baae-1e7bac152cbd</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Invoices/CreateInvoiceInvoiceLine/CreateInvoiceInvoiceLineCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2274051Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2274085Z</approvedAt>
+      <deviationsHash>E7E660F9F4C60FBE9C0EF639026CB8A86E802E206F906EE843DB29D732AB66A4</deviationsHash>
+      <fileHash>5EA3997BCD90FA971F6CFF95555A6F1DF14174AD4A5F82643C3FF25042AFB8F7</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#ccb8b3a5-5c3c-4bf6-aed4-d5b245f063ed</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Invoices/DeleteInvoice/DeleteInvoiceCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2294926Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.229495Z</approvedAt>
+      <deviationsHash>B185ECEAAF810733AF740A2A1FE7272519B166E25B766494051176C896CB9133</deviationsHash>
+      <fileHash>DC01DAECB1565FF46343337690491FAC9DB99160CA77F19177F87040083E5C87</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#8212d280-b40a-4583-a08d-1dd753a14967</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Invoices/DeleteInvoiceInvoiceLine/DeleteInvoiceInvoiceLineCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2360256Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2360291Z</approvedAt>
+      <deviationsHash>9C99B248084BBB6BDED31AEAF8748EE9BF3F2F185F1ABE3201B180419D5B5C9B</deviationsHash>
+      <fileHash>9988D258A8AB5B61B3F8E1E415411545692977308EF7FE3AC70F17AADB2E25E7</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#21b450a9-8c24-4d5d-a506-245b7cd6d995</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Invoices/GetInvoiceById/GetInvoiceByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2314136Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2314164Z</approvedAt>
+      <deviationsHash>FE062791AF13FDEAE475AF1C0584BAB2E01C456368EFF7BC370A91099FAF607C</deviationsHash>
+      <fileHash>014D59FE3652428EF78F5BCF4338829CA022B1B0DEA97B640DF5D8B201B5A1DC</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#21b450a9-8c24-4d5d-a506-245b7cd6d995</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Invoices/GetInvoiceById/GetInvoiceByIdQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2334234Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2334259Z</approvedAt>
+      <deviationsHash>F91ED64949B26C5C69146523AB7A1A64C702334FF83C75FE348E680964ABDC2D</deviationsHash>
+      <fileHash>EEFB6AA176825084E2815F0B91C3DB6EA291DFD467E9CE1637DC86FD2C38CF9B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#1060dd19-daef-4159-833d-cbe3daadecf6</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Invoices/GetInvoiceInvoiceLineById/GetInvoiceInvoiceLineByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2395689Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2395749Z</approvedAt>
+      <deviationsHash>7706583954B22CB5671C890190ADCBD39E58999A354064519AB698957513DAA5</deviationsHash>
+      <fileHash>5CF156236FA5000327B87845DA19EB39BE99C00062F6CC8B04B005A279AE90A9</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#1060dd19-daef-4159-833d-cbe3daadecf6</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Invoices/GetInvoiceInvoiceLineById/GetInvoiceInvoiceLineByIdQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2420414Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2420441Z</approvedAt>
+      <deviationsHash>3E63821CB9B7BA12D37CF3145E3257CE2603A7AD92E8A1070A1ADB1D7216410F</deviationsHash>
+      <fileHash>EC4D961269408859CE7FBB6CB8A839AD439B20CD72F2B429F65E90BF9712EA0C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#4e672cf4-97ec-4913-ba89-b9810b874409</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Invoices/GetInvoiceInvoiceLines/GetInvoiceInvoiceLinesQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2443889Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2443959Z</approvedAt>
+      <deviationsHash>943D681819C1EFA8D84926891EE7DF5E920D1C16CB5984C1159C92B86B32FF31</deviationsHash>
+      <fileHash>C63E259E852AAA5660ABCD788125F8FDF1C98B63D833F24C4C48766117BFC4A2</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#4e672cf4-97ec-4913-ba89-b9810b874409</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Invoices/GetInvoiceInvoiceLines/GetInvoiceInvoiceLinesQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2468976Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2469004Z</approvedAt>
+      <deviationsHash>DCCBB49F1E2C1049AD59722640EA4B18FF7F5591B40224229BE17921319F60A6</deviationsHash>
+      <fileHash>D3A3E535D3CCD99EE8C7EE150EB32DCF28CBB70334E71E825DFAC919F437A806</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#2b693870-35d9-405d-9bbb-28e426123e65</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Invoices/GetInvoices/GetInvoicesQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2492594Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2492621Z</approvedAt>
+      <deviationsHash>754788705E8A6D36E9606EBE4107AA611C9B79532D18B1760E8D1371ED123394</deviationsHash>
+      <fileHash>6437BD417C1965BEFB72A2326DA6F8F0EAD6D7F9531FE33F920D7BA7A8716016</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#2b693870-35d9-405d-9bbb-28e426123e65</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Invoices/GetInvoices/GetInvoicesQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2517708Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2517751Z</approvedAt>
+      <deviationsHash>FAE98738C3729CAB8A12C1AAB034CF33D01E556190ECE7D7D6C88B90107D1908</deviationsHash>
+      <fileHash>CA603E8DED702CCDE81768968C54544EE5BE17E4E3A6F940080FCC4746C7C893</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#233bb9e4-e467-4700-8aee-f0d559b39683</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Invoices/UpdateInvoice/UpdateInvoiceCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2600533Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2600559Z</approvedAt>
+      <deviationsHash>C2509FE20441629D31AC828EFE3C09EBCD95A2B45C8F41288F01C412A13BE5C6</deviationsHash>
+      <fileHash>DFBE2E6845C1511DF28367840B3E5BF4B01B555E1A68C6F62EA65A320DAA526A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#c61d5235-428b-4c7f-b6a9-49daec01a0ea</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Invoices/UpdateInvoiceInvoiceLine/UpdateInvoiceInvoiceLineCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2565604Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2565633Z</approvedAt>
+      <deviationsHash>2EBD2420FB41D197431CF586F82402065358D3CBBF9995CC4186DAE5A745A56E</deviationsHash>
+      <fileHash>A67D49994754B120AD567DD91949D383242C0C84155138C93F665B247A64D919</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#ef86a152-3fe6-48a8-94b1-00d811e9d5df</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Tags/CreateTag/CreateTagCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2626931Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2626957Z</approvedAt>
+      <deviationsHash>1C8DE5C728DC700B5C6E5F5A6EC4A6D533937E9F7F32A97442DA40CCA9B2EBBD</deviationsHash>
+      <fileHash>ABD2373F322741C56494788EAE689B0A510C74334C754F691F0970E1961021BA</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#ce170d6a-c939-4d6b-95a9-725b63c5a4f0</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Tags/DeleteTag/DeleteTagCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2653559Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.265361Z</approvedAt>
+      <deviationsHash>B88695B540F62F6999F46943292A99300B5EFFA7B9B300D785D679F3E52B2820</deviationsHash>
+      <fileHash>89D2D937645813272F327B39D115A95EF4D8B014A43D058E55B03DFCC319671E</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#be905419-b481-497a-969d-053bd6de074c</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Tags/GetTagById/GetTagByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.268345Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.268348Z</approvedAt>
+      <deviationsHash>D6569C46EF14F071B6148B54C82A5C46821FF2FC358F9ED28F2C53BCAA64953A</deviationsHash>
+      <fileHash>B0526D3625D7C24689F64ED72A11AA704C16A72E830626FB32C9A73DA2A6BA01</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#be905419-b481-497a-969d-053bd6de074c</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Tags/GetTagById/GetTagByIdQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2744114Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2744139Z</approvedAt>
+      <deviationsHash>52A30F5A29B766A43DBE8D02BDD18246C4DA5952D111EADC80FDAD243867CEB7</deviationsHash>
+      <fileHash>D9A4DA3007901D775C58F2D610576F149944C04757743D5059E9B68B8204FE60</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#4ecaa6cc-6e5b-4588-8307-a11fc8a77c8c</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Tags/GetTags/GetTagsQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2802132Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2802159Z</approvedAt>
+      <deviationsHash>55EC48828ACD71AEEDCFA5A68EA9F3DA47ADDD00BEF6200B2C8BFF05D864CCFB</deviationsHash>
+      <fileHash>B71302ED8FB0D7720FA923BA9D2896BEBBB8AFF17A813B6D903E5474D9A62422</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#4ecaa6cc-6e5b-4588-8307-a11fc8a77c8c</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Tags/GetTags/GetTagsQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2715714Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.271574Z</approvedAt>
+      <deviationsHash>753DE57E40C6010BA7399759E1D94854597F3DEA6DC12FDCBCD744EAD8422CE9</deviationsHash>
+      <fileHash>A92387CD9605CF8571AA627C4CDDE27813662337E62295A51116D2A48F596D79</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#39db02b5-3a45-4ef1-adf6-c38487186af2</correlationId>
+      <path>CleanArchitecture.Dapr.Application/OldMappingSystem/Tags/UpdateTag/UpdateTagCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2776126Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2776151Z</approvedAt>
+      <deviationsHash>DAD1DEDC42A59796DF22FD68681D6F4D17DEB9048E0D4AEEE8CC6DFE942F7EEC</deviationsHash>
+      <fileHash>66862B67782F2096FD9B9B1C318A8FB9587F3B43544EF8EFF6F1E682F6CDC576</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#89ef97be-06eb-4df7-866f-a0059cc81394</correlationId>
+      <path>CleanArchitecture.Dapr.Application/Scheduled/Daily/DailyCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2858736Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2858761Z</approvedAt>
+      <deviationsHash>086054234DEDC850333F39053F7A1D7C1743751D38CFBDA465E102A4B990144B</deviationsHash>
+      <fileHash>4EC1AF727040D765C94264939FEEB71A8B42A3CCDC3C22DC6BD1F9C59B2CB535</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6ee6d8af-8c79-4caa-97a2-1428ccf63990</correlationId>
+      <path>CleanArchitecture.Dapr.Application/Scheduled/Hourly/HourlyCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2914013Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2914042Z</approvedAt>
+      <deviationsHash>07817062ADBF64E09B583ED94B31E121DF85F8076FC498990FD538569B928C99</deviationsHash>
+      <fileHash>4B1360D89165464B8C3DDA4CCEDC89D52D92EC2720A6FC4F53C28BE114372A94</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#9257c32a-49d8-4f04-8e4b-840b89ebdf14</correlationId>
+      <path>CleanArchitecture.Dapr.Domain/Entities/Client.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.288587Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2885894Z</approvedAt>
+      <deviationsHash>16698F702D1D0A042CCF901D2C57D4076F80E611499FF91CB87B4638B8C8C23A</deviationsHash>
+      <fileHash>ED96B04DFFF44146FE2B5B3CF53F24B9FDEA8A904DA16C51C001C090805C7537</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#43c8c723-0f27-4996-afb2-3e9b46c64415</correlationId>
+      <path>CleanArchitecture.Dapr.Domain/Entities/Invoice.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2949963Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.294999Z</approvedAt>
+      <deviationsHash>E2AA3184DBF7464D05B8D3D85C40D63F591BE274DA9041A24168AA7F2979E152</deviationsHash>
+      <fileHash>5EE4F6AAAA9B444C7DAA56DA52C33E3C039E3B24D0290372CA124655292BE5F5</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#e5e0e3ee-83d0-4c69-ab6c-58c39dad3587</correlationId>
+      <path>CleanArchitecture.Dapr.Domain/Entities/InvoiceLine.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.2987398Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.2987424Z</approvedAt>
+      <deviationsHash>41258F2A3866AA0537C17D816130E5B8FC6E90B9477E60E76FFAC938A0DD995D</deviationsHash>
+      <fileHash>C39974948C2F592D60B6AC36903CAF5283C4C6C59D8D8EEB823123A327C0557D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#d68c2170-d19c-4e2a-90e4-52698a7b2db8</correlationId>
+      <path>CleanArchitecture.Dapr.Domain/Entities/Tag.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:37:18.3038495Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:37:18.3038519Z</approvedAt>
+      <deviationsHash>5DB1F02730356498B6DEC6B326DEA907D3E3F742F869430E091CDAA6A3F1C5DF</deviationsHash>
+      <fileHash>D39D0D364E734664D6CB98C8D627A1E08405F2BE803BEB8A423E5DA726DC4149</fileHash>
+    </file>
+  </files>
+</deviationsLog>

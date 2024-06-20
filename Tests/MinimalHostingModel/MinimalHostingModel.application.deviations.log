@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Integration.HttpClients.HttpClientConfiguration</correlationId>
+      <path>MinimalHostingModel.Infrastructure/Configuration/HttpClientConfiguration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:17:01.1943219Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:17:01.1944494Z</approvedAt>
+      <deviationsHash>8420CC46235CB60CBE9E42BC3D2BECF56B6B5311D103F5C6F69A42229C823328</deviationsHash>
+      <fileHash>CF16CEAEBFEBD2296BEDDD823C6183E7054846C7B1BA9F7CFEE708C2A31F5CCE</fileHash>
+    </file>
+  </files>
+</deviationsLog>

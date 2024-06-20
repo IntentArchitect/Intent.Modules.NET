@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#ded770e4-8a40-427e-9eed-5d16b0623d4c</correlationId>
+      <path>CosmosDB.EntityInterfaces.Application/ClassContainers/GetClassContainerById/GetClassContainerByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:46:33.4273983Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:46:33.4278578Z</approvedAt>
+      <deviationsHash>2DED00CC3477D99D88A0B2C0CC94AF3DC2E03F0ED6D85C4D292C9E60A1E7A6AC</deviationsHash>
+      <fileHash>16D82FBD4F13E341C001949DD6C4B2B290BE779EE11F72A064286247CB89FEE2</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#88416aa1-f432-4d4c-8996-5efaadf53d00</correlationId>
+      <path>CosmosDB.EntityInterfaces.Application/ClassContainers/GetClassContainers/GetClassContainersQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:46:33.4553241Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:46:33.455328Z</approvedAt>
+      <deviationsHash>F1194F7E236639B229F6E6A9D783EDC340B73460D5F0BA04C3770928C941DAC5</deviationsHash>
+      <fileHash>B6D9011959F07BD06F83A961A1A06BA84991FF9199D666347947BF45CD58716C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#5eb2b104-74cb-464a-995f-cce32e627cea</correlationId>
+      <path>CosmosDB.EntityInterfaces.Application/Clients/GetClientById/GetClientByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:46:33.4530334Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:46:33.4530366Z</approvedAt>
+      <deviationsHash>3F59B13D4009D852D597921E1B1733E96480B222FA2478A60A50FC1BDB89B5FB</deviationsHash>
+      <fileHash>0C8FC2EB15FE668C10260E0420AD52DFE487F575994DB016B01C0F7E7AB00A8D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#7021eb2e-a354-48fa-8806-80fe2f872557</correlationId>
+      <path>CosmosDB.EntityInterfaces.Application/Clients/GetClientByName/GetClientByNameQueryHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:46:33.4570449Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:46:33.4570478Z</approvedAt>
+      <deviationsHash>7DE89A1D23D91DAEDE84A3B0E6D75491C6DB8BD2911BB2F509727D0891EC42A3</deviationsHash>
+      <fileHash>9E9DAF9CA1E62DAD581FE4C3CB1896BFED8995029CD6B03FEB54425DA2AC09D2</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#fff0fb87-3aae-479a-a5c6-e217fc10d60a</correlationId>
+      <path>CosmosDB.EntityInterfaces.Application/Clients/GetClients/GetClientsQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:46:33.4592299Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:46:33.4592343Z</approvedAt>
+      <deviationsHash>31D9B52680D108B7637896A7CF11C4EAE3BAC41D6BE76E807344B8548D8F4CBA</deviationsHash>
+      <fileHash>4F46B7AC0B276127FDB6FDA90BEACD81002828725CF8DBD924EC2D9D4151055A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#67eddab2-86b5-4abe-abcc-56835f7c3f2c</correlationId>
+      <path>CosmosDB.EntityInterfaces.Application/Clients/GetClientsPaged/GetClientsPagedQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:46:33.4612321Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:46:33.4612354Z</approvedAt>
+      <deviationsHash>60F77FD9F1F59F408203674D38A194F2FCD850A2B2FFDC1E58F4EC041DD70FCF</deviationsHash>
+      <fileHash>339CAD9EE773E019AC8225429ED381DE7A0F485598E698FEE74916482EA36107</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#6d1c5289-db44-4e8b-90b2-146f17cbd9be</correlationId>
+      <path>CosmosDB.EntityInterfaces.Application/DerivedOfTS/GetDerivedOfTById/GetDerivedOfTByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:46:33.4629933Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:46:33.4629975Z</approvedAt>
+      <deviationsHash>DEABA21C1FB267F54A78D8FEC05764FE663057FF5087A96E3D81045FD4AC9AC2</deviationsHash>
+      <fileHash>3CA518F0D9C8BCF0A8CBE4E4C08AE10D103C3396654240AE784A8CD14B3544BF</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#04392180-ec8e-4a46-bf91-2271642502a5</correlationId>
+      <path>CosmosDB.EntityInterfaces.Application/DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:46:33.4649007Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:46:33.4649041Z</approvedAt>
+      <deviationsHash>EBE537B66900AE20FE21703B37B9236800C5DF04C9E64EA59EB633D131618FA3</deviationsHash>
+      <fileHash>877FEB0C08A85738462963604B46431157784D8C293CA4D07DCDBA8C886E4F52</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#dfad015d-effe-49c3-a654-66b1a7389250</correlationId>
+      <path>CosmosDB.EntityInterfaces.Application/Invoices/GetInvoiceById/GetInvoiceByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:46:33.4667463Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:46:33.466752Z</approvedAt>
+      <deviationsHash>FE062791AF13FDEAE475AF1C0584BAB2E01C456368EFF7BC370A91099FAF607C</deviationsHash>
+      <fileHash>6326209675FE28B50ED53BF213E632C02E0531A68B43660FB26BB53DD14D0E7D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#631996d0-8ad3-47f8-ac56-8312e3a9201a</correlationId>
+      <path>CosmosDB.EntityInterfaces.Application/Invoices/GetInvoiceLineItemById/GetInvoiceLineItemByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:46:33.4709573Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:46:33.4709621Z</approvedAt>
+      <deviationsHash>0FB01D8748D891DE3C0AB1104A4249FEA0AF864E091A9FA1583ECB5DF06A71CF</deviationsHash>
+      <fileHash>46B728C190D7C4E2360D8CC723F967604DBBA1F6FFE2C33A015D3202D544AD0B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#8e2ef66c-caff-4b5f-8860-708beb2ffd62</correlationId>
+      <path>CosmosDB.EntityInterfaces.Application/Invoices/GetInvoiceLineItems/GetInvoiceLineItemsQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:46:33.4687818Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:46:33.4687869Z</approvedAt>
+      <deviationsHash>7FBC5BE53BC1DF3BCBDA2298B25331313C17F7C3B9F0DF0F79E796815414BF32</deviationsHash>
+      <fileHash>C0B869F98616829D3F1B2BFA12F8A90F51721174B719A211F6A0135C7F71B9DA</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#d79aa109-f320-4734-94a6-6442ddc784d5</correlationId>
+      <path>CosmosDB.EntityInterfaces.Application/Invoices/GetInvoices/GetInvoicesQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:46:33.4735145Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:46:33.4735184Z</approvedAt>
+      <deviationsHash>754788705E8A6D36E9606EBE4107AA611C9B79532D18B1760E8D1371ED123394</deviationsHash>
+      <fileHash>6AB3B0B5C5111492AF2BC4B8E56C6C6AABC48DED006C300ADF9010023ADE1304</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#92251adb-36b9-40c9-b1e4-2881eb47ba40</correlationId>
+      <path>CosmosDB.EntityInterfaces.Application/Regions/GetRegionById/GetRegionByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:46:33.4764065Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:46:33.4764108Z</approvedAt>
+      <deviationsHash>3706A496A05DE45E8B493A5138CD45FF628F8DC854E808A44B4B1E576DF1BDAD</deviationsHash>
+      <fileHash>5654CE9A26C5FAF854521E395DC60CB1B371EDA74F214ACB7160F12B2791ED01</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#a4a17bc6-679c-47b9-920f-e66f7422307e</correlationId>
+      <path>CosmosDB.EntityInterfaces.Application/Regions/GetRegions/GetRegionsQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:46:33.4794397Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:46:33.4794435Z</approvedAt>
+      <deviationsHash>2EF4B9EBDD8DD85EB5418A945DD0F2B1BCBC1AE3C8729B59F21641A5C68B4A7E</deviationsHash>
+      <fileHash>DB526F8BFA9357C94FFD95300D14C3B137297AB218CC68AD2B59B37388C284C5</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#7c5dd61a-3dbb-45a4-b99c-963c0ade6620</correlationId>
+      <path>CosmosDB.EntityInterfaces.Application/Regions/GetRegionsByName/GetRegionsByNameQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:46:33.4820563Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:46:33.4820595Z</approvedAt>
+      <deviationsHash>017C0B7CE01463A0D87EA14A21EFA8271BD99DAF923898DE41ED121F7317397F</deviationsHash>
+      <fileHash>A769711A5B4765DB09A10BB0C5FA3CD7B39339FC86235748BB8CE32487771208</fileHash>
+    </file>
+  </files>
+</deviationsLog>

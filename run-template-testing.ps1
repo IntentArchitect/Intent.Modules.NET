@@ -15,7 +15,7 @@ $testSln = [xml] (Get-Content "./$($intent_solution)" -Encoding UTF8)
 $block = { Param($application, $intent_architect_user, $intent_architect_password, $intent_solution, $writeOutput)
 	$testsFailed = $false
 	$appId = $application.id
-	$output = intent-cli "ensure-no-outstanding-changes" "$($intent_architect_user)" "$($intent_architect_password)" "$($intent_solution)" "--application-id" "$($appId)"
+	$output = intent-cli "ensure-no-outstanding-changes" "$($intent_architect_user)" "$($intent_architect_password)" "$($intent_solution)" "--application-id" "$($appId)" "--check-deviations"
 
     if ($LASTEXITCODE -ne 0) {
         $testsFailed = $true

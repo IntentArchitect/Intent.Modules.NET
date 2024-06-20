@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#a8d68edd-36fb-4f52-94f8-30234641f3f2</correlationId>
+      <path>Finbuckle.SharedDatabase.TestApplication.Application/Implementation/UsersService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:33.6861391Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:33.6863008Z</approvedAt>
+      <deviationsHash>512542D8A6302591E36DAC7AF001CA2A7D388E83EE32242A2AC84DC0F7AE2A4F</deviationsHash>
+      <fileHash>A5E043AC55C492AE9714EE11460D143BC8A1D9AA0156D343C22BB45E6CD3184F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#150a90a2-6011-4781-9e6b-f7a39dc0593f</correlationId>
+      <path>Finbuckle.SharedDatabase.TestApplication.Application/Users/CreateUserRoleDtoValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:33.7022661Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:33.7022673Z</approvedAt>
+      <deviationsHash>0191908190E100C0B569743CD12A1936DC9BF6FCFAE8394524A09833C5CC1735</deviationsHash>
+      <fileHash>0CA557DC9571CBD9F213C0B45297B20002551EC495063201FE63B37F1D08DE9A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#cabe153e-22ec-476e-ad04-5b9daaac6417</correlationId>
+      <path>Finbuckle.SharedDatabase.TestApplication.Application/Users/UpdateUserRoleDtoValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:33.7031976Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:33.7031991Z</approvedAt>
+      <deviationsHash>06788E381DDBC941698B39D2EFABA6414F38B423C3214F2B260B666E5180BD22</deviationsHash>
+      <fileHash>F98881846E377A3A541E37CA4869D49843C1EB468BF2E1888DE4327EAF1C4FD5</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#c767b2b7-dab0-4828-b85c-a5b812c1eee7</correlationId>
+      <path>Finbuckle.SharedDatabase.TestApplication.Application/Users/UserCreateDtoValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:33.7039245Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:33.7039263Z</approvedAt>
+      <deviationsHash>D0DD83ABCA04D4CDF1DD9AE41B8CC24C2484F2B6E5BC44D4F2647FDA33C137E8</deviationsHash>
+      <fileHash>47948C42188DA0DEE16C189D3E7611EF7947A7C0799D4AE817EFD62ABAEC2B36</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#df91cf36-284f-4524-b0bd-62c6420f8e3d</correlationId>
+      <path>Finbuckle.SharedDatabase.TestApplication.Application/Users/UserUpdateDtoValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:33.7046738Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:33.7046757Z</approvedAt>
+      <deviationsHash>7DA3A8F2227EBD1F3086E3ADC5C31DA4E4BE3156B4BC29749F56ACB2D49C97F5</deviationsHash>
+      <fileHash>3BF94B381D04B9271397328518125CCFFFA9FF1CE2EF18234D25C3BB07B91365</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#c87dc024-bb4a-444d-9166-8b33c9217f6a</correlationId>
+      <path>Finbuckle.SharedDatabase.TestApplication.Domain/Entities/Role.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:33.707017Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:33.7070182Z</approvedAt>
+      <deviationsHash>F7EC74A20306D06763F32C31F01174BD25EC6218A3878D51CA83C3C594F9AEE7</deviationsHash>
+      <fileHash>A5741FAF7686B248446CE3A0552ADEDDDE2AEE188A69BD4F49CFD35B1E845C24</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#d3ffe8ff-8a81-4c54-832f-329acba344fb</correlationId>
+      <path>Finbuckle.SharedDatabase.TestApplication.Domain/Entities/User.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:33.7057512Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:33.705753Z</approvedAt>
+      <deviationsHash>7959735A6CF94567A7B6BA2903EF8F84B0B556ED9CBFDEC670DC9B742B0AAF80</deviationsHash>
+      <fileHash>0AD59CCE50204EF9C42341EB28C4F0D805445915723705077CA871ECCC274B1C</fileHash>
+    </file>
+  </files>
+</deviationsLog>

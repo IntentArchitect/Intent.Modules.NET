@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.AspNetCore.Controllers.Controller#00000000-0000-0000-0000-000000000000</correlationId>
+      <path>AzureKeyVault.Api/Controllers/DefaultController.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:41:21.9346Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:41:21.9346979Z</approvedAt>
+      <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
+      <fileHash>3655BB6C9D0C60A17623CFE49E020AF31815811209D134ABF00DA3C0F992B7C9</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#d9bcbcd0-2c66-4a7e-8349-8f5d2dcbb499</correlationId>
+      <path>AzureKeyVault.Application/GetKeyValues/GetKeyValuesHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:41:21.9469088Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:41:21.9469118Z</approvedAt>
+      <deviationsHash>EEFFE92CBF376555EFF5291E6A169AB344AEB7DE9DA94E2D72FE37F06B77A2B5</deviationsHash>
+      <fileHash>14B91A1859087704E350F4831AA39993C28A5C3A019C316E74C717BBD714D9AF</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#d9bcbcd0-2c66-4a7e-8349-8f5d2dcbb499</correlationId>
+      <path>AzureKeyVault.Application/GetKeyValues/GetKeyValuesValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:41:21.9483129Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:41:21.9483179Z</approvedAt>
+      <deviationsHash>CFC3F055B7DE83086EBC9199C0BD0293A2FE3CA6C8DB5E3DD0D5F11964A2ADB1</deviationsHash>
+      <fileHash>E17E195D59D9779626EE93BEF008C99F7FBF88FCDA51D400C6E0271619B53717</fileHash>
+    </file>
+  </files>
+</deviationsLog>

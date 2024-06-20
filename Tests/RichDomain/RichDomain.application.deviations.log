@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#71014629-4128-42fc-9f22-fde750c0c01f</correlationId>
+      <path>RichDomain.Application/People/CreatePerson/CreatePersonCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:12:42.0191386Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:12:42.0193607Z</approvedAt>
+      <deviationsHash>4C8827E24964CDA2ED8AB3DAE1B5FE071D4729FD861859EE2FC6DB5468ADE2F1</deviationsHash>
+      <fileHash>24B51A54311937B1D6E0C4B20C82C9D1B4D13730FF21F3B16DF99C8391D925B0</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#5bca6b10-3e0e-4145-9739-0d76e402ad7b</correlationId>
+      <path>RichDomain.Application/People/DeletePerson/DeletePersonCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:12:42.0308312Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:12:42.0308326Z</approvedAt>
+      <deviationsHash>62DA5A2620CF5C07C88EB28FD05047A9FD6724F41A07A4F199D2D54C719CC12D</deviationsHash>
+      <fileHash>9B3100046BF328FEC01123DF24BF3B6472CA3FF13C9CA7A5321A6AE7C0243C66</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#8087eadd-f3d1-401a-9960-8041c361db61</correlationId>
+      <path>RichDomain.Application/People/GetPeople/GetPeopleQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:12:42.0316955Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:12:42.0316972Z</approvedAt>
+      <deviationsHash>7C951253FEDE49A5078E2EF3084E27F0B8370E2065CA5C7C65DF6D78BDE2EB8A</deviationsHash>
+      <fileHash>50226D7108FF31054229CC2298773B1F5D48CB5A6D8840C1F45FCB3DA42E2694</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#8087eadd-f3d1-401a-9960-8041c361db61</correlationId>
+      <path>RichDomain.Application/People/GetPeople/GetPeopleQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:12:42.0326729Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:12:42.0326746Z</approvedAt>
+      <deviationsHash>23E6AEC30FF061EBFC16CE639EA786A6F72D05006ED075AAFAF24CFA25B77577</deviationsHash>
+      <fileHash>649BB9B75AB90F232AACA9C7B10B002386008F6DE5E14DE8200566E2DAEC5251</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#79120673-385e-4972-87a6-22b59fa0773a</correlationId>
+      <path>RichDomain.Application/People/GetPersonById/GetPersonByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:12:42.0335162Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:12:42.0335187Z</approvedAt>
+      <deviationsHash>9DCFCF9ED0B061DD2805C6AD8285DC79F6C93054A3ECEC2D5B15C0128487BE5D</deviationsHash>
+      <fileHash>21DDC0C2856219DA8D6ACEACB60F0ED08C9588A007C1252DA826762601B3C28F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#79120673-385e-4972-87a6-22b59fa0773a</correlationId>
+      <path>RichDomain.Application/People/GetPersonById/GetPersonByIdQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:12:42.0344174Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:12:42.0344201Z</approvedAt>
+      <deviationsHash>A384FE7B592B131D9402B16FD89E666995108B0AA27F5BB1BC073939CD251716</deviationsHash>
+      <fileHash>E79C40BD4D204361CD00C2A418AAEBBC12459DBC0FDF87A8D13652DF2084DF95</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#4fb3dc12-e816-4e52-bd22-432863b3e3cb</correlationId>
+      <path>RichDomain.Application/People/UpdatePersonPerson/UpdatePersonPersonCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:12:42.0353188Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:12:42.0353212Z</approvedAt>
+      <deviationsHash>BC820B8B530710D6238A838BA5730D70B50D071EB79A74573FF7693D91E59DE4</deviationsHash>
+      <fileHash>2F5F0A4DFB2B7139296AAB2D7ABE24080A5E84DF558261572E0C1B4DBA289AFA</fileHash>
+    </file>
+  </files>
+</deviationsLog>

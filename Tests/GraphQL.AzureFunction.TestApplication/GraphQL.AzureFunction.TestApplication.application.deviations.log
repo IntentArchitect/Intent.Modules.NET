@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#ddffe1ac-5b36-4498-a7cd-48c451d88f29</correlationId>
+      <path>GraphQL.AzureFunction.TestApplication.Application/Implementation/CustomersService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:08.7494426Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:08.7494479Z</approvedAt>
+      <deviationsHash>2FA5713274D5CA3F3B7645B6CCA73B7FBBF27673A608935D3CC96C69503F5169</deviationsHash>
+      <fileHash>5942ADBD8F889F2B6A4FD8DA1496D9E908888C4426B5C980E1147866FF32B62D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#0642cec8-5948-462a-baa2-806e01d50c6f</correlationId>
+      <path>GraphQL.AzureFunction.TestApplication.Application/Products/GetProductById/GetProductByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:08.7347921Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:08.7348937Z</approvedAt>
+      <deviationsHash>745F2E67DEBBDE9BB94B640EE0FF6FFB83F82BE8388F79E06431A4EAFE586355</deviationsHash>
+      <fileHash>DFBF962284C1622D56B63D5C4F3545AA35F176B9F543552D804F01DE26A9B5F1</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#ef643498-90ca-4440-b993-49b95d9c4498</correlationId>
+      <path>GraphQL.AzureFunction.TestApplication.Application/Products/GetProducts/GetProductsQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:08.747913Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:08.7479152Z</approvedAt>
+      <deviationsHash>6E7655F9C05A00310D97161C8B1B6B9CC4C9D5AC8C6B43EBF5E3E27AAEEB66E4</deviationsHash>
+      <fileHash>9CE9725DDADCF6D062A10D328B7FD148332B0394C2CC8431A7959750B6B56E35</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#defad67b-95af-4436-af24-514d8ae266ed</correlationId>
+      <path>GraphQL.AzureFunction.TestApplication.Application/Validators/Customers/CustomerCreateDtoValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:08.7507717Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:08.7507745Z</approvedAt>
+      <deviationsHash>AB9A54ECFB84B6326A06C4F59795787AE478D656B06D47BC2AA55F6BF769AFED</deviationsHash>
+      <fileHash>A493D0F13820111A9D42A90E6BAB9F7B4FFF2EBA57AC449253945331CA0CCD61</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#e24b9578-de20-41b6-a64a-8489eaf84d0b</correlationId>
+      <path>GraphQL.AzureFunction.TestApplication.Application/Validators/Customers/CustomerUpdateDtoValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:08.7517538Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:08.7517561Z</approvedAt>
+      <deviationsHash>5B6C501CF04BAB0760B3382FD266E8CEA470DCB55A664864B255DA30756EF220</deviationsHash>
+      <fileHash>B6B2B68C25FC9D5E1D66194B716B22B9EE7CC37AB0E126E8A37BFB6B52FDD238</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#8269acf9-51dd-4327-b68b-5a57ec168cc0</correlationId>
+      <path>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/CreateProduct/CreateProductCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:08.7528752Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:08.7528786Z</approvedAt>
+      <deviationsHash>1E2A196CDA5BC976EDF6A0257EBE592FED7C1CA28D4851E9BEA43038F9970B72</deviationsHash>
+      <fileHash>11839620BD98127166CFE2DF751F5968415C05D14C83064F0CFDC0DF95F958EC</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#afea2217-eb2b-4dc6-bbab-52deeef252d2</correlationId>
+      <path>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/DeleteProduct/DeleteProductCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:08.7540123Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:08.7540139Z</approvedAt>
+      <deviationsHash>DAAAFB86825462094C46C2F134CA4F524A45C11F3CBDCB8A18568D9B43DECF42</deviationsHash>
+      <fileHash>2C8CBDD53B9F043D2E21A40E708FAA1613391712D5A43220FDE2A33D58E337F4</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#0642cec8-5948-462a-baa2-806e01d50c6f</correlationId>
+      <path>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/GetProductById/GetProductByIdQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:08.7552867Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:08.7552893Z</approvedAt>
+      <deviationsHash>FC1FC9BE9A91982BF796E2E2E96A430AF0E893CFD3708E014A6DEF71E52E34B4</deviationsHash>
+      <fileHash>E9F3F1DAA8DE61AF3FD9F76B53B62BED56E1E9A098ACA904CE96FCF6E4A4D12A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#ef643498-90ca-4440-b993-49b95d9c4498</correlationId>
+      <path>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/GetProducts/GetProductsQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:08.7565098Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:08.7565121Z</approvedAt>
+      <deviationsHash>FD32D32BEA148F42E226DA83E3909357617925E6954031C78B48D8E14F758A9D</deviationsHash>
+      <fileHash>867BE837E96AE10669DB40A26754F63AC7F610DE579F4629A4593F0EB5133B5B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#d3203a02-665d-4a6a-ab18-85773dc241cc</correlationId>
+      <path>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/UpdateProduct/UpdateProductCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:08.7591118Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:08.7591147Z</approvedAt>
+      <deviationsHash>645292F041421461560C1CE430FE65A949EECB637A8D82EEC99632443C97B663</deviationsHash>
+      <fileHash>F29DB34BDB9421466F17FAC6367397B37656EA3FAA0CCB4A2EC8DF3E3622DE84</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#ba543ef9-e47f-4690-beaf-8130e13a100a</correlationId>
+      <path>GraphQL.AzureFunction.TestApplication.Domain/Entities/Customer.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:08.7607074Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:08.7607094Z</approvedAt>
+      <deviationsHash>17484FBAE887737B20E7D87E4A4EC244EF56F031341F52FE1459C90445B8520E</deviationsHash>
+      <fileHash>42584C151D95B0ACE7D4410DF977BEFAF35F4D06E303276D951CF7BF39498E73</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#e4113997-4ee8-4994-b5ad-06c354cde970</correlationId>
+      <path>GraphQL.AzureFunction.TestApplication.Domain/Entities/Product.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:02:08.7624998Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:02:08.7625018Z</approvedAt>
+      <deviationsHash>3B7B39824DF87C0D3ACD93897847ED165C896A41B4BC2C78C44AD8387BD85CCB</deviationsHash>
+      <fileHash>74D2ED951C29EBA73D5D3DD5EF3BCA69A32C8BF01D5110298187B8B08D61CDA0</fileHash>
+    </file>
+  </files>
+</deviationsLog>
