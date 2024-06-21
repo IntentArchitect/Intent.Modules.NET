@@ -15,7 +15,7 @@
   <childElements>
     <childElement id="0328e400-cf4b-4cda-a47f-692a7b5d57ae" type="Application Template Settings Field Configuration" typeId="053d28c8-18c9-45b9-b3cb-184ec4b19679">
       <name>Attribute Naming Convention</name>
-      <display>Attribute Naming Convention = c3789138-6649-47e4-901b-5f6469583cb7</display>
+      <display>Attribute Naming Convention</display>
       <isAbstract>false</isAbstract>
       <value>c3789138-6649-47e4-901b-5f6469583cb7</value>
       <genericTypes />
@@ -41,7 +41,7 @@
     </childElement>
     <childElement id="dda9e549-1ed1-4934-b4dc-1d9cd310d0e1" type="Application Template Settings Field Configuration" typeId="053d28c8-18c9-45b9-b3cb-184ec4b19679">
       <name>Default Mapping Mode</name>
-      <display>Default Mapping Mode = 14bc1e98-930b-494c-97a9-5da4e1f3a5fa</display>
+      <display>Default Mapping Mode</display>
       <isAbstract>false</isAbstract>
       <value>14bc1e98-930b-494c-97a9-5da4e1f3a5fa</value>
       <genericTypes />
