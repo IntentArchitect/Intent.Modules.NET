@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="edb1c6e8-59c3-4ff8-a79a-c85154d9821d" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+  <name>Intent.Common.CSharp</name>
+  <display>Intent.Common.CSharp 3.6.3</display>
+  <isAbstract>false</isAbstract>
+  <value>3.6.3</value>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
+  <packageId>ca894a4c-ca0c-4d31-a058-1336c12bb71a</packageId>
+  <packageName>Intent.ApplicationTemplate.WindowsServiceHost</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
