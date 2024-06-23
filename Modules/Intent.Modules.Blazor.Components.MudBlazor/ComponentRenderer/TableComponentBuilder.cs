@@ -96,6 +96,23 @@ public class TableComponentBuilder : IRazorComponentBuilder
 
             if (table.HasPagination())
             {
+                _componentTemplate.RazorFile.OnBuild(file =>
+                {
+                    if (_componentTemplate.GetCodeBlock().TryGetReferenceForModel(_bindingManager.GetMappedEndFor(table, "913e0abf-0bec-43ea-9286-eb70187c84ef")?.SourceElement.Id, out var reference)
+                        && reference is CSharpClassMethod method)
+                    {
+                        var processingFieldName = method.AddProcessingFieldName();
+                        var code = IRazorCodeDirective.Create(new CSharpStatement($"@if ({processingFieldName})"), _componentTemplate.RazorFile);
+
+                        code.AddHtmlElement("MudProgressLinear", loadingBar =>
+                        {
+                            loadingBar.AddAttribute("Color", "Color.Primary");
+                            loadingBar.AddAttribute("Indeterminate", "true");
+                            loadingBar.AddAttribute("Class", "my-7");
+                        });
+                        tableCode.AddAbove(code);
+                    }
+                });
                 mudTable.AddHtmlElement("PagerContent", pagerContent =>
                 {
                     pagerContent.AddHtmlElement("MudPagination", pagination =>

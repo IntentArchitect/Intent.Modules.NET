@@ -29,7 +29,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ServerImportsRazorTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            RazorFile = IRazorFile.Create(this, $"_Imports").Configure(file =>
+            RazorFile = IRazorFile.Create(this, "_Imports").Configure(file =>
             {
                 file.AddUsing("System.Net.Http");
                 file.AddUsing("System.Net.Http.Json");

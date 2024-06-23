@@ -305,6 +305,16 @@ public static class RazorFileExtensions
             }
         }
     }
+
+    public static string AddProcessingFieldName(this ICSharpClassMethod method)
+    {
+        var parent = ((IBuildsCSharpMembers)method.Parent);
+        var processingFieldName = $"{method.Name}Processing".ToPrivateMemberName();
+        parent.InsertField(parent.IndexOf(method), "bool", processingFieldName, f => f.WithAssignment("false"));
+        ((CSharpTryBlock)method.FindStatement(x => x is CSharpTryBlock))?.InsertStatement(0, new CSharpAssignmentStatement(processingFieldName, "true").WithSemicolon());
+        ((CSharpFinallyBlock)method.FindStatement(x => x is CSharpFinallyBlock))?.InsertStatement(0, new CSharpAssignmentStatement(processingFieldName, "false").WithSemicolon());
+        return processingFieldName;
+    }
 }
 
 public record StaticMetadata(string id) : IMetadataModel
