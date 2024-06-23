@@ -96,8 +96,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             return mappingManager;
         }
 
-        private IBuildsCSharpMembersActual _codeBlock;
-        public IBuildsCSharpMembersActual GetCodeBlock()
+        private IBuildsCSharpMembers _codeBlock;
+        public IBuildsCSharpMembers GetCodeBlock()
         {
             if (_codeBlock == null)
             {

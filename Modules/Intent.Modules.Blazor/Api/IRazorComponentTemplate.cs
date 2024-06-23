@@ -9,5 +9,5 @@ public interface IRazorComponentTemplate : IRazorFileTemplate
     IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
     BindingManager BindingManager { get; }
     CSharpClassMappingManager CreateMappingManager();
-    IBuildsCSharpMembersActual GetCodeBlock();
+    IBuildsCSharpMembers GetCodeBlock();
 }

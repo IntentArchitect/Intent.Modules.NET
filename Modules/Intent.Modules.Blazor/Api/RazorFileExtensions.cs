@@ -39,7 +39,7 @@ public static class RazorFileExtensions
         }
     }
 
-    public static void AddCodeBlockMembers(this IBuildsCSharpMembersActual block, IRazorComponentTemplate template, IElement componentElement)
+    public static void AddCodeBlockMembers(this IBuildsCSharpMembers block, IRazorComponentTemplate template, IElement componentElement)
     {
         foreach (var child in componentElement.ChildElements)
         {

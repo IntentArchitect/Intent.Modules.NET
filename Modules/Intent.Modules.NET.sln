@@ -128,7 +128,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.MassTransit.EntityFrameworkCore", "Intent.Modules.Eventing.MassTransit.EntityFrameworkCore\Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.csproj", "{C66B22D9-D49E-4639-B8DE-661E59F23D9A}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Integration.HttpClients", "Intent.Modules.Integration.HttpClients\Intent.Modules.Integration.HttpClients.csproj", "{46AD781B-04FC-4D8D-9A46-4DBFFE73628D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Integration.HttpClients", "Intent.Modules.Integration.HttpClients\Intent.Modules.Integration.HttpClients.csproj", "{46AD781B-04FC-4D8D-9A46-4DBFFE73628D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Security.MSAL", "Intent.Modules.Security.MSAL\Intent.Modules.Security.MSAL.csproj", "{8F477F9F-0ED7-4768-B2F5-2E473D83C041}"
 EndProject
@@ -160,7 +160,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.HttpClients.Shared", "Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.shproj", "{0ADB36A1-6E3E-4F12-A296-6CB695ACCE17}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Dapr.AspNetCore.ServiceInvocation", "Intent.Modules.Dapr.AspNetCore.ServiceInvocation\Intent.Modules.Dapr.AspNetCore.ServiceInvocation.csproj", "{84B0552E-7C31-4F40-9023-C2AFB16304E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.ServiceInvocation", "Intent.Modules.Dapr.AspNetCore.ServiceInvocation\Intent.Modules.Dapr.AspNetCore.ServiceInvocation.csproj", "{84B0552E-7C31-4F40-9023-C2AFB16304E2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.Pubsub", "Intent.Modules.Dapr.AspNetCore.Pubsub\Intent.Modules.Dapr.AspNetCore.Pubsub.csproj", "{8857D329-9CB0-449A-9C01-94EB3DFB73E0}"
 EndProject
@@ -1015,6 +1015,8 @@ Global
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{a5014cab-e575-4d90-afd3-ba92d8e3bec5}*SharedItemsImports = 5
 		Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems*{a62d0c8f-724c-42a8-81f0-d930a724244e}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{a62d0c8f-724c-42a8-81f0-d930a724244e}*SharedItemsImports = 5
+		Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems*{a6c98406-2957-4db7-92c9-42304abef86f}*SharedItemsImports = 5
+		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{a6c98406-2957-4db7-92c9-42304abef86f}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{ad3459e5-44ce-4c5f-9bf8-8fd2ba15fc05}*SharedItemsImports = 13
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{b5867ba4-e8ab-4e4a-986e-b7938d12795e}*SharedItemsImports = 13
 		Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems*{b5a0abb8-fdf9-4b1a-a8b7-9f362738e38d}*SharedItemsImports = 5

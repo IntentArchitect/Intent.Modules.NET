@@ -62,8 +62,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
 
         public BindingManager BindingManager { get; }
 
-        private IBuildsCSharpMembersActual _codeBlock;
-        public IBuildsCSharpMembersActual GetCodeBlock()
+        private IBuildsCSharpMembers _codeBlock;
+        public IBuildsCSharpMembers GetCodeBlock()
         {
             if (_codeBlock == null)
             {
