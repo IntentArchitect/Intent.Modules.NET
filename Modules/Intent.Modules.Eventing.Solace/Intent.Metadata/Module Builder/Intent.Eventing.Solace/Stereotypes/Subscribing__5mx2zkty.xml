@@ -24,12 +24,23 @@
     <property id="2c512ee7-13fd-453e-979d-8c4bcd6c6a49">
       <name>Queue</name>
       <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>lookup-element</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes>
+        <type>7c61be7b-8260-40ec-9722-8798b8261bb1</type>
+      </lookupTypes>
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+    <property id="bd31460e-f29e-4f5f-9416-474ac895a3a2">
+      <name>Topic</name>
+      <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder />
       <valueOptions />
       <lookupTypes />
-      <isRequiredFunction>return true;</isRequiredFunction>
     </property>
   </properties>
 </stereotypeDefinition>

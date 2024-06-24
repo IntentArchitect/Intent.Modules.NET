@@ -36,7 +36,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.BaseMessageConverter
                         ctor.AddStatement("_typeLookup = new Dictionary<string, Type>();");
                         ctor.AddForEachStatement("message", "messageRegistry.MessageTypes", stmt =>
                         {
-                            stmt.AddStatement("_typeLookup.Add(message.Name, message.MessageType);");
+                            stmt.AddStatement("_typeLookup.Add(message.Value, message.Key);");
                         });
                     });
 

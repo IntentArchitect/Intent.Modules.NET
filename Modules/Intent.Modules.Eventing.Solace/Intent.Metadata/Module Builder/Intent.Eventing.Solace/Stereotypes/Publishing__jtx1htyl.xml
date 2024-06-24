@@ -30,7 +30,16 @@
       <placeholder />
       <valueOptions />
       <lookupTypes />
-      <isRequiredFunction>return true;</isRequiredFunction>
+      <isRequiredFunction />
+    </property>
+    <property id="4a323650-3f88-4b07-a789-6bb3123194e9">
+      <name>Priority</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

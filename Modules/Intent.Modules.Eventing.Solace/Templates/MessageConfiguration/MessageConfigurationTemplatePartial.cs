@@ -39,6 +39,10 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageConfiguration
                         {
                             param.IntroduceProperty().WithDefaultValue("null");
                         });
+                        ctor.AddParameter("int?", "priority", param =>
+                        {
+                            param.IntroduceProperty().WithDefaultValue("null");
+                        });
                         ctor.AddStatement("Name = GetName(messageType);");
                     });
                     @class.AddMethod("MessageConfiguration", "Create", method =>
@@ -47,8 +51,9 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageConfiguration
                         method.AddGenericParameter("TMessage");
                         method
                             .AddParameter("string", "publishedDestination")
-                            .AddParameter("string?", "subscribeDestination", p => p.WithDefaultValue("null"));
-                        method.AddStatement("return new MessageConfiguration(typeof(TMessage), publishedDestination, subscribeDestination);");
+                            .AddParameter("string?", "subscribeDestination", p => p.WithDefaultValue("null"))
+                            .AddParameter("int?", "priority", p => p.WithDefaultValue("null"));
+                        method.AddStatement("return new MessageConfiguration(typeof(TMessage), publishedDestination, subscribeDestination, priority);");
                     });
 
                     @class.AddProperty("string", "Name");
