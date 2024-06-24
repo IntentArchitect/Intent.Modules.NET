@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="eb74d002-8383-4bd0-a2d2-357ce4b941d7" type="Queue" typeId="7c61be7b-8260-40ec-9722-8798b8261bb1">
+  <name>General</name>
+  <display>General</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>019cfde9-7b50-49b2-82c4-6ca8315f0fb4</parentFolderId>
+  <packageId>d8c7d996-5866-4ff4-87a9-52581c94d68d</packageId>
+  <packageName>Solace.Tests.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="6b1a00d5-377b-4e0d-87d3-8c2ad5c70c5d" name="Queue Config">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.Solace</definitionPackageName>
+      <definitionPackageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</definitionPackageId>
+      <properties>
+        <property name="bd7a04c6-5a6a-49cc-aa7e-88efb57b3648" display="Max Flows" value="2" isActive="true" />
+        <property name="965d0655-763b-4ae2-92ca-c898bbc17172" display="Selector" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

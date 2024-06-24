@@ -38,7 +38,7 @@
         <definitionPackageName>Intent.Eventing.Solace</definitionPackageName>
         <definitionPackageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</definitionPackageId>
         <properties>
-          <property name="2c512ee7-13fd-453e-979d-8c4bcd6c6a49" display="Queue" value="c843e31c-75b7-407f-9fd0-eab0a3aa3f86" isActive="true" />
+          <property name="2c512ee7-13fd-453e-979d-8c4bcd6c6a49" display="Queue" value="eb74d002-8383-4bd0-a2d2-357ce4b941d7" isActive="true" />
           <property name="bd31460e-f29e-4f5f-9416-474ac895a3a2" display="Topic" isActive="true" />
         </properties>
       </stereotype>
@@ -54,7 +54,7 @@
       <definitionPackageName>Intent.Eventing.Solace</definitionPackageName>
       <definitionPackageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</definitionPackageId>
       <properties>
-        <property name="2c512ee7-13fd-453e-979d-8c4bcd6c6a49" display="Queue" value="c843e31c-75b7-407f-9fd0-eab0a3aa3f86" isActive="true" />
+        <property name="2c512ee7-13fd-453e-979d-8c4bcd6c6a49" display="Queue" value="eb74d002-8383-4bd0-a2d2-357ce4b941d7" isActive="true" />
         <property name="bd31460e-f29e-4f5f-9416-474ac895a3a2" display="Topic" isActive="true" />
       </properties>
     </stereotype>
