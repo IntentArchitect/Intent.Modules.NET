@@ -128,7 +128,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                         {
                             method.AddStatement("//Integration Commands");
                         }
-                        var commandQueues = GetQueues(_subscribedIntegrationCommandModels.Select(x => x.InternalElement), m => this.GetTypeName("Intent.Eventing.Contracts.IntegrationCommand", m.Id), true);
+                        var commandQueues = GetQueues(_subscribedIntegrationCommandModels.Select(x => x.InternalElement), m => this.GetTypeName("Intent.Eventing.Contracts.IntegrationCommand", m.Id), false);
                         foreach (var queue in commandQueues)
                         {
                             var invocation = new CSharpInvocationStatement($"RegisterQueue");

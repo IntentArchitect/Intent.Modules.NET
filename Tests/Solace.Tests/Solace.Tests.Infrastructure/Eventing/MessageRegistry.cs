@@ -49,7 +49,7 @@ namespace Solace.Tests.Infrastructure.Eventing
             PublishToTopic<AccountCreatedEvent>(topicName: "General");
             PublishToTopic<CustomerCreatedEvent>();
             //Integration Commands
-            RegisterQueue("{Application}/PurchaseCreated", queue =>
+            RegisterQueue("PurchaseCreated", queue =>
             {
                 SubscribeViaQueue<PurchaseCreated>(queue);
             });
