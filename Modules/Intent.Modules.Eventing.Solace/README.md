@@ -40,9 +40,18 @@ When subscribing to an Integration 'Message' a `Queue` will be configured based 
 
 When subscribing to an Integration 'Command' it will use the `Queue` the command was published to.
 
-You can get specific about the publishing location by applying the `Subscribing` stereotype to the `Message` or `IntegrationCommand` and specifying the address.
+You can get specific about the subscription location by applying the `Subscribing` stereotype to the `Message` or `IntegrationCommand` and specifying the `Queue` the subscription should occur on as well as the Topic to subscribe too(This could be a wild card subscription).
 
 ![Subscribing Stereotype](./docs/images/subscribing-stereotype.png)
+
+You will need to model your queues for this, simply you `Queue`s in the service designer, so you can select them in the `Subscribing` stereotype.
+
+You can set the following properties on the queue:
+
+- Max Flows, configures the number of concurrent messages which can be process from the queue. (WindowSize)
+- Selector, configures a selector filter for the queue, typically used for load balancing.
+
+![Queue Modelling](./docs/images/queue-modelling.png.png)
 
 ## Application Settings
 
@@ -58,7 +67,16 @@ You `appsettings.json` will contain configuration for connection to your `Solace
   }
 ```
 
-The `Application` setting is a prefix which will be applied to all topic subscription queues, this guarantees unique queue names when you have multiple applications subscribing to the same topic.
-If you don't want this feature and you are going to manually specify queue names you can remove the setting.
+### Additional Settings
 
-There is also an `EnvironmentPrefix` setting which can be used, this will prefix all Queues and Topics with this value.
+| Settings  | Type | Description|
+| ------------- | ------------- |------------- |
+| EnvironmentPrefix  | string | All Queues and Topics will be prefixed with this value.|
+| DefaultSendPriority | int | All messages send without a specific priority, will have this default priority |
+| BindQueues | boolean | This setting can be used to turn of message subscriptions for an application instance. (Default: true) |
+
+## Variable Replacement on Names
+
+When specifying names for Queues, Topics and Selectors, you can use variables using the `{}` syntax. These variables will be substituted at run time but `SolaceConfig` properties, which are backed by the appsettings.json.
+
+For example: You could could subscribe to a topic using the following Queue '{Application}/MyQueue' which would equate to 'MyApp/MyQueue' at runtime. 
