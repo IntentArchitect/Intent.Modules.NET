@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Configuration;
 using Solace.Tests.Application.Common.Eventing;
 using SolaceSystems.Solclient.Messaging;
 
@@ -15,15 +16,20 @@ namespace Solace.Tests.Infrastructure.Eventing
     {
         private readonly List<object> _messagesToPublish = new List<object>();
         private readonly List<object> _messagesToSend = new List<object>();
+        private readonly int? _defaultPriority;
         private readonly ISession _session;
         private readonly MessageRegistry _messageRegistry;
         private readonly MessageSerializer _messageSerializer;
 
-        public SolaceEventBus(ISession session, MessageRegistry messageRegistry, MessageSerializer messageSerializer)
+        public SolaceEventBus(ISession session,
+            MessageRegistry messageRegistry,
+            MessageSerializer messageSerializer,
+            IConfiguration configuration)
         {
             _session = session;
             _messageRegistry = messageRegistry;
             _messageSerializer = messageSerializer;
+            _defaultPriority = configuration.GetSection("Solace:DefaultSendPriority").Get<int?>();
         }
 
         public void Publish<TMessage>(TMessage message)
@@ -58,8 +64,11 @@ namespace Solace.Tests.Infrastructure.Eventing
         {
             using (var message = ContextFactory.Instance.CreateMessage())
             {
-                message.Destination = ContextFactory.Instance.CreateTopic(GetDestinationAddress(toPublish));
+                var messageConfig = _messageRegistry.PublishedMessages[toPublish.GetType()];
+
+                message.Destination = ContextFactory.Instance.CreateTopic(messageConfig.PublishTo);
                 message.BinaryAttachment = _messageSerializer.SerializeMessage(toPublish);
+                message.Priority = GetPriority(messageConfig.Priority);
 
                 var returnCode = session.Send(message);
                 if (returnCode != ReturnCode.SOLCLIENT_OK)
@@ -73,8 +82,11 @@ namespace Solace.Tests.Infrastructure.Eventing
         {
             using (var message = ContextFactory.Instance.CreateMessage())
             {
-                message.Destination = ContextFactory.Instance.CreateQueue(GetDestinationAddress(toSend));
+                var messageConfig = _messageRegistry.PublishedMessages[toSend.GetType()];
+
+                message.Destination = ContextFactory.Instance.CreateQueue(messageConfig.PublishTo);
                 message.BinaryAttachment = _messageSerializer.SerializeMessage(toSend);
+                message.Priority = GetPriority(messageConfig.Priority);
 
                 var returnCode = session.Send(message);
                 if (returnCode != ReturnCode.SOLCLIENT_OK)
@@ -84,9 +96,22 @@ namespace Solace.Tests.Infrastructure.Eventing
             }
         }
 
-        private string GetDestinationAddress(object message)
+        private int? GetPriority(int? messagePriority)
         {
-            return _messageRegistry.GetConfig(message.GetType()).PublishedDestination;
+            int? result = null;
+            if (messagePriority != null)
+            {
+                result = messagePriority.Value;
+            }
+            else
+            {
+                result = _defaultPriority;
+            }
+            if (result != null)
+            {
+                result = Math.Clamp(result.Value, 0, 255);
+            }
+            return result;
         }
     }
 }

@@ -202,22 +202,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>0873ba49-49fb-49ed-978c-5bdf9821aaa9</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c5294de6-f6ec-48b5-ae98-0740f5100b51</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MessageConfiguration/MessageConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MessageConfiguration/MessageConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0873ba49-49fb-49ed-978c-5bdf9821aaa9</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#c5294de6-f6ec-48b5-ae98-0740f5100b51</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MessageConfiguration/MessageConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MessageConfiguration/MessageConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0873ba49-49fb-49ed-978c-5bdf9821aaa9</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#114406f0-e77e-4ff5-ada0-38dbd22e7f14</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MessageRegistry/MessageRegistryTemplatePartial.cs</ApplicationRelativeFilePath>

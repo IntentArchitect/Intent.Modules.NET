@@ -51,14 +51,6 @@
       <role>Application.Eventing.EventHandler</role>
       <location>IntegrationEvents/EventHandlers</location>
     </template>
-    <template id="Intent.Eventing.Solace.MessageConfiguration" externalReference="c5294de6-f6ec-48b5-ae98-0740f5100b51">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Eventing.Messaging</role>
-      <location>Eventing</location>
-    </template>
     <template id="Intent.Eventing.Solace.MessageRegistry" externalReference="114406f0-e77e-4ff5-ada0-38dbd22e7f14">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />

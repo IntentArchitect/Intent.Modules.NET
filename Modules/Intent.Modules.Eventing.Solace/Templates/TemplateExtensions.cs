@@ -7,7 +7,6 @@ using Intent.Modules.Eventing.Solace.Templates.BaseMessageConverter;
 using Intent.Modules.Eventing.Solace.Templates.DispatchResolver;
 using Intent.Modules.Eventing.Solace.Templates.IntegrationEventHandler;
 using Intent.Modules.Eventing.Solace.Templates.IntegrationEventHandlerLegacy;
-using Intent.Modules.Eventing.Solace.Templates.MessageConfiguration;
 using Intent.Modules.Eventing.Solace.Templates.MessageRegistry;
 using Intent.Modules.Eventing.Solace.Templates.MessageSerializer;
 using Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration;
@@ -57,11 +56,6 @@ namespace Intent.Modules.Eventing.Solace.Templates
         public static string GetIntegrationEventHandlerLegacyName(this IIntentTemplate template, MessageSubscribeAssocationTargetEndModel model)
         {
             return template.GetTypeName(IntegrationEventHandlerLegacyTemplate.TemplateId, model);
-        }
-
-        public static string GetMessageConfigurationName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(MessageConfigurationTemplate.TemplateId);
         }
 
         public static string GetMessageRegistryName(this IIntentTemplate template)

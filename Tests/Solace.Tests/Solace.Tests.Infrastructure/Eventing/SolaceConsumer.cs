@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -30,12 +31,9 @@ namespace Solace.Tests.Infrastructure.Eventing
             _serviceProvider = serviceProvider;
         }
 
-        public void Start(ConsumerConfig config)
+        public void Start(QueueConfig config)
         {
-            string queueName = config.QueueName;
-
-            // Create the queue
-            using (IQueue queue = ContextFactory.Instance.CreateQueue(queueName))
+            using (var queue = ContextFactory.Instance.CreateQueue(config.QueueName))
             {
                 // Set queue permissions to "consume" and access-type to "nonexclusive"
                 EndpointProperties endpointProps = new EndpointProperties()
@@ -46,7 +44,7 @@ namespace Solace.Tests.Infrastructure.Eventing
                 // Provision it, and do not fail if it already exists
                 _session.Provision(queue, endpointProps, ProvisionFlag.IgnoreErrorIfEndpointAlreadyExists | ProvisionFlag.WaitForConfirm, null);
 
-                foreach (var topicName in config.TopicNames)
+                foreach (var topicName in config.SubscribedMessages.Where(message => message.TopicName != null).Select(message => message.TopicName))
                 {
                     var topic = ContextFactory.Instance.CreateTopic(topicName);
                     _session.Subscribe(queue, topic, SubscribeFlag.WaitForConfirm, null);
@@ -57,7 +55,9 @@ namespace Solace.Tests.Infrastructure.Eventing
                 // and HandleFlowEvent as the flow event handler
                 _flow = _session.CreateFlow(new FlowProperties()
                 {
-                    AckMode = MessageAckMode.ClientAck
+                    AckMode = MessageAckMode.ClientAck,
+                    WindowSize = Math.Max(1, Math.Min(255, config.MaxFlows ?? 1)),
+                    Selector = config.Selector ?? ""
                 }, queue, null, HandleMessageEvent, FlowEventHandler);
                 _flow.Start();
             }
@@ -65,21 +65,25 @@ namespace Solace.Tests.Infrastructure.Eventing
 
         private void HandleMessageEvent(object source, MessageEventArgs args)
         {
-            using (IMessage message = args.Message)
+            Task.Run(() =>
             {
-
-                var deserializedMessage = _messageSerializer.DeserializeMessage(message.BinaryAttachment);
-                using (var scope = _serviceProvider.CreateScope())
+                using (IMessage message = args.Message)
                 {
-                    var dispatcher = _dispatchResolver.ResolveDispatcher(deserializedMessage.GetType(), scope.ServiceProvider);
-                    var dispatchTask = (Task)dispatcher.GetType()
-                        .GetMethod("Dispatch")
-                        .Invoke(dispatcher, new object[] { deserializedMessage, default(CancellationToken) });
-                    dispatchTask.Wait();
-                }
 
-                _flow!.Ack(message.ADMessageId);
-            }
+                    var deserializedMessage = _messageSerializer.DeserializeMessage(message.BinaryAttachment);
+
+                    using (var scope = _serviceProvider.CreateScope())
+                    {
+                        var dispatcher = _dispatchResolver.ResolveDispatcher(deserializedMessage.GetType(), scope.ServiceProvider);
+                        var dispatchTask = (Task)dispatcher.GetType()
+                            .GetMethod("Dispatch")
+                            .Invoke(dispatcher, new object[] { deserializedMessage, default(CancellationToken) });
+                        dispatchTask.Wait();
+                    }
+
+                    _flow!.Ack(message.ADMessageId);
+                }
+            });
         }
 
         private void FlowEventHandler(object? sender, FlowEventArgs e)
@@ -92,7 +96,5 @@ namespace Solace.Tests.Infrastructure.Eventing
             _flow?.Dispose();
         }
     }
-
-    public record ConsumerConfig(string QueueName, IEnumerable<string> TopicNames);
 
 }

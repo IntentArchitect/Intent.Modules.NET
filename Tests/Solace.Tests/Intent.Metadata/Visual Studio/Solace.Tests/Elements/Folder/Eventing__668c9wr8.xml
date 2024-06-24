@@ -37,20 +37,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="6bdf5517-3864-4ec8-bec0-dbaee5db33f9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.Solace.MessageConfiguration</name>
-      <display>Intent.Eventing.Solace.MessageConfiguration</display>
-      <externalReference>Intent.Eventing.Solace</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="c5ef75c9-1e1b-48a2-a76e-ceb501e5fb8e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Eventing.Solace.MessageRegistry</name>
       <display>Intent.Eventing.Solace.MessageRegistry</display>

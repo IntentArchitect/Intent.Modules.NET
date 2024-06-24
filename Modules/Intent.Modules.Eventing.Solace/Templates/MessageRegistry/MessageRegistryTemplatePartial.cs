@@ -85,11 +85,11 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                                 var stmt = (CSharpLambdaBlock)a;
                                 foreach (var message in queue.Messages)
                                 {
-                                    var subInvocation = new CSharpInvocationStatement($"SubscribesViaTopic<{this.GetTypeName("Intent.Eventing.Contracts.IntegrationEventMessage", message.Message.Id)}>");
+                                    var subInvocation = new CSharpInvocationStatement($"SubscribeViaTopic<{this.GetTypeName("Intent.Eventing.Contracts.IntegrationEventMessage", message.Message.Id)}>");
                                     subInvocation.AddArgument("queue");
                                     if (message.SubscribedTopic != null)
                                     {
-                                        subInvocation.AddArgument($"topicName: {message.SubscribedTopic}");
+                                        subInvocation.AddArgument($"topicName: \"{message.SubscribedTopic}\"");
 
                                     }
                                     stmt.AddStatement(subInvocation);
@@ -113,7 +113,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                             var messageTypeName = this.GetIntegrationEventMessageName(message);
                             GetPublishingCustomizations(message.InternalElement, out var topicName, out var priority);
 
-                            var invocation = new CSharpInvocationStatement($"PublishesToTopic<{messageTypeName}>");
+                            var invocation = new CSharpInvocationStatement($"PublishToTopic<{messageTypeName}>");
                             if (topicName != null)
                             {
                                 invocation.AddArgument($"topicName: \"{topicName}\"");
@@ -139,7 +139,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                                 var stmt = (CSharpLambdaBlock)a;
                                 foreach (var message in queue.Messages)
                                 {
-                                    var subInvocation = new CSharpInvocationStatement($"SubscribesViaQueue<{this.GetTypeName("Intent.Eventing.Contracts.IntegrationCommand", message.Message.Id)}>");
+                                    var subInvocation = new CSharpInvocationStatement($"SubscribeViaQueue<{this.GetTypeName("Intent.Eventing.Contracts.IntegrationCommand", message.Message.Id)}>");
                                     subInvocation.AddArgument("queue");
                                     stmt.AddStatement(subInvocation);
                                 }
@@ -162,7 +162,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                             var commandTypeName = this.GetIntegrationCommandName(command);
                             GetPublishingCustomizations(command.InternalElement, out var queueName, out var priority);
 
-                            var invocation = new CSharpInvocationStatement($"PublishToQueue");
+                            var invocation = new CSharpInvocationStatement($"PublishToQueue<{commandTypeName}>");
                             if (queueName != null)
                             {
                                 invocation.AddArgument($"queueName: \"{queueName}\"");
@@ -193,7 +193,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
             _queues.Add(queue);".ConvertToStatements());
                     });
 
-                    @class.AddMethod($"void", "PublishesToTopic", method =>
+                    @class.AddMethod($"void", "PublishToTopic", method =>
                     {
                         method
                             .Private()
@@ -204,7 +204,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                         method.AddStatement("PublishInternal<TMessage>(topicName ?? GetDefaultMessageDestination<TMessage>(), priority);");
                     });
 
-                    @class.AddMethod($"void", "PublishesToQueue", method =>
+                    @class.AddMethod($"void", "PublishToQueue", method =>
                     {
                         method
                             .Private()
@@ -227,7 +227,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                         method.AddStatement("_publishedMessages.Add(typeof(TMessage), new PublishingInfo(typeof(TMessage), ResolveLocation(destination), priority));");
                     });
 
-                    @class.AddMethod($"void", "SubscribesViaTopic", method =>
+                    @class.AddMethod($"void", "SubscribeViaTopic", method =>
                     {
                         method
                             .Private()
@@ -297,13 +297,15 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                         method.AddStatement("return $\"{type.Namespace}.{type.Name}\";");
                     });
 
+                    this.UseType(this.GetSolaceConfigurationName());
+
                     @class.AddMethod($"void", "LoadReplacementVariables", method =>
                     {
                         method
                             .Private()
                             .AddParameter("IConfiguration", "configuration")
                             ;
-                        method.AddStatements(@"var config = configuration.GetSection(""Solace"").Get<SolaceConfig>();
+                        method.AddStatements(@"var config = configuration.GetSection(""Solace"").Get<SolaceConfiguration.SolaceConfig>();
             if (config == null) throw new Exception(""No Solace configuration found in appsettings.json"");
 
             var properties = config.GetType().GetProperties();
@@ -373,7 +375,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                 });
         }
 
-        private void GetPublishingCustomizations(IElement message, out string? destination,  out int? priority)
+        private void GetPublishingCustomizations(IElement message, out string? destination, out int? priority)
         {
             destination = null;
             priority = null;
@@ -401,23 +403,32 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                     selector = queue.GetStereotypeProperty<string?>("Queue Config", "Selector");
                     maxFlow = queue.GetStereotypeProperty<int?>("Queue Config", "Max Flows");
                     subscriptioTopic = subscription.GetProperty<string?>("Topic") == null ? null : $"\"{subscription.GetProperty<string?>("Topic")}\"";
-                }
-                else
-                {
-                    if (topicSubscription)
-                    {                        
-                        queueName = "{{Application}}/" + getTypeName(message).Replace(".", "//");
-                    }
-                    else
+                    if (string.IsNullOrEmpty(subscriptioTopic))
                     {
                         if (message.HasStereotype(Api.Constants.StereotypeIds.Publishing))
                         {
-                            queueName = message.GetStereotypeProperty<string>(Api.Constants.StereotypeIds.Publishing, "Destination");
+                            subscriptioTopic = message.GetStereotypeProperty<string>(Api.Constants.StereotypeIds.Publishing, "Destination");
                         }
                         else
                         {
-                            queueName =  getTypeName(message).Replace(".", "//");
+                            subscriptioTopic = getTypeName(message).Replace(".", "//");
                         }
+                    }
+                }
+                else
+                {
+                    if (message.HasStereotype(Api.Constants.StereotypeIds.Publishing))
+                    {
+                        queueName = message.GetStereotypeProperty<string>(Api.Constants.StereotypeIds.Publishing, "Destination");
+                    }
+                    else
+                    {
+                        queueName = getTypeName(message).Replace(".", "//");
+                    }
+
+                    if (topicSubscription)
+                    {
+                        queueName = $"{{Application}}/{queueName}";
                     }
                 }
                 if (!result.TryGetValue(queueName, out var q))

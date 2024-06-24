@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Solace.Tests.Eventing.Messages;
+using Solace.Tests.Infrastructure.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.Solace.MessageRegistry", Version = "1.0")]
@@ -11,10 +12,11 @@ namespace Solace.Tests.Infrastructure.Eventing
 {
     public class MessageRegistry
     {
-        private readonly List<MessageConfiguration> _messageTypes;
-        private readonly Dictionary<Type, MessageConfiguration> _typeLookup;
+        private readonly Dictionary<Type, string> _typeNameMap = new Dictionary<Type, string>();
+        private readonly Dictionary<Type, PublishingInfo> _publishedMessages = new Dictionary<Type, PublishingInfo>();
+        private readonly List<QueueConfig> _queues = new List<QueueConfig>();
+        private readonly Dictionary<string, string> _replacementVariables = new Dictionary<string, string>();
         private readonly string _environmentPrefix = "";
-        private readonly string _applicationPrefix = "";
 
         public MessageRegistry(IConfiguration configuration)
         {
@@ -25,92 +27,148 @@ namespace Solace.Tests.Infrastructure.Eventing
                     environmentPrefix += "/";
                 _environmentPrefix = environmentPrefix;
             }
-            var applicationPrefix = configuration[$"Solace:Application"] ?? "";
-            if (applicationPrefix != "")
-            {
-                if (!applicationPrefix.EndsWith("/"))
-                    applicationPrefix += "/";
-                _applicationPrefix = applicationPrefix;
-            }
-
-            _messageTypes = new List<MessageConfiguration>();
-            LoadMessageTypes();
-            _typeLookup = new Dictionary<Type, MessageConfiguration>();
-            foreach (var message in _messageTypes)
-            {
-                _typeLookup.Add(message.MessageType, message);
-            }
+            LoadReplacementVariables(configuration);
+            RegisterMessageTypes();
         }
 
-        public IReadOnlyList<MessageConfiguration> MessageTypes => _messageTypes;
+        public IReadOnlyDictionary<Type, string> MessageTypes => _typeNameMap;
+        public IReadOnlyDictionary<Type, PublishingInfo> PublishedMessages => _publishedMessages;
+        public IReadOnlyList<QueueConfig> Queues => _queues;
 
-        private void LoadMessageTypes()
+        private void RegisterMessageTypes()
         {
             //Integration Events (Messages)
-            _messageTypes.Add(MessageConfiguration.Create<AccountCreatedEvent>(
-                GetDestination<AccountCreatedEvent>("General"),
-                GetDestination<AccountCreatedEvent>("General", SubscriptionType.ViaTopic)));
-            _messageTypes.Add(GetDefaultMessageConfig<CustomerCreatedEvent>(SubscriptionType.ViaTopic));
+            RegisterQueue("General", queue =>
+            {
+                SubscribeViaTopic<AccountCreatedEvent>(queue, topicName: "General");
+            }, maxFlows: 2);
+            RegisterQueue("{Application}/CustomerCreatedEvent", queue =>
+            {
+                SubscribeViaTopic<CustomerCreatedEvent>(queue);
+            });
+            PublishToTopic<AccountCreatedEvent>(topicName: "General");
+            PublishToTopic<CustomerCreatedEvent>();
             //Integration Commands
-            _messageTypes.Add(GetDefaultMessageConfig<PurchaseCreated>(SubscriptionType.ViaQueue));
-            _messageTypes.Add(MessageConfiguration.Create<CreateLedger>(
-                GetDestination<CreateLedger>("Accounting/Ledgers")));
-        }
-
-        public MessageConfiguration GetConfig(Type messageType)
-        {
-            return _typeLookup[messageType];
-        }
-
-        public MessageConfiguration GetConfig<TMessage>()
-        {
-            return GetConfig(typeof(TMessage));
-        }
-
-        private MessageConfiguration GetDefaultMessageConfig<TMessage>(SubscriptionType subscriptionType = SubscriptionType.None)
-        {
-            switch (subscriptionType)
+            RegisterQueue("{Application}/PurchaseCreated", queue =>
             {
-                case SubscriptionType.ViaTopic:
-                    return MessageConfiguration.Create<TMessage>(GetDefaultDestination<TMessage>(),
-                            GetDefaultDestination<TMessage>(SubscriptionType.ViaTopic));
-                case SubscriptionType.ViaQueue:
-                    return MessageConfiguration.Create<TMessage>(GetDefaultDestination<TMessage>(),
-                            GetDefaultDestination<TMessage>(SubscriptionType.ViaQueue));
-                case SubscriptionType.None:
-                default:
-                    return MessageConfiguration.Create<TMessage>(GetDefaultDestination<TMessage>());
+                SubscribeViaQueue<PurchaseCreated>(queue);
+            });
+            PublishToQueue<CreateLedger>(queueName: "Accounting/Ledgers");
+            PublishToQueue<PurchaseCreated>();
+        }
+
+        private void RegisterQueue(
+            string logicalQueueName,
+            Action<QueueConfig> registerSubscribers,
+            int? maxFlows = null,
+            string? selector = null)
+        {
+            if (selector != null)
+            {
+                selector = ResolveSelector(selector);
+            }
+            var queue = new QueueConfig(ResolveLocation(logicalQueueName), maxFlows, selector, new List<SubscribesToQueueInfo>());
+            registerSubscribers(queue);
+            _queues.Add(queue);
+        }
+
+        private void PublishToTopic<TMessage>(string? topicName = null, int? priority = null)
+        {
+            PublishInternal<TMessage>(topicName ?? GetDefaultMessageDestination<TMessage>(), priority);
+        }
+
+        private void PublishToQueue<TMessage>(string? queueName = null, int? priority = null)
+        {
+            PublishInternal<TMessage>(queueName ?? GetDefaultMessageDestination<TMessage>(), priority);
+        }
+
+        private void PublishInternal<TMessage>(string destination, int? priority = null)
+        {
+            AddMessageType<TMessage>();
+            _publishedMessages.Add(typeof(TMessage), new PublishingInfo(typeof(TMessage), ResolveLocation(destination), priority));
+        }
+
+        private void SubscribeViaTopic<TMessage>(QueueConfig queue, string? topicName = null)
+        {
+            SubscribeInternal<TMessage>(queue, topicName ?? GetDefaultMessageDestination<TMessage>());
+        }
+
+        private void SubscribeViaQueue<TMessage>(QueueConfig queue)
+        {
+            SubscribeInternal<TMessage>(queue);
+        }
+
+        private void SubscribeInternal<TMessage>(QueueConfig queue, string? topicName = null)
+        {
+            AddMessageType<TMessage>();
+            queue.SubscribedMessages.Add(new SubscribesToQueueInfo(
+                    typeof(TMessage),
+                    topicName != null ? ResolveLocation(topicName) : null
+                    ));
+        }
+
+        private void AddMessageType<TMessage>()
+        {
+            if (!_typeNameMap.ContainsKey(typeof(TMessage)))
+            {
+                string messageTypeName = GetMessageTypeName<TMessage>();
+                _typeNameMap.Add(typeof(TMessage), messageTypeName);
             }
         }
 
-        private string GetDestination<TMessage>(
-            string logicalPath,
-            SubscriptionType subscriptionType = SubscriptionType.None)
-        {
-            var messageType = typeof(TMessage);
-            switch (subscriptionType)
-            {
-                case SubscriptionType.ViaTopic:
-                    return $"{_environmentPrefix}{_applicationPrefix}{logicalPath}";
-                case SubscriptionType.ViaQueue:
-                case SubscriptionType.None:
-                default:
-                    return $"{_environmentPrefix}{logicalPath}";
-            }
-        }
-
-        private string GetDefaultDestination<TMessage>(SubscriptionType subscriptionType = SubscriptionType.None)
+        private string GetDefaultMessageDestination<TMessage>()
         {
             var messageType = typeof(TMessage);
             string namepacePrefix = messageType.Namespace == null ? "" : $"{messageType.Namespace.Replace('.', '/')}/";
-            return GetDestination<TMessage>($"{namepacePrefix}{messageType.Name}", subscriptionType);
+            return $"{namepacePrefix}{messageType.Name}";
+        }
+
+        private string GetMessageTypeName<TMessage>()
+        {
+            var type = typeof(TMessage);
+            return $"{type.Namespace}.{type.Name}";
+        }
+
+        private void LoadReplacementVariables(IConfiguration configuration)
+        {
+            var config = configuration.GetSection("Solace").Get<SolaceConfiguration.SolaceConfig>();
+            if (config == null) throw new Exception("No Solace configuration found in appsettings.json");
+
+            var properties = config.GetType().GetProperties();
+            foreach (var property in properties)
+            {
+                _replacementVariables.Add(property.Name, property.GetValue(config)?.ToString() ?? "");
+            }
+        }
+
+        private string ReplaceVariables(string value)
+        {
+            if (value.Contains("{"))
+            {
+                foreach (var property in _replacementVariables)
+                {
+                    value = value.Replace($"{{{property.Key}}}", property.Value);
+                }
+            }
+            return value;
+        }
+
+        private string ResolveSelector(string logicalSelector)
+        {
+            return ReplaceVariables(logicalSelector);
+        }
+
+        private string ResolveLocation(string logicalLocation)
+        {
+            return $"{_environmentPrefix}{ReplaceVariables(logicalLocation)}";
         }
     }
 
-    public enum SubscriptionType
-    {
-        None,
-        ViaTopic,
-        ViaQueue
-    }
+    public record PublishingInfo(Type PublishedMessage, string PublishTo, int? Priority);
+
+
+    public record SubscribesToQueueInfo(Type MessageType, string? TopicName);
+
+
+    public record QueueConfig(string QueueName, int? MaxFlows, string? Selector, List<SubscribesToQueueInfo> SubscribedMessages);
 }

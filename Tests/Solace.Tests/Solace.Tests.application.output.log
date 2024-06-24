@@ -1092,14 +1092,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</ProjectId>
-      <CorrelationId>Intent.Eventing.Solace.MessageConfiguration</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Eventing/MessageConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MessageConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>abc5bd59-aeaf-406d-a1a4-57012f3d59ba</ProjectId>
       <CorrelationId>Intent.Eventing.Solace.MessageRegistry</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Infrastructure/Eventing/MessageRegistry.cs</ApplicationRelativeFilePath>
