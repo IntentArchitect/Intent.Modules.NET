@@ -9,7 +9,19 @@
   <parentFolderId>5288e1f6-5e44-48ff-88be-33fd0dd934d2</parentFolderId>
   <packageId>5288e1f6-5e44-48ff-88be-33fd0dd934d2</packageId>
   <packageName>AspNetCore.Identity.Domain</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="30c5995e-17ab-4cc7-8881-3e9561ab06fe" name="C#">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="67913852-1e61-4d9d-997e-cdfb7d9196fb" display="Type" isActive="true" />
+        <property name="8CCCD630-6AF9-41FA-8E5F-414860AD89BB" display="Namespace" value="Microsoft.AspNetCore.Identity" isActive="true" />
+        <property name="76668E7B-8FC2-4C14-B6AA-E36854E5E499" display="Is Primitive" value="false" isActive="true" />
+        <property name="0a577584-e2d4-4e5a-8649-296036a91575" display="Is Collection" value="false" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="aa85c997-0039-478e-8636-9c330aab1f34" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
@@ -224,11 +236,11 @@
     </childElement>
     <childElement id="3c805402-8150-4743-8220-6e269fe1fe8d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>PhoneNumberConfirmed</name>
-      <display>PhoneNumberConfirmed: string</display>
+      <display>PhoneNumberConfirmed: bool</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="5890c843-32d6-4b92-9426-4be1df73b63c">
-        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -242,28 +254,17 @@
       <parentFolderId>a3f490b4-3c88-49fd-b273-6efddb5b7f0d</parentFolderId>
       <packageId>5288e1f6-5e44-48ff-88be-33fd0dd934d2</packageId>
       <packageName>AspNetCore.Identity.Domain</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
-          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
-          <properties>
-            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
-            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
-            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
+      <stereotypes />
       <metadata />
       <childElements />
     </childElement>
     <childElement id="30ba2a93-7d76-4494-b9e6-8f735c17b60c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>TwoFactorEnabled</name>
-      <display>TwoFactorEnabled: string</display>
+      <display>TwoFactorEnabled: bool</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="0dc3ad2a-f1b9-4c88-993e-3ce312aa4b63">
-        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -277,18 +278,7 @@
       <parentFolderId>a3f490b4-3c88-49fd-b273-6efddb5b7f0d</parentFolderId>
       <packageId>5288e1f6-5e44-48ff-88be-33fd0dd934d2</packageId>
       <packageName>AspNetCore.Identity.Domain</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
-          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
-          <properties>
-            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
-            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
-            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
+      <stereotypes />
       <metadata />
       <childElements />
     </childElement>

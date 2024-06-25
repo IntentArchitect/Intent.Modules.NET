@@ -24,7 +24,7 @@ public static class IdentityHelperExtensions
     internal static ClassModel GetIdentityUserClass(this IMetadataManager metadataManager, string applicationId)
     {
         var identityModels = metadataManager.Domain(applicationId).GetClassModels()
-            .Where(x => x.HasIdentityUser())
+            .Where(x => x.HasIdentityUser() || x.ParentClass.IsIdentityUserBaseClass())
             .ToArray();
         if (identityModels.Length > 1)
         {
@@ -44,5 +44,11 @@ public static class IdentityHelperExtensions
     public static string GetIdentityRoleClass<T>(this CSharpTemplateBase<T> template)
     {
         return template.UseType("Microsoft.AspNetCore.Identity.IdentityRole");
+    }
+
+    public static bool IsIdentityUserBaseClass(this ClassModel model)
+    {
+        // The id of the Class modelled in the module's Domain:
+        return model?.Id == "a3f490b4-3c88-49fd-b273-6efddb5b7f0d";
     }
 }

@@ -77,14 +77,24 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
                     if (Model.ParentClass != null)
                     {
-                        // It's important we use the actual CSharpClass here from the other template
-                        // and not a string because its metadata is checked by other templates and/or
-                        // factory extensions.
-                        var baseType = GetTemplate<ICSharpFileBuilderTemplate>(TemplateId, Model.ParentClass.Id).CSharpFile.Classes.First();
+                        // It's important we try to use the actual CSharpClass here from the other
+                        // template and not a string because its metadata is checked by other
+                        // templates and/or// factory extensions.
 
-                        @class.ExtendsClass(
-                            @class: baseType,
-                            genericTypeParameters: Model.ParentClassTypeReference.GenericTypeParameters.Select(GetTypeName));
+                        // TryGetTemplate would not find the template if the base typ1e isn't modelled in the Application but comes
+                        // from a Module's package, e.g. the IdentityUser class in the Intent.AspNetCore.Identity module.
+                        if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateId, Model.ParentClass.Id, out var parentClassTemplate))
+                        {
+                            @class.ExtendsClass(
+                                @class: parentClassTemplate.CSharpFile.Classes[0],
+                                genericTypeParameters: Model.ParentClassTypeReference.GenericTypeParameters.Select(GetTypeName));
+                        }
+                        else
+                        {
+                            @class.ExtendsClass(
+                                type: GetTypeName(Model.ParentClass.InternalElement),
+                                genericTypeParameters: Model.ParentClassTypeReference.GenericTypeParameters.Select(GetTypeName));
+                        }
                     }
 
                     if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces())
@@ -163,9 +173,13 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     {
                         AddOperation(@class, operation, isOverride: false);
                     }
-                    if (!Model.IsAbstract && Model.ParentClass != null)
+
+                    // TryGetTemplate would not find the template if the base typ1e isn't modelled in the Application but comes
+                    // from a Module's package, e.g. the IdentityUser class in the Intent.AspNetCore.Identity module.
+                    if (!Model.IsAbstract && Model.ParentClass != null &&
+                        TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateId, Model.ParentClass.Id, out var baseClassTemplate))
                     {
-                        GetTemplate<ICSharpFileBuilderTemplate>(TemplateId, Model.ParentClass.Id).CSharpFile.OnBuild(file =>
+                        baseClassTemplate.CSharpFile.OnBuild(file =>
                         {
                             var baseType = file.Classes.First();
                             var abstractMethods = baseType.Methods.Where(m => m.IsAbstract).ToArray();

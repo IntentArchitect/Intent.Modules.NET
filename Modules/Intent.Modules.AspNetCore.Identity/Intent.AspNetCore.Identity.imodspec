@@ -32,6 +32,13 @@
     <factoryExtension id="Intent.AspNetCore.Identity.IdentityUserFactoryExtension" externalReference="a19eb475-d6da-44e4-b7a2-cdec585ebd98" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
+  <interoperability>
+    <detect id="Intent.Entities">
+      <install>
+        <package id="Intent.Entities" version="5.1.2-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.5.0" />
     <dependency id="Intent.Common.CSharp" version="3.5.2" />
@@ -48,7 +55,7 @@
   <moduleSettingsExtensions />
   <metadata>
     <install target="Domain" src="Intent.Metadata/Module Builder/Intent.AspNetCore.Identity/Intent.AspNetCore.Identity.pkg.config" externalReference="7061eb5a-c934-46e4-8c73-e3df67edf43a" />
-    <install target="Domain" src="Intent.Metadata/Domain/AspNetCore.Identity.Domain/AspNetCore.Identity.Domain.pkg.config" />
+    <install target="Domain;Services" src="Intent.Metadata/Domain/AspNetCore.Identity.Domain/AspNetCore.Identity.Domain.pkg.config" />
     <install target="Domain" src="modelers/Domain Extensions.designer.settings" externalReference="d06187ef-95a6-4243-b299-2e2d028478ef" />
   </metadata>
 </package>
