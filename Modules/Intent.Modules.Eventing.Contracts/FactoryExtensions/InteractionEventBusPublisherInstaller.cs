@@ -251,6 +251,12 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
             {
                 notImplementedStatement.Remove();
                 method.Attributes.OfType<CSharpIntentManagedAttribute>().FirstOrDefault()?.WithBodyFully();
+
+                var toDoStatement = method.Statements.FirstOrDefault(p => p.GetText("").Contains("// TODO:"));
+                if (toDoStatement is not null)
+                {
+                    toDoStatement.Remove();
+                }
             }
 
             var returnClause = method.Statements.FirstOrDefault(p => p.GetText("").Trim().StartsWith("return"));

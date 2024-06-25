@@ -120,6 +120,7 @@ public static class ValidationRulesExtensions
                                 method.AddParameter(template.GetTypeName(field), "value");
                                 method.AddParameter($"ValidationContext<{toValidateTypeName}>", "validationContext");
                                 method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+                                method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
                                 method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
                             });
                         }
@@ -136,6 +137,7 @@ public static class ValidationRulesExtensions
                                 method.AddParameter(toValidateTypeName, modelParameterName);
                                 method.AddParameter(template.GetTypeName(field), "value");
                                 method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+                                method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
                                 method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
                             });
                         }

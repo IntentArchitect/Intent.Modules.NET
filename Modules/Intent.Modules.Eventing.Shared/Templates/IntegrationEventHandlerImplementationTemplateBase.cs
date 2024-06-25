@@ -39,6 +39,7 @@ public abstract class IntegrationEventHandlerImplementationTemplateBase : CSharp
                     method.AddParameter(GetMessageName(), "message");
                     method.AddOptionalCancellationTokenParameter(this);
 
+                    method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
                     method.AddStatement("throw new NotImplementedException();");
                 });
             });

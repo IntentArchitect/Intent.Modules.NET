@@ -29,6 +29,7 @@ namespace <#= Namespace #>
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task Handle(<#= this.GetDomainEventNotificationName() #><<#= this.GetDomainEventName(domainEvent) #>> notification, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (<#= ClassName #>) functionality
             throw new NotImplementedException("Implement your handler logic here...");
         }
 <#  }#>

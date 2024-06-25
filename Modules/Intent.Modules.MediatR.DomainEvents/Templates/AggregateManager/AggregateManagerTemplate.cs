@@ -7,9 +7,6 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-
-using Intent.Modules.DomainEvents.Templates;
-
 namespace Intent.Modules.MediatR.DomainEvents.Templates.AggregateManager
 {
     using System.Collections.Generic;
@@ -87,11 +84,18 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.AggregateManager
             
             #line default
             #line hidden
-            this.Write("> notification, CancellationToken cancellationToken)\r\n        {\r\n            thro" +
-                    "w new NotImplementedException(\"Implement your handler logic here...\");\r\n        " +
-                    "}\r\n");
+            this.Write("> notification, CancellationToken cancellationToken)\r\n        {\r\n            // T" +
+                    "ODO: Implement Handle (");
             
-            #line 34 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
+            
+            #line default
+            #line hidden
+            this.Write(") functionality\r\n            throw new NotImplementedException(\"Implement your ha" +
+                    "ndler logic here...\");\r\n        }\r\n");
+            
+            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
   }
             
             #line default

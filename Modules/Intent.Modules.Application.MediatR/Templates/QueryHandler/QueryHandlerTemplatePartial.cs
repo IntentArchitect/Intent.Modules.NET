@@ -72,6 +72,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                         method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
                         method.AddParameter(GetQueryModelName(template, model), "request");
                         method.AddParameter("CancellationToken", "cancellationToken");
+                        method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
                         method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
                     });
                 });

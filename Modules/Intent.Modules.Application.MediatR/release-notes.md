@@ -1,4 +1,8 @@
-﻿### Version 4.2.4
+﻿### Version 4.2.5
+
+- Improvement: Added `TODO` comments on `NotImplementedException`.
+
+### Version 4.2.4
 
 - Improvement: Application Client Dto type using directives also to be resolved now in Command/Query handlers.
 

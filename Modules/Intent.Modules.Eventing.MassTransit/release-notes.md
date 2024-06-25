@@ -1,3 +1,7 @@
+### Version 6.2.2
+
+- Improvement: Added `TODO` comments on `NotImplementedException`.
+
 ### Version 6.2.1
 
 - Fixed: Updated important dependency version.

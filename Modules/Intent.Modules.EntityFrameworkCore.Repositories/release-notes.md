@@ -1,3 +1,7 @@
+### Version 4.6.1
+
+- Improvement: Added `TODO` comments on `NotImplementedException`.
+
 ### Version 4.6.0
 
 - New Feature: Generate methods on Repositories for Bespoke and Entity based Repositories.

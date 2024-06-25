@@ -1,5 +1,9 @@
 ### Version 1.1.0
 
+- Improvement: Added `TODO` comments on `NotImplementedException`.
+
+### Version 1.1.0
+
 - Improvement: Added Regular Expressions for Validation.
 - Improvement: Module project updated to .NET 8.
 - Fix: Fixed issue where DTO's for compositional entities does not include validation rules.

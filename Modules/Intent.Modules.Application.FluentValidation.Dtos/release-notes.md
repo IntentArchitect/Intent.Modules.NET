@@ -1,3 +1,7 @@
+### Version 3.9.1
+
+- Improvement: Added `TODO` comments on `NotImplementedException`.
+
 ### Version 3.9.0
 
 - Improvement: Added Regular Expressions for Validation.
