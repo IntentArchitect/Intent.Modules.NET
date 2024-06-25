@@ -25,8 +25,12 @@ namespace Solace.Tests.Application.NotMapped.NotMappedTest
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(NotMappedTestCommand request, CancellationToken cancellationToken)
         {
-            _eventBus.Publish(new NotMappedEvent());
-            _eventBus.Send(new NotMappedIC());
+            _eventBus.Publish(new NotMappedEvent
+            {
+            });
+            _eventBus.Send(new NotMappedIC
+            {
+            });
         }
     }
 }

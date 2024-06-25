@@ -194,8 +194,8 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                 }
                 else
                 {
-                    var commandName = template.GetTypeName(IntegrationEventMessageTemplate.TemplateId, publish.Element.Id);
-                    newMessageStatement = new CSharpStatement($"new {commandName}()");
+                    var eventName = template.GetTypeName(IntegrationEventMessageTemplate.TemplateId, publish.Element.Id);
+                    newMessageStatement = new CSharpObjectInitializerBlock($"new {eventName}");
                 }
 
                 AddIntegrationDispatchStatement(method, new CSharpInvocationStatement("_eventBus.Publish").AddArgument(newMessageStatement));
@@ -246,8 +246,8 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                 }
                 else
                 {
-                    var commandName = template.GetTypeName(IntegrationCommandTemplate.TemplateId, commandToSend.Element.Id);
-                    newMessageStatement = new CSharpStatement($"new {commandName}()");
+                    var commandName = template.GetTypeName(IntegrationCommandTemplate.TemplateId, commandToSend.Element.Id);                    
+                    newMessageStatement = new CSharpObjectInitializerBlock($"new {commandName}");
                 }
                 AddIntegrationDispatchStatement(method, new CSharpInvocationStatement("_eventBus.Send")
                     .AddArgument(newMessageStatement));
