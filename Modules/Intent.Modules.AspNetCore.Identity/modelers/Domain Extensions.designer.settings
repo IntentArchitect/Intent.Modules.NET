@@ -39,6 +39,44 @@ async function execute() {
  * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/aspnetcore-identity/class-on-changed/class-on-changed.ts
  */
 await execute();
+
+// Source:
+
+// /// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
+
+// const identityUserStereotypeId = "efde089e-21e6-4da1-b086-72d7f6caf389";
+// const identityUserId = "a3f490b4-3c88-49fd-b273-6efddb5b7f0d";
+// const generalizationType = "Generalization";
+
+// async function execute(): Promise&lt;void&gt; {
+//     const identityUserStereotype = element.getStereotype(identityUserStereotypeId);
+//     if (identityUserStereotype == null) {
+//         return;
+//     }
+
+//     var generalization = element.getAssociations(generalizationType)[0] as IAssociationApi;
+//     if (generalization?.typeReference?.getType()?.id == identityUserId) {
+//         return;
+//     }
+
+//     if (dialogService?.info != null) {
+//         await dialogService.info(
+//             "When the \"Identity User\" stereotype is applied to a class it must derive from the IdentityUser class, " +
+//             "this class will now be updated to meet this requirement.");
+//     }
+
+//     generalization?.delete();
+//     createAssociation(generalizationType, element.id, identityUserId);
+//  }
+
+// /**
+//  * Used by Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity
+//  *
+//  * Source code here:
+//  * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/aspnetcore-identity/class-on-changed/class-on-changed.ts
+//  */
+
+// //await execute();
 </script>
         </macro>
       </macros>
