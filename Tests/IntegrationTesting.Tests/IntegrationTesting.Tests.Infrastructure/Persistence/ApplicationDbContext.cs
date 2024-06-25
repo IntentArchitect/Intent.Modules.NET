@@ -36,6 +36,7 @@ namespace IntegrationTesting.Tests.Infrastructure.Persistence
         public DbSet<Parent> Parents { get; set; }
         public DbSet<PartialCrud> PartialCruds { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<UniqueConVal> UniqueConVals { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,
@@ -67,6 +68,7 @@ namespace IntegrationTesting.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new ParentConfiguration());
             modelBuilder.ApplyConfiguration(new PartialCrudConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new UniqueConValConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

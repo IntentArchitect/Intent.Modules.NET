@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1f2341b7-a389-4be5-94f7-42225560fb4a" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetUniqueConValsQuery</name>
+  <display>GetUniqueConValsQuery: UniqueConValDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="972ab304-f380-4c4a-865d-a14ca5c67f6f">
+    <typeId>e670b6b9-a1b5-4d16-ab93-5db9d732d593</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+    <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>06b8e3eb-3df1-422e-9b1b-18653e712740</parentFolderId>
+  <packageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</packageId>
+  <packageName>IntegrationTesting.Tests.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="UniqueConVals" />
+  </metadata>
+  <childElements />
+</class>

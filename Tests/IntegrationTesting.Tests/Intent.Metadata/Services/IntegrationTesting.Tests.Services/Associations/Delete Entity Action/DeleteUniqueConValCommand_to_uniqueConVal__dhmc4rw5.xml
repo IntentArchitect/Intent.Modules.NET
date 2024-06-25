@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1a24ecb4-ee5b-4703-aa40-8fc6404d48bf">
+  <sourceEnd id="00677b37-244a-4ea6-bb1a-281aeb04a739" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : UniqueConVals.DeleteUniqueConValCommand</display>
+    <order>0</order>
+    <typeReference id="6adb1ec9-9606-4838-b618-f9b114f8fb9e">
+      <typeId>5c78e489-79d2-4440-baf7-baa9a5a2742c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1a24ecb4-ee5b-4703-aa40-8fc6404d48bf" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>uniqueConVal</name>
+    <display>[delete] uniqueConVal: UniqueConVal</display>
+    <order>1</order>
+    <typeReference id="bb3c6bf8-57d4-4869-905f-7f615eee7d26">
+      <typeId>52d43dc7-7e0d-4305-9ebc-4f0606747989</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5c78e489-79d2-4440-baf7-baa9a5a2742c" location="[IntegrationTesting.Tests].[Services].[DeleteUniqueConValCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="52d43dc7-7e0d-4305-9ebc-4f0606747989" location="[IntegrationTesting.Tests].[Services].[UniqueConVal]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="52d43dc7-7e0d-4305-9ebc-4f0606747989" name="UniqueConVal" type="element" specialization="Class" />
+              <target id="912e1154-658e-4383-8517-47c955d960ed" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="5c78e489-79d2-4440-baf7-baa9a5a2742c" name="DeleteUniqueConValCommand" type="element" specialization="Command" />
+                  <target id="01e99fb2-047f-4ce3-8d6b-8df20c1719e2" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

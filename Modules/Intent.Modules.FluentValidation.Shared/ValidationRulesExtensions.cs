@@ -594,6 +594,11 @@ public static class ValidationRulesExtensions
                 {
                     continue;
                 }
+                if (indexColumnIndex.GetStereotypeProperty<string?>("Settings", "Type")?.ToLower() == "included")
+                {
+                    continue;
+                }
+
                 indexElementAttributes.Add(new ConstraintField(mappedAttribute.Name, indexElement.Name));
             }
         }
