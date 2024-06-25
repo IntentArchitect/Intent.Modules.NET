@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
+      <path>Intent.Modules.AspNetCore.Identity/Templates/TemplateExtensions.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-25T06:44:20.1041341Z</updatedAt>
+      <deviationsHash>39C64B7022ADE398ABCBCB539F3C742B851E7C135F2CD9F71B516CDB123C935F</deviationsHash>
+      <fileHash>1DBF698C64BC1459FDB4DC5CF879A35C78D3783495B89950EDD85DD956B6D35D</fileHash>
+    </file>
+  </files>
+</deviationsLog>

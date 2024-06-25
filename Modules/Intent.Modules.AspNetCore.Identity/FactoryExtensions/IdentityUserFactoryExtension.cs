@@ -15,7 +15,7 @@ using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
 
-[assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
 namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
@@ -24,14 +24,6 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
     public class IdentityUserFactoryExtension : FactoryExtensionBase
     {
         public override string Id => "Intent.AspNetCore.Identity.IdentityUserFactoryExtension";
-
-        [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
-    }
-    [IntentManaged(Mode.Merge)]
-    public class DbContextFactoryExtension : FactoryExtensionBase
-    {
-        public override string Id => "Intent.AspNetCore.Identity.DbContextFactoryExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
