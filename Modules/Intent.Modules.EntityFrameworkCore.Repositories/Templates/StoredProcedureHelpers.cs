@@ -59,7 +59,7 @@ internal static class StoredProcedureHelpers
                         }
 
                         method.AddOptionalCancellationTokenParameter();
-                        method.AddDeconstructedReturnMembers(GetReturnProperties(template, storedProcedure).Select(s => s.Name.ToCamelCase()).ToList());
+                        //method.AddDeconstructedReturnMembers(GetReturnProperties(template, storedProcedure).Select(s => s.Name.ToCamelCase()).ToList());
                     });
                 }
             });
@@ -374,16 +374,15 @@ internal static class StoredProcedureHelpers
         return tupleProperties;
     }
     
-    private static string GetReturnType(IntentTemplateBase template, StoredProcedureModel storedProcedure)
+    private static CSharpReturnType GetReturnType(IntentTemplateBase template, StoredProcedureModel storedProcedure)
     {
         var tupleProperties = GetReturnProperties(template, storedProcedure);
 
         return tupleProperties.Count switch
         {
-            0 => "Task",
-            1 => $"Task<{tupleProperties[0].TypeName}>",
-            > 1 => $"Task<({string.Join(", ", tupleProperties.Select(x => $"{x.TypeName} {x.Name}"))})>",
-            _ => throw new ArgumentOutOfRangeException()
+            0 => CSharpReturnType.CreateTask(),
+            1 => CSharpReturnType.CreateTask(new CSharpReturnTypeName(tupleProperties[0].TypeName)),
+            _ => CSharpReturnType.CreateTask(new CSharpReturnTypeTuple(tupleProperties.Select(s => new CSharpTupleElement(new CSharpReturnTypeName(s.TypeName), s.Name)).ToList()))
         };
     }
 
