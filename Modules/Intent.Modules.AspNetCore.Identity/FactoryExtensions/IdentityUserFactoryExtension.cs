@@ -1,10 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using Intent.AspNetCore.Identity.Api;
 using Intent.Engine;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
@@ -93,14 +94,36 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
             {
                 file.AddUsing("Microsoft.AspNetCore.Identity");
                 var @class = file.Classes.First();
-                @class.ExtendsClass(entityTemplate.UseType("Microsoft.AspNetCore.Identity.IdentityUser"));
 
-                var property = @class.Properties.SingleOrDefault(x => x.Name.Equals("id", StringComparison.OrdinalIgnoreCase));
-                if (property != null)
+                if (identityModel.ParentClass.IsIdentityUserBaseClass())
                 {
-                    @class.Properties.Remove(property);
+                    if (!@class.TryGetMetadata<CSharpProperty[]>("primary-keys", out var pks))
+                    {
+                        pks = [];
+                    }
+
+                    var baseClassPks = identityModel.ParentClass.Attributes
+                        .Where(x => x.HasPrimaryKey())
+                        .Select(x =>
+                        {
+                            var property = new CSharpProperty(x.TypeReference.Element?.Name, x.Name, null);
+                            property.AddMetadata("model", x);
+                            return property;
+                        });
+
+                    @class.Metadata["primary-keys"] = baseClassPks.Concat(pks).ToArray();
                 }
-            });
+                else
+                {
+                    @class.ExtendsClass(entityTemplate.UseType("Microsoft.AspNetCore.Identity.IdentityUser"));
+
+                    var property = @class.Properties.SingleOrDefault(x => x.Name.Equals("id", StringComparison.OrdinalIgnoreCase));
+                    if (property != null)
+                    {
+                        @class.Properties.Remove(property);
+                    }
+                }
+            }, -10);
         }
     }
 }
