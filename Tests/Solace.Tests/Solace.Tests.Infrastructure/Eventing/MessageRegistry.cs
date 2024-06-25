@@ -48,12 +48,14 @@ namespace Solace.Tests.Infrastructure.Eventing
             });
             PublishToTopic<AccountCreatedEvent>(topicName: "General");
             PublishToTopic<CustomerCreatedEvent>();
+            PublishToTopic<NotMappedEvent>();
             //Integration Commands
             RegisterQueue("PurchaseCreated", queue =>
             {
                 SubscribeViaQueue<PurchaseCreated>(queue);
             });
             PublishToQueue<CreateLedger>(queueName: "Accounting/Ledgers");
+            PublishToQueue<NotMappedIC>();
             PublishToQueue<PurchaseCreated>();
         }
 

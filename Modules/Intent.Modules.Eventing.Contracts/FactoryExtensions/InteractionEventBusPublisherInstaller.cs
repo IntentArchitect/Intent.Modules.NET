@@ -13,6 +13,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.EventBusInterface;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventDto;
@@ -184,14 +185,19 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
             template.AddTypeSource(IntegrationEventEnumTemplate.TemplateId);
             foreach (var publish in publishes)
             {
+                CSharpStatement newMessageStatement;
                 var mapping = publish.Mappings.SingleOrDefault();
-                if (mapping == null)
+                if (mapping != null)
                 {
-                    throw new ElementException(publish.InternalAssociationEnd, "Mapping not specified.");
+                    csharpMapping.SetFromReplacement(publish.OtherEnd().TypeReference.Element, replacement);
+                    newMessageStatement = csharpMapping.GenerateCreationStatement(publish.Mappings.Single());
+                }
+                else
+                {
+                    var commandName = template.GetTypeName(IntegrationEventMessageTemplate.TemplateId, publish.Element.Id);
+                    newMessageStatement = new CSharpStatement($"new {commandName}()");
                 }
 
-                csharpMapping.SetFromReplacement(publish.OtherEnd().TypeReference.Element, replacement);
-                var newMessageStatement = csharpMapping.GenerateCreationStatement(publish.Mappings.Single());
                 AddIntegrationDispatchStatement(method, new CSharpInvocationStatement("_eventBus.Publish").AddArgument(newMessageStatement));
             }
         }
@@ -231,14 +237,18 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
             
             foreach (var commandToSend in commandsToSend)
             {
+                CSharpStatement newMessageStatement;
                 var mapping = commandToSend.Mappings.SingleOrDefault();
-                if (mapping == null)
+                if (mapping != null)
                 {
-                    throw new ElementException(commandToSend.InternalAssociationEnd, "Mapping not specified.");
+                    csharpMapping.SetFromReplacement(commandToSend.OtherEnd().TypeReference.Element, replacement);
+                    newMessageStatement = csharpMapping.GenerateCreationStatement(commandToSend.Mappings.Single());
                 }
-
-                csharpMapping.SetFromReplacement(commandToSend.OtherEnd().TypeReference.Element, replacement);
-                var newMessageStatement = csharpMapping.GenerateCreationStatement(commandToSend.Mappings.Single());
+                else
+                {
+                    var commandName = template.GetTypeName(IntegrationCommandTemplate.TemplateId, commandToSend.Element.Id);
+                    newMessageStatement = new CSharpStatement($"new {commandName}()");
+                }
                 AddIntegrationDispatchStatement(method, new CSharpInvocationStatement("_eventBus.Send")
                     .AddArgument(newMessageStatement));
             }

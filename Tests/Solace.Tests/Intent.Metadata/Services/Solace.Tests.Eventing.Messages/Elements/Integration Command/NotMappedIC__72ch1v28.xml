@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f9f36366-c8df-48e9-a7df-394b9b3690d4" type="Integration Command" typeId="7f01ca8e-0e3c-4735-ae23-a45169f71625">
+  <name>NotMappedIC</name>
+  <display>NotMappedIC</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>62549091-f9de-46a1-b478-236d42077f3c</parentFolderId>
+  <packageId>62549091-f9de-46a1-b478-236d42077f3c</packageId>
+  <packageName>Solace.Tests.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

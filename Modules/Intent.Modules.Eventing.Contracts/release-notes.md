@@ -1,6 +1,7 @@
 ### Version 5.0.6
 
 - Improvement: Added `TODO` comments on `NotImplementedException`.
+- Improvement: Allow for code generation  of unmapped `Message` and `IntegrationCommand`.
 
 ### Version 5.0.5
 
