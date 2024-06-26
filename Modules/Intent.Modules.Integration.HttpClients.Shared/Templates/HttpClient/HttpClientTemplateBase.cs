@@ -7,6 +7,7 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
@@ -377,7 +378,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
     private object GetParameterValueExpression(DTOFieldModel field)
     {
         return !field.TypeReference.HasStringType()
-            ? $"{field.Name.ToPascalCase()}.ToString()"
+            ? ConvertToString (field.Name.ToPascalCase(), field.TypeReference)
             : field.Name.ToPascalCase();
     }
 
@@ -385,7 +386,33 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
     private static string GetParameterValueExpression(IHttpEndpointInputModel input)
     {
         return !input.TypeReference.HasStringType()
-            ? $"{input.Name.ToParameterName()}.ToString()"
+            ? ConvertToString(input.Name.ToParameterName(), input.TypeReference)
             : input.Name.ToParameterName();
+    }
+
+    private static string ConvertToString(string variableName, ITypeReference typeRef)
+    {
+        if (typeRef.HasBoolType())
+        {
+
+        }
+        else
+        if (typeRef.HasDecimalType())
+        {
+
+        }
+        else
+        if (typeRef.HasDateType() || typeRef.HasDateTimeOffsetType() || typeRef.HasDateTimeType())
+        {
+
+        }
+        if (typeRef.HasGuidType())
+        {
+
+        }
+        else
+        {
+            return $"{variableName}.ToString()";
+        }
     }
 }
