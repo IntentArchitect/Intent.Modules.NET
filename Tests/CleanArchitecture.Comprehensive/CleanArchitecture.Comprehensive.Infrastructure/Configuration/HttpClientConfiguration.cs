@@ -42,6 +42,13 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Configuration
                 });
 
             services
+                .AddHttpClient<IParamConversionService, ParamConversionServiceHttpClient>(http =>
+                {
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:ParamConversionService:Uri");
+                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:ParamConversionService:Timeout") ?? TimeSpan.FromSeconds(100);
+                });
+
+            services
                 .AddHttpClient<IQueryDtoParameterService, QueryDtoParameterServiceHttpClient>(http =>
                 {
                     http.BaseAddress = configuration.GetValue<Uri>("HttpClients:QueryDtoParameterService:Uri");

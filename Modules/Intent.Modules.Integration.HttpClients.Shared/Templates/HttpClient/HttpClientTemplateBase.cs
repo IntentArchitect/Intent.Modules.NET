@@ -140,7 +140,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                     var dto = queryParameter.TypeReference.Element.AsDTOModel();
                                     foreach (var field in dto.Fields)
                                     {
-                                        method.AddStatement($"queryParams.Add(\"{field.Name.ToCamelCase()}\", {queryParameter.Name.ToCamelCase()}.{GetParameterValueExpression(field)});");
+                                        method.AddStatement($"queryParams.Add(\"{field.Name.ToCamelCase()}\", {queryParameter.Name.ToCamelCase()}.{GetParameterValueExpression(this, field)});");
                                     }
                                 }
                                 else if (queryParameter.TypeReference.IsCollection)
@@ -153,7 +153,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                 }
                                 else
                                 {
-                                    method.AddStatement($"queryParams.Add(\"{queryParameter.QueryStringName ?? queryParameter.Name.ToCamelCase()}\", {GetParameterValueExpression(queryParameter)});");
+                                    method.AddStatement($"queryParams.Add(\"{queryParameter.QueryStringName ?? queryParameter.Name.ToCamelCase()}\", {GetParameterValueExpression(this, queryParameter)});");
                                 }
                             }
 
@@ -225,7 +225,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
 
                             foreach (var formParameter in formParams)
                             {
-                                method.AddStatement($"formVariables.Add(new KeyValuePair<string, string>(\"{formParameter.Name.ToPascalCase()}\", {GetParameterValueExpression(formParameter)}));");
+                                method.AddStatement($"formVariables.Add(new KeyValuePair<string, string>(\"{formParameter.Name.ToPascalCase()}\", {GetParameterValueExpression(this, formParameter)}));");
                             }
 
                             method.AddStatement("var content = new FormUrlEncodedContent(formVariables);");
@@ -375,22 +375,22 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
             : $"Task<{GetTypeName(endpoint.ReturnType)}>";
     }
 
-    private object GetParameterValueExpression(DTOFieldModel field)
+    private object GetParameterValueExpression(ICSharpFileBuilderTemplate template, DTOFieldModel field)
     {
         return !field.TypeReference.HasStringType()
-            ? ConvertToString (field.Name.ToPascalCase(), field.TypeReference)
+            ? ConvertToString (template, field.Name.ToPascalCase(), field.TypeReference)
             : field.Name.ToPascalCase();
     }
 
 
-    private static string GetParameterValueExpression(IHttpEndpointInputModel input)
+    private static string GetParameterValueExpression(ICSharpFileBuilderTemplate template, IHttpEndpointInputModel input)
     {
         return !input.TypeReference.HasStringType()
-            ? ConvertToString(input.Name.ToParameterName(), input.TypeReference)
+            ? ConvertToString(template, input.Name.ToParameterName(), input.TypeReference)
             : input.Name.ToParameterName();
     }
 
-    private static string ConvertToString(string variableName, ITypeReference typeRef)
+    private static string ConvertToString(ICSharpFileBuilderTemplate template, string variableName, ITypeReference typeRef)
     {
         string conversion;
         if (typeRef.HasBoolType())
@@ -399,6 +399,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
         }
         else if (typeRef.HasDecimalType())
         {
+            template.AddUsing("System.Globalization");
             conversion = $"ToString(CultureInfo.InvariantCulture)";
         }
         else if (typeRef.HasDateType() || typeRef.HasDateTimeOffsetType() || typeRef.HasDateTimeType())
