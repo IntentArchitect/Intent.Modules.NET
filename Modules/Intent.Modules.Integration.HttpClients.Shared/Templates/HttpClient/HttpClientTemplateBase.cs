@@ -392,27 +392,31 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
 
     private static string ConvertToString(string variableName, ITypeReference typeRef)
     {
+        string conversion;
         if (typeRef.HasBoolType())
         {
-
+            conversion = $"ToString().ToLowerInvariant()";
+        }
+        else if (typeRef.HasDecimalType())
+        {
+            conversion = $"ToString(CultureInfo.InvariantCulture)";
+        }
+        else if (typeRef.HasDateType() || typeRef.HasDateTimeOffsetType() || typeRef.HasDateTimeType())
+        {
+            conversion = $"ToString(\"o\")";
+        }
+        else if (typeRef.HasGuidType())
+        {
+            conversion = $"ToString(\"D\")";
+        }
+        else if (typeRef.Element.Name == "TimeSpan")
+        {
+            conversion = $"ToString(\"c\")";
         }
         else
-        if (typeRef.HasDecimalType())
         {
-
+            conversion = $"ToString()";
         }
-        else
-        if (typeRef.HasDateType() || typeRef.HasDateTimeOffsetType() || typeRef.HasDateTimeType())
-        {
-
-        }
-        if (typeRef.HasGuidType())
-        {
-
-        }
-        else
-        {
-            return $"{variableName}.ToString()";
-        }
+        return $"{variableName}{(typeRef.IsNullable ? "?" : "")}.{conversion}";
     }
 }

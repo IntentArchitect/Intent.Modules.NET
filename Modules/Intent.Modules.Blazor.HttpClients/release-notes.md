@@ -1,4 +1,8 @@
-﻿### Version 3.1.2
+﻿### Version 3.1.3
+
+- Improvement: Updated the logic which converts types to query parameters to be more standard in how it coverts types to string.
+
+### Version 3.1.2
 
 - Improvement: Added support for deserializing ProblemDetails for client HTTP calls.
 

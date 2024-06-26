@@ -1,4 +1,8 @@
-﻿### Version 5.1.4
+﻿### Version 5.1.5
+
+- Improvement: Updated the logic which converts types to query parameters to be more standard in how it coverts types to string.
+
+### Version 5.1.4
 
 - Fixed: Updated important dependency module version.
 
