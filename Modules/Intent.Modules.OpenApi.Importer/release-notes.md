@@ -1,7 +1,10 @@
 ### Version 1.0.3
 
+- Improvement: Improved the algorithm for assigning end point names. 
+- Improvement: Added warning for array based bodies which can't be realized as Command's. 
 - Improvement: Updated to latest `Microsoft.OpenApi.Readers`. 
 - Fixed: An issue where tool would not block some valid versions of OpenAPI documents.
+- Fixed: An issue rest end points would be imported as the same Operation / Command / Query .
 
 ### Version 1.0.2
 

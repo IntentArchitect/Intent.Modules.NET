@@ -62,8 +62,8 @@
       <ProjectId>283ac2ba-f99d-4c62-ba93-1bff4b3548d0</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#59493451-7855-494d-8df8-b6df3f313c3c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Api/Controllers/Import/CustomerController.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Import/CustomerController.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Api/Controllers/CustomerController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -348,6 +348,86 @@
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#3402a1d1-409d-4331-94b1-bcee6914fb8d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Customers/CreateCustomerAddressDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CreateCustomerAddressDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#b0f39cb9-3254-478a-855a-80660c01edb5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Customers/CreateCustomerCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CreateCustomerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#b0f39cb9-3254-478a-855a-80660c01edb5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Customers/CreateCustomerCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CreateCustomerCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#a514cf89-0fc9-4c38-bc5a-52cda3466228</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Customers/CreateCustomerOrderCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CreateCustomerOrderCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#4680d81e-ebd1-4c85-8339-8cd72104caf0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Customers/CustomerAddressDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerAddressDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#0ada0c5c-9b3e-4486-801d-8ea8cf85642c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Customers/CustomerDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#12b02b87-c3ea-466d-8f8a-6ff6ef47209d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Customers/CustomerOrderCustomerDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerOrderCustomerDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#65a87c29-7180-4358-a9b4-857d63f1019e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Customers/CustomerOrderDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerOrderDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e644d861-45dd-4bef-b35b-fdd69acbba50</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Customers/UpdateCustomerCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/UpdateCustomerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#593115db-1aa3-4513-9ccb-061c0afcc6ab</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Customers/UpdateCustomerOrderCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/UpdateCustomerOrderCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OpenApiImporterTest.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -358,96 +438,16 @@
       <ProjectId>30e6726e-dc2b-437a-846e-7512ed19c3ba</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#59493451-7855-494d-8df8-b6df3f313c3c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Implementation/Import/CustomerService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Import/CustomerService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#3402a1d1-409d-4331-94b1-bcee6914fb8d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Import/Customers/CreateCustomerAddressDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Import/Customers/CreateCustomerAddressDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#b0f39cb9-3254-478a-855a-80660c01edb5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Import/Customers/CreateCustomerCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Import/Customers/CreateCustomerCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#b0f39cb9-3254-478a-855a-80660c01edb5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Import/Customers/CreateCustomerCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Import/Customers/CreateCustomerCommandValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#a514cf89-0fc9-4c38-bc5a-52cda3466228</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Import/Customers/CreateCustomerOrderCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Import/Customers/CreateCustomerOrderCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#4680d81e-ebd1-4c85-8339-8cd72104caf0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Import/Customers/CustomerAddressDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Import/Customers/CustomerAddressDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#0ada0c5c-9b3e-4486-801d-8ea8cf85642c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Import/Customers/CustomerDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Import/Customers/CustomerDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#12b02b87-c3ea-466d-8f8a-6ff6ef47209d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Import/Customers/CustomerOrderCustomerDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Import/Customers/CustomerOrderCustomerDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#65a87c29-7180-4358-a9b4-857d63f1019e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Import/Customers/CustomerOrderDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Import/Customers/CustomerOrderDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#e644d861-45dd-4bef-b35b-fdd69acbba50</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Import/Customers/UpdateCustomerCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Import/Customers/UpdateCustomerCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#593115db-1aa3-4513-9ccb-061c0afcc6ab</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Import/Customers/UpdateCustomerOrderCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Import/Customers/UpdateCustomerOrderCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Implementation/CustomerService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>47fcb9cb-c212-4463-a538-1b162d30b495</ProjectId>
       <CorrelationId>Intent.Application.Contracts.ServiceContract#59493451-7855-494d-8df8-b6df3f313c3c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Interfaces/Import/ICustomerService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Import/ICustomerService.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Interfaces/ICustomerService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICustomerService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -524,6 +524,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#e11e5ed5-5fa5-4797-8cfa-abc62508c2da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Pets/GetByStatuses/GetByStatusesQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pets/GetByStatuses/GetByStatusesQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#e11e5ed5-5fa5-4797-8cfa-abc62508c2da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Pets/GetByStatuses/GetByStatusesQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pets/GetByStatuses/GetByStatusesQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#e11e5ed5-5fa5-4797-8cfa-abc62508c2da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Pets/GetByStatuses/GetByStatusesQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pets/GetByStatuses/GetByStatusesQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#bda0de37-b51d-4a80-a7da-d36bea33e155</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Pets/GetByTags/GetByTagsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pets/GetByTags/GetByTagsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#bda0de37-b51d-4a80-a7da-d36bea33e155</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Pets/GetByTags/GetByTagsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pets/GetByTags/GetByTagsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#bda0de37-b51d-4a80-a7da-d36bea33e155</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Pets/GetByTags/GetByTagsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pets/GetByTags/GetByTagsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#12342e85-35ec-4bc5-a1ec-23be48fec1d8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Pets/GetPet/GetPetQuery.cs</ApplicationRelativeFilePath>
@@ -544,54 +592,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Pets/GetPet/GetPetQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pets/GetPet/GetPetQueryValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryModels#086b61b3-2b26-4422-80b4-0edd0bc4c260</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Pets/GetPetFindByStatus/GetPetFindByStatusQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pets/GetPetFindByStatus/GetPetFindByStatusQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryHandler#086b61b3-2b26-4422-80b4-0edd0bc4c260</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Pets/GetPetFindByStatus/GetPetFindByStatusQueryHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pets/GetPetFindByStatus/GetPetFindByStatusQueryHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#086b61b3-2b26-4422-80b4-0edd0bc4c260</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Pets/GetPetFindByStatus/GetPetFindByStatusQueryValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pets/GetPetFindByStatus/GetPetFindByStatusQueryValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryModels#b4b4d55a-545c-4053-a3a6-c853c07528ff</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Pets/GetPetFindByTags/GetPetFindByTagsQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pets/GetPetFindByTags/GetPetFindByTagsQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryHandler#b4b4d55a-545c-4053-a3a6-c853c07528ff</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Pets/GetPetFindByTags/GetPetFindByTagsQueryHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pets/GetPetFindByTags/GetPetFindByTagsQueryHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#b4b4d55a-545c-4053-a3a6-c853c07528ff</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Pets/GetPetFindByTags/GetPetFindByTagsQueryValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pets/GetPetFindByTags/GetPetFindByTagsQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -652,98 +652,98 @@
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#9406ba19-c663-4114-8cef-c423bcd55a57</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#e1ee30fe-10ca-49a8-a7fc-1370f14a2b42</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/CreateStoreOrder/CreateStoreOrderCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Stores/CreateStoreOrder/CreateStoreOrderCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/CreateOrder/CreateOrderCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stores/CreateOrder/CreateOrderCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#9406ba19-c663-4114-8cef-c423bcd55a57</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#e1ee30fe-10ca-49a8-a7fc-1370f14a2b42</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/CreateStoreOrder/CreateStoreOrderCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Stores/CreateStoreOrder/CreateStoreOrderCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/CreateOrder/CreateOrderCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stores/CreateOrder/CreateOrderCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#9406ba19-c663-4114-8cef-c423bcd55a57</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#e1ee30fe-10ca-49a8-a7fc-1370f14a2b42</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/CreateStoreOrder/CreateStoreOrderCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Stores/CreateStoreOrder/CreateStoreOrderCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/CreateOrder/CreateOrderCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stores/CreateOrder/CreateOrderCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#2c795985-e56b-4c7d-a834-1c4a8bd0b818</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#85b9dbcd-b7ec-490a-92f7-5524f6c598f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/DeleteStoreOrder/DeleteStoreOrderCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Stores/DeleteStoreOrder/DeleteStoreOrderCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/DeleteOrder/DeleteOrderCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stores/DeleteOrder/DeleteOrderCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#2c795985-e56b-4c7d-a834-1c4a8bd0b818</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#85b9dbcd-b7ec-490a-92f7-5524f6c598f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/DeleteStoreOrder/DeleteStoreOrderCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Stores/DeleteStoreOrder/DeleteStoreOrderCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/DeleteOrder/DeleteOrderCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stores/DeleteOrder/DeleteOrderCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#2c795985-e56b-4c7d-a834-1c4a8bd0b818</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#85b9dbcd-b7ec-490a-92f7-5524f6c598f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/DeleteStoreOrder/DeleteStoreOrderCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Stores/DeleteStoreOrder/DeleteStoreOrderCommandValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/DeleteOrder/DeleteOrderCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stores/DeleteOrder/DeleteOrderCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryModels#ae150238-be75-46a0-b5fb-fe142adebf16</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#ed84cb77-2229-4398-9528-fbe18c924e7a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/GetStoreInventory/GetStoreInventoryQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Stores/GetStoreInventory/GetStoreInventoryQuery.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/GetInventory/GetInventoryQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stores/GetInventory/GetInventoryQuery.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryHandler#ae150238-be75-46a0-b5fb-fe142adebf16</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#ed84cb77-2229-4398-9528-fbe18c924e7a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/GetStoreInventory/GetStoreInventoryQueryHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Stores/GetStoreInventory/GetStoreInventoryQueryHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/GetInventory/GetInventoryQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stores/GetInventory/GetInventoryQueryHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#ae150238-be75-46a0-b5fb-fe142adebf16</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#ed84cb77-2229-4398-9528-fbe18c924e7a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/GetStoreInventory/GetStoreInventoryQueryValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Stores/GetStoreInventory/GetStoreInventoryQueryValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/GetInventory/GetInventoryQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stores/GetInventory/GetInventoryQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryModels#7b490330-847a-4ede-85f3-fae6263f2db7</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#488e60af-3418-4b06-82b3-c27c3db3d274</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/GetStoreOrder/GetStoreOrderQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Stores/GetStoreOrder/GetStoreOrderQuery.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/GetOrder/GetOrderQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stores/GetOrder/GetOrderQuery.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryHandler#7b490330-847a-4ede-85f3-fae6263f2db7</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#488e60af-3418-4b06-82b3-c27c3db3d274</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/GetStoreOrder/GetStoreOrderQueryHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Stores/GetStoreOrder/GetStoreOrderQueryHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/GetOrder/GetOrderQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stores/GetOrder/GetOrderQueryHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#7b490330-847a-4ede-85f3-fae6263f2db7</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#488e60af-3418-4b06-82b3-c27c3db3d274</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/GetStoreOrder/GetStoreOrderQueryValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Stores/GetStoreOrder/GetStoreOrderQueryValidator.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Stores/GetOrder/GetOrderQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stores/GetOrder/GetOrderQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -788,30 +788,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#23dfee80-6763-4c8f-bc86-511c85409f02</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/CreateUserCreateWithList/CreateUserCreateWithListCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/CreateUserCreateWithList/CreateUserCreateWithListCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#23dfee80-6763-4c8f-bc86-511c85409f02</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/CreateUserCreateWithList/CreateUserCreateWithListCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/CreateUserCreateWithList/CreateUserCreateWithListCommandHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#23dfee80-6763-4c8f-bc86-511c85409f02</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/CreateUserCreateWithList/CreateUserCreateWithListCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/CreateUserCreateWithList/CreateUserCreateWithListCommandValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#c9d6304d-14c3-401f-ae2b-ba61695a1a4e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/DeleteUser/DeleteUserCommand.cs</ApplicationRelativeFilePath>
@@ -836,6 +812,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#06dbb950-4a8b-4c6d-b163-32f9fe133216</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/GetLogin/GetLoginQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/GetLogin/GetLoginQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#06dbb950-4a8b-4c6d-b163-32f9fe133216</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/GetLogin/GetLoginQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/GetLogin/GetLoginQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#06dbb950-4a8b-4c6d-b163-32f9fe133216</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/GetLogin/GetLoginQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/GetLogin/GetLoginQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#51ead910-32f0-4469-be4b-d97220409a5d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/GetLogout/GetLogoutQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/GetLogout/GetLogoutQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#51ead910-32f0-4469-be4b-d97220409a5d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/GetLogout/GetLogoutQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/GetLogout/GetLogoutQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#51ead910-32f0-4469-be4b-d97220409a5d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/GetLogout/GetLogoutQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/GetLogout/GetLogoutQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#ade86e1a-8281-4fa5-94c0-c5e64cf17a58</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/GetUser/GetUserQuery.cs</ApplicationRelativeFilePath>
@@ -856,54 +880,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/GetUser/GetUserQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Users/GetUser/GetUserQueryValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryModels#27673f33-2430-4777-af94-73fae33280b8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/GetUserLogin/GetUserLoginQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/GetUserLogin/GetUserLoginQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryHandler#27673f33-2430-4777-af94-73fae33280b8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/GetUserLogin/GetUserLoginQueryHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/GetUserLogin/GetUserLoginQueryHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#27673f33-2430-4777-af94-73fae33280b8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/GetUserLogin/GetUserLoginQueryValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/GetUserLogin/GetUserLoginQueryValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryModels#7121b3af-df80-4209-a098-aadea504894a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/GetUserLogout/GetUserLogoutQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/GetUserLogout/GetUserLogoutQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.QueryHandler#7121b3af-df80-4209-a098-aadea504894a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/GetUserLogout/GetUserLogoutQueryHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/GetUserLogout/GetUserLogoutQueryHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#7121b3af-df80-4209-a098-aadea504894a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Users/GetUserLogout/GetUserLogoutQueryValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/GetUserLogout/GetUserLogoutQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
