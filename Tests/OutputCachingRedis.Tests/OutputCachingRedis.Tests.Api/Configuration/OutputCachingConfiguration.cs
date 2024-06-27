@@ -29,9 +29,9 @@ namespace OutputCachingRedis.Tests.Api.Configuration
             {
                 options.AddBasePolicy(b => b.NoCache());
                 options.AddPolicy("Long Term", builder => builder
-                    .Expire(TimeSpan.FromSeconds(900)));
+                    .Expire(TimeSpan.FromSeconds(configuration.GetValue<int?>("OutputCaching:Policies:Long Term:Duration") ?? 900)));
                 options.AddPolicy("Short Term", builder => builder
-                    .Expire(TimeSpan.FromSeconds(60)));
+                    .Expire(TimeSpan.FromSeconds(configuration.GetValue<int?>("OutputCaching:Policies:Short Term:Duration") ?? 60)));
             });
             return services;
         }
