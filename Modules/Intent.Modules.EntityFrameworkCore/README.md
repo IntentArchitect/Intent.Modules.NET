@@ -61,6 +61,11 @@ When enabled, an `IApplicationDbContext` will be generated in the "Application" 
 
 When enabled, configures the DbContext to have [split queries enabled globally](https://learn.microsoft.com/ef/core/querying/single-split-queries#enabling-split-queries-globally).
 
+### Database Settings - `Maintain column ordering`
+
+When enabled, configures the DbContext to have [split queries enabled globally](https://learn.microsoft.com/ef/core/querying/single-split-queries#enabling-split-queries-globally).
+
+
 ## Domain Designer modeling
 
 The `Domain Designer` has been extended with many stereotypes for modeling RDBMS technology specific concepts in your domain.
