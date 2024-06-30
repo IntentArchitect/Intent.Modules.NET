@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <Version>5.1.2-pre.0</Version>
+    <Version>5.1.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

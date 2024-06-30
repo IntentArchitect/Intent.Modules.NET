@@ -3,7 +3,7 @@
   <name>Intent.Application.MediatR.FluentValidation</name>
   <display>Intent.Application.MediatR.FluentValidation 4.6.0</display>
   <isAbstract>false</isAbstract>
-  <value>4.6.0</value>
+  <value>4.6.1</value>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
