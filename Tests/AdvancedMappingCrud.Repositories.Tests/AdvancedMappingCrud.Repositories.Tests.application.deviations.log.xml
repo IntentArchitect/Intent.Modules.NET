@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#2282a452-06d4-4fab-bacb-ec2861bb33e1</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.Application/Customers/DeactivateCustomer/DeactivateCustomerCommandHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-05T15:01:15.076539Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:28:54.1634645Z</approvedAt>
+      <deviationsHash>984676B1807B93BD3865F86C2C2B4726790713D4ED4DA6AB8D1A3A0F614E9A6B</deviationsHash>
+      <fileHash>187B2C4F245199DDA3670DD45858A14C0785455E6EB9B9036081D27633D52176</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#b2562789-afbc-4c86-886b-6eb51efe9fe6</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCusomterStatistics/GetCusomterStatisticsQueryHandler.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:28:13.2845563Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:28:13.2845565Z</approvedAt>
+      <deviationsHash>23408ED45E5CC551E1B7B18A94382F04590DDF533BC40650F3CF5F735F5DDE3C</deviationsHash>
+      <fileHash>59E29CC732BF8F858E39A2E5469C09DDE6FBE1203B889FBCEB4EDA68E2FDC607</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#dffb0384-7359-4c03-856d-8a82fb8a8c0b</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/DownloadFile/DownloadFileQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-05T15:01:15.0774939Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:28:11.3573906Z</approvedAt>
+      <deviationsHash>CCDB4D062034A1DE26D51E767FFA20A7B42F0EF1DDE09D0376EBB4140C0B260A</deviationsHash>
+      <fileHash>930B6A5324268DAFDDBA5F417AA411354EAB497CD9773EA3DE8C4BC6B8F04374</fileHash>
+    </file>
+  </files>
+</deviationsLog>

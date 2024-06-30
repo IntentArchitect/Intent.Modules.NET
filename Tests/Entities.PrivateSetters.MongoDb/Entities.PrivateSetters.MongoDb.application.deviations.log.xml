@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#a73ec8e9-cb37-4274-82c2-e63449e28ab4</correlationId>
+      <path>Entities.PrivateSetters.MongoDb.Application/Implementation/InvoiceService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:07:28.4988353Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:07:28.4990643Z</approvedAt>
+      <deviationsHash>AF3E47E3FF69199C35D1A7FF50967A1E8EE7EFD8CD35BA93771A9DAED8BE4FE8</deviationsHash>
+      <fileHash>ADBC284C04FEC8DA3D9E802567F89FF4FBA38753C3777ACECCF36F9697AB1A80</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#006f0a75-21d7-4619-858e-10eac2a2e832</correlationId>
+      <path>Entities.PrivateSetters.MongoDb.Application/Implementation/TagService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:07:28.5157164Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:07:28.5157188Z</approvedAt>
+      <deviationsHash>1231218C291F347B8EC832A21F959B7699AFA63BDC5A3C1B421B16C376CB56A7</deviationsHash>
+      <fileHash>B4108D7278FECF14A16E8D1B73EF5800CF96399FC9B2691D6A55EF72025653C4</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#1719967b-12e5-469c-b69d-689abe37aa89</correlationId>
+      <path>Entities.PrivateSetters.MongoDb.Domain/Entities/Invoice.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:07:28.5173435Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:07:28.517346Z</approvedAt>
+      <deviationsHash>FD9BED09D8C1254F6FA830AFAC48F39EF41908593637BDFF6AE9757F37485074</deviationsHash>
+      <fileHash>38443F5CD25CDA306539CA2AAA97229E2927AA800FB37CFCEB4BFF03200656E9</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#294a9909-f28e-4ea2-973a-099a8db92b0a</correlationId>
+      <path>Entities.PrivateSetters.MongoDb.Domain/Entities/Line.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:07:28.5185975Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:07:28.5186001Z</approvedAt>
+      <deviationsHash>4FD14B2EEFA6B6AACDBE3053521AB1FA139D09E651D8CBA742375FCD6EB12FFF</deviationsHash>
+      <fileHash>DF1325A5B6ADCE021965C61A3EA7E6F9D524D62CBD0FA3817B5B40CD465FBFFE</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#5172bd1d-95a7-4911-a75d-2b817bc1e16f</correlationId>
+      <path>Entities.PrivateSetters.MongoDb.Domain/Entities/Tag.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:07:28.5196399Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:07:28.519642Z</approvedAt>
+      <deviationsHash>5DB1F02730356498B6DEC6B326DEA907D3E3F742F869430E091CDAA6A3F1C5DF</deviationsHash>
+      <fileHash>2E9DC92ED6738144F3F398C9FD49A4053B2DC75A686D04DCA69F47EFC2BFD373</fileHash>
+    </file>
+  </files>
+</deviationsLog>

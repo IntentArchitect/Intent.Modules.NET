@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>1a945b34-9637-4af2-ade9-5ab44dd79905</id>
+  <name>Solace Settings</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions>
+    <packageExtension type="Services Package" typeId="df45eaf6-9202-4c25-8dd5-677e9ba1e906">
+      <requiredPackages />
+      <creationOptions>
+        <option type="element">
+          <text>New Queue</text>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAQFJREFUaEPtVsERgkAMTCgCfagliAVgAVoIPVGJ/qUApQX8QBHEuYcPP9zkct4NM8s7e0l2d8gyrfzjlc9PWCC3glAAChgZ8Fqo76brLNIy087YSwUXoXfB3Bzr8rYE9C7wfIxD6uG/AwvJcKq3B9MCr24UFXWRi6t6s0iyVwEsYFQECsBCuS20+t9o302XmeaWifdGMlVwdwNYiqY6l3fTHVB1zVDsvQMZZlK19C6ALKTi87cYWcjxgUNmsJCDIgvBQrkthCwUqACyUCBxyWHIQv+kHFkIWSiCv5CFkIWMNjJbCFkoUAFkoUDiksO8WSj5RMqGWEBJWPRyKBCdUuWDHzVltDHP/UJ6AAAAAElFTkSuQmCC" />
+          <specializationType>Queue</specializationType>
+          <specializationTypeId>7c61be7b-8260-40ec-9722-8798b8261bb1</specializationTypeId>
+          <defaultName>NewQueue</defaultName>
+          <allowMultiple>true</allowMultiple>
+        </option>
+      </creationOptions>
+      <scriptOptions />
+      <typeOrder>
+        <type>Queue</type>
+      </typeOrder>
+    </packageExtension>
+  </packageExtensions>
+  <elementSettings>
+    <elementSetting type="Queue" typeId="7c61be7b-8260-40ec-9722-8798b8261bb1">
+      <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAQFJREFUaEPtVsERgkAMTCgCfagliAVgAVoIPVGJ/qUApQX8QBHEuYcPP9zkct4NM8s7e0l2d8gyrfzjlc9PWCC3glAAChgZ8Fqo76brLNIy087YSwUXoXfB3Bzr8rYE9C7wfIxD6uG/AwvJcKq3B9MCr24UFXWRi6t6s0iyVwEsYFQECsBCuS20+t9o302XmeaWifdGMlVwdwNYiqY6l3fTHVB1zVDsvQMZZlK19C6ALKTi87cYWcjxgUNmsJCDIgvBQrkthCwUqACyUCBxyWHIQv+kHFkIWSiCv5CFkIWMNjJbCFkoUAFkoUDiksO8WSj5RMqGWEBJWPRyKBCdUuWDHzVltDHP/UJ6AAAAAElFTkSuQmCC" />
+      <saveAsOwnFile>true</saveAsOwnFile>
+      <allowRename>true</allowRename>
+      <allowAbstract>false</allowAbstract>
+      <allowStatic>false</allowStatic>
+      <allowGenericTypes>false</allowGenericTypes>
+      <allowMapping>false</allowMapping>
+      <allowSorting>true</allowSorting>
+      <sortChildren>by-type-then-by-name</sortChildren>
+      <allowFindInView>true</allowFindInView>
+      <allowTypeReference>false</allowTypeReference>
+      <allowConvertToType p4:nil="true" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance" />
+      <allowSetValue>false</allowSetValue>
+      <typeOrder />
+      <creationOptions />
+      <scriptOptions />
+      <mappingOptions />
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-created">
+          <script>let queueConfigStereoTypeId = "6b1a00d5-377b-4e0d-87d3-8c2ad5c70c5d";
+element.addStereotype(queueConfigStereoTypeId);</script>
+        </macro>
+      </macros>
+      <childElementSettings />
+    </elementSetting>
+  </elementSettings>
+  <elementExtensions>
+    <elementExtension type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+      <creationOptions>
+        <option type="element">
+          <text>New Queue</text>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAQFJREFUaEPtVsERgkAMTCgCfagliAVgAVoIPVGJ/qUApQX8QBHEuYcPP9zkct4NM8s7e0l2d8gyrfzjlc9PWCC3glAAChgZ8Fqo76brLNIy087YSwUXoXfB3Bzr8rYE9C7wfIxD6uG/AwvJcKq3B9MCr24UFXWRi6t6s0iyVwEsYFQECsBCuS20+t9o302XmeaWifdGMlVwdwNYiqY6l3fTHVB1zVDsvQMZZlK19C6ALKTi87cYWcjxgUNmsJCDIgvBQrkthCwUqACyUCBxyWHIQv+kHFkIWSiCv5CFkIWMNjJbCFkoUAFkoUDiksO8WSj5RMqGWEBJWPRyKBCdUuWDHzVltDHP/UJ6AAAAAElFTkSuQmCC" />
+          <specializationType>Queue</specializationType>
+          <specializationTypeId>7c61be7b-8260-40ec-9722-8798b8261bb1</specializationTypeId>
+          <defaultName>NewQueue</defaultName>
+          <allowMultiple>true</allowMultiple>
+        </option>
+      </creationOptions>
+      <scriptOptions />
+      <mappingOptions />
+      <typeOrder>
+        <type>Queue</type>
+      </typeOrder>
+      <mappingSettings />
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+</settings>

@@ -304,8 +304,8 @@
       <childElements />
     </childElement>
     <childElement id="7e0f472d-6cf0-423e-872a-cd6b2e0614bc" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <name>Default Schema Name</name>
-      <display>Default Schema Name</display>
+      <name>Default schema name</name>
+      <display>Default schema name</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -329,8 +329,8 @@
       <childElements />
     </childElement>
     <childElement id="1cb44856-03a7-4a0c-88cf-ae9f84b9dd79" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <name>Maintain Column Ordering</name>
-      <display>Maintain Column Ordering</display>
+      <name>Maintain column ordering</name>
+      <display>Maintain column ordering</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

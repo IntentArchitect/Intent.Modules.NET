@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c8049a47-6cfe-4ff1-9d96-77630a3fcb43" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>ParamConversionService</name>
+  <display>ParamConversionService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.Comprehensive.Services" type="association" specialization="Services Package" />
+      <target id="b0eae68f-2e13-4744-b289-c3041fd05dff" name="ParamConversion" type="element" specialization="Folder" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</parentFolderId>
+  <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+  <packageName>CleanArchitecture.Comprehensive.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2efdccb7-dc21-4755-91ba-4c95ac9fcf13" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CheckTypeConversionsOnProxy</name>
+      <display>CheckTypeConversionsOnProxy(from: datetime, to: datetime?, id: guid, value: decimal, time: TimeSpan, active: bool, justDate: date, otherDate: datetimeoffset): bool</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="3aac3818-01f0-4137-b45e-0caf4c917d3b">
+        <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="ccdf697c-0958-41eb-906d-61686a1b1f7a" name="CheckTypeConversionsOnProxy" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>c8049a47-6cfe-4ff1-9d96-77630a3fcb43</parentFolderId>
+      <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+      <packageName>CleanArchitecture.Comprehensive.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="9e51f673-932d-4b1e-b7f8-808b59b2d543" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>from</name>
+          <display>from: datetime</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9bcd39e3-06bb-4e5d-be79-9d8a4a12ea5e">
+            <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2efdccb7-dc21-4755-91ba-4c95ac9fcf13</parentFolderId>
+          <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+          <packageName>CleanArchitecture.Comprehensive.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="1cbb1889-007a-4159-b4fc-443493caad24" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="75b070bc-d744-41fc-a186-8402fb68fb09" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>to</name>
+          <display>to: datetime?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ab828cd7-cc5d-4137-9a1f-a37dad8d74bc">
+            <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2efdccb7-dc21-4755-91ba-4c95ac9fcf13</parentFolderId>
+          <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+          <packageName>CleanArchitecture.Comprehensive.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="ed868e65-65d4-45a3-ab38-ba493ad4294e" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="2228f023-357c-4087-8e0e-3c7a0c4e5c18" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="b928e4c3-a998-4bf6-a889-3eb0087a18e9">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2efdccb7-dc21-4755-91ba-4c95ac9fcf13</parentFolderId>
+          <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+          <packageName>CleanArchitecture.Comprehensive.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="ebc6b94c-e50e-4e4f-a408-cd0d465c3228" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="4f07dc60-0e17-44c1-af77-7e2671f88991" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>value</name>
+          <display>value: decimal</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="43358e78-fe9d-4178-b535-85c17b7a935b">
+            <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2efdccb7-dc21-4755-91ba-4c95ac9fcf13</parentFolderId>
+          <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+          <packageName>CleanArchitecture.Comprehensive.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="4b3b6e68-bb4e-4017-a038-0459c6ba06a6" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="995773e0-53ea-4960-82a7-f21cb565305a" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>time</name>
+          <display>time: TimeSpan</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="679d3c4f-935c-486d-8668-2e39c00a83ff">
+            <typeId>46dbdc6c-aaa7-4d2e-ba1f-81abdb87a888</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.CSharp</typePackageName>
+            <typePackageId>730e1275-0c32-44f7-991a-9619d07ca68d</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2efdccb7-dc21-4755-91ba-4c95ac9fcf13</parentFolderId>
+          <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+          <packageName>CleanArchitecture.Comprehensive.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="39813301-c736-425b-a9d1-512f25704307" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="6ee92d25-2c6b-407b-b14c-1defb1064348" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>active</name>
+          <display>active: bool</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2b3203d8-d97c-49f2-bf46-94437ee204d4">
+            <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2efdccb7-dc21-4755-91ba-4c95ac9fcf13</parentFolderId>
+          <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+          <packageName>CleanArchitecture.Comprehensive.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="739c3eee-565b-452b-b6f1-b7edd7fc7ec0" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="2ece2e2e-f25e-46e8-aad7-70bb13c6cb74" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>justDate</name>
+          <display>justDate: date</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4647bf21-4c28-4006-9c75-c7a8e968e567">
+            <typeId>1fbaa056-b666-4f25-b8fd-76fe3165acc8</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2efdccb7-dc21-4755-91ba-4c95ac9fcf13</parentFolderId>
+          <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+          <packageName>CleanArchitecture.Comprehensive.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="a1f84b10-e350-4ea0-b485-30d710ed077f" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="d77610a0-c8bc-495e-9e73-f18ce60cee2e" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>otherDate</name>
+          <display>otherDate: datetimeoffset</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d58fc953-c86e-4bbb-8a57-4b05cb194a0a">
+            <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2efdccb7-dc21-4755-91ba-4c95ac9fcf13</parentFolderId>
+          <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
+          <packageName>CleanArchitecture.Comprehensive.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="1e35ea09-af95-4189-8e68-cb0c53eeeeaf" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

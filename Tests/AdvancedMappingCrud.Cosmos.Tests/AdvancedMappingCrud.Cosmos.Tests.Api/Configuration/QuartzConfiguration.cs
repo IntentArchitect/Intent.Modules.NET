@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Quartz;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.QuartzScheduler.QuartzConfiguation", Version = "1.0")]
+[assembly: IntentTemplate("Intent.QuartzScheduler.QuartzConfiguration", Version = "1.0")]
 
 namespace AdvancedMappingCrud.Cosmos.Tests.Api.Configuration
 {
@@ -41,7 +41,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Api.Configuration
                 .AddQuartzHostedService(options =>
                 {
                     options.WaitForJobsToComplete = true;
-                }); ;
+                });
 
             return services;
         }

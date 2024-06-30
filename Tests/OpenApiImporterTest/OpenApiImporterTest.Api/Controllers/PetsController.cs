@@ -12,9 +12,9 @@ using Microsoft.Extensions.DependencyInjection;
 using OpenApiImporterTest.Application.Pets;
 using OpenApiImporterTest.Application.Pets.CreatePet;
 using OpenApiImporterTest.Application.Pets.DeletePet;
+using OpenApiImporterTest.Application.Pets.GetByStatuses;
+using OpenApiImporterTest.Application.Pets.GetByTags;
 using OpenApiImporterTest.Application.Pets.GetPet;
-using OpenApiImporterTest.Application.Pets.GetPetFindByStatus;
-using OpenApiImporterTest.Application.Pets.GetPetFindByTags;
 using OpenApiImporterTest.Application.Pets.UpdatePet;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -95,11 +95,11 @@ namespace OpenApiImporterTest.Api.Controllers
         [ProducesResponseType(typeof(List<Pet>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<Pet>>> GetPetFindByStatus(
+        public async Task<ActionResult<List<Pet>>> GetByStatuses(
             [FromQuery] string status,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetPetFindByStatusQuery(status: status), cancellationToken);
+            var result = await _mediator.Send(new GetByStatusesQuery(status: status), cancellationToken);
             return Ok(result);
         }
 
@@ -112,11 +112,11 @@ namespace OpenApiImporterTest.Api.Controllers
         [ProducesResponseType(typeof(List<Pet>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<Pet>>> GetPetFindByTags(
+        public async Task<ActionResult<List<Pet>>> GetByTags(
             [FromQuery] List<string> tags,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetPetFindByTagsQuery(tags: tags), cancellationToken);
+            var result = await _mediator.Send(new GetByTagsQuery(tags: tags), cancellationToken);
             return Ok(result);
         }
 

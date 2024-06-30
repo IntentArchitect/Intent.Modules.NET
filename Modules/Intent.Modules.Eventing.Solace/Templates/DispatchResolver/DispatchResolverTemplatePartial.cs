@@ -33,9 +33,9 @@ namespace Intent.Modules.Eventing.Solace.Templates.DispatchResolver
                     {
                         ctor.AddParameter($"{this.GetMessageRegistryName()}", "messageRegistry");
                         ctor.AddStatements(@"_dispatcherMappings = new Dictionary<Type, Type>();
-			foreach (var message in messageRegistry.MessageTypes)
+			foreach (var queue in messageRegistry.Queues)
 			{
-				if (message.SubscribeDestination is not null)
+				foreach (var message in queue.SubscribedMessages)
 				{
 					var genericTypeDefinition = typeof(ISolaceEventDispatcher<>);
 					var closedConstructedType = genericTypeDefinition.MakeGenericType(message.MessageType);

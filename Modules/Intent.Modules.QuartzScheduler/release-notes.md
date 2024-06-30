@@ -1,3 +1,7 @@
+### Version 1.0.2
+
+- Fixed: Fixed template name spelling mistake, also made template role more distinct.
+
 ### Version 1.0.1
 
 - Improvement: Added `DisallowConcurrentExecution` modeling setting on Scheduled Jobs.

@@ -81,6 +81,8 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                             {
                                 foreach (var publishedDomainEvent in ctorModel.PublishedDomainEvents())
                                 {
+                                    
+                                    ctor.Statements.FirstOrDefault(x => x.ToString().Contains("// TODO: Implement"))?.Remove();
                                     ctor.Statements.FirstOrDefault(x => x.ToString().Contains("NotImplementedException"))?.Remove();
                                     var mapping = publishedDomainEvent.Mappings.SingleOrDefault();
                                     if (mapping != null)
@@ -103,6 +105,7 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                             {
                                 foreach (var publishedDomainEvent in operationModel.PublishedDomainEvents())
                                 {
+                                    method.Statements.FirstOrDefault(x => x.ToString().Contains("// TODO: Implement"))?.Remove();
                                     method.Statements.FirstOrDefault(x => x.ToString().Contains("NotImplementedException"))?.Remove();
                                     var mapping = publishedDomainEvent.Mappings.SingleOrDefault();
                                     if (mapping != null)

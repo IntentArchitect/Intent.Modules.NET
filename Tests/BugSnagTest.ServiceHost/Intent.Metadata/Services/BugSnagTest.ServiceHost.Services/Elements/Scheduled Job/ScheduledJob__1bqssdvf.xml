@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0bda7a13-2e12-4044-ae77-88a71e8fd489" type="Scheduled Job" typeId="57b933b6-cec8-4fd5-8060-948f5e39d45e">
+  <name>ScheduledJob</name>
+  <display>ScheduledJob</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a86f8fc1-3cc6-433f-8c41-5f1263ed9cb8</parentFolderId>
+  <packageId>a86f8fc1-3cc6-433f-8c41-5f1263ed9cb8</packageId>
+  <packageName>BugSnagTest.ServiceHost.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b7a34ab9-8f7f-415f-92bd-c85cfe02f29d" name="Scheduling">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.QuartzScheduler</definitionPackageName>
+      <definitionPackageId>046b57a5-7822-4ce0-aad8-dd40a93ecee5</definitionPackageId>
+      <properties>
+        <property name="454e03bf-a9f4-41c2-af94-66e384085a90" display="Enabled" value="true" isActive="true" />
+        <property name="e147ef25-fdc3-4bdb-b920-76ed7f3b47c2" display="Cron Schedule" value="*/10 * * * * ?" isActive="true" />
+        <property name="81666ced-cb50-49d7-a85d-5a4be8d3b462" display="Disallow Concurrent Execution" value="false" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

@@ -81,7 +81,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Us
             var relativeUri = $"api/user/user-address/{id}";
 
             var queryParams = new Dictionary<string, string?>();
-            queryParams.Add("userId", userId.ToString());
+            queryParams.Add("userId", userId.ToString("D"));
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

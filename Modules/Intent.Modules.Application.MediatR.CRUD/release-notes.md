@@ -1,3 +1,7 @@
+### Version 6.0.12
+
+- Improvement: Added `TODO` comments on `NotImplementedException`.
+
 ### Version 6.0.11
 
 - Improvement: Added basic support non UOW based repositories.

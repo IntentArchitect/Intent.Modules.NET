@@ -31,11 +31,13 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConsumingService
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Microsoft.Extensions.Hosting")
+                .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("SolaceSystems.Solclient.Messaging")
                 .AddClass($"SolaceConsumingService", @class =>
                 {
                     @class.ImplementsInterface("IHostedService");
                     @class.AddField($"List<{this.GetSolaceConsumerName()}>", "_consumers", f => f.PrivateReadOnly().WithAssignment($"new List<{this.GetSolaceConsumerName()}>()"));
+                    @class.AddField($"bool", "_bindQueues", f => f.PrivateReadOnly());
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter("ISession", "session", param =>
@@ -46,10 +48,12 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConsumingService
                         {
                             param.IntroduceReadonlyField();
                         });
+                        ctor.AddParameter("IConfiguration", "configuration");
                         ctor.AddParameter("IServiceProvider", "provider", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
+                        ctor.AddStatement("_bindQueues = configuration.GetSection(\"Solace:BindQueues\").Get<bool?>() ?? true;");
                         ctor.AddStatement("ValidateEnvironment(session);");
                     });
 
@@ -57,22 +61,16 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConsumingService
                     {
                         method
                             .AddParameter("CancellationToken", "cancellationToken");
-                        method.AddStatements(@"var consumerConfigs = _messageRegistry.MessageTypes
-						.Where(mc => mc.SubscribeDestination != null)
-						.GroupBy(mc => mc.SubscribeDestination)
-						.Select(g => new ConsumerConfig(
-							QueueName: g.Key!,
-							TopicNames: g.Select(mc => mc.PublishedDestination)
-						))
-						.ToList();
-			foreach (var consumerConfig in consumerConfigs)
-			{
-				var consumer = _provider.GetRequiredService<SolaceConsumer>();
-				consumer.Start(consumerConfig);
-				_consumers.Add(consumer);
-			}
-			return Task.CompletedTask;
-".ConvertToStatements());
+                        method.AddStatements(@"if (_bindQueues)
+            {
+                foreach (var queueConfig in _messageRegistry.Queues)
+                {
+                    var consumer = _provider.GetRequiredService<SolaceConsumer>();
+                    consumer.Start(queueConfig);
+                    _consumers.Add(consumer);
+                }
+            }
+            return Task.CompletedTask;".ConvertToStatements());
                     });
 
                     @class.AddMethod("Task", "StopAsync", method =>

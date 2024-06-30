@@ -53,6 +53,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DefaultDomainEventHandle
                     var handleMethod = file.Classes.First().FindMethod("Handle");
                     if (handleMethod?.Statements.Count == 0)
                     {
+                        handleMethod.AddStatement($"// TODO: Implement {handleMethod.Name} {file.Classes.First().Name}) functionality");
                         handleMethod.AddStatement("throw new NotImplementedException(\"Implement your handler logic here...\");");
                     }
                 }, 1000);

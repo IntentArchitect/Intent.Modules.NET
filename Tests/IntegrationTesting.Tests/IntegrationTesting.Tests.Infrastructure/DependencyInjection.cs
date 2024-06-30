@@ -37,6 +37,7 @@ namespace IntegrationTesting.Tests.Infrastructure
             services.AddTransient<IParentRepository, ParentRepository>();
             services.AddTransient<IPartialCrudRepository, PartialCrudRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IUniqueConValRepository, UniqueConValRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             return services;
         }

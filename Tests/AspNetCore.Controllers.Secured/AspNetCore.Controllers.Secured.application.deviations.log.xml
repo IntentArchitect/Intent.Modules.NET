@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#d547a720-3c5c-4dc4-8c45-ac13c770ba2d</correlationId>
+      <path>AspNetCore.Controllers.Secured.Application/Products/GetProductById/GetProductByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:35:50.25518Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:35:50.2553478Z</approvedAt>
+      <deviationsHash>745F2E67DEBBDE9BB94B640EE0FF6FFB83F82BE8388F79E06431A4EAFE586355</deviationsHash>
+      <fileHash>7A5614BA737D044BF490B7899C12D420AE1BD45B28B1F2DCD022E8198362B99A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#8741299a-9c28-4fed-b5d8-768205a295b3</correlationId>
+      <path>AspNetCore.Controllers.Secured.Application/Products/GetProducts/GetProductsQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T19:35:50.2707935Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T19:35:50.2707955Z</approvedAt>
+      <deviationsHash>6E7655F9C05A00310D97161C8B1B6B9CC4C9D5AC8C6B43EBF5E3E27AAEEB66E4</deviationsHash>
+      <fileHash>19680B759974D8324B92B0E48AA373B4051085567E2109DBB33BFF5CA574B3AB</fileHash>
+    </file>
+  </files>
+</deviationsLog>

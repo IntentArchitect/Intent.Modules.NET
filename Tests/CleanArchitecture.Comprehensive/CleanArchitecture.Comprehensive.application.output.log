@@ -108,6 +108,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#5d1e5966-7c61-4b7d-a1f6-9c21e4139b02</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/BugFixesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BugFixesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#5355c4ab-3cc6-40e3-a16f-a8e0c7bdbf07</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/IntegrationTriggeringsAnemicController.cs</ApplicationRelativeFilePath>
@@ -160,6 +168,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/PaginationForProxiesController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PaginationForProxiesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#b0eae68f-2e13-4744-b289-c3041fd05dff</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/ParamConversionController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParamConversionController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2444,6 +2460,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#aa7f2718-f7b4-43eb-902f-7f1016d103d7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/BugFixes/GetTaskName/GetTaskNameQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BugFixes/GetTaskName/GetTaskNameQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#aa7f2718-f7b4-43eb-902f-7f1016d103d7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/BugFixes/GetTaskName/GetTaskNameQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BugFixes/GetTaskName/GetTaskNameQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#aa7f2718-f7b4-43eb-902f-7f1016d103d7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/BugFixes/GetTaskName/GetTaskNameQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BugFixes/GetTaskName/GetTaskNameQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#da55042c-8997-46cd-9396-cb513511c14c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/BugFixes/TaskNameDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BugFixes/TaskNameDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#09590c38-69ac-4e42-a8eb-5bc3645f78a6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/ClassWithEnums/ClassWithEnumsDto.cs</ApplicationRelativeFilePath>
@@ -3444,6 +3492,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#4f647f15-9fdd-4cf2-8364-be7d6b0b29c4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/IntegrationServices/IBugFixesService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBugFixesService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#d6d46aba-0653-489a-a910-a75684dbae29</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/IntegrationServices/INamedQueryStringsService.cs</ApplicationRelativeFilePath>
@@ -3456,6 +3512,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/IntegrationServices/IPaginationForProxiesService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPaginationForProxiesService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#c8049a47-6cfe-4ff1-9d96-77630a3fcb43</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/IntegrationServices/IParamConversionService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IParamConversionService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3488,6 +3552,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/IntegrationServices/ITestVersionedProxy.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ITestVersionedProxy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>38669a0c-b672-406a-bf3c-d45108b74d95</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#da55042c-8997-46cd-9396-cb513511c14c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/IntegrationServices/Services/BugFixes/TaskNameDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/BugFixes/TaskNameDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3928,6 +4000,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/PaginationForProxies/PaginatedResult/PaginatedResultQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PaginationForProxies/PaginatedResult/PaginatedResultQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#ccdf697c-0958-41eb-906d-61686a1b1f7a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/ParamConversion/CheckTypeConversionsOnProxy/CheckTypeConversionsOnProxy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParamConversion/CheckTypeConversionsOnProxy/CheckTypeConversionsOnProxy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#ccdf697c-0958-41eb-906d-61686a1b1f7a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/ParamConversion/CheckTypeConversionsOnProxy/CheckTypeConversionsOnProxyHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParamConversion/CheckTypeConversionsOnProxy/CheckTypeConversionsOnProxyHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#ccdf697c-0958-41eb-906d-61686a1b1f7a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/ParamConversion/CheckTypeConversionsOnProxy/CheckTypeConversionsOnProxyValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParamConversion/CheckTypeConversionsOnProxy/CheckTypeConversionsOnProxyValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -7052,6 +7148,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>33e877f2-e688-4af6-b60f-5d0bd9532805</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#4f647f15-9fdd-4cf2-8364-be7d6b0b29c4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/HttpClients/BugFixesServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BugFixesServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>33e877f2-e688-4af6-b60f-5d0bd9532805</ProjectId>
       <CorrelationId>Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/HttpClients/HttpClientHeaderHandler.cs</ApplicationRelativeFilePath>
@@ -7072,6 +7176,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/HttpClients/PaginationForProxiesServiceHttpClient.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PaginationForProxiesServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>33e877f2-e688-4af6-b60f-5d0bd9532805</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#c8049a47-6cfe-4ff1-9d96-77630a3fcb43</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/HttpClients/ParamConversionServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParamConversionServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

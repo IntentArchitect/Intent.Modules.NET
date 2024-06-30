@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#935aaf2b-05ff-483b-8d67-42ddbf441824</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Application/Privileges/CreatePrivilege/CreatePrivilegeCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.6999694Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.7001136Z</approvedAt>
+      <deviationsHash>14C4FBDD8ED89A30590FE9B8BC174F2A50790976CCDF1F924C26389CC55D0C8A</deviationsHash>
+      <fileHash>92E3E0295B52F538599A00A75648470CC768D98AA461C8D0B68DC214751D6807</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#99bcfcc7-0c3d-41c2-a2f7-e887cca43b22</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Application/Privileges/DeletePrivilege/DeletePrivilegeCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7174664Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.7174687Z</approvedAt>
+      <deviationsHash>15ECA6A4F0E8E15B8D7181F402BBBB42E6430BC66C507DF00D6F026B4492D27A</deviationsHash>
+      <fileHash>2F3203DBD98D13F30B532C6CB83126B3348C6F0A748A41F151962502D90E347A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#82aa11c9-f933-4579-8864-31340f8ccfbc</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Application/Privileges/GetPrivilegeById/GetPrivilegeByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7188211Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.7188234Z</approvedAt>
+      <deviationsHash>09ECD49A4B719029CDAD2827ED2B9FF28A720BE441B4AADAA04CA7414F9ED426</deviationsHash>
+      <fileHash>21CBF82E0FB1522602DC0A8C97E32C26EBE514E0E673FEC2CBBB218D11791F4A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#82aa11c9-f933-4579-8864-31340f8ccfbc</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Application/Privileges/GetPrivilegeById/GetPrivilegeByIdQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7207748Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.7207769Z</approvedAt>
+      <deviationsHash>44B44E0EB96AE6B4A866BE2F7AE0BB6CCB123F2E7C5AE844A19717E808B551F3</deviationsHash>
+      <fileHash>1EC3C60F85A8CB0A1763C769CD0A181517DA93F2BA5D5F7AB8FCA2DE23FD49D5</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#2f2d1546-0b14-482b-a40e-d6f36a335d81</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Application/Privileges/GetPrivileges/GetPrivilegesQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7198654Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.7198672Z</approvedAt>
+      <deviationsHash>4153093732E15D0535BB46C883663DA29C174342E31346B2FF35BEA32561720C</deviationsHash>
+      <fileHash>22BD366EEB22FE7F3111EDEDD9F72799D11AF61BA2EEF0D3383425E779BED332</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#2f2d1546-0b14-482b-a40e-d6f36a335d81</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Application/Privileges/GetPrivileges/GetPrivilegesQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7216605Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.7216624Z</approvedAt>
+      <deviationsHash>FA59220F6FF4B8F1E6FA531CBB6FBE8E8F876B7CD5254A57BDEA860C1C930233</deviationsHash>
+      <fileHash>C032B6C466FDC03BFD83581028EAD76536727F8624F35CD03C13F2AE27D1ADDE</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#fd351863-81a7-40be-8400-04341bff9ec7</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Application/Privileges/UpdatePrivilege/UpdatePrivilegeCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7226569Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.7226588Z</approvedAt>
+      <deviationsHash>E4AEF6BF9BE536E8D8CEC618CE1D7DFCB9CB647B2DECABFACB53F746BF52DC3C</deviationsHash>
+      <fileHash>1F6490815E3F1CB0A0ECA1266FAFE59188234104E28201CF4A2BAABE5CF3FF57</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#b0a55bdd-de2f-4ea8-aad9-fddf94beb4bc</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Application/Users/CreateUser/CreateUserCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7236676Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.7236717Z</approvedAt>
+      <deviationsHash>3822E3A4E119C147BA88E00DBF54FED821CF37B0A602D0DFF93BAEE1EF04C701</deviationsHash>
+      <fileHash>6F50DCBBEE16487CB32A25E4A13A873628805D72917A13C74F8B840D88A09A21</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#70ca92ae-4256-4a81-ab5f-479156f0b786</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Application/Users/DeleteUser/DeleteUserCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7246873Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.7246893Z</approvedAt>
+      <deviationsHash>BBA30505FD15989721FB8874C8FA4776F49B7DFBAF786AFBF0EAD95BC4494F86</deviationsHash>
+      <fileHash>062FA8167E78994E38F9F58E26AFB9BDD77955074B8FF8B05332B66BE85FCEF2</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#c6df6e3c-b454-45f9-8067-af0787da5036</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Application/Users/GetUserById/GetUserByIdQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7257526Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.725755Z</approvedAt>
+      <deviationsHash>0403646630DEDB8C132D8232B37C7D0F75280C35B8C2E80F2753C963FED2B2E1</deviationsHash>
+      <fileHash>6E6B9BEE7FC720F6D6140CBDCB55331C89EA9F79CAE68DD1D38EDD04EF75261D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#c6df6e3c-b454-45f9-8067-af0787da5036</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Application/Users/GetUserById/GetUserByIdQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7271381Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.7271405Z</approvedAt>
+      <deviationsHash>EBD7A28DA69698D7B69C93B6DB7B474556C7A829AF1381F1196ADC5090CF6A4C</deviationsHash>
+      <fileHash>CB49BBD3AA761E0554046D46074970CA1AFB238DD734DCD2724F3ED67B3841C9</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#fef76538-26ab-4f9b-9c69-004b6fc0e95a</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Application/Users/GetUsers/GetUsersQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7283054Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.7283074Z</approvedAt>
+      <deviationsHash>484AB93C9DB2160C80D94B8F9962D9BAAE1B0AC74E310AC6F8D42EBFEF213EB2</deviationsHash>
+      <fileHash>DE425FF7A158776CB812A59A56C723E8294DC24C78153FA87E77F15F6203568F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#fef76538-26ab-4f9b-9c69-004b6fc0e95a</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Application/Users/GetUsers/GetUsersQueryValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7294601Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.7294619Z</approvedAt>
+      <deviationsHash>A632A913E1AAA849CE71196D28E8752432C10A0F948448A944C63F71F93A003C</deviationsHash>
+      <fileHash>575E65C38EDB6D5337D74EC27C0677D732AE90657EF20054E2B9061604907CBC</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#33dbc155-17ce-48e3-9bb7-5e50885c6ec7</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Application/Users/UpdateUser/UpdateUserCommandValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7307433Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.7307456Z</approvedAt>
+      <deviationsHash>AA072FE307DD411BA768BEB270BA6B67EB36A5C1DEC97657AB546B6B210151C4</deviationsHash>
+      <fileHash>DBA7095E9224CFC0D575EB5117D00784DECB8FE7B9AA366AE89779DD7B15692A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#ebfaf6af-f22c-4d69-9444-3a6d4d62d845</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Domain/Entities/AssignedPrivilege.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7319386Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.7319415Z</approvedAt>
+      <deviationsHash>67C42540E3D630DC8DD6AE60EE390DDEFC8CEC8AD077A5BF10E4C13C79A1906D</deviationsHash>
+      <fileHash>509EEFE824112A7F2576926A5FB4AC86599344B6725F7E7956D933012D414770</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#45508427-7011-4c62-a82a-52ce43058b9d</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Domain/Entities/Privilege.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7330507Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.7330526Z</approvedAt>
+      <deviationsHash>C20877F463481199E4030A3CC61FAAB9A2D1DB155CFAA6DA80F5E7893E0DCBFB</deviationsHash>
+      <fileHash>033234012808DB4C851F9CDF43118B8D72B9A13040EA6CBFE012C93D30432D02</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#68bbd249-5ccc-40ab-841d-b646fe4a7abd</correlationId>
+      <path>GraphQL.MongoDb.TestApplication.Domain/Entities/User.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:00:40.7341287Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:00:40.734131Z</approvedAt>
+      <deviationsHash>7959735A6CF94567A7B6BA2903EF8F84B0B556ED9CBFDEC670DC9B742B0AAF80</deviationsHash>
+      <fileHash>838412110E7C97E6956EB49DCEA6BD1BB294A878208F8B38535BF347381BA218</fileHash>
+    </file>
+  </files>
+</deviationsLog>

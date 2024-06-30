@@ -20,7 +20,7 @@ namespace Solace.Tests.Infrastructure.Eventing
 
             foreach (var message in messageRegistry.MessageTypes)
             {
-                _typeLookup.Add(message.Name, message.MessageType);
+                _typeLookup.Add(message.Value, message.Key);
             }
         }
 

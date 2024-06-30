@@ -11,7 +11,7 @@
           "Intent.MetadataSynchronizer": "1.0.0",
           "Intent.Modules.Modelers.Services": "3.4.7",
           "Intent.Modules.Modelers.Services.CQRS": "4.0.2",
-          "Microsoft.OpenApi.Readers": "1.6.6"
+          "Microsoft.OpenApi.Readers": "1.6.15"
         },
         "runtime": {
           "Intent.MetadataSynchronizer.OpenApi.CLI.dll": {}
@@ -93,23 +93,23 @@
           }
         }
       },
-      "Microsoft.OpenApi/1.6.6": {
+      "Microsoft.OpenApi/1.6.15": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.OpenApi.dll": {
-            "assemblyVersion": "1.6.6.0",
-            "fileVersion": "1.6.6.0"
+            "assemblyVersion": "1.6.15.0",
+            "fileVersion": "1.6.15.0"
           }
         }
       },
-      "Microsoft.OpenApi.Readers/1.6.6": {
+      "Microsoft.OpenApi.Readers/1.6.15": {
         "dependencies": {
-          "Microsoft.OpenApi": "1.6.6",
-          "SharpYaml": "2.1.0"
+          "Microsoft.OpenApi": "1.6.15",
+          "SharpYaml": "2.1.1"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.OpenApi.Readers.dll": {
-            "assemblyVersion": "1.6.6.0",
-            "fileVersion": "1.6.6.0"
+            "assemblyVersion": "1.6.15.0",
+            "fileVersion": "1.6.15.0"
           }
         }
       },
@@ -140,11 +140,11 @@
           }
         }
       },
-      "SharpYaml/2.1.0": {
+      "SharpYaml/2.1.1": {
         "runtime": {
           "lib/netstandard2.0/SharpYaml.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.1.0.0"
+            "fileVersion": "2.1.1.0"
           }
         }
       },
@@ -290,19 +290,19 @@
       "path": "intent.roslynweaver.attributes/2.0.1",
       "hashPath": "intent.roslynweaver.attributes.2.0.1.nupkg.sha512"
     },
-    "Microsoft.OpenApi/1.6.6": {
+    "Microsoft.OpenApi/1.6.15": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7SE3RTGpdXUN+PkVN4xRrtsATgBI7BpsBvbjg6SykurEinA69vIl4S8DWPeGLaBykaCDq87/Ebf2Ashoh7Ky/g==",
-      "path": "microsoft.openapi/1.6.6",
-      "hashPath": "microsoft.openapi.1.6.6.nupkg.sha512"
+      "sha512": "sha512-6w8KcyySsOf5w+ql8K/+2qct2gHkkPRq7i1VvAyvFwpgBFgZVFYK5yUOEFyyTmVT4OTkpRgr1Hy432BHC2tamg==",
+      "path": "microsoft.openapi/1.6.15",
+      "hashPath": "microsoft.openapi.1.6.15.nupkg.sha512"
     },
-    "Microsoft.OpenApi.Readers/1.6.6": {
+    "Microsoft.OpenApi.Readers/1.6.15": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-yWNvjxTS1lN9Ix91b0+zoOCSTHr2haZSm5qokko7qRKBiVQo+EDqlY+d93pxtCLcIj6LdHe+8AdfPGi7eAwtGA==",
-      "path": "microsoft.openapi.readers/1.6.6",
-      "hashPath": "microsoft.openapi.readers.1.6.6.nupkg.sha512"
+      "sha512": "sha512-kJzJKljlxd1A6jASB3QDlKQ1qBcTn6MzeWNVpk93Yi/Sf1QnH9n92To3gO7TZPOwcCKOglorJe1PZ4WQW3dOlQ==",
+      "path": "microsoft.openapi.readers/1.6.15",
+      "hashPath": "microsoft.openapi.readers.1.6.15.nupkg.sha512"
     },
     "NuGet.Versioning/5.6.0": {
       "type": "package",
@@ -325,12 +325,12 @@
       "path": "serilog.sinks.console/4.0.2-dev-00890",
       "hashPath": "serilog.sinks.console.4.0.2-dev-00890.nupkg.sha512"
     },
-    "SharpYaml/2.1.0": {
+    "SharpYaml/2.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-2jBenJ6QN0mj8G3ohrNO/uNhA92OJYsQFuI5dJ4zM/HauVoC/oJzK1sCVlUaVUpuXpHUa/k1waXVkkBR2luP/w==",
-      "path": "sharpyaml/2.1.0",
-      "hashPath": "sharpyaml.2.1.0.nupkg.sha512"
+      "sha512": "sha512-BISoFuW2AwZYXxrZGaBnedo21BvrdgC4kkWd6QYrOdhOGSsZB0RSqcBw09l9caUE1g3sykJoRfSbtSzZS6tYig==",
+      "path": "sharpyaml/2.1.1",
+      "hashPath": "sharpyaml.2.1.1.nupkg.sha512"
     },
     "System.CommandLine/2.0.0-beta3.22114.1": {
       "type": "package",

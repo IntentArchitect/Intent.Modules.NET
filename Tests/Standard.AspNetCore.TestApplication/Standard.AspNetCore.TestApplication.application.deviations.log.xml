@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#50e51363-aac1-4d50-b7cf-040716c7b4ef</correlationId>
+      <path>Standard.AspNetCore.TestApplication.Application/Implementation/IntegrationService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-03-26T15:16:57.6967253Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:11:38.9114059Z</approvedAt>
+      <deviationsHash>C749033060A115B9527FECBED033663BF85C0D61E80A6424D00693F1AEDF67BD</deviationsHash>
+      <fileHash>B3D954A16735E79A8E172AC15A6F4AE29FE70A076810CED8C9E9B6FC0BABA68F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#99212438-4531-42b8-85fa-e9294e7b66e9</correlationId>
+      <path>Standard.AspNetCore.TestApplication.Application/Implementation/InvoicesService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-03-26T15:16:57.6967333Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:11:38.9179548Z</approvedAt>
+      <deviationsHash>EB59C137E4C8FA69786F208B25F1B00ED224095ECD934B86295DC09DB5B20C4A</deviationsHash>
+      <fileHash>04670D39D2A39C3F6D7CD67EDD986242C39188B764A2C4265DF82076F5E6F10F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#f548406a-0688-4245-85b8-63a45f047168</correlationId>
+      <path>Standard.AspNetCore.TestApplication.Application/Implementation/MultiVersionService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-03-26T15:16:57.6967394Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:11:38.9167243Z</approvedAt>
+      <deviationsHash>77CECE5DE23C72216BEECCC5EB0872CD5C3B3EAA90C7919ECDB224583E25F875</deviationsHash>
+      <fileHash>2804AB67B73BB307817E81987B45E76787F102E28FA3DBAF5034D3D77728EFA9</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#7078d1c8-12f2-4827-a103-c16f2a6cd4f4</correlationId>
+      <path>Standard.AspNetCore.TestApplication.Application/Implementation/PluralsService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-03-26T15:16:57.696747Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:11:38.9191765Z</approvedAt>
+      <deviationsHash>495022EDEBD178BADEDA8F2C6E3B653D2CC5D603B7343ED2B6F4BBC27EBE8C45</deviationsHash>
+      <fileHash>FBDFC953ADB1A793688E22E7905F64278FE17694582379832F0BE3B6F8DA17C9</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#867df351-f179-4b7a-9119-f6e24425f9dc</correlationId>
+      <path>Standard.AspNetCore.TestApplication.Application/Implementation/VersionOneService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-03-26T15:16:57.6967653Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:11:38.9202365Z</approvedAt>
+      <deviationsHash>AA032D778A07659A8935D99B0FDF0041F69EFA59999C9BCA4C390ED7C6B01AC5</deviationsHash>
+      <fileHash>02F05BE25DE5C99DE72B98F78DB48A71BA0F4C31F221F07CDC7E025CC2B3A723</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#2ddf8f24-e1b0-43f0-9a37-3f68508f4d08</correlationId>
+      <path>Standard.AspNetCore.TestApplication.Application/Integration/CustomDTOValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-03-26T15:16:57.6966105Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:11:38.9212082Z</approvedAt>
+      <deviationsHash>02FEC4634A0C0FA6FBF7B58047E9A74ED950ABFDFB79E53E71B3A8F43761B481</deviationsHash>
+      <fileHash>0FDD77EB460DE40BE000A362D984AC0065FB820D5AA60CC94D4A760DBE343F19</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#ebb59190-d2f8-420d-a929-7a8a736c7f47</correlationId>
+      <path>Standard.AspNetCore.TestApplication.Application/Invoices/InvoiceCreateDtoValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-03-26T15:16:57.6966161Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:11:38.9223803Z</approvedAt>
+      <deviationsHash>88172FE8089B550E48D6212141FF970E5842F367958E5626C2C9D69DADBC8DE1</deviationsHash>
+      <fileHash>1686C057AE3E56D4151A832A376936E261B033475DEE6AE0A9318E1BCCE3DE7B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f59ba1c8-1706-4569-8f1f-7a2b4cf5bbbd</correlationId>
+      <path>Standard.AspNetCore.TestApplication.Application/Invoices/InvoiceUpdateDtoValidator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-03-26T15:16:57.6966224Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:11:38.9233127Z</approvedAt>
+      <deviationsHash>931227A5DE136D04CABD00FF57B556EBFB018BEDD380EB6D197D4C135C94665A</deviationsHash>
+      <fileHash>E3FBB625E3942EBF4A0ABADBEB5B3537FF4C61467C06B0E715093A3BF536A365</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Integration.HttpClients.HttpClientConfiguration</correlationId>
+      <path>Standard.AspNetCore.TestApplication.Infrastructure/Configuration/HttpClientConfiguration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-03-26T15:16:57.6969495Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:11:38.9243361Z</approvedAt>
+      <deviationsHash>8420CC46235CB60CBE9E42BC3D2BECF56B6B5311D103F5C6F69A42229C823328</deviationsHash>
+      <fileHash>8871AC811F96DCD1A234700225688961238F9604CCE085A0FA47E3CB2F3DCE98</fileHash>
+    </file>
+  </files>
+</deviationsLog>

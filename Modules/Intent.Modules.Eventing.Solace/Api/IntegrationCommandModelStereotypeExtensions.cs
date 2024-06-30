@@ -53,6 +53,11 @@ namespace Intent.Eventing.Solace.Api
                 return _stereotype.GetProperty<string>("Destination");
             }
 
+            public int? Priority()
+            {
+                return _stereotype.GetProperty<int?>("Priority");
+            }
+
         }
 
     }

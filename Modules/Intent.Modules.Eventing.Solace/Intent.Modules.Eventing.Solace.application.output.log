@@ -10,6 +10,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5c0189d1-8e9b-4eda-a135-b8d60a7a6f63</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#57fa2657-83dc-4e6d-9f9a-b8fa8afc8cbc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/FolderExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FolderExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5c0189d1-8e9b-4eda-a135-b8d60a7a6f63</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#7f01ca8e-0e3c-4735-ae23-a45169f71625</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/IntegrationCommandModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -26,6 +34,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>5c0189d1-8e9b-4eda-a135-b8d60a7a6f63</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel#0d13a568-331f-42e5-917e-292e18283515</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/PackageExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PackageExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5c0189d1-8e9b-4eda-a135-b8d60a7a6f63</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#7c61be7b-8260-40ec-9722-8798b8261bb1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/QueueModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueueModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5c0189d1-8e9b-4eda-a135-b8d60a7a6f63</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#7c61be7b-8260-40ec-9722-8798b8261bb1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/QueueModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QueueModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5c0189d1-8e9b-4eda-a135-b8d60a7a6f63</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#efa73bdb-69b7-4f52-aa10-15c19874b394</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/SubscribeIntegrationCommandTargetEndModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -38,6 +70,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/SubscribeIntegrationEventTargetEndModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SubscribeIntegrationEventTargetEndModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a6c98406-2957-4db7-92c9-42304abef86f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ApiMetadataProviderExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApiMetadataProviderExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -70,6 +110,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Eventing.Solace.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Eventing.Solace.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e8a17901-e1e1-4e34-b1e6-8cf3ad254b8b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#1a945b34-9637-4af2-ade9-5ab44dd79905</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/Solace Settings.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Solace Settings.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -150,22 +198,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/IntegrationEventHandlerLegacy/IntegrationEventHandlerLegacyTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IntegrationEventHandlerLegacy/IntegrationEventHandlerLegacyTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0873ba49-49fb-49ed-978c-5bdf9821aaa9</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c5294de6-f6ec-48b5-ae98-0740f5100b51</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MessageConfiguration/MessageConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MessageConfiguration/MessageConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0873ba49-49fb-49ed-978c-5bdf9821aaa9</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#c5294de6-f6ec-48b5-ae98-0740f5100b51</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MessageConfiguration/MessageConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MessageConfiguration/MessageConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

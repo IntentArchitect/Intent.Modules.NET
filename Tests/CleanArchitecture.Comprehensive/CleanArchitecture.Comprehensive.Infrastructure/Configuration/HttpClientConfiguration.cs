@@ -21,6 +21,13 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Configuration
             }).ConfigureBackchannelHttpClient();
 
             services
+                .AddHttpClient<IBugFixesService, BugFixesServiceHttpClient>(http =>
+                {
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:BugFixesService:Uri");
+                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:BugFixesService:Timeout") ?? TimeSpan.FromSeconds(100);
+                });
+
+            services
                 .AddHttpClient<INamedQueryStringsService, NamedQueryStringsServiceHttpClient>(http =>
                 {
                     http.BaseAddress = configuration.GetValue<Uri>("HttpClients:NamedQueryStringsService:Uri");
@@ -32,6 +39,13 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Configuration
                 {
                     http.BaseAddress = configuration.GetValue<Uri>("HttpClients:PaginationForProxiesService:Uri");
                     http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:PaginationForProxiesService:Timeout") ?? TimeSpan.FromSeconds(100);
+                });
+
+            services
+                .AddHttpClient<IParamConversionService, ParamConversionServiceHttpClient>(http =>
+                {
+                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:ParamConversionService:Uri");
+                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:ParamConversionService:Timeout") ?? TimeSpan.FromSeconds(100);
                 });
 
             services

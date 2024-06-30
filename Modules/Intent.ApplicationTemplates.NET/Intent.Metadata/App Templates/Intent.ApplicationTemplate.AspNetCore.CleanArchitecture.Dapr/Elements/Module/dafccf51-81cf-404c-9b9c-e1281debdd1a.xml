@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dafccf51-81cf-404c-9b9c-e1281debdd1a" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+  <name>Intent.Application.MediatR.FluentValidation</name>
+  <display>Intent.Application.MediatR.FluentValidation 4.6.0</display>
+  <isAbstract>false</isAbstract>
+  <value>4.6.1</value>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
+  <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

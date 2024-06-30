@@ -70,6 +70,8 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                         method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
                         method.AddParameter(GetCommandModelName(template, model), "request", p => p.RepresentsModel(model));
                         method.AddParameter("CancellationToken", "cancellationToken");
+
+                        method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
                         method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
                     });
                 });

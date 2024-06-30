@@ -95,7 +95,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.Orders
             var relativeUri = $"api/order/order-item/{id}";
 
             var queryParams = new Dictionary<string, string?>();
-            queryParams.Add("orderId", orderId.ToString());
+            queryParams.Add("orderId", orderId.ToString("D"));
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

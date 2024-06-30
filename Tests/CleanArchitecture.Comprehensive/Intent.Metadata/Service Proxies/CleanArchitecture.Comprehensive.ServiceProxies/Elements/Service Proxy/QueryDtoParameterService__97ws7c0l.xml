@@ -12,7 +12,7 @@
     <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.TestApplication.Services" type="association" specialization="Services Package" />
+      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.Comprehensive.Services" type="association" specialization="Services Package" />
       <target id="b56c28f8-663f-4374-b2e1-e91a8d18ee9c" name="QueryDtoParameter" type="element" specialization="Folder" />
     </mappedPath>
   </mappedClass>
@@ -64,7 +64,7 @@
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+            <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
             <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
             <stereotypes />
             <genericTypeParameters />

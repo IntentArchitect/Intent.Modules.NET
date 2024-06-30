@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c2761b0f-0563-45c1-bef0-75a113711a32" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Jobs</name>
+  <display>Jobs</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="15b69516-94de-4aa4-ad17-478963419cb9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.QuartzScheduler.ScheduledJob</name>
+      <display>Intent.QuartzScheduler.ScheduledJob</display>
+      <externalReference>Intent.QuartzScheduler</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c2761b0f-0563-45c1-bef0-75a113711a32</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2ac9c1f7-916e-4c25-a72c-0eae797104c8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Bugsnag.BugSnagQuartzJobListener</name>
+      <display>Intent.Bugsnag.BugSnagQuartzJobListener</display>
+      <externalReference>Intent.Bugsnag</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c2761b0f-0563-45c1-bef0-75a113711a32</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

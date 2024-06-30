@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="6b1a00d5-377b-4e0d-87d3-8c2ad5c70c5d" version="3.1.0">
+  <name>Queue Config</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="7c61be7b-8260-40ec-9722-8798b8261bb1">Queue</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="FontAwesome" source="cogs" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>5dde2aee-1d1d-4b4f-9a0a-210233948103</parentFolderId>
+  <order>0</order>
+  <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
+  <packageName>Intent.Eventing.Solace</packageName>
+  <properties>
+    <property id="bd7a04c6-5a6a-49cc-aa7e-88efb57b3648">
+      <name>Max Flows</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="965d0655-763b-4ae2-92ca-c898bbc17172">
+      <name>Selector</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

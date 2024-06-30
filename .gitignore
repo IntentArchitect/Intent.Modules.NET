@@ -246,5 +246,6 @@ ModelManifest.xml
 *.imod
 *.iat
 !*.application.output.log
+!*.application.deviations.log
 .intent/
 .idea/

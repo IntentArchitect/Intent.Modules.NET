@@ -60,7 +60,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>257af555-85e6-42b4-ac92-bd84458b4e01</ProjectId>
-      <CorrelationId>Intent.QuartzScheduler.QuartzConfiguation</CorrelationId>
+      <CorrelationId>Intent.QuartzScheduler.QuartzConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Configuration/QuartzConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QuartzConfiguration.cs</ProjectRelativeFilePath>

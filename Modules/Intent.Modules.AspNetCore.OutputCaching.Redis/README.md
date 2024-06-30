@@ -56,6 +56,23 @@ Responses to authenticated requests aren't cached.
 
 For more details on this, check out their [official docs](https://learn.microsoft.com/en-us/aspnet/core/performance/caching/output?view=aspnetcore-8.0#default-output-caching-policy).
 
+## Reconfigure Policy 
+
+You can add a `Policies` section in your `appsettings.json` under `OutputCaching` to adjust policy timeouts. This allows for runtime tuning of the values if required.
+If the example below the policy `MyPolcy`'s time out duration is reconfigured to 500 seconds.
+
+```json
+{
+  "OutputCaching": {
+    ...
+    "Policies": {
+      "MyPolicy": {
+        "Duration" : 500,
+      }
+    }
+  }
+```
+
 ## Related Modules
 
 ### Intent.AspNetCore.HealthChecks

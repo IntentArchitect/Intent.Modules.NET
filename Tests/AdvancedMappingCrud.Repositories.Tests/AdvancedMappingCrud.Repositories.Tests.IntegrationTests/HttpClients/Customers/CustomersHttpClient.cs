@@ -213,7 +213,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Cu
             var relativeUri = $"api/customers";
 
             var queryParams = new Dictionary<string, string?>();
-            queryParams.Add("customerId", customerId.ToString());
+            queryParams.Add("customerId", customerId.ToString("D"));
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

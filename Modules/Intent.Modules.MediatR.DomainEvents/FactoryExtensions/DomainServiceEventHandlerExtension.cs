@@ -51,6 +51,7 @@ namespace Intent.Modules.MediatR.DomainEvents.FactoryExtensions
                             method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
                             method.AddParameter($"{template.GetDomainEventNotificationName()}<{template.GetTypeName(DomainEventTemplate.TemplateId, domainEvent)}>", "notification");
                             method.AddParameter($"CancellationToken", "cancellationToken");
+                            method.AddStatement($"// TODO: Implement {method.Name} {@class.Name}) functionality");
                             method.AddStatement("throw new NotImplementedException(\"Implement your handler logic here...\");");
                         });
                     });

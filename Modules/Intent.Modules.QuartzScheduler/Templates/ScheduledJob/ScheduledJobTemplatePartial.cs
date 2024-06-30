@@ -32,7 +32,7 @@ namespace Intent.Modules.QuartzScheduler.Templates.ScheduledJob
                     {
                         @class.AddAttribute(UseType("Quartz.DisallowConcurrentExecution"));
                     }
-                    
+
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
                     @class.ImplementsInterface(UseType("Quartz.IJob"));
                     @class.AddConstructor(ctor =>

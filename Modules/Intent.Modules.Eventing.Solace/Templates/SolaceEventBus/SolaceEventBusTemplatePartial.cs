@@ -28,11 +28,13 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("SolaceSystems.Solclient.Messaging")
+                .AddUsing("Microsoft.Extensions.Configuration")
                 .AddClass($"SolaceEventBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetEventBusInterfaceName());
                     @class.AddField("List<object>", "_messagesToPublish", f => f.PrivateReadOnly().WithAssignment("new List<object>()"));
                     @class.AddField("List<object>", "_messagesToSend", f => f.PrivateReadOnly().WithAssignment("new List<object>()"));
+                    @class.AddField("int?", "_defaultPriority", f => f.PrivateReadOnly());
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter("ISession", "session", param =>
@@ -47,6 +49,8 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
                         {
                             param.IntroduceReadonlyField();
                         });
+                        ctor.AddParameter("IConfiguration", "configuration");
+                        ctor.AddStatement("_defaultPriority = configuration.GetSection(\"Solace:DefaultSendPriority\").Get<int?>();");
                     });
 
                     @class.AddMethod("void", "Publish", method =>
@@ -90,8 +94,11 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
                             .AddParameter("object", "toPublish");
                         method.AddStatements(@"using (var message = ContextFactory.Instance.CreateMessage())
 			{
-				message.Destination = ContextFactory.Instance.CreateTopic(GetDestinationAddress(toPublish));
+                var messageConfig = _messageRegistry.PublishedMessages[toPublish.GetType()];
+
+                message.Destination = ContextFactory.Instance.CreateTopic(messageConfig.PublishTo);
 				message.BinaryAttachment = _messageSerializer.SerializeMessage(toPublish);
+				message.Priority = GetPriority(messageConfig.Priority);
 
 				var returnCode = session.Send(message);
 				if (returnCode != ReturnCode.SOLCLIENT_OK)
@@ -109,8 +116,11 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
                             .AddParameter("object", "toSend");
                         method.AddStatements(@"using (var message = ContextFactory.Instance.CreateMessage())
 			{
-				message.Destination = ContextFactory.Instance.CreateQueue(GetDestinationAddress(toSend));
+                var messageConfig = _messageRegistry.PublishedMessages[toSend.GetType()];
+
+                message.Destination = ContextFactory.Instance.CreateQueue(messageConfig.PublishTo);
 				message.BinaryAttachment = _messageSerializer.SerializeMessage(toSend);
+				message.Priority = GetPriority(messageConfig.Priority);
 
 				var returnCode = session.Send(message);
 				if (returnCode != ReturnCode.SOLCLIENT_OK)
@@ -119,12 +129,25 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceEventBus
 				}
 			}".ConvertToStatements());
                     });
-                    @class.AddMethod("string", "GetDestinationAddress", method =>
+                    @class.AddMethod("int?", "GetPriority", method =>
                     {
                         method
                             .Private()
-                            .AddParameter("object", "message");
-                        method.AddStatement("return _messageRegistry.GetConfig(message.GetType()).PublishedDestination;");
+                            .AddParameter("int?", "messagePriority");
+                        method.AddStatements(@"int? result = null;
+            if (messagePriority != null)
+            {
+                result = messagePriority.Value;
+            }
+            else
+            {
+                result = _defaultPriority;
+            }
+            if (result != null)
+            {
+                result = Math.Clamp(result.Value, 0, 255);
+            }
+            return result;".ConvertToStatements());
                     });
                 });
         }

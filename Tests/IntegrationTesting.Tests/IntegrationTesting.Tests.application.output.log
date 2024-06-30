@@ -1819,6 +1819,142 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#d0620b09-4b0d-458b-8181-7df588db13f2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/CreateUniqueConVal/CreateUniqueConValCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/CreateUniqueConVal/CreateUniqueConValCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#d0620b09-4b0d-458b-8181-7df588db13f2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/CreateUniqueConVal/CreateUniqueConValCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/CreateUniqueConVal/CreateUniqueConValCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#d0620b09-4b0d-458b-8181-7df588db13f2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/CreateUniqueConVal/CreateUniqueConValCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/CreateUniqueConVal/CreateUniqueConValCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#5c78e489-79d2-4440-baf7-baa9a5a2742c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/DeleteUniqueConVal/DeleteUniqueConValCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/DeleteUniqueConVal/DeleteUniqueConValCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#5c78e489-79d2-4440-baf7-baa9a5a2742c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/DeleteUniqueConVal/DeleteUniqueConValCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/DeleteUniqueConVal/DeleteUniqueConValCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#5c78e489-79d2-4440-baf7-baa9a5a2742c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/DeleteUniqueConVal/DeleteUniqueConValCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/DeleteUniqueConVal/DeleteUniqueConValCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#9078f502-cf4c-45b3-848a-d2036c90194e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/GetUniqueConValById/GetUniqueConValByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/GetUniqueConValById/GetUniqueConValByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#9078f502-cf4c-45b3-848a-d2036c90194e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/GetUniqueConValById/GetUniqueConValByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/GetUniqueConValById/GetUniqueConValByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#9078f502-cf4c-45b3-848a-d2036c90194e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/GetUniqueConValById/GetUniqueConValByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/GetUniqueConValById/GetUniqueConValByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#1f2341b7-a389-4be5-94f7-42225560fb4a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/GetUniqueConVals/GetUniqueConValsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/GetUniqueConVals/GetUniqueConValsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#1f2341b7-a389-4be5-94f7-42225560fb4a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/GetUniqueConVals/GetUniqueConValsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/GetUniqueConVals/GetUniqueConValsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#1f2341b7-a389-4be5-94f7-42225560fb4a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/GetUniqueConVals/GetUniqueConValsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/GetUniqueConVals/GetUniqueConValsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e670b6b9-a1b5-4d16-ab93-5db9d732d593</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/UniqueConValDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/UniqueConValDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#e670b6b9-a1b5-4d16-ab93-5db9d732d593</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/UniqueConValDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/UniqueConValDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#e66d3b44-4b56-4051-90af-df6e8d24bb1b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/UpdateUniqueConVal/UpdateUniqueConValCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/UpdateUniqueConVal/UpdateUniqueConValCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#e66d3b44-4b56-4051-90af-df6e8d24bb1b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/UpdateUniqueConVal/UpdateUniqueConValCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/UpdateUniqueConVal/UpdateUniqueConValCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#e66d3b44-4b56-4051-90af-df6e8d24bb1b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/UpdateUniqueConVal/UpdateUniqueConValCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVals/UpdateUniqueConVal/UpdateUniqueConValCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b601fc4a-cfae-43ff-a06b-62d7ac0edadf</ProjectId>
       <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1971,6 +2107,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>0a7a6f49-71ab-4550-bee2-ad6f95dccae8</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#52d43dc7-7e0d-4305-9ebc-4f0606747989</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/UniqueConVal.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConVal.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>34aa4120-6e59-4341-8145-eafbae569dcd</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#34aa4120-6e59-4341-8145-eafbae569dcd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -2088,6 +2232,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bd2c8ef-87e5-48ec-aab2-e15aa8773c87</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#52d43dc7-7e0d-4305-9ebc-4f0606747989</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Repositories/IUniqueConValRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IUniqueConValRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2211,6 +2363,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>b019a06f-0542-4575-97c9-60f9e54aedb9</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#52d43dc7-7e0d-4305-9ebc-4f0606747989</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Persistence/Configurations/UniqueConValConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConValConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>1552d674-9280-4fdd-8762-7dc617d035a8</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -2312,6 +2472,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a5dadd94-25e7-46b1-9df2-837e5af379ed</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#52d43dc7-7e0d-4305-9ebc-4f0606747989</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Repositories/UniqueConValRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueConValRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

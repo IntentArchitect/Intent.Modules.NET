@@ -16,6 +16,7 @@
       <definitionPackageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</definitionPackageId>
       <properties>
         <property name="6c4944dd-eefa-4511-915d-118533182e7a" display="Destination" value="Accounting/Ledgers" isActive="true" />
+        <property name="4a323650-3f88-4b07-a789-6bb3123194e9" display="Priority" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

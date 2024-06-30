@@ -61,6 +61,23 @@ When enabled, an `IApplicationDbContext` will be generated in the "Application" 
 
 When enabled, configures the DbContext to have [split queries enabled globally](https://learn.microsoft.com/ef/core/querying/single-split-queries#enabling-split-queries-globally).
 
+### Database Settings - `Maintain column ordering`
+
+When enabled, the EF configuration will be set up to preserve the column ordering as per your Domain model ordering. Base classes will be ordered because inherited classes.
+The ordering is achieved using EF Core's `HasColumnOrder` functionality.
+
+```csharp
+            builder.Property(x => x.Id)
+                .HasColumnOrder(0);
+
+            builder.Property(x => x.Name)
+                .IsRequired()
+                .HasColumnOrder(1);
+```
+
+Intent will automatically do the Column ordering but if you want to get very specific you can use the `DataColumn` stereotype to explicitly set the ordering. 
+This can also be using for forcing columns in base class to go to the end by assigning them a arbitrary large number.
+
 ## Domain Designer modeling
 
 The `Domain Designer` has been extended with many stereotypes for modeling RDBMS technology specific concepts in your domain.

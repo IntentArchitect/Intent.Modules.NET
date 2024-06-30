@@ -1,3 +1,7 @@
+### Version 5.0.3
+
+- Improvement: Added `TODO` comments on `NotImplementedException`.
+
 ### Version 5.0.2
 
 - Fixed: Inserting Domain Event publishing will also take into effect the State mode of an Entity class.

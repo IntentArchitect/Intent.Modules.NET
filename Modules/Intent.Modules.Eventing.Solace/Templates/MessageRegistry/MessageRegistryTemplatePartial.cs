@@ -42,10 +42,11 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddClass($"MessageRegistry", @class =>
                 {
-                    @class.AddField("List<MessageConfiguration>", "_messageTypes", p => p.PrivateReadOnly());
-                    @class.AddField("Dictionary<Type, MessageConfiguration>", "_typeLookup", p => p.PrivateReadOnly());
+                    @class.AddField("Dictionary<Type, string>", "_typeNameMap", p => p.PrivateReadOnly().WithAssignment("new Dictionary<Type, string>()"));
+                    @class.AddField("Dictionary<Type, PublishingInfo>", "_publishedMessages", p => p.PrivateReadOnly().WithAssignment("new Dictionary<Type, PublishingInfo>()"));
+                    @class.AddField("List<QueueConfig>", "_queues", p => p.PrivateReadOnly().WithAssignment("new List<QueueConfig>()"));
+                    @class.AddField("Dictionary<string, string>", "_replacementVariables", p => p.PrivateReadOnly().WithAssignment("new Dictionary<string, string>()"));
                     @class.AddField("string", "_environmentPrefix", p => p.PrivateReadOnly().WithAssignment("\"\""));
-                    @class.AddField("string", "_applicationPrefix", p => p.PrivateReadOnly().WithAssignment("\"\""));
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter("IConfiguration", "configuration");
@@ -56,27 +57,16 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
 					environmentPrefix += ""/"";
 				_environmentPrefix = environmentPrefix;
 			}
-            var applicationPrefix = configuration[$""Solace:Application""] ?? """";
-			if (applicationPrefix != """")
-			{
-				if (!applicationPrefix.EndsWith(""/""))
-					applicationPrefix += ""/"";
-				_applicationPrefix = applicationPrefix;
-			}
-
-			_messageTypes = new List< MessageConfiguration>();
-			LoadMessageTypes();
-			_typeLookup = new Dictionary<Type, MessageConfiguration>();
-			foreach (var message in _messageTypes)
-			{
-				_typeLookup.Add(message.MessageType, message);
-			}
+            LoadReplacementVariables(configuration);
+            RegisterMessageTypes();
 ".ConvertToStatements());
                     });
 
-                    @class.AddProperty($"IReadOnlyList<{this.GetMessageConfigurationName()}>", "MessageTypes", p => p.ReadOnly().Getter.WithExpressionImplementation("_messageTypes"));
+                    @class.AddProperty($"IReadOnlyDictionary<Type, string>", "MessageTypes", p => p.ReadOnly().Getter.WithExpressionImplementation("_typeNameMap"));
+                    @class.AddProperty($"IReadOnlyDictionary<Type, PublishingInfo>", "PublishedMessages", p => p.ReadOnly().Getter.WithExpressionImplementation("_publishedMessages"));
+                    @class.AddProperty($"IReadOnlyList<QueueConfig>", "Queues", p => p.ReadOnly().Getter.WithExpressionImplementation("_queues"));
 
-                    @class.AddMethod("void", "LoadMessageTypes", method =>
+                    @class.AddMethod("void", "RegisterMessageTypes", method =>
                     {
                         method.Private();
 
@@ -84,223 +74,378 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
                         {
                             method.AddStatement("//Integration Events (Messages)");
                         }
-                        foreach (var message in _subscribedMessageModels)
+                        var eventQueues = GetQueues(_subscribedMessageModels.Select(x => x.InternalElement), m => this.GetTypeName("Intent.Eventing.Contracts.IntegrationEventMessage", m.Id), true);
+                        foreach (var queue in eventQueues)
                         {
-                            var messageTypeName = this.GetIntegrationEventMessageName(message);
-                            var subscriptionMechaism = "SubscriptionType.ViaTopic";
-                            if (!HasRoutingCustomizations(message.InternalElement))
+                            var invocation = new CSharpInvocationStatement($"RegisterQueue");
+                            invocation.AddArgument($"\"{queue.Name}\"");
+
+                            invocation.AddArgument(new CSharpLambdaBlock("queue"), a =>
                             {
-                                method.AddStatement($"_messageTypes.Add(GetDefaultMessageConfig<{messageTypeName}>({subscriptionMechaism}));");
-                            }
-                            else
+                                var stmt = (CSharpLambdaBlock)a;
+                                foreach (var message in queue.Messages)
+                                {
+                                    var subInvocation = new CSharpInvocationStatement($"SubscribeViaTopic<{this.GetTypeName("Intent.Eventing.Contracts.IntegrationEventMessage", message.Message.Id)}>");
+                                    subInvocation.AddArgument("queue");
+                                    if (message.SubscribedTopic != null)
+                                    {
+                                        subInvocation.AddArgument($"topicName: \"{message.SubscribedTopic}\"");
+
+                                    }
+                                    stmt.AddStatement(subInvocation);
+                                }
+                            });
+
+                            if (queue.MaxFlows != null)
                             {
-                                var invocation = new CSharpInvocationStatement($"MessageConfiguration.Create<{messageTypeName}>");
-                                GetRoutingCustomizations(message.InternalElement, out var pubDest, out var subDest);
-                                if (pubDest != null)
-                                {
-                                    invocation.AddArgument($"GetDestination<{messageTypeName}>(\"{pubDest}\")");
-                                }
-                                else
-                                {
-                                    invocation.AddArgument($"GetDefaultDestination<{messageTypeName}>()");
-                                }
-                                if (subDest != null)
-                                {
-                                    invocation.AddArgument($"GetDestination<{messageTypeName}>(\"{subDest}\", {subscriptionMechaism})");
-                                }
-                                else
-                                {
-                                    invocation.AddArgument($"GetDefaultDestination<{messageTypeName}>(), {subscriptionMechaism}");
-                                }
-                                invocation.WithArgumentsOnNewLines().WithoutSemicolon();
-                                method.AddStatement(new CSharpInvocationStatement("_messageTypes.Add").AddArgument(invocation));
+                                invocation.AddArgument($"maxFlows: {queue.MaxFlows}");
                             }
+
+                            if (queue.Selector != null)
+                            {
+                                invocation.AddArgument($"selector: \"{queue.Selector}\"");
+                            }
+                            method.AddStatement(invocation);
                         }
+
                         foreach (var message in _publishedMessageModels)
                         {
                             var messageTypeName = this.GetIntegrationEventMessageName(message);
-                            if (!HasRoutingCustomizations(message.InternalElement))
+                            GetPublishingCustomizations(message.InternalElement, out var topicName, out var priority);
+
+                            var invocation = new CSharpInvocationStatement($"PublishToTopic<{messageTypeName}>");
+                            if (topicName != null)
                             {
-                                method.AddStatement($"_messageTypes.Add(GetDefaultMessageConfig<{messageTypeName}>());");
+                                invocation.AddArgument($"topicName: \"{topicName}\"");
                             }
-                            else
+                            if (priority != null)
                             {
-                                var invocation = new CSharpInvocationStatement($"MessageConfiguration.Create<{messageTypeName}>");
-                                GetRoutingCustomizations(message.InternalElement, out var pubDest, out var subDest);
-                                if (pubDest != null)
-                                {
-                                    invocation.AddArgument($"GetDestination<{messageTypeName}>(\"{pubDest}\")");
-                                }
-                                else
-                                {
-                                    invocation.AddArgument($"GetDefaultDestination<{messageTypeName}>()");
-                                }
-                                invocation.WithArgumentsOnNewLines().WithoutSemicolon();
-                                method.AddStatement(new CSharpInvocationStatement("_messageTypes.Add").AddArgument(invocation));
+                                invocation.AddArgument($"priority: {priority}");
                             }
+                            method.AddStatement(invocation);
                         }
                         if (_subscribedIntegrationCommandModels.Any() || _publishedIntegrationCommandModels.Any())
                         {
                             method.AddStatement("//Integration Commands");
                         }
-                        foreach (var command in _subscribedIntegrationCommandModels)
+                        var commandQueues = GetQueues(_subscribedIntegrationCommandModels.Select(x => x.InternalElement), m => this.GetTypeName("Intent.Eventing.Contracts.IntegrationCommand", m.Id), false);
+                        foreach (var queue in commandQueues)
                         {
-                            var commandTypeName = this.GetIntegrationCommandName(command);
-                            var subscriptionMechaism = "SubscriptionType.ViaQueue";
+                            var invocation = new CSharpInvocationStatement($"RegisterQueue");
+                            invocation.AddArgument($"\"{queue.Name}\"");
 
-                            if (!HasRoutingCustomizations(command.InternalElement))
+                            invocation.AddArgument(new CSharpLambdaBlock("queue"), a =>
                             {
-                                method.AddStatement($"_messageTypes.Add(GetDefaultMessageConfig<{commandTypeName}>({subscriptionMechaism}));");
-                            }
-                            else
+                                var stmt = (CSharpLambdaBlock)a;
+                                foreach (var message in queue.Messages)
+                                {
+                                    var subInvocation = new CSharpInvocationStatement($"SubscribeViaQueue<{this.GetTypeName("Intent.Eventing.Contracts.IntegrationCommand", message.Message.Id)}>");
+                                    subInvocation.AddArgument("queue");
+                                    stmt.AddStatement(subInvocation);
+                                }
+                            });
+
+                            if (queue.MaxFlows != null)
                             {
-                                var invocation = new CSharpInvocationStatement($"MessageConfiguration.Create<{commandTypeName}>");
-                                GetRoutingCustomizations(command.InternalElement, out var pubDest, out var subDest);
-                                if (pubDest != null)
-                                {
-                                    invocation.AddArgument($"GetDestination<{commandTypeName}>(\"{pubDest}\")");
-                                }
-                                else
-                                {
-                                    invocation.AddArgument($"GetDefaultDestination<{commandTypeName}>()");
-                                }
-                                if (subDest != null)
-                                {
-                                    invocation.AddArgument($"GetDestination<{commandTypeName}>(\"{subDest}\", {subscriptionMechaism})");
-                                }
-                                else
-                                {
-                                    invocation.AddArgument($"GetDefaultDestination<{commandTypeName}>(), {subscriptionMechaism}");
-                                }
-                                invocation.WithArgumentsOnNewLines().WithoutSemicolon();
-                                method.AddStatement(new CSharpInvocationStatement("_messageTypes.Add").AddArgument(invocation));
+                                invocation.AddArgument($"maxFlows: {queue.MaxFlows}");
                             }
 
+                            if (queue.Selector != null)
+                            {
+                                invocation.AddArgument($"selector: \"{queue.Selector}\"");
+                            }
+                            method.AddStatement(invocation);
                         }
+
                         foreach (var command in _publishedIntegrationCommandModels)
                         {
                             var commandTypeName = this.GetIntegrationCommandName(command);
-                            if (!HasRoutingCustomizations(command.InternalElement))
-                            {
-                                method.AddStatement($"_messageTypes.Add(GetDefaultMessageConfig<{commandTypeName}>());");
-                            }
-                            else
-                            {
-                                var invocation = new CSharpInvocationStatement($"MessageConfiguration.Create<{commandTypeName}>");
-                                GetRoutingCustomizations(command.InternalElement, out var pubDest, out var subDest);
-                                if (pubDest != null)
-                                {
-                                    invocation.AddArgument($"GetDestination<{commandTypeName}>(\"{pubDest}\")");
-                                }
-                                else
-                                {
-                                    invocation.AddArgument($"GetDefaultDestination<{commandTypeName}>()");
-                                }
-                                invocation.WithArgumentsOnNewLines().WithoutSemicolon();
-                                method.AddStatement(new CSharpInvocationStatement("_messageTypes.Add").AddArgument(invocation));
-                            }
+                            GetPublishingCustomizations(command.InternalElement, out var queueName, out var priority);
 
+                            var invocation = new CSharpInvocationStatement($"PublishToQueue<{commandTypeName}>");
+                            if (queueName != null)
+                            {
+                                invocation.AddArgument($"queueName: \"{queueName}\"");
+                            }
+                            if (priority != null)
+                            {
+                                invocation.AddArgument($"priority: {priority}");
+                            }
+                            method.AddStatement(invocation);
                         }
                     });
 
-                    @class.AddMethod($"{this.GetMessageConfigurationName()}", "GetConfig", method =>
-                    {
-                        method.AddParameter("Type", "messageType");
-                        method.AddStatement("return _typeLookup[messageType];");
-                    });
-
-                    @class.AddMethod($"{this.GetMessageConfigurationName()}", "GetConfig", method =>
-                    {
-                        method.AddGenericParameter("TMessage", out var tMessage);
-                        method.AddStatement($"return GetConfig(typeof({tMessage}));");
-                    });
-
-                    @class.AddMethod($"{this.GetMessageConfigurationName()}", "GetDefaultMessageConfig", method =>
+                    @class.AddMethod($"void", "RegisterQueue", method =>
                     {
                         method
                             .Private()
-                            .AddGenericParameter("TMessage", out var tMessage);
-                        method.AddParameter("SubscriptionType", "subscriptionType", p => p.WithDefaultValue("SubscriptionType.None"));
-                        method.AddStatements(@"switch (subscriptionType)
+                            .AddParameter("string", "logicalQueueName")
+                            .AddParameter("Action<QueueConfig>", "registerSubscribers")
+                            .AddParameter("int?", "maxFlows", p => p.WithDefaultValue("null"))
+                            .AddParameter("string?", "selector", p => p.WithDefaultValue("null"))
+                            ;
+                        method.AddStatements(@"if (selector != null)
             {
-                case SubscriptionType.ViaTopic:
-                    return MessageConfiguration.Create<TMessage>(GetDefaultDestination<TMessage>(),
-							GetDefaultDestination<TMessage>(SubscriptionType.ViaTopic));
-                case SubscriptionType.ViaQueue:
-                    return MessageConfiguration.Create<TMessage>(GetDefaultDestination<TMessage>(),
-							GetDefaultDestination<TMessage>(SubscriptionType.ViaQueue));
-                case SubscriptionType.None:
-                default:
-                    return MessageConfiguration.Create<TMessage>(GetDefaultDestination<TMessage>());
+                selector = ResolveSelector(selector);
+            }
+            var queue = new QueueConfig(ResolveLocation(logicalQueueName), maxFlows, selector, new List<SubscribesToQueueInfo>());
+            registerSubscribers(queue);
+            _queues.Add(queue);".ConvertToStatements());
+                    });
+
+                    @class.AddMethod($"void", "PublishToTopic", method =>
+                    {
+                        method
+                            .Private()
+                            .AddGenericParameter("TMessage")
+                            .AddParameter("string?", "topicName", p => p.WithDefaultValue("null"))
+                            .AddParameter("int?", "priority", p => p.WithDefaultValue("null"))
+                            ;
+                        method.AddStatement("PublishInternal<TMessage>(topicName ?? GetDefaultMessageDestination<TMessage>(), priority);");
+                    });
+
+                    @class.AddMethod($"void", "PublishToQueue", method =>
+                    {
+                        method
+                            .Private()
+                            .AddGenericParameter("TMessage")
+                            .AddParameter("string?", "queueName", p => p.WithDefaultValue("null"))
+                            .AddParameter("int?", "priority", p => p.WithDefaultValue("null"))
+                            ;
+                        method.AddStatement("PublishInternal<TMessage>(queueName ?? GetDefaultMessageDestination<TMessage>(), priority);");
+                    });
+
+                    @class.AddMethod($"void", "PublishInternal", method =>
+                    {
+                        method
+                            .Private()
+                            .AddGenericParameter("TMessage")
+                            .AddParameter("string", "destination")
+                            .AddParameter("int?", "priority", p => p.WithDefaultValue("null"))
+                            ;
+                        method.AddStatement("AddMessageType<TMessage>();");
+                        method.AddStatement("_publishedMessages.Add(typeof(TMessage), new PublishingInfo(typeof(TMessage), ResolveLocation(destination), priority));");
+                    });
+
+                    @class.AddMethod($"void", "SubscribeViaTopic", method =>
+                    {
+                        method
+                            .Private()
+                            .AddGenericParameter("TMessage")
+                            .AddParameter("QueueConfig", "queue")
+                            .AddParameter("string?", "topicName", p => p.WithDefaultValue("null"))
+                            ;
+                        method.AddStatement("SubscribeInternal<TMessage>(queue, topicName ?? GetDefaultMessageDestination<TMessage>());");
+                    });
+
+                    @class.AddMethod($"void", "SubscribeViaQueue", method =>
+                    {
+                        method
+                            .Private()
+                            .AddGenericParameter("TMessage")
+                            .AddParameter("QueueConfig", "queue")
+                            ;
+                        method.AddStatement("SubscribeInternal<TMessage>(queue);");
+                    });
+
+                    @class.AddMethod($"void", "SubscribeInternal", method =>
+                    {
+                        method
+                            .Private()
+                            .AddGenericParameter("TMessage")
+                            .AddParameter("QueueConfig", "queue")
+                            .AddParameter("string?", "topicName", p => p.WithDefaultValue("null"))
+                            ;
+                        method.AddStatement("AddMessageType<TMessage>();");
+                        method.AddStatement(@"queue.SubscribedMessages.Add(new SubscribesToQueueInfo(
+                    typeof(TMessage),
+                    topicName != null ? ResolveLocation(topicName) : null
+                    ));");
+                    });
+
+                    @class.AddMethod($"void", "AddMessageType", method =>
+                    {
+                        method
+                            .Private()
+                            .AddGenericParameter("TMessage")
+                            ;
+                        method.AddStatements(@"if (!_typeNameMap.ContainsKey(typeof(TMessage)))
+            {
+                string messageTypeName = GetMessageTypeName<TMessage>();
+                _typeNameMap.Add(typeof(TMessage), messageTypeName);
             }".ConvertToStatements());
                     });
 
-                    @class.AddMethod($"string", "GetDestination", method =>
+                    @class.AddMethod($"string", "GetDefaultMessageDestination", method =>
                     {
                         method
                             .Private()
-                            .AddGenericParameter("TMessage", out var tMessage)
-                            .AddParameter("string", "logicalPath")
-                            .AddParameter("SubscriptionType", "subscriptionType", p => p.WithDefaultValue("SubscriptionType.None"));
-                        method.AddStatements(@"var messageType = typeof(TMessage);
-            switch (subscriptionType)
+                            .AddGenericParameter("TMessage")
+                            ;
+                        method.AddStatement("var messageType = typeof(TMessage);");
+                        method.AddStatement("string namepacePrefix = messageType.Namespace == null ? \"\" : $\"{messageType.Namespace.Replace('.', '/')}/\";");
+                        method.AddStatement("return $\"{namepacePrefix}{messageType.Name}\";");
+                    });
+
+                    @class.AddMethod($"string", "GetMessageTypeName", method =>
+                    {
+                        method
+                            .Private()
+                            .AddGenericParameter("TMessage")
+                            ;
+                        method.AddStatement("var type = typeof(TMessage);");
+                        method.AddStatement("return $\"{type.Namespace}.{type.Name}\";");
+                    });
+
+                    this.UseType(this.GetSolaceConfigurationName());
+
+                    @class.AddMethod($"void", "LoadReplacementVariables", method =>
+                    {
+                        method
+                            .Private()
+                            .AddParameter("IConfiguration", "configuration")
+                            ;
+                        method.AddStatements(@"var config = configuration.GetSection(""Solace"").Get<SolaceConfiguration.SolaceConfig>();
+            if (config == null) throw new Exception(""No Solace configuration found in appsettings.json"");
+
+            var properties = config.GetType().GetProperties();
+            foreach (var property in properties)
             {
-                case SubscriptionType.ViaTopic:
-                    return $""{_environmentPrefix}{_applicationPrefix}{logicalPath}"";
-                case SubscriptionType.ViaQueue:
-                case SubscriptionType.None:
-                default:
-                    return $""{_environmentPrefix}{logicalPath}"";
+                _replacementVariables.Add(property.Name, property.GetValue(config)?.ToString() ?? """");
             }".ConvertToStatements());
                     });
 
-                    @class.AddMethod($"string", "GetDefaultDestination", method =>
+                    @class.AddMethod($"string", "ReplaceVariables", method =>
                     {
                         method
                             .Private()
-                            .AddGenericParameter("TMessage", out var tMessage)
-                            .AddParameter("SubscriptionType", "subscriptionType", p => p.WithDefaultValue("SubscriptionType.None"));
-                        method.AddStatements(@"var messageType = typeof(TMessage);
-			string namepacePrefix = messageType.Namespace == null ? """" : $""{messageType.Namespace.Replace('.', '/')}/"";
-			return GetDestination<TMessage>($""{namepacePrefix}{messageType.Name}"", subscriptionType);".ConvertToStatements());
-                    });
-
-                })
-                .AddEnum("SubscriptionType", e =>
+                            .AddParameter("string", "value")
+                            ;
+                        method.AddStatements(@"if (value.Contains(""{""))
+            {
+                foreach (var property in _replacementVariables)
                 {
-                    e.AddLiteral("None");
-                    e.AddLiteral("ViaTopic");
-                    e.AddLiteral("ViaQueue");
+                    value = value.Replace($""{{{property.Key}}}"", property.Value);
+                }
+            }
+            return value;".ConvertToStatements());
+                    });
+
+                    @class.AddMethod($"string", "ResolveSelector", method =>
+                    {
+                        method
+                            .Private()
+                            .AddParameter("string", "logicalSelector")
+                            ;
+                        method.AddStatement("return ReplaceVariables(logicalSelector);");
+                    });
+
+                    @class.AddMethod($"string", "ResolveLocation", method =>
+                    {
+                        method
+                            .Private()
+                            .AddParameter("string", "logicalLocation")
+                            ;
+                        method.AddStatement("return $\"{_environmentPrefix}{ReplaceVariables(logicalLocation)}\";");
+                    });
+                }).AddRecord("PublishingInfo", record =>
+                {
+                    record.AddPrimaryConstructor(ctor =>
+                    {
+                        ctor.AddParameter("Type", "PublishedMessage");
+                        ctor.AddParameter("string", "PublishTo");
+                        ctor.AddParameter("int?", "Priority");
+                    });
+                }).AddRecord("SubscribesToQueueInfo", record =>
+                {
+                    record.AddPrimaryConstructor(ctor =>
+                    {
+                        ctor.AddParameter("Type", "MessageType");
+                        ctor.AddParameter("string?", "TopicName");
+                    });
+                }).AddRecord("QueueConfig", record =>
+                {
+                    record.AddPrimaryConstructor(ctor =>
+                    {
+                        ctor.AddParameter("string", "QueueName");
+                        ctor.AddParameter("int?", "MaxFlows");
+                        ctor.AddParameter("string?", "Selector");
+                        ctor.AddParameter("List<SubscribesToQueueInfo>", "SubscribedMessages");
+                    });
                 });
         }
 
-        private bool HasRoutingCustomizations(IElement message)
+        private void GetPublishingCustomizations(IElement message, out string? destination, out int? priority)
         {
+            destination = null;
+            priority = null;
             if (message.HasStereotype(Api.Constants.StereotypeIds.Publishing))
             {
-                return true;
-            }
-            if (message.AssociatedElements.Any(e => e.Association.TargetEnd.HasStereotype(Api.Constants.StereotypeIds.Subscribing) == true))
-            {
-                return true;
-            }
-            return false;
-        }
-
-        private void GetRoutingCustomizations(IElement message, out string? publishingPath, out string? subscribingPath)
-        {
-            publishingPath = null;
-            subscribingPath = null;
-            if (message.HasStereotype(Api.Constants.StereotypeIds.Publishing))
-            {
-                publishingPath = message.GetStereotypeProperty<string>(Api.Constants.StereotypeIds.Publishing, "Destination");
-            }
-            if (message.AssociatedElements.Any(e => e.Association.TargetEnd.HasStereotype(Api.Constants.StereotypeIds.Subscribing) == true))
-            {
-                subscribingPath = message.AssociatedElements.First(e => e.Association.TargetEnd.HasStereotype(Api.Constants.StereotypeIds.Subscribing) == true).Association.TargetEnd.GetStereotypeProperty<string>(Api.Constants.StereotypeIds.Subscribing, "Queue");
+                destination = message.GetStereotypeProperty<string>(Api.Constants.StereotypeIds.Publishing, "Destination");
+                priority = message.GetStereotypeProperty<int?>(Api.Constants.StereotypeIds.Publishing, "Priority");
             }
         }
 
+        private List<SubscriptionQueue> GetQueues(IEnumerable<IElement> models, Func<IElement, string> getTypeName, bool topicSubscription)
+        {
+            var result = new Dictionary<string, SubscriptionQueue>();
+            foreach (var message in models)
+            {
+                string queueName;
+                int? maxFlow = null;
+                string? selector = null;
+                string? subscriptioTopic = null;
+                if (message.AssociatedElements.Any(e => e.Association.TargetEnd.HasStereotype(Api.Constants.StereotypeIds.Subscribing) == true))
+                {
+                    var subscription = message.AssociatedElements.First(e => e.Association.TargetEnd.HasStereotype(Api.Constants.StereotypeIds.Subscribing) == true).Association.TargetEnd.GetStereotype(Api.Constants.StereotypeIds.Subscribing);
+                    var queue = subscription.GetProperty<IElement>("Queue");
+                    queueName = queue.Name;
+                    selector = queue.GetStereotypeProperty<string?>("Queue Config", "Selector");
+                    maxFlow = queue.GetStereotypeProperty<int?>("Queue Config", "Max Flows");
+                    subscriptioTopic = subscription.GetProperty<string?>("Topic") == null ? null : $"\"{subscription.GetProperty<string?>("Topic")}\"";
+                    if (string.IsNullOrEmpty(subscriptioTopic))
+                    {
+                        if (message.HasStereotype(Api.Constants.StereotypeIds.Publishing))
+                        {
+                            subscriptioTopic = message.GetStereotypeProperty<string>(Api.Constants.StereotypeIds.Publishing, "Destination");
+                        }
+                        else
+                        {
+                            subscriptioTopic = getTypeName(message).Replace(".", "//");
+                        }
+                    }
+                }
+                else
+                {
+                    if (message.HasStereotype(Api.Constants.StereotypeIds.Publishing))
+                    {
+                        queueName = message.GetStereotypeProperty<string>(Api.Constants.StereotypeIds.Publishing, "Destination");
+                    }
+                    else
+                    {
+                        queueName = getTypeName(message).Replace(".", "//");
+                    }
+
+                    if (topicSubscription)
+                    {
+                        queueName = $"{{Application}}/{queueName}";
+                    }
+                }
+                if (!result.TryGetValue(queueName, out var q))
+                {
+                    q = new SubscriptionQueue(queueName, maxFlow, selector, new List<SubscriptionMessage> { new SubscriptionMessage(message, subscriptioTopic) });
+                    result.Add(queueName, q);
+                }
+                else
+                {
+                    q.Messages.Add(new SubscriptionMessage(message, subscriptioTopic));
+                }
+            }
+            return result.Values.ToList();
+        }
+
+        internal record SubscriptionQueue(string Name, int? MaxFlows, string? Selector, List<SubscriptionMessage> Messages);
+        internal record SubscriptionMessage(IElement Message, string? SubscribedTopic);
 
         private void LoadEventsAndCommands(IOutputTarget outputTarget)
         {
@@ -332,8 +477,6 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
             _publishedMessageModels = Enumerable.Empty<MessageModel>()
                     .Concat(serviceDesignerPubEvents)
                     .Concat(eventingDesignerPubEvents)
-                    //If I've already covered the message in in the Sub don't do it here
-                    .Except(_subscribedMessageModels)
                     .OrderBy(x => x.Name)
                     .ToArray();
 
@@ -350,13 +493,11 @@ namespace Intent.Modules.Eventing.Solace.Templates.MessageRegistry
 
             var serviceDesignerPubCommands = ExecutionContext.MetadataManager
                 .GetExplicitlySentIntegrationCommandDispatches(OutputTarget.Application.Id)
-				.Select(x => x.TypeReference.Element.AsIntegrationCommandModel()); 
+                .Select(x => x.TypeReference.Element.AsIntegrationCommandModel());
 
 
             _publishedIntegrationCommandModels = Enumerable.Empty<IntegrationCommandModel>()
                     .Concat(serviceDesignerPubCommands)
-                    //If I've already covered the message in in the Sub don't do it here
-                    .Except(_subscribedIntegrationCommandModels)
                     .OrderBy(x => x.Name)
                     .ToArray();
         }

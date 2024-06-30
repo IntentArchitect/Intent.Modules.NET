@@ -90,6 +90,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                                     .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
                             }
 
+                            method.AddStatement($"// TODO: Implement {method.Name} ({priClass.Name}) functionality");
                             method.AddStatement($@"throw new NotImplementedException(""Write your implementation for this service here..."");");
                         });
                     }

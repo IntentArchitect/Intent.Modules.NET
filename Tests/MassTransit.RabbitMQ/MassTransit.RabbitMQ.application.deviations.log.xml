@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation#e8a03011-719b-4553-a06e-48d7a7a174ca</correlationId>
+      <path>MassTransit.RabbitMQ.Application/IntegrationEventHandlers/TestMessageEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-05T15:12:59.4202802Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:17:12.2001626Z</approvedAt>
+      <deviationsHash>57CF5033B965E9E627D5D87FC45815FEA1301B5A4AEFAF0EAC7B46674ED0B894</deviationsHash>
+      <fileHash>06CCB5549DA50E0F0DBA2C55E68F1FEDB50F7AA025BD624E79FE09D2C4BB5527</fileHash>
+    </file>
+  </files>
+</deviationsLog>

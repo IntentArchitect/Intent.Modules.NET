@@ -67,6 +67,7 @@ public abstract class IntegrationEventHandlerTemplateBase : CSharpTemplateBase<I
                     if (handleMethod.Statements.Count == 0)
                     {
                         handleMethod.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
+                        handleMethod.AddStatement($"// TODO: Implement {handleMethod.Name} ({file.Classes.First().Name}) functionality");
                         handleMethod.AddStatement("throw new NotImplementedException(\"Implement your handler logic here...\");");
                     }
                 }

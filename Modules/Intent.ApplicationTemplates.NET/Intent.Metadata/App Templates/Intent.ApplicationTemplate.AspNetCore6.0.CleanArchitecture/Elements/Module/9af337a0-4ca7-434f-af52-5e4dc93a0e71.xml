@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9af337a0-4ca7-434f-af52-5e4dc93a0e71" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+  <name>Intent.Modelers.Domain.Events</name>
+  <display>Intent.Modelers.Domain.Events 4.1.0</display>
+  <isAbstract>false</isAbstract>
+  <value>4.1.0</value>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
+  <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

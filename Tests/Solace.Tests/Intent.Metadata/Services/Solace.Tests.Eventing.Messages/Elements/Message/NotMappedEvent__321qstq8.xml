@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d2626e01-4def-4b32-9ba5-7b91fb0c9b23" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>NotMappedEvent</name>
+  <display>NotMappedEvent</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>62549091-f9de-46a1-b478-236d42077f3c</parentFolderId>
+  <packageId>62549091-f9de-46a1-b478-236d42077f3c</packageId>
+  <packageName>Solace.Tests.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

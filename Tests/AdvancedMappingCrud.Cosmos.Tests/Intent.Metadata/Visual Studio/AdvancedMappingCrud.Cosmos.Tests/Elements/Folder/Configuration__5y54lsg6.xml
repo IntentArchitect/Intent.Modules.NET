@@ -117,16 +117,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="26b6a084-9964-4937-98d6-3dd57999a016" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.QuartzScheduler.QuartzConfiguation</name>
-      <display>Intent.QuartzScheduler.QuartzConfiguation</display>
+    <childElement id="cb57076f-c5f1-43a5-9bac-829668e637db" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.QuartzScheduler.QuartzConfiguration</name>
+      <display>Intent.QuartzScheduler.QuartzConfiguration</display>
       <externalReference>Intent.QuartzScheduler</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>257af555-85e6-42b4-ac92-bd84458b4e01</parentFolderId>
-      <packageId>941f8521-a7d4-4bbb-86d2-988a78ff25c1</packageId>
-      <packageName>AdvancedMappingCrud.Cosmos.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

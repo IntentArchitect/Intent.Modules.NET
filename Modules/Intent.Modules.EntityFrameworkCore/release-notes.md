@@ -1,4 +1,8 @@
-﻿### Version 5.0.7
+﻿### Version 5.0.8
+
+- Fixed: Issue were modeling an Association end as both `IsCollection` and `IsNullable` caused problematic behaviour.
+
+### Version 5.0.7
 
 - Improved: Postgres enabled for having "Included" index columns.
 - Improved: Added `Maintain Column Ordering` setting, which configures SQL column ordering to reflect the model order. 

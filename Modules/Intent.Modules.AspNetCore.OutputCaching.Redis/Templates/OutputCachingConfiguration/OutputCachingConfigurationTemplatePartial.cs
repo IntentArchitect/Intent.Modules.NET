@@ -70,7 +70,7 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Templates.OutputCachingC
                                     {
                                         if (config.Duration() is not null)
                                         {
-                                            builderFluent.AddChainStatement($"Expire(TimeSpan.FromSeconds({config.Duration()}))");
+                                            builderFluent.AddChainStatement($"Expire(TimeSpan.FromSeconds(configuration.GetValue<int?>(\"OutputCaching:Policies:{cachingPolicy.Name}:Duration\") ?? {config.Duration()}))");
                                         }
                                         if (!string.IsNullOrEmpty(config.Tags()))
                                         {

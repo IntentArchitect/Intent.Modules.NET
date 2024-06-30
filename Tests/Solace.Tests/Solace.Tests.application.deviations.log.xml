@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Eventing.Solace.IntegrationEventHandler#c22e8240-e744-4522-b39a-03e707054765</correlationId>
+      <path>Solace.Tests.Application/IntegrationEvents/EventHandlers/Customers/CustomerCreatedHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:12:00.5611354Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:12:00.5611403Z</approvedAt>
+      <deviationsHash>0A6D036A13B516E591965518AE22B69A100F290D34E3AFB385337FD201249B95</deviationsHash>
+      <fileHash>5D2A11EE0FBFFADD0CC9E95819B127BEB4FA8D7AC138A09FE5FC76C85C460317</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.Solace.IntegrationEventHandler#8912ca43-636f-429f-ae4e-bba36cca0173</correlationId>
+      <path>Solace.Tests.Application/IntegrationEvents/EventHandlers/GeneralHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-20T20:12:00.5460457Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-06-20T20:12:00.5462436Z</approvedAt>
+      <deviationsHash>19EC4B3566E2109C841E69808DC7908D3D8C48000B5777C64E95D46CB2C1BBF3</deviationsHash>
+      <fileHash>7FB9DD488AC32D226CFE090A75DE25792E04610A6B3B0185A974A0573633438E</fileHash>
+    </file>
+  </files>
+</deviationsLog>

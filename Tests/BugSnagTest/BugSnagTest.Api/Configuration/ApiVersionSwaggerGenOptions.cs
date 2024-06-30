@@ -33,7 +33,7 @@ namespace BugSnagTest.Api.Configuration
         {
             var info = new OpenApiInfo()
             {
-                Title = "BugSnagTest API",
+                Title = "BugSnagTest.AspNetCore API",
                 Version = description.ApiVersion.ToString()
             };
 

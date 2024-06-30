@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SolaceSystems.Solclient.Messaging;
@@ -16,33 +17,33 @@ namespace Solace.Tests.Infrastructure.Eventing
     public class SolaceConsumingService : IHostedService
     {
         private readonly List<SolaceConsumer> _consumers = new List<SolaceConsumer>();
+        private readonly bool _bindQueues;
         private readonly ISession _session;
         private readonly MessageRegistry _messageRegistry;
         private readonly IServiceProvider _provider;
 
-        public SolaceConsumingService(ISession session, MessageRegistry messageRegistry, IServiceProvider provider)
+        public SolaceConsumingService(ISession session,
+            MessageRegistry messageRegistry,
+            IConfiguration configuration,
+            IServiceProvider provider)
         {
             _session = session;
             _messageRegistry = messageRegistry;
             _provider = provider;
+            _bindQueues = configuration.GetSection("Solace:BindQueues").Get<bool?>() ?? true;
             ValidateEnvironment(session);
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            var consumerConfigs = _messageRegistry.MessageTypes
-                                    .Where(mc => mc.SubscribeDestination != null)
-                                    .GroupBy(mc => mc.SubscribeDestination)
-                                    .Select(g => new ConsumerConfig(
-                                        QueueName: g.Key!,
-                                        TopicNames: g.Select(mc => mc.PublishedDestination)
-                                    ))
-                                    .ToList();
-            foreach (var consumerConfig in consumerConfigs)
+            if (_bindQueues)
             {
-                var consumer = _provider.GetRequiredService<SolaceConsumer>();
-                consumer.Start(consumerConfig);
-                _consumers.Add(consumer);
+                foreach (var queueConfig in _messageRegistry.Queues)
+                {
+                    var consumer = _provider.GetRequiredService<SolaceConsumer>();
+                    consumer.Start(queueConfig);
+                    _consumers.Add(consumer);
+                }
             }
             return Task.CompletedTask;
         }

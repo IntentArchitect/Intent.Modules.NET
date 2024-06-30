@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
@@ -75,9 +76,9 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
             queryParams.Add("maxInt", maxInt.ToString());
             queryParams.Add("isRequired", isRequired);
             queryParams.Add("isRequiredEmpty", isRequiredEmpty);
-            queryParams.Add("decimalRange", decimalRange.ToString());
-            queryParams.Add("decimalMin", decimalMin.ToString());
-            queryParams.Add("decimalMax", decimalMax.ToString());
+            queryParams.Add("decimalRange", decimalRange.ToString(CultureInfo.InvariantCulture));
+            queryParams.Add("decimalMin", decimalMin.ToString(CultureInfo.InvariantCulture));
+            queryParams.Add("decimalMax", decimalMax.ToString(CultureInfo.InvariantCulture));
             queryParams.Add("stringOption", stringOption);
             queryParams.Add("stringOptionNonEmpty", stringOptionNonEmpty);
             queryParams.Add("myEnum", myEnum.ToString());

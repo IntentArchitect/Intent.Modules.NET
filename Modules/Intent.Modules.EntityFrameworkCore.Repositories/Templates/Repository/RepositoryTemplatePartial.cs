@@ -110,6 +110,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                     {
                         if (!method.Statements.Any())
                         {
+                            method.AddStatement($"// TODO: Implement {method.Name} ({file.Classes.First().Name}) functionality");
                             method.AddStatement($"""throw new {UseType("System.NotImplementedException")}("Your implementation here...");""");
                         }
                     }

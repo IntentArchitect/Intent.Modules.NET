@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6744b1ba-50e7-4544-b19e-52093781c3e2" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>2aada1c6-c15a-4051-bab2-77d5e680493d</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a86f8fc1-3cc6-433f-8c41-5f1263ed9cb8</parentFolderId>
+  <packageId>a86f8fc1-3cc6-433f-8c41-5f1263ed9cb8</packageId>
+  <packageName>BugSnagTest.ServiceHost.Services</packageName>
+  <diagram>
+    <targetPackageId>a86f8fc1-3cc6-433f-8c41-5f1263ed9cb8</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

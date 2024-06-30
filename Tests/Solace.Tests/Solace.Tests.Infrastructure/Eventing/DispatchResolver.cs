@@ -15,9 +15,9 @@ namespace Solace.Tests.Infrastructure.Eventing
         public DispatchResolver(MessageRegistry messageRegistry)
         {
             _dispatcherMappings = new Dictionary<Type, Type>();
-            foreach (var message in messageRegistry.MessageTypes)
+            foreach (var queue in messageRegistry.Queues)
             {
-                if (message.SubscribeDestination is not null)
+                foreach (var message in queue.SubscribedMessages)
                 {
                     var genericTypeDefinition = typeof(ISolaceEventDispatcher<>);
                     var closedConstructedType = genericTypeDefinition.MakeGenericType(message.MessageType);

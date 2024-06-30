@@ -48,9 +48,14 @@ namespace Intent.Eventing.Solace.Api
 
             public string Name => _stereotype.Name;
 
-            public string Queue()
+            public IElement Queue()
             {
-                return _stereotype.GetProperty<string>("Queue");
+                return _stereotype.GetProperty<IElement>("Queue");
+            }
+
+            public string Topic()
+            {
+                return _stereotype.GetProperty<string>("Topic");
             }
 
         }

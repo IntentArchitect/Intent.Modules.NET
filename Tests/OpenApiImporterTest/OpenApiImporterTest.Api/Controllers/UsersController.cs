@@ -12,11 +12,10 @@ using Microsoft.Extensions.DependencyInjection;
 using OpenApiImporterTest.Api.Controllers.ResponseTypes;
 using OpenApiImporterTest.Application.Users;
 using OpenApiImporterTest.Application.Users.CreateUser;
-using OpenApiImporterTest.Application.Users.CreateUserCreateWithList;
 using OpenApiImporterTest.Application.Users.DeleteUser;
+using OpenApiImporterTest.Application.Users.GetLogin;
+using OpenApiImporterTest.Application.Users.GetLogout;
 using OpenApiImporterTest.Application.Users.GetUser;
-using OpenApiImporterTest.Application.Users.GetUserLogin;
-using OpenApiImporterTest.Application.Users.GetUserLogout;
 using OpenApiImporterTest.Application.Users.UpdateUser;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -49,23 +48,6 @@ namespace OpenApiImporterTest.Api.Controllers
         {
             await _mediator.Send(command, cancellationToken);
             return Created(string.Empty, null);
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <response code="201">Successfully created.</response>
-        /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPost("/user/createWithList")]
-        [Produces(MediaTypeNames.Application.Json)]
-        [ProducesResponseType(typeof(User), StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<User>> CreateUserCreateWithList(
-            [FromBody] CreateUserCreateWithListCommand command,
-            CancellationToken cancellationToken = default)
-        {
-            var result = await _mediator.Send(command, cancellationToken);
-            return Created(string.Empty, result);
         }
 
         /// <summary>
@@ -122,12 +104,12 @@ namespace OpenApiImporterTest.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<JsonResponse<string>>> GetUserLogin(
+        public async Task<ActionResult<JsonResponse<string>>> GetLogin(
             [FromQuery] string username,
             [FromQuery] string password,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetUserLoginQuery(username: username, password: password), cancellationToken);
+            var result = await _mediator.Send(new GetLoginQuery(username: username, password: password), cancellationToken);
             return result == null ? NotFound() : Ok(new JsonResponse<string>(result));
         }
 
@@ -138,9 +120,9 @@ namespace OpenApiImporterTest.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<int>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<JsonResponse<int>>> GetUserLogout(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<JsonResponse<int>>> GetLogout(CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetUserLogoutQuery(), cancellationToken);
+            var result = await _mediator.Send(new GetLogoutQuery(), cancellationToken);
             return Ok(new JsonResponse<int>(result));
         }
 
