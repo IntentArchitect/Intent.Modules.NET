@@ -1,4 +1,5 @@
-﻿using Intent.Metadata.Models;
+﻿using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Metadata.WebApi.Models;
 using System;
@@ -11,6 +12,8 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates
     {
         string Name { get; }
         IEnumerable<IHttpEndpointModel> GetMappedEndpoints();
+
+        bool SerializeEnumsAsStrings { get; }
 
         public IMetadataModel UnderlyingModel { get; }
     }
