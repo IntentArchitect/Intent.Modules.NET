@@ -23,9 +23,10 @@ namespace ProxyServiceTests.Proxy.PTH.Infrastructure.HttpClients
         public DeleteClientsServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

@@ -19,16 +19,16 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         [Fact]
         public async Task GetChildById_ShouldGetChildById()
         {
-            //Arrange
+            // Arrange
             var client = new ChildrenHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var childId = await dataFactory.CreateChild();
 
-            //Act
+            // Act
             var child = await client.GetChildByIdAsync(childId);
 
-            //Assert
+            // Assert
             Assert.NotNull(child);
         }
     }

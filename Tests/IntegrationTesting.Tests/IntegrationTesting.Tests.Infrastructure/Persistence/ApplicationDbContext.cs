@@ -26,16 +26,20 @@ namespace IntegrationTesting.Tests.Infrastructure.Persistence
         }
 
         public DbSet<BadSignatures> BadSignatures { get; set; }
+        public DbSet<Brand> Brands { get; set; }
         public DbSet<Child> Children { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<DiffId> DiffIds { get; set; }
         public DbSet<DiffPk> DiffPks { get; set; }
         public DbSet<DtoReturn> DtoReturns { get; set; }
+        public DbSet<HasMissingDep> HasMissingDeps { get; set; }
+        public DbSet<MissingDep> MissingDeps { get; set; }
         public DbSet<NoReturn> NoReturns { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Parent> Parents { get; set; }
         public DbSet<PartialCrud> PartialCruds { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<RichProduct> RichProducts { get; set; }
         public DbSet<UniqueConVal> UniqueConVals { get; set; }
 
         public override async Task<int> SaveChangesAsync(
@@ -58,16 +62,20 @@ namespace IntegrationTesting.Tests.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new BadSignaturesConfiguration());
+            modelBuilder.ApplyConfiguration(new BrandConfiguration());
             modelBuilder.ApplyConfiguration(new ChildConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new DiffIdConfiguration());
             modelBuilder.ApplyConfiguration(new DiffPkConfiguration());
             modelBuilder.ApplyConfiguration(new DtoReturnConfiguration());
+            modelBuilder.ApplyConfiguration(new HasMissingDepConfiguration());
+            modelBuilder.ApplyConfiguration(new MissingDepConfiguration());
             modelBuilder.ApplyConfiguration(new NoReturnConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new ParentConfiguration());
             modelBuilder.ApplyConfiguration(new PartialCrudConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new RichProductConfiguration());
             modelBuilder.ApplyConfiguration(new UniqueConValConfiguration());
         }
 

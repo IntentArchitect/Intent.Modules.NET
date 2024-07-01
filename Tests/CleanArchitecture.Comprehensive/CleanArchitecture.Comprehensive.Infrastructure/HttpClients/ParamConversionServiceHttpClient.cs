@@ -27,9 +27,10 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
         public ParamConversionServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

@@ -27,9 +27,10 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public IntegrationServiceProxyHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

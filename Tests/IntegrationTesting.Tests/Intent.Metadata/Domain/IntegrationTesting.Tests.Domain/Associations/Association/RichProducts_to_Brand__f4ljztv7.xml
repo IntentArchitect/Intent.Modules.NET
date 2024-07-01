@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="66c13ebe-de26-4518-b892-1db3e3b7bbb8">
+  <sourceEnd id="fd3200c1-e3a1-4065-b932-c23a6eecacd3" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>RichProducts</name>
+    <display>RichProducts: RichProduct[*]</display>
+    <order>0</order>
+    <typeReference id="d2adc3c7-741d-4c88-9ef7-bd5c2894e8a1">
+      <typeId>368531c0-eb48-4728-bcc2-9573d18e43a5</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="66c13ebe-de26-4518-b892-1db3e3b7bbb8" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Brand</name>
+    <display>Brand: Brand</display>
+    <order>4</order>
+    <typeReference id="b090057f-c907-4029-8452-1a267196a831">
+      <typeId>46aaf509-5305-4e74-abda-3fbadfb12219</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -18,16 +18,16 @@ namespace ValueObjects.Class.IntegrationTests.Tests
         [Fact]
         public async Task GetTestEntityById_ShouldGetTestEntityById()
         {
-            //Arrange
+            // Arrange
             var client = new TestEntitiesHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var testEntityId = await dataFactory.CreateTestEntity();
 
-            //Act
+            // Act
             var testEntity = await client.GetTestEntityByIdAsync(testEntityId);
 
-            //Assert
+            // Assert
             Assert.NotNull(testEntity);
         }
     }

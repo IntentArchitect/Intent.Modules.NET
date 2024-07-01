@@ -26,9 +26,10 @@ namespace ProxyServiceTests.Proxy.TMS.Infrastructure.HttpClients
         public ClientsServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

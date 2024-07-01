@@ -20,16 +20,16 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         [Fact]
         public async Task DeleteChild_ShouldDeleteChild()
         {
-            //Arrange
+            // Arrange
             var client = new ChildrenHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var childId = await dataFactory.CreateChild();
 
-            //Act
+            // Act
             await client.DeleteChildAsync(childId);
 
-            //Assert
+            // Assert
             var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetChildByIdAsync(childId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }

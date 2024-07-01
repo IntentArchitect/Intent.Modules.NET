@@ -19,7 +19,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.IntegrationTes
         [Fact]
         public async Task UpdateEntityDefault_ShouldUpdateEntityDefault()
         {
-            //Arrange
+            // Arrange
             var client = new EntityDefaultsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
@@ -28,10 +28,10 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.IntegrationTes
             var command = dataFactory.CreateCommand<UpdateEntityDefaultCommand>();
             command.Id = entityDefaultId;
 
-            //Act
+            // Act
             await client.UpdateEntityDefaultAsync(entityDefaultId, command);
 
-            //Assert
+            // Assert
             var entityDefault = await client.GetEntityDefaultByIdAsync(entityDefaultId);
             Assert.NotNull(entityDefault);
             Assert.Equal(command.Message, entityDefault.Message);

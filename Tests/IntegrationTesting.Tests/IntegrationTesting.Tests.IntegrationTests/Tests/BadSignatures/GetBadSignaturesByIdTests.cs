@@ -19,16 +19,16 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         [Fact]
         public async Task GetBadSignaturesById_ShouldGetBadSignaturesById()
         {
-            //Arrange
+            // Arrange
             var client = new BadSignaturesHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var badSignaturesId = await dataFactory.CreateBadSignatures();
 
-            //Act
+            // Act
             var badSignatures = await client.GetBadSignaturesByIdAsync(badSignaturesId);
 
-            //Assert
+            // Assert
             Assert.NotNull(badSignatures);
         }
     }

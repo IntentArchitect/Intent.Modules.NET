@@ -23,9 +23,10 @@ namespace CleanArchitecture.Dapr.Infrastructure.HttpClients
         public SecuredServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

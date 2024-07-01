@@ -20,16 +20,16 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.IntegrationTes
         [Fact]
         public async Task DeleteEntityAppDefault_ShouldDeleteEntityAppDefault()
         {
-            //Arrange
+            // Arrange
             var client = new EntityAppDefaultsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var entityAppDefaultId = await dataFactory.CreateEntityAppDefault();
 
-            //Act
+            // Act
             await client.DeleteEntityAppDefaultAsync(entityAppDefaultId);
 
-            //Assert
+            // Assert
             var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetEntityAppDefaultByIdAsync(entityAppDefaultId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }

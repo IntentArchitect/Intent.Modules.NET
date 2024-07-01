@@ -1,6 +1,7 @@
 using AutoFixture;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.BadSignatures;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.Brands;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.Children;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.Customers;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.DiffIds;
@@ -8,7 +9,9 @@ using IntegrationTesting.Tests.IntegrationTests.HttpClients.DtoReturns;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.Orders;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.Parents;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.PartialCruds;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.RichProducts;
 using IntegrationTesting.Tests.IntegrationTests.Services.BadSignatures;
+using IntegrationTesting.Tests.IntegrationTests.Services.Brands;
 using IntegrationTesting.Tests.IntegrationTests.Services.Children;
 using IntegrationTesting.Tests.IntegrationTests.Services.Customers;
 using IntegrationTesting.Tests.IntegrationTests.Services.DiffIds;
@@ -17,6 +20,7 @@ using IntegrationTesting.Tests.IntegrationTests.Services.Orders;
 using IntegrationTesting.Tests.IntegrationTests.Services.Parents;
 using IntegrationTesting.Tests.IntegrationTests.Services.PartialCruds;
 using IntegrationTesting.Tests.IntegrationTests.Services.Products;
+using IntegrationTesting.Tests.IntegrationTests.Services.RichProducts;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -52,6 +56,16 @@ namespace IntegrationTesting.Tests.IntegrationTests
             var badSignaturesId = await client.CreateBadSignaturesAsync(command);
             _idTracker["BadSignaturesId"] = badSignaturesId;
             return badSignaturesId;
+        }
+
+        public async Task<Guid> CreateBrand()
+        {
+            var client = new BrandsHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateBrandCommand>();
+            var brandId = await client.CreateBrandAsync(command);
+            _idTracker["BrandId"] = brandId;
+            return brandId;
         }
 
         public async Task CreateChildDependencies()
@@ -159,6 +173,23 @@ namespace IntegrationTesting.Tests.IntegrationTests
             var partialCrudId = await client.CreatePartialCrudAsync(command);
             _idTracker["PartialCrudId"] = partialCrudId;
             return partialCrudId;
+        }
+
+        public async Task CreateRichProductDependencies()
+        {
+            await CreateBrand();
+        }
+
+        public async Task<Guid> CreateRichProduct()
+        {
+            await CreateRichProductDependencies();
+
+            var client = new RichProductsHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateRichProductCommand>();
+            var richProductId = await client.CreateRichProductAsync(command);
+            _idTracker["RichProductId"] = richProductId;
+            return richProductId;
         }
 
         public async Task<Guid> CreateProduct()

@@ -19,16 +19,16 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         [Fact]
         public async Task DeleteProduct_ShouldDeleteProduct()
         {
-            //Arrange
+            // Arrange
             var client = new ProductsServiceHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var productId = await dataFactory.CreateProduct();
 
-            //Act
+            // Act
             await client.DeleteProductAsync(productId);
 
-            //Assert
+            // Assert
             var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.FindProductByIdAsync(productId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }

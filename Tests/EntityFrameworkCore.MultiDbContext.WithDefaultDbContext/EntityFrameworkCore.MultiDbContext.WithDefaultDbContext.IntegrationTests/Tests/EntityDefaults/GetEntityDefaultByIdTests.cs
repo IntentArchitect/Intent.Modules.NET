@@ -18,16 +18,16 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.IntegrationTes
         [Fact]
         public async Task GetEntityDefaultById_ShouldGetEntityDefaultById()
         {
-            //Arrange
+            // Arrange
             var client = new EntityDefaultsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var entityDefaultId = await dataFactory.CreateEntityDefault();
 
-            //Act
+            // Act
             var entityDefault = await client.GetEntityDefaultByIdAsync(entityDefaultId);
 
-            //Assert
+            // Assert
             Assert.NotNull(entityDefault);
         }
     }

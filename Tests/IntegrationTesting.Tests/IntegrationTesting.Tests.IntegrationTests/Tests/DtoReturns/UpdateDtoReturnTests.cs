@@ -20,7 +20,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         [Fact]
         public async Task UpdateDtoReturn_ShouldUpdateDtoReturn()
         {
-            //Arrange
+            // Arrange
             var client = new DtoReturnsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
@@ -29,10 +29,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var command = dataFactory.CreateCommand<UpdateDtoReturnCommand>();
             command.Id = dtoReturnId;
 
-            //Act
+            // Act
             await client.UpdateDtoReturnAsync(dtoReturnId, command);
 
-            //Assert
+            // Assert
             var dtoReturn = await client.GetDtoReturnByIdAsync(dtoReturnId);
             Assert.NotNull(dtoReturn);
             Assert.Equal(command.Name, dtoReturn.Name);

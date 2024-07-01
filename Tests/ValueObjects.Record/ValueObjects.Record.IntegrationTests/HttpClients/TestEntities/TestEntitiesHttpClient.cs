@@ -18,9 +18,10 @@ namespace ValueObjects.Record.IntegrationTests.HttpClients.TestEntities
         public TestEntitiesHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

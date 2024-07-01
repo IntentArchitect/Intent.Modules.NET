@@ -20,9 +20,10 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
         public UniqueIndexConstraintServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

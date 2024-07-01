@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="84897ab5-aca3-4ad4-bb23-031071a9a2cd">
+  <sourceEnd id="ce04ce8a-736e-4ad8-a710-61882e62aec8" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetBrandByIdQuery</display>
+    <order>0</order>
+    <typeReference id="647ca734-98dd-45ed-866c-b1f667ef11ff">
+      <typeId>1ac336bd-383f-4252-96f7-c8976719afe6</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="84897ab5-aca3-4ad4-bb23-031071a9a2cd" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>brand</name>
+    <display>[query] brand: Brand</display>
+    <order>1</order>
+    <typeReference id="7112c06a-16e2-498f-ab67-3445aef299ca">
+      <typeId>46aaf509-5305-4e74-abda-3fbadfb12219</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1ac336bd-383f-4252-96f7-c8976719afe6" location="[IntegrationTesting.Tests].[Services].[GetBrandByIdQuery]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="46aaf509-5305-4e74-abda-3fbadfb12219" location="[IntegrationTesting.Tests].[Services].[Brand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="46aaf509-5305-4e74-abda-3fbadfb12219" name="Brand" type="element" specialization="Class" />
+              <target id="2468788c-590c-4155-a4d1-bb544f25ba96" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="1ac336bd-383f-4252-96f7-c8976719afe6" name="GetBrandByIdQuery" type="element" specialization="Query" />
+                  <target id="d6c5b056-5f3d-474b-9536-76b64e054092" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

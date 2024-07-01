@@ -20,9 +20,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Cu
         public CustomersHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

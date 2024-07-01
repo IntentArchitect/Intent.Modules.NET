@@ -25,9 +25,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.HttpClients
         public ProductServiceProxyHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

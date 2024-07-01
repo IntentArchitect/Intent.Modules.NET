@@ -19,9 +19,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.BadSignatures
         public BadSignaturesHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

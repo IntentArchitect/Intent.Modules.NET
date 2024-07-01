@@ -19,7 +19,7 @@ namespace ValueObjects.Class.IntegrationTests.Tests
         [Fact]
         public async Task UpdateTestEntity_ShouldUpdateTestEntity()
         {
-            //Arrange
+            // Arrange
             var client = new TestEntitiesHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
@@ -28,10 +28,10 @@ namespace ValueObjects.Class.IntegrationTests.Tests
             var command = dataFactory.CreateCommand<UpdateTestEntityCommand>();
             command.Id = testEntityId;
 
-            //Act
+            // Act
             await client.UpdateTestEntityAsync(testEntityId, command);
 
-            //Assert
+            // Assert
             var testEntity = await client.GetTestEntityByIdAsync(testEntityId);
             Assert.NotNull(testEntity);
             Assert.Equal(command.Name, testEntity.Name);

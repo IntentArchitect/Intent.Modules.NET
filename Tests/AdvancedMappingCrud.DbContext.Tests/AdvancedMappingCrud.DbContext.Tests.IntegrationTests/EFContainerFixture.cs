@@ -34,12 +34,14 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests
             }
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
                             {
-                                {
-                                    options.UseSqlServer(
-                                        _dbContainer.GetConnectionString(),
-                                        b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
-                                    options.UseLazyLoadingProxies();
-                                }
+                                options.UseSqlServer(
+                                    _dbContainer.GetConnectionString(),
+                                    b =>
+                                    {
+                                        b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
+                                        b.UseDateOnlyTimeOnly();
+                                    });
+                                options.UseLazyLoadingProxies();
                             });
             //Schema Creation
             var serviceProvider = services.BuildServiceProvider();

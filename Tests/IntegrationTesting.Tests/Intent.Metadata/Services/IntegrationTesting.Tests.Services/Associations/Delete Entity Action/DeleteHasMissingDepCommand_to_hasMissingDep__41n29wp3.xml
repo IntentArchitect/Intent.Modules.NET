@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b244a53a-5335-4c1d-af09-6f0fe761570f">
+  <sourceEnd id="60969105-a2cd-450f-bd7d-a02c38df95fb" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : HasMissingDeps.DeleteHasMissingDepCommand</display>
+    <order>0</order>
+    <typeReference id="a2f906f8-f5b0-40f9-abb6-346c0e672fad">
+      <typeId>885c5801-6e69-4408-adce-3c9fd4d091ba</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b244a53a-5335-4c1d-af09-6f0fe761570f" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>hasMissingDep</name>
+    <display>[delete] hasMissingDep: HasMissingDep</display>
+    <order>1</order>
+    <typeReference id="dea88bf4-aca2-4682-829f-90668e8b9ac8">
+      <typeId>6cb8585c-4658-4961-a373-855a7d26bc17</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="885c5801-6e69-4408-adce-3c9fd4d091ba" location="[IntegrationTesting.Tests].[Services].[DeleteHasMissingDepCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6cb8585c-4658-4961-a373-855a7d26bc17" location="[IntegrationTesting.Tests].[Services].[HasMissingDep]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="6cb8585c-4658-4961-a373-855a7d26bc17" name="HasMissingDep" type="element" specialization="Class" />
+              <target id="c1046add-d6cf-4f62-be4f-c2606985f6fa" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="885c5801-6e69-4408-adce-3c9fd4d091ba" name="DeleteHasMissingDepCommand" type="element" specialization="Command" />
+                  <target id="cd8cd219-ba5b-4b16-96e5-1712550d2398" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>
