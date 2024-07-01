@@ -622,7 +622,7 @@ public class DomainInteractionsManager
 				TrackedEntities.Add(callServiceOperation.Id, new EntityDetails((IElement)operationModel.TypeReference.Element, variableName, null, false, operationModel.TypeReference.IsCollection));
             }
             else if (invStatement?.Expression.Reference is ICSharpMethodDeclaration methodDeclaration &&
-                     methodDeclaration.ReturnTypeData is CSharpReturnTypeTuple tuple)
+                     methodDeclaration.ReturnTypeInfo is CSharpTypeTuple tuple)
             {
                 var declaration = new CSharpDeclarationExpression(tuple.Elements.Select(s => s.Name).ToList());
                 statements.Add(new CSharpAssignmentStatement(declaration, invoke));
