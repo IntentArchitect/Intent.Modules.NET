@@ -1,4 +1,8 @@
-﻿### Version 2.2.4
+﻿### Version 2.2.5
+
+- Improvement: Updated the logic which converts types to query parameters to be more standard in how it coverts types to string.
+
+### Version 2.2.4
 
 - Improvement: Improved internal module code.
 

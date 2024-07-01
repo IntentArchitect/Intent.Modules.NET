@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="01dd046a-c81b-4e1d-b7af-99ea5d6fef57">
+  <sourceEnd id="2204e693-ab78-4c43-b27f-e8b3246f5131" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : UniqueConVals.UpdateUniqueConValCommand</display>
+    <order>0</order>
+    <typeReference id="b5ee31fd-01b3-40d9-9f99-6f26adfd4ac8">
+      <typeId>e66d3b44-4b56-4051-90af-df6e8d24bb1b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="01dd046a-c81b-4e1d-b7af-99ea5d6fef57" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>uniqueConVal</name>
+    <display>[update] uniqueConVal: UniqueConVal</display>
+    <order>4</order>
+    <typeReference id="190c3d86-f1e7-4f1a-912c-7171fae9cf98">
+      <typeId>52d43dc7-7e0d-4305-9ebc-4f0606747989</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e66d3b44-4b56-4051-90af-df6e8d24bb1b" location="[IntegrationTesting.Tests].[Services].[UpdateUniqueConValCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="52d43dc7-7e0d-4305-9ebc-4f0606747989" location="[IntegrationTesting.Tests].[Services].[UniqueConVal]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="52d43dc7-7e0d-4305-9ebc-4f0606747989" name="UniqueConVal" type="element" specialization="Class" />
+              <target id="912e1154-658e-4383-8517-47c955d960ed" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="e66d3b44-4b56-4051-90af-df6e8d24bb1b" name="UpdateUniqueConValCommand" type="element" specialization="Command" />
+                  <target id="f7b7c701-63c9-46ed-8280-95086df9d23f" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e66d3b44-4b56-4051-90af-df6e8d24bb1b" location="[IntegrationTesting.Tests].[Services].[UpdateUniqueConValCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="52d43dc7-7e0d-4305-9ebc-4f0606747989" location="[IntegrationTesting.Tests].[Services].[UniqueConVal]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Att1}</expression>
+            <path>
+              <target id="52d43dc7-7e0d-4305-9ebc-4f0606747989" name="UniqueConVal" type="element" specialization="Class" />
+              <target id="5e418e84-306a-4884-b908-03daf51a9fdd" name="Att1" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Att1" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="e66d3b44-4b56-4051-90af-df6e8d24bb1b" name="UpdateUniqueConValCommand" type="element" specialization="Command" />
+                  <target id="0c57e7ef-74ac-4763-af3e-cd0a72d7a012" name="Att1" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Att2}</expression>
+            <path>
+              <target id="52d43dc7-7e0d-4305-9ebc-4f0606747989" name="UniqueConVal" type="element" specialization="Class" />
+              <target id="70163c21-fb44-440e-a540-9f5a014fcc82" name="Att2" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Att2" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="e66d3b44-4b56-4051-90af-df6e8d24bb1b" name="UpdateUniqueConValCommand" type="element" specialization="Command" />
+                  <target id="8f6b3708-0966-4c50-b4d1-b4495ec62f01" name="Att2" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AttInclude}</expression>
+            <path>
+              <target id="52d43dc7-7e0d-4305-9ebc-4f0606747989" name="UniqueConVal" type="element" specialization="Class" />
+              <target id="9845adca-0d3a-416c-a8ac-b7238fdfbb6e" name="AttInclude" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="AttInclude" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="e66d3b44-4b56-4051-90af-df6e8d24bb1b" name="UpdateUniqueConValCommand" type="element" specialization="Command" />
+                  <target id="fbd6b23e-6119-430f-8691-b50ca399fa0a" name="AttInclude" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

@@ -26,6 +26,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.MappableS
         {
             var result = await _mappableStoredProcRepository.GetEntityById(request.Id, cancellationToken);
 
+            // TODO: Implement return type mapping...
             throw new NotImplementedException("Implement return type mapping...");
         }
     }

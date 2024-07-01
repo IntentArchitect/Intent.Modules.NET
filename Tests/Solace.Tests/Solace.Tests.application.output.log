@@ -732,6 +732,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>088f17eb-30bd-4d14-9598-9d14b88136e9</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationCommand#f9f36366-c8df-48e9-a7df-394b9b3690d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/IntegrationCommands/NotMappedIC.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotMappedIC.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088f17eb-30bd-4d14-9598-9d14b88136e9</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationCommand#5224d5a1-43a0-4b24-b287-4782cdb758ea</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/IntegrationCommands/PurchaseCreated.cs</ApplicationRelativeFilePath>
@@ -768,6 +776,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/IntegrationEvents/EventHandlers/GeneralHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GeneralHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e6f4f32a-1ff1-479a-897d-5f80f11a1b08</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#d2626e01-4def-4b32-9ba5-7b91fb0c9b23</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/IntegrationEvents/NotMappedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotMappedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#11877fad-05ce-4655-92c8-d52c8480fad9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/NotMapped/NotMappedTest/NotMappedTestCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotMapped/NotMappedTest/NotMappedTestCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#11877fad-05ce-4655-92c8-d52c8480fad9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/NotMapped/NotMappedTest/NotMappedTestCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotMapped/NotMappedTest/NotMappedTestCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#11877fad-05ce-4655-92c8-d52c8480fad9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/NotMapped/NotMappedTest/NotMappedTestCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotMapped/NotMappedTest/NotMappedTestCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -64,6 +64,7 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
                                     .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
                             }
 
+                            method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
                             method.AddStatement("throw new NotImplementedException(\"Implement your domain service logic here...\");");
                         });
                     }

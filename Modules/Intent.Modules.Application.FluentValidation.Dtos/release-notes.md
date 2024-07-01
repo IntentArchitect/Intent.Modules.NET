@@ -1,3 +1,8 @@
+### Version 3.9.1
+
+- Improvement: Added `TODO` comments on `NotImplementedException`.
+- Fix: Unique Constraint validation ignores Included columns.
+
 ### Version 3.9.0
 
 - Improvement: Added Regular Expressions for Validation.

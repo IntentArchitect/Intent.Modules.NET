@@ -382,7 +382,8 @@ public class DomainInteractionsManager
 		}
 		else
 		{
-			statements.Add(new CSharpStatement("throw new NotImplementedException(\"Implement return type mapping...\");").SeparatedFromPrevious());
+            statements.Add(new CSharpStatement($"// TODO: Implement return type mapping...").SeparatedFromPrevious());
+            statements.Add("throw new NotImplementedException(\"Implement return type mapping...\");");
 		}
 
 		return statements;

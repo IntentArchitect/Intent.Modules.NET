@@ -42,6 +42,7 @@ namespace Intent.Modules.Dapper.Templates.CustomRepository
                     {
                         if (!method.Statements.Any())
                         {
+                            method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
                             method.AddStatement($"""throw new {UseType("System.NotImplementedException")}("Your implementation here...");""");
                         }
                     }

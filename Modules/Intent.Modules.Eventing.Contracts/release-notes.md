@@ -1,3 +1,8 @@
+### Version 5.0.6
+
+- Improvement: Added `TODO` comments on `NotImplementedException`.
+- Improvement: Allow for code generation  of unmapped `Message` and `IntegrationCommand`.
+
 ### Version 5.0.5
 
 - Improvement: Whether to generate messages, their related DTOs and Enums is now determined by whether they are used in _any_ kind of association, rather than just if they're used by handlers or publishers. This allows automatic inclusion for other modules which may represent consumption/publishing of messages in a different way.

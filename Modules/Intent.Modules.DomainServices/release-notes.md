@@ -1,4 +1,8 @@
-﻿### Version 1.1.3
+﻿### Version 1.1.4
+
+- Improvement: Added `TODO` comments on `NotImplementedException`.
+
+### Version 1.1.3
 
 - Improvement: Upgraded module to support new 4.1 SDK features.
 - 

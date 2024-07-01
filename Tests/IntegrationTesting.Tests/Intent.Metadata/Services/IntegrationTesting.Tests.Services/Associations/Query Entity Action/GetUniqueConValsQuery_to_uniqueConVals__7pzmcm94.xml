@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="aafa8b6f-19bc-4100-ad79-9c551bfd59c6">
+  <sourceEnd id="6f181155-e47f-4917-aede-bf70aab1214e" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetUniqueConValsQuery</display>
+    <order>0</order>
+    <typeReference id="79ab1fa2-b93d-4cde-b014-7be34d31b28c">
+      <typeId>1f2341b7-a389-4be5-94f7-42225560fb4a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="aafa8b6f-19bc-4100-ad79-9c551bfd59c6" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>uniqueConVals</name>
+    <display>[query] uniqueConVals: UniqueConVal[*]</display>
+    <order>0</order>
+    <typeReference id="da7e3d09-c1d2-4dd5-8faf-16431eee6a36">
+      <typeId>52d43dc7-7e0d-4305-9ebc-4f0606747989</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1f2341b7-a389-4be5-94f7-42225560fb4a" location="[IntegrationTesting.Tests].[Services].[GetUniqueConValsQuery]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="52d43dc7-7e0d-4305-9ebc-4f0606747989" location="[IntegrationTesting.Tests].[Services].[UniqueConVal]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

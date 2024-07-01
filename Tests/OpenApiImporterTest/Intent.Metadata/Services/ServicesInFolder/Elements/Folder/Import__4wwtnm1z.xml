@@ -3,7 +3,6 @@
   <name>Import</name>
   <display>Import</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>cf625fef-7e2d-438d-89c1-3f909e0dd111</parentFolderId>

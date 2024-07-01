@@ -1,4 +1,8 @@
-﻿### Version 1.0.3
+﻿### Version 1.0.4
+
+- Improvement: Updated the logic which converts types to query parameters to be more standard in how it coverts types to string.
+
+### Version 1.0.3
 
 - Improvement: Added support for deserializing ProblemDetails for client HTTP calls.
 

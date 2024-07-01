@@ -90,6 +90,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                         var method = (CSharpClassMethod)file.Classes.First().GetReferenceForModel(handledDomainEvents);
                         if (method.Statements.Count == 0)
                         {
+                            method.AddStatement($"// TODO: Implement {method.Name} {file.Classes.First().Name}) functionality");
                             method.AddStatement("throw new NotImplementedException(\"Implement your handler logic here...\");");
                         }
                     }

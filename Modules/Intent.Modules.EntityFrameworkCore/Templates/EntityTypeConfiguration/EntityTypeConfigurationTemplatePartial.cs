@@ -43,9 +43,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public EntityTypeConfigurationTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
-			_enforceColumnOrdering = ExecutionContext.Settings.GetDatabaseSettings().MaintainColumnOrdering();
+            _enforceColumnOrdering = ExecutionContext.Settings.GetDatabaseSettings().MaintainColumnOrdering();
 
-			AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));
+            AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));
             AddTypeSource("Domain.Entity");
             AddTypeSource("Domain.ValueObject");
 
@@ -55,7 +55,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 .AddClass($"{Model.Name}Configuration", @class =>
                 {
 
-					if (!TryGetTemplate("Domain.Entity.State", Model, out _entityTemplate))
+                    if (!TryGetTemplate("Domain.Entity.State", Model, out _entityTemplate))
                     {
                         _entityTemplate = GetTemplate<IIntentTemplate>("Domain.Entity", Model);
                     }
@@ -440,7 +440,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             if (!IsOwned(attribute.TypeReference.Element))
             {
-				return EfCoreFieldConfigStatement.CreateProperty(attribute, ExecutionContext.Settings.GetDatabaseSettings(), _enforceColumnOrdering ? _columnCurrentOrder++ : null );
+                return EfCoreFieldConfigStatement.CreateProperty(attribute, ExecutionContext.Settings.GetDatabaseSettings(), _enforceColumnOrdering ? _columnCurrentOrder++ : null);
             }
 
             @class.AddMethod("void", $"Configure{attribute.Name.ToPascalCase()}", method =>

@@ -73,7 +73,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
             var relativeUri = $"api/upload-download/download";
 
             var queryParams = new Dictionary<string, string?>();
-            queryParams.Add("id", id.ToString());
+            queryParams.Add("id", id.ToString("D"));
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

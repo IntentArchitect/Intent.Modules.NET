@@ -1,3 +1,8 @@
+### Version 6.2.2
+
+- Improvement: Added `TODO` comments on `NotImplementedException`.
+- Improvement: Bumped `Intent.Eventing.Contracts` dependency so that Service Designer event package gets added when installing this module.
+
 ### Version 6.2.1
 
 - Fixed: Updated important dependency version.

@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="e2c45fca-93fd-4030-b02d-4b0a71ce00a4" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Parent</name>
-    <display>Parent: Parent   [* --&gt; 1]</display>
+    <display>Parent: Parent</display>
     <order>3</order>
     <typeReference id="c6ddbc59-7566-4882-9385-10655e37d0b7">
       <typeId>63b14c5a-b7cf-4d3c-8107-6ea0d409e957</typeId>

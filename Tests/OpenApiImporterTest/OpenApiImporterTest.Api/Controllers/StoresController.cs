@@ -10,10 +10,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using OpenApiImporterTest.Application.Stores;
-using OpenApiImporterTest.Application.Stores.CreateStoreOrder;
-using OpenApiImporterTest.Application.Stores.DeleteStoreOrder;
-using OpenApiImporterTest.Application.Stores.GetStoreInventory;
-using OpenApiImporterTest.Application.Stores.GetStoreOrder;
+using OpenApiImporterTest.Application.Stores.CreateOrder;
+using OpenApiImporterTest.Application.Stores.DeleteOrder;
+using OpenApiImporterTest.Application.Stores.GetInventory;
+using OpenApiImporterTest.Application.Stores.GetOrder;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
@@ -40,8 +40,8 @@ namespace OpenApiImporterTest.Api.Controllers
         [ProducesResponseType(typeof(Order), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Order>> CreateStoreOrder(
-            [FromBody] CreateStoreOrderCommand command,
+        public async Task<ActionResult<Order>> CreateOrder(
+            [FromBody] CreateOrderCommand command,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
@@ -58,11 +58,9 @@ namespace OpenApiImporterTest.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> DeleteStoreOrder(
-            [FromRoute] int orderId,
-            CancellationToken cancellationToken = default)
+        public async Task<ActionResult> DeleteOrder([FromRoute] int orderId, CancellationToken cancellationToken = default)
         {
-            await _mediator.Send(new DeleteStoreOrderCommand(orderId: orderId), cancellationToken);
+            await _mediator.Send(new DeleteOrderCommand(orderId: orderId), cancellationToken);
             return Ok();
         }
 
@@ -73,9 +71,9 @@ namespace OpenApiImporterTest.Api.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(Dictionary<string, int>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Dictionary<string, int>>> GetStoreInventory(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<Dictionary<string, int>>> GetInventory(CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetStoreInventoryQuery(), cancellationToken);
+            var result = await _mediator.Send(new GetInventoryQuery(), cancellationToken);
             return Ok(result);
         }
 
@@ -90,11 +88,11 @@ namespace OpenApiImporterTest.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<Order>> GetStoreOrder(
+        public async Task<ActionResult<Order>> GetOrder(
             [FromRoute] int orderId,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetStoreOrderQuery(orderId: orderId), cancellationToken);
+            var result = await _mediator.Send(new GetOrderQuery(orderId: orderId), cancellationToken);
             return result == null ? NotFound() : Ok(result);
         }
     }

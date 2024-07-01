@@ -7,8 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OpenApiImporterTest.Application.Common.Behaviours;
 using OpenApiImporterTest.Application.Common.Validation;
-using OpenApiImporterTest.Application.Implementation.Import;
-using OpenApiImporterTest.Application.Interfaces.Import;
+using OpenApiImporterTest.Application.Implementation;
+using OpenApiImporterTest.Application.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]
