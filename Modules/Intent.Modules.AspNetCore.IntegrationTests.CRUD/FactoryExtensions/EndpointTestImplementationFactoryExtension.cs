@@ -52,11 +52,71 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var testDataTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TestDataFactoryTemplate.TemplateId);
-            var crudMaps = CrudMapHelper.LoadCrudMaps(testDataTemplate, _metadataManager, application);
+            var crudMaps = CrudMapHelper.LoadCrudMaps(testDataTemplate, _metadataManager, application, out var cantImplementCrudMaps);
 
             PopulateTestDataFactory(testDataTemplate, crudMaps);
             GenerateCRUDTests(application, crudMaps);
+            GenerateCRUDStubTests(application, cantImplementCrudMaps);
         }
+
+        private void GenerateCRUDStubTests(IApplication application, List<CrudMap> cantImplementCrudMaps)
+        {
+            foreach (var crudTest in cantImplementCrudMaps)
+            {
+                var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.Create.Id);
+                template.AddNugetDependency(NugetPackages.AutoFixture);
+                DoNotImplementedTest(template, crudTest);
+                template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.GetById.Id);
+                DoNotImplementedTest(template, crudTest);
+                if (crudTest.Update != null)
+                {
+                    template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.Update.Id);
+                    DoNotImplementedTest(template, crudTest);
+                }
+                if (crudTest.Delete != null)
+                {
+                    template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.Delete.Id);
+                    DoNotImplementedTest(template, crudTest);
+                }
+                if (crudTest.GetAll != null)
+                {
+                    template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.GetAll.Id);
+                    DoNotImplementedTest(template, crudTest);
+                }
+            }
+        }
+
+        private void DoNotImplementedTest(ICSharpFileBuilderTemplate template, CrudMap crudTest)
+        {
+            template.CSharpFile.OnBuild(file =>
+            {
+                template.AddUsing("System.Net");
+                template.AddUsing("AutoFixture");
+                template.GetHttpClientRequestExceptionName();
+
+                var @class = template.CSharpFile.Classes.First();
+                var operation = crudTest.Delete!;
+
+                @class.AddMethod("Task", $"{operation.Name}_Should{operation.Name}", method =>
+                {
+
+                    method
+                        .Async()
+                        .AddAttribute("Fact")
+                        ;
+                    AddRequirementTraits(crudTest, method, template);
+                    method
+                        .AddStatement("// Arrange", s => s.SeparatedFromPrevious())
+                        .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
+                        .AddStatement("// Act", s => s.SeparatedFromPrevious())
+                        .AddStatement($"// Unable to generate test: Can't determine how to mock data for ({ string.Join(",",  crudTest.Dependencies.Where(d => d.CrudMap is null).Select( d => d.EntityName)) })", s => s.SeparatedFromPrevious())
+                        .AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality")
+                        .AddStatement($@"throw new NotImplementedException(""Your implementation here..."");")
+                        ;
+                });
+            });
+        }
+
 
         private void GenerateCRUDTests(IApplication application, List<CrudMap> crudMaps)
         {
@@ -107,7 +167,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddAttribute("Fact");
                     AddRequirementTraits(crudTest, method, template);
                     method
-                        .AddStatement("//Arrange")
+                        .AddStatement("// Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious());
 
@@ -125,7 +185,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
                     method
                         .AddStatement($"var command = dataFactory.CreateCommand<{template.GetTypeName(dtoModel.TypeReference)}>();", s => s.SeparatedFromPrevious())
-                        .AddStatement("//Act", s => s.SeparatedFromPrevious());
+                        .AddStatement("// Act", s => s.SeparatedFromPrevious());
 
                     if (crudTest.ResponseDtoIdField is null)
                     {
@@ -137,7 +197,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         method.AddStatement($"var {sutId} = createdDto.{crudTest.ResponseDtoIdField};");
                     }
                     method
-                        .AddStatement("//Assert", s => s.SeparatedFromPrevious())
+                        .AddStatement("// Assert", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {crudTest.Entity.Name.ToParameterName()} = await client.{crudTest.GetById.Name}Async({getByIdParams});")
                         .AddStatement($"Assert.NotNull({crudTest.Entity.Name.ToParameterName()});");
                 });
@@ -165,16 +225,16 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddAttribute("Fact");
                     AddRequirementTraits(crudTest, method, template);
                     method
-                        .AddStatement("//Arrange")
+                        .AddStatement("// Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
 
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {createVarName} = await dataFactory.Create{crudTest.Entity.Name}();")
 
-                        .AddStatement("//Act", s => s.SeparatedFromPrevious())
+                        .AddStatement("// Act", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {crudTest.Entity.Name.ToParameterName()} = await client.{crudTest.GetById.Name}Async({getByIdParams});")
 
-                        .AddStatement("//Assert", s => s.SeparatedFromPrevious())
+                        .AddStatement("// Assert", s => s.SeparatedFromPrevious())
                         .AddStatement($"Assert.NotNull({crudTest.Entity.Name.ToParameterName()});")
                         ;
                 });
@@ -199,15 +259,15 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddAttribute("Fact");
                     AddRequirementTraits(crudTest, method, template);
                     method
-                        .AddStatement("//Arrange")
+                        .AddStatement("// Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
 
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"{(crudTest.OwningAggregate is not null ? "var ids = ":"")}await dataFactory.Create{crudTest.Entity.Name}();")
-                        .AddStatement("//Act", s => s.SeparatedFromPrevious())
+                        .AddStatement("// Act", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {crudTest.Entity.Name.ToParameterName().Pluralize()} = await client.{crudTest.GetAll!.Name}Async({(crudTest.OwningAggregate is not null ? $"{owningAggregateId}" : "")});")
 
-                        .AddStatement("//Assert", s => s.SeparatedFromPrevious())
+                        .AddStatement("// Assert", s => s.SeparatedFromPrevious())
                         .AddStatement($"Assert.True({crudTest.Entity.Name.ToParameterName().Pluralize()}.Count > 0);")
                         ;
                 });
@@ -240,14 +300,14 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddAttribute("Fact");
                     AddRequirementTraits(crudTest, method, template);
                     method
-                        .AddStatement("//Arrange")
+                        .AddStatement("// Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {createVarName} = await dataFactory.Create{crudTest.Entity.Name}();")
-                        .AddStatement("//Act", s => s.SeparatedFromPrevious())
+                        .AddStatement("// Act", s => s.SeparatedFromPrevious())
                         .AddStatement($"await client.{crudTest.Delete!.Name}Async({deleteParams});")
 
-                        .AddStatement("//Assert", s => s.SeparatedFromPrevious())
+                        .AddStatement("// Assert", s => s.SeparatedFromPrevious())
                         .AddStatement($"var exception = await Assert.ThrowsAsync<{template.GetHttpClientRequestExceptionName()}>(() => client.{crudTest.GetById.Name}Async({getByIdParams}));")
                         .AddStatement($"Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);")
                         ;
@@ -277,7 +337,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddAttribute("Fact");
                     AddRequirementTraits(crudTest, method, template);
                     method
-                        .AddStatement("//Arrange")
+                        .AddStatement("// Arrange")
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
 
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
@@ -289,10 +349,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement($"command.{GetDtoPkFieldName(operation)} = {sutId};");
 
                     method
-                        .AddStatement("//Act", s => s.SeparatedFromPrevious())
+                        .AddStatement("// Act", s => s.SeparatedFromPrevious())
                         .AddStatement($"await client.{crudTest.Update!.Name}Async({sutId}, command);")
 
-                        .AddStatement("//Assert", s => s.SeparatedFromPrevious())
+                        .AddStatement("// Assert", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {crudTest.Entity.Name.ToParameterName()} = await client.{crudTest.GetById.Name}Async({getByIdParams});")
                         .AddStatement($"Assert.NotNull({crudTest.Entity.Name.ToParameterName()});")
                         ;

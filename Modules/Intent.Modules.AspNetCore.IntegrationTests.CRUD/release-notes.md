@@ -1,7 +1,10 @@
-﻿### Version 1.0.3
+﻿### Version 1.0.4
+
+- Improvement: Generate `NotImplemenetedException` stub tests for, CRUD style services which we can't determine implementations for.
+
+### Version 1.0.3
 
 - Fixed: Crash around services don't have an Update operation.
-
 
 ### Version 1.0.2
 
