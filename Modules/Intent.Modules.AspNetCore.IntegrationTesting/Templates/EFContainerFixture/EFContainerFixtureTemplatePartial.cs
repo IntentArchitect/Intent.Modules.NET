@@ -10,6 +10,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.Modules.Constants.TemplateRoles.Application;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -62,7 +63,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                     services.Remove(descriptor);
                 }}
 ".ConvertToStatements());
-                        method.AddStatements(dbStrategy.DbContextRegistration);
+                        method.AddStatement("services.AddDbContext<ApplicationDbContext>((sp, options) => { });", s => s.AddMetadata("db-context-reconfigure", "true"));                   
 
                         method.AddStatements(@"
                 //Schema Creation
@@ -94,7 +95,37 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                                 .AddStatement("await _dbContainer.StopAsync();");
                         });
                     });
-                });
+                })
+                .OnBuild(f => 
+                {
+                    var @class = f.TypeDeclarations.First();
+                    var method = @class.FindMethod("ConfigureTestServices");
+                    var statement = method.FindStatement(s => s.HasMetadata("db-context-reconfigure"));
+
+                    if ( this.TryGetTemplate<ICSharpFileBuilderTemplate>("Intent.Infrastructure.DependencyInjection.DependencyInjection", out var containerTemplate))
+                    {
+                        var regMethod = containerTemplate.CSharpFile.Classes.First().FindMethod("AddInfrastructure");
+                        if (regMethod == null)
+                        {
+                            return;
+                        }
+                        CSharpStatement dbContextStatement = null;
+                        foreach (var line in regMethod.Statements)
+                        { 
+                            if (line.GetText("").StartsWith("services.AddDbContext"))
+                            {
+                                dbContextStatement = line;
+                                break;
+                            }
+                        }
+                        
+                        var connectionStringText = regMethod.FindStatement(x => x.HasMetadata("is-connection-string")).GetText("");
+                        string dbContextReconfigure = dbContextStatement.GetText("").Replace(connectionStringText, "_dbContainer.GetConnectionString()");
+                        method.InsertStatements(method.Statements.IndexOf(statement), dbContextReconfigure.ConvertToStatements().ToList());
+                        statement.Remove();
+                    }
+
+                }, 10000);
         }
 
         private DbStrategy GetPostgresStrategy()
@@ -121,8 +152,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                 containerType: "PostgreSqlContainer ",
                 usings: new() { "Testcontainers.PostgreSql", "Microsoft.EntityFrameworkCore" },
                 nuGetPackages: new() { NugetPackages.TestcontainersPostgreSql },
-                containerInitialization: containerInitialization,
-                dbContextRegistration: dbContextRegistration
+                containerInitialization: containerInitialization
                 );
         }
 
@@ -134,21 +164,11 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                 .Build();"
                 .ConvertToStatements();
 
-            var dbContextRegistration = @"services.AddDbContext<ApplicationDbContext>((sp, options) =>
-                {{
-                    options.UseSqlServer(
-                        _dbContainer.GetConnectionString(),
-                        b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
-                    options.UseLazyLoadingProxies();
-                }});
-".ConvertToStatements();
-
             return new DbStrategy(
                 containerType: "MsSqlContainer",
                 usings: new() { "Testcontainers.MsSql", "Microsoft.EntityFrameworkCore" },
                 nuGetPackages: new() { NugetPackages.TestcontainersMsSql },
-                containerInitialization: containerInitialization,
-                dbContextRegistration: dbContextRegistration
+                containerInitialization: containerInitialization
                 );
         }
 

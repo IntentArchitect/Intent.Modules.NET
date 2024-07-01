@@ -1,4 +1,9 @@
-﻿### Version 1.0.4
+﻿### Version 1.0.5
+
+- Improvement: DbContext registrations for Integration tests, retain all application configuration options.
+
+
+### Version 1.0.4
 
 - Improvement: Updated the logic which converts types to query parameters to be more standard in how it coverts types to string.
 
