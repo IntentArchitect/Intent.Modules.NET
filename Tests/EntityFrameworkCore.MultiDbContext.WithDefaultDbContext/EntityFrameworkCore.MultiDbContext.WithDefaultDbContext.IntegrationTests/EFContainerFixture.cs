@@ -32,11 +32,11 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.IntegrationTes
             {
                 services.Remove(descriptor);
             }
-            services.AddDbContext<AlternateConnStrDefaultDbDbContext>((sp, options) =>
+            services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
                 options.UseSqlServer(
                     _dbContainer.GetConnectionString(),
-                    b => b.MigrationsAssembly(typeof(AlternateConnStrDefaultDbDbContext).Assembly.FullName));
+                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
             //Schema Creation
