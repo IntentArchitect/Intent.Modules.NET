@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7485f33c-e555-4fb9-bd7f-5183b92ba311" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetHasMissingDepsQuery</name>
+  <display>GetHasMissingDepsQuery: HasMissingDepDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="65ae1013-51ff-4a7d-b690-95e1ce9a4b53">
+    <typeId>14f1514c-7ae3-4c96-b8b1-521d526804d1</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+    <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>27129f40-af9a-407b-81ca-f2d6883a0bfa</parentFolderId>
+  <packageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</packageId>
+  <packageName>IntegrationTesting.Tests.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/has-missing-deps" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="HasMissingDeps" />
+  </metadata>
+  <childElements />
+</class>

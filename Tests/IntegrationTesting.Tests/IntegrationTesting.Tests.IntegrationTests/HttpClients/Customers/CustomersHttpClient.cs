@@ -18,9 +18,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.Customers
         public CustomersHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

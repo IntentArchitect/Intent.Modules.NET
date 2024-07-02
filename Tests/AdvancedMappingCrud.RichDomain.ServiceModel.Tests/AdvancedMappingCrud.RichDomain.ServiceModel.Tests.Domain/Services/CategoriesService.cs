@@ -25,5 +25,12 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Services
         {
             throw new NotImplementedException("Implement your domain service logic here...");
         }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public void DoIt<T>(T it)
+        {
+            // TODO: Implement DoIt (CategoriesService) functionality
+            throw new NotImplementedException("Implement your domain service logic here...");
+        }
     }
 }

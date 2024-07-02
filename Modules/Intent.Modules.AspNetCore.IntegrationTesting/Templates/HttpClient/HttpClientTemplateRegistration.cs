@@ -40,6 +40,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.HttpClient
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IServiceProxyModel> GetModels(IApplication application)
         {
+            //Set StringSerialization here
             return _metadataManager.GetServicesAsProxyModels(application);
         }
     }

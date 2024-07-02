@@ -14,12 +14,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DomainApi = Intent.Modelers.Domain.Api;
 
 namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.TestImplementations
 {
     internal class CrudMapHelper
     {
-        internal static List<CrudMap> LoadCrudMaps(ICSharpFileBuilderTemplate template, IMetadataManager _metadataManager, IApplication application)
+        internal static List<CrudMap> LoadCrudMaps(ICSharpFileBuilderTemplate template, IMetadataManager _metadataManager, IApplication application, out List<CrudMap> cantImplement)
         {
             var crudtests = new List<CrudMap>();
             var testableProxies = _metadataManager.GetServicesAsProxyModels(application);
@@ -34,9 +35,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
             //This ensures that the Dependencies list is ordered e.g. Customer -> Order (depends on Customer) -> OrderItem (depends on Order)
             DependencySortingHelper.SortDependencies(crudtests);
 
+            cantImplement = crudtests.Where(ct => ct.Dependencies.Any(d => d.CrudMap is null)).ToList();
             //Removing implementations which can't work because they have dependencies on Enities which don't have CRUD Services.
-            crudtests.RemoveAll(ct => ct.Dependencies.Any(d => d.CrudMap is null));
-            return crudtests;
+            var result = crudtests.Except(cantImplement).ToList();
+            return result;
         }
 
         private static IEnumerable<CrudMap> ExtractCrudMap(ICSharpFileBuilderTemplate template, IServiceProxyModel testableProxy)
@@ -207,6 +209,14 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
             foreach (var mappedEnd in mapping.MappedEnds.Where(me => me.MappingType == "Data Mapping"))
             {
                 var attributeModel = (mappedEnd.TargetElement as IElement)?.AsAttributeModel();
+                if (attributeModel == null && mappedEnd.TargetElement as IElement != null) 
+                {
+                    var parameterModel = DomainApi.ParameterModelExtensions.AsParameterModel(mappedEnd.TargetElement as IElement);
+                    if (parameterModel != null && parameterModel.InternalElement.MappedElement != null && parameterModel.InternalElement.MappedElement.Element.IsAttributeModel())
+                    {
+                        attributeModel = parameterModel.InternalElement.MappedElement.Element.AsAttributeModel();
+                    }
+                }
                 if (attributeModel is not null && attributeModel.HasStereotype("Foreign Key"))
                 {
                     var ae = attributeModel.GetStereotype("Foreign Key")?.GetProperty<IElement>("Association")?.AsAssociationTargetEndModel();

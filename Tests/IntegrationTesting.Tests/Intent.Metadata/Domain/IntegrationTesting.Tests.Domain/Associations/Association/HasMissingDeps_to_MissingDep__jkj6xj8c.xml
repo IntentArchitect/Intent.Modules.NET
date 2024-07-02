@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="146eafef-4cb9-48e4-b105-8753302561a1">
+  <sourceEnd id="7ff0fb8b-94c7-48db-a4c7-e7a82eced849" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>HasMissingDeps</name>
+    <display>HasMissingDeps: HasMissingDep[*]</display>
+    <order>0</order>
+    <typeReference id="5a747194-d1bd-40ea-805f-c8446e86c8e5">
+      <typeId>6cb8585c-4658-4961-a373-855a7d26bc17</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="146eafef-4cb9-48e4-b105-8753302561a1" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MissingDep</name>
+    <display>MissingDep: MissingDep</display>
+    <order>3</order>
+    <typeReference id="85328911-f2fb-4c69-9bf9-56eb90391579">
+      <typeId>ab406a92-86e7-4ecc-9164-ba1caafee9ea</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

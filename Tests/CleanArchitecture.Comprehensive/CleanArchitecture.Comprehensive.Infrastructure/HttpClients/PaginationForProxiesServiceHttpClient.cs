@@ -25,9 +25,10 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
         public PaginationForProxiesServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4d42e8f2-ef4f-41ed-a47d-8bce3c57b94a">
+  <sourceEnd id="f7322340-3c26-4663-8614-b8e9b62a208b" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetBrandsQuery</display>
+    <order>0</order>
+    <typeReference id="8a6c220f-9893-4e02-af39-7c7d6eaf9df9">
+      <typeId>4e37c4f6-136f-4917-a49f-71728789391c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4d42e8f2-ef4f-41ed-a47d-8bce3c57b94a" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>brands</name>
+    <display>[query] brands: Brand[*]</display>
+    <order>0</order>
+    <typeReference id="a544f9ed-4dc9-4984-818b-88dfa9fd50f7">
+      <typeId>46aaf509-5305-4e74-abda-3fbadfb12219</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4e37c4f6-136f-4917-a49f-71728789391c" location="[IntegrationTesting.Tests].[Services].[GetBrandsQuery]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="46aaf509-5305-4e74-abda-3fbadfb12219" location="[IntegrationTesting.Tests].[Services].[Brand]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

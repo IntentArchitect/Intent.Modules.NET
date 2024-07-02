@@ -94,3 +94,7 @@ Our `Intent.AspNetCore.IntegrationTesting.CRUD` module can be used to generate i
         }
     }
 ```
+
+## Top Level Statements with this module
+
+IF you are using `top-level Statements`, you will get a compilation error around `Program is inaccessible!`, you will need to apply the following work-around to get the projects compiling. https://github.com/dotnet/AspNetCore.Docs/issues/23837

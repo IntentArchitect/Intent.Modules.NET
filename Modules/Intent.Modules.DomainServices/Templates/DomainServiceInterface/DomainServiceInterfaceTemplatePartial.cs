@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Services.Api;
 using Intent.Modules.Common;
@@ -36,9 +37,16 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceInterface
                     foreach (var operation in Model.Operations)
                     {
                         var isAsync = operation.Name.EndsWith("Async", System.StringComparison.OrdinalIgnoreCase);
-                        
+
                         @interface.AddMethod(operation, method =>
                         {
+                            if (operation.GenericTypes.Any())
+                            {
+                                foreach (var genericType in operation.GenericTypes)
+                                {
+                                    method.AddGenericParameter(genericType);
+                                }
+                            }
                             method.TryAddXmlDocComments(operation.InternalElement);
 
                             if (isAsync)

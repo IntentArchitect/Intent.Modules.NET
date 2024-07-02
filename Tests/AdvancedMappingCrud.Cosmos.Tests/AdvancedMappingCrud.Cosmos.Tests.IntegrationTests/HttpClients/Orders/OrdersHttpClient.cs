@@ -19,9 +19,10 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Orders
         public OrdersHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

@@ -12,5 +12,6 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Services
     public interface ICategoriesService
     {
         Task<IEnumerable<Category>> GetOrCreateCategoriesAsync(IEnumerable<string> names, CancellationToken cancellationToken = default);
+        void DoIt<T>(T it);
     }
 }

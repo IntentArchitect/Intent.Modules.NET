@@ -18,9 +18,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.DtoReturns
         public DtoReturnsHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

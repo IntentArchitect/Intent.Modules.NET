@@ -14,20 +14,17 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
         public DbStrategy(string containerType, 
             List<string> usings, 
             List<INugetPackageInfo> nuGetPackages, 
-            IEnumerable<CSharpStatement> containerInitialization, 
-            IEnumerable<CSharpStatement> dbContextRegistration)
+            IEnumerable<CSharpStatement> containerInitialization)
         {
             ContainerType = containerType;
             Usings = usings;
             NuGetPackages = nuGetPackages;
             ContainerInitialization = containerInitialization;
-            DbContextRegistration = dbContextRegistration;
         }
 
         public string ContainerType { get; }
         public IEnumerable<string> Usings { get; }
         public IEnumerable<INugetPackageInfo> NuGetPackages { get; }
         public IEnumerable<CSharpStatement> ContainerInitialization { get;  }
-        public IEnumerable<CSharpStatement> DbContextRegistration { get; }
     }
 }

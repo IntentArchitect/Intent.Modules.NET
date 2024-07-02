@@ -62,5 +62,54 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="cb972a6b-01a5-4ca5-9f8d-edf980233bb4" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>DoIt</name>
+      <display>DoIt&lt;T&gt;(it: T): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes>
+        <genericType id="a262a506-1081-459e-9111-c99dcd0afdbc">
+          <name>T</name>
+        </genericType>
+      </genericTypes>
+      <typeReference id="07e77750-e733-42ab-a99d-288424ca9be1">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0b4fda89-35c9-4175-9009-f0150e36b42e</parentFolderId>
+      <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="1925f697-98fa-407d-a08a-7f3d77bbfe1c" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>it</name>
+          <display>in : it: T</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f9a795ad-0d14-4fee-b699-fafe1911162e">
+            <typeId>a262a506-1081-459e-9111-c99dcd0afdbc</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>cb972a6b-01a5-4ca5-9f8d-edf980233bb4</parentFolderId>
+          <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

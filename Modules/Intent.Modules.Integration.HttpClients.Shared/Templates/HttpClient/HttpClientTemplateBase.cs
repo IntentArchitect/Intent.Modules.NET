@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Net.Http.Headers;
 using System.Reflection.Metadata;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -96,12 +97,20 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                 @class
                     .ImplementsInterface(GetTypeName(serviceContractTemplateId, Model))
                     .AddField("JsonSerializerOptions", "_serializerOptions", f => f.PrivateReadOnly())
-                    .AddConstructor(constructor => constructor
-                        .AddParameter("HttpClient", "httpClient", p => p.IntroduceReadonlyField())
-                        .AddStatement(@"_serializerOptions = new JsonSerializerOptions
-        {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        };"));
+                    .AddConstructor(constructor =>
+                    {
+                        var jsonSettingsBlock = new CSharpObjectInitializerBlock("_serializerOptions = new JsonSerializerOptions")
+                            .AddInitStatement("PropertyNamingPolicy", "JsonNamingPolicy.CamelCase")
+                            .WithSemicolon();
+                        if (model.SerializeEnumsAsStrings)
+                        {
+                            AddUsing("System.Text.Json.Serialization");
+                            jsonSettingsBlock.AddInitStatement("Converters", "{ new JsonStringEnumConverter() }");
+                        }
+                        constructor
+                            .AddParameter("HttpClient", "httpClient", p => p.IntroduceReadonlyField())
+                            .AddStatement(jsonSettingsBlock);
+                    });
 
                 foreach (var endpoint in endpoints)
                 {

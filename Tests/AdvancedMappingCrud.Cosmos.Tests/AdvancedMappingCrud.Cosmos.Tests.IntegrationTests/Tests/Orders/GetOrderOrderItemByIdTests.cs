@@ -24,16 +24,16 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         [Trait("Requirement", "CosmosDB")]
         public async Task GetOrderOrderItemById_ShouldGetOrderOrderItemById()
         {
-            //Arrange
+            // Arrange
             var client = new OrdersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var ids = await dataFactory.CreateOrderItem();
 
-            //Act
+            // Act
             var orderItem = await client.GetOrderOrderItemByIdAsync(ids.OrderId, ids.OrderItemId);
 
-            //Assert
+            // Assert
             Assert.NotNull(orderItem);
         }
     }

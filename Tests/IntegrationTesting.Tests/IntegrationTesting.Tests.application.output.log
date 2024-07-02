@@ -68,6 +68,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>68f4fb1c-9cdb-456c-8594-b5d4bc883cd2</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#f68e6ddb-8b71-43c0-bac7-146e97e08ca7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Api/Controllers/BrandsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BrandsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>68f4fb1c-9cdb-456c-8594-b5d4bc883cd2</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#17e4e577-b053-4c1c-a433-e552079175a7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Api/Controllers/ChildrenController.cs</ApplicationRelativeFilePath>
@@ -96,6 +104,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Api/Controllers/DtoReturnsController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DtoReturnsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>68f4fb1c-9cdb-456c-8594-b5d4bc883cd2</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#27129f40-af9a-407b-81ca-f2d6883a0bfa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Api/Controllers/HasMissingDepsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDepsController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -144,6 +160,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>68f4fb1c-9cdb-456c-8594-b5d4bc883cd2</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#f0978fa6-e53b-4155-8bf6-9a8c25219e5f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Api/Controllers/RichProductsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProductsController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -344,6 +368,142 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/BadSignatures/UpdateBadSignatures/UpdateBadSignaturesCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BadSignatures/UpdateBadSignatures/UpdateBadSignaturesCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#8536fbf2-48e7-4574-87ad-7e784f73f045</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/BrandDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/BrandDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#8536fbf2-48e7-4574-87ad-7e784f73f045</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/BrandDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/BrandDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#f09e30c7-857f-4a6b-942a-fbdabec0233c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/CreateBrand/CreateBrandCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/CreateBrand/CreateBrandCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#f09e30c7-857f-4a6b-942a-fbdabec0233c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/CreateBrand/CreateBrandCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/CreateBrand/CreateBrandCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f09e30c7-857f-4a6b-942a-fbdabec0233c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/CreateBrand/CreateBrandCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/CreateBrand/CreateBrandCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#1b1daa4c-4b43-4917-994d-28d169c22052</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/DeleteBrand/DeleteBrandCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/DeleteBrand/DeleteBrandCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#1b1daa4c-4b43-4917-994d-28d169c22052</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/DeleteBrand/DeleteBrandCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/DeleteBrand/DeleteBrandCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#1b1daa4c-4b43-4917-994d-28d169c22052</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/DeleteBrand/DeleteBrandCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/DeleteBrand/DeleteBrandCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#1ac336bd-383f-4252-96f7-c8976719afe6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/GetBrandById/GetBrandByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/GetBrandById/GetBrandByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#1ac336bd-383f-4252-96f7-c8976719afe6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/GetBrandById/GetBrandByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/GetBrandById/GetBrandByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#1ac336bd-383f-4252-96f7-c8976719afe6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/GetBrandById/GetBrandByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/GetBrandById/GetBrandByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#4e37c4f6-136f-4917-a49f-71728789391c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/GetBrands/GetBrandsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/GetBrands/GetBrandsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#4e37c4f6-136f-4917-a49f-71728789391c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/GetBrands/GetBrandsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/GetBrands/GetBrandsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#4e37c4f6-136f-4917-a49f-71728789391c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/GetBrands/GetBrandsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/GetBrands/GetBrandsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#bad493a9-cf01-4473-9e1c-325059e7ca74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/UpdateBrand/UpdateBrandCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/UpdateBrand/UpdateBrandCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#bad493a9-cf01-4473-9e1c-325059e7ca74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/UpdateBrand/UpdateBrandCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/UpdateBrand/UpdateBrandCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#bad493a9-cf01-4473-9e1c-325059e7ca74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/UpdateBrand/UpdateBrandCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/UpdateBrand/UpdateBrandCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1080,6 +1240,142 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/DtoReturns/UpdateDtoReturn/UpdateDtoReturnCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DtoReturns/UpdateDtoReturn/UpdateDtoReturnCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#c9df9693-e774-4054-bdf4-f6688f3d3e88</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/CreateHasMissingDep/CreateHasMissingDepCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/CreateHasMissingDep/CreateHasMissingDepCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#c9df9693-e774-4054-bdf4-f6688f3d3e88</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/CreateHasMissingDep/CreateHasMissingDepCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/CreateHasMissingDep/CreateHasMissingDepCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#c9df9693-e774-4054-bdf4-f6688f3d3e88</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/CreateHasMissingDep/CreateHasMissingDepCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/CreateHasMissingDep/CreateHasMissingDepCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#885c5801-6e69-4408-adce-3c9fd4d091ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/DeleteHasMissingDep/DeleteHasMissingDepCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/DeleteHasMissingDep/DeleteHasMissingDepCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#885c5801-6e69-4408-adce-3c9fd4d091ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/DeleteHasMissingDep/DeleteHasMissingDepCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/DeleteHasMissingDep/DeleteHasMissingDepCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#885c5801-6e69-4408-adce-3c9fd4d091ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/DeleteHasMissingDep/DeleteHasMissingDepCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/DeleteHasMissingDep/DeleteHasMissingDepCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#7574a9a4-a33d-48e5-a21f-62459f55eea6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/GetHasMissingDepById/GetHasMissingDepByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/GetHasMissingDepById/GetHasMissingDepByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#7574a9a4-a33d-48e5-a21f-62459f55eea6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/GetHasMissingDepById/GetHasMissingDepByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/GetHasMissingDepById/GetHasMissingDepByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#7574a9a4-a33d-48e5-a21f-62459f55eea6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/GetHasMissingDepById/GetHasMissingDepByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/GetHasMissingDepById/GetHasMissingDepByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#7485f33c-e555-4fb9-bd7f-5183b92ba311</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/GetHasMissingDeps/GetHasMissingDepsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/GetHasMissingDeps/GetHasMissingDepsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#7485f33c-e555-4fb9-bd7f-5183b92ba311</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/GetHasMissingDeps/GetHasMissingDepsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/GetHasMissingDeps/GetHasMissingDepsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#7485f33c-e555-4fb9-bd7f-5183b92ba311</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/GetHasMissingDeps/GetHasMissingDepsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/GetHasMissingDeps/GetHasMissingDepsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#14f1514c-7ae3-4c96-b8b1-521d526804d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/HasMissingDepDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/HasMissingDepDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#14f1514c-7ae3-4c96-b8b1-521d526804d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/HasMissingDepDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/HasMissingDepDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#37f49039-7458-4933-b4cd-efe89ad0e886</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/UpdateHasMissingDep/UpdateHasMissingDepCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/UpdateHasMissingDep/UpdateHasMissingDepCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#37f49039-7458-4933-b4cd-efe89ad0e886</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/UpdateHasMissingDep/UpdateHasMissingDepCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/UpdateHasMissingDep/UpdateHasMissingDepCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#37f49039-7458-4933-b4cd-efe89ad0e886</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/UpdateHasMissingDep/UpdateHasMissingDepCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/UpdateHasMissingDep/UpdateHasMissingDepCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1820,6 +2116,142 @@
     </FileLog>
     <FileLog>
       <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#4645697b-15db-49bd-aeff-3b1d9e745b0e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/CreateRichProduct/CreateRichProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/CreateRichProduct/CreateRichProductCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#4645697b-15db-49bd-aeff-3b1d9e745b0e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/CreateRichProduct/CreateRichProductCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/CreateRichProduct/CreateRichProductCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#4645697b-15db-49bd-aeff-3b1d9e745b0e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/CreateRichProduct/CreateRichProductCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/CreateRichProduct/CreateRichProductCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#83607092-1a28-49b6-91cc-fb5c33087896</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/DeleteRichProduct/DeleteRichProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/DeleteRichProduct/DeleteRichProductCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#83607092-1a28-49b6-91cc-fb5c33087896</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/DeleteRichProduct/DeleteRichProductCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/DeleteRichProduct/DeleteRichProductCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#83607092-1a28-49b6-91cc-fb5c33087896</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/DeleteRichProduct/DeleteRichProductCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/DeleteRichProduct/DeleteRichProductCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#a305111d-e350-4db0-afe4-e4d9306de5f3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/GetRichProductById/GetRichProductByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/GetRichProductById/GetRichProductByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#a305111d-e350-4db0-afe4-e4d9306de5f3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/GetRichProductById/GetRichProductByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/GetRichProductById/GetRichProductByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#a305111d-e350-4db0-afe4-e4d9306de5f3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/GetRichProductById/GetRichProductByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/GetRichProductById/GetRichProductByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#2421b7f4-ccf1-4bed-9a7e-64787ba8881e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/GetRichProducts/GetRichProductsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/GetRichProducts/GetRichProductsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#2421b7f4-ccf1-4bed-9a7e-64787ba8881e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/GetRichProducts/GetRichProductsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/GetRichProducts/GetRichProductsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#2421b7f4-ccf1-4bed-9a7e-64787ba8881e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/GetRichProducts/GetRichProductsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/GetRichProducts/GetRichProductsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#798ebbc1-d8f4-4e41-b0b3-509dac9c1fe4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/RichProductDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/RichProductDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#798ebbc1-d8f4-4e41-b0b3-509dac9c1fe4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/RichProductDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/RichProductDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#579f6454-c7c3-49c6-9e71-babe698d8e92</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/UpdateRichProduct/UpdateRichProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/UpdateRichProduct/UpdateRichProductCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#579f6454-c7c3-49c6-9e71-babe698d8e92</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/UpdateRichProduct/UpdateRichProductCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/UpdateRichProduct/UpdateRichProductCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#579f6454-c7c3-49c6-9e71-babe698d8e92</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/RichProducts/UpdateRichProduct/UpdateRichProductCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/UpdateRichProduct/UpdateRichProductCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#d0620b09-4b0d-458b-8181-7df588db13f2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/UniqueConVals/CreateUniqueConVal/CreateUniqueConValCommand.cs</ApplicationRelativeFilePath>
@@ -2020,6 +2452,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0a7a6f49-71ab-4550-bee2-ad6f95dccae8</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#46aaf509-5305-4e74-abda-3fbadfb12219</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/Brand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6f49-71ab-4550-bee2-ad6f95dccae8</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#a3f2f76d-0867-4325-a5d6-fb4f1c83a247</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/Child.cs</ApplicationRelativeFilePath>
@@ -2056,6 +2496,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/DtoReturn.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DtoReturn.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6f49-71ab-4550-bee2-ad6f95dccae8</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#6cb8585c-4658-4961-a373-855a7d26bc17</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/HasMissingDep.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDep.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6f49-71ab-4550-bee2-ad6f95dccae8</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#ab406a92-86e7-4ecc-9164-ba1caafee9ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/MissingDep.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MissingDep.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2108,6 +2564,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0a7a6f49-71ab-4550-bee2-ad6f95dccae8</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#368531c0-eb48-4728-bcc2-9573d18e43a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/RichProduct.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProduct.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6f49-71ab-4550-bee2-ad6f95dccae8</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#52d43dc7-7e0d-4305-9ebc-4f0606747989</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/UniqueConVal.cs</ApplicationRelativeFilePath>
@@ -2128,6 +2592,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Repositories/IBadSignaturesRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IBadSignaturesRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bd2c8ef-87e5-48ec-aab2-e15aa8773c87</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#46aaf509-5305-4e74-abda-3fbadfb12219</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Repositories/IBrandRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBrandRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2176,6 +2648,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bd2c8ef-87e5-48ec-aab2-e15aa8773c87</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#6cb8585c-4658-4961-a373-855a7d26bc17</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Repositories/IHasMissingDepRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IHasMissingDepRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bd2c8ef-87e5-48ec-aab2-e15aa8773c87</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#ab406a92-86e7-4ecc-9164-ba1caafee9ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Repositories/IMissingDepRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMissingDepRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2236,6 +2724,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0bd2c8ef-87e5-48ec-aab2-e15aa8773c87</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#368531c0-eb48-4728-bcc2-9573d18e43a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Repositories/IRichProductRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IRichProductRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bd2c8ef-87e5-48ec-aab2-e15aa8773c87</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#52d43dc7-7e0d-4305-9ebc-4f0606747989</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Repositories/IUniqueConValRepository.cs</ApplicationRelativeFilePath>
@@ -2272,6 +2768,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Persistence/Configurations/BadSignaturesConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BadSignaturesConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b019a06f-0542-4575-97c9-60f9e54aedb9</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#46aaf509-5305-4e74-abda-3fbadfb12219</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Persistence/Configurations/BrandConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BrandConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2324,6 +2828,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>b019a06f-0542-4575-97c9-60f9e54aedb9</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#6cb8585c-4658-4961-a373-855a7d26bc17</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Persistence/Configurations/HasMissingDepConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDepConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b019a06f-0542-4575-97c9-60f9e54aedb9</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#ab406a92-86e7-4ecc-9164-ba1caafee9ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Persistence/Configurations/MissingDepConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MissingDepConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b019a06f-0542-4575-97c9-60f9e54aedb9</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#d41f3b20-b813-4c0b-8889-3f2712018361</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Persistence/Configurations/NoReturnConfiguration.cs</ApplicationRelativeFilePath>
@@ -2364,6 +2884,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b019a06f-0542-4575-97c9-60f9e54aedb9</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#368531c0-eb48-4728-bcc2-9573d18e43a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Persistence/Configurations/RichProductConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProductConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b019a06f-0542-4575-97c9-60f9e54aedb9</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#52d43dc7-7e0d-4305-9ebc-4f0606747989</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Persistence/Configurations/UniqueConValConfiguration.cs</ApplicationRelativeFilePath>
@@ -2384,6 +2912,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Repositories/BadSignaturesRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BadSignaturesRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a5dadd94-25e7-46b1-9df2-837e5af379ed</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#46aaf509-5305-4e74-abda-3fbadfb12219</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Repositories/BrandRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BrandRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2424,6 +2960,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Repositories/DtoReturnRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DtoReturnRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a5dadd94-25e7-46b1-9df2-837e5af379ed</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#6cb8585c-4658-4961-a373-855a7d26bc17</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Repositories/HasMissingDepRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDepRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a5dadd94-25e7-46b1-9df2-837e5af379ed</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#ab406a92-86e7-4ecc-9164-ba1caafee9ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Repositories/MissingDepRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MissingDepRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2472,6 +3024,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a5dadd94-25e7-46b1-9df2-837e5af379ed</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#368531c0-eb48-4728-bcc2-9573d18e43a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Repositories/RichProductRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProductRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2528,6 +3088,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/BadSignatures/IBadSignaturesService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BadSignatures/IBadSignaturesService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#f68e6ddb-8b71-43c0-bac7-146e97e08ca7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/Brands/BrandsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/BrandsHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#f68e6ddb-8b71-43c0-bac7-146e97e08ca7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/Brands/IBrandsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/IBrandsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2592,6 +3168,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/DtoReturns/IDtoReturnsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DtoReturns/IDtoReturnsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#27129f40-af9a-407b-81ca-f2d6883a0bfa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/HasMissingDeps/HasMissingDepsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/HasMissingDepsHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#27129f40-af9a-407b-81ca-f2d6883a0bfa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/HasMissingDeps/IHasMissingDepsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/IHasMissingDepsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2699,6 +3291,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#f0978fa6-e53b-4155-8bf6-9a8c25219e5f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/RichProducts/IRichProductsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/IRichProductsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#f0978fa6-e53b-4155-8bf6-9a8c25219e5f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/RichProducts/RichProductsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/RichProductsHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#fda9375f-9964-43cf-9ff4-dbb6a285027c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -2768,6 +3376,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/BadSignatures/UpdateBadSignaturesCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/BadSignatures/UpdateBadSignaturesCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#8536fbf2-48e7-4574-87ad-7e784f73f045</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/Brands/BrandDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Brands/BrandDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#f09e30c7-857f-4a6b-942a-fbdabec0233c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/Brands/CreateBrandCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Brands/CreateBrandCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#1b1daa4c-4b43-4917-994d-28d169c22052</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/Brands/DeleteBrandCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Brands/DeleteBrandCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#1ac336bd-383f-4252-96f7-c8976719afe6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/Brands/GetBrandByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Brands/GetBrandByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#4e37c4f6-136f-4917-a49f-71728789391c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/Brands/GetBrandsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Brands/GetBrandsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#bad493a9-cf01-4473-9e1c-325059e7ca74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/Brands/UpdateBrandCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Brands/UpdateBrandCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2960,6 +3616,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/DtoReturns/UpdateDtoReturnCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/DtoReturns/UpdateDtoReturnCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#c9df9693-e774-4054-bdf4-f6688f3d3e88</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/HasMissingDeps/CreateHasMissingDepCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/HasMissingDeps/CreateHasMissingDepCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#885c5801-6e69-4408-adce-3c9fd4d091ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/HasMissingDeps/DeleteHasMissingDepCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/HasMissingDeps/DeleteHasMissingDepCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#7574a9a4-a33d-48e5-a21f-62459f55eea6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/HasMissingDeps/GetHasMissingDepByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/HasMissingDeps/GetHasMissingDepByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#7485f33c-e555-4fb9-bd7f-5183b92ba311</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/HasMissingDeps/GetHasMissingDepsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/HasMissingDeps/GetHasMissingDepsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#14f1514c-7ae3-4c96-b8b1-521d526804d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/HasMissingDeps/HasMissingDepDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/HasMissingDeps/HasMissingDepDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#37f49039-7458-4933-b4cd-efe89ad0e886</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/HasMissingDeps/UpdateHasMissingDepCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/HasMissingDeps/UpdateHasMissingDepCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3236,6 +3940,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#4645697b-15db-49bd-aeff-3b1d9e745b0e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/RichProducts/CreateRichProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RichProducts/CreateRichProductCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#83607092-1a28-49b6-91cc-fb5c33087896</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/RichProducts/DeleteRichProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RichProducts/DeleteRichProductCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#a305111d-e350-4db0-afe4-e4d9306de5f3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/RichProducts/GetRichProductByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RichProducts/GetRichProductByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#2421b7f4-ccf1-4bed-9a7e-64787ba8881e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/RichProducts/GetRichProductsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RichProducts/GetRichProductsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#798ebbc1-d8f4-4e41-b0b3-509dac9c1fe4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/RichProducts/RichProductDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RichProducts/RichProductDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#579f6454-c7c3-49c6-9e71-babe698d8e92</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/RichProducts/UpdateRichProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/RichProducts/UpdateRichProductCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.SharedContainerFixture</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/SharedContainerFixture.cs</ApplicationRelativeFilePath>
@@ -3288,6 +4040,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/BadSignatures/UpdateBadSignaturesTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BadSignatures/UpdateBadSignaturesTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#f09e30c7-857f-4a6b-942a-fbdabec0233c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/Brands/CreateBrandTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/CreateBrandTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#1b1daa4c-4b43-4917-994d-28d169c22052</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/Brands/DeleteBrandTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/DeleteBrandTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#1ac336bd-383f-4252-96f7-c8976719afe6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/Brands/GetBrandByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/GetBrandByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#4e37c4f6-136f-4917-a49f-71728789391c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/Brands/GetBrandsTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/GetBrandsTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#bad493a9-cf01-4473-9e1c-325059e7ca74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/Brands/UpdateBrandTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Brands/UpdateBrandTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3448,6 +4240,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/DtoReturns/UpdateDtoReturnTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DtoReturns/UpdateDtoReturnTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#c9df9693-e774-4054-bdf4-f6688f3d3e88</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/HasMissingDeps/CreateHasMissingDepTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/CreateHasMissingDepTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#885c5801-6e69-4408-adce-3c9fd4d091ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/HasMissingDeps/DeleteHasMissingDepTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/DeleteHasMissingDepTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#7574a9a4-a33d-48e5-a21f-62459f55eea6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/HasMissingDeps/GetHasMissingDepByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/GetHasMissingDepByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#7485f33c-e555-4fb9-bd7f-5183b92ba311</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/HasMissingDeps/GetHasMissingDepsTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/GetHasMissingDepsTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#37f49039-7458-4933-b4cd-efe89ad0e886</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/HasMissingDeps/UpdateHasMissingDepTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasMissingDeps/UpdateHasMissingDepTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3672,6 +4504,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/ProductsService/UpdateProductTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProductsService/UpdateProductTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#4645697b-15db-49bd-aeff-3b1d9e745b0e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/RichProducts/CreateRichProductTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/CreateRichProductTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#83607092-1a28-49b6-91cc-fb5c33087896</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/RichProducts/DeleteRichProductTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/DeleteRichProductTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#a305111d-e350-4db0-afe4-e4d9306de5f3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/RichProducts/GetRichProductByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/GetRichProductByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#2421b7f4-ccf1-4bed-9a7e-64787ba8881e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/RichProducts/GetRichProductsTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/GetRichProductsTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#579f6454-c7c3-49c6-9e71-babe698d8e92</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/RichProducts/UpdateRichProductTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RichProducts/UpdateRichProductTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

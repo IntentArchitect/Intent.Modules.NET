@@ -20,7 +20,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         [Fact]
         public async Task UpdateOrder_ShouldUpdateOrder()
         {
-            //Arrange
+            // Arrange
             var client = new OrdersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
@@ -29,10 +29,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var command = dataFactory.CreateCommand<UpdateOrderCommand>();
             command.Id = orderId;
 
-            //Act
+            // Act
             await client.UpdateOrderAsync(orderId, command);
 
-            //Assert
+            // Assert
             var order = await client.GetOrderByIdAsync(orderId);
             Assert.NotNull(order);
             Assert.Equal(command.RefNo, order.RefNo);

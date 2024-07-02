@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3f42ee3c-e39f-4576-89cd-08acd5a4311c" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Brands</name>
+  <display>Brands</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f68e6ddb-8b71-43c0-bac7-146e97e08ca7</parentFolderId>
+  <packageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</packageId>
+  <packageName>IntegrationTesting.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>f68e6ddb-8b71-43c0-bac7-146e97e08ca7</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

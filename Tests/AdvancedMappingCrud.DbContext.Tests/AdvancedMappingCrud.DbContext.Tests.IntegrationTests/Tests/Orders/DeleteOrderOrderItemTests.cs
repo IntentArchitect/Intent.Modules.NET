@@ -20,16 +20,16 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests.Tests
         [Fact]
         public async Task DeleteOrderOrderItem_ShouldDeleteOrderOrderItem()
         {
-            //Arrange
+            // Arrange
             var client = new OrdersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var ids = await dataFactory.CreateOrderItem();
 
-            //Act
+            // Act
             await client.DeleteOrderOrderItemAsync(ids.OrderId, ids.OrderItemId);
 
-            //Assert
+            // Assert
             var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetOrderOrderItemByIdAsync(ids.OrderId, ids.OrderItemId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
