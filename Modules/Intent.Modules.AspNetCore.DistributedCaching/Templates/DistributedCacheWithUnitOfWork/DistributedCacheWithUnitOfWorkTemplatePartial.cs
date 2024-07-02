@@ -6,6 +6,7 @@ using Intent.Modules.AspNetCore.DistributedCaching.Settings;
 using Intent.Modules.AspNetCore.DistributedCaching.Templates.DistributedCacheWithUnitOfWorkInterface;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -220,9 +221,11 @@ namespace Intent.Modules.AspNetCore.DistributedCaching.Templates.DistributedCach
                 });
         }
 
+
         public override void AfterTemplateRegistration()
         {
             base.AfterTemplateRegistration();
+
 
             var interfaceTemplate = ExecutionContext.FindTemplateInstance<IClassProvider>(DistributedCacheWithUnitOfWorkInterfaceTemplate.TemplateId);
 
@@ -237,6 +240,12 @@ namespace Intent.Modules.AspNetCore.DistributedCaching.Templates.DistributedCach
             if (template == null)
             {
                 return;
+            }
+
+            if (ExecutionContext.Settings.GetDistributedCachingSettings().Provider().AsEnum() == DistributedCachingSettings.ProviderOptionsEnum.StackExchangeRedis)
+            {
+                ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.Redis.Name)
+                    .WithProperty(Infrastructure.Redis.Property.ConnectionStringSettingPath, "ConnectionStrings:RedisCache"));
             }
 
             template.CSharpFile.OnBuild(file =>

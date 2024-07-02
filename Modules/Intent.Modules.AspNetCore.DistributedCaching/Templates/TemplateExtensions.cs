@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.AspNetCore.DistributedCaching.Templates.DistributedCacheWithUnitOfWork;
 using Intent.Modules.AspNetCore.DistributedCaching.Templates.DistributedCacheWithUnitOfWorkInterface;
+using Intent.Modules.AspNetCore.DistributedCaching.Templates.IDistributedCacheExtensions;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -20,6 +21,11 @@ namespace Intent.Modules.AspNetCore.DistributedCaching.Templates
         public static string GetDistributedCacheWithUnitOfWorkInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(DistributedCacheWithUnitOfWorkInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetIDistributedCacheExtensionsName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(IDistributedCacheExtensionsTemplate.TemplateId);
         }
 
     }
