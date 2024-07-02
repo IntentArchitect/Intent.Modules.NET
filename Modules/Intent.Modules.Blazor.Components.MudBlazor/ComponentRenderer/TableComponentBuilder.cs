@@ -96,7 +96,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
 
             if (table.HasPagination())
             {
-                _componentTemplate.RazorFile.OnBuild(file =>
+                _componentTemplate.RazorFile.AfterBuild(file =>
                 {
                     if (_componentTemplate.GetCodeBlock().TryGetReferenceForModel(_bindingManager.GetMappedEndFor(table, "913e0abf-0bec-43ea-9286-eb70187c84ef")?.SourceElement.Id, out var reference)
                         && reference is CSharpClassMethod method)

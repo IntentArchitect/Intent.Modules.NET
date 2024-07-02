@@ -42,15 +42,16 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
         {
             htmlElement.AddAttribute("OnClick", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
 
-            _componentTemplate.RazorFile.OnBuild(file =>
+            _componentTemplate.RazorFile.AfterBuild(file =>
             {
                 _componentTemplate.GetCodeBlock().TryGetReferenceForModel(onClickMapping.SourceElement.Id, out var reference);
                 if (reference is CSharpClassMethod method)
                 {
                     var form = component.GetParentPath().Reverse().FirstOrDefault(x => x.IsFormModel());
-                    if (form != null)
+                    if (form != null && button.GetInteraction().Type().IsSubmit())
                     {
-                        ((CSharpTryBlock)method.FindStatement(x => x is CSharpTryBlock))?.InsertStatements(0,
+                        method.Async();
+                        ((IHasCSharpStatements)method.FindStatement(x => x is CSharpTryBlock) ?? method)?.InsertStatements(0,
                             $$"""
                                   await {{form.Name.ToPrivateMemberName()}}!.Validate();
                                   if (!{{form.Name.ToPrivateMemberName()}}.IsValid)
