@@ -353,13 +353,13 @@ internal static class StoredProcedureHelpers
 
     private record TupleEntry(string Name, string TypeName);
 
-    private static IReadOnlyList<TupleEntry> GetReturnProperties(IntentTemplateBase template, StoredProcedureModel storedProcedure)
+    private static IReadOnlyList<TupleEntry> GetReturnProperties(ICSharpTemplate template, StoredProcedureModel storedProcedure)
     {
         var tupleProperties = storedProcedure.Parameters
             .Where(parameter => parameter.GetStoredProcedureParameterSettings()?.IsOutputParameter() == true)
             .Select(parameter => new TupleEntry(
                 Name: parameter.Name.ToPascalCase().EnsureSuffixedWith("Output"),
-                TypeName: template.GetTypeName(parameter)
+                TypeName: template.GetTypeName(parameter.TypeReference)
             ))
             .ToList();
 
@@ -374,15 +374,15 @@ internal static class StoredProcedureHelpers
         return tupleProperties;
     }
     
-    private static CSharpReturnType GetReturnType(IntentTemplateBase template, StoredProcedureModel storedProcedure)
+    private static CSharpType GetReturnType(ICSharpTemplate template, StoredProcedureModel storedProcedure)
     {
         var tupleProperties = GetReturnProperties(template, storedProcedure);
 
         return tupleProperties.Count switch
         {
-            0 => CSharpReturnType.CreateTask(),
-            1 => CSharpReturnType.CreateTask(new CSharpReturnTypeName(tupleProperties[0].TypeName)),
-            _ => CSharpReturnType.CreateTask(new CSharpReturnTypeTuple(tupleProperties.Select(s => new CSharpTupleElement(new CSharpReturnTypeName(s.TypeName), s.Name)).ToList()))
+            0 => CSharpType.CreateTask(template),
+            1 => CSharpType.CreateTask(new CSharpTypeName(tupleProperties[0].TypeName), template),
+            _ => CSharpType.CreateTask(new CSharpTypeTuple(tupleProperties.Select(s => new CSharpTupleElement(new CSharpTypeName(s.TypeName), s.Name)).ToList()), template)
         };
     }
 
