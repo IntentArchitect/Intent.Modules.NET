@@ -19,6 +19,7 @@ namespace EfCore.SecondLevelCaching.Api.Configuration
         {
             var hcBuilder = services.AddHealthChecks();
             hcBuilder.AddSqlServer(configuration.GetConnectionString("DefaultConnection")!, name: "DefaultConnection", tags: new[] { "database", "SqlServer" });
+            hcBuilder.AddRedis(configuration["ConnectionStrings:RedisCache"]!, name: "ConnectionStrings:RedisCache", tags: new[] { "database", "Redis" });
 
             return services;
         }
