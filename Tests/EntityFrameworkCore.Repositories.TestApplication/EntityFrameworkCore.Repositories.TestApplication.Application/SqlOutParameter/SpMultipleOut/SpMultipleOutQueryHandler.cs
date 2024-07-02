@@ -26,6 +26,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.SqlOutPar
         {
             var (param1Output, param2Output, param3Output) = await _sqlOutParameterRepository.Sp_out_params_multiple(cancellationToken);
 
+            // TODO: Implement return type mapping...
             throw new NotImplementedException("Implement return type mapping...");
         }
     }
