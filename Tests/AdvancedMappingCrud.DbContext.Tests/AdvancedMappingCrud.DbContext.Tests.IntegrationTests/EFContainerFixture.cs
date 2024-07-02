@@ -33,16 +33,16 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests
                 services.Remove(descriptor);
             }
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
-                            {
-                                options.UseSqlServer(
-                                    _dbContainer.GetConnectionString(),
-                                    b =>
-                                    {
-                                        b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
-                                        b.UseDateOnlyTimeOnly();
-                                    });
-                                options.UseLazyLoadingProxies();
-                            });
+            {
+                options.UseSqlServer(
+                    _dbContainer.GetConnectionString(),
+                    b =>
+                    {
+                        b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
+                        b.UseDateOnlyTimeOnly();
+                    });
+                options.UseLazyLoadingProxies();
+            });
             //Schema Creation
             var serviceProvider = services.BuildServiceProvider();
             using var scope = serviceProvider.CreateScope();
