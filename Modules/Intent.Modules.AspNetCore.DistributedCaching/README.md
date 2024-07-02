@@ -22,3 +22,7 @@ This interface can be used when mutations to the underlying `IDistributedCache` 
 The `IDistributedCacheWithUnitOfWork` interface is registered as a singleton to allow it to be used by other singletons, but uses [`AsyncLocal<T>`](https://learn.microsoft.com/dotnet/api/system.threading.asynclocal-1) to allow isolation when used by different services and scopes.
 
 `IDistributedCacheWithUnitOfWork` does not enable unit of work unless its `EnableUnitOfWork()` is used. `EnableUnitOfWork()` returns an `IDisposable` which must be used to release `AsyncLocal<T>` values.
+
+## The `DistributedCacheExtensions` class
+
+These extension methods add convenient methods for JSON serializing into and out of DistributedCache.
