@@ -25,16 +25,16 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         [Trait("Requirement", "CosmosDB")]
         public async Task DeleteOrder_ShouldDeleteOrder()
         {
-            //Arrange
+            // Arrange
             var client = new OrdersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var orderId = await dataFactory.CreateOrder();
 
-            //Act
+            // Act
             await client.DeleteOrderAsync(orderId);
 
-            //Assert
+            // Assert
             var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetOrderByIdAsync(orderId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }

@@ -20,17 +20,17 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         [Fact]
         public async Task CreateDiffId_ShouldCreateDiffId()
         {
-            //Arrange
+            // Arrange
             var client = new DiffIdsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<CreateDiffIdCommand>();
 
-            //Act
+            // Act
             var diffIdId = await client.CreateDiffIdAsync(command);
 
-            //Assert
+            // Assert
             var diffId = await client.GetDiffIdByIdAsync(diffIdId);
             Assert.NotNull(diffId);
         }

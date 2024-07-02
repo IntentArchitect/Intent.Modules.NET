@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="868d03ca-3cfe-4dfe-a8f0-118b6e57ee07">
+  <sourceEnd id="3b536f47-a3fa-44ba-bfcc-e59209c522d2" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : HasMissingDeps.UpdateHasMissingDepCommand</display>
+    <order>0</order>
+    <typeReference id="4edcbb4d-f753-4ec4-88b5-ac1d91d0277f">
+      <typeId>37f49039-7458-4933-b4cd-efe89ad0e886</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="868d03ca-3cfe-4dfe-a8f0-118b6e57ee07" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>hasMissingDep</name>
+    <display>[update] hasMissingDep: HasMissingDep</display>
+    <order>3</order>
+    <typeReference id="8b10e873-026a-4e2c-a307-ab9e8467afb4">
+      <typeId>6cb8585c-4658-4961-a373-855a7d26bc17</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="37f49039-7458-4933-b4cd-efe89ad0e886" location="[IntegrationTesting.Tests].[Services].[UpdateHasMissingDepCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6cb8585c-4658-4961-a373-855a7d26bc17" location="[IntegrationTesting.Tests].[Services].[HasMissingDep]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="6cb8585c-4658-4961-a373-855a7d26bc17" name="HasMissingDep" type="element" specialization="Class" />
+              <target id="c1046add-d6cf-4f62-be4f-c2606985f6fa" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="37f49039-7458-4933-b4cd-efe89ad0e886" name="UpdateHasMissingDepCommand" type="element" specialization="Command" />
+                  <target id="31d9d441-4d0f-4054-a572-32f853d87492" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="37f49039-7458-4933-b4cd-efe89ad0e886" location="[IntegrationTesting.Tests].[Services].[UpdateHasMissingDepCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6cb8585c-4658-4961-a373-855a7d26bc17" location="[IntegrationTesting.Tests].[Services].[HasMissingDep]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="6cb8585c-4658-4961-a373-855a7d26bc17" name="HasMissingDep" type="element" specialization="Class" />
+              <target id="f90d6dd5-81a9-44ce-95a4-7bc2a3f6fc8a" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="37f49039-7458-4933-b4cd-efe89ad0e886" name="UpdateHasMissingDepCommand" type="element" specialization="Command" />
+                  <target id="5c8c55b5-e67a-4cc5-9dc0-10196e73c287" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{MissingDepId}</expression>
+            <path>
+              <target id="6cb8585c-4658-4961-a373-855a7d26bc17" name="HasMissingDep" type="element" specialization="Class" />
+              <target id="15e7cb5d-b1ff-4ca1-a36a-d56ddf97fc3d" name="MissingDepId" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="MissingDepId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="37f49039-7458-4933-b4cd-efe89ad0e886" name="UpdateHasMissingDepCommand" type="element" specialization="Command" />
+                  <target id="5f5409d9-4d7d-4333-9e91-fbdf01d85aee" name="MissingDepId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

@@ -17,9 +17,10 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Concurre
         public ConcurrencyHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

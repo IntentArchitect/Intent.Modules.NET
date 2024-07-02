@@ -19,17 +19,17 @@ namespace ValueObjects.Record.IntegrationTests.Tests
         [Fact]
         public async Task CreateTestEntity_ShouldCreateTestEntity()
         {
-            //Arrange
+            // Arrange
             var client = new TestEntitiesHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<CreateTestEntityCommand>();
 
-            //Act
+            // Act
             var testEntityId = await client.CreateTestEntityAsync(command);
 
-            //Assert
+            // Assert
             var testEntity = await client.GetTestEntityByIdAsync(testEntityId);
             Assert.NotNull(testEntity);
         }

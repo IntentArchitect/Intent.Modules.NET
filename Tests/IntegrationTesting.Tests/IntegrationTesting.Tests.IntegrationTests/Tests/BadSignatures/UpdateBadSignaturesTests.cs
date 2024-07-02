@@ -20,7 +20,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         [Fact]
         public async Task UpdateBadSignatures_ShouldUpdateBadSignatures()
         {
-            //Arrange
+            // Arrange
             var client = new BadSignaturesHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
@@ -29,10 +29,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var command = dataFactory.CreateCommand<UpdateBadSignaturesCommand>();
             command.Id = badSignaturesId;
 
-            //Act
+            // Act
             await client.UpdateBadSignaturesAsync(badSignaturesId, command);
 
-            //Assert
+            // Assert
             var badSignatures = await client.GetBadSignaturesByIdAsync(badSignaturesId);
             Assert.NotNull(badSignatures);
             Assert.Equal(command.Name, badSignatures.Name);

@@ -19,17 +19,17 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         [Fact]
         public async Task CreateProduct_ShouldCreateProduct()
         {
-            //Arrange
+            // Arrange
             var client = new ProductsServiceHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<ProductCreateDto>();
 
-            //Act
+            // Act
             var productId = await client.CreateProductAsync(command);
 
-            //Assert
+            // Assert
             var product = await client.FindProductByIdAsync(productId);
             Assert.NotNull(product);
         }

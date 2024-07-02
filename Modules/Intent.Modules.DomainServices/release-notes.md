@@ -1,4 +1,8 @@
-﻿### Version 1.1.4
+﻿### Version 1.1.5
+
+- Fixed: Modeling Generics on these resulted in code which did not compile.
+
+### Version 1.1.4
 
 - Improvement: Added `TODO` comments on `NotImplementedException`.
 

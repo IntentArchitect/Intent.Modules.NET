@@ -28,7 +28,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
         public override string Id => "Intent.Blazor.Components.MudBlazor.MudBlazorInstaller";
 
         [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        public override int Order => 100;
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {

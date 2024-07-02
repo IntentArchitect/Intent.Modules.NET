@@ -20,7 +20,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests.Tests
         [Fact]
         public async Task UpdateProduct_ShouldUpdateProduct()
         {
-            //Arrange
+            // Arrange
             var client = new ProductsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
@@ -29,10 +29,10 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests.Tests
             var command = dataFactory.CreateCommand<UpdateProductCommand>();
             command.Id = productId;
 
-            //Act
+            // Act
             await client.UpdateProductAsync(productId, command);
 
-            //Assert
+            // Assert
             var product = await client.GetProductByIdAsync(productId);
             Assert.NotNull(product);
             Assert.Equal(command.Name, product.Name);

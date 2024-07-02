@@ -1,4 +1,8 @@
-﻿### Version 3.1.3
+﻿### Version 3.1.4
+
+- Improvement: Added shared template infrastructure to support service proxies being able to respect `Serialize Enum as String` setting.
+
+### Version 3.1.3
 
 - Improvement: Updated the logic which converts types to query parameters to be more standard in how it coverts types to string.
 

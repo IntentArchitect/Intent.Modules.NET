@@ -24,9 +24,10 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public QueryStringNamesServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

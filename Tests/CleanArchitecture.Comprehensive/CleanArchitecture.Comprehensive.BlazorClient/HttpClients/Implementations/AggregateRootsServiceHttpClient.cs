@@ -19,9 +19,10 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
         public AggregateRootsServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

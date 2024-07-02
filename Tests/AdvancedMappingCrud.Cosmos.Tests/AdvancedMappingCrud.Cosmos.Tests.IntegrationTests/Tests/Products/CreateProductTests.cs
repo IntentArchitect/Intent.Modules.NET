@@ -25,17 +25,17 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         [Trait("Requirement", "CosmosDB")]
         public async Task CreateProduct_ShouldCreateProduct()
         {
-            //Arrange
+            // Arrange
             var client = new ProductsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<CreateProductCommand>();
 
-            //Act
+            // Act
             var productId = await client.CreateProductAsync(command);
 
-            //Assert
+            // Assert
             var product = await client.GetProductByIdAsync(productId);
             Assert.NotNull(product);
         }

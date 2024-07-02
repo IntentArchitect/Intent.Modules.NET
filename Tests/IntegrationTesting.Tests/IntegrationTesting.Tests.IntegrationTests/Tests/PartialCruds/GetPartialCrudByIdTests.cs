@@ -19,16 +19,16 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         [Fact]
         public async Task GetPartialCrudById_ShouldGetPartialCrudById()
         {
-            //Arrange
+            // Arrange
             var client = new PartialCrudsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var partialCrudId = await dataFactory.CreatePartialCrud();
 
-            //Act
+            // Act
             var partialCrud = await client.GetPartialCrudByIdAsync(partialCrudId);
 
-            //Assert
+            // Assert
             Assert.NotNull(partialCrud);
         }
     }

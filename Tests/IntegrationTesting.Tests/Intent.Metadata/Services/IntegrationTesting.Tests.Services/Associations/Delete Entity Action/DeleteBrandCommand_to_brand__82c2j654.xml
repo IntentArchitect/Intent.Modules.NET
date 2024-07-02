@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ce7eda74-8ee2-4e10-aa65-456dc0cd44cd">
+  <sourceEnd id="f985bd15-8976-43f8-bcda-beb8a0b5c8e3" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Brands.DeleteBrandCommand</display>
+    <order>0</order>
+    <typeReference id="b2be73f5-d8fd-4742-8e3f-46f6dce71961">
+      <typeId>1b1daa4c-4b43-4917-994d-28d169c22052</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ce7eda74-8ee2-4e10-aa65-456dc0cd44cd" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>brand</name>
+    <display>[delete] brand: Brand</display>
+    <order>1</order>
+    <typeReference id="a30592df-3f2b-4ab4-b690-681aa7b3effe">
+      <typeId>46aaf509-5305-4e74-abda-3fbadfb12219</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1b1daa4c-4b43-4917-994d-28d169c22052" location="[IntegrationTesting.Tests].[Services].[DeleteBrandCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="46aaf509-5305-4e74-abda-3fbadfb12219" location="[IntegrationTesting.Tests].[Services].[Brand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="46aaf509-5305-4e74-abda-3fbadfb12219" name="Brand" type="element" specialization="Class" />
+              <target id="2468788c-590c-4155-a4d1-bb544f25ba96" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="1b1daa4c-4b43-4917-994d-28d169c22052" name="DeleteBrandCommand" type="element" specialization="Command" />
+                  <target id="d45210e9-a5f7-4650-bbd8-1582a295bb1f" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

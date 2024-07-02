@@ -20,7 +20,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         [Fact]
         public async Task UpdateCustomer_ShouldUpdateCustomer()
         {
-            //Arrange
+            // Arrange
             var client = new CustomersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
@@ -29,10 +29,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             var command = dataFactory.CreateCommand<UpdateCustomerCommand>();
             command.Id = customerId;
 
-            //Act
+            // Act
             await client.UpdateCustomerAsync(customerId, command);
 
-            //Assert
+            // Assert
             var customer = await client.GetCustomerByIdAsync(customerId);
             Assert.NotNull(customer);
             Assert.Equal(command.Name, customer.Name);

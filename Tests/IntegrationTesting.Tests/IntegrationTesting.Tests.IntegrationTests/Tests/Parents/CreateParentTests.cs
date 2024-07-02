@@ -20,17 +20,17 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         [Fact]
         public async Task CreateParent_ShouldCreateParent()
         {
-            //Arrange
+            // Arrange
             var client = new ParentsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<CreateParentCommand>();
 
-            //Act
+            // Act
             var parentId = await client.CreateParentAsync(command);
 
-            //Assert
+            // Assert
             var parent = await client.GetParentByIdAsync(parentId);
             Assert.NotNull(parent);
         }

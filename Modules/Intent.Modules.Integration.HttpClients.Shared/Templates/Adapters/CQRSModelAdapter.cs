@@ -12,8 +12,10 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
     internal class CQRSModelAdapter : IServiceProxyModel
     {
         private readonly IElement _folder;
-        public CQRSModelAdapter(IElement folder)
+        private readonly bool _serializeEnumsAsStrings;
+        public CQRSModelAdapter(IElement folder, bool serializeEnumsAsStrings = false)
         {
+            _serializeEnumsAsStrings = serializeEnumsAsStrings;
             _folder = folder;
             Folder = folder.AsFolderModel();
         }
@@ -22,6 +24,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
         public string Id => _folder.Id;
 
         public IMetadataModel UnderlyingModel => null;
+        public bool SerializeEnumsAsStrings => _serializeEnumsAsStrings;
 
         public FolderModel Folder { get; }
 

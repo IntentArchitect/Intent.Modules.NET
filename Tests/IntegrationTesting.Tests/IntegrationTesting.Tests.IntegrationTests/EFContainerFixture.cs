@@ -37,12 +37,10 @@ namespace IntegrationTesting.Tests.IntegrationTests
             }
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
-                {
-                    options.UseNpgsql(
-                        _dbContainer.GetConnectionString(),
-                        b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
-                    options.UseLazyLoadingProxies();
-                }
+                options.UseNpgsql(
+                    _dbContainer.GetConnectionString(),
+                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
+                options.UseLazyLoadingProxies();
             });
             //Schema Creation
             var serviceProvider = services.BuildServiceProvider();

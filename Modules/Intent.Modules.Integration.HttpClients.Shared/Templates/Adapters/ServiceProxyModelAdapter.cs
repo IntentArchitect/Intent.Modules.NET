@@ -28,6 +28,8 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
 
         public FolderModel Folder => _model.Folder;
 
+        public bool SerializeEnumsAsStrings => false;
+
         public IEnumerable<IHttpEndpointModel> GetMappedEndpoints()
         {
             return ServiceProxyHelpers.GetMappedEndpoints(_model);

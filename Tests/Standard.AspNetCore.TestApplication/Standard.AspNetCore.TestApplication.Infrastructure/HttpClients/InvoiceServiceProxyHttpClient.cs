@@ -26,9 +26,10 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         public InvoiceServiceProxyHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
+
             _serializerOptions = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
         }
 

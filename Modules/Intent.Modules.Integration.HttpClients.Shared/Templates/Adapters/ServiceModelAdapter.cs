@@ -13,8 +13,10 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
     internal class ServiceModelAdapter : IServiceProxyModel
     {
         private readonly ServiceModel _model;
-        public ServiceModelAdapter(ServiceModel model)
+        private readonly bool _serializeEnumsAsStrings;
+        public ServiceModelAdapter(ServiceModel model, bool serializeEnumsAsStrings = false)
         {
+            _serializeEnumsAsStrings = serializeEnumsAsStrings;
             _model = model;
             Folder = ((model.InternalElement.ParentElement?.SpecializationTypeId == "4d95d53a-8855-4f35-aa82-e312643f5c5f") ? new FolderModel(model.InternalElement.ParentElement) : null);
         }
@@ -22,6 +24,8 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
         public string Id => _model.Id;
 
         public IMetadataModel UnderlyingModel => _model;
+
+        public bool SerializeEnumsAsStrings => _serializeEnumsAsStrings;
 
         public FolderModel Folder { get; }
 

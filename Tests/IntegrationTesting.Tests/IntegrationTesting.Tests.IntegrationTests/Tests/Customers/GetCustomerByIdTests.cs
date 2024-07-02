@@ -19,16 +19,16 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         [Fact]
         public async Task GetCustomerById_ShouldGetCustomerById()
         {
-            //Arrange
+            // Arrange
             var client = new CustomersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var customerId = await dataFactory.CreateCustomer();
 
-            //Act
+            // Act
             var customer = await client.GetCustomerByIdAsync(customerId);
 
-            //Assert
+            // Assert
             Assert.NotNull(customer);
         }
     }
