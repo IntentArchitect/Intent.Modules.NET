@@ -112,14 +112,14 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                         CSharpStatement dbContextStatement = null;
                         foreach (var line in regMethod.Statements)
                         { 
-                            if (line.GetText("").StartsWith("services.AddDbContext"))
+                            if (line.GetText("").Trim().StartsWith("services.AddDbContext<ApplicationDbContext>"))
                             {
                                 dbContextStatement = line;
                                 break;
                             }
                         }
                         
-                        var connectionStringText = regMethod.FindStatement(x => x.HasMetadata("is-connection-string")).GetText("");
+                        var connectionStringText = (dbContextStatement as IHasCSharpStatements)?.FindStatement(x => x.HasMetadata("is-connection-string")).GetText("");
                         string dbContextReconfigure = dbContextStatement.GetText("").Replace(connectionStringText, "_dbContainer.GetConnectionString()");
                         method.InsertStatements(method.Statements.IndexOf(statement), dbContextReconfigure.ConvertToStatements().ToList());
                         statement.Remove();
@@ -138,15 +138,6 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
         .WithCleanUp(true)
         .Build();"
                 .ConvertToStatements();
-
-            var dbContextRegistration = @"services.AddDbContext<ApplicationDbContext>((sp, options) =>
-                {{
-                    options.UseNpgsql(
-                        _dbContainer.GetConnectionString(),
-                        b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
-                    options.UseLazyLoadingProxies();
-                }});
-".ConvertToStatements();
 
             return new DbStrategy(
                 containerType: "PostgreSqlContainer ",
