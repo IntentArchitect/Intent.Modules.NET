@@ -7,6 +7,7 @@ using MassTransit.AzureServiceBus.Eventing.Messages;
 using MassTransit.AzureServiceBus.Infrastructure.Eventing;
 using MassTransit.AzureServiceBus.Services;
 using MassTransit.AzureServiceBus.Services.Animals;
+using MassTransit.AzureServiceBus.Services.External;
 using MassTransit.AzureServiceBus.Services.People;
 using MassTransit.Configuration;
 using Microsoft.Extensions.Configuration;
@@ -49,6 +50,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
 
         private static void AddMessageTopologyConfiguration(this IServiceBusBusFactoryConfigurator cfg)
         {
+            cfg.Message<MessageWithTopologyEvent>(x => x.SetEntityName("custom-topic-name"));
             cfg.Message<OverrideMessageCustomSubscribeEvent>(x => x.SetEntityName("another-overridden-message-topic"));
             cfg.Message<OverrideMessageStandardSubscribeEvent>(x => x.SetEntityName("overridden-message-topic"));
         }

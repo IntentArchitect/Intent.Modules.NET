@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ca28337a-c84f-4194-88ac-8fd3b2d67b1f">
+  <sourceEnd id="5ad976a6-c504-442a-955b-28f713381052" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : ExternalMessage.PublishExternalMessageCommand</display>
+    <order>0</order>
+    <typeReference id="8b0cd656-e9d0-4224-97b0-7f485f8000d7">
+      <typeId>6cee1019-f3ea-4bde-99e5-00ca6a6f3da3</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Services</typePackageName>
+      <typePackageId>13f85863-e934-4433-8ce6-ff5b15c25868</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ca28337a-c84f-4194-88ac-8fd3b2d67b1f" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] MessageWithTopology</display>
+    <order>0</order>
+    <typeReference id="7331cba7-4a48-4475-9ce7-3433e584df89">
+      <typeId>1734e507-c6a3-44c2-a464-2fab50bfccfc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.AzureServiceBus.Services.External</typePackageName>
+      <typePackageId>565eb5d8-73d1-4acf-8ad5-56ca95fb8bd8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

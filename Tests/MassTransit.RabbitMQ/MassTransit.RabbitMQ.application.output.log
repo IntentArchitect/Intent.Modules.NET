@@ -379,6 +379,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#ce68377a-4554-4cc0-b48f-a747619d59e6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/ExternalMessagePublish/PublishExternalMessage/PublishExternalMessageCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalMessagePublish/PublishExternalMessage/PublishExternalMessageCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#ce68377a-4554-4cc0-b48f-a747619d59e6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/ExternalMessagePublish/PublishExternalMessage/PublishExternalMessageCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalMessagePublish/PublishExternalMessage/PublishExternalMessageCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#ce68377a-4554-4cc0-b48f-a747619d59e6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/ExternalMessagePublish/PublishExternalMessage/PublishExternalMessageCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalMessagePublish/PublishExternalMessage/PublishExternalMessageCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>c17aa1e1-48c4-4d78-af4b-b62845709213</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationCommand#55fd5346-5936-4b7f-bcea-cc4c70b4bd59</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -448,6 +472,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/Test/AnotherTestMessageHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Test/AnotherTestMessageHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9c18de05-441a-4210-bf6e-fd91bca65228</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#9dbf225e-a1c2-474e-b32d-a5c0c0d5ce8f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/IntegrationEvents/MessageWithTopologyEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageWithTopologyEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

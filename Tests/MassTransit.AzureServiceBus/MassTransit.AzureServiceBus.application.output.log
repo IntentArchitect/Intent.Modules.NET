@@ -379,6 +379,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>fdd1efbb-8345-4377-bdf6-450d77403b45</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6cee1019-f3ea-4bde-99e5-00ca6a6f3da3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/ExternalMessagePublish/PublishExternalMessage/PublishExternalMessageCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalMessagePublish/PublishExternalMessage/PublishExternalMessageCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fdd1efbb-8345-4377-bdf6-450d77403b45</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6cee1019-f3ea-4bde-99e5-00ca6a6f3da3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/ExternalMessagePublish/PublishExternalMessage/PublishExternalMessageCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalMessagePublish/PublishExternalMessage/PublishExternalMessageCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fdd1efbb-8345-4377-bdf6-450d77403b45</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6cee1019-f3ea-4bde-99e5-00ca6a6f3da3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/ExternalMessagePublish/PublishExternalMessage/PublishExternalMessageCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalMessagePublish/PublishExternalMessage/PublishExternalMessageCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5d1124a9-cf0d-4be3-824c-7e0af378fa34</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationCommand#8288be28-bece-4691-988b-1902c524287c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -472,6 +496,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/EventHandlers/Test/TestMessageHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Test/TestMessageHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ee86121e-4f26-4e17-8282-6638358ca87f</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#1734e507-c6a3-44c2-a464-2fab50bfccfc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Application/IntegrationEvents/MessageWithTopologyEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageWithTopologyEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

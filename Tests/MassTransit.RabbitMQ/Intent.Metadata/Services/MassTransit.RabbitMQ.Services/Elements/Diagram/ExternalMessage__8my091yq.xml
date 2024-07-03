@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="01e10e7d-c820-4f79-8335-ef16e5e6fa8f" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>ExternalMessage</name>
+  <display>ExternalMessage</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ca911fcf-62f9-4a2c-ace8-0c47d7f0cc08</parentFolderId>
+  <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
+  <packageName>MassTransit.RabbitMQ.Services</packageName>
+  <diagram>
+    <targetPackageId>ca911fcf-62f9-4a2c-ace8-0c47d7f0cc08</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
