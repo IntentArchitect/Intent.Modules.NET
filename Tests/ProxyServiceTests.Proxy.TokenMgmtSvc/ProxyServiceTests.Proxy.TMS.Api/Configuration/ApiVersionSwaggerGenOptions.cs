@@ -33,7 +33,7 @@ namespace ProxyServiceTests.Proxy.TMS.Api.Configuration
         {
             var info = new OpenApiInfo()
             {
-                Title = "ProxyServiceTests.Proxy.TMS API",
+                Title = "ProxyServiceTests.Proxy.TokenMgmtSvc API",
                 Version = description.ApiVersion.ToString()
             };
 

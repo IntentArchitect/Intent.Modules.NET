@@ -44,7 +44,7 @@ namespace ProxyServiceTests.Proxy.PTH.Application.Common.Behaviours
                 var userId = _currentUserService.UserId ?? string.Empty;
                 var userName = _currentUserService.UserName ?? string.Empty;
 
-                _logger.LogWarning("ProxyServiceTests.Proxy.PTH Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
+                _logger.LogWarning("ProxyServiceTests.Proxy.PassThruHeader Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
                     requestName, elapsedMilliseconds, userId, userName, request);
             }
 

@@ -44,7 +44,7 @@ namespace ProxyServiceTests.Proxy.TMS.Application.Common.Behaviours
                 var userId = _currentUserService.UserId ?? string.Empty;
                 var userName = _currentUserService.UserName ?? string.Empty;
 
-                _logger.LogWarning("ProxyServiceTests.Proxy.TMS Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
+                _logger.LogWarning("ProxyServiceTests.Proxy.TokenMgmtSvc Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
                     requestName, elapsedMilliseconds, userId, userName, request);
             }
 

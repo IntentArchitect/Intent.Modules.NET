@@ -33,7 +33,7 @@ namespace ProxyServiceTests.Proxy.PTH.Api.Configuration
         {
             var info = new OpenApiInfo()
             {
-                Title = "ProxyServiceTests.Proxy.PTH API",
+                Title = "ProxyServiceTests.Proxy.PassThruHeader API",
                 Version = description.ApiVersion.ToString()
             };
 

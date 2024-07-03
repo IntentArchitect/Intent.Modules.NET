@@ -3,12 +3,12 @@ using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
-using ProxyServiceTests.Proxy.TMS.Application.Common.Interfaces;
+using ProxyServiceTests.Proxy.PTH.Application.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.Behaviours.LoggingBehaviour", Version = "1.0")]
 
-namespace ProxyServiceTests.Proxy.TMS.Application.Common.Behaviours
+namespace ProxyServiceTests.Proxy.PTH.Application.Common.Behaviours
 {
     public class LoggingBehaviour<TRequest> : IRequestPreProcessor<TRequest>
         where TRequest : notnull
@@ -28,7 +28,7 @@ namespace ProxyServiceTests.Proxy.TMS.Application.Common.Behaviours
             var userId = _currentUserService.UserId ?? string.Empty;
             var userName = _currentUserService.UserName ?? string.Empty;
 
-            _logger.LogInformation("ProxyServiceTests.Proxy.TMS Request: {Name} {@UserId} {@UserName} {@Request}",
+            _logger.LogInformation("ProxyServiceTests.Proxy.PassThruHeader Request: {Name} {@UserId} {@UserName} {@Request}",
                 requestName, userId, userName, request);
             return Task.CompletedTask;
         }

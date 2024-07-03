@@ -12,15 +12,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-using ProxyServiceTests.Proxy.TMS.Api.Filters;
-using ProxyServiceTests.Proxy.TMS.Application;
+using ProxyServiceTests.Proxy.PTH.Api.Filters;
+using ProxyServiceTests.Proxy.PTH.Application;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration", Version = "1.0")]
 
-namespace ProxyServiceTests.Proxy.TMS.Api.Configuration
+namespace ProxyServiceTests.Proxy.PTH.Api.Configuration
 {
     public static class SwashbuckleConfiguration
     {
@@ -80,7 +80,7 @@ namespace ProxyServiceTests.Proxy.TMS.Api.Configuration
                 options =>
                 {
                     options.RoutePrefix = "swagger";
-                    options.OAuthAppName("ProxyServiceTests.Proxy.TMS API");
+                    options.OAuthAppName("ProxyServiceTests.Proxy.PassThruHeader API");
                     options.EnableDeepLinking();
                     options.DisplayOperationId();
                     options.DefaultModelsExpandDepth(2);
