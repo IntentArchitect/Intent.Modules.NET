@@ -21,7 +21,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD
 
             var setting = element.Package.GetStereotypeProperty<IElement>("Document Database", "Provider");
 
-            return setting == null || setting.Id == CosmosDbProviderId || ContainerHelper.RequireCosmosContainer(template);
+            return (setting == null  && template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.CosmosDB")) || setting?.Id == CosmosDbProviderId || ContainerHelper.RequireCosmosContainer(template);
         }
     }
 }
