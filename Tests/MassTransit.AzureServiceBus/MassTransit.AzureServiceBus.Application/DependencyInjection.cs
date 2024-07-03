@@ -7,6 +7,7 @@ using MassTransit.AzureServiceBus.Application.Common.Eventing;
 using MassTransit.AzureServiceBus.Application.Common.Validation;
 using MassTransit.AzureServiceBus.Application.IntegrationEventHandlers;
 using MassTransit.AzureServiceBus.Application.IntegrationEvents.EventHandlers;
+using MassTransit.AzureServiceBus.Application.IntegrationEvents.EventHandlers.Configuration;
 using MassTransit.AzureServiceBus.Application.IntegrationEvents.EventHandlers.NamingOverrides;
 using MassTransit.AzureServiceBus.Application.IntegrationEvents.EventHandlers.Test;
 using MassTransit.AzureServiceBus.Eventing.Messages;
@@ -44,6 +45,7 @@ namespace MassTransit.AzureServiceBus.Application
             services.AddTransient<IIntegrationEventHandler<MakeSoundCommand>, CatchAllHandler>();
             services.AddTransient<IIntegrationEventHandler<CreatePersonIdentity>, CatchAllHandler>();
             services.AddTransient<IIntegrationEventHandler<TalkToPersonCommand>, CatchAllHandler>();
+            services.AddTransient<IIntegrationEventHandler<ConfigTestMessageEvent>, ConfigTestMessageHandler>();
             services.AddTransient<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, ReceiveConsumerHandler>();
             services.AddTransient<IIntegrationEventHandler<OverrideMessageStandardSubscribeEvent>, ReceiveConsumerHandler>();
             services.AddTransient<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, ReceiveConsumerHandler>();
