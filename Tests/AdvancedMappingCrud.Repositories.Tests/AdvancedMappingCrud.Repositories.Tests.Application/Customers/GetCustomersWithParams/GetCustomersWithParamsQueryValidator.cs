@@ -4,13 +4,13 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.QueryValidator", Version = "2.0")]
 
-namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCusomterStatistics
+namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomersWithParams
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class GetCusomterStatisticsQueryValidator : AbstractValidator<GetCusomterStatisticsQuery>
+    public class GetCustomersWithParamsQueryValidator : AbstractValidator<GetCustomersWithParamsQuery>
     {
         [IntentManaged(Mode.Merge)]
-        public GetCusomterStatisticsQueryValidator()
+        public GetCustomersWithParamsQueryValidator()
         {
             ConfigureValidationRules();
         }

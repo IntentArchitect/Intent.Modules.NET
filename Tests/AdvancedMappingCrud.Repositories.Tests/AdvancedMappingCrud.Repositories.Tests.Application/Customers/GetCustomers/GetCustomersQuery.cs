@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -10,15 +12,11 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustom
 {
     public class GetCustomersQuery : IRequest<List<CustomerDto>>, IQuery
     {
-        public GetCustomersQuery(bool isActive, string? name, string? surname)
+        public GetCustomersQuery(Func<IQueryable<CustomerDto>, IQueryable> transform)
         {
-            IsActive = isActive;
-            Name = name;
-            Surname = surname;
+            Transform = transform;
         }
 
-        public bool IsActive { get; set; }
-        public string? Name { get; set; }
-        public string? Surname { get; set; }
+        public Func<IQueryable<CustomerDto>, IQueryable> Transform { get; }
     }
 }

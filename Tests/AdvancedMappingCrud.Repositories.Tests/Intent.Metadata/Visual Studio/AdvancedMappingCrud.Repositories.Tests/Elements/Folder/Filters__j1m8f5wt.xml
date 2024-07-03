@@ -3,12 +3,40 @@
   <name>Filters</name>
   <display>Filters</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6e718bca-53f2-4c05-bf82-f898c1c1da7c</parentFolderId>
-  <stereotypes />
+  <packageId>e8c23427-3443-420a-b219-bac8e6a8f88b</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="73f5a67a-1328-4eb4-af0c-f526d6364ffc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.BinaryContentFilter</name>
+      <display>Intent.AspNetCore.Controllers.BinaryContentFilter</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e66243e8-f160-47cf-bb2c-ca9b3c4837ec</parentFolderId>
+      <packageId>e8c23427-3443-420a-b219-bac8e6a8f88b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="effdb20a-c1fe-4ae3-b7b5-80981f8e93aa" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Controllers.ExceptionFilter</name>
       <display>Intent.AspNetCore.Controllers.ExceptionFilter</display>
@@ -17,6 +45,24 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e66243e8-f160-47cf-bb2c-ca9b3c4837ec</parentFolderId>
+      <packageId>e8c23427-3443-420a-b219-bac8e6a8f88b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e01836f1-61fd-4d42-9869-cb673eb617df" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Controllers.TypeSchemaFilter</name>
+      <display>Intent.AspNetCore.Controllers.TypeSchemaFilter</display>
+      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e66243e8-f160-47cf-bb2c-ca9b3c4837ec</parentFolderId>
+      <packageId>e8c23427-3443-420a-b219-bac8e6a8f88b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,30 +77,18 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e66243e8-f160-47cf-bb2c-ca9b3c4837ec</parentFolderId>
+      <packageId>e8c23427-3443-420a-b219-bac8e6a8f88b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="73f5a67a-1328-4eb4-af0c-f526d6364ffc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Controllers.BinaryContentFilter</name>
-      <display>Intent.AspNetCore.Controllers.BinaryContentFilter</display>
-      <externalReference>Intent.AspNetCore.Controllers</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>e66243e8-f160-47cf-bb2c-ca9b3c4837ec</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="e01836f1-61fd-4d42-9869-cb673eb617df" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Controllers.TypeSchemaFilter</name>
-      <display>Intent.AspNetCore.Controllers.TypeSchemaFilter</display>
-      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+    <childElement id="9ca7cbab-f114-4ad5-969f-fddc4222bfc6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ODataQuery.ODataQuerySwaggerFilter</name>
+      <display>Intent.AspNetCore.ODataQuery.ODataQuerySwaggerFilter</display>
+      <externalReference>Intent.AspNetCore.ODataQuery</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

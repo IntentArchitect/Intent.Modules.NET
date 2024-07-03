@@ -21,21 +21,33 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers
         public string Name { get; set; }
         public string Surname { get; set; }
         public bool IsActive { get; set; }
+        public bool PreferencesNewsletter { get; set; }
+        public bool PreferencesSpecials { get; set; }
 
-        public static CustomerDto Create(Guid id, string name, string surname, bool isActive)
+        public static CustomerDto Create(
+            Guid id,
+            string name,
+            string surname,
+            bool isActive,
+            bool preferencesNewsletter,
+            bool preferencesSpecials)
         {
             return new CustomerDto
             {
                 Id = id,
                 Name = name,
                 Surname = surname,
-                IsActive = isActive
+                IsActive = isActive,
+                PreferencesNewsletter = preferencesNewsletter,
+                PreferencesSpecials = preferencesSpecials
             };
         }
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Customer, CustomerDto>();
+            profile.CreateMap<Customer, CustomerDto>()
+                .ForPath(d => d.PreferencesNewsletter, opt => opt.MapFrom(src => src.Preferences!.Newsletter))
+                .ForPath(d => d.PreferencesSpecials, opt => opt.MapFrom(src => src.Preferences!.Specials));
         }
     }
 }

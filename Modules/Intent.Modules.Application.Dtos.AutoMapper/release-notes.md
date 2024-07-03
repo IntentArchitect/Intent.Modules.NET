@@ -1,3 +1,8 @@
+### Version 4.0.8
+
+- Fixed: Member mapping configurations traversing a nullable association could result in a runtime error when the mapping was used with Entity Framework Core with an `IQueryable`.
+- Improvement: Generated member mapping configurations traversing nullable associations will now also include a null-forgiving operator (`!`) to prevent code analysis tools from warning of potential null reference exceptions. The warning is a false positive as AutoMapper itself ensures that no null reference exceptions will be thrown.
+
 ### Version 4.0.7
 
 - Fixed: Mappings adding castings for expression based mapping paths, sometimes cause expression to break. Removed the casting in these scenarios.

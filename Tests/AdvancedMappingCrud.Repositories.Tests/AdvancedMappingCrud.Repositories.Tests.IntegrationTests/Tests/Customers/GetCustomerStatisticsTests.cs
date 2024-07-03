@@ -7,9 +7,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
-    public class GetCusomterStatisticsTests : BaseIntegrationTest
+    public class GetCustomerStatisticsTests : BaseIntegrationTest
     {
-        public GetCusomterStatisticsTests(IntegrationTestWebAppFactory factory) : base(factory)
+        public GetCustomerStatisticsTests(IntegrationTestWebAppFactory factory) : base(factory)
         {
         }
     }

@@ -6,11 +6,11 @@ using MediatR;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.QueryModels", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCusomterStatistics
+namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomerStatistics
 {
-    public class GetCusomterStatisticsQuery : IRequest<int>, IQuery
+    public class GetCustomerStatisticsQuery : IRequest<int>, IQuery
     {
-        public GetCusomterStatisticsQuery(Guid customerId)
+        public GetCustomerStatisticsQuery(Guid customerId)
         {
             CustomerId = customerId;
         }

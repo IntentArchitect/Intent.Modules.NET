@@ -19,10 +19,11 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Cu
         Task DeleteCustomerAsync(Guid id, CancellationToken cancellationToken = default);
         Task UpdateCorporateFuneralCoverQuoteAsync(Guid id, UpdateCorporateFuneralCoverQuoteCommand command, CancellationToken cancellationToken = default);
         Task UpdateCustomerAsync(Guid id, UpdateCustomerCommand command, CancellationToken cancellationToken = default);
-        Task<int> GetCusomterStatisticsAsync(Guid customerId, CancellationToken cancellationToken = default);
         Task<CustomerDto> GetCustomerByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<List<CustomerDto>> GetCustomersByNameAndSurnameAsync(string name, string surname, CancellationToken cancellationToken = default);
         Task<PagedResult<CustomerDto>> GetCustomersPaginatedAsync(bool isActive, string name, string surname, int pageNo, int pageSize, CancellationToken cancellationToken = default);
-        Task<List<CustomerDto>> GetCustomersAsync(bool isActive, string? name, string? surname, CancellationToken cancellationToken = default);
+        Task<List<CustomerDto>> GetCustomersAsync(CancellationToken cancellationToken = default);
+        Task<int> GetCustomerStatisticsAsync(Guid customerId, CancellationToken cancellationToken = default);
+        Task<List<CustomerDto>> GetCustomersWithParamsAsync(bool isActive, string? name, string? surname, CancellationToken cancellationToken = default);
     }
 }

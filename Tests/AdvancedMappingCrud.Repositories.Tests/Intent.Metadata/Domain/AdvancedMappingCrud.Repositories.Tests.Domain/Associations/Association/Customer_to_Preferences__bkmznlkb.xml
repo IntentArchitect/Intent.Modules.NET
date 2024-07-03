@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c656ed98-fcd8-40d2-878a-bb418880efce">
+  <sourceEnd id="06f73eef-cfe9-4ff7-8d68-e3daa7a5ce4a" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Customer</name>
+    <display>Customer: Customer</display>
+    <order>0</order>
+    <typeReference id="02598b23-c11e-4a87-99ae-e6ce4d616b85">
+      <typeId>8ed97c04-fbb0-4712-a969-b9ade95e0fe5</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c656ed98-fcd8-40d2-878a-bb418880efce" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Preferences</name>
+    <display>Preferences: Preferences?</display>
+    <order>4</order>
+    <typeReference id="0ebf377f-e581-4ead-997b-c4997fc14ab7">
+      <typeId>b320ee2f-b25b-4429-9ccd-6575b4516ea4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

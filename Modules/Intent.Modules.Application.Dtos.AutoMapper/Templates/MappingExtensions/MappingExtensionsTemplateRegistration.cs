@@ -26,6 +26,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.MappingExtensions
 
         public override string TemplateId => MappingExtensionsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, DTOModel model)
         {
             return new MappingExtensionsTemplate(outputTarget, model);

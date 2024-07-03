@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="1bbdcdad-188f-4cfd-8a21-f84264016769">
   <sourceEnd id="301ce4b1-f177-416e-87bf-755f97adf541" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
-    <display>: GetCustomersQuery</display>
+    <display>: GetCustomersWithParamsQuery</display>
     <order>0</order>
     <typeReference id="5693e498-0329-4b9f-9de3-2aa4afa3653d">
       <typeId>fd1d8986-fb5c-47ce-b608-4d42e581624c</typeId>

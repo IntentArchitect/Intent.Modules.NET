@@ -16,16 +16,13 @@
     </file>
     <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#b2562789-afbc-4c86-886b-6eb51efe9fe6</correlationId>
-      <path>AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCusomterStatistics/GetCusomterStatisticsQueryHandler.cs</path>
+      <path>AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCustomerStatistics/GetCustomerStatisticsQueryHandler.cs</path>
       <count>3</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:28:13.2845563Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:28:13.2845565Z</approvedAt>
-      <deviationsHash>23408ED45E5CC551E1B7B18A94382F04590DDF533BC40650F3CF5F735F5DDE3C</deviationsHash>
-      <fileHash>59E29CC732BF8F858E39A2E5469C09DDE6FBE1203B889FBCEB4EDA68E2FDC607</fileHash>
+      <updatedAt>2024-07-03T13:52:32.9615151Z</updatedAt>
+      <deviationsHash>300F0A6925830822604C894A7C76BE53D71359E0ADCB25FA7E728FD497D2322E</deviationsHash>
+      <fileHash>C320A8CF330B450CEE3485707B11FABB5AA2DB4EEA6C1E60A25F4904CB53B2EC</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#dffb0384-7359-4c03-856d-8a82fb8a8c0b</correlationId>

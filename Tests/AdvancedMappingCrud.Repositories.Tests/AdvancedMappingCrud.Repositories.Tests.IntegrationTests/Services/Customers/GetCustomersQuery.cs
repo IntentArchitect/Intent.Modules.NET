@@ -8,17 +8,11 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Custo
 {
     public class GetCustomersQuery
     {
-        public bool IsActive { get; set; }
-        public string? Name { get; set; }
-        public string? Surname { get; set; }
 
-        public static GetCustomersQuery Create(bool isActive, string? name, string? surname)
+        public static GetCustomersQuery Create()
         {
             return new GetCustomersQuery
             {
-                IsActive = isActive,
-                Name = name,
-                Surname = surname
             };
         }
     }

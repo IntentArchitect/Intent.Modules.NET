@@ -18,15 +18,25 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Custo
         public string Name { get; set; }
         public string Surname { get; set; }
         public bool IsActive { get; set; }
+        public bool PreferencesNewsletter { get; set; }
+        public bool PreferencesSpecials { get; set; }
 
-        public static CustomerDto Create(Guid id, string name, string surname, bool isActive)
+        public static CustomerDto Create(
+            Guid id,
+            string name,
+            string surname,
+            bool isActive,
+            bool preferencesNewsletter,
+            bool preferencesSpecials)
         {
             return new CustomerDto
             {
                 Id = id,
                 Name = name,
                 Surname = surname,
-                IsActive = isActive
+                IsActive = isActive,
+                PreferencesNewsletter = preferencesNewsletter,
+                PreferencesSpecials = preferencesSpecials
             };
         }
     }

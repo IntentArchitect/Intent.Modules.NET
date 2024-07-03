@@ -6,13 +6,13 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Customers
 {
-    public class GetCusomterStatisticsQuery
+    public class GetCustomerStatisticsQuery
     {
         public Guid CustomerId { get; set; }
 
-        public static GetCusomterStatisticsQuery Create(Guid customerId)
+        public static GetCustomerStatisticsQuery Create(Guid customerId)
         {
-            return new GetCusomterStatisticsQuery
+            return new GetCustomerStatisticsQuery
             {
                 CustomerId = customerId
             };

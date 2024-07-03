@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="102694d0-a3e3-432b-b09f-63ceccb250c0">
   <sourceEnd id="86787a97-de57-4e88-9160-aa26588e7ffe" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
-    <display>called by : Customers.GetCusomterStatisticsQuery</display>
+    <display>called by : Customers.GetCustomerStatisticsQuery</display>
     <order>0</order>
     <typeReference id="2b01e4ab-6342-4b6d-bcc0-9cd3e3c08579">
       <typeId>b2562789-afbc-4c86-886b-6eb51efe9fe6</typeId>

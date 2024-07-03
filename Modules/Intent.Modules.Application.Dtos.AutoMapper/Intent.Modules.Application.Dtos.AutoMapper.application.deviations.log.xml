@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ae21031c-9ce7-4769-922f-b595fe6fb665</correlationId>
+      <path>Intent.Modules.Application.Dtos.AutoMapper/Templates/MappingExtensions/MappingExtensionsTemplatePartial.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-07-03T12:03:01.0646677Z</updatedAt>
+      <deviationsHash>ECC1D5493EE5630FC3D9D56241D1D0156D38648ACF772117DFD68A9C807C44E5</deviationsHash>
+      <fileHash>2F0F89D2651163963D52376C4514630377A0CBB328FCEAB71360FBE8EF36691D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#ae21031c-9ce7-4769-922f-b595fe6fb665</correlationId>
+      <path>Intent.Modules.Application.Dtos.AutoMapper/Templates/MappingExtensions/MappingExtensionsTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-07-03T12:03:01.0646781Z</updatedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>4F6D7F45133CB4C3F96DF5384B45E9AFE68A24BE16FD1C5AACCF0391665A163D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
+      <path>Intent.Modules.Application.Dtos.AutoMapper/Templates/TemplateExtensions.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-07-03T12:03:01.0646903Z</updatedAt>
+      <deviationsHash>2A53DCD03A533F251FF25ECA418CE6472BFEF8D1488D722F1AC636D64489CE2F</deviationsHash>
+      <fileHash>D49D394A995691373B4352D4F35AEA97CEA260E31383300AE00DD8E5A05EAB43</fileHash>
+    </file>
+  </files>
+</deviationsLog>

@@ -1,11 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
-using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -18,37 +15,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustom
     public class GetCustomersQueryHandler : IRequestHandler<GetCustomersQuery, List<CustomerDto>>
     {
         private readonly ICustomerRepository _customerRepository;
-        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Merge)]
-        public GetCustomersQueryHandler(ICustomerRepository customerRepository, IMapper mapper)
+        public GetCustomersQueryHandler(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
-            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CustomerDto>> Handle(GetCustomersQuery request, CancellationToken cancellationToken)
         {
-
-            IQueryable<Customer> FilterCustomers(IQueryable<Customer> queryable)
-            {
-                queryable = queryable.Where(x => x.IsActive == request.IsActive);
-
-                if (request.Name != null)
-                {
-                    queryable = queryable.Where(x => x.Name == request.Name);
-                }
-
-                if (request.Surname != null)
-                {
-                    queryable = queryable.Where(x => x.Surname == request.Surname);
-                }
-                return queryable;
-            }
-
-            var customers = await _customerRepository.FindAllAsync(FilterCustomers, cancellationToken);
-            return customers.MapToCustomerDtoList(_mapper);
+            return await _customerRepository.FindAllProjectToAsync(filterExpression: null, filterProjection: request.Transform, cancellationToken: cancellationToken);
         }
     }
 }
