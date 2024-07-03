@@ -20,7 +20,7 @@ namespace OpenTelemetry.Console.Api.Configuration
         {
             services.AddOpenTelemetry()
                 .ConfigureResource(res => res
-                    .AddService("OpenTelemetry.Console")
+                    .AddService(configuration["OpenTelemetry:ServiceName"]!)
                     .AddTelemetrySdk()
                     .AddEnvironmentVariableDetector())
                 .WithTracing(trace => trace
@@ -37,7 +37,7 @@ namespace OpenTelemetry.Console.Api.Configuration
             {
                 options.SetResourceBuilder(ResourceBuilder
                     .CreateDefault()
-                    .AddService("OpenTelemetry.Console"));
+                    .AddService(context.Configuration["OpenTelemetry:ServiceName"]!));
                 options.AddConsoleExporter();
                 options.IncludeFormattedMessage = true;
                 options.IncludeScopes = true;
