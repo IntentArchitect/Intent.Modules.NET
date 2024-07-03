@@ -20,7 +20,7 @@ namespace OpenTelemetry.AzureAppInsights.Api.Configuration
         {
             services.AddOpenTelemetry()
                 .ConfigureResource(res => res
-                    .AddService("OpenTelemetry.AzureAppInsights")
+                    .AddService(configuration["OpenTelemetry:ServiceName"]!)
                     .AddTelemetrySdk()
                     .AddEnvironmentVariableDetector())
                 .WithTracing(trace => trace
@@ -40,7 +40,7 @@ namespace OpenTelemetry.AzureAppInsights.Api.Configuration
             {
                 options.SetResourceBuilder(ResourceBuilder
                     .CreateDefault()
-                    .AddService("OpenTelemetry.AzureAppInsights"));
+                    .AddService(context.Configuration["OpenTelemetry:ServiceName"]!));
                 options.AddAzureMonitorLogExporter(opt =>
                 {
                     opt.ConnectionString = context.Configuration["ApplicationInsights:ConnectionString"];

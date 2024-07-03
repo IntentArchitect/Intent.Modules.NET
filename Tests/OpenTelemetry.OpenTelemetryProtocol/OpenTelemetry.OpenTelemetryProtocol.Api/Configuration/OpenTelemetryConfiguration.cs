@@ -22,7 +22,7 @@ namespace OpenTelemetry.OpenTelemetryProtocol.Api.Configuration
         {
             services.AddOpenTelemetry()
                 .ConfigureResource(res => res
-                    .AddService("OpenTelemetry.OpenTelemetryProtocol")
+                    .AddService(configuration["OpenTelemetry:ServiceName"]!)
                     .AddTelemetrySdk()
                     .AddEnvironmentVariableDetector())
                 .WithTracing(trace => trace
@@ -43,7 +43,7 @@ namespace OpenTelemetry.OpenTelemetryProtocol.Api.Configuration
             {
                 options.SetResourceBuilder(ResourceBuilder
                     .CreateDefault()
-                    .AddService("OpenTelemetry.OpenTelemetryProtocol"));
+                    .AddService(context.Configuration["OpenTelemetry:ServiceName"]!));
                 options.AddOtlpExporter(opt =>
                 {
                     opt.Endpoint = context.Configuration.GetValue<Uri>("open-telemetry-protocol:endpoint");
