@@ -623,9 +623,9 @@ public class DomainInteractionsManager
 				TrackedEntities.Add(callServiceOperation.Id, new EntityDetails((IElement)operationModel.TypeReference.Element, variableName, null, false, operationModel.TypeReference.IsCollection));
             }
             else if (invStatement?.Expression.Reference is ICSharpMethodDeclaration methodDeclaration &&
-                     (methodDeclaration.ReturnTypeInfo.GetGenericTaskType() is CSharpTypeTuple || methodDeclaration.ReturnTypeInfo is CSharpTypeTuple))
+                     (methodDeclaration.ReturnTypeInfo.GetTaskType() is CSharpTypeTuple || methodDeclaration.ReturnTypeInfo is CSharpTypeTuple))
             {
-                var tuple = (CSharpTypeTuple)methodDeclaration.ReturnTypeInfo.GetGenericTaskType() ?? (CSharpTypeTuple)methodDeclaration.ReturnTypeInfo;
+                var tuple = (CSharpTypeTuple)methodDeclaration.ReturnTypeInfo.GetTaskType() ?? (CSharpTypeTuple)methodDeclaration.ReturnTypeInfo;
                 var declaration = new CSharpDeclarationExpression(tuple.Elements.Select(s => s.Name.ToCamelCase()).ToList());
                 statements.Add(new CSharpAssignmentStatement(declaration, invoke));
             }
