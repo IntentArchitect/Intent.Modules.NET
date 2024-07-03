@@ -68,7 +68,7 @@
       <lookupTypes />
     </property>
     <property id="3b7d1adc-528b-4e29-8705-187b87deb246">
-      <hint>Format - hh:mm:ss [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <hint>Format - d.hh:mm:ss [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
       <name>Default Message Time To Live</name>
       <type>string</type>
       <controlType>text</controlType>
@@ -78,7 +78,7 @@
       <lookupTypes />
     </property>
     <property id="e2fb328a-79d4-4de1-b206-656a30fbcfbd">
-      <hint>Format - hh:mm:ss [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
+      <hint>Format - d.hh:mm:ss [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
       <name>Lock Duration</name>
       <type>string</type>
       <controlType>text</controlType>
@@ -100,7 +100,7 @@
       <isActiveFunction>return EndpointType == "Receive Endpoint";</isActiveFunction>
     </property>
     <property id="4ad6dc3a-2b32-47b3-9f9f-a2c7529d0a0a">
-      <hint>Format - hh:mm:ss</hint>
+      <hint>Format - d.hh:mm:ss</hint>
       <name>Duplicate Detection History Time Window</name>
       <type>string</type>
       <controlType>text</controlType>
