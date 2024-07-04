@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.IntegrationTestWebAppFactory", Version = "1.0")]
+
 [assembly: CollectionBehavior(DisableTestParallelization = true)]
 
 namespace AdvancedMappingCrudMongo.Tests.IntegrationTests
