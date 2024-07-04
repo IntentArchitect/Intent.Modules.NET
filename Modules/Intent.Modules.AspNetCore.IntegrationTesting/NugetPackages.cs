@@ -13,6 +13,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
         public static readonly INugetPackageInfo XunitRunnerVisualstudio = new NugetPackageInfo("xunit.runner.visualstudio", "2.4.5");
         public static readonly INugetPackageInfo TestcontainersCosmosDb = new NugetPackageInfo("Testcontainers.CosmosDb", "3.7.0");
         public static readonly INugetPackageInfo TestcontainersMsSql = new NugetPackageInfo("Testcontainers.MsSql", "3.7.0");
+        public static readonly INugetPackageInfo TestcontainersMongoDb = new NugetPackageInfo("Testcontainers.MongoDb", "3.9.0");
         public static readonly INugetPackageInfo TestcontainersPostgreSql = new NugetPackageInfo("Testcontainers.PostgreSql", "3.7.0");
 		public static readonly INugetPackageInfo IEvangelistAzureCosmosRepository = new NugetPackageInfo("IEvangelist.Azure.CosmosRepository", "8.1.5");
 		//These are brought in by "IEvangelist.Azure.CosmosRepository"

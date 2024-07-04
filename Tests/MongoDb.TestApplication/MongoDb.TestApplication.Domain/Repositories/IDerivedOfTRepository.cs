@@ -12,7 +12,7 @@ using MongoDb.TestApplication.Domain.Entities;
 namespace MongoDb.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IDerivedOfTRepository : IMongoRepository<DerivedOfT, DerivedOfT>
+    public interface IDerivedOfTRepository : IMongoRepository<DerivedOfT>
     {
         [IntentManaged(Mode.Fully)]
         List<DerivedOfT> SearchText(string searchText, Expression<Func<DerivedOfT, bool>> filterExpression = null);

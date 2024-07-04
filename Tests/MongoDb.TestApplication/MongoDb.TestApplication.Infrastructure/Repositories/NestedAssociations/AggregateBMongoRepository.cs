@@ -14,13 +14,13 @@ using MongoDb.TestApplication.Infrastructure.Persistence;
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.NestedAssociations
 {
-    public class AggregateBMongoRepository : MongoRepositoryBase<AggregateB, AggregateB>, IAggregateBRepository
+    public class AggregateBMongoRepository : MongoRepositoryBase<AggregateB>, IAggregateBRepository
     {
         public AggregateBMongoRepository(ApplicationMongoDbContext context) : base(context)
         {
         }
 
-        public async Task<AggregateB> FindByIdAsync(string id, CancellationToken cancellationToken = default)
+        public async Task<AggregateB?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

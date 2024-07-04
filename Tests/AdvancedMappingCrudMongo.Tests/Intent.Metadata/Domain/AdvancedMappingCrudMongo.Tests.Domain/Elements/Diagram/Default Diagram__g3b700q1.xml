@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9b4a1fcc-bfa0-42d4-92f8-ccfc3c30ab80" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9af943c7-4a0b-4229-ad6b-31a83928009f</parentFolderId>
+  <packageId>9af943c7-4a0b-4229-ad6b-31a83928009f</packageId>
+  <packageName>AdvancedMappingCrudMongo.Tests.Domain</packageName>
+  <diagram>
+    <targetPackageId>9af943c7-4a0b-4229-ad6b-31a83928009f</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

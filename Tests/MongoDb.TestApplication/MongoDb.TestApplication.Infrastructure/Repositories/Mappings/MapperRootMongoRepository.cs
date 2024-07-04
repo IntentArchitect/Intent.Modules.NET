@@ -15,13 +15,13 @@ using MongoDb.TestApplication.Infrastructure.Persistence;
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.Mappings
 {
-    public class MapperRootMongoRepository : MongoRepositoryBase<MapperRoot, MapperRoot>, IMapperRootRepository
+    public class MapperRootMongoRepository : MongoRepositoryBase<MapperRoot>, IMapperRootRepository
     {
         public MapperRootMongoRepository(ApplicationMongoDbContext context) : base(context)
         {
         }
 
-        public async Task<MapperRoot> FindByIdAsync(string id, CancellationToken cancellationToken = default)
+        public async Task<MapperRoot?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

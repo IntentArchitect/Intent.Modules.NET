@@ -14,13 +14,13 @@ using MongoDb.TestApplication.Infrastructure.Persistence;
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.Associations
 {
-    public class H_OptionalAggregateNavMongoRepository : MongoRepositoryBase<H_OptionalAggregateNav, H_OptionalAggregateNav>, IH_OptionalAggregateNavRepository
+    public class H_OptionalAggregateNavMongoRepository : MongoRepositoryBase<H_OptionalAggregateNav>, IH_OptionalAggregateNavRepository
     {
         public H_OptionalAggregateNavMongoRepository(ApplicationMongoDbContext context) : base(context)
         {
         }
 
-        public async Task<H_OptionalAggregateNav> FindByIdAsync(string id, CancellationToken cancellationToken = default)
+        public async Task<H_OptionalAggregateNav?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

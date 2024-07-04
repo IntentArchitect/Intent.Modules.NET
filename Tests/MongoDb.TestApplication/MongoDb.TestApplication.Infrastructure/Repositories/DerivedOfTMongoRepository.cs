@@ -13,13 +13,13 @@ using MongoDb.TestApplication.Infrastructure.Persistence;
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories
 {
-    public class DerivedOfTMongoRepository : MongoRepositoryBase<DerivedOfT, DerivedOfT>, IDerivedOfTRepository
+    public class DerivedOfTMongoRepository : MongoRepositoryBase<DerivedOfT>, IDerivedOfTRepository
     {
         public DerivedOfTMongoRepository(ApplicationMongoDbContext context) : base(context)
         {
         }
 
-        public async Task<DerivedOfT> FindByIdAsync(string id, CancellationToken cancellationToken = default)
+        public async Task<DerivedOfT?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

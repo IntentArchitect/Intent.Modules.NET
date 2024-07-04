@@ -92,12 +92,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="19608d6b-cbdc-4fba-9f77-34e3f73fd7fd" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="23869066-95a0-44a8-bb77-6aab0a4bdfe5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>JMultipleaggregatesIds</name>
       <display>JMultipleaggregatesIds: string[*]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="74aaad67-089d-40b9-bf39-20d66492c09c">
+      <typeReference id="76b54539-f09d-4210-bd48-5d78d1789cbc">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>

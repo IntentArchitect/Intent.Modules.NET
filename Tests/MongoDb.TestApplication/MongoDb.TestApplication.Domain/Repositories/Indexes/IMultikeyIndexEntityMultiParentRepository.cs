@@ -13,7 +13,7 @@ using MongoDb.TestApplication.Domain.Entities.Indexes;
 namespace MongoDb.TestApplication.Domain.Repositories.Indexes
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IMultikeyIndexEntityMultiParentRepository : IMongoRepository<MultikeyIndexEntityMultiParent, MultikeyIndexEntityMultiParent>
+    public interface IMultikeyIndexEntityMultiParentRepository : IMongoRepository<MultikeyIndexEntityMultiParent>
     {
         [IntentManaged(Mode.Fully)]
         List<MultikeyIndexEntityMultiParent> SearchText(string searchText, Expression<Func<MultikeyIndexEntityMultiParent, bool>> filterExpression = null);

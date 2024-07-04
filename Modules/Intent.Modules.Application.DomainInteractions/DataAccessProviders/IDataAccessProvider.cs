@@ -20,7 +20,7 @@ public interface IDataAccessProvider
     CSharpStatement FindByIdsAsync(List<PrimaryKeyFilterMapping> pkMaps);
     CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements);
     CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, out IList<CSharpStatement> prerequisiteStatements);
-    CSharpStatement FindAsync(IElementToElementMapping queryMapping);
+    CSharpStatement FindAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements);
 }
 
 public record PrimaryKeyFilterMapping(CSharpStatement ValueExpression, CSharpStatement Property, IElementToElementMappedEnd Mapping);

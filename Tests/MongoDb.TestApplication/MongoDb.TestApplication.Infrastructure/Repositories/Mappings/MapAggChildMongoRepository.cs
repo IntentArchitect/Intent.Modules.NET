@@ -15,13 +15,13 @@ using MongoDb.TestApplication.Infrastructure.Persistence;
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.Mappings
 {
-    public class MapAggChildMongoRepository : MongoRepositoryBase<MapAggChild, MapAggChild>, IMapAggChildRepository
+    public class MapAggChildMongoRepository : MongoRepositoryBase<MapAggChild>, IMapAggChildRepository
     {
         public MapAggChildMongoRepository(ApplicationMongoDbContext context) : base(context)
         {
         }
 
-        public async Task<MapAggChild> FindByIdAsync(string id, CancellationToken cancellationToken = default)
+        public async Task<MapAggChild?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

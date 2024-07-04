@@ -24,7 +24,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.CosmosContainer
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CosmosContainerFixtureTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
-        {            
+        {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"CosmosContainerFixture", @class =>
                 {

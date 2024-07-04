@@ -13,13 +13,13 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace GraphQL.MongoDb.TestApplication.Infrastructure.Repositories
 {
-    public class UserMongoRepository : MongoRepositoryBase<User, User>, IUserRepository
+    public class UserMongoRepository : MongoRepositoryBase<User>, IUserRepository
     {
         public UserMongoRepository(ApplicationMongoDbContext context) : base(context)
         {
         }
 
-        public async Task<User> FindByIdAsync(string id, CancellationToken cancellationToken = default)
+        public async Task<User?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

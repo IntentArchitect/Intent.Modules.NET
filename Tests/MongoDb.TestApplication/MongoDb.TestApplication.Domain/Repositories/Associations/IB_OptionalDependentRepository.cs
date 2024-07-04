@@ -13,7 +13,7 @@ using MongoDb.TestApplication.Domain.Entities.Associations;
 namespace MongoDb.TestApplication.Domain.Repositories.Associations
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IB_OptionalDependentRepository : IMongoRepository<B_OptionalDependent, B_OptionalDependent>
+    public interface IB_OptionalDependentRepository : IMongoRepository<B_OptionalDependent>
     {
         [IntentManaged(Mode.Fully)]
         List<B_OptionalDependent> SearchText(string searchText, Expression<Func<B_OptionalDependent, bool>> filterExpression = null);

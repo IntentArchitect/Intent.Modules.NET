@@ -12,7 +12,7 @@ using MultipleDocumentStores.Domain.Entities;
 namespace MultipleDocumentStores.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ICustomerMongoRepository : IMongoRepository<CustomerMongo, CustomerMongo>
+    public interface ICustomerMongoRepository : IMongoRepository<CustomerMongo>
     {
         [IntentManaged(Mode.Fully)]
         List<CustomerMongo> SearchText(string searchText, Expression<Func<CustomerMongo, bool>> filterExpression = null);

@@ -1,5 +1,7 @@
-﻿using Intent.Modules.Common.Templates;
+﻿using Intent.Modules.AspNetCore.IntegrationTesting.Templates.MongoDbContainerFixture;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Metadata.RDBMS.Settings;
+using Intent.Templates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +24,11 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates
         {
             return template.ExecutionContext.InstalledModules.Any(p => p.ModuleId == "Intent.EntityFrameworkCore") &&
                 _supportedDBs.Contains(template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum());
+        }
+
+        internal static bool RequireMongoContainer(IntentTemplateBase template)
+        {
+            return template.ExecutionContext.InstalledModules.Any(p => p.ModuleId == "Intent.MongoDb");
         }
     }
 }

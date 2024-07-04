@@ -10,6 +10,7 @@ using Intent.Modules.AspNetCore.IntegrationTesting.Templates.HttpClient;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.HttpClientRequestException;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.IntegrationTestWebAppFactory;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.JsonResponse;
+using Intent.Modules.AspNetCore.IntegrationTesting.Templates.MongoDbContainerFixture;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.PagedResult;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.ProblemDetailsWithErrors;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.ProxyServiceContract;
@@ -89,6 +90,11 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates
         public static string GetJsonResponseName(this IIntentTemplate template)
         {
             return template.GetTypeName(JsonResponseTemplate.TemplateId);
+        }
+
+        public static string GetMongoDbContainerFixtureName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(MongoDbContainerFixtureTemplate.TemplateId);
         }
 
         public static string GetPagedResultName(this IIntentTemplate template)

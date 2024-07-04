@@ -12,7 +12,7 @@ using MongoDb.TestApplication.Domain.Entities;
 namespace MongoDb.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IMapperM2MRepository : IMongoRepository<MapperM2M, MapperM2M>
+    public interface IMapperM2MRepository : IMongoRepository<MapperM2M>
     {
         [IntentManaged(Mode.Fully)]
         List<MapperM2M> SearchText(string searchText, Expression<Func<MapperM2M, bool>> filterExpression = null);

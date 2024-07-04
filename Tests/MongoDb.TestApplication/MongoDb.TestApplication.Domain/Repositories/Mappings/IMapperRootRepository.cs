@@ -14,7 +14,7 @@ using MongoDb.TestApplication.Domain.Entities.Mappings;
 namespace MongoDb.TestApplication.Domain.Repositories.Mappings
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IMapperRootRepository : IMongoRepository<MapperRoot, MapperRoot>
+    public interface IMapperRootRepository : IMongoRepository<MapperRoot>
     {
         [IntentManaged(Mode.Fully)]
         List<MapperRoot> SearchText(string searchText, Expression<Func<MapperRoot, bool>> filterExpression = null);

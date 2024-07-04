@@ -13,13 +13,13 @@ using MultipleDocumentStores.Infrastructure.Persistence;
 
 namespace MultipleDocumentStores.Infrastructure.Repositories
 {
-    public class CustomerMongoMongoRepository : MongoRepositoryBase<CustomerMongo, CustomerMongo>, ICustomerMongoRepository
+    public class CustomerMongoMongoRepository : MongoRepositoryBase<CustomerMongo>, ICustomerMongoRepository
     {
         public CustomerMongoMongoRepository(ApplicationMongoDbContext context) : base(context)
         {
         }
 
-        public async Task<CustomerMongo> FindByIdAsync(string id, CancellationToken cancellationToken = default)
+        public async Task<CustomerMongo?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

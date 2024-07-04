@@ -115,6 +115,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.IntegrationTest
             {
                 yield return new RequiredContainer("RdbmsFixture", this.GetEFContainerFixtureName());
             }
+            if (ContainerHelper.RequireMongoContainer(this))
+            {
+                yield return new RequiredContainer("MongoDbFixture", this.GetMongoDbContainerFixtureName());
+            }
         }
 
         [IntentManaged(Mode.Fully)]

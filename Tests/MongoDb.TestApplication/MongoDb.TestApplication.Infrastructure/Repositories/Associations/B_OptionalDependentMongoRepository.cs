@@ -14,13 +14,13 @@ using MongoDb.TestApplication.Infrastructure.Persistence;
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.Associations
 {
-    public class B_OptionalDependentMongoRepository : MongoRepositoryBase<B_OptionalDependent, B_OptionalDependent>, IB_OptionalDependentRepository
+    public class B_OptionalDependentMongoRepository : MongoRepositoryBase<B_OptionalDependent>, IB_OptionalDependentRepository
     {
         public B_OptionalDependentMongoRepository(ApplicationMongoDbContext context) : base(context)
         {
         }
 
-        public async Task<B_OptionalDependent> FindByIdAsync(string id, CancellationToken cancellationToken = default)
+        public async Task<B_OptionalDependent?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

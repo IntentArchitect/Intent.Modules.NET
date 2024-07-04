@@ -184,7 +184,8 @@ public class DomainInteractionsManager
                 }
                 else
                 {
-                    queryInvocation =  dataAccess.FindAsync(queryMapping);
+                    queryInvocation =  dataAccess.FindAsync(queryMapping, out var requiredStatements);
+                    prerequisiteStatement.AddRange(requiredStatements);
                 }
             }
             else
@@ -227,7 +228,8 @@ public class DomainInteractionsManager
                     }
                     else
                     {
-                        queryInvocation =  dataAccess.FindAsync(queryMapping);
+                        queryInvocation =  dataAccess.FindAsync(queryMapping, out var requiredStatements);
+                        prerequisiteStatement.AddRange(requiredStatements);
                     }
                 }
             }

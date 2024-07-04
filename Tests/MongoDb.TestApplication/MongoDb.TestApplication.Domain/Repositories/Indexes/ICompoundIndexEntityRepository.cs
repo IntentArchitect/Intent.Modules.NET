@@ -13,7 +13,7 @@ using MongoDb.TestApplication.Domain.Entities.Indexes;
 namespace MongoDb.TestApplication.Domain.Repositories.Indexes
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ICompoundIndexEntityRepository : IMongoRepository<CompoundIndexEntity, CompoundIndexEntity>
+    public interface ICompoundIndexEntityRepository : IMongoRepository<CompoundIndexEntity>
     {
         [IntentManaged(Mode.Fully)]
         List<CompoundIndexEntity> SearchText(string searchText, Expression<Func<CompoundIndexEntity, bool>> filterExpression = null);

@@ -12,7 +12,7 @@ using MongoDb.TestApplication.Domain.Entities.Collections.FolderCollection;
 namespace MongoDb.TestApplication.Domain.Repositories.Collections.FolderCollection
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IFolderCollectionEntityBRepository : IMongoRepository<FolderCollectionEntityB, FolderCollectionEntityB>
+    public interface IFolderCollectionEntityBRepository : IMongoRepository<FolderCollectionEntityB>
     {
         [IntentManaged(Mode.Fully)]
         List<FolderCollectionEntityB> SearchText(string searchText, Expression<Func<FolderCollectionEntityB, bool>> filterExpression = null);

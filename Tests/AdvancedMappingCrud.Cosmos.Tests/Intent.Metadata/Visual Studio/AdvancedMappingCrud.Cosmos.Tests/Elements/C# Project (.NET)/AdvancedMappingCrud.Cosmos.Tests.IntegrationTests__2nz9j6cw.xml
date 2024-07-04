@@ -238,5 +238,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="6abbe797-2118-4946-bf65-e83d7e17aac5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.IntegrationTesting.MongoDbContainerFixture</name>
+      <display>Intent.AspNetCore.IntegrationTesting.MongoDbContainerFixture</display>
+      <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

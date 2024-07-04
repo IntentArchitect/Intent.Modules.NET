@@ -13,7 +13,7 @@ using MongoDb.TestApplication.Domain.Entities.NestedAssociations;
 namespace MongoDb.TestApplication.Domain.Repositories.NestedAssociations
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IAggregateARepository : IMongoRepository<AggregateA, AggregateA>
+    public interface IAggregateARepository : IMongoRepository<AggregateA>
     {
         [IntentManaged(Mode.Fully)]
         List<AggregateA> SearchText(string searchText, Expression<Func<AggregateA, bool>> filterExpression = null);

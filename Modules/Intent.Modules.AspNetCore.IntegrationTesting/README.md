@@ -6,7 +6,7 @@ This module adds Integration Testing for ASP.NET core applications with containe
 
 Integration testing is a phase in the software development life cycle where individual software modules are combined and tested as a group. The purpose of integration testing is to ensure that the different components of a software application work together as expected when integrated. This is done to identify and address any issues that may arise when multiple modules interact with each other.
 
-This module adds an xUnit testing project to you ASP.NET Core application which contains Integrations Tests which can be run to validate your application is working end-to-end against containerized infrastructure like databases e.g. `MS SQL Server`, `Postgres` or `CosmosDB Emulator`. These tests do not replace Unit testing but rather compliment it ensuring the individually tested pieces work together correctly.
+This module adds an xUnit testing project to you ASP.NET Core application which contains Integrations Tests which can be run to validate your application is working end-to-end against containerized infrastructure like databases e.g. `MS SQL Server`, `Postgres`, `MongoDb` or `CosmosDB Emulator`. These tests do not replace Unit testing but rather compliment it ensuring the individually tested pieces work together correctly.
 
 This module uses `Test.containers` to spin up and host infrastructure in docker containers.
 
@@ -31,7 +31,7 @@ This module consumes your `Exposed HTTP Endpoints`, in the `Service Designer` an
 
 - Adds Integration xUnit Testing project.
 - Generates service proxies for all service end points, to use to interact with the Application under test.
-- Add container support for `MS SQL Server`, `Postgres` and `CosmosDB`
+- Add container support for `MS SQL Server`, `Postgres`, `MongoDb` and `CosmosDB`
 - Generates test classes for each modelled service end point.
 
 ## Testing Isolation
@@ -64,6 +64,7 @@ If your application is using our `Intent.EntityFrameworkCore` module, the follow
 - Postgres
 
 If your application is using our `Intent.CosmosDB` module, the tests will be run against a dockerized CosmosDB Emulator.
+If your application is using our `Intent.MongoDb` module, the tests will be run against a dockerized MongoDb instance.
 
 ## Adding Tests
 

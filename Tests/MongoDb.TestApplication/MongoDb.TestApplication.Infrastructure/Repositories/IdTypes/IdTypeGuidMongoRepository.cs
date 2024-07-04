@@ -14,13 +14,13 @@ using MongoDb.TestApplication.Infrastructure.Persistence;
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.IdTypes
 {
-    public class IdTypeGuidMongoRepository : MongoRepositoryBase<IdTypeGuid, IdTypeGuid>, IIdTypeGuidRepository
+    public class IdTypeGuidMongoRepository : MongoRepositoryBase<IdTypeGuid>, IIdTypeGuidRepository
     {
         public IdTypeGuidMongoRepository(ApplicationMongoDbContext context) : base(context)
         {
         }
 
-        public async Task<IdTypeGuid> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public async Task<IdTypeGuid?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
