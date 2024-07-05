@@ -1,6 +1,10 @@
-﻿### Version 5.1.6
+﻿### Version 5.1.7
 
 - Improvement: Added shared template infrastructure to support service proxies being able to respect `Serialize Enum as String` setting.
+
+### Version 5.1.6
+
+- Fixed: Fixed Service Proxies dependency - Until the Intent Architect client is fixed for this scenario, the Service Proxies package will not be installed in the Services designer.
 
 ### Version 5.1.5
 

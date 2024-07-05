@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="f78a5eaa-0063-4959-8e54-4f1b19f17370" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
   <name>Intent.Application.FluentValidation.Dtos</name>
-  <display>Intent.Application.FluentValidation.Dtos 3.9.0</display>
+  <display>Intent.Application.FluentValidation.Dtos 3.9.1</display>
   <isAbstract>false</isAbstract>
   <value>3.9.1</value>
   <genericTypes />
