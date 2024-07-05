@@ -1,4 +1,8 @@
-﻿### Version 5.1.5
+﻿### Version 5.1.6
+
+- Fixed: Fixed Service Proxies dependency - Until the Intent Architect client is fixed for this scenario, the Service Proxies package will not be installed in the Services designer.
+
+### Version 5.1.5
 
 - Improvement: Updated the logic which converts types to query parameters to be more standard in how it coverts types to string.
 

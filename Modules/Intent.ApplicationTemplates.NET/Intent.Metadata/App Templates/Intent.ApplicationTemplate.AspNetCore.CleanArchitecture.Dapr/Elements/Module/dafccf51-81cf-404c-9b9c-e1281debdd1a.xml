@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="dafccf51-81cf-404c-9b9c-e1281debdd1a" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
   <name>Intent.Application.MediatR.FluentValidation</name>
-  <display>Intent.Application.MediatR.FluentValidation 4.6.0</display>
+  <display>Intent.Application.MediatR.FluentValidation 4.6.1</display>
   <isAbstract>false</isAbstract>
   <value>4.6.1</value>
   <genericTypes />
