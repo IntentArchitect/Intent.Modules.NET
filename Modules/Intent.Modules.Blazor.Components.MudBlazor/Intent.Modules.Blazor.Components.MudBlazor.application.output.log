@@ -9,6 +9,38 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>e69aa4a1-a873-4e5a-9149-10e02b18f8dc</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#7cea32c5-1218-4bf2-bbab-52ddb2cb1532</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/DataGridColumnModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataGridColumnModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e69aa4a1-a873-4e5a-9149-10e02b18f8dc</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#4b33f894-ad6e-43e0-a238-4286375c9ab7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/DataGridModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataGridModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e69aa4a1-a873-4e5a-9149-10e02b18f8dc</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#4b33f894-ad6e-43e0-a238-4286375c9ab7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/DataGridModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataGridModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e69aa4a1-a873-4e5a-9149-10e02b18f8dc</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#9af26915-0394-4cda-864d-0e7f9f9943dc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/DataGridToolbarModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataGridToolbarModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>2bda8633-69d4-4d31-a183-4e938c79f6a8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#ea521efb-a5fa-4076-adac-154b24c0c10a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -38,6 +70,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Blazor.Components.MudBlazor.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Blazor.Components.MudBlazor.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0845947b-9afb-4e32-a32f-3faf5335c461</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#30eb8a90-664b-483b-9dfd-794c8e85f9eb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/MudBlazor Components.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MudBlazor Components.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

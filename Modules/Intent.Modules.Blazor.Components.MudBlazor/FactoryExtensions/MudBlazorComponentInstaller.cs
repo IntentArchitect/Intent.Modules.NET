@@ -1,3 +1,4 @@
+using Intent.Blazor.Components.MudBlazor.Api;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
@@ -35,6 +36,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
             DefaultRazorComponentBuilderProvider.Register(IconModel.SpecializationTypeId, (provider, componentTemplate) => new IconComponentBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(SelectModel.SpecializationTypeId, (provider, componentTemplate) => new SelectComponentBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(CheckboxModel.SpecializationTypeId, (provider, componentTemplate) => new CheckboxComponentBuilder(provider, componentTemplate));
+            DefaultRazorComponentBuilderProvider.Register(DataGridModel.SpecializationTypeId, (provider, componentTemplate) => new DataGridComponentBuilder(provider, componentTemplate));
         }
     }
 }

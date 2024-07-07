@@ -1,5 +1,6 @@
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Application.FluentValidation;
 using Intent.Modules.Blazor.HttpClients.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -31,6 +32,7 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.FactoryExtensi
                 return;
             }
 
+            template.AddNugetDependency(NuGetPackages.FluentValidationDependencyInjectionExtensions);
             template.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();
