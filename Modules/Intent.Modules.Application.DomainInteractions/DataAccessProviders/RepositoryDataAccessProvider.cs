@@ -93,9 +93,9 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
             .AddArgument("cancellationToken");
     }
 
-    public CSharpStatement FindAsync(IElementToElementMapping queryMapping)
+    public CSharpStatement FindAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements)
     {
-        var expression = _mappingManager.GetPredicateExpression(queryMapping);
+        var expression = CreateQueryFilterExpression(queryMapping, out prerequisiteStatements);
         var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAsync");
         if (expression != null)
         {

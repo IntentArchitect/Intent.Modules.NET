@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="2339fb67-49da-48cc-b264-dbe6c20d1e4a" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-  <name>FactoryExtentions</name>
-  <display>FactoryExtentions</display>
+  <name>FactoryExtensions</name>
+  <display>FactoryExtensions</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>9e1b7e0f-7918-41d9-8c52-0a020a279cab</parentFolderId>
+  <parentFolderId>a0e87869-f2af-4697-a275-ff481a67e2bd</parentFolderId>
   <packageId>36c421ee-a140-4e1d-89e2-52b82cca475b</packageId>
   <packageName>Intent.Modules.Net</packageName>
   <stereotypes>

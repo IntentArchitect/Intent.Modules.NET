@@ -87,8 +87,9 @@ public class CompositeDataAccessProvider : IDataAccessProvider
         //throw new Exception("Not Implemented");
     }
 
-    public CSharpStatement FindAsync(IElementToElementMapping queryMapping)
+    public CSharpStatement FindAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements)
     {
+        prerequisiteStatements = new List<CSharpStatement>();
         var expression = _mappingManager.GetPredicateExpression(queryMapping);
 
         var invocation = new CSharpInvocationStatement($"{_accessor}", $"FirstOrDefault");

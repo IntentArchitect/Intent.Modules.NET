@@ -90,8 +90,9 @@ public class DbContextDataAccessProvider : IDataAccessProvider
         return invocation.AddChainStatement($"ToListAsync(cancellationToken)");
     }
 
-    public CSharpStatement FindAsync(IElementToElementMapping queryMapping)
+    public CSharpStatement FindAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements)
     {
+        prerequisiteStatements = new List<CSharpStatement>();
         var expression = _mappingManager.GetPredicateExpression(queryMapping);
         if (expression == null)
         {

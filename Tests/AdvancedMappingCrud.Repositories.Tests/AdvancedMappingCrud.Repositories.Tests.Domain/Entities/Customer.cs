@@ -17,6 +17,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 
         public bool IsActive { get; set; }
 
+        public virtual Preferences? Preferences { get; set; }
+
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
 }

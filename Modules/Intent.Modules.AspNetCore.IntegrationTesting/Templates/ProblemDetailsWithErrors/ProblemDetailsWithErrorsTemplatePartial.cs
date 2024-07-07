@@ -14,7 +14,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ProblemDetailsWithErrors
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentIgnore]
     public partial class ProblemDetailsWithErrorsTemplate : ProblemDetailsWithErrorsBase
     {
         public const string TemplateId = "Intent.AspNetCore.IntegrationTesting.ProblemDetailsWithErrors";

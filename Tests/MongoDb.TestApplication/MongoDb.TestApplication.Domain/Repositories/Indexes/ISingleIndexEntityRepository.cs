@@ -14,7 +14,7 @@ using MongoDb.TestApplication.Domain.Entities.Indexes;
 namespace MongoDb.TestApplication.Domain.Repositories.Indexes
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ISingleIndexEntityRepository : IMongoRepository<SingleIndexEntity, SingleIndexEntity>
+    public interface ISingleIndexEntityRepository : IMongoRepository<SingleIndexEntity>
     {
         [IntentManaged(Mode.Fully)]
         List<SingleIndexEntity> SearchText(string searchText, Expression<Func<SingleIndexEntity, bool>> filterExpression = null);

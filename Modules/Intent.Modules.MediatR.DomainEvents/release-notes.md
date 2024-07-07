@@ -1,3 +1,7 @@
+### Version 5.0.11
+
+- Improvement: FindAsync handling more mapping scenarios.
+
 ### Version 5.0.10
 
 - Improvement: Added `TODO` comments on `NotImplementedException`.

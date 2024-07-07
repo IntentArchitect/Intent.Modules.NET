@@ -76,11 +76,7 @@ internal class AzureServiceBusMessageBroker : MessageBrokerBase
             var endpointsBlock = new CSharpLambdaBlock("endpoint")
                 .AddStatements(GetConfigurationStatements("endpoint", consumer))
                 .AddStatement($@"endpoint.ConfigureConsumer<{consumer.ConsumerTypeName}>(context);");
-
-            // if (!_template.ExecutionContext.Settings.GetEventingSettings().AutoSetupConsumersAndPublishers())
-            // {
-            //     endpointsBlock.AddStatement("endpoint.ConfigureConsumeTopology = false;");
-            // }
+            
             subscription.AddArgument(endpointsBlock);
             
             yield return subscription;
@@ -105,14 +101,14 @@ internal class AzureServiceBusMessageBroker : MessageBrokerBase
         yield return $@"{configVarName}.RequiresSession = {busConsumerSettings.RequiresSession().ToString().ToLower()};";
         if (!string.IsNullOrWhiteSpace(busConsumerSettings.DefaultMessageTimeToLive()))
         {
-            ValidateTimeSpanString(busConsumerSettings.DefaultMessageTimeToLive(), nameof(busConsumerSettings.DefaultMessageTimeToLive), out var ts);
-            yield return $@"{configVarName}.DefaultMessageTimeToLive = TimeSpan.Parse(""{ts}"");";
+            ValidateTimeSpanString(busConsumerSettings.DefaultMessageTimeToLive(), nameof(busConsumerSettings.DefaultMessageTimeToLive));
+            yield return $@"{configVarName}.DefaultMessageTimeToLive = TimeSpan.Parse(""{busConsumerSettings.DefaultMessageTimeToLive()}"");";
         }
 
         if (!string.IsNullOrWhiteSpace(busConsumerSettings.LockDuration()))
         {
-            ValidateTimeSpanString(busConsumerSettings.LockDuration(), nameof(busConsumerSettings.LockDuration), out var ts);
-            yield return $@"{configVarName}.LockDuration = TimeSpan.Parse(""{ts}"");";
+            ValidateTimeSpanString(busConsumerSettings.LockDuration(), nameof(busConsumerSettings.LockDuration));
+            yield return $@"{configVarName}.LockDuration = TimeSpan.Parse(""{busConsumerSettings.LockDuration()}"");";
         }
 
         if (busConsumerSettings.EndpointTypeSelection().IsReceiveEndpoint())
@@ -120,8 +116,8 @@ internal class AzureServiceBusMessageBroker : MessageBrokerBase
             yield return $@"{configVarName}.RequiresDuplicateDetection = {busConsumerSettings.RequiresDuplicateDetection().ToString().ToLower()};";
             if (busConsumerSettings.RequiresDuplicateDetection() && !string.IsNullOrWhiteSpace(busConsumerSettings.DuplicateDetectionHistoryTimeWindow()))
             {
-                ValidateTimeSpanString(busConsumerSettings.DuplicateDetectionHistoryTimeWindow(), nameof(busConsumerSettings.DuplicateDetectionHistoryTimeWindow), out var ts);
-                yield return $@"{configVarName}.DuplicateDetectionHistoryTimeWindow = TimeSpan.Parse(""{ts}"");";
+                ValidateTimeSpanString(busConsumerSettings.DuplicateDetectionHistoryTimeWindow(), nameof(busConsumerSettings.DuplicateDetectionHistoryTimeWindow));
+                yield return $@"{configVarName}.DuplicateDetectionHistoryTimeWindow = TimeSpan.Parse(""{busConsumerSettings.DuplicateDetectionHistoryTimeWindow()}"");";
             }
         }
 
@@ -149,9 +145,9 @@ internal class AzureServiceBusMessageBroker : MessageBrokerBase
         }
     }
 
-    private static void ValidateTimeSpanString(string settingStringValue, string memberName, out TimeSpan parsedTimeSpan)
+    private static void ValidateTimeSpanString(string settingStringValue, string memberName)
     {
-        if (!TimeSpan.TryParse(settingStringValue, out parsedTimeSpan))
+        if (!TimeSpan.TryParse(settingStringValue, out _))
         {
             throw new Exception($"Unable to parse '{settingStringValue}' for {memberName}. Ensure format is 'hh:mm:ss'.");
         }

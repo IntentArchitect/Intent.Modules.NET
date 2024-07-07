@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#83c5ee45-ee34-43cc-88af-a70d3f25f223</correlationId>
+      <path>AdvancedMappingCrudMongo.Tests.IntegrationTests/Tests/Orders/UpdateOrderTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-07-04T11:00:25.854081Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-07-04T11:10:07.7221876Z</approvedAt>
+      <deviationsHash>AF8F145A9F4F07BE326C42907B28A0A11ACED9F2164C4D290208A13949CECEDD</deviationsHash>
+      <fileHash>CB1B99BE6525340B8D0D1CEDB6FE69E4DFC9B1A2780A18AA8F06920CFB29C2BD</fileHash>
+    </file>
+  </files>
+</deviationsLog>

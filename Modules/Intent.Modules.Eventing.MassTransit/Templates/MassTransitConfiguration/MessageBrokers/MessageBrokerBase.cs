@@ -76,11 +76,6 @@ internal abstract class MessageBrokerBase
         var endpointsBlock = new CSharpLambdaBlock("endpoint").AddStatements(endpointConfigStatements);
         stmt.AddArgument(endpointsBlock).WithArgumentsOnNewLines();
         
-        // if (!template.ExecutionContext.Settings.GetEventingSettings().AutoSetupConsumersAndPublishers())
-        // {
-        //     endpointsBlock.AddStatement("endpoint.ConfigureConsumeTopology = false;");
-        // }
-        
         return stmt;
     }
 }

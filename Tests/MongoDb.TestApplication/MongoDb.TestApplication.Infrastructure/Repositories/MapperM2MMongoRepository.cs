@@ -13,13 +13,13 @@ using MongoDb.TestApplication.Infrastructure.Persistence;
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories
 {
-    public class MapperM2MMongoRepository : MongoRepositoryBase<MapperM2M, MapperM2M>, IMapperM2MRepository
+    public class MapperM2MMongoRepository : MongoRepositoryBase<MapperM2M>, IMapperM2MRepository
     {
         public MapperM2MMongoRepository(ApplicationMongoDbContext context) : base(context)
         {
         }
 
-        public async Task<MapperM2M> FindByIdAsync(string id, CancellationToken cancellationToken = default)
+        public async Task<MapperM2M?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

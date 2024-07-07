@@ -3,7 +3,7 @@
   <ApplicationId>1e7ac3a3-3019-4017-a525-bac8f838b1ed</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#36c421ee-a140-4e1d-89e2-52b82cca475b</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#36c421ee-a140-4e1d-89e2-52b82cca475b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.Net.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -12,12 +12,12 @@
       <ProjectId>2339fb67-49da-48cc-b264-dbe6c20d1e4a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#26e93d7b-2b58-435d-8401-c67cfe06c30a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtentions/AutoMapperDtoFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/AutoMapperDtoFactoryExtension.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AutoMapperDtoFactoryExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>9e1b7e0f-7918-41d9-8c52-0a020a279cab</ProjectId>
+      <ProjectId>a0e87869-f2af-4697-a275-ff481a67e2bd</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.Dtos.AutoMapper.imodspec</ApplicationRelativeFilePath>
@@ -25,19 +25,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>9e1b7e0f-7918-41d9-8c52-0a020a279cab</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#9e1b7e0f-7918-41d9-8c52-0a020a279cab</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ProjectId>a0e87869-f2af-4697-a275-ff481a67e2bd</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#a0e87869-f2af-4697-a275-ff481a67e2bd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.Dtos.AutoMapper.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.Dtos.AutoMapper.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9e1b7e0f-7918-41d9-8c52-0a020a279cab</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

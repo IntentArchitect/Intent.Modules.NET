@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.PagedResultInterface;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -33,17 +34,33 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.PagedList
                 .AddClass($"MongoPagedList")
                 .OnBuild(file =>
                 {
+                    var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
+
                     var @class = file.Classes.First();
-                    @class.AddGenericParameter("T", out var T);
-                    @class.ExtendsClass($"List<{T}>");
-                    @class.ImplementsInterface($"{PagedResultInterfaceName}<{T}>");
+                    @class.AddGenericParameter("TDomain", out var tDomain);
+                    CSharpGenericParameter tPersistence = tDomain;
+
+                    if (createEntityInterfaces)
+                    {
+                        @class.AddGenericParameter("TPersistence", out tPersistence);
+                        @class.AddGenericTypeConstraint(tPersistence, p => p.AddType("class").AddType(tDomain))
+                            .AddGenericTypeConstraint(tDomain, p => p.AddType("class"));
+                    }
+                    else
+                    {
+                        @class.AddGenericTypeConstraint(tDomain, p => p.AddType("class"));
+                    }
+
+
+                    @class.ExtendsClass($"List<{tDomain}>");
+                    @class.ImplementsInterface($"{PagedResultInterfaceName}<{tDomain}>");
                     @class.AddProperty("int", "TotalCount", prop => prop.PrivateSetter());
                     @class.AddProperty("int", "PageCount", prop => prop.PrivateSetter());
                     @class.AddProperty("int", "PageNo", prop => prop.PrivateSetter());
                     @class.AddProperty("int", "PageSize", prop => prop.PrivateSetter());
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter($"IQueryable<{T}>", "source")
+                        ctor.AddParameter($"IQueryable<{tPersistence}>", "source")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize");
 
@@ -55,13 +72,28 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.PagedList
                         aggregator.Add($"var skip = ((PageNo - 1) * PageSize);");
                         aggregator.Add($"");
 
-                        aggregator.Add(new CSharpInvocationStatement("AddRange")
-                            .AddArgument(new CSharpMethodChainStatement("source")
-                                .AddChainStatement("Skip(skip)")
-                                .AddChainStatement("Take(PageSize)")
-                                .AddChainStatement("ToList()")
-                                .WithoutSemicolon(), arg => arg.BeforeSeparator = CSharpCodeSeparatorType.EmptyLines));
-                        ctor.AddStatements(aggregator.ToList());
+                        if (createEntityInterfaces)
+                        {
+                            aggregator.Add(new CSharpInvocationStatement("AddRange")
+                                .AddArgument(new CSharpMethodChainStatement("source")
+                                    .AddChainStatement("Skip(skip)")
+                                    .AddChainStatement("Take(PageSize)")
+                                    .AddChainStatement($"Cast<{tDomain}>()")
+                                    .AddChainStatement("ToList()")
+                                    .WithoutSemicolon(), arg => arg.BeforeSeparator = CSharpCodeSeparatorType.EmptyLines));
+                            ctor.AddStatements(aggregator.ToList());
+                        }
+                        else
+                        {
+                            aggregator.Add(new CSharpInvocationStatement("AddRange")
+                                .AddArgument(new CSharpMethodChainStatement("source")
+                                    .AddChainStatement("Skip(skip)")
+                                    .AddChainStatement("Take(PageSize)")
+                                    .AddChainStatement("ToList()")
+                                    .WithoutSemicolon(), arg => arg.BeforeSeparator = CSharpCodeSeparatorType.EmptyLines));
+                            ctor.AddStatements(aggregator.ToList());
+
+                        }
                     });
 
                     @class.AddConstructor(ctor =>
@@ -69,7 +101,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.PagedList
                         ctor.AddParameter("int", "totalCount")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
-                            .AddParameter($"List<{T}>", "results");
+                            .AddParameter($"List<{tDomain}>", "results");
                         ctor.AddStatements($@"
                             TotalCount = totalCount;
                             PageCount = GetPageCount(pageSize, TotalCount);
@@ -90,11 +122,11 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.PagedList
                             return (totalCount / pageSize) + (remainder == 0 ? 0 : 1);");
                     });
 
-                    @class.AddMethod($"Task<{PagedResultInterfaceName}<{T}>>", "CreateAsync", method =>
+                    @class.AddMethod($"Task<{PagedResultInterfaceName}<{tDomain}>>", "CreateAsync", method =>
                     {
                         method.Static();
                         method.Async();
-                        method.AddParameter($"IQueryable<{T}>", "source")
+                        method.AddParameter($"IQueryable<{tPersistence}>", "source")
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", parm => parm.WithDefaultValue("default"));
@@ -104,7 +136,14 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.PagedList
                             .AddChainStatement("Skip(skip)")
                             .AddChainStatement("Take(pageSize)")
                             .AddChainStatement("ToListAsync(cancellationToken)"));
-                        method.AddStatement($"return new {@class.Name}<{T}>(count, pageNo, pageSize, results);");
+                        if (createEntityInterfaces)
+                        {
+                            method.AddStatement($"return new {@class.Name}<{tDomain}, {tPersistence}>(count, pageNo, pageSize, results.Cast<{tDomain}>().ToList());");
+                        }
+                        else
+                        {
+                            method.AddStatement($"return new {@class.Name}<{tDomain}>(count, pageNo, pageSize, results);");
+                        }
                     });
 
                 });

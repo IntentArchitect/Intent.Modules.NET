@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9dbf225e-a1c2-474e-b32d-a5c0c0d5ce8f" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>MessageWithTopology</name>
+  <display>MessageWithTopology</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1e1a7502-8b6c-4a63-ad29-d998fc7e5246</parentFolderId>
+  <packageId>1e1a7502-8b6c-4a63-ad29-d998fc7e5246</packageId>
+  <packageName>MassTransit.RabbitMQ.Services.External</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="fc095295-eb25-470a-9ee5-19129919db2b" name="Message Topology Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.MassTransit</definitionPackageName>
+      <definitionPackageId>6502ee82-f515-4007-9635-bade3eb88e72</definitionPackageId>
+      <properties>
+        <property name="07825809-0d05-407b-a513-37be94fa114d" display="Entity Name" value="custom-exchange-name" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

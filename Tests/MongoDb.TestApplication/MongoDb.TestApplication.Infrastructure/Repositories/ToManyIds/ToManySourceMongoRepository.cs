@@ -14,13 +14,13 @@ using MongoDb.TestApplication.Infrastructure.Persistence;
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.ToManyIds
 {
-    public class ToManySourceMongoRepository : MongoRepositoryBase<ToManySource, ToManySource>, IToManySourceRepository
+    public class ToManySourceMongoRepository : MongoRepositoryBase<ToManySource>, IToManySourceRepository
     {
         public ToManySourceMongoRepository(ApplicationMongoDbContext context) : base(context)
         {
         }
 
-        public async Task<ToManySource> FindByIdAsync(string id, CancellationToken cancellationToken = default)
+        public async Task<ToManySource?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.WindowsServiceHost" version="1.0.8" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.50" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -118,10 +118,11 @@
     <application id="a2574e70-3bcd-42d0-82ea-d08c81f825ac" name="ProxyServiceTests.OriginalServices" relativePath="ProxyServiceTests.OriginalServices/ProxyServiceTests.OriginalServices.application.config" />
     <application id="0185b841-fb5e-4f25-a564-7e86a8293c46" name="Solace.Tests" relativePath="Solace.Tests/Solace.Tests.application.config" />
     <application id="38ca8ada-51c1-497d-81a9-e405417c0709" name="Dapper.Tests" relativePath="Dapper.Tests/Dapper.Tests.application.config" />
-    <application id="511a26e8-f292-4ea8-b07e-ca9f37b297ae" name="ProxyServiceTests.Proxy.TMS" relativePath="ProxyServiceTests.Proxy.TMS/ProxyServiceTests.Proxy.TMS.application.config" />
     <application id="71818a31-10de-47a0-b6c8-30c34717ee01" name="EntityFrameworkCore.MaintainColumnOrder.Tests" relativePath="EntityFrameworkCore.MaintainColumnOrder.Tests/EntityFrameworkCore.MaintainColumnOrder.Tests.application.config" />
-    <application id="3e3ebc36-8b69-453a-a151-faad8c1ac9bd" name="ProxyServiceTests.Proxy.PTH" relativePath="ProxyServiceTests.Proxy.PTH/ProxyServiceTests.Proxy.PTH.application.config" />
     <application id="c4bd27ec-7d97-477b-87a5-1225ae33f695" name="CloudBlobStorageClients.NET8" relativePath="CloudBlobStorageClients.NET8/CloudBlobStorageClients.NET8.application.config" />
     <application id="481b3f15-06af-424a-bd6c-40f99ce14793" name="BugSnagTest.ServiceHost" relativePath="BugSnagTest.ServiceHost/BugSnagTest.ServiceHost.application.config" />
+    <application id="3e3ebc36-8b69-453a-a151-faad8c1ac9bd" name="ProxyServiceTests.Proxy.PassThruHeader" relativePath="ProxyServiceTests.Proxy.PassThruHeader/ProxyServiceTests.Proxy.PassThruHeader.application.config" />
+    <application id="511a26e8-f292-4ea8-b07e-ca9f37b297ae" name="ProxyServiceTests.Proxy.TokenMgmtSvc" relativePath="ProxyServiceTests.Proxy.TokenMgmtSvc/ProxyServiceTests.Proxy.TokenMgmtSvc.application.config" />
+    <application id="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" name="AdvancedMappingCrudMongo.Tests" relativePath="AdvancedMappingCrudMongo.Tests/AdvancedMappingCrudMongo.Tests.application.config" />
   </applications>
 </solution>

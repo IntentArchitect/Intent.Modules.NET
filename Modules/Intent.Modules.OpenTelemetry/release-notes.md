@@ -1,3 +1,7 @@
+### Version 2.1.0
+
+- Improvement: Service name is now configurable in appsettings.json.
+
 ### Version 2.0.4
 
 - Improvement: Bumped `OpenTelemetry` packages to 1.8.0

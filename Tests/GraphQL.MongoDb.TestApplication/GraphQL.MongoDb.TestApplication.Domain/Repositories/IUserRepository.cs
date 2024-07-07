@@ -13,7 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace GraphQL.MongoDb.TestApplication.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IUserRepository : IMongoRepository<User, User>
+    public interface IUserRepository : IMongoRepository<User>
     {
         [IntentManaged(Mode.Fully)]
         List<User> SearchText(string searchText, Expression<Func<User, bool>> filterExpression = null);

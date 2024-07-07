@@ -13,11 +13,12 @@ using AdvancedMappingCrud.Repositories.Tests.Application.Customers.CreateFuneral
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.CreateQuote;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.DeactivateCustomer;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.DeleteCustomer;
-using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCusomterStatistics;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomerById;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomers;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomersByNameAndSurname;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomersPaginated;
+using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomerStatistics;
+using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomersWithParams;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.UpdateCorporateFuneralCoverQuote;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.UpdateCustomer;
 using Intent.RoslynWeaver.Attributes;
@@ -25,6 +26,8 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
+using Microsoft.AspNetCore.OData.Query.Validator;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -45,11 +48,11 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
 
         /// <summary>
         /// </summary>
-        /// <response code="204">Successfully updated.</response>
+        /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
-        [HttpPut("api/customers/{quoteId}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HttpPost("api/customers/{quoteId}/approve")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -69,7 +72,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             }
 
             await _mediator.Send(command, cancellationToken);
-            return NoContent();
+            return Created(string.Empty, null);
         }
 
         /// <summary>
@@ -229,24 +232,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
 
         /// <summary>
         /// </summary>
-        /// <response code="200">Returns the specified int.</response>
-        /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
-        [HttpGet("api/customers")]
-        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<int>> GetCusomterStatistics(
-            [FromQuery] Guid customerId,
-            CancellationToken cancellationToken = default)
-        {
-            var result = await _mediator.Send(new GetCusomterStatisticsQuery(customerId: customerId), cancellationToken);
-            return Ok(result);
-        }
-
-        /// <summary>
-        /// </summary>
         /// <response code="200">Returns the specified CustomerDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         /// <response code="404">No CustomerDto could be found with the provided parameters.</response>
@@ -303,19 +288,65 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified List&lt;CustomerDto&gt;.</response>
+        [HttpGet("api/customers")]
+        [ProducesResponseType(typeof(List<CustomerDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<CustomerDto>>> GetCustomers(
+            ODataQueryOptions<CustomerDto> oDataOptions,
+            CancellationToken cancellationToken = default)
+        {
+            ValidateODataOptions(oDataOptions);
+
+            var result = await _mediator.Send(new GetCustomersQuery(oDataOptions.ApplyTo), cancellationToken);
+
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified int.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
+        [HttpGet("api/customers/statistics")]
+        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<int>> GetCustomerStatistics(
+            [FromQuery] Guid customerId,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetCustomerStatisticsQuery(customerId: customerId), cancellationToken);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;CustomerDto&gt;.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpGet("api/customer/{name}/{surname}/{isActive}")]
         [ProducesResponseType(typeof(List<CustomerDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<CustomerDto>>> GetCustomers(
+        public async Task<ActionResult<List<CustomerDto>>> GetCustomersWithParams(
             [FromRoute] bool isActive,
             [FromRoute] string? name,
             [FromRoute] string? surname,
             CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetCustomersQuery(isActive: isActive, name: name, surname: surname), cancellationToken);
+            var result = await _mediator.Send(new GetCustomersWithParamsQuery(isActive: isActive, name: name, surname: surname), cancellationToken);
             return Ok(result);
+        }
+
+        private void ValidateODataOptions<TDto>(ODataQueryOptions<TDto> options, bool enableSelect = false)
+        {
+            var settings = new ODataValidationSettings();
+
+            if (!enableSelect)
+            {
+                settings.AllowedQueryOptions = AllowedQueryOptions.All & ~AllowedQueryOptions.Select;
+            }
+            options.Validate(settings);
         }
     }
 }

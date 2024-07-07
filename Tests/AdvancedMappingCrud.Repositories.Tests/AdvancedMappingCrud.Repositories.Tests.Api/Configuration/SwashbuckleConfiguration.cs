@@ -47,6 +47,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Configuration
                     }
                     options.OperationFilter<BinaryContentFilter>();
                     options.SchemaFilter<TypeSchemaFilter>();
+                    options.OperationFilter<ODataQueryFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

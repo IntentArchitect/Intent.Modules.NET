@@ -14,13 +14,13 @@ using MongoDb.TestApplication.Infrastructure.Persistence;
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.Indexes
 {
-    public class TextIndexEntitySingleParentMongoRepository : MongoRepositoryBase<TextIndexEntitySingleParent, TextIndexEntitySingleParent>, ITextIndexEntitySingleParentRepository
+    public class TextIndexEntitySingleParentMongoRepository : MongoRepositoryBase<TextIndexEntitySingleParent>, ITextIndexEntitySingleParentRepository
     {
         public TextIndexEntitySingleParentMongoRepository(ApplicationMongoDbContext context) : base(context)
         {
         }
 
-        public async Task<TextIndexEntitySingleParent> FindByIdAsync(
+        public async Task<TextIndexEntitySingleParent?> FindByIdAsync(
             string id,
             CancellationToken cancellationToken = default)
         {

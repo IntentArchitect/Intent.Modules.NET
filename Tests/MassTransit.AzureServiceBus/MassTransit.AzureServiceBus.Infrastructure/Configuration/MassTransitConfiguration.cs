@@ -7,6 +7,7 @@ using MassTransit.AzureServiceBus.Eventing.Messages;
 using MassTransit.AzureServiceBus.Infrastructure.Eventing;
 using MassTransit.AzureServiceBus.Services;
 using MassTransit.AzureServiceBus.Services.Animals;
+using MassTransit.AzureServiceBus.Services.External;
 using MassTransit.AzureServiceBus.Services.People;
 using MassTransit.Configuration;
 using Microsoft.Extensions.Configuration;
@@ -49,6 +50,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
 
         private static void AddMessageTopologyConfiguration(this IServiceBusBusFactoryConfigurator cfg)
         {
+            cfg.Message<MessageWithTopologyEvent>(x => x.SetEntityName("custom-topic-name"));
             cfg.Message<OverrideMessageCustomSubscribeEvent>(x => x.SetEntityName("another-overridden-message-topic"));
             cfg.Message<OverrideMessageStandardSubscribeEvent>(x => x.SetEntityName("overridden-message-topic"));
         }
@@ -56,6 +58,7 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
         private static void AddConsumers(this IRegistrationConfigurator cfg)
         {
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<TestMessageEvent>, TestMessageEvent>)).ExcludeFromConfigureEndpoints();
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<ConfigTestMessageEvent>, ConfigTestMessageEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<ConfigTestMessageEvent>, ConfigTestMessageEvent>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>)).ExcludeFromConfigureEndpoints();
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OverrideMessageStandardSubscribeEvent>, OverrideMessageStandardSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<OverrideMessageStandardSubscribeEvent>, OverrideMessageStandardSubscribeEvent>)).Endpoint(config => config.InstanceId = "MassTransit-AzureServiceBus");
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>, OverrideMessageCustomSubscribeEvent>)).ExcludeFromConfigureEndpoints();
@@ -165,6 +168,19 @@ namespace MassTransit.AzureServiceBus.Infrastructure.Configuration
                     endpoint.EnableBatchedOperations = true;
                     endpoint.EnableDeadLetteringOnMessageExpiration = true;
                     endpoint.MaxSizeInMegabytes = 2048;
+                });
+            cfg.AddConsumerReceiveEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<ConfigTestMessageEvent>, ConfigTestMessageEvent>>(
+                context,
+                definition => definition.InstanceId = "MassTransit-AzureServiceBus",
+                endpoint =>
+                {
+                    endpoint.RequiresSession = false;
+                    endpoint.DefaultMessageTimeToLive = TimeSpan.Parse("1.1:02:03");
+                    endpoint.LockDuration = TimeSpan.Parse("1.1:02:03");
+                    endpoint.RequiresDuplicateDetection = true;
+                    endpoint.DuplicateDetectionHistoryTimeWindow = TimeSpan.Parse("1.1:02:03");
+                    endpoint.EnableBatchedOperations = true;
+                    endpoint.EnableDeadLetteringOnMessageExpiration = true;
                 });
             cfg.AddConsumerReceiveEndpoint<IntegrationEventConsumer<IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, StandardMessageCustomSubscribeEvent>>(
                 context,

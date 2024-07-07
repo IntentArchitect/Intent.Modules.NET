@@ -14,7 +14,7 @@ using MongoDb.TestApplication.Domain.Entities.Mappings;
 namespace MongoDb.TestApplication.Domain.Repositories.Mappings
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IMapAggPeerAggRepository : IMongoRepository<MapAggPeerAgg, MapAggPeerAgg>
+    public interface IMapAggPeerAggRepository : IMongoRepository<MapAggPeerAgg>
     {
         [IntentManaged(Mode.Fully)]
         List<MapAggPeerAgg> SearchText(string searchText, Expression<Func<MapAggPeerAgg, bool>> filterExpression = null);

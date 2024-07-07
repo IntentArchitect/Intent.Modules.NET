@@ -14,13 +14,13 @@ using MongoDb.TestApplication.Infrastructure.Persistence;
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories.Associations
 {
-    public class G_RequiredCompositeNavMongoRepository : MongoRepositoryBase<G_RequiredCompositeNav, G_RequiredCompositeNav>, IG_RequiredCompositeNavRepository
+    public class G_RequiredCompositeNavMongoRepository : MongoRepositoryBase<G_RequiredCompositeNav>, IG_RequiredCompositeNavRepository
     {
         public G_RequiredCompositeNavMongoRepository(ApplicationMongoDbContext context) : base(context)
         {
         }
 
-        public async Task<G_RequiredCompositeNav> FindByIdAsync(string id, CancellationToken cancellationToken = default)
+        public async Task<G_RequiredCompositeNav?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

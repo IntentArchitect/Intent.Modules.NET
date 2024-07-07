@@ -63,7 +63,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                     services.Remove(descriptor);
                 }}
 ".ConvertToStatements());
-                        method.AddStatement("services.AddDbContext<ApplicationDbContext>((sp, options) => { });", s => s.AddMetadata("db-context-reconfigure", "true"));                   
+                        method.AddStatement("services.AddDbContext<ApplicationDbContext>((sp, options) => { });", s => s.AddMetadata("db-context-reconfigure", "true"));
 
                         method.AddStatements(@"
                 //Schema Creation
@@ -96,13 +96,13 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                         });
                     });
                 })
-                .OnBuild(f => 
+                .OnBuild(f =>
                 {
                     var @class = f.TypeDeclarations.First();
                     var method = @class.FindMethod("ConfigureTestServices");
                     var statement = method.FindStatement(s => s.HasMetadata("db-context-reconfigure"));
 
-                    if ( this.TryGetTemplate<ICSharpFileBuilderTemplate>("Intent.Infrastructure.DependencyInjection.DependencyInjection", out var containerTemplate))
+                    if (this.TryGetTemplate<ICSharpFileBuilderTemplate>("Intent.Infrastructure.DependencyInjection.DependencyInjection", out var containerTemplate))
                     {
                         var regMethod = containerTemplate.CSharpFile.Classes.First().FindMethod("AddInfrastructure");
                         if (regMethod == null)
@@ -111,14 +111,14 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                         }
                         CSharpStatement dbContextStatement = null;
                         foreach (var line in regMethod.Statements)
-                        { 
+                        {
                             if (line.GetText("").Trim().StartsWith("services.AddDbContext<ApplicationDbContext>"))
                             {
                                 dbContextStatement = line;
                                 break;
                             }
                         }
-                        
+
                         var connectionStringText = (dbContextStatement as IHasCSharpStatements)?.FindStatement(x => x.HasMetadata("is-connection-string")).GetText("");
                         string dbContextReconfigure = dbContextStatement.GetText("").Replace(connectionStringText, "_dbContainer.GetConnectionString()").Replace("                               ", "            ");
                         method.InsertStatements(method.Statements.IndexOf(statement), dbContextReconfigure.ConvertToStatements().ToList());

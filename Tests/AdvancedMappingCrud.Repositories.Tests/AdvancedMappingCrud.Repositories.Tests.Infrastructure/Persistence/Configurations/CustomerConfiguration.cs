@@ -23,7 +23,23 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
             builder.Property(x => x.IsActive)
                 .IsRequired();
 
+            builder.OwnsOne(x => x.Preferences, ConfigurePreferences);
+
             builder.Ignore(e => e.DomainEvents);
+        }
+
+        public void ConfigurePreferences(OwnedNavigationBuilder<Customer, Preferences> builder)
+        {
+            builder.WithOwner()
+                .HasForeignKey(x => x.Id);
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Newsletter)
+                .IsRequired();
+
+            builder.Property(x => x.Specials)
+                .IsRequired();
         }
     }
 }

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f8f94e35-eb66-40b6-816e-f9a3f9656d3a">
+  <sourceEnd id="911a8de5-2f3c-4ca1-8235-f05a986e3c77" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetOrdersByRefNoQuery</display>
+    <order>0</order>
+    <typeReference id="150b3b75-f373-46b8-9d33-841e9f4b8afb">
+      <typeId>04beb027-303c-4bd7-8136-dfe4536efb85</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrudMongo.Tests.Services</typePackageName>
+      <typePackageId>c53fd327-47ba-4176-95d7-b3862ece3d57</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f8f94e35-eb66-40b6-816e-f9a3f9656d3a" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>orders</name>
+    <display>[query] orders: Order[*]</display>
+    <order>2</order>
+    <typeReference id="514e00b8-e468-47da-813c-b9be5b286a6c">
+      <typeId>2c0155e5-4d44-476b-b481-a3636c578f2d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrudMongo.Tests.Domain</typePackageName>
+      <typePackageId>9af943c7-4a0b-4229-ad6b-31a83928009f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="04beb027-303c-4bd7-8136-dfe4536efb85" location="[AdvancedMappingCrudMongo.Tests].[Services].[GetOrdersByRefNoQuery]" />
+        <target applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="2c0155e5-4d44-476b-b481-a3636c578f2d" location="[AdvancedMappingCrudMongo.Tests].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{RefNo}</expression>
+            <path>
+              <target id="2c0155e5-4d44-476b-b481-a3636c578f2d" name="Order" type="element" specialization="Class" />
+              <target id="c502519b-cca0-401a-8d96-04b0267e6ed9" name="RefNo" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="RefNo" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="04beb027-303c-4bd7-8136-dfe4536efb85" name="GetOrdersByRefNoQuery" type="element" specialization="Query" />
+                  <target id="ba13c5f0-47ad-4563-b920-3a5fde9c0574" name="RefNo" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ExternalRefNo}</expression>
+            <path>
+              <target id="2c0155e5-4d44-476b-b481-a3636c578f2d" name="Order" type="element" specialization="Class" />
+              <target id="ede281ec-91ef-483f-b22d-afcf3ecb9552" name="ExternalRef" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="ExternalRefNo" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="04beb027-303c-4bd7-8136-dfe4536efb85" name="GetOrdersByRefNoQuery" type="element" specialization="Query" />
+                  <target id="6beb60a7-79d4-4a34-865b-efbc52a7ff91" name="ExternalRefNo" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

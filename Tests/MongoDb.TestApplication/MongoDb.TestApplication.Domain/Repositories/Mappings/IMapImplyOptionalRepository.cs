@@ -12,7 +12,7 @@ using MongoDb.TestApplication.Domain.Entities.Mappings;
 namespace MongoDb.TestApplication.Domain.Repositories.Mappings
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IMapImplyOptionalRepository : IMongoRepository<MapImplyOptional, MapImplyOptional>
+    public interface IMapImplyOptionalRepository : IMongoRepository<MapImplyOptional>
     {
         [IntentManaged(Mode.Fully)]
         List<MapImplyOptional> SearchText(string searchText, Expression<Func<MapImplyOptional, bool>> filterExpression = null);

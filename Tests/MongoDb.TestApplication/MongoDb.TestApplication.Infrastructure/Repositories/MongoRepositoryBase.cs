@@ -18,8 +18,7 @@ using MongoFramework.Linq;
 
 namespace MongoDb.TestApplication.Infrastructure.Repositories
 {
-    public abstract class MongoRepositoryBase<TDomain, TPersistence> : IMongoRepository<TDomain, TPersistence>
-        where TPersistence : class, TDomain
+    public abstract class MongoRepositoryBase<TDomain> : IMongoRepository<TDomain>
         where TDomain : class
     {
         private readonly ApplicationMongoDbContext _dbContext;
@@ -33,61 +32,61 @@ namespace MongoDb.TestApplication.Infrastructure.Repositories
 
         public virtual void Add(TDomain entity)
         {
-            GetSet().Add((TPersistence)entity);
+            GetSet().Add((TDomain)entity);
         }
 
         public virtual void Remove(TDomain entity)
         {
-            GetSet().Remove((TPersistence)entity);
+            GetSet().Remove((TDomain)entity);
         }
 
         public virtual void Update(TDomain entity)
         {
-            GetSet().Update((TPersistence)entity);
+            GetSet().Update((TDomain)entity);
         }
 
         public virtual List<TDomain> SearchText(
             string searchText,
-            Expression<Func<TPersistence, bool>>? filterExpression = null)
+            Expression<Func<TDomain, bool>>? filterExpression = null)
         {
             var queryable = GetSet().SearchText(searchText);
             if (filterExpression != null) queryable = queryable.Where(filterExpression);
-            return queryable.ToList<TDomain>();
+            return queryable.ToList();
         }
 
         public virtual async Task<TDomain?> FindAsync(
-            Expression<Func<TPersistence, bool>> filterExpression,
+            Expression<Func<TDomain, bool>> filterExpression,
             CancellationToken cancellationToken = default)
         {
-            return await QueryInternal(filterExpression).SingleOrDefaultAsync<TDomain>(cancellationToken);
+            return await QueryInternal(filterExpression).SingleOrDefaultAsync(cancellationToken);
         }
 
         public virtual async Task<TDomain?> FindAsync(
-            Expression<Func<TPersistence, bool>> filterExpression,
-            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq,
+            Expression<Func<TDomain, bool>> filterExpression,
+            Func<IQueryable<TDomain>, IQueryable<TDomain>> linq,
             CancellationToken cancellationToken = default)
         {
-            return await QueryInternal(filterExpression, linq).SingleOrDefaultAsync<TDomain>(cancellationToken);
+            return await QueryInternal(filterExpression, linq).SingleOrDefaultAsync(cancellationToken);
         }
 
         public virtual async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default)
         {
-            return await QueryInternal(x => true).ToListAsync<TDomain>(cancellationToken);
+            return await QueryInternal(x => true).ToListAsync(cancellationToken);
         }
 
         public virtual async Task<List<TDomain>> FindAllAsync(
-            Expression<Func<TPersistence, bool>> filterExpression,
+            Expression<Func<TDomain, bool>> filterExpression,
             CancellationToken cancellationToken = default)
         {
-            return await QueryInternal(filterExpression).ToListAsync<TDomain>(cancellationToken);
+            return await QueryInternal(filterExpression).ToListAsync(cancellationToken);
         }
 
         public virtual async Task<List<TDomain>> FindAllAsync(
-            Expression<Func<TPersistence, bool>> filterExpression,
-            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq,
+            Expression<Func<TDomain, bool>> filterExpression,
+            Func<IQueryable<TDomain>, IQueryable<TDomain>> linq,
             CancellationToken cancellationToken = default)
         {
-            return await QueryInternal(filterExpression, linq).ToListAsync<TDomain>(cancellationToken);
+            return await QueryInternal(filterExpression, linq).ToListAsync(cancellationToken);
         }
 
         public virtual async Task<IPagedList<TDomain>> FindAllAsync(
@@ -104,7 +103,7 @@ namespace MongoDb.TestApplication.Infrastructure.Repositories
         }
 
         public virtual async Task<IPagedList<TDomain>> FindAllAsync(
-            Expression<Func<TPersistence, bool>> filterExpression,
+            Expression<Func<TDomain, bool>> filterExpression,
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
@@ -118,10 +117,10 @@ namespace MongoDb.TestApplication.Infrastructure.Repositories
         }
 
         public virtual async Task<IPagedList<TDomain>> FindAllAsync(
-            Expression<Func<TPersistence, bool>> filterExpression,
+            Expression<Func<TDomain, bool>> filterExpression,
             int pageNo,
             int pageSize,
-            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq,
+            Func<IQueryable<TDomain>, IQueryable<TDomain>> linq,
             CancellationToken cancellationToken = default)
         {
             var query = QueryInternal(filterExpression, linq);
@@ -133,25 +132,75 @@ namespace MongoDb.TestApplication.Infrastructure.Repositories
         }
 
         public virtual async Task<int> CountAsync(
-            Expression<Func<TPersistence, bool>> filterExpression,
+            Expression<Func<TDomain, bool>> filterExpression,
             CancellationToken cancellationToken = default)
         {
             return await QueryInternal(filterExpression).CountAsync(cancellationToken);
         }
 
-        public bool Any(Expression<Func<TPersistence, bool>> filterExpression)
+        public bool Any(Expression<Func<TDomain, bool>> filterExpression)
         {
             return QueryInternal(filterExpression).Any();
         }
 
         public virtual async Task<bool> AnyAsync(
-            Expression<Func<TPersistence, bool>> filterExpression,
+            Expression<Func<TDomain, bool>> filterExpression,
             CancellationToken cancellationToken = default)
         {
             return await QueryInternal(filterExpression).AnyAsync(cancellationToken);
         }
 
-        protected virtual IQueryable<TPersistence> QueryInternal(Expression<Func<TPersistence, bool>>? filterExpression)
+        public virtual async Task<TDomain?> FindAsync(
+            Func<IQueryable<TDomain>, IQueryable<TDomain>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = CreateQuery();
+            queryable = queryOptions(queryable);
+            return await queryable.SingleOrDefaultAsync(cancellationToken);
+        }
+
+        public virtual async Task<List<TDomain>> FindAllAsync(
+            Func<IQueryable<TDomain>, IQueryable<TDomain>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = CreateQuery();
+            queryable = queryOptions(queryable);
+            return await queryable.ToListAsync(cancellationToken);
+        }
+
+        public virtual async Task<IPagedList<TDomain>> FindAllAsync(
+            int pageNo,
+            int pageSize,
+            Func<IQueryable<TDomain>, IQueryable<TDomain>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            var query = QueryInternal(_ => true, queryOptions);
+            return await MongoPagedList<TDomain>.CreateAsync(
+                query,
+                pageNo,
+                pageSize,
+                cancellationToken);
+        }
+
+        public virtual async Task<int> CountAsync(
+            Func<IQueryable<TDomain>, IQueryable<TDomain>>? queryOptions = default,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = CreateQuery();
+            queryable = queryOptions == null ? queryable : queryOptions(queryable);
+            return await queryable.CountAsync(cancellationToken);
+        }
+
+        public virtual async Task<bool> AnyAsync(
+            Func<IQueryable<TDomain>, IQueryable<TDomain>>? queryOptions = default,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = CreateQuery();
+            queryable = queryOptions == null ? queryable : queryOptions(queryable);
+            return await queryable.AnyAsync(cancellationToken);
+        }
+
+        protected virtual IQueryable<TDomain> QueryInternal(Expression<Func<TDomain, bool>>? filterExpression)
         {
             var queryable = CreateQuery();
             if (filterExpression != null)
@@ -162,8 +211,8 @@ namespace MongoDb.TestApplication.Infrastructure.Repositories
         }
 
         protected virtual IQueryable<TResult> QueryInternal<TResult>(
-            Expression<Func<TPersistence, bool>> filterExpression,
-            Func<IQueryable<TPersistence>, IQueryable<TResult>> linq)
+            Expression<Func<TDomain, bool>> filterExpression,
+            Func<IQueryable<TDomain>, IQueryable<TResult>> linq)
         {
             var queryable = CreateQuery();
             queryable = queryable.Where(filterExpression);
@@ -171,14 +220,14 @@ namespace MongoDb.TestApplication.Infrastructure.Repositories
             return result;
         }
 
-        protected virtual IQueryable<TPersistence> CreateQuery()
+        protected virtual IQueryable<TDomain> CreateQuery()
         {
             return GetSet();
         }
 
-        protected virtual IMongoDbSet<TPersistence> GetSet()
+        protected virtual IMongoDbSet<TDomain> GetSet()
         {
-            return _dbContext.Set<TPersistence>();
+            return _dbContext.Set<TDomain>();
         }
 
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

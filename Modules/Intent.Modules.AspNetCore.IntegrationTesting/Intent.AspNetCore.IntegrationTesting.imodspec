@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.IntegrationTesting</id>
-  <version>1.0.5-pre.1</version>
+  <version>1.0.5-pre.2</version>
   <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
   <summary>The module adds support for Integration Testing Asp.Net Core applications.</summary>
   <description>The module adds support for Integration Testing Asp.Net Core applications.</description>
@@ -32,7 +32,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>IntegrationTests</role>
+      <role>IntegrationTests.ContainerFixture</role>
       <location></location>
     </template>
     <template id="Intent.AspNetCore.IntegrationTesting.DtoContract" externalReference="54832b8a-b8c8-415b-912e-8d6d37874ce4">
@@ -48,7 +48,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>IntegrationTests</role>
+      <role>IntegrationTests.ContainerFixture</role>
       <location></location>
     </template>
     <template id="Intent.AspNetCore.IntegrationTesting.EnumContract" externalReference="0c17e058-e10e-4916-9120-71fb34c4e19c">
@@ -89,6 +89,14 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>IntegrationTests.HttpClients</role>
+      <location></location>
+    </template>
+    <template id="Intent.AspNetCore.IntegrationTesting.MongoDbContainerFixture" externalReference="3c64cae7-aa94-4577-997a-99aaae48ce84">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>IntegrationTests.ContainerFixture</role>
       <location></location>
     </template>
     <template id="Intent.AspNetCore.IntegrationTesting.PagedResult" externalReference="d4aff178-7a0d-417c-99fc-315657b140f5">

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -262,6 +263,28 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             var queryable = QueryInternal(queryOptions);
             var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
             return await projection.FirstOrDefaultAsync(cancellationToken);
+        }
+
+        public async Task<IEnumerable> FindAllProjectToWithTransformationAsync<TProjection>(
+            Expression<Func<TPersistence, bool>>? filterExpression,
+            Func<IQueryable<TProjection>, IQueryable> transform,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(filterExpression);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            var response = transform(projection);
+            return await response.Cast<object>().ToListAsync();
+        }
+
+        public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(
+            Expression<Func<TPersistence, bool>>? filterExpression,
+            Func<IQueryable<TProjection>, IQueryable> filterProjection,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(filterExpression);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            var response = filterProjection(projection);
+            return await response.Cast<TProjection>().ToListAsync();
         }
 
         private static async Task<IPagedList<T>> ToPagedListAsync<T>(

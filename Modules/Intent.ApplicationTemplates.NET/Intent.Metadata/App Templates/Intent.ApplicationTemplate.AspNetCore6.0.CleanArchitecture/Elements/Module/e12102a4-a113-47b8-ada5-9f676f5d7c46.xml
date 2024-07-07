@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="e12102a4-a113-47b8-ada5-9f676f5d7c46" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
   <name>Intent.Common.CSharp</name>
-  <display>Intent.Common.CSharp 3.6.3</display>
+  <display>Intent.Common.CSharp 3.6.4</display>
   <isAbstract>false</isAbstract>
   <value>3.6.4</value>
   <genericTypes />

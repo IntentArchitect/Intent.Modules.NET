@@ -12,7 +12,7 @@ using MongoDb.TestApplication.Domain.Entities.Collections;
 namespace MongoDb.TestApplication.Domain.Repositories.Collections
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ICustomCollectionEntityARepository : IMongoRepository<CustomCollectionEntityA, CustomCollectionEntityA>
+    public interface ICustomCollectionEntityARepository : IMongoRepository<CustomCollectionEntityA>
     {
         [IntentManaged(Mode.Fully)]
         List<CustomCollectionEntityA> SearchText(string searchText, Expression<Func<CustomCollectionEntityA, bool>> filterExpression = null);

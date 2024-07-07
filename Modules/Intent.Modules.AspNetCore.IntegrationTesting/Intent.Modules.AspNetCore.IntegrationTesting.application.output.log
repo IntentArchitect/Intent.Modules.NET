@@ -210,6 +210,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>1b00f3e3-690d-4fcb-b3df-e630e03f1c58</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3c64cae7-aa94-4577-997a-99aaae48ce84</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MongoDbContainerFixture/MongoDbContainerFixtureTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDbContainerFixture/MongoDbContainerFixtureTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1b00f3e3-690d-4fcb-b3df-e630e03f1c58</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#3c64cae7-aa94-4577-997a-99aaae48ce84</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/MongoDbContainerFixture/MongoDbContainerFixtureTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDbContainerFixture/MongoDbContainerFixtureTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1b00f3e3-690d-4fcb-b3df-e630e03f1c58</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d4aff178-7a0d-417c-99fc-315657b140f5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PagedResult/PagedResultTemplatePartial.cs</ApplicationRelativeFilePath>

@@ -222,13 +222,8 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
 
     private bool ShouldConfigureMessageTopology(MessageModel message)
     {
-        return HasMessageTopologySettings(message);// || !ShouldAutoSetupPublisher();
+        return HasMessageTopologySettings(message);
     }
-
-    // private bool ShouldAutoSetupPublisher()
-    // {
-    //     return ExecutionContext.Settings.GetEventingSettings().AutoSetupConsumersAndPublishers();
-    // }
 
     private static bool HasMessageTopologySettings(MessageModel message)
     {
@@ -275,11 +270,6 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
                     method.AddStatement(
                         $@"cfg.Message<{GetTypeName(IntegrationEventMessageTemplate.TemplateId, messageModel)}>(x => x.SetEntityName(""{messageModel.GetMessageTopologySettings().EntityName()}""));");
                 }
-
-                // if (!ShouldAutoSetupPublisher())
-                // {
-                //     method.AddStatement($@"cfg.Publish<{GetTypeName(IntegrationEventMessageTemplate.TemplateId, messageModel)}>(x => x.Exclude = true);");
-                // }
             }
         });
     }

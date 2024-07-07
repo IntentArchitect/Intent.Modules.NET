@@ -12,9 +12,10 @@ using MultipleDocumentStores.Domain.Repositories;
 
 namespace MultipleDocumentStores.Infrastructure.Repositories
 {
-    public class MongoPagedList<T> : List<T>, IPagedList<T>
+    public class MongoPagedList<TDomain> : List<TDomain>, IPagedList<TDomain>
+        where TDomain : class
     {
-        public MongoPagedList(IQueryable<T> source, int pageNo, int pageSize)
+        public MongoPagedList(IQueryable<TDomain> source, int pageNo, int pageSize)
         {
             TotalCount = source.Count();
             PageCount = GetPageCount(pageSize, TotalCount);
@@ -29,7 +30,7 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
                     .ToList());
         }
 
-        public MongoPagedList(int totalCount, int pageNo, int pageSize, List<T> results)
+        public MongoPagedList(int totalCount, int pageNo, int pageSize, List<TDomain> results)
         {
             TotalCount = totalCount;
             PageCount = GetPageCount(pageSize, TotalCount);
@@ -53,8 +54,8 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
             return (totalCount / pageSize) + (remainder == 0 ? 0 : 1);
         }
 
-        public static async Task<IPagedList<T>> CreateAsync(
-            IQueryable<T> source,
+        public static async Task<IPagedList<TDomain>> CreateAsync(
+            IQueryable<TDomain> source,
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
@@ -66,7 +67,7 @@ namespace MultipleDocumentStores.Infrastructure.Repositories
                 .Skip(skip)
                 .Take(pageSize)
                 .ToListAsync(cancellationToken);
-            return new MongoPagedList<T>(count, pageNo, pageSize, results);
+            return new MongoPagedList<TDomain>(count, pageNo, pageSize, results);
         }
     }
 }

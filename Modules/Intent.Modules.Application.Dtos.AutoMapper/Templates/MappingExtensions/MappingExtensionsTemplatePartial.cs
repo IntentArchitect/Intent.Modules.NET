@@ -46,9 +46,9 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.MappingExtensions
         {
             return TryGetTypeName(TemplateRoles.Domain.Entity.Interface, Model.Mapping.ElementId, out var name)
                    ? name
-                   : TryGetTypeName(TemplateRoles.Domain.ValueObject, Model.Mapping.ElementId, out name) 
-                       ? name 
-                       : TryGetTypeName(TemplateRoles.Domain.DataContract, Model.Mapping.ElementId, out name) 
+                   : TryGetTypeName(TemplateRoles.Domain.ValueObject, Model.Mapping.ElementId, out name)
+                       ? name
+                       : TryGetTypeName(TemplateRoles.Domain.DataContract, Model.Mapping.ElementId, out name)
                            ? name
                            : throw new Exception($"Could not resolve mapped type '{Model.Mapping.Element.Name}'");
         }

@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using Intent.Engine;
 using Intent.Metadata.DocumentDB.Api;
 using Intent.Modelers.Domain.Api;
@@ -9,9 +10,13 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
+using Intent.Modules.Modelers.Domain.Settings;
+using Intent.Modules.MongoDb.Repositories.Templates;
+using Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryInterface;
 using Intent.Modules.MongoDb.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -33,28 +38,30 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
 
         private static void UpdateRepositoryInterfaceTemplate(IApplication application)
         {
+            var createEntityInterfaces = application.Settings.GetDomainSettings().CreateEntityInterfaces();
+
             var repositoryTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(EntityRepositoryInterfaceTemplate.TemplateId));
             foreach (var repositoryTemplate in repositoryTemplates)
             {
                 repositoryTemplate.CSharpFile.OnBuild(file =>
                 {
                     file.AddUsing("System.Linq.Expressions");
-                    var inter = file.Interfaces.First();
-                    var model = inter.GetMetadata<ClassModel>("model");
+                    var @interface = file.Interfaces.First();
+                    var model = @interface.GetMetadata<ClassModel>("model");
 
                     if (MongoDbProvider.FilterDbProvider( model) == false)
                     {
                         return;
                     }
 
-                    inter.AddMethod($"List<{repositoryTemplate.GetTypeName("Domain.Entity.Interface", model)}>", "SearchText", method =>
+                    @interface.AddMethod($"List<{repositoryTemplate.GetTypeName("Domain.Entity.Interface", model)}>", "SearchText", method =>
                     {
                         method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                         method.AddParameter("string", "searchText");
                         method.AddParameter($"Expression<Func<{repositoryTemplate.GetTypeName("Domain.Entity", model)}, bool>>", "filterExpression", param => param.WithDefaultValue("null"));
                     });
 
-                    inter.AddMethod("void", "Update", method =>
+                    @interface.AddMethod("void", "Update", method =>
                     {
                         method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                         method.AddParameter(repositoryTemplate.GetTypeName("Domain.Entity.Interface", model), "entity");

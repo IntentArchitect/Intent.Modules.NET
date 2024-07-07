@@ -13,7 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Entities.PrivateSetters.MongoDb.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IInvoiceRepository : IMongoRepository<Invoice, Invoice>
+    public interface IInvoiceRepository : IMongoRepository<Invoice>
     {
         [IntentManaged(Mode.Fully)]
         List<Invoice> SearchText(string searchText, Expression<Func<Invoice, bool>> filterExpression = null);

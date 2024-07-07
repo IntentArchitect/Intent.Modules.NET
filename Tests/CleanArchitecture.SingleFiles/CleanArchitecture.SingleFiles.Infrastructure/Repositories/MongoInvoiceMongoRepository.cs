@@ -13,13 +13,13 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.SingleFiles.Infrastructure.Repositories
 {
-    public class MongoInvoiceMongoRepository : MongoRepositoryBase<MongoInvoice, MongoInvoice>, IMongoInvoiceRepository
+    public class MongoInvoiceMongoRepository : MongoRepositoryBase<MongoInvoice>, IMongoInvoiceRepository
     {
         public MongoInvoiceMongoRepository(ApplicationMongoDbContext context) : base(context)
         {
         }
 
-        public async Task<MongoInvoice> FindByIdAsync(string id, CancellationToken cancellationToken = default)
+        public async Task<MongoInvoice?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }

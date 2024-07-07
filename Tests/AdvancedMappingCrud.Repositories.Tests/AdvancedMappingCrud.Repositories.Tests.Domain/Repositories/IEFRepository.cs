@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -33,5 +34,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Repositories
         Task<List<TProjection>> FindAllProjectToAsync<TProjection>(Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default, CancellationToken cancellationToken = default);
         Task<IPagedList<TProjection>> FindAllProjectToAsync<TProjection>(int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default, CancellationToken cancellationToken = default);
         Task<TProjection?> FindProjectToAsync<TProjection>(Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions, CancellationToken cancellationToken = default);
+        Task<IEnumerable> FindAllProjectToWithTransformationAsync<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression, Func<IQueryable<TProjection>, IQueryable> transform, CancellationToken cancellationToken = default);
+        Task<List<TProjection>> FindAllProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>>? filterExpression, Func<IQueryable<TProjection>, IQueryable> filterProjection, CancellationToken cancellationToken = default);
     }
 }

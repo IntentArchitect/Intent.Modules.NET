@@ -17,22 +17,6 @@ internal class RabbitMqMessageBroker : MessageBrokerBase
         return "IRabbitMqBusFactoryConfigurator";
     }
 
-    // protected override string GetMessageBrokerReceiveEndpointConfiguratorName()
-    // {
-    //     return "IRabbitMqReceiveEndpointConfigurator";
-    // }
-    
-    // public override CSharpLambdaBlock GetConsumerEndpointDefinitionStatement(string definitionVarName, Consumer consumer, string sanitizedAppName)
-    // {
-    //     var lambda = base.GetConsumerEndpointDefinitionStatement(definitionVarName, consumer, sanitizedAppName);
-    //     if (!string.IsNullOrWhiteSpace(consumer.RabbitMqConsumerSettings!.EndpointName()))
-    //     {
-    //         lambda.Statements.Clear();
-    //         lambda.WithExpressionBody($@"{definitionVarName}.Name = ""{consumer.RabbitMqConsumerSettings!.EndpointName()}""");
-    //     }
-    //     return lambda;
-    // }
-
     public override CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, string factoryConfigVarName, IEnumerable<CSharpStatement> moreConfiguration)
     {
         var stmt = new CSharpInvocationStatement($"{busRegistrationVarName}.UsingRabbitMq")

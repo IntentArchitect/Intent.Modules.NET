@@ -9,6 +9,7 @@ using MassTransit.RabbitMQ.Eventing.Messages;
 using MassTransit.RabbitMQ.Infrastructure.Eventing;
 using MassTransit.RabbitMQ.Services;
 using MassTransit.RabbitMQ.Services.Animals;
+using MassTransit.RabbitMQ.Services.External;
 using MassTransit.RabbitMQ.Services.People;
 using MassTransit.RabbitMqTransport.Configuration;
 using MassTransit.RabbitMqTransport.Topology;
@@ -54,6 +55,7 @@ namespace MassTransit.RabbitMQ.Infrastructure.Configuration
 
         private static void AddMessageTopologyConfiguration(this IRabbitMqBusFactoryConfigurator cfg)
         {
+            cfg.Message<MessageWithTopologyEvent>(x => x.SetEntityName("custom-exchange-name"));
             cfg.Message<OverrideMessageCustomSubscribeEvent>(x => x.SetEntityName("another-overridden-message-topic"));
             cfg.Message<OverrideMessageStandardSubscribeEvent>(x => x.SetEntityName("overridden-message-topic"));
         }

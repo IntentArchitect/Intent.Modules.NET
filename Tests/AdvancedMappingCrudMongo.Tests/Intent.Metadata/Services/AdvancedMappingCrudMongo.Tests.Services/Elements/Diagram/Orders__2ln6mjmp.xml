@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="27e2a425-7de6-4a32-a341-979f28209692" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Orders</name>
+  <display>Orders</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>886ccdaf-5bb7-4cbf-ae63-09f7553eb495</parentFolderId>
+  <packageId>c53fd327-47ba-4176-95d7-b3862ece3d57</packageId>
+  <packageName>AdvancedMappingCrudMongo.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>886ccdaf-5bb7-4cbf-ae63-09f7553eb495</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

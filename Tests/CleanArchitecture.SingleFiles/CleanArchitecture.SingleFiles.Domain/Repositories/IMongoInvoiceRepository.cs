@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CleanArchitecture.SingleFiles.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IMongoInvoiceRepository : IMongoRepository<MongoInvoice, MongoInvoice>
+    public interface IMongoInvoiceRepository : IMongoRepository<MongoInvoice>
     {
         [IntentManaged(Mode.Fully)]
         List<MongoInvoice> SearchText(string searchText, Expression<Func<MongoInvoice, bool>> filterExpression = null);

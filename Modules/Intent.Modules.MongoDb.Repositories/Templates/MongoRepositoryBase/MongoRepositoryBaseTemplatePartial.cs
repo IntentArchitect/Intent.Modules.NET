@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using Intent.Engine;
 using Intent.Modules.Common;
@@ -8,6 +9,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.Modules.MongoDb.Repositories.Templates.PagedList;
 using Intent.Modules.MongoDb.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -38,11 +40,23 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                 .AddClass($"MongoRepositoryBase", @class =>
                 {
                     @class.Abstract();
-                    @class.AddGenericParameter("TDomain", out var tDomain)
-                        .AddGenericParameter("TPersistence", out var tPersistence);
-                    @class.ImplementsInterface($"{this.GetMongoRepositoryInterfaceName()}<{tDomain} ,{tPersistence}>");
-                    @class.AddGenericTypeConstraint(tPersistence, p => p.AddType("class").AddType(tDomain))
-                        .AddGenericTypeConstraint(tDomain, p => p.AddType("class"));
+                    var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
+                    @class.AddGenericParameter("TDomain", out var tDomain);
+                    CSharpGenericParameter tPersistence = tDomain;
+
+                    if (createEntityInterfaces)
+                    {
+                        @class.AddGenericParameter("TPersistence", out tPersistence);
+                        @class.AddGenericTypeConstraint(tPersistence, p => p.AddType("class").AddType(tDomain))
+                            .AddGenericTypeConstraint(tDomain, p => p.AddType("class"));
+
+                        @class.ImplementsInterface($"{this.GetMongoRepositoryInterfaceName()}<{tDomain} ,{tPersistence}>");
+                    }
+                    else
+                    {
+                        @class.AddGenericTypeConstraint(tDomain, p => p.AddType("class"));
+                        @class.ImplementsInterface($"{this.GetMongoRepositoryInterfaceName()}<{tDomain}>");
+                    }
 
                     @class.AddField(this.GetApplicationMongoDbContextName(), "_dbContext", prop => prop.PrivateReadOnly());
 
@@ -60,19 +74,19 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                     {
                         method.Virtual();
                         method.AddParameter(tDomain, "entity");
-                        method.AddStatement($"GetSet().Add((TPersistence)entity);");
+                        method.AddStatement($"GetSet().Add(({tPersistence})entity);");
                     });
                     @class.AddMethod("void", "Remove", method =>
                     {
                         method.Virtual();
                         method.AddParameter(tDomain, "entity");
-                        method.AddStatement($"GetSet().Remove((TPersistence)entity);");
+                        method.AddStatement($"GetSet().Remove(({tPersistence})entity);");
                     });
                     @class.AddMethod($"void", "Update", method =>
                     {
                         method.Virtual();
                         method.AddParameter(tDomain, "entity");
-                        method.AddStatement($"GetSet().Update((TPersistence)entity);");
+                        method.AddStatement($"GetSet().Update(({tPersistence})entity);");
                     });
 
                     @class.AddMethod($"List<{tDomain}>", "SearchText", method =>
@@ -82,7 +96,15 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                         method.AddParameter($"Expression<Func<{tPersistence}, bool>>?", "filterExpression", param => param.WithDefaultValue("null"));
                         method.AddStatement($"var queryable = GetSet().SearchText(searchText);");
                         method.AddStatement($"if (filterExpression != null) queryable = queryable.Where(filterExpression);");
-                        method.AddStatement($"return queryable.ToList<{tDomain}>();");
+                        if (createEntityInterfaces)
+                        {                            
+                            method.AddStatement($"return queryable.Cast<{tDomain}>().ToList();");
+                        }
+                        else
+                        {
+                            method.AddStatement($"return queryable.ToList();");
+
+                        }
                     });
 
                     @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
@@ -91,7 +113,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                         method.Async();
                         method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                        method.AddStatement($"return await QueryInternal(filterExpression).SingleOrDefaultAsync<{tDomain}>(cancellationToken);");
+                        method.AddStatement($"return await QueryInternal(filterExpression).SingleOrDefaultAsync(cancellationToken);");
                     });
                     @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
                     {
@@ -100,7 +122,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                         method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                        method.AddStatement($"return await QueryInternal(filterExpression, linq).SingleOrDefaultAsync<{tDomain}>(cancellationToken);");
+                        method.AddStatement($"return await QueryInternal(filterExpression, linq).SingleOrDefaultAsync(cancellationToken);");
                     });
 
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
@@ -108,7 +130,15 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                         method.Virtual();
                         method.Async();
                         method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                        method.AddStatement($"return await QueryInternal(x => true).ToListAsync<{tDomain}>(cancellationToken);");
+                        if (createEntityInterfaces)
+                        {
+                            method.AddStatement($"var result = await QueryInternal(x => true).ToListAsync(cancellationToken);");
+                            method.AddStatement($"return result.Cast<{tDomain}>().ToList();");
+                        }
+                        else
+                        {
+                            method.AddStatement($"return await QueryInternal(x => true).ToListAsync(cancellationToken);");
+                        }
                     });
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
                     {
@@ -116,7 +146,15 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                         method.Async();
                         method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                        method.AddStatement($"return await QueryInternal(filterExpression).ToListAsync<{tDomain}>(cancellationToken);");
+                        if (createEntityInterfaces)
+                        {
+                            method.AddStatement($"var result = await QueryInternal(filterExpression).ToListAsync(cancellationToken);");
+                            method.AddStatement($"return result.Cast<{tDomain}>().ToList();");
+                        }
+                        else
+                        {
+                            method.AddStatement($"return await QueryInternal(filterExpression).ToListAsync(cancellationToken);");
+                        }
                     });
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
                     {
@@ -125,7 +163,16 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                         method.AddParameter($"Expression<Func<{tPersistence}, bool>>", "filterExpression")
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                        method.AddStatement($"return await QueryInternal(filterExpression, linq).ToListAsync<{tDomain}>(cancellationToken);");
+
+                        if (createEntityInterfaces)
+                        {
+                            method.AddStatement($"var result = await QueryInternal(filterExpression, linq).ToListAsync(cancellationToken);");
+                            method.AddStatement($"return result.Cast<{tDomain}>().ToList();");
+                        }
+                        else
+                        {
+                            method.AddStatement($"return await QueryInternal(filterExpression, linq).ToListAsync(cancellationToken);");
+                        }
                     });
 
                     @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
@@ -135,13 +182,27 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                         method.AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                        method.AddStatement($"var query = QueryInternal(x => true);")
-                            .AddStatement(new CSharpInvocationStatement($"return await {PagedResultName}<{tDomain}>.CreateAsync")
-                                .AddArgument("query")
-                                .AddArgument("pageNo")
-                                .AddArgument("pageSize")
-                                .AddArgument("cancellationToken")
-                                .WithArgumentsOnNewLines());
+                        method.AddStatement($"var query = QueryInternal(x => true);");
+
+                        if (createEntityInterfaces)
+                        {
+                            method.AddStatement(new CSharpInvocationStatement($"return await {PagedResultName}<{tDomain},{tPersistence}>.CreateAsync")
+                                    .AddArgument("query")
+                                    .AddArgument("pageNo")
+                                    .AddArgument("pageSize")
+                                    .AddArgument("cancellationToken")
+                                    .WithArgumentsOnNewLines());
+                        }
+                        else
+                        {
+                            method.AddStatement(new CSharpInvocationStatement($"return await {PagedResultName}<{tPersistence}>.CreateAsync")
+                                    .AddArgument("query")
+                                    .AddArgument("pageNo")
+                                    .AddArgument("pageSize")
+                                    .AddArgument("cancellationToken")
+                                    .WithArgumentsOnNewLines());
+                        }
+
                     });
                     @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
                     {
@@ -151,13 +212,26 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                             .AddParameter("int", "pageNo")
                             .AddParameter("int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                        method.AddStatement($"var query = QueryInternal(filterExpression);")
-                            .AddStatement(new CSharpInvocationStatement($"return await {PagedResultName}<{tDomain}>.CreateAsync")
-                                .AddArgument("query")
-                                .AddArgument("pageNo")
-                                .AddArgument("pageSize")
-                                .AddArgument("cancellationToken")
-                                .WithArgumentsOnNewLines());
+                        method.AddStatement($"var query = QueryInternal(filterExpression);");
+                        if (createEntityInterfaces)
+                        {
+                            method.AddStatement(new CSharpInvocationStatement($"return await {PagedResultName}<{tDomain}, {tPersistence}>.CreateAsync")
+                                    .AddArgument("query")
+                                    .AddArgument("pageNo")
+                                    .AddArgument("pageSize")
+                                    .AddArgument("cancellationToken")
+                                    .WithArgumentsOnNewLines());
+                        }
+                        else
+                        {
+                            method.AddStatement(new CSharpInvocationStatement($"return await {PagedResultName}<{tPersistence}>.CreateAsync")
+                                    .AddArgument("query")
+                                    .AddArgument("pageNo")
+                                    .AddArgument("pageSize")
+                                    .AddArgument("cancellationToken")
+                                    .WithArgumentsOnNewLines());
+                        }
+
                     });
                     @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
                     {
@@ -168,13 +242,26 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                             .AddParameter("int", "pageSize")
                             .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "linq")
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                        method.AddStatement($"var query = QueryInternal(filterExpression, linq);")
-                            .AddStatement(new CSharpInvocationStatement($"return await {PagedResultName}<{tDomain}>.CreateAsync")
-                                .AddArgument("query")
-                                .AddArgument("pageNo")
-                                .AddArgument("pageSize")
-                                .AddArgument("cancellationToken")
-                                .WithArgumentsOnNewLines());
+                        method.AddStatement($"var query = QueryInternal(filterExpression, linq);");
+
+                        if (createEntityInterfaces)
+                        {
+                            method.AddStatement(new CSharpInvocationStatement($"return await {PagedResultName}<{tDomain}, {tPersistence}>.CreateAsync")
+                                    .AddArgument("query")
+                                    .AddArgument("pageNo")
+                                    .AddArgument("pageSize")
+                                    .AddArgument("cancellationToken")
+                                    .WithArgumentsOnNewLines());
+                        }
+                        else
+                        {
+                            method.AddStatement(new CSharpInvocationStatement($"return await {PagedResultName}<{tPersistence}>.CreateAsync")
+                                    .AddArgument("query")
+                                    .AddArgument("pageNo")
+                                    .AddArgument("pageSize")
+                                    .AddArgument("cancellationToken")
+                                    .WithArgumentsOnNewLines());
+                        }
                     });
 
                     @class.AddMethod("Task<int>", "CountAsync", method =>
@@ -198,6 +285,94 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                             .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.AddStatement($"return await QueryInternal(filterExpression).AnyAsync(cancellationToken);");
                     });
+
+                    @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
+                    {
+                        method
+                            .Virtual()
+                            .Async()
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddStatement($"var queryable = CreateQuery();");
+                        method.AddStatement($"queryable = queryOptions(queryable);");
+                        method.AddStatement($"return await queryable.SingleOrDefaultAsync(cancellationToken);");
+                    });
+
+                    @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method =>
+                    {
+                        method
+                            .Virtual()
+                            .Async()
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddStatement($"var queryable = CreateQuery();");
+                        method.AddStatement($"queryable = queryOptions(queryable);");
+                        if (createEntityInterfaces)
+                        {
+                            method.AddStatement($"var result = await queryable.ToListAsync(cancellationToken);");
+                            method.AddStatement($"return result.Cast<{tDomain}>().ToList();");
+                        }
+                        else
+                        {
+                            method.AddStatement($"return await queryable.ToListAsync(cancellationToken);");
+                        }
+                    });
+
+                    @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
+                    {
+                        method
+                            .Virtual()
+                            .Async()
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddStatement($"var query = QueryInternal(_ => true, queryOptions);");
+
+                        if (createEntityInterfaces)
+                        {
+                            method.AddStatement(new CSharpInvocationStatement($"return await {PagedResultName}<{tDomain}, {tPersistence}>.CreateAsync")
+                                    .AddArgument("query")
+                                    .AddArgument("pageNo")
+                                    .AddArgument("pageSize")
+                                    .AddArgument("cancellationToken")
+                                    .WithArgumentsOnNewLines());
+                        }
+                        else
+                        {
+                            method.AddStatement(new CSharpInvocationStatement($"return await {PagedResultName}<{tPersistence}>.CreateAsync")
+                                    .AddArgument("query")
+                                    .AddArgument("pageNo")
+                                    .AddArgument("pageSize")
+                                    .AddArgument("cancellationToken")
+                                    .WithArgumentsOnNewLines());
+                        }
+                    });
+
+                    @class.AddMethod("Task<int>", "CountAsync", method =>
+                    {
+                        method
+                            .Virtual()
+                            .Async()
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>?", "queryOptions", param => param.WithDefaultValue("default"))
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddStatement($"var queryable = CreateQuery();");
+                        method.AddStatement($"queryable = queryOptions == null ? queryable : queryOptions(queryable);");
+                        method.AddStatement($"return await queryable.CountAsync(cancellationToken);");
+                    });
+
+                    @class.AddMethod("Task<bool>", "AnyAsync", method =>
+                    {
+                        method
+                            .Virtual()
+                            .Async()
+                            .AddParameter($"Func<IQueryable<{tPersistence}>, IQueryable<{tPersistence}>>?", "queryOptions", param => param.WithDefaultValue("default"))
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                        method.AddStatement($"var queryable = CreateQuery();");
+                        method.AddStatement($"queryable = queryOptions == null ? queryable : queryOptions(queryable);");
+                        method.AddStatement($"return await queryable.AnyAsync(cancellationToken);");
+                    });
+
 
                     @class.AddMethod($"IQueryable<{tPersistence}>", "QueryInternal", method =>
                     {

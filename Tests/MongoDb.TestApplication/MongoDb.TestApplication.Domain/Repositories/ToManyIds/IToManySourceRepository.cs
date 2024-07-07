@@ -12,7 +12,7 @@ using MongoDb.TestApplication.Domain.Entities.ToManyIds;
 namespace MongoDb.TestApplication.Domain.Repositories.ToManyIds
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IToManySourceRepository : IMongoRepository<ToManySource, ToManySource>
+    public interface IToManySourceRepository : IMongoRepository<ToManySource>
     {
         [IntentManaged(Mode.Fully)]
         List<ToManySource> SearchText(string searchText, Expression<Func<ToManySource, bool>> filterExpression = null);

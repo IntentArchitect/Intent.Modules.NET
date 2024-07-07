@@ -85,7 +85,7 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
                         .AddArgument(new CSharpMethodChainStatement("ResourceBuilder")
                             .WithoutSemicolon()
                             .AddChainStatement("CreateDefault()")
-                            .AddChainStatement($@"AddService(""{Project.ApplicationName()}"")")))
+                            .AddChainStatement($@"AddService(context.Configuration[""OpenTelemetry:ServiceName""]!)")))
                     .AddStatements(GetLoggingExporterStatements())
                     .AddStatements($@"
                                     options.IncludeFormattedMessage = true;
@@ -98,7 +98,7 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
     {
         return new CSharpLambdaBlock("res")
             .WithExpressionBody(new CSharpMethodChainStatement("res")
-                .AddChainStatement($@"AddService(""{Project.ApplicationName()}"")")
+                .AddChainStatement($@"AddService(configuration[""OpenTelemetry:ServiceName""]!)")
                 .AddChainStatement("AddTelemetrySdk()")
                 .AddChainStatement("AddEnvironmentVariableDetector()"));
     }
@@ -207,6 +207,8 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             default:
                 throw new ArgumentOutOfRangeException();
         }
+        
+        this.ApplyAppSetting("OpenTelemetry:ServiceName", Project.ApplicationName());
     }
 
     [IntentManaged(Mode.Fully)]
