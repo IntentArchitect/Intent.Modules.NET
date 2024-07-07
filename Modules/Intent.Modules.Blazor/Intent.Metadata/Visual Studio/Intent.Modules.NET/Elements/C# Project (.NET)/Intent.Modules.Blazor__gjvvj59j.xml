@@ -32,7 +32,7 @@
         <property name="94e630db-ee2b-4d4f-a423-19d3469178fa" display="Generate Documentation File" isActive="true" />
         <property name="d6c50001-ac9d-4819-94a9-8b6aa7f02e47" display="Assembly Name" isActive="true" />
         <property name="7cc174e3-ca2f-4f79-bb52-c7a3a4a7e5eb" display="Implicit Usings" isActive="true" />
-        <property name="575dbd4e-f038-4c92-a411-63c1e3e0d8d7" display="Suppress Warnings" value="$(NoWarn)" isActive="true" />
+        <property name="575dbd4e-f038-4c92-a411-63c1e3e0d8d7" display="Suppress Warnings" value="$(NoWarn);1591" isActive="true" />
         <property name="6de4cc6f-2476-461c-9be9-b6ac0592a827" display="Manage Package Versions Centrally" isActive="true" />
       </properties>
     </stereotype>
@@ -44,7 +44,7 @@
         <property name="cb56677d-e132-4397-b2ec-3f47e950a111" display="Language Version" value="default" isActive="true" />
         <property name="5c953a82-78c4-4986-b204-df9fcbea5242" display="Relative Location" isActive="true" />
         <property name="415a5406-0517-4c0e-ab60-bc809a23c308" display="Nullable Enabled" value="false" isActive="false" />
-        <property name="68a31b13-148b-45da-a6ea-5a6883f86438" display="Nullable" value="(unspecified)" isActive="true" />
+        <property name="68a31b13-148b-45da-a6ea-5a6883f86438" display="Nullable" value="enable" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

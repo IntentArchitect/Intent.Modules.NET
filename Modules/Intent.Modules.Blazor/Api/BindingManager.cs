@@ -10,7 +10,7 @@ public class BindingManager
 {
     private readonly IRazorComponentTemplate _componentTemplate;
 
-    public BindingManager(IRazorComponentTemplate template, IElementToElementMapping viewBinding)
+    public BindingManager(IRazorComponentTemplate template, IElementToElementMapping? viewBinding)
     {
         _componentTemplate = template;
         ViewBinding = viewBinding;

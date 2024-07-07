@@ -3,10 +3,8 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
-using Intent.Modules.Blazor.Api.Mappings;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutCodeBehind;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -21,7 +19,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
     /// A Razor template.
     /// </summary>
     [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Ignore, Comments = Mode.Fully)]
-    public class RazorLayoutTemplate : RazorTemplateBase<LayoutModel>, IRazorComponentTemplate
+    public class RazorLayoutTemplate : RazorComponentTemplateBase<LayoutModel>
     {
         /// <inheritdoc cref="IntentTemplateBase.Id"/>
         [IntentManaged(Mode.Fully)]
@@ -33,59 +31,29 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public RazorLayoutTemplate(IOutputTarget outputTarget, LayoutModel model) : base(TemplateId, outputTarget, model)
         {
-            RazorFile = IRazorFile.Create(this, $"{Model.Name}");
-            BindingManager = new BindingManager(this, Model.InternalElement.Mappings.FirstOrDefault());
-            ComponentBuilderProvider = DefaultRazorComponentBuilderProvider.Create(this);
-
-            RazorFile.Configure(file =>
-            {
-                file.AddInheritsDirective("LayoutComponentBase");
-
-                ComponentBuilderProvider.ResolveFor(Model.InternalElement)
-                    .BuildComponent(Model.InternalElement, RazorFile);
-
-                if (file.ChildNodes.All(x => x is not IHtmlElement))
+            RazorFile = IRazorFile.Create(this, $"{Model.Name}")
+                .Configure(file =>
                 {
-                    file.AddHtmlElement("div", div => div.WithText("@Body"));
-                }
+                    file.AddInheritsDirective("LayoutComponentBase");
 
-                var block = GetCodeBlock();
-                block.AddCodeBlockMembers(this, Model.InternalElement);
-            });
+                    ComponentBuilderProvider.ResolveFor(Model.InternalElement)
+                        .BuildComponent(Model.InternalElement, file);
+
+                    if (file.ChildNodes.All(x => x is not IHtmlElement))
+                    {
+                        file.AddHtmlElement("div", div => div.WithText("@Body"));
+                    }
+
+                    var block = GetCodeBlock();
+                    block.AddCodeBlockMembers(this, Model.InternalElement);
+                });
         }
 
         /// <inheritdoc />
-        [IntentManaged(Mode.Fully)]
-        public IRazorFile RazorFile { get; }
+        [IntentManaged(Mode.Ignore)]
+        public sealed override IRazorFile RazorFile { get; }
 
-        public IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
-
-        public BindingManager BindingManager { get; }
-
-        private IBuildsCSharpMembers _codeBlock;
-        public IBuildsCSharpMembers GetCodeBlock()
-        {
-            if (_codeBlock == null)
-            {
-                RazorFile.AddCodeBlock(x => _codeBlock = x);
-            }
-            return _codeBlock;
-        }
-
-        public void AddInjectDirective(string fullyQualifiedTypeName, string propertyName = null)
-        {
-            RazorFile.AddInjectDirective(fullyQualifiedTypeName, propertyName);
-        }
-
-        public CSharpClassMappingManager CreateMappingManager()
-        {
-            var mappingManager = new CSharpClassMappingManager(this);
-            mappingManager.AddMappingResolver(new CallServiceOperationMappingResolver(this));
-            mappingManager.AddMappingResolver(new RazorBindingMappingResolver(this));
-            mappingManager.SetFromReplacement(Model, null);
-            mappingManager.SetToReplacement(Model, null);
-            return mappingManager;
-        }
+        protected override string CodeBehindTemplateId => RazorLayoutCodeBehindTemplate.TemplateId;
 
         /// <inheritdoc />
         [IntentManaged(Mode.Fully)]

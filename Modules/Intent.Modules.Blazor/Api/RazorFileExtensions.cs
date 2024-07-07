@@ -39,13 +39,13 @@ public static class RazorFileExtensions
         }
     }
 
-    public static void AddCodeBlockMembers(this IBuildsCSharpMembers block, IRazorComponentTemplate template, IElement componentElement)
+    public static void AddCodeBlockMembers(this IRazorComponentClass block, IRazorComponentTemplate template, IElement componentElement)
     {
         foreach (var child in componentElement.ChildElements)
         {
             if (child.IsPropertyModel())
             {
-                block.AddProperty(template.GetTypeName(child.TypeReference), child.Name.ToPropertyName(), property =>
+                block.AddProperty(block.Template.GetTypeName(child.TypeReference), child.Name.ToPropertyName(), property =>
                 {
                     if (!string.IsNullOrWhiteSpace(child.Value))
                     {
@@ -53,18 +53,18 @@ public static class RazorFileExtensions
                     }
                     if (child.AsPropertyModel().HasBindable())
                     {
-                        property.AddAttribute("Parameter");
+                        property.AddAttribute(block.Template.UseType("Microsoft.AspNetCore.Components.Parameter"));
                     }
                 });
             }
 
             if (child.IsEventEmitterModel())
             {
-                block.AddProperty($"EventCallback{(child.TypeReference.Element != null ? $"<{template.GetTypeName(child.TypeReference)}>" : "")}", child.Name.ToPropertyName(), property =>
+                block.AddProperty($"EventCallback{(child.TypeReference.Element != null ? $"<{block.Template.GetTypeName(child.TypeReference)}>" : "")}", child.Name.ToPropertyName(), property =>
                 {
                     if (child.AsEventEmitterModel().HasBindable())
                     {
-                        property.AddAttribute("Parameter");
+                        property.AddAttribute(block.Template.UseType("Microsoft.AspNetCore.Components.Parameter"));
                     }
                 });
             }
@@ -77,7 +77,7 @@ public static class RazorFileExtensions
                 {
                     methodName += "Async";
                 }
-                block.AddMethod(template.GetTypeName(operation.TypeReference), methodName, method =>
+                block.AddMethod(block.Template.GetTypeName(operation.TypeReference), methodName, method =>
                 {
                     method.RepresentsModel(child); // throws exception because parent Class not set. Refactor CSharp builder to accomodate
                     if (methodName.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase) && operation.CallServiceOperationActionTargets().Any())
@@ -91,7 +91,7 @@ public static class RazorFileExtensions
                     }
                     foreach (var parameter in operation.Parameters)
                     {
-                        method.AddParameter(template.GetTypeName(parameter.TypeReference), parameter.Name.ToParameterName(), param =>
+                        method.AddParameter(block.Template.GetTypeName(parameter.TypeReference), parameter.Name.ToParameterName(), param =>
                         {
                             if (parameter.Value != null)
                             {
@@ -135,7 +135,7 @@ public static class RazorFileExtensions
                                 foreach (var serviceCall in operation.CallServiceOperationActionTargets())
                                 {
                                     var serviceName = ((IElement)serviceCall.Element).ParentElement.Name.ToPropertyName();
-                                    template.RazorFile.AddInjectDirective(template.GetTypeName(((IElement)serviceCall.Element).ParentElement), serviceName);
+                                    block.AddInjectedProperty(block.Template.GetTypeName(((IElement)serviceCall.Element).ParentElement), serviceName);
                                     var invocation = mappingManager.GenerateUpdateStatements(serviceCall.GetMapInvocationMapping()).First();
                                     if (serviceCall.GetMapResponseMapping() != null)
                                     {
@@ -174,8 +174,8 @@ public static class RazorFileExtensions
                                     catchBlock.AddStatement(new CSharpAssignmentStatement(errorMessageProperty, "e.Message"), s => s.WithSemicolon());
                                 }
 
-                                template.RazorFile.AddInjectDirective("ISnackbar", "Snackbar");
-                                catchBlock.AddStatement("Snackbar.Add(e.Message, Severity.Error);");
+                                block.AddInjectedProperty("MudBlazor.ISnackbar", "Snackbar");
+                                catchBlock.AddStatement($"Snackbar.Add(e.Message, {block.Template.UseType("MudBlazor.Severity")}.Error);");
                             });
                             method.AddFinallyBlock(finallyBlock =>
                             {
@@ -209,7 +209,7 @@ public static class RazorFileExtensions
                                 }
                             }
 
-                            template.RazorFile.AddInjectDirective("NavigationManager");
+                            block.AddInjectedProperty("Microsoft.AspNetCore.Components.NavigationManager");
                             operationImplementationBlock.AddStatement($"NavigationManager.NavigateTo({(route.Route.Contains("{") ? $"${route.Route}" : route.Route)});");
                         }
                     });

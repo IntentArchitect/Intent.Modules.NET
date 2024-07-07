@@ -4,7 +4,9 @@ using Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor;
 using Intent.Modules.Blazor.Templates.Templates.Client.DependencyInjection;
 using Intent.Modules.Blazor.Templates.Templates.Client.Program;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor;
 using Intent.Modules.Blazor.Templates.Templates.Server.AppRazor;
 using Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor;
@@ -32,6 +34,26 @@ namespace Intent.Modules.Blazor.Templates
         public static string GetProgramTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(ProgramTemplate.TemplateId);
+        }
+
+        public static string GetRazorComponentCodeBehindTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel
+        {
+            return template.GetTypeName(RazorComponentCodeBehindTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetRazorComponentCodeBehindTemplateName(this IIntentTemplate template, ComponentModel model)
+        {
+            return template.GetTypeName(RazorComponentCodeBehindTemplate.TemplateId, model);
+        }
+
+        public static string GetRazorLayoutCodeBehindTemplateName<T>(this IIntentTemplate<T> template) where T : LayoutModel
+        {
+            return template.GetTypeName(RazorLayoutCodeBehindTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetRazorLayoutCodeBehindTemplateName(this IIntentTemplate template, LayoutModel model)
+        {
+            return template.GetTypeName(RazorLayoutCodeBehindTemplate.TemplateId, model);
         }
 
         public static string GetRazorComponentTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel

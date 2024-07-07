@@ -49,6 +49,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>971f3e93-3476-47ae-a9a8-a3812905e1f8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -122,6 +130,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7fd439ee-bc05-4db6-a66a-f3b07b024d74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Templates/Client/RazorComponentCodeBehind/RazorComponentCodeBehindTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Templates/Client/RazorComponentCodeBehind/RazorComponentCodeBehindTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#7fd439ee-bc05-4db6-a66a-f3b07b024d74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Templates/Client/RazorComponentCodeBehind/RazorComponentCodeBehindTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Templates/Client/RazorComponentCodeBehind/RazorComponentCodeBehindTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#4220376c-a610-4599-b89c-83599b2f49f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/Client/RazorLayout/RazorLayoutTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -134,6 +158,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/Client/RazorLayout/RazorLayoutTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/Client/RazorLayout/RazorLayoutTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b08b0ac8-c7ef-4a54-b7fc-1e379e32b449</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Templates/Client/RazorLayoutCodeBehind/RazorLayoutCodeBehindTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Templates/Client/RazorLayoutCodeBehind/RazorLayoutCodeBehindTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#b08b0ac8-c7ef-4a54-b7fc-1e379e32b449</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Templates/Client/RazorLayoutCodeBehind/RazorLayoutCodeBehindTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Templates/Client/RazorLayoutCodeBehind/RazorLayoutCodeBehindTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
