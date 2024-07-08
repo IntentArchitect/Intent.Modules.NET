@@ -1,3 +1,7 @@
+### Version 1.0.4
+
+- Fixed: An issue around exceptions not propagating correctly in some scenarios.
+
 ### Version 1.0.3
 
 - Fixed: It was not possible to connect to Azure SQL instances.

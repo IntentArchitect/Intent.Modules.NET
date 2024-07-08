@@ -13,6 +13,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace Intent.Modules.SqlServerImporter.Tasks
 {
@@ -159,9 +160,11 @@ Please see reasons below:");
 
 		private string Fail(string reason)
 		{
-			Logging.Log.Failure(reason);
-			return $"{{\"errorMessage\": \"{reason}\"}}"; 
-		}
+            Logging.Log.Failure(reason);
+            var errorObject = new { errorMessage = reason };
+            string json = JsonSerializer.Serialize(errorObject);
+            return json;
+        }
 
-	}
+    }
 }

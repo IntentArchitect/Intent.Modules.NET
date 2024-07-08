@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.Json;
 
-
 namespace Intent.Modules.OpenApi.Importer.Tasks
 {
 	public class OpenApiImport : IModuleTask
@@ -33,7 +32,7 @@ namespace Intent.Modules.OpenApi.Importer.Tasks
 
 		public string Execute(params string[] args)
 		{
-			if (!ValiadateRequest(args, out var openPpiImportSettings, out var errorMessage))
+			if (!ValiadateRequest(args, out var openApiImportSettings, out var errorMessage))
 			{
 				return Fail(errorMessage!);
 			}
@@ -41,7 +40,7 @@ namespace Intent.Modules.OpenApi.Importer.Tasks
 
 			var toolDirectory = Path.Combine(Path.GetDirectoryName(typeof(OpenApiImport).Assembly.Location), @"../content/tool");
 			var executableName = "dotnet";
-			var executableArgs = $"\"{Path.Combine(toolDirectory, "Intent.MetadataSynchronizer.OpenApi.CLI.dll")}\" --serialized-config \"{openPpiImportSettings}\"";
+			var executableArgs = $"\"{Path.Combine(toolDirectory, "Intent.MetadataSynchronizer.OpenApi.CLI.dll")}\" --serialized-config \"{openApiImportSettings}\"";
 
 			var warnings = new StringBuilder();
 			Logging.Log.Info($"Executing: {executableName} {executableArgs} ");
@@ -169,8 +168,10 @@ Please see reasons below:");
 		private string Fail(string reason)
 		{
 			Logging.Log.Failure(reason);
-			return $"{{\"errorMessage\": \"{reason}\"}}";
-		}
-	}
+            var errorObject = new { errorMessage = reason };
+            string json = JsonSerializer.Serialize(errorObject);
+            return json;
+        }
+    }
 }
 
