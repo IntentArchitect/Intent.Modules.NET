@@ -44,7 +44,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
                         file.AddHtmlElement("div", div => div.WithText("@Body"));
                     }
 
-                    var block = GetCodeBlock();
+                    var block = GetClass();
                     block.AddCodeBlockMembers(this, Model.InternalElement);
                 });
         }

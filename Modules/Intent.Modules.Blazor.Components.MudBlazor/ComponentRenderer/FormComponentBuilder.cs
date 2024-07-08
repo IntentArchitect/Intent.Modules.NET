@@ -51,7 +51,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
             mudItem.AddHtmlElement("MudForm", form =>
             {
                 var formField = formModel.Name.ToCSharpIdentifier().ToPrivateMemberName();
-                var razorComponentClass = _componentTemplate.GetCodeBlock();
+                var razorComponentClass = _componentTemplate.GetClass();
                 razorComponentClass.AddField(razorComponentClass.Template.UseType("MudBlazor.MudForm"), formField);
                 form.AddAttribute("@ref", $"@{formField}");
                 form.AddAttributeIfNotEmpty("Model", modelBinding.ToString());

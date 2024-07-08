@@ -42,7 +42,7 @@ public abstract class RazorComponentTemplateBase<TModel> : RazorTemplateBase<TMo
     public abstract IRazorFile RazorFile { get; }
     public IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
 
-    public IRazorComponentClass GetCodeBlock()
+    public IRazorComponentClass GetClass()
     {
         if (_razorComponentClass != null)
         {

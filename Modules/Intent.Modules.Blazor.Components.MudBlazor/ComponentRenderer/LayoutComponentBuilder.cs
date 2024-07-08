@@ -32,7 +32,7 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
 
         var layoutHtml = new HtmlElement("MudLayout", _componentTemplate.RazorFile);
         parentNode.AddChildNode(layoutHtml);
-        var code = _componentTemplate.GetCodeBlock();
+        var code = _componentTemplate.GetClass();
 
         if (layoutModel.Header != null)
         {

@@ -11,6 +11,5 @@ public interface IRazorComponentTemplate : IRazorFileTemplate
 
     CSharpClassMappingManager CreateMappingManager();
 
-    // TODO JL: Rename to "GetClass()
-    IRazorComponentClass GetCodeBlock();
+    IRazorComponentClass GetClass();
 }
