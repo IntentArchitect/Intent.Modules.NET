@@ -22,16 +22,12 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Repositories.BugFixes
         {
         }
 
-        public async System.Threading.Tasks.Task<Bank?> FindByIdAsync(
-            Guid id,
-            CancellationToken cancellationToken = default)
+        public async Task<Bank?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
-        public async System.Threading.Tasks.Task<List<Bank>> FindByIdsAsync(
-            Guid[] ids,
-            CancellationToken cancellationToken = default)
+        public async Task<List<Bank>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }
