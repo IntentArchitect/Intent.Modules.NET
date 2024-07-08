@@ -1,6 +1,7 @@
 ### Version 5.0.11
 
 - Improvement: FindAsync handling more mapping scenarios.
+- Improvement: Handler implementation that involves operation invocations returning non-void types will now return appropriate variable declaration types such as `var myVar = ...;` or `var (prop1, prop2, prop3) = ...;`.
 
 ### Version 5.0.10
 
