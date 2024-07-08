@@ -41,25 +41,25 @@ pool:
 steps:
 
 - task: PowerShell@2
-    name: PrintMachineInformation
-    inputs:
-      targetType: 'inline'
-      script: |
-        echo "CPU Information:"
-        lscpu
-        echo "Memory Information:"
-        free -h
-        echo "Disk Usage:"
-        df -h
-        echo "Operating System Information:"
-        uname -a
-        echo "Network Configuration:"
-        ip addr show
-        echo "Docker Version:"
-        docker --version
-        echo "Docker Info:"
-        docker info
-      pwsh: true
+  name: 'PrintMachineInformation'
+  inputs:
+    targetType: 'inline'
+    pwsh: true
+    script: |
+      echo "CPU Information:"
+      lscpu
+      echo "Memory Information:"
+      free -h
+      echo "Disk Usage:"
+      df -h
+      echo "Operating System Information:"
+      uname -a
+      echo "Network Configuration:"
+      ip addr show
+      echo "Docker Version:"
+      docker --version
+      echo "Docker Info:"
+      docker info
 
 - task: CmdLine@2
   inputs:
