@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -9,8 +10,10 @@ using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using static Intent.Modules.Constants.TemplateRoles.Infrastructure;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
@@ -81,7 +84,104 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                 decorator.UpdateSettings(appSettings);
             }
 
-            return JsonConvert.SerializeObject(json, new JsonSerializerSettings { Formatting = Formatting.Indented });
+            using (var sw = new StringWriter())
+            {
+                using (JsonTextWriter jw = new JsonTextWriter(sw))
+                {
+                    var settings = GetEditorConfigSettings();
+                    jw.Formatting = Formatting.Indented;
+                    jw.Indentation = int.Parse(settings["indent_size"]);
+                    jw.IndentChar = settings["indent_style"].Equals("tab", StringComparison.OrdinalIgnoreCase) ? '\t' : ' '; ;
+
+                    JsonSerializer serializer = new JsonSerializer();
+                    serializer.Serialize(jw, json);
+                    return sw.ToString();
+                }
+            }
+        }
+
+        static Dictionary<string, string> DefaultSettings { get; } = new()
+        {
+            { "indent_size", "2" },
+            { "indent_style", "space" }
+        };
+
+        private Dictionary<string, string> GetEditorConfigSettings()
+        {
+            string filePath = FileMetadata.GetFilePath();
+            string directory = Path.GetDirectoryName(filePath);
+
+            var editorFiles = GetEditorFiles(directory);
+            if (editorFiles.Any())
+            {
+                var settings = new Dictionary<string, string>(DefaultSettings, StringComparer.OrdinalIgnoreCase);
+                    foreach (var editorFile in editorFiles)
+                    {
+                    try
+                    {
+                        ParseEditorConfigToSettings(editorFile, settings);
+                    }
+                    catch (Exception ex)
+                    {
+                        Logging.Log.Warning($"Unable to parse .editorConfig at {editorFile}({ex.Message})");
+                    }
+                }
+                return settings;
+            }
+
+            return DefaultSettings;
+        }
+
+        static List<string> GetEditorFiles(string directory)
+        {
+            var editorConfigFiles = new List<string>();
+
+            // Start from the specified directory
+            string currentDir = directory;
+
+            // Traverse upwards until we reach the root
+            while (!string.IsNullOrEmpty(currentDir))
+            {
+                string editorConfigFile = Path.Combine(currentDir, ".editorconfig");
+
+                // Check if .editorconfig file exists in the current directory
+                if (File.Exists(editorConfigFile))
+                {
+                    editorConfigFiles.Add(editorConfigFile);
+                }
+
+                // Move to the parent directory
+                currentDir = Directory.GetParent(currentDir)?.FullName;
+            }
+
+            return editorConfigFiles;
+        }
+
+        static void ParseEditorConfigToSettings(string path, Dictionary<string, string> settings)
+        {
+            string[] lines = File.ReadAllLines(path);
+
+            foreach (string line in lines.Select(l => l.Trim()))
+            {
+                if (string.IsNullOrWhiteSpace(line) || line.StartsWith("#"))
+                {
+                    continue; // Skip comments and section headers
+                }
+                if (line.StartsWith("["))
+                {
+                    string match = line.Substring(1, line.Length - 2);//Remove[]
+                    if (match is not "*" or "*.json" )
+                    {
+                        continue;
+                    }
+                }
+
+                var keyValue = line.Split(new[] { '=' }, 2);
+                if (keyValue.Length == 2)
+                {
+                    settings[keyValue[0].Trim()] = keyValue[1].Trim();
+                }
+            }
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]

@@ -1,3 +1,8 @@
+### Version 3.7.3
+
+- Improvement: Added support for appsettings.json respecting `.editorconfig` files.
+
+
 ### Version 3.7.2
 
 - Improvement: Support added for `AddUserSecretsEvent` and `AddProjectPropertyEvent`.

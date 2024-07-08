@@ -123,6 +123,6 @@
     <application id="481b3f15-06af-424a-bd6c-40f99ce14793" name="BugSnagTest.ServiceHost" relativePath="BugSnagTest.ServiceHost/BugSnagTest.ServiceHost.application.config" />
     <application id="3e3ebc36-8b69-453a-a151-faad8c1ac9bd" name="ProxyServiceTests.Proxy.PassThruHeader" relativePath="ProxyServiceTests.Proxy.PassThruHeader/ProxyServiceTests.Proxy.PassThruHeader.application.config" />
     <application id="511a26e8-f292-4ea8-b07e-ca9f37b297ae" name="ProxyServiceTests.Proxy.TokenMgmtSvc" relativePath="ProxyServiceTests.Proxy.TokenMgmtSvc/ProxyServiceTests.Proxy.TokenMgmtSvc.application.config" />
-    <application id="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" name="AdvancedMappingCrudMongo.Tests" relativePath="AdvancedMappingCrudMongo.Tests/AdvancedMappingCrudMongo.Tests.application.config" />
+    <application id="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" name="AdvancedMappingCrud.Mongo.Tests" relativePath="AdvancedMappingCrud.Mongo.Tests/AdvancedMappingCrud.Mongo.Tests.application.config" />
   </applications>
 </solution>
