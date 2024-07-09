@@ -97,7 +97,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>82458406-7d23-41f5-81a0-2083c0b7668d</ProjectId>
+      <ProjectId>42102847-cda1-437f-9e6e-0138fbcab2a9</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ApiMetadataProviderExtensions.cs</ApplicationRelativeFilePath>
@@ -105,7 +105,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>82458406-7d23-41f5-81a0-2083c0b7668d</ProjectId>
+      <ProjectId>42102847-cda1-437f-9e6e-0138fbcab2a9</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AzureFunctions.imodspec</ApplicationRelativeFilePath>
@@ -113,8 +113,8 @@
       <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>82458406-7d23-41f5-81a0-2083c0b7668d</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#82458406-7d23-41f5-81a0-2083c0b7668d</CorrelationId>
+      <ProjectId>42102847-cda1-437f-9e6e-0138fbcab2a9</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#42102847-cda1-437f-9e6e-0138fbcab2a9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.csproj</ProjectRelativeFilePath>

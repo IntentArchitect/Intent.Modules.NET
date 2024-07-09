@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#702f57ca-3b5a-413b-a084-9f2d154154e7</correlationId>
+      <path>Intent.Modules.AzureFunctions/Api/AzureFunctionModel.cs</path>
+      <count>11</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-07-09T13:59:11.1668449Z</updatedAt>
+      <deviationsHash>444C34B85E40920DF6E8D04406FF7B8B2594B1EFAF9C0B4A0B92C972ADDB3930</deviationsHash>
+      <fileHash>385327827FBD404AE0894B18B484324D013F45BB310BD875887F2EE73CF5CC56</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#b6d4f537-eebe-4c56-8cb0-7687cf5bbe16</correlationId>
+      <path>Intent.Modules.AzureFunctions/Api/AzureFunctionParameterModel.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-07-09T13:59:11.1668551Z</updatedAt>
+      <deviationsHash>B36893528C3532764359C463C41FE9815E89A6683CA07F30313EC16F2A6F66C6</deviationsHash>
+      <fileHash>7093DF898165777255494B9250A5A35E563840C722D9318470EE343EAA9E99B2</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2cb4bd85-684b-4c2a-a6f0-fe47ca2cdee6</correlationId>
+      <path>Intent.Modules.AzureFunctions/Templates/AzureFunctionClass/AzureFunctionClassTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-07-09T13:59:11.1669934Z</updatedAt>
+      <deviationsHash>4D1CFBFF96BCB3DD54C3DD6A274D6BAAB605ACFE0AA2D40393D1914585EC64D7</deviationsHash>
+      <fileHash>95C3DBB4B3DC92585D645D47017249598CFD04A37A4AE0D7A52F990CA5C01164</fileHash>
+    </file>
+  </files>
+</deviationsLog>

@@ -47,10 +47,12 @@ function getSurrogateKeyType() {
     }
     return typeNameToIdMap.get("guid");
 }
+;
 /// &lt;reference path="getSurrogateKeyType.ts"/&gt;
+/// &lt;reference path="attributeWithMapPath.ts"/&gt;
 class DomainHelper {
     static async openSelectEntityDialog(options) {
-        let classes = lookupTypesOf("Class").filter(x =&gt; DomainHelper.isAggregateRoot(x) || ((options === null || options === void 0 ? void 0 : options.includeOwnedRelationships) != false &amp;&amp; DomainHelper.ownerIsAggregateRoot(x)) || x.hasStereotype("Repository"));
+        let classes = lookupTypesOf("Class").filter(x =&gt; DomainHelper.filterClassSelection(x, options));
         if (classes.length == 0) {
             await dialogService.info("No Domain types could be found. Please ensure that you have a reference to the Domain package and that at least one class exists in it.");
             return null;
@@ -66,6 +68,28 @@ class DomainHelper {
         let foundEntity = lookup(classId);
         return foundEntity;
     }
+    static filterClassSelection(element, options, allowAbstract = false) {
+        if (!allowAbstract &amp;&amp; element.getIsAbstract()) {
+            return false;
+        }
+        if (element.hasStereotype("Repository")) {
+            return true;
+        }
+        if ((options === null || options === void 0 ? void 0 : options.includeOwnedRelationships) != false &amp;&amp; DomainHelper.ownerIsAggregateRoot(element)) {
+            return DomainHelper.hasPrimaryKey(element);
+        }
+        if (DomainHelper.isAggregateRoot(element)) {
+            let generalizations = element.getAssociations("Generalization").filter(x =&gt; x.isTargetEnd());
+            if (generalizations.length == 0) {
+                return true;
+            }
+            let generalization = generalizations[0];
+            let parentEntity = generalization.typeReference.getType();
+            //Could propagate options here but then we need to update compositional crud to support inheritance and it's already a bit of a hack
+            return DomainHelper.filterClassSelection(parentEntity, { includeOwnedRelationships: false }, true);
+        }
+        return false;
+    }
     static getFriendlyDisplayNameForClassSelection(element) {
         let found = DomainHelper.getOwningAggregate(element);
         return !found ? element.getName() : `${element.getName()} (${found.getName()})`;
@@ -75,8 +99,26 @@ class DomainHelper {
             .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
         return result;
     }
+    static getCommandOperations(entity) {
+        const queryOperationNames = ["Get", "Find", "Filter", "Query", "Is", "Must", "Can"];
+        const operations = entity.getChildren("Operation").filter(operation =&gt; operation.typeReference.getType() == null ||
+            !queryOperationNames.some(allowedOperationName =&gt; operation.getName().startsWith(allowedOperationName)));
+        return operations;
+    }
+    static isComplexType(element) {
+        return (element === null || element === void 0 ? void 0 : element.specialization) === "Data Contract" ||
+            (element === null || element === void 0 ? void 0 : element.specialization) === "Value Object" ||
+            (element === null || element === void 0 ? void 0 : element.specialization) === "Class";
+    }
+    static isComplexTypeById(typeId) {
+        let element = lookup(typeId);
+        return DomainHelper.isComplexType(element);
+    }
     static getOwningAggregate(entity) {
         var _a;
+        if (!entity || entity.specialization != "Class") {
+            return null;
+        }
         let invalidAssociations = entity.getAssociations("Association").filter(x =&gt; x.typeReference.getType() == null);
         if (invalidAssociations.length &gt; 0) {
             console.warn("Invalid associations found:");
@@ -101,23 +143,15 @@ class DomainHelper {
         let result = DomainHelper.getOwningAggregate(entity);
         return result ? true : false;
     }
+    static hasPrimaryKey(entity) {
+        let keys = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+        return keys.length &gt; 0;
+    }
     static getPrimaryKeys(entity) {
         if (!entity) {
             throw new Error("entity not specified");
         }
         let primaryKeys = DomainHelper.getPrimaryKeysMap(entity);
-        if (Object.keys(primaryKeys).length == 0) {
-            return [
-                {
-                    id: null,
-                    name: DomainHelper.getAttributeNameFormat("Id"),
-                    typeId: DomainHelper.getSurrogateKeyType(),
-                    mapPath: null,
-                    isNullable: false,
-                    isCollection: false
-                }
-            ];
-        }
         return Object.values(primaryKeys);
     }
     static isUserSuppliedPrimaryKey(pk) {
@@ -193,26 +227,15 @@ class DomainHelper {
                 foreignKeys.push(foundFk);
             }
         }
-        if (foreignKeys.length &gt; 0) {
-            return foreignKeys.map(x =&gt; ({
-                name: DomainHelper.getAttributeNameFormat(x.getName()),
-                typeId: x.typeReference.typeId,
-                id: x.id,
-                mapPath: [x.id],
-                isCollection: x.typeReference.isCollection,
-                isNullable: x.typeReference.isNullable,
-                element: x
-            }));
-        }
-        // Implicit FKs:
-        return [{
-                name: DomainHelper.getAttributeNameFormat(`${owningAggregate.getName()}Id`),
-                typeId: DomainHelper.getPrimaryKeys(owningAggregate)[0].typeId,
-                id: null,
-                mapPath: null,
-                isCollection: false,
-                isNullable: false
-            }];
+        return foreignKeys.map(x =&gt; ({
+            name: DomainHelper.getAttributeNameFormat(x.getName()),
+            typeId: x.typeReference.typeId,
+            id: x.id,
+            mapPath: [x.id],
+            isCollection: x.typeReference.isCollection,
+            isNullable: x.typeReference.isNullable,
+            element: x
+        }));
     }
     static getChildrenOfType(entity, type) {
         let attrDict = Object.create(null);
@@ -222,8 +245,8 @@ class DomainHelper {
             name: attr.getName(),
             typeId: attr.typeReference.typeId,
             mapPath: [attr.id],
-            isNullable: false,
-            isCollection: false
+            isNullable: attr.typeReference.isNullable,
+            isCollection: attr.typeReference.isCollection
         });
         return Object.values(attrDict);
     }
@@ -272,6 +295,32 @@ class DomainHelper {
             traverseInheritanceHierarchyForAttributes(attrDict, nextEntity, generalizationStack);
         }
     }
+    static getMandatoryAssociationsWithMapPath(entity) {
+        return traverseInheritanceHierarchy(entity, [], []);
+        function traverseInheritanceHierarchy(entity, results, generalizationStack) {
+            entity
+                .getAssociations("Association")
+                .filter(x =&gt; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable &amp;&amp; x.typeReference.isNavigable &amp;&amp;
+                !x.getOtherEnd().typeReference.isCollection &amp;&amp; !x.getOtherEnd().typeReference.isNullable)
+                .forEach(association =&gt; {
+                return results.push({
+                    id: association.id,
+                    name: association.getName(),
+                    typeId: null,
+                    mapPath: generalizationStack.concat([association.id]),
+                    isNullable: false,
+                    isCollection: false
+                });
+            });
+            let generalizations = entity.getAssociations("Generalization").filter(x =&gt; x.isTargetEnd());
+            if (generalizations.length == 0) {
+                return results;
+            }
+            let generalization = generalizations[0];
+            generalizationStack.push(generalization.id);
+            return traverseInheritanceHierarchy(generalization.typeReference.getType(), results, generalizationStack);
+        }
+    }
     static getAttributeNameFormat(str) {
         let convention = DomainHelper.getDomainAttributeNamingConvention();
         switch (convention) {
@@ -306,44 +355,60 @@ class DomainHelper {
             associationEnd.typeReference.typeId == associationEnd.getOtherEnd().typeReference.typeId;
     }
 }
-;
-/**
- * Workaround for element's from referenced packages not having getParent()
- * @param element The element whose parent should be searched for
- * @param parentSpecializationType The specialization type of the parent
- */
-function getParent(element, parentSpecializationType) {
-    const elements = lookupTypesOf(parentSpecializationType);
-    const parent = elements
-        .find(x =&gt; x.getChildren(element.specialization)
-        .some(child =&gt; child.id === element.id));
-    if (parent == null) {
-        throw new Error("Could not find parent");
-    }
-    return parent;
-}
 /// &lt;reference path="domainHelper.ts" /&gt;
-/// &lt;reference path="getParent.ts" /&gt;
+class EntityDomainElementDetails {
+    constructor(entity) {
+        this.entity = entity;
+        this.owningEntity = DomainHelper.getOwningAggregate(entity);
+    }
+    getOwningOrTargetEntityName() {
+        var _a;
+        return ((_a = this.owningEntity) !== null &amp;&amp; _a !== void 0 ? _a : this.entity).getName();
+    }
+    hasOwningEntity() {
+        return this.owningEntity != null;
+    }
+}
+class MappedDomainElement {
+    constructor(originalElement) {
+        this.originalElement = originalElement;
+        this.entityDomainElementDetails = this.isEntityDomainElement() ? new EntityDomainElementDetails(originalElement) : null;
+    }
+    isEntityDomainElement() {
+        return this.originalElement.specialization == "Class";
+    }
+    getId() {
+        return this.originalElement.id;
+    }
+    getName() {
+        return this.originalElement.getName();
+    }
+}
+/// &lt;reference path="mappedDomainElement.ts" /&gt;
 /**
  * Gets the ultimate target entity and it's owning entity (if it has one) of a mapped Command/Query.
  * @param request The Command or Query that has been mapped
  */
-function getMappedEntity(request) {
+function getMappedDomainElement(request) {
     var _a;
     const queryEntityMappingTypeId = "25f25af9-c38b-4053-9474-b0fabe9d7ea7";
     const createEntityMappingTypeId = "5f172141-fdba-426b-980e-163e782ff53e";
     const mappingTypeIds = [queryEntityMappingTypeId, createEntityMappingTypeId];
+    const mappableElements = ["Class", "Repository"];
+    const isMappableElement = function (element) {
+        return mappableElements.some(x =&gt; (element === null || element === void 0 ? void 0 : element.specialization) === x);
+    };
     let entity = null;
     // Basic mapping:
     let mappedElement = (_a = request.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement();
     if (mappedElement != null) {
         let element = mappedElement;
         while (element != null) {
-            if ((element === null || element === void 0 ? void 0 : element.specialization) === "Class") {
+            if (isMappableElement(element)) {
                 entity = element;
                 break;
             }
-            element = getParent(element, "Class");
+            element = element.getParent();
         }
     }
     // Advanced mappings:
@@ -354,10 +419,10 @@ function getMappedEntity(request) {
             .map(mapping =&gt; {
             let element = mapping.getTargetElement();
             while (element != null) {
-                if (element.specialization === "Class") {
+                if (isMappableElement(element)) {
                     return element;
                 }
-                element = getParent(element, "Class");
+                element = element.getParent();
             }
             return null;
         })
@@ -368,15 +433,12 @@ function getMappedEntity(request) {
         }
     }
     if (entity == null) {
-        return {};
+        return null;
     }
-    return {
-        entity: entity,
-        owningEntity: DomainHelper.getOwningAggregate(entity)
-    };
+    return new MappedDomainElement(entity);
 }
 /// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
-/// &lt;reference path="../../common/getMappedEntity.ts" /&gt;
+/// &lt;reference path="../../common/getMappedDomainElement.ts" /&gt;
 /**
  * Used by Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions
  *
@@ -384,23 +446,26 @@ function getMappedEntity(request) {
  * https://github.com/IntentArchitect/Intent.Modules/blob/development/DesignerMacros/src/command-azure-functions/command-on-changed/on-changed.ts
  */
 (() =&gt; {
-    var _a, _b, _c, _d, _e;
+    var _a, _b, _c;
     const azureFunctionId = "7c1128f6-fdef-4bf9-8f15-acb54b5bfa89"; // from AzureFunctions (this) module
     const azureFunctionTriggerId = "a6411e1f-8199-4b18-b1a1-fd2aa73b1da6";
     const httpSettingsId = "b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6"; // from WebApi module
     const httpSettingsMediatypeId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8";
     const parameterSettingsId = "d01df110-1208-4af8-a913-92a49d219552"; // from WebApi module
-    if (((_a = element.getStereotype(azureFunctionId)) === null || _a === void 0 ? void 0 : _a.getProperty(azureFunctionTriggerId).getValue()) !== "Http Trigger") {
+    if (!element.hasStereotype(azureFunctionId)) {
+        return;
+    }
+    if (element.getStereotype(azureFunctionId).getProperty(azureFunctionTriggerId).getValue() !== "Http Trigger") {
         element.removeStereotype(httpSettingsId);
         element.getChildren().forEach(x =&gt; x.removeStereotype(parameterSettingsId));
         return;
     }
-    let httpSettings = (_b = element.getStereotype(httpSettingsId)) !== null &amp;&amp; _b !== void 0 ? _b : element.addStereotype(httpSettingsId);
+    let httpSettings = (_a = element.getStereotype(httpSettingsId)) !== null &amp;&amp; _a !== void 0 ? _a : element.addStereotype(httpSettingsId);
     if (httpSettings.getProperty("Route").getValue()) {
         return;
     }
     const folderName = element.getParent().getName();
-    const mappedEntityName = (_d = (_c = getMappedEntity(element)) === null || _c === void 0 ? void 0 : _c.entity) === null || _d === void 0 ? void 0 : _d.getName();
+    const mappedEntityName = (_b = getMappedDomainElement(element)) === null || _b === void 0 ? void 0 : _b.getName();
     const serviceRoute = toKebabCase(folderName);
     const serviceRouteIdentifier = element.getChildren().some(x =&gt; x.getName().toLowerCase() == `${singularize(folderName.toLowerCase())}id`)
         ? `/{${toCamelCase(singularize(folderName))}Id}`
@@ -418,7 +483,7 @@ function getMappedEntity(request) {
         httpSettings.getProperty("Verb").setValue("PUT");
     }
     httpSettings.getProperty("Route").setValue(`${serviceRoute}${serviceRouteIdentifier}${subRoute}`);
-    if (((_e = element.typeReference.getType()) === null || _e === void 0 ? void 0 : _e.specialization) == "Type-Definition") {
+    if (((_c = element.typeReference.getType()) === null || _c === void 0 ? void 0 : _c.specialization) == "Type-Definition") {
         httpSettings.getProperty(httpSettingsMediatypeId).setValue("application/json");
     }
     function getUnconventionalRoute() {
@@ -508,10 +573,12 @@ function getSurrogateKeyType() {
     }
     return typeNameToIdMap.get("guid");
 }
+;
 /// &lt;reference path="getSurrogateKeyType.ts"/&gt;
+/// &lt;reference path="attributeWithMapPath.ts"/&gt;
 class DomainHelper {
     static async openSelectEntityDialog(options) {
-        let classes = lookupTypesOf("Class").filter(x =&gt; DomainHelper.isAggregateRoot(x) || ((options === null || options === void 0 ? void 0 : options.includeOwnedRelationships) != false &amp;&amp; DomainHelper.ownerIsAggregateRoot(x)) || x.hasStereotype("Repository"));
+        let classes = lookupTypesOf("Class").filter(x =&gt; DomainHelper.filterClassSelection(x, options));
         if (classes.length == 0) {
             await dialogService.info("No Domain types could be found. Please ensure that you have a reference to the Domain package and that at least one class exists in it.");
             return null;
@@ -527,6 +594,28 @@ class DomainHelper {
         let foundEntity = lookup(classId);
         return foundEntity;
     }
+    static filterClassSelection(element, options, allowAbstract = false) {
+        if (!allowAbstract &amp;&amp; element.getIsAbstract()) {
+            return false;
+        }
+        if (element.hasStereotype("Repository")) {
+            return true;
+        }
+        if ((options === null || options === void 0 ? void 0 : options.includeOwnedRelationships) != false &amp;&amp; DomainHelper.ownerIsAggregateRoot(element)) {
+            return DomainHelper.hasPrimaryKey(element);
+        }
+        if (DomainHelper.isAggregateRoot(element)) {
+            let generalizations = element.getAssociations("Generalization").filter(x =&gt; x.isTargetEnd());
+            if (generalizations.length == 0) {
+                return true;
+            }
+            let generalization = generalizations[0];
+            let parentEntity = generalization.typeReference.getType();
+            //Could propagate options here but then we need to update compositional crud to support inheritance and it's already a bit of a hack
+            return DomainHelper.filterClassSelection(parentEntity, { includeOwnedRelationships: false }, true);
+        }
+        return false;
+    }
     static getFriendlyDisplayNameForClassSelection(element) {
         let found = DomainHelper.getOwningAggregate(element);
         return !found ? element.getName() : `${element.getName()} (${found.getName()})`;
@@ -536,8 +625,26 @@ class DomainHelper {
             .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
         return result;
     }
+    static getCommandOperations(entity) {
+        const queryOperationNames = ["Get", "Find", "Filter", "Query", "Is", "Must", "Can"];
+        const operations = entity.getChildren("Operation").filter(operation =&gt; operation.typeReference.getType() == null ||
+            !queryOperationNames.some(allowedOperationName =&gt; operation.getName().startsWith(allowedOperationName)));
+        return operations;
+    }
+    static isComplexType(element) {
+        return (element === null || element === void 0 ? void 0 : element.specialization) === "Data Contract" ||
+            (element === null || element === void 0 ? void 0 : element.specialization) === "Value Object" ||
+            (element === null || element === void 0 ? void 0 : element.specialization) === "Class";
+    }
+    static isComplexTypeById(typeId) {
+        let element = lookup(typeId);
+        return DomainHelper.isComplexType(element);
+    }
     static getOwningAggregate(entity) {
         var _a;
+        if (!entity || entity.specialization != "Class") {
+            return null;
+        }
         let invalidAssociations = entity.getAssociations("Association").filter(x =&gt; x.typeReference.getType() == null);
         if (invalidAssociations.length &gt; 0) {
             console.warn("Invalid associations found:");
@@ -562,23 +669,15 @@ class DomainHelper {
         let result = DomainHelper.getOwningAggregate(entity);
         return result ? true : false;
     }
+    static hasPrimaryKey(entity) {
+        let keys = entity.getChildren("Attribute").filter(x =&gt; x.hasStereotype("Primary Key"));
+        return keys.length &gt; 0;
+    }
     static getPrimaryKeys(entity) {
         if (!entity) {
             throw new Error("entity not specified");
         }
         let primaryKeys = DomainHelper.getPrimaryKeysMap(entity);
-        if (Object.keys(primaryKeys).length == 0) {
-            return [
-                {
-                    id: null,
-                    name: DomainHelper.getAttributeNameFormat("Id"),
-                    typeId: DomainHelper.getSurrogateKeyType(),
-                    mapPath: null,
-                    isNullable: false,
-                    isCollection: false
-                }
-            ];
-        }
         return Object.values(primaryKeys);
     }
     static isUserSuppliedPrimaryKey(pk) {
@@ -654,26 +753,15 @@ class DomainHelper {
                 foreignKeys.push(foundFk);
             }
         }
-        if (foreignKeys.length &gt; 0) {
-            return foreignKeys.map(x =&gt; ({
-                name: DomainHelper.getAttributeNameFormat(x.getName()),
-                typeId: x.typeReference.typeId,
-                id: x.id,
-                mapPath: [x.id],
-                isCollection: x.typeReference.isCollection,
-                isNullable: x.typeReference.isNullable,
-                element: x
-            }));
-        }
-        // Implicit FKs:
-        return [{
-                name: DomainHelper.getAttributeNameFormat(`${owningAggregate.getName()}Id`),
-                typeId: DomainHelper.getPrimaryKeys(owningAggregate)[0].typeId,
-                id: null,
-                mapPath: null,
-                isCollection: false,
-                isNullable: false
-            }];
+        return foreignKeys.map(x =&gt; ({
+            name: DomainHelper.getAttributeNameFormat(x.getName()),
+            typeId: x.typeReference.typeId,
+            id: x.id,
+            mapPath: [x.id],
+            isCollection: x.typeReference.isCollection,
+            isNullable: x.typeReference.isNullable,
+            element: x
+        }));
     }
     static getChildrenOfType(entity, type) {
         let attrDict = Object.create(null);
@@ -683,8 +771,8 @@ class DomainHelper {
             name: attr.getName(),
             typeId: attr.typeReference.typeId,
             mapPath: [attr.id],
-            isNullable: false,
-            isCollection: false
+            isNullable: attr.typeReference.isNullable,
+            isCollection: attr.typeReference.isCollection
         });
         return Object.values(attrDict);
     }
@@ -733,6 +821,32 @@ class DomainHelper {
             traverseInheritanceHierarchyForAttributes(attrDict, nextEntity, generalizationStack);
         }
     }
+    static getMandatoryAssociationsWithMapPath(entity) {
+        return traverseInheritanceHierarchy(entity, [], []);
+        function traverseInheritanceHierarchy(entity, results, generalizationStack) {
+            entity
+                .getAssociations("Association")
+                .filter(x =&gt; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable &amp;&amp; x.typeReference.isNavigable &amp;&amp;
+                !x.getOtherEnd().typeReference.isCollection &amp;&amp; !x.getOtherEnd().typeReference.isNullable)
+                .forEach(association =&gt; {
+                return results.push({
+                    id: association.id,
+                    name: association.getName(),
+                    typeId: null,
+                    mapPath: generalizationStack.concat([association.id]),
+                    isNullable: false,
+                    isCollection: false
+                });
+            });
+            let generalizations = entity.getAssociations("Generalization").filter(x =&gt; x.isTargetEnd());
+            if (generalizations.length == 0) {
+                return results;
+            }
+            let generalization = generalizations[0];
+            generalizationStack.push(generalization.id);
+            return traverseInheritanceHierarchy(generalization.typeReference.getType(), results, generalizationStack);
+        }
+    }
     static getAttributeNameFormat(str) {
         let convention = DomainHelper.getDomainAttributeNamingConvention();
         switch (convention) {
@@ -767,44 +881,60 @@ class DomainHelper {
             associationEnd.typeReference.typeId == associationEnd.getOtherEnd().typeReference.typeId;
     }
 }
-;
-/**
- * Workaround for element's from referenced packages not having getParent()
- * @param element The element whose parent should be searched for
- * @param parentSpecializationType The specialization type of the parent
- */
-function getParent(element, parentSpecializationType) {
-    const elements = lookupTypesOf(parentSpecializationType);
-    const parent = elements
-        .find(x =&gt; x.getChildren(element.specialization)
-        .some(child =&gt; child.id === element.id));
-    if (parent == null) {
-        throw new Error("Could not find parent");
-    }
-    return parent;
-}
 /// &lt;reference path="domainHelper.ts" /&gt;
-/// &lt;reference path="getParent.ts" /&gt;
+class EntityDomainElementDetails {
+    constructor(entity) {
+        this.entity = entity;
+        this.owningEntity = DomainHelper.getOwningAggregate(entity);
+    }
+    getOwningOrTargetEntityName() {
+        var _a;
+        return ((_a = this.owningEntity) !== null &amp;&amp; _a !== void 0 ? _a : this.entity).getName();
+    }
+    hasOwningEntity() {
+        return this.owningEntity != null;
+    }
+}
+class MappedDomainElement {
+    constructor(originalElement) {
+        this.originalElement = originalElement;
+        this.entityDomainElementDetails = this.isEntityDomainElement() ? new EntityDomainElementDetails(originalElement) : null;
+    }
+    isEntityDomainElement() {
+        return this.originalElement.specialization == "Class";
+    }
+    getId() {
+        return this.originalElement.id;
+    }
+    getName() {
+        return this.originalElement.getName();
+    }
+}
+/// &lt;reference path="mappedDomainElement.ts" /&gt;
 /**
  * Gets the ultimate target entity and it's owning entity (if it has one) of a mapped Command/Query.
  * @param request The Command or Query that has been mapped
  */
-function getMappedEntity(request) {
+function getMappedDomainElement(request) {
     var _a;
     const queryEntityMappingTypeId = "25f25af9-c38b-4053-9474-b0fabe9d7ea7";
     const createEntityMappingTypeId = "5f172141-fdba-426b-980e-163e782ff53e";
     const mappingTypeIds = [queryEntityMappingTypeId, createEntityMappingTypeId];
+    const mappableElements = ["Class", "Repository"];
+    const isMappableElement = function (element) {
+        return mappableElements.some(x =&gt; (element === null || element === void 0 ? void 0 : element.specialization) === x);
+    };
     let entity = null;
     // Basic mapping:
     let mappedElement = (_a = request.getMapping()) === null || _a === void 0 ? void 0 : _a.getElement();
     if (mappedElement != null) {
         let element = mappedElement;
         while (element != null) {
-            if ((element === null || element === void 0 ? void 0 : element.specialization) === "Class") {
+            if (isMappableElement(element)) {
                 entity = element;
                 break;
             }
-            element = getParent(element, "Class");
+            element = element.getParent();
         }
     }
     // Advanced mappings:
@@ -815,10 +945,10 @@ function getMappedEntity(request) {
             .map(mapping =&gt; {
             let element = mapping.getTargetElement();
             while (element != null) {
-                if (element.specialization === "Class") {
+                if (isMappableElement(element)) {
                     return element;
                 }
-                element = getParent(element, "Class");
+                element = element.getParent();
             }
             return null;
         })
@@ -829,15 +959,12 @@ function getMappedEntity(request) {
         }
     }
     if (entity == null) {
-        return {};
+        return null;
     }
-    return {
-        entity: entity,
-        owningEntity: DomainHelper.getOwningAggregate(entity)
-    };
+    return new MappedDomainElement(entity);
 }
 /// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
-/// &lt;reference path="../../common/getMappedEntity.ts" /&gt;
+/// &lt;reference path="../../common/getMappedDomainElement.ts" /&gt;
 /**
  * Used by Intent.Modules.NET\Modules\Intent.Modules.AzureFunctions
  *
@@ -845,19 +972,22 @@ function getMappedEntity(request) {
  * https://github.com/IntentArchitect/Intent.Modules/blob/development/DesignerMacros/src/azure-functions/query-on-changed/query-on-changed.ts
  */
 (() =&gt; {
-    var _a, _b, _c, _d;
+    var _a, _b;
     const azureFunctionId = "7c1128f6-fdef-4bf9-8f15-acb54b5bfa89"; // from AzureFunctions (this) module
     const azureFunctionTriggerId = "a6411e1f-8199-4b18-b1a1-fd2aa73b1da6";
     const httpSettingsId = "b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6"; // from WebApi module
     const parameterSettingsId = "d01df110-1208-4af8-a913-92a49d219552"; // from WebApi module
-    if (((_a = element.getStereotype(azureFunctionId)) === null || _a === void 0 ? void 0 : _a.getProperty(azureFunctionTriggerId).getValue()) !== "Http Trigger") {
+    if (!element.hasStereotype(azureFunctionId)) {
+        return;
+    }
+    if (element.getStereotype(azureFunctionId).getProperty(azureFunctionTriggerId).getValue() !== "Http Trigger") {
         element.removeStereotype(httpSettingsId);
         element.getChildren().forEach(x =&gt; x.removeStereotype(parameterSettingsId));
         return;
     }
-    const httpSettings = (_b = element.getStereotype(httpSettingsId)) !== null &amp;&amp; _b !== void 0 ? _b : element.addStereotype(httpSettingsId);
+    const httpSettings = (_a = element.getStereotype(httpSettingsId)) !== null &amp;&amp; _a !== void 0 ? _a : element.addStereotype(httpSettingsId);
     const folderName = element.getParent().getName();
-    const mappedEntityName = (_d = (_c = getMappedEntity(element)) === null || _c === void 0 ? void 0 : _c.entity) === null || _d === void 0 ? void 0 : _d.getName();
+    const mappedEntityName = (_b = getMappedDomainElement(element)) === null || _b === void 0 ? void 0 : _b.getName();
     if (httpSettings.getProperty("Route").getValue()) {
         return;
     }
