@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.ODataQuery</id>
-  <version>1.0.3</version>
-  <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
+  <version>1.0.4-pre.0</version>
+  <supportedClientVersions>[4.1.0,5.0.0)</supportedClientVersions>
   <summary>The module adds support for ODataQuery options to standard ASP.NET Core Controllers.</summary>
   <description>The module adds support for ODataQuery options to standard ASP.NET Core Controllers.</description>
   <authors>Intent Architect</authors>
@@ -22,6 +22,7 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions>
+    <factoryExtension id="Intent.AspNetCore.ODataQuery.CosmosRepositoryExtension" externalReference="dd400bf9-1717-4804-9a97-4c548f6865c3" />
     <factoryExtension id="Intent.AspNetCore.ODataQuery.EFRepositoryExtension" externalReference="b5235e94-ce0d-4278-a5c5-0ee52c1c6bcf" />
     <factoryExtension id="Intent.AspNetCore.ODataQuery.QueryExtension" externalReference="1ee783d5-7aca-40cb-a37b-65e018985876" />
     <factoryExtension id="Intent.AspNetCore.ODataQuery.StartupExtension" externalReference="79f071dc-8f83-4823-983e-118dcedc3d7d" />
@@ -60,15 +61,25 @@
   </moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.AutoMapper" version="4.0.6" />
-    <dependency id="Intent.Common" version="3.4.3" />
-    <dependency id="Intent.Common.CSharp" version="3.3.44" />
-    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common.CSharp" version="3.5.2" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Domain" version="3.4.3" />
     <dependency id="Intent.Modelers.Services" version="3.5.1" />
     <dependency id="Intent.Modelers.Services.CQRS" version="4.1.1" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <interoperability>
+    <detect id="Intent.CosmosDB">
+      <install>
+        <package id="Intent.CosmosDB" version="1.2.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.Dtos.AutoMapper">
+      <install>
+        <package id="Intent.Application.Dtos.AutoMapper" version="4.0.8-pre.1" />
+      </install>
+    </detect>
     <detect id="Intent.Application.MediatR">
       <install>
         <package id="Intent.Application.MediatR" version="4.2.3" />

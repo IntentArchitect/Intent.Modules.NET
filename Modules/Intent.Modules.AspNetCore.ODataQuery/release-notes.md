@@ -1,5 +1,9 @@
 ﻿### Version 1.0.3
 
+- Improvement: Added support for CosmosDb as the persistence store.
+
+### Version 1.0.3
+
 - Improvement: Updated Interoperable dependency versions.
 
 ### Version 1.0.2

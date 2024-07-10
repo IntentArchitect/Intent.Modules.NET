@@ -39,6 +39,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
             string nullableChar = OutputTarget.GetProject().NullableEnabled ? "?" : "";
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("Microsoft.Azure.CosmosRepository.Options")
+                .AddUsing("Microsoft.Azure.CosmosRepository.Providers")
+                .AddUsing("Microsoft.Extensions.Options")
                 .AddClass($"{Model.Name}CosmosDBRepository", @class =>
                 {
                     var pkAttribute = Model.GetPrimaryKeyAttribute();
@@ -65,10 +68,14 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                     {
                         ctor.AddParameter(this.GetCosmosDBUnitOfWorkName(), "unitOfWork");
                         ctor.AddParameter(UseType($"Microsoft.Azure.CosmosRepository.IRepository<{entityDocumentName}>"), "cosmosRepository");
+                        ctor.AddParameter(UseType($"ICosmosContainerProvider<{entityDocumentName}>"), "containerProvider");
+                        ctor.AddParameter("IOptionsMonitor<RepositoryOptions>", "optionsMonitor");
                         ctor.CallsBase(callBase => callBase
                             .AddArgument("unitOfWork")
                             .AddArgument("cosmosRepository")
                             .AddArgument($"\"{pkFieldName}\"")
+                            .AddArgument($"containerProvider")
+                            .AddArgument($"optionsMonitor")
                         );
                     });
 
