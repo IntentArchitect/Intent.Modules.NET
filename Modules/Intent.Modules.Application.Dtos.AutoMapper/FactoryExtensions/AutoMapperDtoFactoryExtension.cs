@@ -107,8 +107,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtensions
 
             if (mappedElement == null) { return false; }
 
-            if (!application.InstalledModules.Any(m => m.ModuleId == "Intent.CosmosDB") 
-                && !application.InstalledModules.Any(m => m.ModuleId == "Intent.AspNetCore.ODataQuery"))
+            if (!(application.InstalledModules.Any(m => m.ModuleId == "Intent.CosmosDB") && application.InstalledModules.Any(m => m.ModuleId == "Intent.AspNetCore.ODataQuery")))
             {
                 return false;
             }
