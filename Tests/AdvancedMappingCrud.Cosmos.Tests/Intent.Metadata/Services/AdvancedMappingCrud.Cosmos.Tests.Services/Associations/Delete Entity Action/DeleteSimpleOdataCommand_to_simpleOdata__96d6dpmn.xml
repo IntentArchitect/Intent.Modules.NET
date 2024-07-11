@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f8e13485-8666-4ff1-a4b5-65ee837f2240">
+  <sourceEnd id="bf4758d9-04df-4fc8-8e92-d4a1922edf04" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : SimpleOdata.DeleteSimpleOdataCommand</display>
+    <order>0</order>
+    <typeReference id="4f928ffe-b8db-41e8-8f63-87f020d03369">
+      <typeId>4f890465-409a-4cdd-971b-bb6b51f89ff2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f8e13485-8666-4ff1-a4b5-65ee837f2240" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>simpleOdata</name>
+    <display>[delete] simpleOdata: SimpleOdata</display>
+    <order>1</order>
+    <typeReference id="54352681-17c8-4eca-9d44-32a6303d4c20">
+      <typeId>67c1fc69-6c78-4b42-a090-4b1c06e719ec</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4f890465-409a-4cdd-971b-bb6b51f89ff2" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[DeleteSimpleOdataCommand]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="67c1fc69-6c78-4b42-a090-4b1c06e719ec" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[SimpleOdata]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="67c1fc69-6c78-4b42-a090-4b1c06e719ec" name="SimpleOdata" type="element" specialization="Class" />
+              <target id="584bde5c-4268-46e2-b61f-0984236a6202" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="4f890465-409a-4cdd-971b-bb6b51f89ff2" name="DeleteSimpleOdataCommand" type="element" specialization="Command" />
+                  <target id="580c4a47-1257-42bb-b4cb-c02a81b9fdb6" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

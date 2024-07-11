@@ -8,6 +8,9 @@ using CosmosDB.EntityInterfaces.Infrastructure.Persistence;
 using CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents.Folder;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.CosmosRepository;
+using Microsoft.Azure.CosmosRepository.Options;
+using Microsoft.Azure.CosmosRepository.Providers;
+using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.CosmosDB.CosmosDBRepository", Version = "1.0")]
@@ -18,7 +21,9 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Repositories.Folder
     {
         public FolderContainerCosmosDBRepository(CosmosDBUnitOfWork unitOfWork,
             IRepository<FolderContainerDocument> cosmosRepository,
-            ICurrentUserService currentUserService) : base(unitOfWork, cosmosRepository, "id", currentUserService)
+            ICosmosContainerProvider<FolderContainerDocument> containerProvider,
+            IOptionsMonitor<RepositoryOptions> optionsMonitor,
+            ICurrentUserService currentUserService) : base(unitOfWork, cosmosRepository, "id", containerProvider, optionsMonitor, currentUserService)
         {
         }
 

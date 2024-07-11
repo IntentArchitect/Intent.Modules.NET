@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="878afa98-1985-4366-b7dd-e7f159e657ab">
+  <sourceEnd id="04542e41-5540-413c-8451-37a9085978e0" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetSimpleOdataQuery</display>
+    <order>0</order>
+    <typeReference id="72c341a7-f483-47ee-ab46-a3df948d069a">
+      <typeId>615a7f36-1051-4dfe-9cf1-86d6123530b5</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="878afa98-1985-4366-b7dd-e7f159e657ab" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>simpleOdata</name>
+    <display>[query] simpleOdata: SimpleOdata[*]</display>
+    <order>0</order>
+    <typeReference id="d1ce2254-68a3-416c-9141-2a6cf740709b">
+      <typeId>67c1fc69-6c78-4b42-a090-4b1c06e719ec</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="615a7f36-1051-4dfe-9cf1-86d6123530b5" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[GetSimpleOdataQuery]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="67c1fc69-6c78-4b42-a090-4b1c06e719ec" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[SimpleOdata]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

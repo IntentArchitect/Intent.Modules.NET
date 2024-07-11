@@ -37,7 +37,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests
                 services.Remove(descriptor);
             }
 
-            services.AddSingleton<IOptions<RepositoryOptions>>(new OptionsMock(new RepositoryOptions() { CosmosConnectionString = $"AccountEndpoint={updatedEndpoint};AccountKey={_accountKey}", DatabaseId = "TestDb", ContainerId = "Container" }));
+            services.AddSingleton<IOptions<RepositoryOptions>>(new OptionsMock(new RepositoryOptions() { CosmosConnectionString = $"AccountEndpoint={updatedEndpoint};AccountKey={_accountKey}", DatabaseId = "TestDb", ContainerId = "Container", ContainerPerItemType = true }));
 
             var cosmosClientBuilder = new CosmosClientBuilder(updatedEndpoint, _accountKey);
 

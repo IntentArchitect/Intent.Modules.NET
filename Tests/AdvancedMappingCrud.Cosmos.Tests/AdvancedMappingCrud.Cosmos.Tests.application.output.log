@@ -115,6 +115,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>e936c843-fe11-41bc-8b71-66145063c8f6</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#fce94966-2afc-4bfa-b7cb-8abb7f54905c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Controllers/SimpleOdataController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdataController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5953d7a0-4268-4835-a44e-d00c269d64b5</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -128,6 +136,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5953d7a0-4268-4835-a44e-d00c269d64b5</ProjectId>
+      <CorrelationId>Intent.AspNetCore.ODataQuery.ODataQuerySwaggerFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Filters/ODataQueryFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataQueryFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -500,6 +516,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#59027c95-28c7-4012-bf97-5b301e23d8fc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/FindCustomerByNameOrSurname/FindCustomerByNameOrSurnameQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/FindCustomerByNameOrSurname/FindCustomerByNameOrSurnameQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#59027c95-28c7-4012-bf97-5b301e23d8fc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/FindCustomerByNameOrSurname/FindCustomerByNameOrSurnameQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/FindCustomerByNameOrSurname/FindCustomerByNameOrSurnameQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#59027c95-28c7-4012-bf97-5b301e23d8fc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/FindCustomerByNameOrSurname/FindCustomerByNameOrSurnameQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/FindCustomerByNameOrSurname/FindCustomerByNameOrSurnameQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#be81e3f5-693e-415e-8242-5c2812791579</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQuery.cs</ApplicationRelativeFilePath>
@@ -544,6 +584,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/GetCustomers/GetCustomersQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/GetCustomers/GetCustomersQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#c0652db6-5aab-463c-9f1e-29453ffbbd82</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/GetCustomersLinq/GetCustomersLinqQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersLinq/GetCustomersLinqQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#c0652db6-5aab-463c-9f1e-29453ffbbd82</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/GetCustomersLinq/GetCustomersLinqQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersLinq/GetCustomersLinqQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#c0652db6-5aab-463c-9f1e-29453ffbbd82</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/GetCustomersLinq/GetCustomersLinqQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersLinq/GetCustomersLinqQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#c9e6d676-0a31-4177-9d15-97c992c4dce5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/GetCustomersPaged/GetCustomersPagedQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersPaged/GetCustomersPagedQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#c9e6d676-0a31-4177-9d15-97c992c4dce5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/GetCustomersPaged/GetCustomersPagedQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersPaged/GetCustomersPagedQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#c9e6d676-0a31-4177-9d15-97c992c4dce5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/GetCustomersPaged/GetCustomersPagedQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersPaged/GetCustomersPagedQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1075,6 +1163,142 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#8d627b45-e2f5-4703-ab62-f8dc71e40f32</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/CreateSimpleOdata/CreateSimpleOdataCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/CreateSimpleOdata/CreateSimpleOdataCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#8d627b45-e2f5-4703-ab62-f8dc71e40f32</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/CreateSimpleOdata/CreateSimpleOdataCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/CreateSimpleOdata/CreateSimpleOdataCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#8d627b45-e2f5-4703-ab62-f8dc71e40f32</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/CreateSimpleOdata/CreateSimpleOdataCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/CreateSimpleOdata/CreateSimpleOdataCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#4f890465-409a-4cdd-971b-bb6b51f89ff2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/DeleteSimpleOdata/DeleteSimpleOdataCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/DeleteSimpleOdata/DeleteSimpleOdataCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#4f890465-409a-4cdd-971b-bb6b51f89ff2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/DeleteSimpleOdata/DeleteSimpleOdataCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/DeleteSimpleOdata/DeleteSimpleOdataCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#4f890465-409a-4cdd-971b-bb6b51f89ff2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/DeleteSimpleOdata/DeleteSimpleOdataCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/DeleteSimpleOdata/DeleteSimpleOdataCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#615a7f36-1051-4dfe-9cf1-86d6123530b5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/GetSimpleOdata/GetSimpleOdataQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/GetSimpleOdata/GetSimpleOdataQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#615a7f36-1051-4dfe-9cf1-86d6123530b5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/GetSimpleOdata/GetSimpleOdataQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/GetSimpleOdata/GetSimpleOdataQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#615a7f36-1051-4dfe-9cf1-86d6123530b5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/GetSimpleOdata/GetSimpleOdataQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/GetSimpleOdata/GetSimpleOdataQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#fc2af2ae-768c-4fb9-81eb-0840be91ee8c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/GetSimpleOdataById/GetSimpleOdataByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/GetSimpleOdataById/GetSimpleOdataByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#fc2af2ae-768c-4fb9-81eb-0840be91ee8c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/GetSimpleOdataById/GetSimpleOdataByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/GetSimpleOdataById/GetSimpleOdataByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#fc2af2ae-768c-4fb9-81eb-0840be91ee8c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/GetSimpleOdataById/GetSimpleOdataByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/GetSimpleOdataById/GetSimpleOdataByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#ef67db8d-096d-4947-a2a0-4c5887ec67de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/SimpleOdataDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/SimpleOdataDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#ef67db8d-096d-4947-a2a0-4c5887ec67de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/SimpleOdataDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/SimpleOdataDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#9738b09f-c69a-4c3d-b0cb-0d6a71dd4fac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/UpdateSimpleOdata/UpdateSimpleOdataCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/UpdateSimpleOdata/UpdateSimpleOdataCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#9738b09f-c69a-4c3d-b0cb-0d6a71dd4fac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/UpdateSimpleOdata/UpdateSimpleOdataCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/UpdateSimpleOdata/UpdateSimpleOdataCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#9738b09f-c69a-4c3d-b0cb-0d6a71dd4fac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/SimpleOdata/UpdateSimpleOdata/UpdateSimpleOdataCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/UpdateSimpleOdata/UpdateSimpleOdataCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f3853c95-c817-43e2-bf36-aafb6221c7aa</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObject#568546e5-201f-4aa8-b6d4-7dbc99c2c969</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1179,6 +1403,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>edef835f-e49f-48e6-b7f3-9e625679ec49</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#8f91838c-a846-4b97-8b2e-4fcea50f655c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Entities/SimpleChild.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleChild.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>edef835f-e49f-48e6-b7f3-9e625679ec49</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#67c1fc69-6c78-4b42-a090-4b1c06e719ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Entities/SimpleOdata.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f3853c95-c817-43e2-bf36-aafb6221c7aa</ProjectId>
       <CorrelationId>Intent.Entities.DomainEnum#eee3c040-e9d7-44b1-8602-6ad78bf6db1c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1243,6 +1483,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>81139bf6-2331-4314-907f-b164c5aadf86</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#8f91838c-a846-4b97-8b2e-4fcea50f655c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/Documents/ISimpleChildDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ISimpleChildDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81139bf6-2331-4314-907f-b164c5aadf86</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#67c1fc69-6c78-4b42-a090-4b1c06e719ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/Documents/ISimpleOdataDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ISimpleOdataDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>2d3e7d09-19c9-4357-8c73-751f590384f8</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1288,6 +1544,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2d3e7d09-19c9-4357-8c73-751f590384f8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#67c1fc69-6c78-4b42-a090-4b1c06e719ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/ISimpleOdataRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ISimpleOdataRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1388,6 +1652,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>f74be9d3-c119-4e55-9c4a-73a7db11f4c3</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocument#8f91838c-a846-4b97-8b2e-4fcea50f655c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/SimpleChildDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleChildDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f74be9d3-c119-4e55-9c4a-73a7db11f4c3</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocument#67c1fc69-6c78-4b42-a090-4b1c06e719ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/SimpleOdataDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdataDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f74be9d3-c119-4e55-9c4a-73a7db11f4c3</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs</ApplicationRelativeFilePath>
@@ -1432,6 +1712,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Repositories/ProductCosmosDBRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProductCosmosDBRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2af958ea-bd83-48d7-b454-cec064683968</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepository#67c1fc69-6c78-4b42-a090-4b1c06e719ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Repositories/SimpleOdataCosmosDBRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdataCosmosDBRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1571,6 +1859,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#fce94966-2afc-4bfa-b7cb-8abb7f54905c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/SimpleOdata/ISimpleOdataService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/ISimpleOdataService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#fce94966-2afc-4bfa-b7cb-8abb7f54905c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/SimpleOdata/SimpleOdataHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/SimpleOdataHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.IntegrationTestWebAppFactory</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1636,6 +1940,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#59027c95-28c7-4012-bf97-5b301e23d8fc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/Customers/FindCustomerByNameOrSurnameQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Customers/FindCustomerByNameOrSurnameQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#068f65de-3c4a-47b5-9adc-76946b204372</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/Customers/FindCustomerByNameQuery.cs</ApplicationRelativeFilePath>
@@ -1648,6 +1960,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/Customers/GetCustomerByIdQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/Customers/GetCustomerByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#c0652db6-5aab-463c-9f1e-29453ffbbd82</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/Customers/GetCustomersLinqQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Customers/GetCustomersLinqQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#c9e6d676-0a31-4177-9d15-97c992c4dce5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/Customers/GetCustomersPagedQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Customers/GetCustomersPagedQuery.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1852,6 +2180,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#8d627b45-e2f5-4703-ab62-f8dc71e40f32</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/SimpleOdata/CreateSimpleOdataCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/SimpleOdata/CreateSimpleOdataCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#4f890465-409a-4cdd-971b-bb6b51f89ff2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/SimpleOdata/DeleteSimpleOdataCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/SimpleOdata/DeleteSimpleOdataCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#fc2af2ae-768c-4fb9-81eb-0840be91ee8c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/SimpleOdata/GetSimpleOdataByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/SimpleOdata/GetSimpleOdataByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#615a7f36-1051-4dfe-9cf1-86d6123530b5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/SimpleOdata/GetSimpleOdataQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/SimpleOdata/GetSimpleOdataQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#ef67db8d-096d-4947-a2a0-4c5887ec67de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/SimpleOdata/SimpleOdataDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/SimpleOdata/SimpleOdataDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#9738b09f-c69a-4c3d-b0cb-0d6a71dd4fac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/SimpleOdata/UpdateSimpleOdataCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/SimpleOdata/UpdateSimpleOdataCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.SharedContainerFixture</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/SharedContainerFixture.cs</ApplicationRelativeFilePath>
@@ -1892,6 +2268,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#59027c95-28c7-4012-bf97-5b301e23d8fc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/Customers/FindCustomerByNameOrSurnameTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/FindCustomerByNameOrSurnameTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#068f65de-3c4a-47b5-9adc-76946b204372</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/Customers/FindCustomerByNameTests.cs</ApplicationRelativeFilePath>
@@ -1904,6 +2288,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/Customers/GetCustomerByIdTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/GetCustomerByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#c0652db6-5aab-463c-9f1e-29453ffbbd82</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/Customers/GetCustomersLinqTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersLinqTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#c9e6d676-0a31-4177-9d15-97c992c4dce5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/Customers/GetCustomersPagedTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersPagedTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2040,6 +2440,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/Products/UpdateProductTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Products/UpdateProductTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#8d627b45-e2f5-4703-ab62-f8dc71e40f32</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/SimpleOdata/CreateSimpleOdataTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/CreateSimpleOdataTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#4f890465-409a-4cdd-971b-bb6b51f89ff2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/SimpleOdata/DeleteSimpleOdataTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/DeleteSimpleOdataTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#fc2af2ae-768c-4fb9-81eb-0840be91ee8c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/SimpleOdata/GetSimpleOdataByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/GetSimpleOdataByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#615a7f36-1051-4dfe-9cf1-86d6123530b5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/SimpleOdata/GetSimpleOdataTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/GetSimpleOdataTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#9738b09f-c69a-4c3d-b0cb-0d6a71dd4fac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/SimpleOdata/UpdateSimpleOdataTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleOdata/UpdateSimpleOdataTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

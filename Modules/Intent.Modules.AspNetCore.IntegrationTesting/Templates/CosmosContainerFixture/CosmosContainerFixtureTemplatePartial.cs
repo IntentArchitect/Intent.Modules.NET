@@ -63,7 +63,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.CosmosContainer
                 services.Remove(descriptor);
             }}
 
-            services.AddSingleton<IOptions<RepositoryOptions>>(new OptionsMock(new RepositoryOptions() {{ CosmosConnectionString = $""AccountEndpoint={{updatedEndpoint}};AccountKey={{_accountKey}}"", DatabaseId = ""{databaseId}"", ContainerId = ""{containerId}"" }}));
+            services.AddSingleton<IOptions<RepositoryOptions>>(new OptionsMock(new RepositoryOptions() {{ CosmosConnectionString = $""AccountEndpoint={{updatedEndpoint}};AccountKey={{_accountKey}}"", DatabaseId = ""{databaseId}"", ContainerId = ""{containerId}"", ContainerPerItemType = true }}));
 
             var cosmosClientBuilder = new CosmosClientBuilder(updatedEndpoint, _accountKey);
             cosmosClientBuilder.WithHttpClientFactory(() =>

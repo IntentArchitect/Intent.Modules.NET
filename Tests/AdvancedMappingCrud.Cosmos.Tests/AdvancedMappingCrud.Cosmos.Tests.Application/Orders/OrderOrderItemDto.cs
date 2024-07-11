@@ -1,5 +1,6 @@
 using AdvancedMappingCrud.Cosmos.Tests.Application.Common.Mappings;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Entities;
+using AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories.Documents;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 
@@ -38,6 +39,8 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders
         public void Mapping(Profile profile)
         {
             profile.CreateMap<OrderItem, OrderOrderItemDto>();
+
+            profile.CreateMap<IOrderItemDocument, OrderOrderItemDto>();
         }
     }
 }

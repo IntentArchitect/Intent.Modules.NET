@@ -2,9 +2,11 @@ using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Customers;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Orders;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Products;
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.SimpleOdata;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.Customers;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.Orders;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.Products;
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.SimpleOdata;
 using AutoFixture;
 using Intent.RoslynWeaver.Attributes;
 
@@ -88,6 +90,16 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests
             var productId = await client.CreateProductAsync(command);
             _idTracker["ProductId"] = productId;
             return productId;
+        }
+
+        public async Task<string> CreateSimpleOdata()
+        {
+            var client = new SimpleOdataHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateSimpleOdataCommand>();
+            var simpleOdataId = await client.CreateSimpleOdataAsync(command);
+            _idTracker["SimpleOdataId"] = simpleOdataId;
+            return simpleOdataId;
         }
     }
 }
