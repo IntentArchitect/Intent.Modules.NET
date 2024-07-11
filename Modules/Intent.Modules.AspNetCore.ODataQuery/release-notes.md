@@ -1,4 +1,4 @@
-﻿### Version 1.0.3
+﻿### Version 1.0.4
 
 - Improvement: Added support for CosmosDb as the persistence store.
 
