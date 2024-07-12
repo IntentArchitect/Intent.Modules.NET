@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#59027c95-28c7-4012-bf97-5b301e23d8fc</correlationId>
+      <path>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/FindCustomerByNameOrSurname/FindCustomerByNameOrSurnameQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-07-12T06:48:14.2085796Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-07-12T06:48:32.4177582Z</approvedAt>
+      <notes><![CDATA[CRUD module needs to understand Persistence Models for this to work, probably need a PersistenceModel Role]]></notes>
+      <deviationsHash>7109C9564B9C765AC88DDFD85C9B089A6C043F5F22944F61906AC68DE443AA20</deviationsHash>
+      <fileHash>89E1F39CF282BB8E2DEC28B9D0777FEE10A41466C3CF8E36CCB14AB648F2592A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#c0652db6-5aab-463c-9f1e-29453ffbbd82</correlationId>
+      <path>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/GetCustomersLinq/GetCustomersLinqQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-07-12T06:48:14.2085916Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-07-12T06:48:33.9662352Z</approvedAt>
+      <deviationsHash>B08CC297F4A3C64C5E19D8A8958A7E6CDC56E1FC4D4BAA26281FF061A3C3CAAC</deviationsHash>
+      <fileHash>0AAF6B24D999F835AE30F5CF1D04519467257E7B2643D22717D127F1906FF796</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#c9e6d676-0a31-4177-9d15-97c992c4dce5</correlationId>
+      <path>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/GetCustomersPaged/GetCustomersPagedQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-07-12T06:48:14.2086007Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-07-12T06:48:35.7085144Z</approvedAt>
+      <deviationsHash>3C156904585BD0F27172493F86BB1C60197CD7165755ED125DEA98907E163ADF</deviationsHash>
+      <fileHash>AE964D7B026892949584F5515FB2B2A0D46E81AAA7B3E00F12CDB8FBBFB6123D</fileHash>
+    </file>
+  </files>
+</deviationsLog>

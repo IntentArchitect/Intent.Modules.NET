@@ -31,7 +31,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomersPag
             GetCustomersPagedQuery request,
             CancellationToken cancellationToken)
         {
-            //IntentIgnore
+            // IntentIgnore
             var customers = await _customerRepository.FindAllAsync(request.PageNo, request.PageSize, query => query.OrderBy(c => c.Name), cancellationToken);
             return customers.MapToPagedResult(x => x.MapToCustomerDto(_mapper));
         }

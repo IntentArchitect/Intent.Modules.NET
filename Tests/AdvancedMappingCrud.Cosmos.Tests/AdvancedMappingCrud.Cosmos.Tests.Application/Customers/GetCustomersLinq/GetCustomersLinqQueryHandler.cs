@@ -29,7 +29,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomersLin
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CustomerDto>> Handle(GetCustomersLinqQuery request, CancellationToken cancellationToken)
         {
-            //IntentIgnore
+            // IntentIgnore
             var customers = await _customerRepository.FindAllAsync(queryOptions => queryOptions.OrderBy(c => c.Name), cancellationToken);
             return customers.MapToCustomerDtoList(_mapper);
         }

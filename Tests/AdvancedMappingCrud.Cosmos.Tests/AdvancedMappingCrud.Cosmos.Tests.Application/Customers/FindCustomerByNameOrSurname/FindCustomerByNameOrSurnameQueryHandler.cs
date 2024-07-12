@@ -33,7 +33,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Customers.FindCustomerByN
             FindCustomerByNameOrSurnameQuery request,
             CancellationToken cancellationToken)
         {
-            //IntentIgnore
+            // IntentIgnore
             IQueryable<ICustomerDocument> FilterCustomers(IQueryable<ICustomerDocument> queryable)
             {
                 if (request.Name != null)
