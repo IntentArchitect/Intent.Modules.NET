@@ -17,6 +17,8 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
 
+#nullable enable
+
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
@@ -202,9 +204,53 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                         expression: "hcBuilder.AddRedis",
                         connectionStringNameVar: Infrastructure.Redis.Property.ConnectionStringName,
                         connectionStringSettingPathVar: Infrastructure.Redis.Property.ConnectionStringSettingPath);
+                case Infrastructure.Kafka.Name:
+                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksKafka(OutputTarget));
+                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUris(OutputTarget));
+                    return GetKafkaHealthCheckStatements(@event: @event);
                 default:
                     return Enumerable.Empty<CSharpInvocationStatement>();
             }
+        }
+
+        private IEnumerable<CSharpStatement> GetKafkaHealthCheckStatements(
+            InfrastructureRegisteredEvent @event)
+        {
+            var uriStatements = GetUriGroupStatements(@event, Infrastructure.Kafka.Property.KafkaSchemaRegistryUrl);
+            if (uriStatements is not null)
+            {
+                yield return uriStatements;
+            }
+
+            var bootstrapServiceExpression = GetConfigurationRetrievalExpression(@event, Infrastructure.Kafka.Property.KafkaSettingsPath);
+            if (!string.IsNullOrWhiteSpace(bootstrapServiceExpression))
+            {
+                var configStmt = new CSharpInvocationStatement("hcBuilder.AddKafka");
+
+                configStmt.AddArgument(new CSharpObjectInitializerBlock("new " + this.UseType("Confluent.Kafka.ProducerConfig"))
+                    .AddInitStatement("BootstrapServers", bootstrapServiceExpression));
+                configStmt.AddArgument($@"name: ""{GetName(@event, [Infrastructure.Kafka.Property.KafkaSettingsName])}""");
+                configStmt.AddArgument($@"tags: new[] {{ ""integration"", ""{@event.InfrastructureComponent}"" }}");
+
+                yield return configStmt;
+            }
+        }
+
+        private CSharpStatement? GetUriGroupStatements(InfrastructureRegisteredEvent @event, string urlSettingName)
+        {
+            if (!@event.Properties.TryGetValue(urlSettingName, out var urlSettingPath))
+            {
+                return null;
+            }
+
+            return new CSharpInvocationStatement("hcBuilder.AddUrlGroup")
+                .AddArgument(new CSharpLambdaBlock("options")
+                    .WithExpressionBody(new CSharpMethodChainStatement("options")
+                        .WithoutSemicolon()
+                        .AddStatement(new CSharpInvocationStatement("AddUri").AddArgument($@"configuration.GetValue<{UseType("System.Uri")}>(""{urlSettingPath}"")!")
+                            .WithoutSemicolon())
+                        .AddStatement($"UseHttpMethod({UseType("System.Net.Http.HttpMethod")}.Get)")))
+                .AddArgument($@"name: ""SchemaRegistryConfig""");
         }
 
         private IEnumerable<CSharpInvocationStatement> GetCosmosDbStatements(
@@ -223,7 +269,7 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
             }
 
             var addSingletonStatement = new CSharpInvocationStatement("hcBuilder.Services.AddSingleton");
-            addSingletonStatement.AddArgument($"_ => new {UseType("Microsoft.Azure.Cosmos.CosmosClient")}({GetConnectionStringArgument(@event, connectionStringNameVar, connectionStringSettingPathVar)})");
+            addSingletonStatement.AddArgument($"_ => new {UseType("Microsoft.Azure.Cosmos.CosmosClient")}({GetConnectionStringRetrievalExpression(@event, connectionStringNameVar, connectionStringSettingPathVar)})");
 
             var addCosmosStatement = new CSharpInvocationStatement("hcBuilder.AddAzureCosmosDB");
             var argName = dotnetMajorVer < 8
@@ -247,34 +293,43 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
             string connectionStringSettingPathVar)
         {
             var configStmt = new CSharpInvocationStatement(expression);
-            var arg = GetConnectionStringArgument(@event, connectionStringNameVar, connectionStringSettingPathVar);
+            var arg = GetConnectionStringRetrievalExpression(@event, connectionStringNameVar, connectionStringSettingPathVar);
 
             configStmt.AddArgument(arg);
-            configStmt.AddArgument($@"name: ""{GetName(@event, connectionStringNameVar, connectionStringSettingPathVar)}""");
+            configStmt.AddArgument($@"name: ""{GetName(@event, [connectionStringNameVar, connectionStringSettingPathVar])}""");
             configStmt.AddArgument($@"tags: new[] {{ ""database"", ""{@event.InfrastructureComponent}"" }}");
 
             yield return configStmt;
         }
 
-        private static string GetName(
+        private static string? GetName(
             InfrastructureRegisteredEvent @event,
-            string connectionStringNameVar,
-            string connectionStringSettingPathVar)
+            string[] propertyNamesToCheck)
         {
-            if (@event.Properties.TryGetValue(connectionStringNameVar, out var connectionStringName))
+            foreach (var propName in propertyNamesToCheck)
             {
-                return connectionStringName;
-            }
-
-            if (@event.Properties.TryGetValue(connectionStringSettingPathVar, out var connectionStringSettingPath))
-            {
-                return connectionStringSettingPath;
+                if (@event.Properties.TryGetValue(propName, out var propValue))
+                {
+                    return propValue;
+                }    
             }
 
             return null;
         }
         
-        private static string GetConnectionStringArgument(
+        private static string? GetConfigurationRetrievalExpression(
+            InfrastructureRegisteredEvent @event,
+            string path)
+        {
+            if (@event.Properties.TryGetValue(path, out var settingPath))
+            {
+                return $@"configuration[""{settingPath}""]!";
+            }
+
+            return null;
+        }
+        
+        private static string GetConnectionStringRetrievalExpression(
             InfrastructureRegisteredEvent @event,
             string connectionStringNameVar,
             string connectionStringSettingPathVar)

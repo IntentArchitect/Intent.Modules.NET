@@ -1,3 +1,6 @@
+using System;
+using System.Net.Http;
+using Confluent.Kafka;
 using HealthChecks.UI.Client;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
@@ -18,6 +21,17 @@ namespace Kafka.Consumer.Api.Configuration
             IConfiguration configuration)
         {
             var hcBuilder = services.AddHealthChecks();
+            hcBuilder.AddKafka(new ProducerConfig
+            {
+                BootstrapServers = configuration["Kafka:DefaultProducerConfig:BootstrapServers"]!
+            }, name: "DefaultProducerConfig", tags: new[] { "integration", "Kafka" });
+            hcBuilder.AddKafka(new ProducerConfig
+            {
+                BootstrapServers = configuration["Kafka:DefaultConsumerConfig:BootstrapServers"]!
+            }, name: "DefaultConsumerConfig", tags: new[] { "integration", "Kafka" });
+            hcBuilder.AddUrlGroup(options => options
+                .AddUri(configuration.GetValue<Uri>("Kafka:SchemaRegistryConfig:Url")!)
+                .UseHttpMethod(HttpMethod.Get), name: "SchemaRegistryConfig");
 
             return services;
         }

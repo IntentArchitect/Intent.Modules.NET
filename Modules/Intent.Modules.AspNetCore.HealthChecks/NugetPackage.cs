@@ -114,4 +114,24 @@ public static class NugetPackage
             (7, 0) => "7.0.0",
             _ => "8.0.0"
         });
+    
+    public static INugetPackageInfo AspNetCoreHealthChecksKafka(IOutputTarget outputTarget) => new NugetPackageInfo(
+        name: "AspNetCore.HealthChecks.Kafka",
+        version: outputTarget.GetMaxNetAppVersion() switch
+        {
+            (5, 0) => "5.0.1",
+            (6, 0) => "6.0.3",
+            (7, 0) => "7.0.0",
+            _ => "8.0.1"
+        });
+    
+    public static INugetPackageInfo AspNetCoreHealthChecksUris(IOutputTarget outputTarget) => new NugetPackageInfo(
+        name: "AspNetCore.HealthChecks.Uris",
+        version: outputTarget.GetMaxNetAppVersion() switch
+        {
+            (5, 0) => "5.0.1",
+            (6, 0) => "6.0.3",
+            (7, 0) => "7.0.0",
+            _ => "8.0.1"
+        });
 }

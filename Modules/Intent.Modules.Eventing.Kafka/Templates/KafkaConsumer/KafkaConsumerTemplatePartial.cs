@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaEventDispatcher;
 using Intent.Modules.Eventing.Kafka.Templates.KafkaEventDispatcherInterface;
@@ -138,8 +139,13 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConsumer
                 {
                     GroupId = ExecutionContext.GetSolutionConfig().SolutionName,
                     AutoOffsetReset = "Earliest",
-                    BootstrapServers = "localhost:61294"
+                    BootstrapServers = "localhost:9092"
                 }));
+            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.Kafka.Name, new Dictionary<string, string>
+            {
+                { Infrastructure.Kafka.Property.KafkaSettingsName, "DefaultConsumerConfig" },
+                { Infrastructure.Kafka.Property.KafkaSettingsPath, "Kafka:DefaultConsumerConfig:BootstrapServers" }
+            }));
 
             base.AfterTemplateRegistration();
         }
