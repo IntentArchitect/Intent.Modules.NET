@@ -7,7 +7,9 @@ using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.TypeResolution;
+using static Intent.Modelers.UI.Core.Api.TableModelStereotypeExtensions;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
@@ -107,6 +109,28 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
                 });
             });
             //}
+
+            var pageRequestBinding = _bindingManager.GetBinding(model, "53a618ca-e5aa-49ca-a993-8cd935683748");
+
+            if (pageRequestBinding != null)
+            {
+                _componentTemplate.RazorFile.AfterBuild(file =>
+                {
+                    var codeBlock = _componentTemplate.GetCodeBlock();
+                    var returnType = $"GridData<{_componentTemplate.GetTypeName(mappedSourceType.AsTypeReference())}>";
+                    codeBlock.AddMethod(returnType, $"Load{model.Name.ToCSharpIdentifier()}Data", method =>
+                    {
+                        method.Private().Async();
+                        method.AddParameter($"GridState<{_componentTemplate.GetTypeName(mappedSourceType.AsTypeReference())}>", "state");
+                        method.AddStatement("var pageNo = state.Page + 1;");
+                        method.AddStatement("var pageSize = state.PageSize;");
+                        method.AddStatement("var sorting = string.Join(\", \", state.SortDefinitions.Select(x => $\"{x.SortBy} {(x.Descending ? \"desc\" : \"asc\")}\"));");
+                        method.AddStatement(new CSharpAwaitExpression(pageRequestBinding.WithSemicolon()));
+                        method.AddStatement($"return new {returnType}() {{ TotalItems = {_bindingManager.GetBinding(model, "a5e50b44-c402-4006-bcea-a25ab7dc0c56")}, Items = {_bindingManager.GetElementBinding(model)} }};");
+                    });
+
+                });
+            }
         };
 
         parentNode.AddChildNode(mudDataGrid);
