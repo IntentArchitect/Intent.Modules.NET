@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR</id>
-  <version>4.2.5</version>
+  <version>4.2.6-pre.0</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the MediatR middleware</summary>
   <description>Provides the MediatR middleware</description>
@@ -61,13 +61,14 @@
     </template>
   </templates>
   <dependencies>
-    <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.4.0" />
-    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common.CSharp" version="3.5.2" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Metadata.WebApi" version="4.5.5-pre.0" />
     <dependency id="Intent.Modelers.Domain" version="3.4.4" />
-    <dependency id="Intent.Modelers.Services" version="3.5.1" />
+    <dependency id="Intent.Modelers.Services" version="3.7.3" />
     <dependency id="Intent.Modelers.Services.CQRS" version="4.1.1" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <interoperability>
     <detect id="Intent.AzureFunctions">
@@ -135,6 +136,7 @@
   </files>
   <metadata>
     <install target="Module Builder;Services" src="Intent.Metadata/Module Builder/Intent.Application.MediatR/Intent.Application.MediatR.pkg.config" externalReference="e92495db-1b26-4389-bf06-cc1b375520b1" />
+    <install src="modelers/MediatR Security Extensions.designer.settings" externalReference="b00f3e82-539d-4fff-8895-6ef14ac1e659" target="Services" />
   </metadata>
   <moduleSettings>
     <group id="2392c046-0aa7-4ee5-a77a-e954c4a7aab5" title="CQRS Settings" externalReference="2392c046-0aa7-4ee5-a77a-e954c4a7aab5">

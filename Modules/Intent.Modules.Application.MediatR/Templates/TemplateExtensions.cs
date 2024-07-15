@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.CommandInterface;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
@@ -15,12 +16,12 @@ namespace Intent.Modules.Application.MediatR.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetCommandHandlerName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Services.CQRS.Api.CommandModel
+        public static string GetCommandHandlerName<T>(this IIntentTemplate<T> template) where T : CommandModel
         {
             return template.GetTypeName(CommandHandlerTemplate.TemplateId, template.Model);
         }
 
-        public static string GetCommandHandlerName(this IIntentTemplate template, Intent.Modelers.Services.CQRS.Api.CommandModel model)
+        public static string GetCommandHandlerName(this IIntentTemplate template, CommandModel model)
         {
             return template.GetTypeName(CommandHandlerTemplate.TemplateId, model);
         }
@@ -30,22 +31,22 @@ namespace Intent.Modules.Application.MediatR.Templates
             return template.GetTypeName(CommandInterfaceTemplate.TemplateId);
         }
 
-        public static string GetCommandModelsName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Services.CQRS.Api.CommandModel
+        public static string GetCommandModelsName<T>(this IIntentTemplate<T> template) where T : CommandModel
         {
             return template.GetTypeName(CommandModelsTemplate.TemplateId, template.Model);
         }
 
-        public static string GetCommandModelsName(this IIntentTemplate template, Intent.Modelers.Services.CQRS.Api.CommandModel model)
+        public static string GetCommandModelsName(this IIntentTemplate template, CommandModel model)
         {
             return template.GetTypeName(CommandModelsTemplate.TemplateId, model);
         }
 
-        public static string GetQueryHandlerName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Services.CQRS.Api.QueryModel
+        public static string GetQueryHandlerName<T>(this IIntentTemplate<T> template) where T : QueryModel
         {
             return template.GetTypeName(QueryHandlerTemplate.TemplateId, template.Model);
         }
 
-        public static string GetQueryHandlerName(this IIntentTemplate template, Intent.Modelers.Services.CQRS.Api.QueryModel model)
+        public static string GetQueryHandlerName(this IIntentTemplate template, QueryModel model)
         {
             return template.GetTypeName(QueryHandlerTemplate.TemplateId, model);
         }
@@ -55,12 +56,12 @@ namespace Intent.Modules.Application.MediatR.Templates
             return template.GetTypeName(QueryInterfaceTemplate.TemplateId);
         }
 
-        public static string GetQueryModelsName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Services.CQRS.Api.QueryModel
+        public static string GetQueryModelsName<T>(this IIntentTemplate<T> template) where T : QueryModel
         {
             return template.GetTypeName(QueryModelsTemplate.TemplateId, template.Model);
         }
 
-        public static string GetQueryModelsName(this IIntentTemplate template, Intent.Modelers.Services.CQRS.Api.QueryModel model)
+        public static string GetQueryModelsName(this IIntentTemplate template, QueryModel model)
         {
             return template.GetTypeName(QueryModelsTemplate.TemplateId, model);
         }

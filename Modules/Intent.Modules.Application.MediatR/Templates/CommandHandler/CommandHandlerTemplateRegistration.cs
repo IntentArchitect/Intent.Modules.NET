@@ -27,6 +27,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
 
         public override string TemplateId => CommandHandlerTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, CommandModel model)
         {
             return new CommandHandlerTemplate(outputTarget, model);

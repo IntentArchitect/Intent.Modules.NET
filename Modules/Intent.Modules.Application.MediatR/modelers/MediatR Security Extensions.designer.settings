@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>b00f3e82-539d-4fff-8895-6ef14ac1e659</id>
+  <name>MediatR Security Extensions</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-changed">
+          <script>let authorizeStereoTypeId = "b06358cd-aed3-4c39-96cf-abb131e4ecde";
+if (hasNewSecurityElements()){
+    let auth = element.getStereotype(authorizeStereoTypeId);
+    if (auth != null){
+        auth.getProperty("Roles").setValue(getElementsAsText(auth, "Security Roles"));
+        auth.getProperty("Policy").setValue(getElementsAsText(auth, "Security Policies"));
+    }
+}
+
+function hasNewSecurityElements(){
+    return lookupTypesOf("Security Configuration")[0]?.getChildren()?.length &gt; 0;
+}
+
+function getElementsAsText(auth, propertyName){
+    let values = auth.getProperty(propertyName).getValue();
+     // Parse the string to get the array of GUIDs
+    const guids = JSON.parse(values);
+    
+    if (!guids?.map){
+        return "";
+    }
+    // Look up the objects and extract the values
+    const lookupValues = guids.map(guid =&gt; {
+        const obj = lookup(guid);
+        return obj ? obj.getName() : null;
+    }).filter(value =&gt; value !== null); // Filter out any null values
+    
+    // Join the lookup values into a single string
+    return lookupValues.join(',');  
+}</script>
+        </macro>
+      </macros>
+    </elementExtension>
+    <elementExtension type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-changed">
+          <script>let authorizeStereoTypeId = "b06358cd-aed3-4c39-96cf-abb131e4ecde";
+if (hasNewSecurityElements()){
+    let auth = element.getStereotype(authorizeStereoTypeId);
+    if (auth != null){
+        auth.getProperty("Roles").setValue(getElementsAsText(auth, "Security Roles"));
+        auth.getProperty("Policy").setValue(getElementsAsText(auth, "Security Policies"));
+    }
+}
+
+function hasNewSecurityElements(){
+    return lookupTypesOf("Security Configuration")[0]?.getChildren()?.length &gt; 0;
+}
+
+function getElementsAsText(auth, propertyName){
+    let values = auth.getProperty(propertyName).getValue();
+     // Parse the string to get the array of GUIDs
+    const guids = JSON.parse(values);
+    
+    if (!guids?.map){
+        return "";
+    }
+    // Look up the objects and extract the values
+    const lookupValues = guids.map(guid =&gt; {
+        const obj = lookup(guid);
+        return obj ? obj.getName() : null;
+    }).filter(value =&gt; value !== null); // Filter out any null values
+    
+    // Join the lookup values into a single string
+    return lookupValues.join(',');  
+}</script>
+        </macro>
+      </macros>
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+</settings>

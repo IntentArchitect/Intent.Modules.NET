@@ -29,6 +29,7 @@
       <placeholder />
       <valueOptions />
       <lookupTypes />
+      <isActiveFunction>return Roles !== null &amp;&amp; Roles !== undefined &amp;&amp; Roles.trim() !== '' &amp;&amp; lookupTypesOf("Security Configuration")[0]?.getChildren()?.length == 0;</isActiveFunction>
     </property>
     <property id="ced1460d-1bd9-4ec2-92b3-51bdbf173315">
       <name>Policy</name>
@@ -38,6 +39,32 @@
       <placeholder />
       <valueOptions />
       <lookupTypes />
+      <isActiveFunction>return Policy !== null &amp;&amp; Policy !== undefined &amp;&amp; Policy.trim() !== '' &amp;&amp; lookupTypesOf("Security Configuration")[0]?.getChildren()?.length == 0;</isActiveFunction>
+    </property>
+    <property id="9c5cd2b9-52d8-47a0-96a5-f0026c3b9e48">
+      <name>Security Roles</name>
+      <type>string</type>
+      <controlType>multi-select</controlType>
+      <optionsSource>lookup-element</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes>
+        <type>d6ce4e4c-fdd1-4fa1-82d8-f3405e114ec5</type>
+      </lookupTypes>
+      <isActiveFunction>return lookupTypesOf("Security Configuration")[0]?.getChildren()?.length &gt; 0;</isActiveFunction>
+      <isRequiredFunction />
+    </property>
+    <property id="2d95351e-d2e5-46da-8361-6c29bc690f98">
+      <name>Security Policies</name>
+      <type>string</type>
+      <controlType>multi-select</controlType>
+      <optionsSource>lookup-element</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes>
+        <type>9f37c60e-ad88-4484-98ca-6c9aa7ca3134</type>
+      </lookupTypes>
+      <isActiveFunction>return lookupTypesOf("Security Configuration")[0]?.getChildren()?.length &gt; 0;</isActiveFunction>
     </property>
   </properties>
 </stereotypeDefinition>

@@ -38,9 +38,14 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ServiceProxyModel> GetModels(IApplication application)
         {
-            return _metadataManager.ServiceProxies(application).GetServiceProxyModels()
+            var result = _metadataManager.ServiceProxies(application).GetServiceProxyModels()
                 .Union(_metadataManager.Services(application).GetServiceProxyModels())
                 .Where(p => p.HasMappedEndpoints());
+            foreach (var x in result)
+            {
+                var settings = application.GetApplicationConfig(x.InternalElement.MappedElement.ApplicationId);
+            }
+            return result;
         }
     }
 }
