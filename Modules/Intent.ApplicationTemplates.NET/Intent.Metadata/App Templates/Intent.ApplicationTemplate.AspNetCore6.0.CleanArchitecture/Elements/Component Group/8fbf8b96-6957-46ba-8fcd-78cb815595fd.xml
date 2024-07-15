@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="8fbf8b96-6957-46ba-8fcd-78cb815595fd" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
   <name>Logging</name>
-  <display>Logging</display>
+  <display>Logging (1)</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <order>10</order>
@@ -24,7 +24,7 @@
   <childElements>
     <childElement id="da1bf0b2-be7c-4650-b940-abf593b75528" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Serilog</name>
-      <display>Serilog</display>
+      <display>Serilog (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
