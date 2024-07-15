@@ -9,11 +9,13 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -37,6 +39,15 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
 
             if (ExecutionContext.Settings.GetHealthChecks().HealthChecksUI())
             {
+                if (OutputTarget.GetProject().GetMaxNetAppVersion().Major >= 8)
+                {
+                    Logging.Log.Warning("""
+                                        Please be aware of the following issues when using Health Checks UI on .NET 8 or later.
+                                        - [Icons missing after upgrading to v8.0.0](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks/issues/2130).
+                                        - [[UI] Relative Address for HealthCheckEndpoint with Kestrel at http://0.0.0.0:0](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks/issues/410).
+                                        """);
+                }
+
                 AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUI(outputTarget));
                 AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUIInMemoryStorage(outputTarget));
             }

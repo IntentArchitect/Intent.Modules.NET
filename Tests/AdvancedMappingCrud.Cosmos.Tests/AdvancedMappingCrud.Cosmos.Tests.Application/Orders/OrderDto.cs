@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Common.Mappings;
 using AdvancedMappingCrud.Cosmos.Tests.Domain;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Entities;
+using AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories.Documents;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 
@@ -54,6 +55,10 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Orders
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Order, OrderDto>()
+                .ForMember(d => d.OrderItems, opt => opt.MapFrom(src => src.OrderItems))
+                .ForMember(d => d.OrderTags, opt => opt.MapFrom(src => src.OrderTags));
+
+            profile.CreateMap<IOrderDocument, OrderDto>()
                 .ForMember(d => d.OrderItems, opt => opt.MapFrom(src => src.OrderItems))
                 .ForMember(d => d.OrderTags, opt => opt.MapFrom(src => src.OrderTags));
         }

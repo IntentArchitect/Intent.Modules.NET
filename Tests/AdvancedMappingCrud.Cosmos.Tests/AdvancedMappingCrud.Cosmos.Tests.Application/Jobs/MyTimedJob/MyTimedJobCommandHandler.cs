@@ -20,7 +20,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Jobs.MyTimedJob
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task Handle(MyTimedJobCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Your implementation here...");
+            // NO-OP
         }
     }
 }

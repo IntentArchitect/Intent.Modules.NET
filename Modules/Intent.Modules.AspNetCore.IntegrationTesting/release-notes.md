@@ -2,6 +2,7 @@
 
 - New Feature: Added container fixture support for MongoDb.
 - Improvement: DbContext registrations for Integration tests, retain all application configuration options.
+- Improvement: Upgraded `Testcontainers.*` packages to 3.9.0.
 - Fixed: Integration Service proxies now respect the `ApiSetting` `Serialze Enums as Strings`.
 
 ### Version 1.0.4

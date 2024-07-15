@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,5 +21,10 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Domain.Repositories
         Task<IPagedList<TDomain>> FindAllAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default);
         Task<IPagedList<TDomain>> FindAllAsync(Expression<Func<TDocumentInterface, bool>> filterExpression, int pageNo, int pageSize, CancellationToken cancellationToken = default);
         Task<List<TDomain>> FindByIdsAsync(IEnumerable<string> ids, CancellationToken cancellationToken = default);
+        Task<TDomain?> FindAsync(Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>> queryOptions, CancellationToken cancellationToken = default);
+        Task<List<TDomain>> FindAllAsync(Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>> queryOptions, CancellationToken cancellationToken = default);
+        Task<IPagedList<TDomain>> FindAllAsync(int pageNo, int pageSize, Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>> queryOptions, CancellationToken cancellationToken = default);
+        Task<int> CountAsync(Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>? queryOptions = default, CancellationToken cancellationToken = default);
+        Task<bool> AnyAsync(Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>? queryOptions = default, CancellationToken cancellationToken = default);
     }
 }

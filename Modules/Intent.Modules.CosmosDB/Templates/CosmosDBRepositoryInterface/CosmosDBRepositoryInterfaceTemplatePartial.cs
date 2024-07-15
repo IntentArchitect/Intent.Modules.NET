@@ -31,6 +31,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Linq")
                 .AddUsing("System.Linq.Expressions")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
@@ -41,7 +42,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
 
                     @interface
                         .AddGenericParameter("TDomain", out var tDomain)
-                        .AddGenericParameter("TDocumentInterface", out var toDocumentInterface);
+                        .AddGenericParameter("TDocumentInterface", out var tDocumentInterface);
 
                     @interface
                         .ImplementsInterfaces($"{this.GetRepositoryInterfaceName()}<{tDomain}>")
@@ -49,7 +50,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                             .WithoutSetter()
                         )
                         .AddMethod($"Task<{tDomain}?>", "FindAsync", method => method
-                            .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
@@ -57,7 +58,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                                 parameter => parameter.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
-                            .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
                             .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
@@ -67,7 +68,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                                 parameter => parameter.WithDefaultValue("default"))
                         )
                         .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
-                            .AddParameter($"Expression<Func<{toDocumentInterface}, bool>>", "filterExpression")
+                            .AddParameter($"Expression<Func<{tDocumentInterface}, bool>>", "filterExpression")
                             .AddParameter($"int", "pageNo")
                             .AddParameter($"int", "pageSize")
                             .AddParameter("CancellationToken", "cancellationToken",
@@ -77,7 +78,30 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
                             .AddParameter($"IEnumerable<string>", "ids")
                             .AddParameter("CancellationToken", "cancellationToken",
                                 parameter => parameter.WithDefaultValue("default"))
-                        );
+                        )
+                        .AddMethod($"Task<{tDomain}?>", "FindAsync", method => method
+                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+                        .AddMethod($"Task<{pagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+                        .AddMethod("Task<int>", "CountAsync", method => method
+                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>?", "queryOptions", param => param.WithDefaultValue("default"))
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+                        .AddMethod("Task<bool>", "AnyAsync", method => method
+                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>?", "queryOptions", param => param.WithDefaultValue("default"))
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        )
+                        ;
                 });
         }
 

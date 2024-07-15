@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -9,10 +10,16 @@ using AdvancedMappingCrud.Cosmos.Tests.Domain.Common.Interfaces;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories;
 using AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence;
 using AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.Cosmos;
+using Microsoft.Azure.Cosmos.Linq;
 using Microsoft.Azure.CosmosRepository;
 using Microsoft.Azure.CosmosRepository.Extensions;
+using Microsoft.Azure.CosmosRepository.Options;
+using Microsoft.Azure.CosmosRepository.Providers;
+using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.CosmosDB.CosmosDBRepositoryBase", Version = "1.0")]
@@ -24,17 +31,28 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
         where TDocument : ICosmosDBDocument<TDomain, TDocument>, TDocumentInterface, new()
     {
         private readonly Dictionary<string, string?> _eTags = new Dictionary<string, string?>();
+        private readonly string _documentType;
         private readonly CosmosDBUnitOfWork _unitOfWork;
         private readonly Microsoft.Azure.CosmosRepository.IRepository<TDocument> _cosmosRepository;
         private readonly string _idFieldName;
+        private readonly ICosmosContainerProvider<TDocument> _containerProvider;
+        private readonly IOptionsMonitor<RepositoryOptions> _optionsMonitor;
+        private readonly IMapper _mapper;
 
         protected CosmosDBRepositoryBase(CosmosDBUnitOfWork unitOfWork,
             Microsoft.Azure.CosmosRepository.IRepository<TDocument> cosmosRepository,
-            string idFieldName)
+            string idFieldName,
+            ICosmosContainerProvider<TDocument> containerProvider,
+            IOptionsMonitor<RepositoryOptions> optionsMonitor,
+            IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _cosmosRepository = cosmosRepository;
             _idFieldName = idFieldName;
+            _containerProvider = containerProvider;
+            _optionsMonitor = optionsMonitor;
+            _documentType = typeof(TDocument).GetNameForDocument();
+            _mapper = mapper;
         }
 
         public ICosmosDBUnitOfWork UnitOfWork => _unitOfWork;
@@ -147,8 +165,142 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
         {
             var queryDefinition = new QueryDefinition($"SELECT * from c WHERE ARRAY_CONTAINS(@ids, c.{_idFieldName})")
                 .WithParameter("@ids", ids);
+
+            return await FindAllAsync(queryDefinition);
+        }
+
+        public async Task<TDomain?> FindAsync(
+            Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = await CreateQuery(queryOptions);
+            var documents = await ProcessResults(queryable, cancellationToken);
+
+            if (!documents.Any())
+            {
+                return default;
+            }
+            var entity = LoadAndTrackDocument(documents.First());
+
+            return entity;
+        }
+
+        public async Task<List<TDomain>> FindAllAsync(
+            Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = await CreateQuery(queryOptions);
+            var documents = await ProcessResults(queryable, cancellationToken);
+            var results = LoadAndTrackDocuments(documents).ToList();
+
+            return results;
+        }
+
+        public async Task<IPagedList<TDomain>> FindAllAsync(
+            int pageNo,
+            int pageSize,
+            Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = await CreateQuery(queryOptions, new QueryRequestOptions() { MaxItemCount = pageSize });
+            var countResponse = await queryable.CountAsync(cancellationToken);
+            queryable = queryable
+                    .Skip(pageSize * (pageNo - 1))
+                    .Take(pageSize);
+
+            var documents = await ProcessResults(queryable, cancellationToken);
+            var entities = LoadAndTrackDocuments(documents).ToList();
+
+            var totalCount = countResponse ?? 0;
+            var pageCount = (int)Math.Abs(Math.Ceiling(totalCount / (double)pageSize));
+
+            return new CosmosPagedList<TDomain, TDocument>(entities, totalCount, pageCount, pageNo, pageSize);
+        }
+
+        public async Task<int> CountAsync(
+            Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>? queryOptions = default,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = await CreateQuery(queryOptions);
+
+            return await queryable.CountAsync(cancellationToken);
+        }
+
+        public async Task<bool> AnyAsync(
+            Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>? queryOptions = default,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = await CreateQuery(queryOptions);
+
+            return await queryable.CountAsync(cancellationToken) > 0;
+        }
+
+        protected async Task<List<TDomain>> FindAllAsync(
+            QueryDefinition queryDefinition,
+            CancellationToken cancellationToken = default)
+        {
             var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);
             var results = LoadAndTrackDocuments(documents).ToList();
+
+            return results;
+        }
+
+        protected async Task<TDomain?> FindAsync(
+            QueryDefinition queryDefinition,
+            CancellationToken cancellationToken = default)
+        {
+            var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);
+
+            if (!documents.Any())
+            {
+                return default;
+            }
+            var entity = LoadAndTrackDocument(documents.First());
+
+            return entity;
+        }
+
+        protected async Task<IQueryable<TDocumentInterface>> CreateQuery(
+            Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>? queryOptions = default,
+            QueryRequestOptions? requestOptions = default)
+        {
+            var container = await _containerProvider.GetContainerAsync();
+            var queryable = (IQueryable<TDocumentInterface>)container.GetItemLinqQueryable<TDocumentInterface>(requestOptions: requestOptions, linqSerializerOptions: _optionsMonitor.CurrentValue.SerializationOptions);
+            queryable = queryOptions == null ? queryable : queryOptions(queryable);
+            //Filter by document type
+            queryable = queryable.Where(d => ((IItem)d!).Type == _documentType);
+
+            return queryable;
+        }
+
+        protected async Task<List<TProjection>> ProcessResults<TProjection>(
+            IQueryable<TProjection> query,
+            CancellationToken cancellationToken = default)
+        {
+            var results = new List<TProjection>();
+
+            using var feedIterator = query.ToFeedIterator();
+
+            while (feedIterator.HasMoreResults)
+            {
+                results.AddRange(await feedIterator.ReadNextAsync(cancellationToken));
+            }
+
+            return results;
+        }
+
+        protected async Task<List<TDocument>> ProcessResults(
+            IQueryable<TDocumentInterface> query,
+            CancellationToken cancellationToken = default)
+        {
+            var results = new List<TDocument>();
+
+            using var feedIterator = query.Select(x => (TDocument)x).ToFeedIterator();
+
+            while (feedIterator.HasMoreResults)
+            {
+                results.AddRange(await feedIterator.ReadNextAsync(cancellationToken));
+            }
 
             return results;
         }
@@ -180,6 +332,41 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
             {
                 yield return LoadAndTrackDocument(document);
             }
+        }
+
+        public async Task<IEnumerable> FindAllProjectToWithTransformationAsync<TProjection>(
+            Expression<Func<TDocumentInterface, bool>>? filterExpression,
+            Func<IQueryable<TProjection>, IQueryable> transform,
+            CancellationToken cancellationToken = default)
+        {
+            var linq = await CreateQuery();
+
+            if (filterExpression != null)
+            {
+                linq = linq.Where(filterExpression);
+            }
+            var projected = linq.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            var materialized = await ProcessResults(projected);
+            var results = (IQueryable<object>)transform(materialized.AsQueryable());
+
+            return results.ToList();
+        }
+
+        public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(
+            Expression<Func<TDocumentInterface, bool>>? filterExpression,
+            Func<IQueryable<TProjection>, IQueryable> filterProjection,
+            CancellationToken cancellationToken = default)
+        {
+            var linq = await CreateQuery();
+
+            if (filterExpression != null)
+            {
+                linq = linq.Where(filterExpression);
+            }
+            var projected = linq.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            var filtered = (IQueryable<TProjection>)filterProjection(projected);
+
+            return await ProcessResults(filtered);
         }
 
         private class SubstitutionExpressionVisitor : ExpressionVisitor

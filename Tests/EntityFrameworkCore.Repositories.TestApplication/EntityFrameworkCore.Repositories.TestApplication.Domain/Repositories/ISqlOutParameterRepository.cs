@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -13,5 +14,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories
         Task<string> Sp_out_params_string(CancellationToken cancellationToken = default);
         Task<decimal> Sp_out_params_decimal_default(CancellationToken cancellationToken = default);
         Task<decimal> Sp_out_params_decimal_specific(CancellationToken cancellationToken = default);
+        Task<(string Param1Output, DateTime Param2Output, bool Param3Output)> Sp_out_params_multiple(CancellationToken cancellationToken = default);
     }
 }

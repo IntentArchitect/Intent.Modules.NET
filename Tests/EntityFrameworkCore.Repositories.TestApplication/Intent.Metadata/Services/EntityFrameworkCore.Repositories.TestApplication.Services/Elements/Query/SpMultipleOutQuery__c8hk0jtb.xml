@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fdf020a3-6db4-4a58-9338-22e7e15f0676" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>SpMultipleOutQuery</name>
+  <display>SpMultipleOutQuery: MultipleOutDto</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="e42e13ab-44fa-4abd-81bd-3ddae4b4b7e2">
+    <typeId>b7f15509-8d4f-4deb-92cb-41a696532310</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Services</typePackageName>
+    <typePackageId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>a015bcc4-1fa3-4463-8fc1-21fbdb6c92c8</parentFolderId>
+  <packageId>768b46a1-ca54-4e10-b6c0-8c231a195cdc</packageId>
+  <packageName>EntityFrameworkCore.Repositories.TestApplication.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

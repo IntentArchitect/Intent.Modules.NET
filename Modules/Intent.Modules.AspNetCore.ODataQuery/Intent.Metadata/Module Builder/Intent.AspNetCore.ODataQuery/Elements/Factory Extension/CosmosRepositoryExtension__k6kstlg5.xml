@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dd400bf9-1717-4804-9a97-4c548f6865c3" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>CosmosRepositoryExtension</name>
+  <display>CosmosRepositoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2c2de18b-3ff1-4f73-b551-77720cb4a0d3</parentFolderId>
+  <packageId>2c2de18b-3ff1-4f73-b551-77720cb4a0d3</packageId>
+  <packageName>Intent.AspNetCore.ODataQuery</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -16,10 +16,10 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Api.Jobs
         {
         }
 
-        [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public async Task Execute(IJobExecutionContext context)
         {
-            throw new NotImplementedException("Your implementation here...");
+            // NO-OP
         }
     }
 }

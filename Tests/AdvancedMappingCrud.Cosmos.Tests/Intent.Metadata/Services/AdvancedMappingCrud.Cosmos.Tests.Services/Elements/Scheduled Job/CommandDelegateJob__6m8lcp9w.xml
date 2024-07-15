@@ -16,6 +16,7 @@
       <properties>
         <property name="454e03bf-a9f4-41c2-af94-66e384085a90" display="Enabled" value="true" isActive="true" />
         <property name="e147ef25-fdc3-4bdb-b920-76ed7f3b47c2" display="Cron Schedule" value="* * * * * ?" isActive="true" />
+        <property name="81666ced-cb50-49d7-a85d-5a4be8d3b462" display="Disallow Concurrent Execution" value="false" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

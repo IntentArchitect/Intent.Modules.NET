@@ -3,7 +3,7 @@
   <ApplicationId>49c326c7-719d-409f-8e61-4cbea4443bce</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#22299b62-9ced-4555-9a2a-d00c3ebf8512</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#22299b62-9ced-4555-9a2a-d00c3ebf8512</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -14,6 +14,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/QueryModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5a879e4-3051-48ce-951a-be7c9068ff89</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#dd400bf9-1717-4804-9a97-4c548f6865c3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/CosmosRepositoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CosmosRepositoryExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

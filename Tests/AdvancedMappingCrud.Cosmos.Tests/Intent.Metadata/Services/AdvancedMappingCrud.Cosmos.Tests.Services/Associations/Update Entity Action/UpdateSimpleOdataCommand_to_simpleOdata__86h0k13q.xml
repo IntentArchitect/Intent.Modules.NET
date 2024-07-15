@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c29dc776-84c1-426b-b7ca-875aa7b14efb">
+  <sourceEnd id="a3169297-dc31-4d4b-a3b1-9571d725e732" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : SimpleOdata.UpdateSimpleOdataCommand</display>
+    <order>0</order>
+    <typeReference id="611ae397-6fdb-456b-ac6f-84d2dfde40eb">
+      <typeId>9738b09f-c69a-4c3d-b0cb-0d6a71dd4fac</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c29dc776-84c1-426b-b7ca-875aa7b14efb" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>simpleOdata</name>
+    <display>[update] simpleOdata: SimpleOdata</display>
+    <order>3</order>
+    <typeReference id="960f6e63-8d4a-466a-83f1-c5c1221a673f">
+      <typeId>67c1fc69-6c78-4b42-a090-4b1c06e719ec</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9738b09f-c69a-4c3d-b0cb-0d6a71dd4fac" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[UpdateSimpleOdataCommand]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="67c1fc69-6c78-4b42-a090-4b1c06e719ec" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[SimpleOdata]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="67c1fc69-6c78-4b42-a090-4b1c06e719ec" name="SimpleOdata" type="element" specialization="Class" />
+              <target id="584bde5c-4268-46e2-b61f-0984236a6202" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="9738b09f-c69a-4c3d-b0cb-0d6a71dd4fac" name="UpdateSimpleOdataCommand" type="element" specialization="Command" />
+                  <target id="37950b56-a102-4e46-8ffd-2d429dd4a0ec" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9738b09f-c69a-4c3d-b0cb-0d6a71dd4fac" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[UpdateSimpleOdataCommand]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="67c1fc69-6c78-4b42-a090-4b1c06e719ec" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[SimpleOdata]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="67c1fc69-6c78-4b42-a090-4b1c06e719ec" name="SimpleOdata" type="element" specialization="Class" />
+              <target id="17a3a460-de85-4888-bcf2-43bc63d8789d" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="9738b09f-c69a-4c3d-b0cb-0d6a71dd4fac" name="UpdateSimpleOdataCommand" type="element" specialization="Command" />
+                  <target id="0bb32c6e-e677-48d7-9aef-36e8e5f57b78" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="67c1fc69-6c78-4b42-a090-4b1c06e719ec" name="SimpleOdata" type="element" specialization="Class" />
+              <target id="928866a6-a82b-4c21-b6d4-c65f53f234d9" name="Surname" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="9738b09f-c69a-4c3d-b0cb-0d6a71dd4fac" name="UpdateSimpleOdataCommand" type="element" specialization="Command" />
+                  <target id="e4bdf7e2-8231-485c-ad63-a7ca8c34b7c7" name="Surname" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

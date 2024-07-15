@@ -46,26 +46,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.CosmosContainer
 
                     @class.AddConstructor(ctor =>
                     {
-                        //This should be simplified with the next release of the CosmosDB Container.
-                        ctor.AddStatements(@"_dbContainer = new CosmosDbBuilder()
-              .WithImage(""mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator"")
-              .WithName(""azure-cosmos-emulator"")
-              .WithExposedPort(8081)
-                .WithExposedPort(10251)
-                .WithExposedPort(10252)
-                .WithExposedPort(10253)
-                .WithExposedPort(10254)
-              .WithPortBinding(8081, true)
-              .WithPortBinding(10251, true)
-              .WithPortBinding(10252, true)
-              .WithPortBinding(10253, true)
-              .WithPortBinding(10254, true)
-              .WithEnvironment(""AZURE_COSMOS_EMULATOR_PARTITION_COUNT"", ""1"")
-              .WithEnvironment(""AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE"", ""127.0.0.1"")
-              .WithEnvironment(""AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE"", ""false"")
-              .WithWaitStrategy(Wait.ForUnixContainer()
-                .UntilPortIsAvailable(8081))
-              .Build();".ConvertToStatements());
+                        ctor.AddStatement(@"_dbContainer = new CosmosDbBuilder().Build();");
                     });
 
                     string databaseId = "TestDb";
@@ -82,7 +63,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.CosmosContainer
                 services.Remove(descriptor);
             }}
 
-            services.AddSingleton<IOptions<RepositoryOptions>>(new OptionsMock(new RepositoryOptions() {{ CosmosConnectionString = $""AccountEndpoint={{updatedEndpoint}};AccountKey={{_accountKey}}"", DatabaseId = ""{databaseId}"", ContainerId = ""{containerId}"" }}));
+            services.AddSingleton<IOptions<RepositoryOptions>>(new OptionsMock(new RepositoryOptions() {{ CosmosConnectionString = $""AccountEndpoint={{updatedEndpoint}};AccountKey={{_accountKey}}"", DatabaseId = ""{databaseId}"", ContainerId = ""{containerId}"", ContainerPerItemType = true }}));
 
             var cosmosClientBuilder = new CosmosClientBuilder(updatedEndpoint, _accountKey);
             cosmosClientBuilder.WithHttpClientFactory(() =>

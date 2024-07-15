@@ -10,7 +10,7 @@ This mechanism is implemented using the `Microsoft.AspNetCore.OData` NuGet packa
 
 For more information on OData Querying read the official [documentation](https://learn.microsoft.com/en-us/odata/concepts/queryoptions-overview).
 
-This module works in conjunction with `Intent.EntityFrameworkCore`
+This module works in conjunction with `Intent.EntityFrameworkCore` and `Intent.CosmosDb`
 
 ## Module Settings
 

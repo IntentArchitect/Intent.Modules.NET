@@ -4,12 +4,16 @@ using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Cosmos.Tests.Api.Controllers.ResponseTypes;
+using AdvancedMappingCrud.Cosmos.Tests.Application.Common.Pagination;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.CreateCustomer;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.DeleteCustomer;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.FindCustomerByName;
+using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.FindCustomerByNameOrSurname;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomerById;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomers;
+using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomersLinq;
+using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomersPaged;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Customers.UpdateCustomer;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -103,6 +107,25 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Api.Controllers
         /// <response code="200">Returns the specified CustomerDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         /// <response code="404">No CustomerDto could be found with the provided parameters.</response>
+        [HttpGet("api/customer-by-name-or-sur")]
+        [ProducesResponseType(typeof(CustomerDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<CustomerDto>> FindCustomerByNameOrSurname(
+            [FromQuery] string? name,
+            [FromQuery] string? surname,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new FindCustomerByNameOrSurnameQuery(name: name, surname: surname), cancellationToken);
+            return result == null ? NotFound() : Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified CustomerDto.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No CustomerDto could be found with the provided parameters.</response>
         [HttpGet("api/customer-by-name")]
         [ProducesResponseType(typeof(CustomerDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -132,6 +155,35 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Api.Controllers
         {
             var result = await _mediator.Send(new GetCustomerByIdQuery(id: id), cancellationToken);
             return result == null ? NotFound() : Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;CustomerDto&gt;.</response>
+        [HttpGet("api/customer/linq")]
+        [ProducesResponseType(typeof(List<CustomerDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<CustomerDto>>> GetCustomersLinq(CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetCustomersLinqQuery(), cancellationToken);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified PagedResult&lt;CustomerDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("api/customer/paged")]
+        [ProducesResponseType(typeof(PagedResult<CustomerDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<PagedResult<CustomerDto>>> GetCustomersPaged(
+            [FromQuery] int pageNo,
+            [FromQuery] int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetCustomersPagedQuery(pageNo: pageNo, pageSize: pageSize), cancellationToken);
+            return Ok(result);
         }
 
         /// <summary>

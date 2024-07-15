@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using Intent.Engine;
@@ -46,7 +47,12 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Microsoft.Azure.Cosmos")
+                .AddUsing("Microsoft.Azure.Cosmos.Linq")
                 .AddUsing("Microsoft.Azure.CosmosRepository.Extensions")
+                .AddUsing("Microsoft.Azure.CosmosRepository.Options")
+                .AddUsing("Microsoft.Azure.CosmosRepository.Providers")
+                .AddUsing("Microsoft.Extensions.Options")
+
                 .AddClass("CosmosDBRepositoryBase", @class =>
                 {
                     @class
@@ -94,6 +100,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                             .PrivateReadOnly()
                             .WithAssignment(new CSharpStatement("new Dictionary<string, string?>()")));
                     }
+                    @class.AddField("string", "_documentType", f => f.PrivateReadOnly());
 
                     @class.AddConstructor(ctor =>
                     {
@@ -103,6 +110,10 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         ctor.AddParameter(UseType($"Microsoft.Azure.CosmosRepository.IRepository<{tDocument}>"),
                             "cosmosRepository", p => p.IntroduceReadonlyField());
                         ctor.AddParameter("string", "idFieldName", p => p.IntroduceReadonlyField());
+                        ctor.AddParameter(UseType($"ICosmosContainerProvider<{tDocument}>"), "containerProvider", p => p.IntroduceReadonlyField());
+                        ctor.AddParameter("IOptionsMonitor<RepositoryOptions>", "optionsMonitor", p => p.IntroduceReadonlyField());
+                        ctor.AddStatement("_documentType = typeof(TDocument).GetNameForDocument();");
+
                     });
 
                     @class.AddProperty(this.GetCosmosDBUnitOfWorkInterfaceName(), "UnitOfWork", p => p
@@ -260,17 +271,128 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                     });
 
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindByIdsAsync", m => m
-                        .AddParameter("IEnumerable<string>", "ids")
                         .Async()
+                        .AddParameter("IEnumerable<string>", "ids")
                         .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
                         .AddStatement(
                             @"var queryDefinition = new QueryDefinition($""SELECT * from c WHERE ARRAY_CONTAINS(@ids, c.{_idFieldName})"")
                 .WithParameter(""@ids"", ids);",
                             c => c.AddMetadata(MetadataNames.QueryDefinitionDeclarationStatement, true))
-                        .AddStatement(
-                            "var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);")
+                        .AddStatement("return await FindAllAsync(queryDefinition);", s => s.SeparatedFromPrevious())
+                    );
+
+                    @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method => method
+                        .Async()
+                        .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
+                        .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        .AddStatement("var queryable = await CreateQuery(queryOptions);")
+                        .AddStatement("var documents = await ProcessResults(queryable, cancellationToken);")
+                        .AddIfStatement("!documents.Any()", ifs => ifs.AddStatement("return default;"))
+                        .AddStatement("var entity = LoadAndTrackDocument(documents.First());")
+                        .AddStatement("return entity;", s => s.SeparatedFromPrevious())
+                    ); 
+                    @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
+                        .Async()
+                        .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
+                        .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        .AddStatement("var queryable = await CreateQuery(queryOptions);")
+                        .AddStatement("var documents =  await ProcessResults(queryable, cancellationToken);")
                         .AddStatement("var results = LoadAndTrackDocuments(documents).ToList();")
                         .AddStatement("return results;", s => s.SeparatedFromPrevious())
+                    );
+                    @class.AddMethod($"Task<{this.GetPagedResultInterfaceName()}<{tDomain}>>", "FindAllAsync", method =>
+                    {
+                        var tDomainStateGenericTypeArgument = createEntityInterfaces
+                            ? $", {tDomainState}"
+                            : string.Empty;
+
+                        method
+                            .Async()
+                            .AddParameter("int", "pageNo")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                            .AddStatement("var queryable = await CreateQuery(queryOptions, new QueryRequestOptions(){MaxItemCount = pageSize});")
+                            .AddStatement("var countResponse = await queryable.CountAsync(cancellationToken);")
+                            .AddStatement(@"queryable = queryable
+                    .Skip(pageSize * (pageNo - 1))
+                    .Take(pageSize);")
+                            .AddStatement("var documents = await ProcessResults(queryable, cancellationToken);", s => s.SeparatedFromPrevious())
+                            .AddStatement("var entities = LoadAndTrackDocuments(documents).ToList();")
+                            .AddStatement("var totalCount = countResponse ?? 0;", s => s.SeparatedFromPrevious())
+                            .AddStatement("var pageCount = (int)Math.Abs(Math.Ceiling(totalCount / (double)pageSize));")
+                            .AddStatement($"return new {this.GetCosmosPagedListName()}<{tDomain}{tDomainStateGenericTypeArgument}, {tDocument}>(entities, totalCount, pageCount, pageNo, pageSize);", s => s.SeparatedFromPrevious());
+                    });
+                    @class.AddMethod("Task<int>", "CountAsync", method => method
+                        .Async()
+                        .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>?", "queryOptions", param => param.WithDefaultValue("default"))
+                        .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        .AddStatement("var queryable = await CreateQuery(queryOptions);")
+                        .AddStatement("return await queryable.CountAsync(cancellationToken);", s => s.SeparatedFromPrevious())
+                    );
+                    @class.AddMethod("Task<bool>", "AnyAsync", method => method
+                        .Async()
+                        .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>?", "queryOptions", param => param.WithDefaultValue("default"))
+                        .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        .AddStatement("var queryable = await CreateQuery(queryOptions);")
+                        .AddStatement("return await queryable.CountAsync(cancellationToken) > 0;", s => s.SeparatedFromPrevious())
+                    );
+
+                    @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", m => m
+                        .Protected()
+                        .Async()
+                        .AddParameter("QueryDefinition", "queryDefinition")
+                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
+                        .AddStatement("var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);")
+                        .AddStatement("var results = LoadAndTrackDocuments(documents).ToList();")
+                        .AddStatement("return results;", s => s.SeparatedFromPrevious())
+                    );
+
+                    @class.AddMethod($"Task<{tDomain}?>", "FindAsync", m => m
+                        .Protected()
+                        .Async()
+                        .AddParameter("QueryDefinition", "queryDefinition")
+                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
+                        .AddStatement("var documents = await _cosmosRepository.GetByQueryAsync(queryDefinition, cancellationToken);")
+                        .AddIfStatement("!documents.Any()", ifs => ifs.AddStatement("return default;"))
+                        .AddStatement("var entity = LoadAndTrackDocument(documents.First());")
+                        .AddStatement("return entity;", s => s.SeparatedFromPrevious())
+                    );
+
+                    @class.AddMethod($"Task<IQueryable<TDocumentInterface>>", "CreateQuery", m => m
+                        .Protected()
+                        .Async()
+                        .AddParameter("Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>?", "queryOptions", p => p.WithDefaultValue("default"))
+                        .AddParameter("QueryRequestOptions?", "requestOptions", p => p.WithDefaultValue("default"))
+                        .AddStatement("var container = await _containerProvider.GetContainerAsync();")
+                        .AddStatement("var queryable = (IQueryable<TDocumentInterface>)container.GetItemLinqQueryable<TDocumentInterface>(requestOptions: requestOptions, linqSerializerOptions: _optionsMonitor.CurrentValue.SerializationOptions);")
+                        .AddStatement("queryable = queryOptions == null ? queryable : queryOptions(queryable);")
+                        .AddStatement("//Filter by document type")
+                        .AddStatement("queryable = queryable.Where(d => ((IItem)d!).Type == _documentType);")            
+                        .AddStatement("return queryable;", stmt => stmt.SeparatedFromPrevious())
+                    );
+
+                    @class.AddMethod($"Task<List<TProjection>>", "ProcessResults", m => m
+                        .Protected()
+                        .Async()
+                        .AddGenericParameter("TProjection", out var tProjection)
+                        .AddParameter($"IQueryable<{tProjection}>", "query")
+                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
+                        .AddStatement($"var results = new List<{tProjection}>();", stmt => stmt.SeparatedFromNext())
+                        .AddStatement("using var feedIterator = query.ToFeedIterator();")
+                        .AddWhileStatement("feedIterator.HasMoreResults", w => w.AddStatement("results.AddRange(await feedIterator.ReadNextAsync(cancellationToken));"))
+                        .AddStatement("return results;", stmt => stmt.SeparatedFromPrevious())
+                    );
+
+                    @class.AddMethod($"Task<List<{tDocument}>>", "ProcessResults", m => m
+                        .Protected()
+                        .Async()
+                        .AddParameter($"IQueryable<{tDocumentInterface}>", "query")
+                        .AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"))
+                        .AddStatement($"var results = new List<{tDocument}>();", stmt => stmt.SeparatedFromNext())
+                        .AddStatement($"using var feedIterator = query.Select(x => ({tDocument})x).ToFeedIterator();")
+                        .AddWhileStatement("feedIterator.HasMoreResults", w => w.AddStatement("results.AddRange(await feedIterator.ReadNextAsync(cancellationToken));"))
+                        .AddStatement("return results;", stmt => stmt.SeparatedFromPrevious())
                     );
 
                     @class.AddMethod($"Expression<Func<{tDocument}, bool>>", "AdaptFilterPredicate", method =>

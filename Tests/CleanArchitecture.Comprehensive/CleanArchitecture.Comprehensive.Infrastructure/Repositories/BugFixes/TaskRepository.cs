@@ -22,14 +22,14 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Repositories.BugFixes
         {
         }
 
-        public async System.Threading.Tasks.Task<Domain.Entities.BugFixes.Task?> FindByIdAsync(
+        public async Task<Domain.Entities.BugFixes.Task?> FindByIdAsync(
             Guid id,
             CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
-        public async System.Threading.Tasks.Task<List<Domain.Entities.BugFixes.Task>> FindByIdsAsync(
+        public async Task<List<Domain.Entities.BugFixes.Task>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)
         {

@@ -2035,6 +2035,38 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#b7f15509-8d4f-4deb-92cb-41a696532310</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/SqlOutParameter/MultipleOutDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SqlOutParameter/MultipleOutDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#fdf020a3-6db4-4a58-9338-22e7e15f0676</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/SqlOutParameter/SpMultipleOut/SpMultipleOutQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SqlOutParameter/SpMultipleOut/SpMultipleOutQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#fdf020a3-6db4-4a58-9338-22e7e15f0676</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/SqlOutParameter/SpMultipleOut/SpMultipleOutQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SqlOutParameter/SpMultipleOut/SpMultipleOutQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#fdf020a3-6db4-4a58-9338-22e7e15f0676</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/SqlOutParameter/SpMultipleOut/SpMultipleOutQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SqlOutParameter/SpMultipleOut/SpMultipleOutQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>dfbe4935-9166-4eb1-9085-9b781800b1f9</ProjectId>
       <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

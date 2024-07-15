@@ -1,7 +1,8 @@
 ### Version 1.1.0
 
-- Improvement: Added support for OpenAPI `Required` property . 
+- Improvement: Added support for OpenAPI `Required` property. 
 - Improvement: Rest services import have their `Http Settings` property `Return Type Mediatype` default to `Default` rather than `application/json`.
+- Fixed: An issue around exceptions not propagating correctly in some scenarios.
 
 ### Version 1.0.3
 

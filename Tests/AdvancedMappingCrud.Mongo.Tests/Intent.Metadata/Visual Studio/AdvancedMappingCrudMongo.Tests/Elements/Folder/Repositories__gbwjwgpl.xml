@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f4c9b206-4fe9-45d8-912b-332fe7b1fef4" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Repositories</name>
+  <display>Repositories</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>89533542-d32d-407b-8bcc-01335dc2afaf</parentFolderId>
+  <packageId>b21d3a19-acf9-40b1-8e3c-b891201863e5</packageId>
+  <packageName>AdvancedMappingCrudMongo.Tests</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="e2fee1a8-bd69-4ff8-bf0e-662324f5d13c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.EntityRepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.EntityRepositoryInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f4c9b206-4fe9-45d8-912b-332fe7b1fef4</parentFolderId>
+      <packageId>b21d3a19-acf9-40b1-8e3c-b891201863e5</packageId>
+      <packageName>AdvancedMappingCrudMongo.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a130cf63-dd12-4ec4-9ea0-5d5f1db14194" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.PagedListInterface</name>
+      <display>Intent.Entities.Repositories.Api.PagedListInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f4c9b206-4fe9-45d8-912b-332fe7b1fef4</parentFolderId>
+      <packageId>b21d3a19-acf9-40b1-8e3c-b891201863e5</packageId>
+      <packageName>AdvancedMappingCrudMongo.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="fce07b7a-d1d2-4309-aba3-c3c0b7d725e3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.RepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.RepositoryInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f4c9b206-4fe9-45d8-912b-332fe7b1fef4</parentFolderId>
+      <packageId>b21d3a19-acf9-40b1-8e3c-b891201863e5</packageId>
+      <packageName>AdvancedMappingCrudMongo.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c125f6bb-ba51-4567-8e98-69dfadef0dc3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.Repositories.MongoRepositoryInterface</name>
+      <display>Intent.MongoDb.Repositories.MongoRepositoryInterface</display>
+      <externalReference>Intent.MongoDb.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f4c9b206-4fe9-45d8-912b-332fe7b1fef4</parentFolderId>
+      <packageId>b21d3a19-acf9-40b1-8e3c-b891201863e5</packageId>
+      <packageName>AdvancedMappingCrudMongo.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
