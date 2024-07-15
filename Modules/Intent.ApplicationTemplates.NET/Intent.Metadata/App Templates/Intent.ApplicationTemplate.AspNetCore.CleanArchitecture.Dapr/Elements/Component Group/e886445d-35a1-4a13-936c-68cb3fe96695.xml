@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="e886445d-35a1-4a13-936c-68cb3fe96695" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
   <name>Cloud</name>
-  <display>Cloud</display>
+  <display>Cloud (1)</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <order>8</order>
+  <order>9</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3d474ae5-467a-493b-add4-e223d61b188a</parentFolderId>
@@ -24,7 +24,7 @@
   <childElements>
     <childElement id="087ac53d-a4ab-4665-bbc3-e5181481c898" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Azure Key Vault</name>
-      <display>Azure Key Vault</display>
+      <display>Azure Key Vault (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />

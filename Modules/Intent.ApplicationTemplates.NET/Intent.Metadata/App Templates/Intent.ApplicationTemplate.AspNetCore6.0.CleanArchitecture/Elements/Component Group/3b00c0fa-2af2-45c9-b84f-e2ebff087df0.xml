@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="3b00c0fa-2af2-45c9-b84f-e2ebff087df0" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
   <name>Api</name>
-  <display>Api</display>
+  <display>Api (5)</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <order>2</order>
@@ -24,7 +24,7 @@
   <childElements>
     <childElement id="1e9c6845-4337-44a6-bdd4-1e09bbbfec06" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>ASP.NET Core RESTful Api</name>
-      <display>ASP.NET Core RESTful Api</display>
+      <display>ASP.NET Core RESTful Api (4)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -98,31 +98,6 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a592bd7d-a7cd-4956-bf58-99d4e58a3156" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.AspNetCore</name>
-          <display>Intent.AspNetCore</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1e9c6845-4337-44a6-bdd4-1e09bbbfec06</parentFolderId>
-          <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-              <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.0.2" isActive="true" />
-                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
-                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
-                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="54321b0e-6606-432e-acda-65215a1ef3df" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.AspNetCore.Controllers</name>
           <display>Intent.AspNetCore.Controllers</display>
@@ -173,36 +148,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2ce2dbdc-8097-4afc-b4b8-99a8905c344b" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.Metadata.WebApi</name>
-          <display>Intent.Metadata.WebApi</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1e9c6845-4337-44a6-bdd4-1e09bbbfec06</parentFolderId>
-          <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-              <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.5.4" isActive="true" />
-                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
-                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
-                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
       </childElements>
     </childElement>
     <childElement id="4b7715e2-ff3b-4bf8-853c-43b005c73fad" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Api Authorisation</name>
-      <display>Api Authorisation</display>
+      <display>Api Authorisation (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -255,7 +205,7 @@
     </childElement>
     <childElement id="5a53117f-aaf5-4f12-b450-643022661db2" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>OpenAPI</name>
-      <display>OpenAPI</display>
+      <display>OpenAPI (2)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -333,7 +283,7 @@
     </childElement>
     <childElement id="4bca4c93-2f3a-440f-bfe0-b3c4b0c071cd" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>SignalR</name>
-      <display>SignalR</display>
+      <display>SignalR (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -386,7 +336,7 @@
     </childElement>
     <childElement id="a49fdb49-6b95-4035-a9c5-4207d9ee4c4c" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Health Checks</name>
-      <display>Health Checks</display>
+      <display>Health Checks (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -425,7 +375,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="2.0.4" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="2.0.5" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
