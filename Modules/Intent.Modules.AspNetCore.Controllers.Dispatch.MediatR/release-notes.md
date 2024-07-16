@@ -1,3 +1,7 @@
+### Version 5.5.2
+
+- Improvement: Support for modeled security `Role`s and `Policy`s
+
 ### Version 5.5.1
 
 - Improvement: File transfer ( upload / download ) support.

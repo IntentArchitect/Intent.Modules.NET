@@ -353,7 +353,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
             if (!string.IsNullOrWhiteSpace(authorizationModel?.Policy))
             {
-                attribute.AddArgument($"Policy = {authorizationModel.Policy}");
+                attribute.AddArgument($"Policy = \"{authorizationModel.Policy}\"");
             }
 
 #pragma warning disable CS0618 // Type or member is obsolete
