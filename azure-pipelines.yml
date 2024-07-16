@@ -147,7 +147,7 @@ steps:
   inputs:
     command: 'test'
     projects: $(targetsToBuild)
-    arguments: '--no-build'
+    arguments: '--no-build --filter Requirement!=CosmosDB'
 
 - task: PowerShell@2
   displayName: 'Install Intent CLI'
