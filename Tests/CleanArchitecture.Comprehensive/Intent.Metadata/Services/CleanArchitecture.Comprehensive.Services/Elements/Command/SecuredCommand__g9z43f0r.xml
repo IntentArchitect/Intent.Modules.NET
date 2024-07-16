@@ -34,6 +34,8 @@
       <properties>
         <property name="98f96218-c5a7-4656-96b6-f173947028f7" display="Roles" isActive="true" />
         <property name="ced1460d-1bd9-4ec2-92b3-51bdbf173315" display="Policy" isActive="true" />
+        <property name="9c5cd2b9-52d8-47a0-96a5-f0026c3b9e48" display="Security Roles" isActive="false" />
+        <property name="2d95351e-d2e5-46da-8361-6c29bc690f98" display="Security Policies" isActive="false" />
       </properties>
     </stereotype>
   </stereotypes>
