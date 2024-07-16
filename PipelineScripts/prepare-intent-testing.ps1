@@ -11,7 +11,7 @@ $repoConfigContent =
   <entries>
     <entry>
       <name>Pipeline build artifact staging directory
-      <address>$($buildArtifactStagingDirectory)</address>
+      <address>$buildArtifactStagingDirectory</address>
       <isBuiltIn>false</isBuiltIn>
       <order>3</order>
     </entry>
@@ -19,7 +19,7 @@ $repoConfigContent =
 </assetRepositories>"
 
 $moduleLookup = @{}
-$moduleFileNames = Get-ChildItem "./$($buildArtifactStagingDirectory)/*.imod" | % {
+$moduleFileNames = Get-ChildItem "$buildArtifactStagingDirectory/*.imod" | % {
     $file = [System.IO.Path]::GetFileNameWithoutExtension($_.Name)
     $dotNumber = 0
     $dotIndex = -1
@@ -51,7 +51,7 @@ $moduleFileNames = Get-ChildItem "./$($buildArtifactStagingDirectory)/*.imod" | 
 $curLocation = Get-Location;
 Write-Host "`$curLocation = $curLocation"
 
-$testSln = [xml] (Get-Content ./$testsIslnRelativePath -Encoding UTF8)
+$testSln = [xml] (Get-Content "./$testsIslnRelativePath" -Encoding UTF8)
 $testSlnDir = [System.IO.Path]::GetDirectoryName($testsIslnRelativePath)
 Write-Host "`$testSlnDir = $testSlnDir"
 
