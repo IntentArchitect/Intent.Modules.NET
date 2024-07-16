@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.50" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.52" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -124,5 +124,6 @@
     <application id="3e3ebc36-8b69-453a-a151-faad8c1ac9bd" name="ProxyServiceTests.Proxy.PassThruHeader" relativePath="ProxyServiceTests.Proxy.PassThruHeader/ProxyServiceTests.Proxy.PassThruHeader.application.config" />
     <application id="511a26e8-f292-4ea8-b07e-ca9f37b297ae" name="ProxyServiceTests.Proxy.TokenMgmtSvc" relativePath="ProxyServiceTests.Proxy.TokenMgmtSvc/ProxyServiceTests.Proxy.TokenMgmtSvc.application.config" />
     <application id="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" name="AdvancedMappingCrud.Mongo.Tests" relativePath="AdvancedMappingCrud.Mongo.Tests/AdvancedMappingCrud.Mongo.Tests.application.config" />
+    <application id="ae7dbedc-1ada-4fbe-8b75-c1c56540c79b" name="SecurityConfig.Tests" relativePath="SecurityConfig.Tests/SecurityConfig.Tests.application.config" />
   </applications>
 </solution>

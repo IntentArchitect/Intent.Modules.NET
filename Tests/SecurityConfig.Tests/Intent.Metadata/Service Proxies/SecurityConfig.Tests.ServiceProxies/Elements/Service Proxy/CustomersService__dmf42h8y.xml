@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6215b2b6-800f-43eb-9df1-e76c9f11626f" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>CustomersService</name>
+  <display>CustomersService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>ae7dbedc-1ada-4fbe-8b75-c1c56540c79b</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="bc3c3691-efc4-4ac5-9c5c-baa37280d2a1" name="SecurityConfig.Tests.Services" type="association" specialization="Services Package" />
+      <target id="8e47b661-a285-4e8a-9212-405ea5d325fb" name="Customers" type="element" specialization="Folder" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>cbc81f20-0e8c-49af-8d5d-6a28a4028b64</parentFolderId>
+  <packageId>cbc81f20-0e8c-49af-8d5d-6a28a4028b64</packageId>
+  <packageName>SecurityConfig.Tests.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2832d2e9-1337-4979-a566-6d6c20163d98" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CreateCustomerCommand</name>
+      <display>CreateCustomerCommand(command: CreateCustomerCommand): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="fe1acd33-b532-476d-a459-88cdf6cb59cd">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="765c25f1-2cf1-4e38-9d1b-3e449019bbe3" name="CreateCustomerCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>6215b2b6-800f-43eb-9df1-e76c9f11626f</parentFolderId>
+      <packageId>cbc81f20-0e8c-49af-8d5d-6a28a4028b64</packageId>
+      <packageName>SecurityConfig.Tests.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="f146b724-cc51-4ef7-8752-d816a63ee81a" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: CreateCustomerCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="532fd1dc-2e17-4dab-a188-f25762e2c53b">
+            <typeId>765c25f1-2cf1-4e38-9d1b-3e449019bbe3</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>SecurityConfig.Tests.Services</typePackageName>
+            <typePackageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2832d2e9-1337-4979-a566-6d6c20163d98</parentFolderId>
+          <packageId>cbc81f20-0e8c-49af-8d5d-6a28a4028b64</packageId>
+          <packageName>SecurityConfig.Tests.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="765c25f1-2cf1-4e38-9d1b-3e449019bbe3" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="7cf85170-5705-49c4-8dff-4fa6b5b4cb6c" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>DeleteCustomerCommand</name>
+      <display>DeleteCustomerCommand(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="1b15d9d2-5365-4c4c-a031-f04d9da6c30b">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="86e5d2a8-2752-4cb7-8fb6-c73198e8bc38" name="DeleteCustomerCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>6215b2b6-800f-43eb-9df1-e76c9f11626f</parentFolderId>
+      <packageId>cbc81f20-0e8c-49af-8d5d-6a28a4028b64</packageId>
+      <packageName>SecurityConfig.Tests.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="3802620e-d870-4008-bc07-44f1fe8d96bd" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="012d6a6b-8930-4653-9099-81c67744d29b">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>7cf85170-5705-49c4-8dff-4fa6b5b4cb6c</parentFolderId>
+          <packageId>cbc81f20-0e8c-49af-8d5d-6a28a4028b64</packageId>
+          <packageName>SecurityConfig.Tests.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="800777b6-7bd0-4430-9e46-3529f95d80e2" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="0f947105-f193-4769-a736-1475416331b5" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>UpdateCustomerCommand</name>
+      <display>UpdateCustomerCommand(id: guid, command: UpdateCustomerCommand): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="2ba11012-39de-42d0-ac1a-0179b7b2c976">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="6effd8fe-7dc8-47e7-a8cb-3bb5e5d622af" name="UpdateCustomerCommand" type="element" specialization="Command" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>6215b2b6-800f-43eb-9df1-e76c9f11626f</parentFolderId>
+      <packageId>cbc81f20-0e8c-49af-8d5d-6a28a4028b64</packageId>
+      <packageName>SecurityConfig.Tests.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="d4e70812-3317-471e-b97f-24724c26e28e" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="11c6218b-16d0-4833-bc46-03be846d6752">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0f947105-f193-4769-a736-1475416331b5</parentFolderId>
+          <packageId>cbc81f20-0e8c-49af-8d5d-6a28a4028b64</packageId>
+          <packageName>SecurityConfig.Tests.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="53ab09ba-89e0-4433-b002-69e10f827a99" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="6756a059-4c6a-414b-af4a-0f6a365d2d5e" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: UpdateCustomerCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="18e4249a-f8d2-4389-9eaf-12ab4ce7f1af">
+            <typeId>6effd8fe-7dc8-47e7-a8cb-3bb5e5d622af</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>SecurityConfig.Tests.Services</typePackageName>
+            <typePackageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0f947105-f193-4769-a736-1475416331b5</parentFolderId>
+          <packageId>cbc81f20-0e8c-49af-8d5d-6a28a4028b64</packageId>
+          <packageName>SecurityConfig.Tests.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="6effd8fe-7dc8-47e7-a8cb-3bb5e5d622af" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="ab075f95-b928-4e79-9e2c-7498bfa56ba4" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetCustomerByIdQuery</name>
+      <display>GetCustomerByIdQuery(id: guid): CustomerDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="8c2a8ec2-9e91-429e-83a1-fce48dc76912">
+        <typeId>276a7547-12d7-4807-ab71-fb6b42dc50ec</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>SecurityConfig.Tests.Services</typePackageName>
+        <typePackageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="465edb0b-1a5c-4f01-8844-427b686999c8" name="GetCustomerByIdQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>6215b2b6-800f-43eb-9df1-e76c9f11626f</parentFolderId>
+      <packageId>cbc81f20-0e8c-49af-8d5d-6a28a4028b64</packageId>
+      <packageName>SecurityConfig.Tests.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="da01d502-6fad-4cff-9cee-5b74a2230d21" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c86675e4-7c79-45b2-87c3-cd4405f21476">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ab075f95-b928-4e79-9e2c-7498bfa56ba4</parentFolderId>
+          <packageId>cbc81f20-0e8c-49af-8d5d-6a28a4028b64</packageId>
+          <packageName>SecurityConfig.Tests.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="8353fd45-af8f-46fe-844b-ac5b21eb842b" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="e97ad7d0-0688-425c-9045-cbbb0c757725" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetCustomersQuery</name>
+      <display>GetCustomersQuery(): CustomerDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="729be353-47fd-4a97-aa57-c16cad8ba308">
+        <typeId>276a7547-12d7-4807-ab71-fb6b42dc50ec</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>SecurityConfig.Tests.Services</typePackageName>
+        <typePackageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="25d95ebe-22c5-4e2d-9ac6-ce6ef415b12c" name="GetCustomersQuery" type="element" specialization="Query" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>6215b2b6-800f-43eb-9df1-e76c9f11626f</parentFolderId>
+      <packageId>cbc81f20-0e8c-49af-8d5d-6a28a4028b64</packageId>
+      <packageName>SecurityConfig.Tests.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

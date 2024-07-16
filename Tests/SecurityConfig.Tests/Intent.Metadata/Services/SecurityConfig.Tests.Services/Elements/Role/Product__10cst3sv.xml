@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a795a50e-49ae-4b51-b1da-43243ef474b6" type="Role" typeId="d6ce4e4c-fdd1-4fa1-82d8-f3405e114ec5">
+  <name>Product</name>
+  <display>Product</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>10fac28c-c375-4b90-bb5e-2e17148d5cd9</parentFolderId>
+  <packageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</packageId>
+  <packageName>SecurityConfig.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

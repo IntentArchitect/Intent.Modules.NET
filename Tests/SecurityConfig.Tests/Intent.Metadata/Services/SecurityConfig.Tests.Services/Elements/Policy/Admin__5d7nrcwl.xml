@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9ce90f4e-b3d5-4b93-b062-4d11d8084616" type="Policy" typeId="9f37c60e-ad88-4484-98ca-6c9aa7ca3134">
+  <name>Admin</name>
+  <display>Admin</display>
+  <isAbstract>false</isAbstract>
+  <order>3</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>10fac28c-c375-4b90-bb5e-2e17148d5cd9</parentFolderId>
+  <packageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</packageId>
+  <packageName>SecurityConfig.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

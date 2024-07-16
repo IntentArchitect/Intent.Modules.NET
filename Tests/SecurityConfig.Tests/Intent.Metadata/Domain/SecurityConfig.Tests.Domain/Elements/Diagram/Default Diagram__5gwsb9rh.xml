@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="936b4c4f-e027-49b3-be20-a8886aea75a6" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>41f9b4a1-c25d-4ca4-9dcf-c20ac1e2cef9</parentFolderId>
+  <packageId>41f9b4a1-c25d-4ca4-9dcf-c20ac1e2cef9</packageId>
+  <packageName>SecurityConfig.Tests.Domain</packageName>
+  <diagram>
+    <targetPackageId>41f9b4a1-c25d-4ca4-9dcf-c20ac1e2cef9</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

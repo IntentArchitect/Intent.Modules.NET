@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="39c5849b-5353-4bdf-a0c4-ce36218e4463" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>CustomerType</name>
+  <display>CustomerType</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>41f9b4a1-c25d-4ca4-9dcf-c20ac1e2cef9</parentFolderId>
+  <packageId>41f9b4a1-c25d-4ca4-9dcf-c20ac1e2cef9</packageId>
+  <packageName>SecurityConfig.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="a7e0388f-b9af-49ad-bf21-a30fbde77a20" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>TypeA</name>
+      <display>TypeA</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>39c5849b-5353-4bdf-a0c4-ce36218e4463</parentFolderId>
+      <packageId>41f9b4a1-c25d-4ca4-9dcf-c20ac1e2cef9</packageId>
+      <packageName>SecurityConfig.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="58b950c3-31f6-4dfa-a439-7830ac0fe801" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>TypeB</name>
+      <display>TypeB</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>39c5849b-5353-4bdf-a0c4-ce36218e4463</parentFolderId>
+      <packageId>41f9b4a1-c25d-4ca4-9dcf-c20ac1e2cef9</packageId>
+      <packageName>SecurityConfig.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
