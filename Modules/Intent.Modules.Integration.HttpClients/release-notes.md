@@ -1,4 +1,8 @@
-﻿### Version 5.1.7
+﻿### Version 5.1.8
+
+- Improvement: Proxies now respecting Applications Services `Serialize Enums as Strings` setting.
+
+### Version 5.1.7
 
 - Improvement: Added shared template infrastructure to support service proxies being able to respect `Serialize Enum as String` setting.
 

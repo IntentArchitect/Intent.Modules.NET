@@ -14,6 +14,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Dapr.AspNetCore.Events;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientRequestException;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.JsonResponse;
+using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClient;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -29,7 +30,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClient
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Dapr.AspNetCore.ServiceInvocation.HttpClient";
 
-        public HttpClientTemplate(IOutputTarget outputTarget, ServiceProxyModel model)
+        public HttpClientTemplate(IOutputTarget outputTarget, IServiceProxyModel model)
             : base(
                 templateId: TemplateId,
                 outputTarget: outputTarget,

@@ -10,6 +10,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClient;
 using Intent.Modules.Integration.HttpClients.Templates.HttpClientRequestException;
 using Intent.Modules.Integration.HttpClients.Templates.JsonResponse;
@@ -27,7 +28,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Integration.HttpClients.HttpClient";
 
-        public HttpClientTemplate(IOutputTarget outputTarget, ServiceProxyModel model) : base(TemplateId, outputTarget, model,
+        public HttpClientTemplate(IOutputTarget outputTarget, IServiceProxyModel model) : base(TemplateId, outputTarget, model,
             httpClientRequestExceptionTemplateId: HttpClientRequestExceptionTemplate.TemplateId,
             jsonResponseTemplateId: JsonResponseTemplate.TemplateId,
             serviceContractTemplateId: ServiceContractTemplate.TemplateId,

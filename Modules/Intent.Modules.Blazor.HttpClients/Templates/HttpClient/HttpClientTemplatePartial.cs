@@ -12,6 +12,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClient;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -27,7 +28,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClient
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.HttpClients.HttpClient";
 
-        public HttpClientTemplate(IOutputTarget outputTarget, ServiceProxyModel model)
+        public HttpClientTemplate(IOutputTarget outputTarget, IServiceProxyModel model)
             : base(
                 templateId: TemplateId,
                 outputTarget: outputTarget,

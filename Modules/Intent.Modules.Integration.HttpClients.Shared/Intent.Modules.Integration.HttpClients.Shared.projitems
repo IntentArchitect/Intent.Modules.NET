@@ -22,5 +22,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Templates\IServiceProxyModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\JsonResponse\JsonResponseTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\ProblemDetailsWithErrors\ProblemDetailsWithErrorsBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Templates\ProxySettingsHelper.cs" />
   </ItemGroup>
 </Project>
