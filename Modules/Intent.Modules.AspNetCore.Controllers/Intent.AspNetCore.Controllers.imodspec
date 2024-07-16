@@ -74,7 +74,7 @@
     </detect>
     <detect id="Intent.Application.MediatR">
       <install>
-        <package id="Intent.AspNetCore.Controllers.Dispatch.MediatR" version="5.5.1" />
+        <package id="Intent.AspNetCore.Controllers.Dispatch.MediatR" version="5.5.2-pre.0" />
       </install>
     </detect>
     <!-- Minimum Compatible Versions -->
