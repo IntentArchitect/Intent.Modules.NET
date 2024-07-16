@@ -2,7 +2,7 @@
 
 param(
     [string]$buildArtifactStagingDirectory,
-    [string]$testsIslnRelativePath
+    [string]$testsIntentSolutionRelativePath
 )
 
 $repoConfigContent = 
@@ -10,7 +10,7 @@ $repoConfigContent =
 <assetRepositories>
   <entries>
     <entry>
-      <name>Pipeline build artifact staging directory
+      <name>Pipeline build artifact staging directory</name>
       <address>$buildArtifactStagingDirectory</address>
       <isBuiltIn>false</isBuiltIn>
       <order>3</order>
@@ -51,8 +51,8 @@ $moduleFileNames = Get-ChildItem "$buildArtifactStagingDirectory/*.imod" | % {
 $curLocation = Get-Location;
 Write-Host "`$curLocation = $curLocation"
 
-$testSln = [xml] (Get-Content "./$testsIslnRelativePath" -Encoding UTF8)
-$testSlnDir = [System.IO.Path]::GetDirectoryName($testsIslnRelativePath)
+$testSln = [xml] (Get-Content "./$testsIntentSolutionRelativePath" -Encoding UTF8)
+$testSlnDir = [System.IO.Path]::GetDirectoryName($testsIntentSolutionRelativePath)
 Write-Host "`$testSlnDir = $testSlnDir"
 
 $repoPath = [System.IO.Path]::Combine($curLocation, $testSlnDir, "intent.repositories.config")
