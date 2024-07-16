@@ -166,7 +166,7 @@ steps:
     targetType: 'inline'
     pwsh: true
     script: |
-      ./PipelineScripts/prepare-intent-testing.ps1
+      ./PipelineScripts/prepare-intent-testing.ps1 "$(Build.ArtifactStagingDirectory)" "$(intent-solution)"
       intent-cli ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_SOLUTION_PATH" --check-deviations
 
 - task: PowerShell@2
