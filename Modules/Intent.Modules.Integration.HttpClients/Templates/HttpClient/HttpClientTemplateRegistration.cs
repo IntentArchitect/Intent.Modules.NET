@@ -24,7 +24,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
 {
-    [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Ignore)]
     public class HttpClientTemplateRegistration : FilePerModelTemplateRegistration<IServiceProxyModel>
     {
         private readonly IMetadataManager _metadataManager;

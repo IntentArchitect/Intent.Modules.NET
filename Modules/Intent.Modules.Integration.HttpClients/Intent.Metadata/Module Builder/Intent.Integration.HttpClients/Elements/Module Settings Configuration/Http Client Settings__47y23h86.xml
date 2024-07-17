@@ -51,6 +51,20 @@
           <metadata />
           <childElements />
         </childElement>
+        <childElement id="7af36538-6128-475b-9d77-56f20ee9048f" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Authorization Header Provider</name>
+          <display>Authorization Header Provider</display>
+          <isAbstract>false</isAbstract>
+          <value>authorization-header-provider</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>72a03013-072b-4bb7-a67c-dad65bd14b02</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="1276a3f9-cff8-4787-9241-c694b3a556c9" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Transmittable Access Token</name>
           <display>Transmittable Access Token</display>

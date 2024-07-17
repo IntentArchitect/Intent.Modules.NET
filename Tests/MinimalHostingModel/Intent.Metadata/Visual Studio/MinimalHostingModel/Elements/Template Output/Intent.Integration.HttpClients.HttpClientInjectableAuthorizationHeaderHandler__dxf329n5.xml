@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b757e5ba-fcff-4dd9-9cdc-d3201053e59b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.Integration.HttpClients.HttpClientInjectableAuthorizationHeaderHandler</name>
+  <display>Intent.Integration.HttpClients.HttpClientInjectableAuthorizationHeaderHandler</display>
+  <externalReference>Intent.Integration.HttpClients</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7a254ecf-09b1-431f-83b1-ef39009b2028</parentFolderId>
+  <stereotypes />
+  <metadata>
+    <entry key="status" value="unassigned" />
+  </metadata>
+  <childElements />
+</class>

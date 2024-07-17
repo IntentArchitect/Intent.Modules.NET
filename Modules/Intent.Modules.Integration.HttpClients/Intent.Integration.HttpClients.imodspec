@@ -11,12 +11,28 @@
   <tags>csharp dotnet http client proxies integration</tags>
   <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/README.md</projectUrl>
   <templates>
+    <template id="Intent.Integration.HttpClients.AuthorizationHeaderProviderInterface" externalReference="337906ce-ec34-4a34-a4d8-e68532b48708">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.HttpClient.AuthorizationHeaderProviderInterface</role>
+      <location>HttpClients</location>
+    </template>
     <template id="Intent.Integration.HttpClients.HttpClient" externalReference="8d97669a-b03f-4f1c-907f-8dbb94dca221">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Infrastructure.HttpClient</role>
+      <location>HttpClients</location>
+    </template>
+    <template id="Intent.Integration.HttpClients.HttpClientAuthorizationHeaderHandler" externalReference="71068005-5ecf-44a2-a902-3a27395770d1">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.HttpClient.HttpClientAuthorizationHeaderHandler</role>
       <location>HttpClients</location>
     </template>
     <template id="Intent.Integration.HttpClients.HttpClientConfiguration" externalReference="e9b86a42-6ac3-412f-96e9-8521215ffe55">
@@ -73,6 +89,7 @@
           <defaultValue>client-access-token-management</defaultValue>
           <options>
             <option value="client-access-token-management" description="Client Access Token Management" />
+            <option value="authorization-header-provider" description="Authorization Header Provider" />
             <option value="transmittable-access-token" description="Transmittable Access Token" />
             <option value="none" description="None" />
           </options>

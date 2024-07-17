@@ -54,6 +54,7 @@ namespace Intent.Modules.Integration.HttpClients.Settings
                 return Value switch
                 {
                     "client-access-token-management" => AuthorizationSetupOptionsEnum.ClientAccessTokenManagement,
+                    "authorization-header-provider" => AuthorizationSetupOptionsEnum.AuthorizationHeaderProvider,
                     "transmittable-access-token" => AuthorizationSetupOptionsEnum.TransmittableAccessToken,
                     "none" => AuthorizationSetupOptionsEnum.None,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
@@ -63,6 +64,11 @@ namespace Intent.Modules.Integration.HttpClients.Settings
             public bool IsClientAccessTokenManagement()
             {
                 return Value == "client-access-token-management";
+            }
+
+            public bool IsAuthorizationHeaderProvider()
+            {
+                return Value == "authorization-header-provider";
             }
 
             public bool IsTransmittableAccessToken()
@@ -79,6 +85,7 @@ namespace Intent.Modules.Integration.HttpClients.Settings
         public enum AuthorizationSetupOptionsEnum
         {
             ClientAccessTokenManagement,
+            AuthorizationHeaderProvider,
             TransmittableAccessToken,
             None,
         }

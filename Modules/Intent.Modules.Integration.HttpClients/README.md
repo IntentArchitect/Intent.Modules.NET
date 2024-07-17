@@ -9,9 +9,10 @@ The `Intent.Integration.HttpClients` module in Intent Architect generates HTTP c
 The `Intent.Integration.HttpClients` module provides several settings that affect the generated HTTP client code:
 
 - **Authorization Setup**:
-    - **Client Access Token Management**: Uses client credentials to obtain and refresh access tokens.
-    - **Transmittable Access Token**: Passes the existing access token from the HTTP context.
-    - **None**: No authorization setup is applied.
+  - **Authorization Header Provider**: Use dependency injection to supply the `Authorization Header` on proxy requests .
+  - **Client Access Token Management**: Uses client credentials to obtain and refresh access tokens.
+  - **Transmittable Access Token**: Passes the existing access token from the HTTP context.
+  - **None**: No authorization setup is applied.
 
 These settings determine how the clients authenticate requests to secured endpoints.
 
@@ -177,6 +178,99 @@ public static class HttpClientConfiguration
 ```
 
 ### Detailed Authorization Setup
+
+#### Authorization Header Provider
+
+The HttpClient registrations will change as follows, note the `AddAuthorizationHeader` invocation:
+
+HttpClientConfiguration update:
+
+```csharp
+public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration)
+{
+    services.AddHttpContextAccessor();
+
+    services
+        .AddHttpClient<IAccountsService, AccountsServiceHttpClient>(http =>
+        {
+            http.BaseAddress = configuration.GetValue<Uri>("HttpClients:AccountsService:Uri");
+            http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:AccountsService:Timeout") ?? TimeSpan.FromSeconds(100);
+        })
+        .AddAuthorizationHeader();
+
+    services
+        .AddHttpClient<IClientsService, ClientsServiceHttpClient>(http =>
+        {
+            http.BaseAddress = configuration.GetValue<Uri>("HttpClients:ClientsService:Uri");
+            http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:ClientsService:Timeout") ?? TimeSpan.FromSeconds(100);
+        })
+        .AddAuthorizationHeader();
+}
+```
+
+The Following interface is generated.
+
+```csharp
+    public interface IAuthorizationHeaderProvider
+    {
+        string? GetAuthorizationHeader();
+    }
+```
+
+You can now simply implement this interface and register it up with your DI container.
+
+Illustrative implementations of `IAuthorizationHeaderProvider`
+
+```csharp
+internal class MyHeaderProvider : IAuthorizationHeaderProvider
+{
+    private readonly IHttpContextAccessor _httpContextAccessor;
+
+    public MyHeaderProvider(IHttpContextAccessor httpContextAccessor)
+    {
+        _httpContextAccessor = httpContextAccessor;
+    }
+
+    public string? GetAuthorizationHeader()
+    {
+        //Propagating the current authorization header
+        if (_httpContextAccessor.HttpContext!.Request.Headers.TryGetValue("Authorization", out var value))
+        {
+            return value.ToString();
+        }
+        return null;
+    }
+}
+```
+
+```csharp
+internal class MyHeaderProvider2 : IAuthorizationHeaderProvider
+{
+
+    public MyHeaderProvider()
+    {
+    }
+
+    public string? GetAuthorizationHeader()
+    {
+        //Bearer Token Sample
+        return new AuthenticationHeaderValue("Bearer", "your_access_token").ToString();
+        
+        //Basic Authentication Sample
+        var byteArray = Encoding.ASCII.GetBytes("username:password");
+        return  AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray)).ToString();
+
+        //Custom Token Sample
+        return new AuthenticationHeaderValue("CustomScheme", "your_custom_token").ToString();
+    }
+}
+```
+
+DI Registration
+
+```csharp
+    services.AddScoped<IAuthorizationHeaderProvider, MyHeaderProvider>();
+```
 
 #### Client Access Token Management
 

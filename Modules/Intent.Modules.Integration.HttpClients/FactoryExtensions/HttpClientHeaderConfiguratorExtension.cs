@@ -13,6 +13,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Contracts.Clients.Http.Shared;
 using Intent.Modules.Integration.HttpClients.Settings;
 using Intent.Modules.Integration.HttpClients.Shared;
+using Intent.Modules.Integration.HttpClients.Templates.HttpClientAuthorizationHeaderHandler;
 using Intent.Modules.Integration.HttpClients.Templates.HttpClientConfiguration;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Plugins.FactoryExtensions;
@@ -42,6 +43,11 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
             if (application.Settings.GetHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
             {
                 UpdateProxyTokenRefreshPopulation(application);
+            }
+
+            if (application.Settings.GetHttpClientSettings().AuthorizationSetup().IsAuthorizationHeaderProvider())
+            {
+                HttpClientHeaderConfiguratorHelper.ImplementAuthorizationHeaderProvider(application, HttpClientConfigurationTemplate.TemplateId, HttpClientAuthorizationHeaderHandlerTemplate.TemplateId);
             }
         }
 
@@ -75,7 +81,7 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
                 {
                     var proxyModel = proxyConfiguration.GetMetadata<ServiceProxyModel>("model");
 
-                    if (RequiresMessageHandler(proxyModel))
+                    if (RequiresSecurity(proxyModel))
                     {
                         proxyConfiguration.AddChainStatement(new CSharpInvocationStatement($"AddClientAccessTokenHandler")
                             .AddArgument($"configuration.GetValue<string>(\"{GetConfigKey(proxyModel, "IdentityClientKey")}\") ?? \"default\"").WithoutSemicolon());
@@ -91,7 +97,7 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
         }
 
 
-        private bool RequiresMessageHandler(ServiceProxyModel proxy)
+        private bool RequiresSecurity(ServiceProxyModel proxy)
         {
             var parentSecured = default(bool?);
             return !ServiceProxyHelpers.GetMappedEndpoints(proxy)

@@ -19,7 +19,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClient
 {
-    [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Ignore)]
     public class HttpClientTemplateRegistration : FilePerModelTemplateRegistration<IServiceProxyModel>
     {
         private readonly IMetadataManager _metadataManager;
