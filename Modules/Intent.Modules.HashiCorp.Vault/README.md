@@ -120,7 +120,7 @@ Learn more about these commands [here](https://developer.hashicorp.com/vault/doc
 
 ### Enabling App Role Authentication
 
-Enable App Role authentication with:
+Enable [App Role authentication](https://developer.hashicorp.com/vault/docs/auth/approle) with:
 
 ```powershell
 vault auth enable approle
