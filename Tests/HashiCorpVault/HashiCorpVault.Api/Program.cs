@@ -46,9 +46,9 @@ namespace HashiCorpVault.Api
                 {
                     var configuration = config.Build();
 
-                    if (configuration.GetValue<bool?>("HashicorpVault:Enabled") == true)
+                    if (configuration.GetValue<bool?>("HashiCorpVault:Enabled") == true)
                     {
-                        config.ConfigureHashicorpVault(configuration);
+                        config.ConfigureHashiCorpVault(configuration);
                     }
                 })
                 .ConfigureWebHostDefaults(webBuilder =>

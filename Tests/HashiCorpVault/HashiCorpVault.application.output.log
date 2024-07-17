@@ -36,6 +36,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>af65e7c8-64e0-4e37-b0bd-710d0e995842</ProjectId>
+      <CorrelationId>Intent.HashiCorp.Vault.HashiCorpVaultConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>HashiCorpVault.Api/Configuration/HashiCorpVaultConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HashiCorpVaultConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>af65e7c8-64e0-4e37-b0bd-710d0e995842</ProjectId>
+      <CorrelationId>Intent.HashiCorp.Vault.HashiCorpVaultConfigurationSource</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>HashiCorpVault.Api/Configuration/HashiCorpVaultConfigurationSource.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HashiCorpVaultConfigurationSource.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>af65e7c8-64e0-4e37-b0bd-710d0e995842</ProjectId>
+      <CorrelationId>Intent.HashiCorp.Vault.HashiCorpVaultOptions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>HashiCorpVault.Api/Configuration/HashiCorpVaultOptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HashiCorpVaultOptions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>af65e7c8-64e0-4e37-b0bd-710d0e995842</ProjectId>
       <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>HashiCorpVault.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>

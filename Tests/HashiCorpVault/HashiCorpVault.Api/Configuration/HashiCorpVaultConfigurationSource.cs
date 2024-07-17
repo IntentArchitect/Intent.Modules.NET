@@ -3,60 +3,51 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.Json;
+using System.Timers;
+using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using VaultSharp;
 using VaultSharp.V1.AuthMethods;
 using VaultSharp.V1.AuthMethods.AppRole;
 using VaultSharp.V1.AuthMethods.Token;
 using VaultSharp.V1.AuthMethods.UserPass;
-using System.Timers;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.HashiCorp.Vault.HashiCorpVaultConfigurationSource", Version = "1.0")]
 
 namespace HashiCorpVault.Api.Configuration;
 
-public static class HashicorpVaultConfiguration
+public class HashiCorpVaultConfigurationSource : IConfigurationSource
 {
-    public static void ConfigureHashicorpVault(this IConfigurationBuilder builder, IConfiguration configuration)
-    {
-        var options = new HashicorpVaultOptions();
-        configuration.GetSection("HashicorpVault").Bind(options);
-        foreach (var vault in options.Vaults)
-        {
-            builder.Add(new HashicorpVaultConfigurationSource(vault));
-        }
-    }
-}
+    private readonly HashiCorpVaultEntry _hashiCorpVaultEntry;
 
-public class HashicorpVaultConfigurationSource : IConfigurationSource
-{
-    private readonly HashicorpVaultEntry _hashicorpVaultEntry;
-
-    public HashicorpVaultConfigurationSource(HashicorpVaultEntry hashicorpVaultEntry)
+    public HashiCorpVaultConfigurationSource(HashiCorpVaultEntry hashiCorpVaultEntry)
     {
-        _hashicorpVaultEntry = hashicorpVaultEntry;
+        _hashiCorpVaultEntry = hashiCorpVaultEntry;
     }
 
-    public IConfigurationProvider Build(IConfigurationBuilder builder) => new HashicorpVaultConfigurationProvider(_hashicorpVaultEntry);
+    public IConfigurationProvider Build(IConfigurationBuilder builder) => new HashiCorpVaultConfigurationProvider(_hashiCorpVaultEntry);
 }
 
-public class HashicorpVaultConfigurationProvider : ConfigurationProvider
+public class HashiCorpVaultConfigurationProvider : ConfigurationProvider
 {
-    private readonly HashicorpVaultEntry _hashicorpVaultEntry;
+    private readonly HashiCorpVaultEntry _hashiCorpVaultEntry;
     private readonly IVaultClient _vaultClient;
     private readonly Timer _reloadTimer;
 
-    public HashicorpVaultConfigurationProvider(HashicorpVaultEntry hashicorpVaultEntry)
+    public HashiCorpVaultConfigurationProvider(HashiCorpVaultEntry hashiCorpVaultEntry)
     {
-        _hashicorpVaultEntry = hashicorpVaultEntry;
+        _hashiCorpVaultEntry = hashiCorpVaultEntry;
 
-        var auth = GetAuthMethod(hashicorpVaultEntry.AuthMethod);
-        _vaultClient = new VaultClient(new VaultClientSettings(hashicorpVaultEntry.Url.ToString(), auth));
+        var auth = GetAuthMethod(hashiCorpVaultEntry.AuthMethod);
+        _vaultClient = new VaultClient(new VaultClientSettings(hashiCorpVaultEntry.Url.ToString(), auth));
 
-        if (hashicorpVaultEntry.CacheTimeoutInSeconds != default)
+        if (hashiCorpVaultEntry.CacheTimeoutInSeconds != default)
         {
             _reloadTimer = new Timer
             {
                 Enabled = true,
-                Interval = TimeSpan.FromSeconds(hashicorpVaultEntry.CacheTimeoutInSeconds).TotalMilliseconds,
+                Interval = TimeSpan.FromSeconds(hashiCorpVaultEntry.CacheTimeoutInSeconds).TotalMilliseconds,
                 AutoReset = true
             };
 
@@ -64,7 +55,7 @@ public class HashicorpVaultConfigurationProvider : ConfigurationProvider
         }
     }
 
-    private static IAuthMethodInfo GetAuthMethod(HashicorpVaultAuthMethod authMethod)
+    private static IAuthMethodInfo GetAuthMethod(HashiCorpVaultAuthMethod authMethod)
     {
         if (authMethod.AppRole is not null)
         {
@@ -86,7 +77,7 @@ public class HashicorpVaultConfigurationProvider : ConfigurationProvider
 
     public override void Load()
     {
-        var keys = _vaultClient.V1.Secrets.KeyValue.V2.ReadSecretAsync(path: _hashicorpVaultEntry.Path, mountPoint: _hashicorpVaultEntry.MountPoint).GetAwaiter().GetResult();
+        var keys = _vaultClient.V1.Secrets.KeyValue.V2.ReadSecretAsync(path: _hashiCorpVaultEntry.Path, mountPoint: _hashiCorpVaultEntry.MountPoint).GetAwaiter().GetResult();
         Data.Clear();
 
         var flattenedKeys = keys.Data.Data.SelectMany(JsonConfigurationFileParser.Convert);
@@ -106,9 +97,9 @@ public class JsonConfigurationFileParser
     private readonly Dictionary<string, string?> _data = new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
     private readonly Stack<string> _paths = new Stack<string>();
 
-    public static IDictionary<string, string?> Convert(KeyValuePair<string, object> pair) 
+    public static IDictionary<string, string?> Convert(KeyValuePair<string, object> pair)
         => new JsonConfigurationFileParser().ConvertObject(pair);
-    
+
     private Dictionary<string, string?> ConvertObject(KeyValuePair<string, object> pair)
     {
         if (pair.Value is not JsonElement jsonElement)
@@ -140,7 +131,7 @@ public class JsonConfigurationFileParser
 
         return _data;
     }
-    
+
     private void VisitObjectElement(JsonElement element, string mainKey)
     {
         var isEmpty = true;
