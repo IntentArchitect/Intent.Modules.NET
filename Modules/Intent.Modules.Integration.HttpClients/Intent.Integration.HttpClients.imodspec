@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Integration.HttpClients</id>
-  <version>5.1.8-pre.0</version>
+  <version>5.1.9-pre.0</version>
   <supportedClientVersions>[4.0.0-beta.4, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</summary>
   <description>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</description>
@@ -70,7 +70,7 @@
         <setting id="72a03013-072b-4bb7-a67c-dad65bd14b02" title="Authorization Setup" type="select">
           <isRequired>false</isRequired>
           <hint>See [documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/README.md) for more information.</hint>
-          <defaultValue>token-management-server</defaultValue>
+          <defaultValue>client-access-token-management</defaultValue>
           <options>
             <option value="client-access-token-management" description="Client Access Token Management" />
             <option value="transmittable-access-token" description="Transmittable Access Token" />

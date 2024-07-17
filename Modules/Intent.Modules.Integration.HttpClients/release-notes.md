@@ -1,6 +1,10 @@
-﻿### Version 5.1.8
+﻿### Version 5.1.9
 
 - Improvement: Proxies now respecting Applications Services `Serialize Enums as Strings` setting.
+
+### Version 5.1.8
+
+- Fixed: Default value for Authorization Setup.
 
 ### Version 5.1.7
 
