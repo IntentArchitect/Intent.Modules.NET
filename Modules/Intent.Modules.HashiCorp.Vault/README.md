@@ -37,7 +37,7 @@ To connect to HashiCorp Vault, include the following configuration in your `apps
   - **Name**: A friendly name for reference.
   - **Url**: The address to connect to a specific Vault.
   - **AuthMethod**: The method for authenticating against the Vault:
-    - **Token**: Specify a token for DEV mode.
+    - [**Token**](https://developer.hashicorp.com/vault/docs/auth/token): Specify a token for DEV mode.
       ```json
       {
         "Token": {
@@ -45,7 +45,7 @@ To connect to HashiCorp Vault, include the following configuration in your `apps
         }
       }
       ```
-    - **UserPass**: Specify a username and password.
+    - [**UserPass**](https://developer.hashicorp.com/vault/docs/auth/userpass): Specify a username and password.
       ```json
       {
         "UserPass": {
@@ -54,7 +54,7 @@ To connect to HashiCorp Vault, include the following configuration in your `apps
         }
       }
       ```
-    - **AppRole**: Specify a RoleId and SecretId.
+    - [**AppRole**](https://developer.hashicorp.com/vault/docs/auth/approle): Specify a RoleId and SecretId.
       ```json
       {
         "AppRole": {
