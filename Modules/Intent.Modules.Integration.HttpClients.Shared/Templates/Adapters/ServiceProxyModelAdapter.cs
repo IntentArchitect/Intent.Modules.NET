@@ -29,6 +29,8 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
 
         public IMetadataModel UnderlyingModel => _model;
 
+        public ServiceProxyModel Model => _model;
+
         public FolderModel Folder => _model.Folder;
 
         public bool SerializeEnumsAsStrings => _serializeEnumsAsStrings;

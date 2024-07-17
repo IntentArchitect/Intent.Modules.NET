@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClient;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
+using Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConfiguration;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientHeaderDelegatingHandler;
 using Intent.RoslynWeaver.Attributes;
@@ -39,30 +40,44 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientC
                   HttpClientTemplate.TemplateId,
                   (options, proxy, template) =>
                   {
-                      options.AddStatement($"http.BaseAddress = configuration.GetValue<Uri>(\"{GetConfigKey(proxy, "Uri")}\");");
+                      options.AddStatement($"ApplyAppSettings(http, configuration, \"{((HttpClientConfigurationTemplate)template).GetGroupName(proxy)}\", \"{proxy.Name.ToPascalCase()}\");");
                   }
                   )
         {
             _typedModels = model;
         }
 
+
+        private string GetGroupName(IServiceProxyModel proxyInterface)
+        {
+            var proxy = proxyInterface as ServiceProxyModelAdapter;
+            if (proxy == null)
+            {
+                return "default";
+            }
+            return GetGroupName(proxy.Model);
+        }
+
+        private string GetGroupName(ServiceProxyModel proxy)
+        {
+            return ExecutionContext.GetDaprApplicationName(proxy.InternalElement.MappedElement.ApplicationId);
+        }
+
+
         public override void BeforeTemplateExecution()
         {
             base.BeforeTemplateExecution();
-            foreach (var proxy in _typedModels.Distinct(new ServiceModelComparer()))
+            var proxies = _typedModels.Distinct(new ServiceModelComparer());
+            var groups = proxies.Select(p => GetGroupName(p)).Distinct();
+            foreach (var groupName in groups)
             {
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "Uri"), $"http://{ExecutionContext.GetDaprApplicationName(proxy.InternalElement.MappedElement.ApplicationId)}/"));
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(groupName, "Uri"), $"http://{groupName}/"));
             }
         }
 
-        private static string GetConfigKey(IServiceProxyModel proxy, string key)
+        private static string GetConfigKey(string groupName, string key)
         {
-            return $"HttpClients:{proxy.Name.ToPascalCase()}{(string.IsNullOrEmpty(key) ? string.Empty : ":")}{key?.ToPascalCase()}";
-        }
-
-        private static string GetConfigKey(ServiceProxyModel proxy, string key)
-        {
-            return $"HttpClients:{proxy.Name.ToPascalCase()}{(string.IsNullOrEmpty(key) ? string.Empty : ":")}{key?.ToPascalCase()}";
+            return $"HttpClients:{groupName}:{key.ToPascalCase()}";
         }
 
         class ServiceModelComparer : IEqualityComparer<ServiceProxyModel>

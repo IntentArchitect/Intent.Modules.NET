@@ -35,17 +35,17 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            if (application.Settings.GetHttpClientSettings().AuthorizationSetup().IsTransmittableAccessToken())
+            if (application.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsTransmittableAccessToken())
             {
                 HttpClientHeaderConfiguratorHelper.UpdateProxyAuthHeaderPopulation(application, HttpClientConfigurationTemplate.TemplateId);
             }
 
-            if (application.Settings.GetHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
+            if (application.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
             {
                 UpdateProxyTokenRefreshPopulation(application);
             }
 
-            if (application.Settings.GetHttpClientSettings().AuthorizationSetup().IsAuthorizationHeaderProvider())
+            if (application.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsAuthorizationHeaderProvider())
             {
                 HttpClientHeaderConfiguratorHelper.ImplementAuthorizationHeaderProvider(application, HttpClientConfigurationTemplate.TemplateId, HttpClientAuthorizationHeaderHandlerTemplate.TemplateId);
             }

@@ -11,17 +11,17 @@ namespace Intent.Modules.Integration.HttpClients.Settings
 {
     public static class ModuleSettingsExtensions
     {
-        public static HttpClientSettings GetHttpClientSettings(this IApplicationSettingsProvider settings)
+        public static IntegrationHttpClientSettings GetIntegrationHttpClientSettings(this IApplicationSettingsProvider settings)
         {
-            return new HttpClientSettings(settings.GetGroup("f3da943d-d685-47cf-9982-59f1ac7127fd"));
+            return new IntegrationHttpClientSettings(settings.GetGroup("f3da943d-d685-47cf-9982-59f1ac7127fd"));
         }
     }
 
-    public class HttpClientSettings : IGroupSettings
+    public class IntegrationHttpClientSettings : IGroupSettings
     {
         private readonly IGroupSettings _groupSettings;
 
-        public HttpClientSettings(IGroupSettings groupSettings)
+        public IntegrationHttpClientSettings(IGroupSettings groupSettings)
         {
             _groupSettings = groupSettings;
         }
@@ -53,10 +53,10 @@ namespace Intent.Modules.Integration.HttpClients.Settings
             {
                 return Value switch
                 {
-                    "client-access-token-management" => AuthorizationSetupOptionsEnum.ClientAccessTokenManagement,
-                    "authorization-header-provider" => AuthorizationSetupOptionsEnum.AuthorizationHeaderProvider,
-                    "transmittable-access-token" => AuthorizationSetupOptionsEnum.TransmittableAccessToken,
                     "none" => AuthorizationSetupOptionsEnum.None,
+                    "authorization-header-provider" => AuthorizationSetupOptionsEnum.AuthorizationHeaderProvider,
+                    "client-access-token-management" => AuthorizationSetupOptionsEnum.ClientAccessTokenManagement,
+                    "transmittable-access-token" => AuthorizationSetupOptionsEnum.TransmittableAccessToken,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }

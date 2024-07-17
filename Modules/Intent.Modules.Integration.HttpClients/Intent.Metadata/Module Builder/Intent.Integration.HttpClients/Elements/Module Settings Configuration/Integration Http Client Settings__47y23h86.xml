@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="f3da943d-d685-47cf-9982-59f1ac7127fd" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
-  <name>Http Client Settings</name>
-  <display>Http Client Settings</display>
+  <name>Integration Http Client Settings</name>
+  <display>Integration Http Client Settings</display>
   <isAbstract>false</isAbstract>
   <sort-children>manually</sort-children>
   <genericTypes />
@@ -37,11 +37,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="efa33b06-35b7-4efb-b1cb-7cf5e2f84fae" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>Client Access Token Management</name>
-          <display>Client Access Token Management</display>
+        <childElement id="1dad6f42-a510-453a-bd0b-50e39ea72efd" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>(None)</name>
+          <display>(None)</display>
           <isAbstract>false</isAbstract>
-          <value>client-access-token-management</value>
+          <value>none</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>72a03013-072b-4bb7-a67c-dad65bd14b02</parentFolderId>
@@ -65,11 +65,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1276a3f9-cff8-4787-9241-c694b3a556c9" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>Transmittable Access Token</name>
-          <display>Transmittable Access Token</display>
+        <childElement id="efa33b06-35b7-4efb-b1cb-7cf5e2f84fae" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Client Access Token Management</name>
+          <display>Client Access Token Management</display>
           <isAbstract>false</isAbstract>
-          <value>transmittable-access-token</value>
+          <value>client-access-token-management</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>72a03013-072b-4bb7-a67c-dad65bd14b02</parentFolderId>
@@ -79,11 +79,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1dad6f42-a510-453a-bd0b-50e39ea72efd" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>None</name>
-          <display>None</display>
+        <childElement id="1276a3f9-cff8-4787-9241-c694b3a556c9" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Transmittable Access Token</name>
+          <display>Transmittable Access Token</display>
           <isAbstract>false</isAbstract>
-          <value>none</value>
+          <value>transmittable-access-token</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>72a03013-072b-4bb7-a67c-dad65bd14b02</parentFolderId>

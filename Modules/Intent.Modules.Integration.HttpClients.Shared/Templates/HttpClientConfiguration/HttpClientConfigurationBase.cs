@@ -79,6 +79,19 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConf
                             });
                         }
                     });
+                    @class.AddMethod("void", "ApplyAppSettings", method => 
+                    {
+                        method
+                            .Private()
+                            .Static()
+                            .AddParameter("HttpClient", "client")
+                            .AddParameter("IConfiguration", "configuration")
+                            .AddParameter("string", "groupName")
+                            .AddParameter("string", "serviceName")
+                            ;
+                        method.AddStatement("client.BaseAddress = configuration.GetValue<Uri>($\"HttpClients:{serviceName}:Uri\") ?? configuration.GetValue<Uri>($\"HttpClients:{groupName}:Uri\");");
+                        method.AddStatement("client.Timeout = configuration.GetValue<TimeSpan?>($\"HttpClients:{serviceName}:Timeout\") ?? configuration.GetValue<TimeSpan?>($\"HttpClients:{groupName}:Timeout\") ?? TimeSpan.FromSeconds(100);");
+                    });
                 });        
         }
 

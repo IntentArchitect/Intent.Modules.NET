@@ -33,7 +33,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.AuthorizationHeaderPr
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && ExecutionContext.Settings.GetHttpClientSettings().AuthorizationSetup().IsAuthorizationHeaderProvider();
+            return base.CanRunTemplate() && ExecutionContext.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsAuthorizationHeaderProvider();
         }
 
 

@@ -80,7 +80,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientAuthorizati
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && ExecutionContext.Settings.GetHttpClientSettings().AuthorizationSetup().IsAuthorizationHeaderProvider();
+            return base.CanRunTemplate() && ExecutionContext.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsAuthorizationHeaderProvider();
         }
 
         [IntentManaged(Mode.Fully)]

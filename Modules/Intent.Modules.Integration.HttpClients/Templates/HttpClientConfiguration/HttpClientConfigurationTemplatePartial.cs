@@ -14,6 +14,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Integration.HttpClients.Settings;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
+using Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConfiguration;
 using Intent.Modules.Integration.HttpClients.Templates.HttpClient;
 using Intent.Modules.Metadata.WebApi.Models;
@@ -40,8 +41,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
                   HttpClientTemplate.TemplateId,
                   (options, proxy, template) =>
                   {
-                      options.AddStatement($"http.BaseAddress = configuration.GetValue<Uri>(\"{GetConfigKey(proxy, "Uri")}\");");
-                      options.AddStatement($"http.Timeout = configuration.GetValue<TimeSpan?>(\"{GetConfigKey(proxy, "Timeout")}\") ?? TimeSpan.FromSeconds(100);");
+                      options.AddStatement($"ApplyAppSettings(http, configuration, \"{GetGroupName(proxy)}\", \"{proxy.Name.ToPascalCase()}\");");
                   }
                   )
         {
@@ -54,7 +54,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
         {
             base.BeforeTemplateExecution();
 
-            if (ExecutionContext.Settings.GetHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
+            if (ExecutionContext.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
             {
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Address", "https://localhost:{sts_port}/connect/token"));
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:ClientId", "clientId"));
@@ -62,25 +62,40 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Scope", "api"));
             }
 
-            foreach (var proxy in _typedModels.Distinct(new ServiceModelComparer()))
+
+            var proxies = _typedModels.Distinct(new ServiceModelComparer());
+            var groups = proxies.Select(p => GetGroupName(p)).Distinct();
+            foreach (var groupName in groups)
             {
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "Uri"), "https://localhost:{app_port}/"));
-                if (ExecutionContext.Settings.GetHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(groupName, "Uri"), "https://localhost:{app_port}/"));
+                if (ExecutionContext.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
                 {
-                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "IdentityClientKey"), "default"));
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(groupName, "IdentityClientKey"), "default"));
                 }
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(proxy, "Timeout"), "00:01:00"));
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(groupName, "Timeout"), "00:01:00"));
+
             }
         }
-
-        private static string GetConfigKey(IServiceProxyModel proxy, string key)
+        private static string GetGroupName(IServiceProxyModel proxyInterface)
         {
-            return $"HttpClients:{proxy.Name.ToPascalCase()}{(string.IsNullOrEmpty(key) ? string.Empty : ":")}{key?.ToPascalCase()}";
+            var proxy = proxyInterface as ServiceProxyModelAdapter;
+            if (proxy == null)
+            {
+                return "default";
+            }
+            return GetGroupName(proxy.Model);
         }
 
-        private static string GetConfigKey(ServiceProxyModel proxy, string key)
+        private static string GetGroupName(ServiceProxyModel proxy)
         {
-            return $"HttpClients:{proxy.Name.ToPascalCase()}{(string.IsNullOrEmpty(key) ? string.Empty : ":")}{key?.ToPascalCase()}";
+            var result =  proxy.InternalElement.MappedElement?.Element?.Package?.Name;
+            result ??= proxy.InternalElement.Package.Name;
+            return result;
+        }
+
+        private static string GetConfigKey(string groupName, string key)
+        {
+            return $"HttpClients:{groupName}:{key.ToPascalCase()}";
         }
 
         class ServiceModelComparer : IEqualityComparer<ServiceProxyModel>

@@ -1,7 +1,8 @@
 ﻿### Version 5.1.9
 
 - New Feature: Added a new authorization option `Authorization Header Provider`, which allow for using dependency injection to set the `Authorization` header for proxy calls.
-- Improvement: Proxies now respecting Applications Services `Serialize Enums as Strings` setting.
+- Improvement: Service Proxies now respecting Applications Services `Serialize Enums as Strings` setting.
+- Improvement: Http Client configuration now group per package for simpler configuration.
 
 ### Version 5.1.8
 
