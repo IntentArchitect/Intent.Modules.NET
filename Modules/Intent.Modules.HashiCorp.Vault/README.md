@@ -1,15 +1,16 @@
 # Intent.HashiCorp.Vault
 
-## What is HashiCorp Vault?
+## Overview
 
 HashiCorp Vault provides organizations with identity-based security to automatically authenticate and authorize access to secrets and other sensitive data.
 
-## Connecting to the Vault
+## Connecting to HashiCorp Vault
 
-In your `appsettings.json` file you should see the following config section.
+To connect to HashiCorp Vault, include the following configuration in your `appsettings.json` file:
 
 ```json
-"HashiCorpVault": {
+{
+  "HashiCorpVault": {
     "Enabled": true,
     "Vaults": [
       {
@@ -25,116 +26,119 @@ In your `appsettings.json` file you should see the following config section.
         "CacheTimeoutInSeconds": 5
       }
     ]
+  }
 }
 ```
 
-Setting the "Enabled" property will determine whether the Vault will be integrated into your .NET configuration or not.
+### Configuration Parameters
 
-You can configure multiple Vaults inside the "Vaults" property.
-
-- Name: This is a friendly name for your reference.
-- Url: The address to connect to a specific Vault.
-- AuthMethod: Choose how you are going to authenticate against the Vault.
-    - Token: Specify a token (i.e. `Root Token` when in `DEV` mode).
-        ```json
+- **Enabled**: Determines whether the Vault integration is active.
+- **Vaults**: A list of Vault configurations.
+  - **Name**: A friendly name for reference.
+  - **Url**: The address to connect to a specific Vault.
+  - **AuthMethod**: The method for authenticating against the Vault:
+    - **Token**: Specify a token for DEV mode.
+      ```json
+      {
         "Token": {
-            "Token": "root_token"
+          "Token": "root_token"
         }
-        ```
-    - UserPass: Specify a username and password.
-        ```json
+      }
+      ```
+    - **UserPass**: Specify a username and password.
+      ```json
+      {
         "UserPass": {
-            "Username": "username",
-            "Password": "password"
-        }  
-        ```
-    - AppRole: Specify a RoleId and SecretId.
-        ```json
-        "AppRole": {
-            "RoleId": "af9bf2b4-d8ab-4451-be44-131263a92d34",
-            "SecretId": "5a3d91b6-b657-4a3b-a140-610008f4ab81"
+          "Username": "username",
+          "Password": "password"
         }
-        ```
-- Path: Location where secrets are stored.
-- MountPoint: Typically "secret".
-- CacheTimeoutInSeconds:
-    - Positive number: Interval that it will re-fetch secrets from the Vault.
-    - Zero: Only fetch secrets at startup of app.
+      }
+      ```
+    - **AppRole**: Specify a RoleId and SecretId.
+      ```json
+      {
+        "AppRole": {
+          "RoleId": "af9bf2b4-d8ab-4451-be44-131263a92d34",
+          "SecretId": "5a3d91b6-b657-4a3b-a140-610008f4ab81"
+        }
+      }
+      ```
+  - **Path**: Location where secrets are stored.
+  - **MountPoint**: Typically set to "secret".
+  - **CacheTimeoutInSeconds**:
+    - Positive value: Interval to re-fetch secrets.
+    - Zero: Fetch secrets only at startup.
 
-## Running the Vault
+## Running HashiCorp Vault Locally
 
-The following instructions will get Vault up and running on your developer machine in `DEV` mode.
+Follow these instructions to get Vault up and running in `DEV` mode on your local machine.
 
-### Download HashiCorp Vault
+### Installation
 
-Visit [this webpage](https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-install#install-vault) to learn about installing HashiCorp Vault.
+Download and install HashiCorp Vault from [here](https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-install#install-vault).
 
 ### Starting the Dev Server
 
-Open up your terminal and run the following command:
+Run the following command in your terminal:
 
 ```powershell
 vault server -dev -dev-root-token-id=root_token
 ```
 
-If you need to execute any CLI commands against the Vault you will need to set this environment variable:
+Set the environment variable for CLI commands:
 
 ```powershell
-PowerShell:
-    $env:VAULT_ADDR="http://127.0.0.1:8200"
-cmd.exe:
-    set VAULT_ADDR=http://127.0.0.1:8200
-Linux / Unix:
-    export VAULT_ADDR='http://127.0.0.1:8200'
+# PowerShell
+$env:VAULT_ADDR="http://127.0.0.1:8200"
+
+# cmd.exe
+set VAULT_ADDR=http://127.0.0.1:8200
+
+# Linux / Unix
+export VAULT_ADDR='http://127.0.0.1:8200'
 ```
 
-This will run HashiCorp Vault in `DEV` mode and the information stored will only be kept in-memory until the application is shutdown in which case you will need to repopulate it with your secrets.
-
->[!NOTE]
+> [!NOTE]
 > 
-> The `Root Token` has been set to `root_token` for easy access in Development mode. You can connect to the Vault (and its [UI](#browsing-the-vault-ui)) using the `Root Token` directly.
+> The `Root Token` is set to `root_token` for easy access in development mode. Use this token to connect to Vault and its [UI](#browsing-the-vault-ui).
 
-### Adding secrets to the Vault
+### Adding Secrets to Vault
 
-Once the server is up and the environment variable is set you can start adding secrets to your Vault.
+Add secrets with the following command:
 
 ```powershell
 vault kv put -mount=secret creds passcode=my-long-passcode
 ```
 
-For specifying a JSON payload you can do the following:
+You can also specify a JSON payload:
 
 ```powershell
-echo '{"username":"joe","password":"pass123","meta":[{"key":"creation","vaule":"3/4/2024 13:05:28"}]}' | vault kv put secret/creds -
+echo '{"username":"joe","password":"pass123","meta":[{"key":"creation","value":"3/4/2024 13:05:28"}]}' | vault kv put secret/creds -
 ```
 
-You can learn more by reading this [page](https://developer.hashicorp.com/vault/docs/commands/kv).
+Learn more about these commands [here](https://developer.hashicorp.com/vault/docs/commands/kv).
 
-### Enabling App Role authentication
+### Enabling App Role Authentication
 
-If you need to test your App Role authentication setup for HashiCorp Vault, you will need to follow these steps.
-
-In your terminal type the following.
+Enable App Role authentication with:
 
 ```powershell
 vault auth enable approle
 ```
 
-This will enable [App Role authentication](https://developer.hashicorp.com/vault/docs/auth/approle).
-
-Next you need to set up a policy to allow this role to access your specific secrets.
+Set up the access policy:
 
 ```powershell
 $policy = @"
 path "secret/data/creds" {
   capabilities = [ "read" ]
 }
-"@ 
+"@
 
 $policy | vault policy write dev-policy -
 ```
 
-You will need to create your role using this command.
+Create the role:
 
 ```powershell
 vault write auth/approle/role/my-role `
@@ -143,24 +147,22 @@ vault write auth/approle/role/my-role `
     token_max_ttl=4h
 ```
 
-Now that it is created you need to get hold of your `Role Id`.
+Retrieve the `Role Id`:
 
 ```powershell
 vault read auth/approle/role/my-role/role-id
 ```
 
-Finally you need to create your secret for that role and capture your `Secret Id`.
+Create the secret and obtain the `Secret Id`:
 
 ```powershell
 vault write -f auth/approle/role/my-role/secret-id
 ```
 
-### Setting this up on each startup
+### Automating Vault Setup
 
-To prevent manually going through these steps each time you need to have your Vault up and running before usage, create a script file (e.g. Powershell script) and use the steps mentioned in this document to run the Vault and populate it with all the necessary secrets you need to test against.
+To avoid manual setup each time, create a script that starts Vault and configures all necessary secrets.
 
 ### Browsing the Vault UI
 
-You can make use of the UI interface of the Value by opening your browser at [http://127.0.0.1:8200/ui](http://127.0.0.1:8200/ui).
-
-Learn more by viewing this [page](https://developer.hashicorp.com/vault/tutorials/getting-started-ui/getting-started-ui#lab-setup).
+Access the Vault UI at [http://127.0.0.1:8200/ui](http://127.0.0.1:8200/ui). Learn more about the UI [here](https://developer.hashicorp.com/vault/tutorials/getting-started-ui/getting-started-ui#lab-setup).
