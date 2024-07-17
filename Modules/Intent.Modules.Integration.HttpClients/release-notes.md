@@ -1,4 +1,8 @@
-﻿### Version 5.1.7
+﻿### Version 5.1.8
+
+- Fixed: Default value for Authorization Setup.
+
+### Version 5.1.7
 
 - Improvement: Added shared template infrastructure to support service proxies being able to respect `Serialize Enum as String` setting.
 
