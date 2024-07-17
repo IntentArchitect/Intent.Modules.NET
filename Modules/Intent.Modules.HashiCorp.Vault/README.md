@@ -100,6 +100,7 @@ export VAULT_ADDR='http://127.0.0.1:8200'
 
 > [!NOTE]
 > 
+> The server is using an In Memory database so upon shut down all changes will be lost. To avoid manual setup each time, create a script that starts Vault and configures all necessary secrets.
 > The `Root Token` is set to `root_token` for easy access in development mode. Use this token to connect to Vault and its [UI](#browsing-the-vault-ui).
 
 ### Adding Secrets to Vault
@@ -158,10 +159,6 @@ Create the secret and obtain the `Secret Id`:
 ```powershell
 vault write -f auth/approle/role/my-role/secret-id
 ```
-
-### Automating Vault Setup
-
-To avoid manual setup each time, create a script that starts Vault and configures all necessary secrets.
 
 ### Browsing the Vault UI
 
