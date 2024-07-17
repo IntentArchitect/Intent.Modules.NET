@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,32 +23,42 @@ namespace ProxyServiceTests.Proxy.TMS.Infrastructure.Configuration
             services
                 .AddHttpClient<IAccountsService, AccountsServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:AccountsService:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:AccountsService:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "ProxyServiceTests.OriginalServices.Services", "AccountsService");
                 });
 
             services
                 .AddHttpClient<IClientsService, ClientsServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:ClientsService:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:ClientsService:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "ProxyServiceTests.OriginalServices.Services", "ClientsService");
                 });
 
             services
                 .AddHttpClient<IDeleteAccountsService, DeleteAccountsServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:DeleteAccountsService:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:DeleteAccountsService:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "ProxyServiceTests.OriginalServices.Services", "DeleteAccountsService");
                 })
-                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:DeleteAccountsService:IdentityClientKey") ?? "default");
+                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:DeleteAccountsService:IdentityClientKey") ??
+                    configuration.GetValue<string>("HttpClients:ProxyServiceTests.OriginalServices.Services:IdentityClientKey") ??
+                    "default");
 
             services
                 .AddHttpClient<IDeleteClientsService, DeleteClientsServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:DeleteClientsService:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:DeleteClientsService:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "ProxyServiceTests.OriginalServices.Services", "DeleteClientsService");
                 })
-                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:DeleteClientsService:IdentityClientKey") ?? "default");
+                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:DeleteClientsService:IdentityClientKey") ??
+                    configuration.GetValue<string>("HttpClients:ProxyServiceTests.OriginalServices.Services:IdentityClientKey") ??
+                    "default");
+        }
+
+        private static void ApplyAppSettings(
+            HttpClient client,
+            IConfiguration configuration,
+            string groupName,
+            string serviceName)
+        {
+            client.BaseAddress = configuration.GetValue<Uri>($"HttpClients:{serviceName}:Uri") ?? configuration.GetValue<Uri>($"HttpClients:{groupName}:Uri");
+            client.Timeout = configuration.GetValue<TimeSpan?>($"HttpClients:{serviceName}:Timeout") ?? configuration.GetValue<TimeSpan?>($"HttpClients:{groupName}:Timeout") ?? TimeSpan.FromSeconds(100);
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +14,16 @@ namespace Publish.CleanArchDapr.TestApplication.Infrastructure.Configuration
         public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddHttpContextAccessor();
+        }
+
+        private static void ApplyAppSettings(
+            HttpClient client,
+            IConfiguration configuration,
+            string groupName,
+            string serviceName)
+        {
+            client.BaseAddress = configuration.GetValue<Uri>($"HttpClients:{serviceName}:Uri") ?? configuration.GetValue<Uri>($"HttpClients:{groupName}:Uri");
+            client.Timeout = configuration.GetValue<TimeSpan?>($"HttpClients:{serviceName}:Timeout") ?? configuration.GetValue<TimeSpan?>($"HttpClients:{groupName}:Timeout") ?? TimeSpan.FromSeconds(100);
         }
     }
 }

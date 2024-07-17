@@ -84,17 +84,15 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
                     if (RequiresSecurity(proxyModel))
                     {
                         proxyConfiguration.AddChainStatement(new CSharpInvocationStatement($"AddClientAccessTokenHandler")
-                            .AddArgument($"configuration.GetValue<string>(\"{GetConfigKey(proxyModel, "IdentityClientKey")}\") ?? \"default\"").WithoutSemicolon());
+                            .AddArgument($@"configuration.GetValue<string>(""{HttpClientConfigurationTemplate.GetConfigKey(proxyModel, KeyType.Service, "IdentityClientKey")}"") ?? 
+                    configuration.GetValue<string>(""{HttpClientConfigurationTemplate.GetConfigKey(proxyModel, KeyType.Group, "IdentityClientKey")}"") ?? 
+                    ""default""").WithoutSemicolon());
                     }
                 }
             });
         }
 
 
-        private string GetConfigKey(ServiceProxyModel proxy, string key)
-        {
-            return $"HttpClients:{proxy.Name.ToPascalCase()}{(string.IsNullOrEmpty(key) ? string.Empty : ":")}{key?.ToPascalCase()}";
-        }
 
 
         private bool RequiresSecurity(ServiceProxyModel proxy)

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="df9c32f1-88a7-4a2a-8b3a-d0eae5185eef">
+  <sourceEnd id="50289fb0-e9e8-4d9c-909e-82f192e0edf2" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : ClientsService.FindClients</display>
+    <order>0</order>
+    <typeReference id="bcd08087-cde1-4684-9349-5b81f305ad01">
+      <typeId>8b0ce65f-67df-4f4c-ba5b-264d3f3c1fa8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</typePackageName>
+      <typePackageId>04c6a15c-a669-4006-ac8d-24273331eadf</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="df9c32f1-88a7-4a2a-8b3a-d0eae5185eef" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: FindClients(...): ClientDto[*]</display>
+    <order>0</order>
+    <typeReference id="980f212f-e9b2-4368-8661-7cab270be80a">
+      <typeId>761e9afb-72d5-48f5-8760-f26cc1342d3a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.AuthHeaderProvider.ServiceProxies</typePackageName>
+      <typePackageId>a9393602-131c-4f96-aca1-20d7cd1870ca</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="5c1095ee-898d-46ed-8537-34217f14c8fb" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8b0ce65f-67df-4f4c-ba5b-264d3f3c1fa8" location="[ProxyServiceTests.Proxy.AuthHeaderProvider].[Services].[FindClients]" />
+        <target applicationId="5c1095ee-898d-46ed-8537-34217f14c8fb" designerId="2799aa83-e256-46fe-9589-b96f7d6b09f7" elementId="761e9afb-72d5-48f5-8760-f26cc1342d3a" location="[ProxyServiceTests.Proxy.AuthHeaderProvider].[Services].[FindClients]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{FindClients}</expression>
+            <path>
+              <target id="761e9afb-72d5-48f5-8760-f26cc1342d3a" name="FindClients" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="FindClients" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="8b0ce65f-67df-4f4c-ba5b-264d3f3c1fa8" name="FindClients" type="element" specialization="Operation" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

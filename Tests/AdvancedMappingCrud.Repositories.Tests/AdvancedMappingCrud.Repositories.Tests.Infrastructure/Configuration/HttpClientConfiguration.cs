@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using AdvancedMappingCrud.Repositories.Tests.Application.IntegrationServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.HttpClients;
 using Intent.RoslynWeaver.Attributes;
@@ -18,23 +19,30 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration
             services
                 .AddHttpClient<ICustomersServiceProxy, CustomersServiceProxyHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:CustomersServiceProxy:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:CustomersServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "AdvancedMappingCrud.DbContext.Tests.Services", "CustomersServiceProxy");
                 });
 
             services
                 .AddHttpClient<IFileUploadsService, FileUploadsServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:FileUploadsService:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:FileUploadsService:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "AdvancedMappingCrud.Repositories.Tests.Services", "FileUploadsService");
                 });
 
             services
                 .AddHttpClient<IProductServiceProxy, ProductServiceProxyHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:ProductServiceProxy:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:ProductServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "AdvancedMappingCrud.DbContext.Tests.Services", "ProductServiceProxy");
                 });
+        }
+
+        private static void ApplyAppSettings(
+            HttpClient client,
+            IConfiguration configuration,
+            string groupName,
+            string serviceName)
+        {
+            client.BaseAddress = configuration.GetValue<Uri>($"HttpClients:{serviceName}:Uri") ?? configuration.GetValue<Uri>($"HttpClients:{groupName}:Uri");
+            client.Timeout = configuration.GetValue<TimeSpan?>($"HttpClients:{serviceName}:Timeout") ?? configuration.GetValue<TimeSpan?>($"HttpClients:{groupName}:Timeout") ?? TimeSpan.FromSeconds(100);
         }
     }
 }

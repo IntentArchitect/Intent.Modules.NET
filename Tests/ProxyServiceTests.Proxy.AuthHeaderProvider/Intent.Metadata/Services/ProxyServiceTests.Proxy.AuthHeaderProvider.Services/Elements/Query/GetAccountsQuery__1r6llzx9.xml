@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f4be4d19-bafe-4faf-99a8-95b6579e6020" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetAccountsQuery</name>
+  <display>GetAccountsQuery: AccountDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="8a4dad14-6834-4c03-abf3-baebb491aef7">
+    <typeId>b35cef2a-b80a-4a5c-9cf4-015d80e92f52</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+    <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>3b88c41c-1efc-4d09-863c-4fc216e2b577</parentFolderId>
+  <packageId>04c6a15c-a669-4006-ac8d-24273331eadf</packageId>
+  <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

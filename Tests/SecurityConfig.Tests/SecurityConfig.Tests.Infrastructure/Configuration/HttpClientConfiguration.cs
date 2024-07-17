@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,16 +18,24 @@ namespace SecurityConfig.Tests.Infrastructure.Configuration
             services
                 .AddHttpClient<ICustomersService, CustomersServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:CustomersService:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:CustomersService:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "SecurityConfig.Tests.Services", "CustomersService");
                 });
 
             services
                 .AddHttpClient<IProductsService, ProductsServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:ProductsService:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:ProductsService:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "SecurityConfig.Tests.Services", "ProductsService");
                 });
+        }
+
+        private static void ApplyAppSettings(
+            HttpClient client,
+            IConfiguration configuration,
+            string groupName,
+            string serviceName)
+        {
+            client.BaseAddress = configuration.GetValue<Uri>($"HttpClients:{serviceName}:Uri") ?? configuration.GetValue<Uri>($"HttpClients:{groupName}:Uri");
+            client.Timeout = configuration.GetValue<TimeSpan?>($"HttpClients:{serviceName}:Timeout") ?? configuration.GetValue<TimeSpan?>($"HttpClients:{groupName}:Timeout") ?? TimeSpan.FromSeconds(100);
         }
     }
 }

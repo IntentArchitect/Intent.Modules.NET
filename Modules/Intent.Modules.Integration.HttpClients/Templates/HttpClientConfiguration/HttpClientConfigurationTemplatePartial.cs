@@ -76,7 +76,20 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
 
             }
         }
-        private static string GetGroupName(IServiceProxyModel proxyInterface)
+
+        internal static string GetConfigKey(ServiceProxyModel proxy, KeyType keyType, string key)
+        {
+            switch (keyType)
+            {
+                case KeyType.Group:
+                    return GetConfigKey(GetGroupName(proxy), key);
+                case KeyType.Service:
+                default:
+                    return GetConfigKey(proxy.Name.ToPascalCase(), key);
+            }
+        }
+
+        internal static string GetGroupName(IServiceProxyModel proxyInterface)
         {
             var proxy = proxyInterface as ServiceProxyModelAdapter;
             if (proxy == null)
@@ -86,7 +99,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
             return GetGroupName(proxy.Model);
         }
 
-        private static string GetGroupName(ServiceProxyModel proxy)
+        internal static string GetGroupName(ServiceProxyModel proxy)
         {
             var result =  proxy.InternalElement.MappedElement?.Element?.Package?.Name;
             result ??= proxy.InternalElement.Package.Name;
@@ -115,5 +128,11 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
                 return obj.Mapping.ElementId.GetHashCode();
             }
         }
+    }
+
+    public enum KeyType
+    {
+        Group,
+        Service
     }
 }

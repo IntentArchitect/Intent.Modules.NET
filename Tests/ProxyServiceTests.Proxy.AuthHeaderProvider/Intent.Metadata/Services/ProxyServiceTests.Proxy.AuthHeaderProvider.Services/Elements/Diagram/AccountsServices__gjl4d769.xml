@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b0224fd2-0380-418e-961b-b3eff338c579" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>AccountsServices</name>
+  <display>AccountsServices</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3b88c41c-1efc-4d09-863c-4fc216e2b577</parentFolderId>
+  <packageId>04c6a15c-a669-4006-ac8d-24273331eadf</packageId>
+  <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</packageName>
+  <diagram>
+    <targetPackageId>3b88c41c-1efc-4d09-863c-4fc216e2b577</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

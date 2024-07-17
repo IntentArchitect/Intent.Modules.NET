@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using CleanArchitecture.Dapr.Application.IntegrationServices;
 using CleanArchitecture.Dapr.Infrastructure.HttpClients;
 using Intent.RoslynWeaver.Attributes;
@@ -19,20 +20,30 @@ namespace CleanArchitecture.Dapr.Infrastructure.Configuration
             services
                 .AddHttpClient<INamedQueryStringsService, NamedQueryStringsServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:NamedQueryStringsService:Uri");
+                    ApplyAppSettings(http, configuration, "clean-architecture-dapr", "NamedQueryStringsService");
                 })
                 .ConfigureForDapr();
 
             services
                 .AddHttpClient<ISecuredService, SecuredServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:SecuredService:Uri");
+                    ApplyAppSettings(http, configuration, "clean-architecture-dapr", "SecuredService");
                 })
                 .AddHeaders(config =>
                 {
                     config.AddFromHeader("Authorization");
                 })
                 .ConfigureForDapr();
+        }
+
+        private static void ApplyAppSettings(
+            HttpClient client,
+            IConfiguration configuration,
+            string groupName,
+            string serviceName)
+        {
+            client.BaseAddress = configuration.GetValue<Uri>($"HttpClients:{serviceName}:Uri") ?? configuration.GetValue<Uri>($"HttpClients:{groupName}:Uri");
+            client.Timeout = configuration.GetValue<TimeSpan?>($"HttpClients:{serviceName}:Timeout") ?? configuration.GetValue<TimeSpan?>($"HttpClients:{groupName}:Timeout") ?? TimeSpan.FromSeconds(100);
         }
     }
 }

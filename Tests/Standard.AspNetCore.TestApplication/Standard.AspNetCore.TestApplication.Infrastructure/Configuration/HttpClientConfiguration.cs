@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,38 +24,45 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Configuration
             services
                 .AddHttpClient<IIntegrationServiceProxy, IntegrationServiceProxyHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:IntegrationServiceProxy:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:IntegrationServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "Standard.AspNetCore.TestApplication.Services", "IntegrationServiceProxy");
                 })
-                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:IntegrationServiceProxy:IdentityClientKey") ?? "default");
+                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:IntegrationServiceProxy:IdentityClientKey") ??
+                    configuration.GetValue<string>("HttpClients:Standard.AspNetCore.TestApplication.Services:IdentityClientKey") ??
+                    "default");
 
             services
                 .AddHttpClient<IInvoiceServiceProxy, InvoiceServiceProxyHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:InvoiceServiceProxy:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:InvoiceServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "Standard.AspNetCore.TestApplication.Services", "InvoiceServiceProxy");
                 });
 
             services
                 .AddHttpClient<IMultiVersionServiceProxy, MultiVersionServiceProxyHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:MultiVersionServiceProxy:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:MultiVersionServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "Standard.AspNetCore.TestApplication.Services", "MultiVersionServiceProxy");
                 });
 
             services
                 .AddHttpClient<IQueryStringNamesService, QueryStringNamesServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:QueryStringNamesService:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:QueryStringNamesService:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "Standard.AspNetCore.TestApplication.Services", "QueryStringNamesService");
                 });
 
             services
                 .AddHttpClient<IVersionOneServiceProxy, VersionOneServiceProxyHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:VersionOneServiceProxy:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:VersionOneServiceProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "Standard.AspNetCore.TestApplication.Services", "VersionOneServiceProxy");
                 });
+        }
+
+        private static void ApplyAppSettings(
+            HttpClient client,
+            IConfiguration configuration,
+            string groupName,
+            string serviceName)
+        {
+            client.BaseAddress = configuration.GetValue<Uri>($"HttpClients:{serviceName}:Uri") ?? configuration.GetValue<Uri>($"HttpClients:{groupName}:Uri");
+            client.Timeout = configuration.GetValue<TimeSpan?>($"HttpClients:{serviceName}:Timeout") ?? configuration.GetValue<TimeSpan?>($"HttpClients:{groupName}:Timeout") ?? TimeSpan.FromSeconds(100);
         }
     }
 }

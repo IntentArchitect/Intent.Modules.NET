@@ -63,7 +63,6 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientC
             return ExecutionContext.GetDaprApplicationName(proxy.InternalElement.MappedElement.ApplicationId);
         }
 
-
         public override void BeforeTemplateExecution()
         {
             base.BeforeTemplateExecution();

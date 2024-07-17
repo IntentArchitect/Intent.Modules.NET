@@ -48,6 +48,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConf
             AddNugetDependency(NuGetPackages.IdentityModelAspNetCore);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
+                .AddUsing("System.Net.Http")                
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass("HttpClientConfiguration", @class =>
