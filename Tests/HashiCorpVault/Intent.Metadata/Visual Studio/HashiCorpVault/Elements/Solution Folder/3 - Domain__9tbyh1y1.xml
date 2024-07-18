@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6f4c0e8e-839f-4c68-af18-ee398e2078ed" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>9bb4214b-c7f4-4a07-ba31-0c8d9d826541</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1dc33871-c2c5-4459-933a-2d96297ef8a9</parentFolderId>
+  <packageId>1dc33871-c2c5-4459-933a-2d96297ef8a9</packageId>
+  <packageName>HashiCorpVault</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

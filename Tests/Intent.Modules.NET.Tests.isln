@@ -126,5 +126,6 @@
     <application id="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" name="AdvancedMappingCrud.Mongo.Tests" relativePath="AdvancedMappingCrud.Mongo.Tests/AdvancedMappingCrud.Mongo.Tests.application.config" />
     <application id="ae7dbedc-1ada-4fbe-8b75-c1c56540c79b" name="SecurityConfig.Tests" relativePath="SecurityConfig.Tests/SecurityConfig.Tests.application.config" />
     <application id="5c1095ee-898d-46ed-8537-34217f14c8fb" name="ProxyServiceTests.Proxy.AuthHeaderProvider" relativePath="ProxyServiceTests.Proxy.AuthHeaderProvider/ProxyServiceTests.Proxy.AuthHeaderProvider.application.config" />
+    <application id="7f57e139-b7d4-40b6-96ca-624ec08d719f" name="HashiCorpVault" relativePath="HashiCorpVault/HashiCorpVault.application.config" />
   </applications>
 </solution>

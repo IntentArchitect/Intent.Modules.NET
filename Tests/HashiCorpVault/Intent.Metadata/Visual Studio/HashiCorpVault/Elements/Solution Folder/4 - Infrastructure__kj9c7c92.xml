@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8d9995fd-9d55-4c4f-997f-8b819cef5934" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1dc33871-c2c5-4459-933a-2d96297ef8a9</parentFolderId>
+  <packageId>1dc33871-c2c5-4459-933a-2d96297ef8a9</packageId>
+  <packageName>HashiCorpVault</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

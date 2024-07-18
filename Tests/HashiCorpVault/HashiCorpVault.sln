@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{344FB143-FB4F-4E08-948D-39BC38523B10}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashiCorpVault.Api", "HashiCorpVault.Api\HashiCorpVault.Api.csproj", "{3FB23E23-42E4-4E79-8E96-9ED5FED21502}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{A39E0147-FC2E-4E88-9957-BAF64D4BE9F3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashiCorpVault.Application", "HashiCorpVault.Application\HashiCorpVault.Application.csproj", "{0B24E966-4191-440C-9379-C1CCAC85AE91}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{6F4C0E8E-839F-4C68-AF18-EE398E2078ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashiCorpVault.Domain", "HashiCorpVault.Domain\HashiCorpVault.Domain.csproj", "{65F3B0CD-9F71-4EFE-8F7F-4D2F3F0EA429}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{8D9995FD-9D55-4C4F-997F-8B819CEF5934}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashiCorpVault.Infrastructure", "HashiCorpVault.Infrastructure\HashiCorpVault.Infrastructure.csproj", "{9412CA7E-1E7A-492A-B6DE-87D15BC3F8DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3FB23E23-42E4-4E79-8E96-9ED5FED21502} = {344FB143-FB4F-4E08-948D-39BC38523B10}
+		{0B24E966-4191-440C-9379-C1CCAC85AE91} = {A39E0147-FC2E-4E88-9957-BAF64D4BE9F3}
+		{65F3B0CD-9F71-4EFE-8F7F-4D2F3F0EA429} = {6F4C0E8E-839F-4C68-AF18-EE398E2078ED}
+		{9412CA7E-1E7A-492A-B6DE-87D15BC3F8DB} = {8D9995FD-9D55-4C4F-997F-8B819CEF5934}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FB23E23-42E4-4E79-8E96-9ED5FED21502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FB23E23-42E4-4E79-8E96-9ED5FED21502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FB23E23-42E4-4E79-8E96-9ED5FED21502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FB23E23-42E4-4E79-8E96-9ED5FED21502}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B24E966-4191-440C-9379-C1CCAC85AE91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B24E966-4191-440C-9379-C1CCAC85AE91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B24E966-4191-440C-9379-C1CCAC85AE91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B24E966-4191-440C-9379-C1CCAC85AE91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65F3B0CD-9F71-4EFE-8F7F-4D2F3F0EA429}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65F3B0CD-9F71-4EFE-8F7F-4D2F3F0EA429}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65F3B0CD-9F71-4EFE-8F7F-4D2F3F0EA429}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65F3B0CD-9F71-4EFE-8F7F-4D2F3F0EA429}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9412CA7E-1E7A-492A-B6DE-87D15BC3F8DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9412CA7E-1E7A-492A-B6DE-87D15BC3F8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9412CA7E-1E7A-492A-B6DE-87D15BC3F8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9412CA7E-1E7A-492A-B6DE-87D15BC3F8DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
