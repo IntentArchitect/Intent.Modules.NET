@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5f923b62-a44d-4e7c-b28b-c0c82d0f6c02">
+  <sourceEnd id="e72a240c-9a5a-46ea-8478-890046c290f1" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : ExternalDocs.UpdateExternalDocCommand</display>
+    <order>0</order>
+    <typeReference id="ad5b2e70-7a05-407b-9471-7e75333f7a04">
+      <typeId>344ea5fd-dbb6-4dce-8153-5dc5d2ac56ac</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrudMongo.Tests.Services</typePackageName>
+      <typePackageId>c53fd327-47ba-4176-95d7-b3862ece3d57</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5f923b62-a44d-4e7c-b28b-c0c82d0f6c02" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>externalDoc</name>
+    <display>[update] externalDoc: ExternalDoc</display>
+    <order>3</order>
+    <typeReference id="a612faa6-6075-4d16-baa7-0630f49d471d">
+      <typeId>28874fb1-860d-4952-8441-9631dde3441c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrudMongo.Tests.Domain</typePackageName>
+      <typePackageId>9af943c7-4a0b-4229-ad6b-31a83928009f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="344ea5fd-dbb6-4dce-8153-5dc5d2ac56ac" location="[AdvancedMappingCrud.Mongo.Tests].[Services].[UpdateExternalDocCommand]" />
+        <target applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="28874fb1-860d-4952-8441-9631dde3441c" location="[AdvancedMappingCrud.Mongo.Tests].[Services].[ExternalDoc]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="28874fb1-860d-4952-8441-9631dde3441c" name="ExternalDoc" type="element" specialization="Class" />
+              <target id="89c66030-06ce-4b1a-9fe6-96945fcaac74" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="344ea5fd-dbb6-4dce-8153-5dc5d2ac56ac" name="UpdateExternalDocCommand" type="element" specialization="Command" />
+                  <target id="99a93ef7-99b5-4eef-8329-eb39353942f6" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="344ea5fd-dbb6-4dce-8153-5dc5d2ac56ac" location="[AdvancedMappingCrud.Mongo.Tests].[Services].[UpdateExternalDocCommand]" />
+        <target applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="28874fb1-860d-4952-8441-9631dde3441c" location="[AdvancedMappingCrud.Mongo.Tests].[Services].[ExternalDoc]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="28874fb1-860d-4952-8441-9631dde3441c" name="ExternalDoc" type="element" specialization="Class" />
+              <target id="d8974b3b-a51b-4d0c-b158-46e8f0492402" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="344ea5fd-dbb6-4dce-8153-5dc5d2ac56ac" name="UpdateExternalDocCommand" type="element" specialization="Command" />
+                  <target id="e24b3311-c9a6-4c1c-9e18-e972b89be1eb" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Thing}</expression>
+            <path>
+              <target id="28874fb1-860d-4952-8441-9631dde3441c" name="ExternalDoc" type="element" specialization="Class" />
+              <target id="397c0ca8-1b73-4d27-99d4-b87906e72659" name="Thing" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Thing" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="344ea5fd-dbb6-4dce-8153-5dc5d2ac56ac" name="UpdateExternalDocCommand" type="element" specialization="Command" />
+                  <target id="4e8b2766-a89f-420e-b7b0-769734044317" name="Thing" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

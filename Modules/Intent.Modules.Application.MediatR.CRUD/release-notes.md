@@ -1,3 +1,7 @@
+### Version 6.0.14
+
+- Improvement: CQRS CRUD script now supports surrogate Primary keys marked as `User supplied`.
+
 ### Version 6.0.13
 
 - Improvement: FindAsync handling more mapping scenarios.

@@ -76,6 +76,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e7dddd38-6e03-4dfe-9df8-8c3948d62354</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#e0248f89-9130-4361-b8c7-9a503f41c697</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Api/Controllers/ExternalDocsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7dddd38-6e03-4dfe-9df8-8c3948d62354</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#886ccdaf-5bb7-4cbf-ae63-09f7553eb495</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Api/Controllers/OrdersController.cs</ApplicationRelativeFilePath>
@@ -504,6 +512,142 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#1a0919bd-06c4-477a-b168-d0fecc5a6caa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/CreateExternalDoc/CreateExternalDocCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/CreateExternalDoc/CreateExternalDocCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#1a0919bd-06c4-477a-b168-d0fecc5a6caa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/CreateExternalDoc/CreateExternalDocCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/CreateExternalDoc/CreateExternalDocCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#1a0919bd-06c4-477a-b168-d0fecc5a6caa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/CreateExternalDoc/CreateExternalDocCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/CreateExternalDoc/CreateExternalDocCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#55460346-13bc-4b98-b8b7-9802d75b8422</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/DeleteExternalDoc/DeleteExternalDocCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/DeleteExternalDoc/DeleteExternalDocCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#55460346-13bc-4b98-b8b7-9802d75b8422</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/DeleteExternalDoc/DeleteExternalDocCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/DeleteExternalDoc/DeleteExternalDocCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#55460346-13bc-4b98-b8b7-9802d75b8422</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/DeleteExternalDoc/DeleteExternalDocCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/DeleteExternalDoc/DeleteExternalDocCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#72a84450-df6c-49d9-83bb-f98ece15eefe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/ExternalDocDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/ExternalDocDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#72a84450-df6c-49d9-83bb-f98ece15eefe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/ExternalDocDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/ExternalDocDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#c778b402-2151-4c99-867e-adeede6988ff</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/GetExternalDocById/GetExternalDocByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/GetExternalDocById/GetExternalDocByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#c778b402-2151-4c99-867e-adeede6988ff</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/GetExternalDocById/GetExternalDocByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/GetExternalDocById/GetExternalDocByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#c778b402-2151-4c99-867e-adeede6988ff</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/GetExternalDocById/GetExternalDocByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/GetExternalDocById/GetExternalDocByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#d3f74db7-8fd8-46db-a246-151a1830ea26</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/GetExternalDocs/GetExternalDocsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/GetExternalDocs/GetExternalDocsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#d3f74db7-8fd8-46db-a246-151a1830ea26</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/GetExternalDocs/GetExternalDocsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/GetExternalDocs/GetExternalDocsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#d3f74db7-8fd8-46db-a246-151a1830ea26</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/GetExternalDocs/GetExternalDocsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/GetExternalDocs/GetExternalDocsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#344ea5fd-dbb6-4dce-8153-5dc5d2ac56ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/UpdateExternalDoc/UpdateExternalDocCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/UpdateExternalDoc/UpdateExternalDocCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#344ea5fd-dbb6-4dce-8153-5dc5d2ac56ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/UpdateExternalDoc/UpdateExternalDocCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/UpdateExternalDoc/UpdateExternalDocCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#344ea5fd-dbb6-4dce-8153-5dc5d2ac56ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/ExternalDocs/UpdateExternalDoc/UpdateExternalDocCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/UpdateExternalDoc/UpdateExternalDocCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1004,6 +1148,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>d29cd8ef-b205-4ca6-b959-6c27436f8b95</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#28874fb1-860d-4952-8441-9631dde3441c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Domain/Entities/ExternalDoc.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDoc.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d29cd8ef-b205-4ca6-b959-6c27436f8b95</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#2c0155e5-4d44-476b-b481-a3636c578f2d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Domain/Entities/Order.cs</ApplicationRelativeFilePath>
@@ -1032,6 +1184,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICustomerRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f4c9b206-4fe9-45d8-912b-332fe7b1fef4</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#28874fb1-860d-4952-8441-9631dde3441c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Domain/Repositories/IExternalDocRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IExternalDocRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1104,6 +1264,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Infrastructure/Repositories/CustomerMongoRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerMongoRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8d73b64e-ff55-4e4e-b76a-8f958fc97360</ProjectId>
+      <CorrelationId>Intent.MongoDb.Repositories.Repository#28874fb1-860d-4952-8441-9631dde3441c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Infrastructure/Repositories/ExternalDocMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocMongoRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1184,6 +1352,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/HttpClients/Customers/ICustomersService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/ICustomersService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f4f1d256-fb36-4425-9493-a0f399076870</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#e0248f89-9130-4361-b8c7-9a503f41c697</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/HttpClients/ExternalDocs/ExternalDocsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/ExternalDocsHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f4f1d256-fb36-4425-9493-a0f399076870</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#e0248f89-9130-4361-b8c7-9a503f41c697</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/HttpClients/ExternalDocs/IExternalDocsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/IExternalDocsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1320,6 +1504,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Services/Customers/UpdateCustomerCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/Customers/UpdateCustomerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ab1d20bf-1f89-43fc-a5c0-32921e6d7b65</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#1a0919bd-06c4-477a-b168-d0fecc5a6caa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Services/ExternalDocs/CreateExternalDocCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ExternalDocs/CreateExternalDocCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ab1d20bf-1f89-43fc-a5c0-32921e6d7b65</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#55460346-13bc-4b98-b8b7-9802d75b8422</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Services/ExternalDocs/DeleteExternalDocCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ExternalDocs/DeleteExternalDocCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ab1d20bf-1f89-43fc-a5c0-32921e6d7b65</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#72a84450-df6c-49d9-83bb-f98ece15eefe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Services/ExternalDocs/ExternalDocDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ExternalDocs/ExternalDocDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ab1d20bf-1f89-43fc-a5c0-32921e6d7b65</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#c778b402-2151-4c99-867e-adeede6988ff</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Services/ExternalDocs/GetExternalDocByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ExternalDocs/GetExternalDocByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ab1d20bf-1f89-43fc-a5c0-32921e6d7b65</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#d3f74db7-8fd8-46db-a246-151a1830ea26</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Services/ExternalDocs/GetExternalDocsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ExternalDocs/GetExternalDocsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ab1d20bf-1f89-43fc-a5c0-32921e6d7b65</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#344ea5fd-dbb6-4dce-8153-5dc5d2ac56ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Services/ExternalDocs/UpdateExternalDocCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ExternalDocs/UpdateExternalDocCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1552,6 +1784,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Tests/Customers/UpdateCustomerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/UpdateCustomerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1e44d63-f7fa-425d-826b-aad28ec11aef</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#1a0919bd-06c4-477a-b168-d0fecc5a6caa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Tests/ExternalDocs/CreateExternalDocTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/CreateExternalDocTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1e44d63-f7fa-425d-826b-aad28ec11aef</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#55460346-13bc-4b98-b8b7-9802d75b8422</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Tests/ExternalDocs/DeleteExternalDocTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/DeleteExternalDocTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1e44d63-f7fa-425d-826b-aad28ec11aef</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#c778b402-2151-4c99-867e-adeede6988ff</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Tests/ExternalDocs/GetExternalDocByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/GetExternalDocByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1e44d63-f7fa-425d-826b-aad28ec11aef</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#d3f74db7-8fd8-46db-a246-151a1830ea26</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Tests/ExternalDocs/GetExternalDocsTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/GetExternalDocsTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1e44d63-f7fa-425d-826b-aad28ec11aef</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#344ea5fd-dbb6-4dce-8153-5dc5d2ac56ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Tests/ExternalDocs/UpdateExternalDocTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExternalDocs/UpdateExternalDocTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -21,6 +21,7 @@ namespace AdvancedMappingCrudMongo.Tests.Infrastructure
             services.AddScoped<ApplicationMongoDbContext>();
             services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(configuration.GetConnectionString("MongoDbConnection")));
             services.AddTransient<ICustomerRepository, CustomerMongoRepository>();
+            services.AddTransient<IExternalDocRepository, ExternalDocMongoRepository>();
             services.AddTransient<IOrderRepository, OrderMongoRepository>();
             services.AddTransient<IProductRepository, ProductMongoRepository>();
             services.AddTransient<IMongoDbUnitOfWork>(provider => provider.GetRequiredService<ApplicationMongoDbContext>());
