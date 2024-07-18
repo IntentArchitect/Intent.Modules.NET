@@ -1,3 +1,8 @@
+### Version 1.0.14
+
+- Improvement: Updated NuGet package `MongoFramework` to latest(0.29.0).
+- Improvement: Now support documents with Identity which is not auto-assigned.
+
 ### Version 1.0.13
 
 - Improvement: Updated Interoperable dependency versions.
