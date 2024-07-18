@@ -217,11 +217,11 @@ steps:
     pwsh: true
     script: |
       $directory = '$(Build.ArtifactStagingDirectory)'
+      $address = 'https://intentarchitect.com/'
       $username = '$(intent-architect-user)'
       $password = '$(intent-architect-password)'
-      $address = 'https://intentarchitect.com/'
 
-      intent-package-management BulkUploadModules -directory "$director" -address "$address" -username "$username" -password "$password"
+      intent-package-management BulkUploadModules -directory "$directory" -address "$address" -username "$username" -password "$password"
       intent-package-management BulkUploadApplicationTemplates -directory "$directory" -address "$address" -username "$username" -password "$password"
 
 # Commented out until we move ownership of all NuGet packages
