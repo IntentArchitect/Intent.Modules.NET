@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.AspNetCore.Logging.Serilog</id>
-  <version>5.1.3</version>
+  <version>5.1.4-pre.0</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Provides Serilog logging for ASP.NET Core.</summary>

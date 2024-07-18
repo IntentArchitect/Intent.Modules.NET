@@ -73,24 +73,105 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
             return serilog;
         }
 
+
+        private class WriteToStratergy
+        {
+            private JToken _token;
+            private JArray _array;
+            private JObject _object;
+            private Func<HashSet<string>> _getSinkNames;
+            private Action<IEnumerable<string>> _removeSinksByName;
+            private Action<JObject> _addSink;
+
+            public WriteToStratergy(JToken token)
+            {
+                _token = token;
+                if (token is JArray jarray)
+                {
+                    _array = jarray;
+                    _getSinkNames = ArrayGetSinkNames;
+                    _addSink = ArrayAddSink;
+                    _removeSinksByName = ArrayRemoveSinksByName;
+                }
+                else if (token is JObject jobject)
+                {
+                    _object = jobject;
+                    _getSinkNames = ObjectGetSinkNames;
+                    _addSink = ObjectAddSink;
+                    _removeSinksByName = ObjectRemoveSinksByName;
+                }
+            }
+
+            public JToken Token => _token;
+
+            private HashSet<string> ArrayGetSinkNames()
+            {
+                return _array.Cast<JObject>().Select(x => x.GetValue("Name")?.Value<string>()).ToHashSet();
+            }
+            private HashSet<string> ObjectGetSinkNames()
+            {
+                return _object.Properties().Select(p => ((JObject)p.Value).GetValue("Name")?.Value<string>()).ToHashSet();
+            }
+
+            private void ArrayRemoveSinksByName(IEnumerable<string> sinksToRemove)
+            {
+                foreach (var sink in sinksToRemove.ToArray())
+                {
+                    var sinkToRemove = _array.FirstOrDefault(x => x["Name"]?.ToString() == sink);
+                    if (sinkToRemove is not null)
+                    {
+                        _array.Remove(sinkToRemove);
+                    }
+                }
+            }
+
+            private void ObjectRemoveSinksByName(IEnumerable<string> sinksToRemove)
+            {
+                var toRemoveName = sinksToRemove.ToArray();
+                var toRemove = new List<string>();
+                foreach (var p in _object.Properties())
+                {
+                    JObject value = p.Value as JObject;
+                    if (toRemoveName.Contains( value["Name"]?.ToString()))
+                    {
+                        toRemove.Add(p.Name);
+                    }
+                }
+                foreach (var propertyName in toRemove)
+                {
+                    _object.Remove(propertyName);
+                }
+            }
+
+            private void ArrayAddSink(JObject sink)
+            {
+                _array.Add(sink);
+            }
+
+            private void ObjectAddSink(JObject sink)
+            {
+                _object.Add(_object.Properties().Count().ToString() , sink);
+            }
+
+
+            public HashSet<string> GetSinkNames() => _getSinkNames();
+
+            public void RemoveSinksByName(IEnumerable<string> names) => _removeSinksByName(names);
+
+            public void AddSink(JObject sink) => _addSink(sink);
+        }
+
         private void PopulateWriteToSinks(JObject serilog)
         {
-            var writeTo = serilog.TryGetValue("WriteTo", out var sinkEntry) ? (JArray)sinkEntry! : new JArray();
-            serilog.TryAdd("WriteTo", writeTo);
+            var writeTo = new WriteToStratergy(serilog.TryGetValue("WriteTo", out var sinkEntry) ? sinkEntry : new JArray());
 
-            var currentSinks = writeTo.Cast<JObject>().Select(x => x.GetValue("Name")?.Value<string>()).ToHashSet();
+            serilog.TryAdd("WriteTo", writeTo.Token);
+
+            var currentSinks = writeTo.GetSinkNames();
             var selectedSinks = _application.Settings.GetSerilogSettings().Sinks().Select(sink => SerilogOptionToSectionName(sink.AsEnum())).ToHashSet();
             var managedSinks = Enum.GetValues<SerilogSettings.SinksOptionsEnum>().Select(SerilogOptionToSectionName).ToHashSet();
 
-            // Remove sinks not present in the valid sinks
-            foreach (var sink in currentSinks.Except(selectedSinks).ToArray())
-            {
-                var sinkToRemove = writeTo.FirstOrDefault(x => x["Name"]?.ToString() == sink && managedSinks.Contains(sink));
-                if (sinkToRemove is not null)
-                {
-                    writeTo.Remove(sinkToRemove);
-                }
-            }
+            writeTo.RemoveSinksByName((currentSinks.Except(selectedSinks)).Intersect(managedSinks));
 
             // Add new sinks
             foreach (var serilogSink in _application.Settings.GetSerilogSettings().Sinks())
@@ -135,7 +216,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
                 }
 
                 sinkToAdd["Args"] = args;
-                writeTo.Add(sinkToAdd);
+                writeTo.AddSink(sinkToAdd);
             }
 
             return;
