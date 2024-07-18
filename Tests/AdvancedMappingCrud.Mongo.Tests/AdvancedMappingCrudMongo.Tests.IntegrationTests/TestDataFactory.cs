@@ -1,7 +1,9 @@
 using AdvancedMappingCrudMongo.Tests.IntegrationTests.HttpClients.Customers;
+using AdvancedMappingCrudMongo.Tests.IntegrationTests.HttpClients.ExternalDocs;
 using AdvancedMappingCrudMongo.Tests.IntegrationTests.HttpClients.Orders;
 using AdvancedMappingCrudMongo.Tests.IntegrationTests.HttpClients.Products;
 using AdvancedMappingCrudMongo.Tests.IntegrationTests.Services.Customers;
+using AdvancedMappingCrudMongo.Tests.IntegrationTests.Services.ExternalDocs;
 using AdvancedMappingCrudMongo.Tests.IntegrationTests.Services.Orders;
 using AdvancedMappingCrudMongo.Tests.IntegrationTests.Services.Products;
 using AutoFixture;
@@ -40,6 +42,18 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests
             var customerId = await client.CreateCustomerAsync(command);
             _idTracker["CustomerId"] = customerId;
             return customerId;
+        }
+
+        [IntentMerge]
+        public async Task<long> CreateExternalDoc()
+        {
+            var client = new ExternalDocsHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateExternalDocCommand>();
+            command.Id = UniqueLongGenerator.GetNextId();
+            var externalDocId = await client.CreateExternalDocAsync(command);
+            _idTracker["ExternalDocId"] = externalDocId;
+            return externalDocId;
         }
 
         public async Task CreateOrderDependencies()

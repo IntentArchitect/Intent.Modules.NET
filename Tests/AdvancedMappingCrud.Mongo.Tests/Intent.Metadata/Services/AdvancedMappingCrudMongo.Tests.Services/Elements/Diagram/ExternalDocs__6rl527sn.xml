@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3bd52703-382c-4840-b362-6c4f32fd8225" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>ExternalDocs</name>
+  <display>ExternalDocs</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e0248f89-9130-4361-b8c7-9a503f41c697</parentFolderId>
+  <packageId>c53fd327-47ba-4176-95d7-b3862ece3d57</packageId>
+  <packageName>AdvancedMappingCrudMongo.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>e0248f89-9130-4361-b8c7-9a503f41c697</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

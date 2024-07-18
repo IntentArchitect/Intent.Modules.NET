@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b2eca1a1-583a-4408-9883-d2ebeb21b57a">
+  <sourceEnd id="d93b22cf-2912-45a5-88c3-09c99f516b33" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetExternalDocsQuery</display>
+    <order>0</order>
+    <typeReference id="59a96ba0-edb1-40d8-8a0f-1d09b75b24a2">
+      <typeId>d3f74db7-8fd8-46db-a246-151a1830ea26</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrudMongo.Tests.Services</typePackageName>
+      <typePackageId>c53fd327-47ba-4176-95d7-b3862ece3d57</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b2eca1a1-583a-4408-9883-d2ebeb21b57a" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>externalDocs</name>
+    <display>[query] externalDocs: ExternalDoc[*]</display>
+    <order>0</order>
+    <typeReference id="208a9ed9-fd1a-4cdb-b6d8-f4ecdbc3669b">
+      <typeId>28874fb1-860d-4952-8441-9631dde3441c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrudMongo.Tests.Domain</typePackageName>
+      <typePackageId>9af943c7-4a0b-4229-ad6b-31a83928009f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d3f74db7-8fd8-46db-a246-151a1830ea26" location="[AdvancedMappingCrud.Mongo.Tests].[Services].[GetExternalDocsQuery]" />
+        <target applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="28874fb1-860d-4952-8441-9631dde3441c" location="[AdvancedMappingCrud.Mongo.Tests].[Services].[ExternalDoc]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

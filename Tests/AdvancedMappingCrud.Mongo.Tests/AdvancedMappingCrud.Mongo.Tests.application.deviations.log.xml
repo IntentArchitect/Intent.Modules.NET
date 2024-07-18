@@ -2,6 +2,32 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AspNetCore.IntegrationTests.CRUD.TestDataFactory</correlationId>
+      <path>AdvancedMappingCrudMongo.Tests.IntegrationTests/TestDataFactory.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-07-18T11:11:25.6291665Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-07-18T11:13:27.9489363Z</approvedAt>
+      <deviationsHash>2E9031AD7D6D10B2F25AC80A030F1E39315454FFB8D1D1AE2B3A5636E25C6E80</deviationsHash>
+      <fileHash>642EDD7A66B04A119DA18740D447861AA0E1F5AB47069FD47C02B43BD40F4520</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#1a0919bd-06c4-477a-b168-d0fecc5a6caa</correlationId>
+      <path>AdvancedMappingCrudMongo.Tests.IntegrationTests/Tests/ExternalDocs/CreateExternalDocTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-07-18T11:11:25.6292626Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-07-18T11:13:29.5703214Z</approvedAt>
+      <deviationsHash>D65EA794BE68C66D94D25D9681D73F4B4157BD46425B73F0AF947A55F1E0D614</deviationsHash>
+      <fileHash>EE61AF789A6C93BC8BD937EA75FC55AA02C28BAA55E88C37EF026706A96EFEFC</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#83c5ee45-ee34-43cc-88af-a70d3f25f223</correlationId>
       <path>AdvancedMappingCrudMongo.Tests.IntegrationTests/Tests/Orders/UpdateOrderTests.cs</path>
       <count>1</count>
