@@ -19,9 +19,9 @@ using Intent.Templates;
 namespace Intent.Modules.Azure.KeyVault.FactoryExtensions;
 
 [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-public class ProgramAppConfigInstaller : FactoryExtensionBase
+public class ProgramExtension : FactoryExtensionBase
 {
-    public override string Id => "Intent.Azure.KeyVault.ProgramAppConfigInstaller";
+    public override string Id => "Intent.Azure.KeyVault.ProgramExtension";
 
     [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
@@ -55,8 +55,15 @@ public class ProgramAppConfigInstaller : FactoryExtensionBase
             {
                 programTemplate.ProgramFile.ConfigureAppConfiguration(true, (statements, parameters) =>
                 {
+                    var builder = statements.FindStatement(s => s.HasMetadata("configuration-builder"));
+                    if (builder is null)
+                    {
+                        builder = new CSharpStatement($"var configuration = {parameters[^1]}.Build();")
+                            .AddMetadata("configuration-builder", true)
+                            .SeparatedFromNext();
+                        statements.InsertStatement(0, builder);
+                    }
                     statements
-                        .AddStatement($"var configuration = {parameters[^1]}.Build();")
                         .AddIfStatement(@"configuration.GetValue<bool?>(""KeyVault:Enabled"") == true", @if =>
                         {
                             @if.AddStatement($"{parameters[^1]}.ConfigureAzureKeyVault(configuration);");

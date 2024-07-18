@@ -90,11 +90,10 @@ Set the environment variable for CLI commands:
 ```powershell
 # PowerShell
 $env:VAULT_ADDR="http://127.0.0.1:8200"
+```
 
-# cmd.exe
-set VAULT_ADDR=http://127.0.0.1:8200
-
-# Linux / Unix
+```bash
+# Bash
 export VAULT_ADDR='http://127.0.0.1:8200'
 ```
 
@@ -114,6 +113,12 @@ vault kv put -mount=secret creds passcode=my-long-passcode
 You can also specify a JSON payload:
 
 ```powershell
+# Powershell
+echo '{"username":"joe","password":"pass123","meta":[{"key":"creation","value":"3/4/2024 13:05:28"}]}' | vault kv put secret/creds -
+```
+
+```bash
+# Bash
 echo '{"username":"joe","password":"pass123","meta":[{"key":"creation","value":"3/4/2024 13:05:28"}]}' | vault kv put secret/creds -
 ```
 
@@ -130,6 +135,7 @@ vault auth enable approle
 Set up the access policy:
 
 ```powershell
+# Powershell
 $policy = @"
 path "secret/data/creds" {
   capabilities = [ "read" ]
@@ -137,6 +143,17 @@ path "secret/data/creds" {
 "@
 
 $policy | vault policy write dev-policy -
+```
+
+```bash
+# Bash
+policy='
+path "secret/data/creds" {
+  capabilities = ["read"]
+}
+'
+
+echo "$policy" | vault policy write dev-policy -
 ```
 
 Create the role:

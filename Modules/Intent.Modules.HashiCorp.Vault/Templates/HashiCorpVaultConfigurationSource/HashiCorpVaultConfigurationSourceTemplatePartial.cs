@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -32,5 +33,7 @@ namespace Intent.Modules.HashiCorp.Vault.Templates.HashiCorpVaultConfigurationSo
         }
 
         public string ClassNameBase => "HashiCorpVaultConfiguration";
+
+        public string Nullable => OutputTarget.GetProject().NullableEnabled ? "?" : string.Empty;
     }
 }

@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.Azure.KeyVault;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -21,6 +23,8 @@ namespace Intent.Modules.HashiCorp.Vault.Templates.HashiCorpVaultConfiguration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public HashiCorpVaultConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.VaultSharp);
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddClass($"HashiCorpVaultConfiguration", @class =>

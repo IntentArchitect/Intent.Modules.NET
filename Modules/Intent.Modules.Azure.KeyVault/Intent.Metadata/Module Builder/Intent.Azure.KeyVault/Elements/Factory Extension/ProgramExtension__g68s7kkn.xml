@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="1e3080cd-d721-403c-9fd3-bb37698a8360" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
-  <name>ProgramAppConfigInstaller</name>
-  <display>ProgramAppConfigInstaller</display>
+  <name>ProgramExtension</name>
+  <display>ProgramExtension</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

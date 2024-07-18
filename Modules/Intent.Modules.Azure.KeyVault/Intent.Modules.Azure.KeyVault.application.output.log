@@ -3,7 +3,7 @@
   <ApplicationId>9895fa0b-6af4-4afb-ac6b-6c42f8b2f1bc</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#edf8e809-f5f2-4a2d-bc39-05390b23ec32</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#edf8e809-f5f2-4a2d-bc39-05390b23ec32</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -12,8 +12,8 @@
       <ProjectId>ba2804a8-c467-4bc7-8945-54d6f477a496</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#1e3080cd-d721-403c-9fd3-bb37698a8360</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/ProgramAppConfigInstaller.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ProgramAppConfigInstaller.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/ProgramExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProgramExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -34,10 +34,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>31d61c32-3b68-497e-83e6-f30d7a862894</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

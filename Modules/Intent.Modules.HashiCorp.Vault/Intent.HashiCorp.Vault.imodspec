@@ -49,7 +49,7 @@
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
-  <tags>csharp dotnet keyvault secrets</tags>
+  <tags>csharp dotnet keyvault secrets vault</tags>
   <moduleSettingsExtensions />
   <metadata />
   <releaseNotes>release-notes.md</releaseNotes>

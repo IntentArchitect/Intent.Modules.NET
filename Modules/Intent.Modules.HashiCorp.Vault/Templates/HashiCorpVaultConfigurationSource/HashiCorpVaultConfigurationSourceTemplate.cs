@@ -34,7 +34,7 @@ namespace Intent.Modules.HashiCorp.Vault.Templates.HashiCorpVaultConfigurationSo
                      {
                          private readonly HashiCorpVaultEntry _hashiCorpVaultEntry;
                          private readonly IVaultClient _vaultClient;
-                         private readonly Timer _reloadTimer;
+                         private readonly Timer{{Nullable}} _reloadTimer;
                      
                          public {{ClassNameBase}}Provider(HashiCorpVaultEntry hashiCorpVaultEntry)
                          {

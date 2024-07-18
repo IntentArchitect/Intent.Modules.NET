@@ -60,8 +60,15 @@ namespace Intent.Modules.HashiCorp.Vault.FactoryExtensions
                 {
                     programTemplate.ProgramFile.ConfigureAppConfiguration(true, (statements, parameters) =>
                     {
+                        var builder = statements.FindStatement(s => s.HasMetadata("configuration-builder"));
+                        if (builder is null)
+                        {
+                            builder = new CSharpStatement($"var configuration = {parameters[^1]}.Build();")
+                                .AddMetadata("configuration-builder", true)
+                                .SeparatedFromNext();
+                            statements.InsertStatement(0, builder);
+                        }
                         statements
-                            .AddStatement($"var configuration = {parameters[^1]}.Build();")
                             .AddIfStatement(@"configuration.GetValue<bool?>(""HashiCorpVault:Enabled"") == true", @if =>
                             {
                                 @if.AddStatement($"{parameters[^1]}.ConfigureHashiCorpVault(configuration);");
