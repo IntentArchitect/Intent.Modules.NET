@@ -86,126 +86,126 @@ public class HashiCorpVaultConfigurationProvider : ConfigurationProvider
             Data.Add(entry.Key, entry.Value);
         }
     }
-}
 
-public class JsonConfigurationFileParser
-{
-    private JsonConfigurationFileParser()
+    internal class JsonConfigurationFileParser
     {
-    }
-
-    private readonly Dictionary<string, string?> _data = new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
-    private readonly Stack<string> _paths = new Stack<string>();
-
-    public static IDictionary<string, string?> Convert(KeyValuePair<string, object> pair)
-        => new JsonConfigurationFileParser().ConvertObject(pair);
-
-    private Dictionary<string, string?> ConvertObject(KeyValuePair<string, object> pair)
-    {
-        if (pair.Value is not JsonElement jsonElement)
+        private JsonConfigurationFileParser()
         {
+        }
+
+        private readonly Dictionary<string, string?> _data = new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
+        private readonly Stack<string> _paths = new Stack<string>();
+
+        public static IDictionary<string, string?> Convert(KeyValuePair<string, object> pair)
+            => new JsonConfigurationFileParser().ConvertObject(pair);
+
+        private Dictionary<string, string?> ConvertObject(KeyValuePair<string, object> pair)
+        {
+            if (pair.Value is not JsonElement jsonElement)
+            {
+                return _data;
+            }
+
+            switch (jsonElement.ValueKind)
+            {
+                case JsonValueKind.Object:
+                    VisitObjectElement(jsonElement, pair.Key);
+                    break;
+                case JsonValueKind.Array:
+                    VisitArrayElement(jsonElement, pair.Key);
+                    break;
+                case JsonValueKind.String:
+                case JsonValueKind.Number:
+                case JsonValueKind.True:
+                case JsonValueKind.False:
+                    _data.Add(pair.Key, pair.Value.ToString());
+                    break;
+                case JsonValueKind.Null:
+                    _data.Add(pair.Key, null);
+                    break;
+                case JsonValueKind.Undefined:
+                default:
+                    throw new FormatException($"Unsupported JSON Token: {jsonElement.ValueKind}");
+            }
+
             return _data;
         }
 
-        switch (jsonElement.ValueKind)
+        private void VisitObjectElement(JsonElement element, string mainKey)
         {
-            case JsonValueKind.Object:
-                VisitObjectElement(jsonElement, pair.Key);
-                break;
-            case JsonValueKind.Array:
-                VisitArrayElement(jsonElement, pair.Key);
-                break;
-            case JsonValueKind.String:
-            case JsonValueKind.Number:
-            case JsonValueKind.True:
-            case JsonValueKind.False:
-                _data.Add(pair.Key, pair.Value.ToString());
-                break;
-            case JsonValueKind.Null:
-                _data.Add(pair.Key, null);
-                break;
-            case JsonValueKind.Undefined:
-            default:
-                throw new FormatException($"Unsupported JSON Token: {jsonElement.ValueKind}");
+            var isEmpty = true;
+
+            foreach (JsonProperty property in element.EnumerateObject())
+            {
+                isEmpty = false;
+                EnterContext(property.Name);
+                VisitValue(property.Value, mainKey);
+                ExitContext();
+            }
+
+            SetNullIfElementIsEmpty(isEmpty);
         }
 
-        return _data;
-    }
-
-    private void VisitObjectElement(JsonElement element, string mainKey)
-    {
-        var isEmpty = true;
-
-        foreach (JsonProperty property in element.EnumerateObject())
+        private void VisitArrayElement(JsonElement element, string mainKey)
         {
-            isEmpty = false;
-            EnterContext(property.Name);
-            VisitValue(property.Value, mainKey);
-            ExitContext();
+            int index = 0;
+
+            foreach (JsonElement arrayElement in element.EnumerateArray())
+            {
+                EnterContext(index.ToString());
+                VisitValue(arrayElement, mainKey);
+                ExitContext();
+                index++;
+            }
+
+            SetNullIfElementIsEmpty(isEmpty: index == 0);
         }
 
-        SetNullIfElementIsEmpty(isEmpty);
-    }
-
-    private void VisitArrayElement(JsonElement element, string mainKey)
-    {
-        int index = 0;
-
-        foreach (JsonElement arrayElement in element.EnumerateArray())
+        private void SetNullIfElementIsEmpty(bool isEmpty)
         {
-            EnterContext(index.ToString());
-            VisitValue(arrayElement, mainKey);
-            ExitContext();
-            index++;
+            if (isEmpty && _paths.Count > 0)
+            {
+                _data[_paths.Peek()] = null;
+            }
         }
 
-        SetNullIfElementIsEmpty(isEmpty: index == 0);
-    }
-
-    private void SetNullIfElementIsEmpty(bool isEmpty)
-    {
-        if (isEmpty && _paths.Count > 0)
+        private void VisitValue(JsonElement value, string mainKey)
         {
-            _data[_paths.Peek()] = null;
+            Debug.Assert(_paths.Count > 0);
+
+            switch (value.ValueKind)
+            {
+                case JsonValueKind.Object:
+                    VisitObjectElement(value, mainKey);
+                    break;
+
+                case JsonValueKind.Array:
+                    VisitArrayElement(value, mainKey);
+                    break;
+
+                case JsonValueKind.Number:
+                case JsonValueKind.String:
+                case JsonValueKind.True:
+                case JsonValueKind.False:
+                case JsonValueKind.Null:
+                    string key = $"{mainKey}:{_paths.Peek()}".Replace("__", ":");
+                    if (_data.ContainsKey(key))
+                    {
+                        throw new FormatException($"Key is duplicated: {mainKey}");
+                    }
+
+                    _data[key] = value.ToString();
+                    break;
+
+                case JsonValueKind.Undefined:
+                default:
+                    throw new FormatException($"Unsupported JSON Token: {value.ValueKind}");
+            }
         }
+
+        private void EnterContext(string context) =>
+            _paths.Push(_paths.Count > 0 ? _paths.Peek() + ConfigurationPath.KeyDelimiter + context : context);
+
+        private void ExitContext() => _paths.Pop();
     }
-
-    private void VisitValue(JsonElement value, string mainKey)
-    {
-        Debug.Assert(_paths.Count > 0);
-
-        switch (value.ValueKind)
-        {
-            case JsonValueKind.Object:
-                VisitObjectElement(value, mainKey);
-                break;
-
-            case JsonValueKind.Array:
-                VisitArrayElement(value, mainKey);
-                break;
-
-            case JsonValueKind.Number:
-            case JsonValueKind.String:
-            case JsonValueKind.True:
-            case JsonValueKind.False:
-            case JsonValueKind.Null:
-                string key = $"{mainKey}:{_paths.Peek()}".Replace("__", ":");
-                if (_data.ContainsKey(key))
-                {
-                    throw new FormatException($"Key is duplicated: {mainKey}");
-                }
-
-                _data[key] = value.ToString();
-                break;
-
-            case JsonValueKind.Undefined:
-            default:
-                throw new FormatException($"Unsupported JSON Token: {value.ValueKind}");
-        }
-    }
-
-    private void EnterContext(string context) =>
-        _paths.Push(_paths.Count > 0 ? _paths.Peek() + ConfigurationPath.KeyDelimiter + context : context);
-
-    private void ExitContext() => _paths.Pop();
 }
