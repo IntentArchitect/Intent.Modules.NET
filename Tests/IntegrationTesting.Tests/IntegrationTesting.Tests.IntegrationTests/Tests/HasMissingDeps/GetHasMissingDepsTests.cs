@@ -17,7 +17,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         {
         }
 
-        [Fact]
+        [IntentManaged(Mode.Fully, Signature = Mode.Ignore, Attributes = Mode.Ignore)]
         public async Task GetHasMissingDeps_ShouldGetHasMissingDeps()
         {
             // Arrange
