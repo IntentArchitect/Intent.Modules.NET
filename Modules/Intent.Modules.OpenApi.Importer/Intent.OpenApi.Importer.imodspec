@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.OpenApi.Importer</id>
-  <version>1.1.0</version>
+  <version>1.1.1-pre.0</version>
   <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <summary>Module for importing Service Models based on OpenApi documents</summary>
   <description>This module adds the functionality to import Service Models based on OpenApi documents.</description>
@@ -18,6 +18,7 @@
     <dependency id="Intent.Common" version="3.5.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.Modelers.Services" version="3.7.0" />
+    <dependency id="Intent.Metadata.WebApi" version="4.5.4" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

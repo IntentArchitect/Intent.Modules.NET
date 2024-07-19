@@ -37,7 +37,6 @@ namespace Intent.Modules.OpenApi.Importer.Tasks
 				return Fail(errorMessage!);
 			}
 
-
 			var toolDirectory = Path.Combine(Path.GetDirectoryName(typeof(OpenApiImport).Assembly.Location), @"../content/tool");
 			var executableName = "dotnet";
 			var executableArgs = $"\"{Path.Combine(toolDirectory, "Intent.MetadataSynchronizer.OpenApi.CLI.dll")}\" --serialized-config \"{openApiImportSettings}\"";
@@ -147,11 +146,26 @@ Please see reasons below:");
 			var package = designer.Packages.FirstOrDefault(p => p.Id == settings.PackageId);
 			if (package == null)
 			{
-				errorMessage = $"Unable to find package with Id : {settings.PackageId}";
+				errorMessage = $"Unable to find package with Id : {settings.PackageId}. Check you have saved the Service Package.";
 				return false;
 			}
 
-			settings.OpenApiSpecificationFile = settings.OpenApiSpecificationFile.Trim('"');
+			var installedModules = _configurationProvider.GetInstalledModules().Select(m => m.ModuleId);
+
+            if (settings.ServiceType.Equals("CQRS", StringComparison.OrdinalIgnoreCase) && !installedModules.Contains("Intent.Modelers.Services.CQRS"))
+			{
+                errorMessage = $"You need to Install the `Intent.Modelers.Services.CQRS` module, to model CQRS style services. ";
+                return false;
+            }
+
+            if (!installedModules.Contains("Intent.Common.CSharp") && !installedModules.Contains("Intent.Common.Java"))
+            {
+                errorMessage = $"You need to Install the `Intent.Common.CSharp` OR `Intent.Common.Java` module. ";
+                return false;
+            }
+
+
+            settings.OpenApiSpecificationFile = settings.OpenApiSpecificationFile.Trim('"');
 
 			settings.ApplicationName = application.Name;
 

@@ -1,3 +1,8 @@
+### Version 1.1.1
+
+- Improvement: Improved error messaging i.e. If you are select CQRS messaging but don't have the corresponding module installed.
+- Fixed: Module installs expected `Intent.Metadata.WebApi`.
+
 ### Version 1.1.0
 
 - Improvement: Added support for OpenAPI `Required` property. 
