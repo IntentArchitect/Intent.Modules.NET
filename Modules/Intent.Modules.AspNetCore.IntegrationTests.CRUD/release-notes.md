@@ -1,4 +1,8 @@
-﻿### Version 1.0.4
+﻿### Version 1.0.5
+
+- Fixed: Bug where SF would crash around CRUD services without `Delete`, `Update` and /or `GetAll` implementations.
+
+### Version 1.0.4
 
 - Improvement: Generate `NotImplemenetedException` stub tests for, CRUD style services which we can't determine implementations for.
 
