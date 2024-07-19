@@ -98,7 +98,7 @@ steps:
 # Push the NuGet packages to the DevOps artifact feed so that it's available to other pipelines
 - task: NuGetCommand@2
   displayName: 'nuget push'
-  condition: and(succeeded(), in(true, variables.isMaster, variables.isDevelopment))
+  condition: and(succeeded(), in('True', variables.isMaster, variables.isDevelopment))
   inputs:
       command: 'push'
       feedsToUse: 'select'
@@ -120,7 +120,7 @@ steps:
 
 - task: PowerShell@2
   displayName: 'Update Project URLs in imodspecs'
-  condition: and(succeeded(), in(true, variables.isMaster))
+  condition: and(succeeded(), in('True', variables.isMaster))
   inputs:
     targetType: 'inline'
     pwsh: true
@@ -173,7 +173,7 @@ steps:
 
 - task: PowerShell@2
   displayName: 'install intent packager'
-  condition: and(succeeded(), in(true, variables.isMaster, variables.isDevelopment))
+  condition: and(succeeded(), in('True', variables.isMaster, variables.isDevelopment))
   inputs:
     targetType: 'inline'
     pwsh: true
@@ -182,7 +182,7 @@ steps:
 
 - task: PowerShell@2
   displayName: 'filter artifacts to publish'
-  condition: and(succeeded(), in(true, variables.isMaster, variables.isDevelopment))
+  condition: and(succeeded(), in('True', variables.isMaster, variables.isDevelopment))
   inputs:
     targetType: inline
     pwsh: true
@@ -211,7 +211,7 @@ steps:
 
 - task: PowerShell@2
   displayName: 'publish modules'
-  condition: and(succeeded(), in(true, variables.isMaster, variables.isDevelopment))
+  condition: and(succeeded(), in('True', variables.isMaster, variables.isDevelopment))
   env:
     DOTNET_NOLOGO: '1'
   inputs:
@@ -229,7 +229,7 @@ steps:
 # Commented out until we move ownership of all NuGet packages
 # - task: DotNetCoreCLI@2
 #   displayName: 'Push *.nupkg to nuget.org'
-#   condition: and(succeeded(), in(true, variables.isMaster))
+#   condition: and(succeeded(), in('True', variables.isMaster))
 #   inputs:
 #     command: 'custom'
 #     custom: 'nuget'
