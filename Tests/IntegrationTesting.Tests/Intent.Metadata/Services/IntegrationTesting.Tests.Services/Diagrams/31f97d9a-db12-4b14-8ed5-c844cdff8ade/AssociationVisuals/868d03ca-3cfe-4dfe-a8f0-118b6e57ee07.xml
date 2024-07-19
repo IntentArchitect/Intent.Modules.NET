@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<associationVisual id="868d03ca-3cfe-4dfe-a8f0-118b6e57ee07" zIndex="8">
+<associationVisual id="868d03ca-3cfe-4dfe-a8f0-118b6e57ee07" zIndex="6">
   <sourceId>37f49039-7458-4933-b4cd-efe89ad0e886</sourceId>
   <targetId>6cb8585c-4658-4961-a373-855a7d26bc17</targetId>
   <targetPrefPoint x="660" y="385" />

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using IntegrationTesting.Tests.Api.Controllers.ResponseTypes;
 using IntegrationTesting.Tests.Application.HasMissingDeps;
 using IntegrationTesting.Tests.Application.HasMissingDeps.CreateHasMissingDep;
-using IntegrationTesting.Tests.Application.HasMissingDeps.DeleteHasMissingDep;
 using IntegrationTesting.Tests.Application.HasMissingDeps.GetHasMissingDepById;
 using IntegrationTesting.Tests.Application.HasMissingDeps.GetHasMissingDeps;
 using IntegrationTesting.Tests.Application.HasMissingDeps.UpdateHasMissingDep;
@@ -48,24 +47,6 @@ namespace IntegrationTesting.Tests.Api.Controllers
         {
             var result = await _mediator.Send(command, cancellationToken);
             return CreatedAtAction(nameof(GetHasMissingDepById), new { id = result }, new JsonResponse<Guid>(result));
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <response code="200">Successfully deleted.</response>
-        /// <response code="400">One or more validation errors have occurred.</response>
-        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
-        [HttpDelete("api/has-missing-deps/{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> DeleteHasMissingDep(
-            [FromRoute] Guid id,
-            CancellationToken cancellationToken = default)
-        {
-            await _mediator.Send(new DeleteHasMissingDepCommand(id: id), cancellationToken);
-            return Ok();
         }
 
         /// <summary>

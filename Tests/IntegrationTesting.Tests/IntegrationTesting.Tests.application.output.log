@@ -1268,30 +1268,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#885c5801-6e69-4408-adce-3c9fd4d091ba</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/DeleteHasMissingDep/DeleteHasMissingDepCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HasMissingDeps/DeleteHasMissingDep/DeleteHasMissingDepCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#885c5801-6e69-4408-adce-3c9fd4d091ba</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/DeleteHasMissingDep/DeleteHasMissingDepCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HasMissingDeps/DeleteHasMissingDep/DeleteHasMissingDepCommandHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#885c5801-6e69-4408-adce-3c9fd4d091ba</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/DeleteHasMissingDep/DeleteHasMissingDepCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HasMissingDeps/DeleteHasMissingDep/DeleteHasMissingDepCommandValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#7574a9a4-a33d-48e5-a21f-62459f55eea6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/GetHasMissingDepById/GetHasMissingDepByIdQuery.cs</ApplicationRelativeFilePath>
@@ -3628,14 +3604,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#885c5801-6e69-4408-adce-3c9fd4d091ba</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/HasMissingDeps/DeleteHasMissingDepCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/HasMissingDeps/DeleteHasMissingDepCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#7574a9a4-a33d-48e5-a21f-62459f55eea6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/HasMissingDeps/GetHasMissingDepByIdQuery.cs</ApplicationRelativeFilePath>
@@ -4248,14 +4216,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/HasMissingDeps/CreateHasMissingDepTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HasMissingDeps/CreateHasMissingDepTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#885c5801-6e69-4408-adce-3c9fd4d091ba</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/HasMissingDeps/DeleteHasMissingDepTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HasMissingDeps/DeleteHasMissingDepTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
