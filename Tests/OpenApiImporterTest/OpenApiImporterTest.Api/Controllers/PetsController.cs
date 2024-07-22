@@ -37,10 +37,15 @@ namespace OpenApiImporterTest.Api.Controllers
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
         [HttpPost("/pet/")]
+        [Authorize]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(Pet), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Pet>> CreatePet(
             [FromBody] CreatePetCommand command,
@@ -54,10 +59,15 @@ namespace OpenApiImporterTest.Api.Controllers
         /// </summary>
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("/pet/{petId}")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeletePet(
@@ -73,10 +83,15 @@ namespace OpenApiImporterTest.Api.Controllers
         /// </summary>
         /// <response code="200">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
         [HttpPut("/pet/")]
+        [Authorize]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(Pet), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Pet>> UpdatePet(
             [FromBody] UpdatePetCommand command,
@@ -90,10 +105,15 @@ namespace OpenApiImporterTest.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified List&lt;Pet&gt;.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
         [HttpGet("/pet/findByStatus")]
+        [Authorize]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(List<Pet>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<Pet>>> GetByStatuses(
             [FromQuery] string status,
@@ -107,10 +127,15 @@ namespace OpenApiImporterTest.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified List&lt;Pet&gt;.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
         [HttpGet("/pet/findByTags")]
+        [Authorize]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(List<Pet>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<Pet>>> GetByTags(
             [FromQuery] List<string> tags,
@@ -124,11 +149,16 @@ namespace OpenApiImporterTest.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified Pet.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
         /// <response code="404">No Pet could be found with the provided parameters.</response>
         [HttpGet("/pet/{petId}")]
+        [Authorize]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(Pet), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Pet>> GetPet([FromRoute] int petId, CancellationToken cancellationToken = default)

@@ -150,13 +150,7 @@ Please see reasons below:");
 				return false;
 			}
 
-			var installedModules = _configurationProvider.GetInstalledModules().Select(m => m.ModuleId);
-
-            if (settings.ServiceType.Equals("CQRS", StringComparison.OrdinalIgnoreCase) && !installedModules.Contains("Intent.Modelers.Services.CQRS"))
-			{
-                errorMessage = $"You need to Install the `Intent.Modelers.Services.CQRS` module, to model CQRS style services. ";
-                return false;
-            }
+			var installedModules = _configurationProvider.GetInstalledModules().Select(m => m.ModuleId).ToList();
 
             if (!installedModules.Contains("Intent.Common.CSharp") && !installedModules.Contains("Intent.Common.Java"))
             {
@@ -164,6 +158,15 @@ Please see reasons below:");
                 return false;
             }
 
+			var requiredModules = CalculateRequiredModules(settings, installedModules);
+
+			if (requiredModules.Any() && requiredModules.Except(installedModules).Any()) 
+			{
+				var missingModules = requiredModules.Except(installedModules);
+
+                errorMessage = $"Based on your selection, you need to Install the following modules.\n{string.Join("\n", missingModules)}";
+                return false;
+            }
 
             settings.OpenApiSpecificationFile = settings.OpenApiSpecificationFile.Trim('"');
 
@@ -178,6 +181,21 @@ Please see reasons below:");
 			openApiImportSettings = sending.Replace("\"", "\\\"");
 			return true;
 		}
+
+		private List<string> CalculateRequiredModules(ImportSettings settings, IList<string> installedModules)
+		{
+			var requiredModules = new List<string>();
+			if (settings.ServiceType.Equals("CQRS", StringComparison.OrdinalIgnoreCase))
+			{
+                if (installedModules.Contains("Intent.Common.CSharp"))
+                {
+					requiredModules.Add("Intent.Modelers.Services.CQRS");
+                    requiredModules.Add("Intent.Application.MediatR");
+                }
+
+            }
+            return requiredModules;
+        }
 
 		private string Fail(string reason)
 		{

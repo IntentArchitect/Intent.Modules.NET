@@ -56,6 +56,17 @@
         <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
       </properties>
     </stereotype>
+    <stereotype stereotypeDefinitionId="b06358cd-aed3-4c39-96cf-abb131e4ecde" name="Authorize">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Application.MediatR</definitionPackageName>
+      <definitionPackageId>e92495db-1b26-4389-bf06-cc1b375520b1</definitionPackageId>
+      <properties>
+        <property name="98f96218-c5a7-4656-96b6-f173947028f7" display="Roles" isActive="true" />
+        <property name="ced1460d-1bd9-4ec2-92b3-51bdbf173315" display="Policy" isActive="true" />
+        <property name="9c5cd2b9-52d8-47a0-96a5-f0026c3b9e48" display="Security Roles" isActive="false" />
+        <property name="2d95351e-d2e5-46da-8361-6c29bc690f98" display="Security Policies" isActive="false" />
+      </properties>
+    </stereotype>
   </stereotypes>
   <metadata />
   <childElements />

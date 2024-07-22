@@ -22,18 +22,15 @@ namespace OpenApiImporterTest.Application.Pets.CreatePet
                 .NotNull();
 
             RuleFor(v => v.Category)
-                .NotNull()
                 .SetValidator(provider.GetValidator<Category>()!);
 
             RuleFor(v => v.PhotoUrls)
                 .NotNull();
 
             RuleFor(v => v.Tags)
-                .NotNull()
                 .ForEach(x => x.SetValidator(provider.GetValidator<Tag>()!));
 
             RuleFor(v => v.Status)
-                .NotNull()
                 .IsInEnum();
         }
     }

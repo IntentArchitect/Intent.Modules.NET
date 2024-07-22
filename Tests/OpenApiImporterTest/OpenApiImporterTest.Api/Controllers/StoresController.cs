@@ -67,9 +67,14 @@ namespace OpenApiImporterTest.Api.Controllers
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified Dictionary&lt;string, int&gt;.</response>
+        /// <response code="401">Unauthorized request.</response>
+        /// <response code="403">Forbidden request.</response>
         [HttpGet("/store/inventory")]
+        [Authorize]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(Dictionary<string, int>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Dictionary<string, int>>> GetInventory(CancellationToken cancellationToken = default)
         {

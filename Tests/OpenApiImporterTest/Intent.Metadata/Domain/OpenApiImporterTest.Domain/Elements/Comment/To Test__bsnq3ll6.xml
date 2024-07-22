@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5a8a349c-cbe8-4009-8ad3-60a38d24239d" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
+  <comment>Right click on service packages, and reimport should get no changes.</comment>
+  <name>To Test</name>
+  <display>To Test</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e6400398-c96a-426c-a008-898291ff0d52</parentFolderId>
+  <packageId>e6400398-c96a-426c-a008-898291ff0d52</packageId>
+  <packageName>OpenApiImporterTest.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

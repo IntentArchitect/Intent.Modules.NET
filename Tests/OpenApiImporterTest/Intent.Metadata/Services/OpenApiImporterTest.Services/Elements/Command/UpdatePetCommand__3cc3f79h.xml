@@ -32,19 +32,30 @@
         <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="application/json" isActive="true" />
       </properties>
     </stereotype>
+    <stereotype stereotypeDefinitionId="b06358cd-aed3-4c39-96cf-abb131e4ecde" name="Authorize">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Application.MediatR</definitionPackageName>
+      <definitionPackageId>e92495db-1b26-4389-bf06-cc1b375520b1</definitionPackageId>
+      <properties>
+        <property name="98f96218-c5a7-4656-96b6-f173947028f7" display="Roles" isActive="true" />
+        <property name="ced1460d-1bd9-4ec2-92b3-51bdbf173315" display="Policy" isActive="true" />
+        <property name="9c5cd2b9-52d8-47a0-96a5-f0026c3b9e48" display="Security Roles" isActive="false" />
+        <property name="2d95351e-d2e5-46da-8361-6c29bc690f98" display="Security Policies" isActive="false" />
+      </properties>
+    </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
     <childElement id="058d6b16-098b-4a04-b1e6-98a2d17dde32" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Id</name>
-      <display>Id: int</display>
+      <display>Id: int?</display>
       <externalReference>Pets.UpdatePetCommand.Id</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="2d9a3241-a92f-4076-83e8-19b04485f580">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
         <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
+        <isNullable>true</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
         <typePackageName>Intent.Common.Types</typePackageName>
@@ -133,14 +144,14 @@
     </childElement>
     <childElement id="4387fa60-4945-40e8-aa16-85545294b992" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Category</name>
-      <display>Category: Category</display>
+      <display>Category: Category?</display>
       <externalReference>Pets.UpdatePetCommand.Category</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="16850be4-3ab8-46cf-b078-ab83f018dd9e">
         <typeId>5baee03d-2747-47d0-80e1-c780fc31bf3c</typeId>
         <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
+        <isNullable>true</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
         <typePackageName>OpenApiImporterTest.Services</typePackageName>
@@ -229,14 +240,14 @@
     </childElement>
     <childElement id="2ec18d1e-46b3-4bfc-bb08-dae22705ecbd" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Tags</name>
-      <display>Tags: Tag[*]</display>
+      <display>Tags: Tag[*]?</display>
       <externalReference>Pets.UpdatePetCommand.Tags</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="6aad1ccf-7b0c-47f7-bfaf-adf1300cd94f">
         <typeId>614432ce-4c81-4516-823f-15bec3867fe5</typeId>
         <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
+        <isNullable>true</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
         <typePackageName>OpenApiImporterTest.Services</typePackageName>
@@ -277,14 +288,14 @@
     </childElement>
     <childElement id="b82e30cb-20ef-4627-9af7-016ecd0dd9e9" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Status</name>
-      <display>Status: StatusType</display>
+      <display>Status: StatusType?</display>
       <externalReference>Pets.UpdatePetCommand.Status</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="a1918c7a-c0ae-4668-8f86-d3feae9fdda8">
         <typeId>62b20ca6-d81f-4c9b-8f12-08bec844f05e</typeId>
         <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
+        <isNullable>true</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
         <typePackageName>OpenApiImporterTest.Services</typePackageName>

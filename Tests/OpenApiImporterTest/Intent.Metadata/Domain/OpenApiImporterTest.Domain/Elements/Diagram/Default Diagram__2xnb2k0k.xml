@@ -4,10 +4,14 @@
   <display>Default Diagram</display>
   <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e6400398-c96a-426c-a008-898291ff0d52</parentFolderId>
+  <packageId>e6400398-c96a-426c-a008-898291ff0d52</packageId>
+  <packageName>OpenApiImporterTest.Domain</packageName>
+  <diagram>
+    <targetPackageId>e6400398-c96a-426c-a008-898291ff0d52</targetPackageId>
+  </diagram>
   <stereotypes />
   <metadata />
   <childElements />
