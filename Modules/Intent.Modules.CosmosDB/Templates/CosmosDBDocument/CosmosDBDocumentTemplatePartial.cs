@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -101,8 +102,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                             @class: @class,
                             attributes: attributes,
                             associationEnds: associationEnds,
-                            documentInterfaceTemplateId: CosmosDBDocumentInterfaceTemplate.TemplateId,
-                            isAggregate: Model.IsAggregateRoot()                            
+                            documentInterfaceTemplateId: CosmosDBDocumentInterfaceTemplate.TemplateId
                             );
                     }
 
@@ -229,9 +229,20 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     typeName = "string";
                 }
 
+                if (entityProperty.Name.ToLower() == "etag" && useOptimisticConcurrency && entityProperty.Type != "string?")
+                {
+                    Logging.Log.Failure("ETag attribute must be modeled as a nullable string.");
+                }
+
                 @class.AddProperty(typeName, entityProperty.Name, property =>
                 {
-                    if (IsNonNullableReferenceType(typeReference))
+                    if (entityProperty.Name.ToLower() == "etag" && useOptimisticConcurrency)
+                    {
+                        property.Getter.WithExpressionImplementation("_etag");
+                        property.Setter.WithExpressionImplementation("_etag = value");
+                        property.AddAttribute("JsonIgnore");
+                    }
+                    else if (IsNonNullableReferenceType(typeReference))
                     {
                         property.WithInitialValue("default!");
                     }
@@ -255,6 +266,8 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     {
                         property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"@type\")");
                     }
+
+
                 });
 
                 if (metadataModel is AssociationTargetEndModel targetEndModel)

@@ -46,8 +46,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument
                     this.AddCosmosDBDocumentProperties(
                         @class: @class,
                         attributes: attributes,
-                        associationEnds: Array.Empty<AssociationEndModel>(),
-                        isAggregate: false
+                        associationEnds: Array.Empty<AssociationEndModel>()
                         );
 
                     var valueObjectTypeName = GetTypeName(TemplateRoles.Domain.ValueObject, Model);

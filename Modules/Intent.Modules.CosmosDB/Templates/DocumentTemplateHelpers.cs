@@ -24,12 +24,9 @@ namespace Intent.Modules.CosmosDB.Templates
             CSharpClass @class,
             IEnumerable<AttributeModel> attributes,
             IEnumerable<AssociationEndModel> associationEnds,
-            bool isAggregate,
             string documentInterfaceTemplateId = null)
                 where TModel : IMetadataModel
         {
-            var useOptimisticConcurrency = template.ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrency();
-
             foreach (var attribute in attributes)
             {
                 @class.AddProperty(template.GetTypeName(attribute.TypeReference), attribute.Name.ToPascalCase(), property =>
@@ -43,15 +40,9 @@ namespace Intent.Modules.CosmosDB.Templates
                     {
                         property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{attribute.GetFieldSetting().Name()}\")");
                     }
-
-                    if (attribute.Name.ToLower() == "etag" && useOptimisticConcurrency && template.Id != CosmosDBValueObjectDocumentTemplate.TemplateId && isAggregate)
-                    {
-                        property.Getter.WithExpressionImplementation("_etag");
-                        property.Setter.WithExpressionImplementation("_etag = value");
-                    }
                 });
 
-                if (attribute.TypeReference.IsCollection)
+                if (attribute.TypeReference.IsCollection)   
                 {
                     @class.AddProperty(
                         type: $"{template.UseType("System.Collections.Generic.IReadOnlyList")}<{template.GetTypeName((IElement)attribute.TypeReference.Element)}>",
