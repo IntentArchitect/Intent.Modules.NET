@@ -46,7 +46,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             Name = entity.Name;
             Countries = entity.Countries.Select(x => CountryDocument.FromEntity(x)!).ToList();
 
-            _etag = getEtag(((IItem)this).Id);
+            _etag = _etag == null ? getEtag(((IItem)this).Id) : _etag;
 
             return this;
         }

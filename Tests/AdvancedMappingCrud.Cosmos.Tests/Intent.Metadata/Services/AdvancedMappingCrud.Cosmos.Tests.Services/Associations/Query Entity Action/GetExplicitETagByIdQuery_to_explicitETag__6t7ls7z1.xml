@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e7199962-6df4-49c8-a011-ed8d4c808395">
+  <sourceEnd id="f51ce45d-2165-40d9-a43e-4d590f74e568" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetExplicitETagByIdQuery</display>
+    <order>0</order>
+    <typeReference id="003ffc4d-3b4f-46d5-8c8c-eac20bad163c">
+      <typeId>3a0276f4-621c-4eda-a6b7-2830efe0343a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e7199962-6df4-49c8-a011-ed8d4c808395" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>explicitETag</name>
+    <display>[query] explicitETag: ExplicitETag</display>
+    <order>1</order>
+    <typeReference id="92951569-171c-4d95-a106-ee0084029c00">
+      <typeId>70f0a999-14c1-4507-af61-899454a66c1c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3a0276f4-621c-4eda-a6b7-2830efe0343a" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[GetExplicitETagByIdQuery]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="70f0a999-14c1-4507-af61-899454a66c1c" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[ExplicitETag]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="70f0a999-14c1-4507-af61-899454a66c1c" name="ExplicitETag" type="element" specialization="Class" />
+              <target id="916a5b95-7e62-43a5-bd52-632f5a3db37b" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="3a0276f4-621c-4eda-a6b7-2830efe0343a" name="GetExplicitETagByIdQuery" type="element" specialization="Query" />
+                  <target id="29d7b5b7-ae34-4485-a0b5-3f2d7e3ccd8f" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

@@ -50,7 +50,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
             IsActive = entity.IsActive;
             ShippingAddress = AddressDocument.FromEntity(entity.ShippingAddress)!;
 
-            _etag = getEtag(((IItem)this).Id);
+            _etag = _etag == null ? getEtag(((IItem)this).Id) : _etag;
 
             return this;
         }

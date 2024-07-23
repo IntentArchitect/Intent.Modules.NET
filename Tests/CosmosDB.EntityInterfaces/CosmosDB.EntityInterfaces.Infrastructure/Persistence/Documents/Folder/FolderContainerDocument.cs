@@ -45,7 +45,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents.Folder
             Id = entity.Id;
             FolderPartitionKey = entity.FolderPartitionKey;
 
-            _etag = getEtag(((IItem)this).Id);
+            _etag = _etag == null ? getEtag(((IItem)this).Id) : _etag;
 
             return this;
         }

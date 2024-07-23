@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3750f8e9-b28b-4708-acd5-c74fe3f6f924">
+  <sourceEnd id="00b4f5fa-b89a-4268-b172-b7b247655cf0" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : ExplicitETags.UpdateExplicitETagCommand</display>
+    <order>0</order>
+    <typeReference id="65bc3730-aaef-42ae-90b2-f26b7e3c7160">
+      <typeId>964f72f6-6eff-495c-84a9-8017b11c7184</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3750f8e9-b28b-4708-acd5-c74fe3f6f924" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>explicitETag</name>
+    <display>[update] explicitETag: ExplicitETag</display>
+    <order>3</order>
+    <typeReference id="892d1af8-15da-406f-a8ad-ecec083f7625">
+      <typeId>70f0a999-14c1-4507-af61-899454a66c1c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="964f72f6-6eff-495c-84a9-8017b11c7184" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[UpdateExplicitETagCommand]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="70f0a999-14c1-4507-af61-899454a66c1c" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[ExplicitETag]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="70f0a999-14c1-4507-af61-899454a66c1c" name="ExplicitETag" type="element" specialization="Class" />
+              <target id="916a5b95-7e62-43a5-bd52-632f5a3db37b" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="964f72f6-6eff-495c-84a9-8017b11c7184" name="UpdateExplicitETagCommand" type="element" specialization="Command" />
+                  <target id="234aa4c1-01f9-4854-948e-229392830e4d" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="964f72f6-6eff-495c-84a9-8017b11c7184" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[UpdateExplicitETagCommand]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="70f0a999-14c1-4507-af61-899454a66c1c" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[ExplicitETag]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="70f0a999-14c1-4507-af61-899454a66c1c" name="ExplicitETag" type="element" specialization="Class" />
+              <target id="0b655ce6-7e50-4885-bc15-345a31810180" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="964f72f6-6eff-495c-84a9-8017b11c7184" name="UpdateExplicitETagCommand" type="element" specialization="Command" />
+                  <target id="9176bcf2-cacb-43e3-8810-5f47691d2cb4" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ETag}</expression>
+            <path>
+              <target id="70f0a999-14c1-4507-af61-899454a66c1c" name="ExplicitETag" type="element" specialization="Class" />
+              <target id="5e99ee0b-6391-4c9a-9437-fd090f846a06" name="ETag" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="ETag" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="964f72f6-6eff-495c-84a9-8017b11c7184" name="UpdateExplicitETagCommand" type="element" specialization="Command" />
+                  <target id="70cd0a02-43da-481f-8075-67f214d5ed54" name="ETag" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>
