@@ -72,7 +72,7 @@ public class DbContextDataAccessProvider : IDataAccessProvider
     public CSharpStatement FindByIdsAsync(List<PrimaryKeyFilterMapping> pkMaps)
     {
         _template.AddUsing("Microsoft.EntityFrameworkCore");
-        var whereClause = new CSharpInvocationStatement($"await {_dbSetAccessor}", $"Where");
+        var whereClause = new CSharpInvocationStatement($"await {_dbSetAccessor}", Where());
         if (pkMaps.Count == 1)
         {
             whereClause.AddArgument($"x => {pkMaps[0].ValueExpression}.Contains(x.{pkMaps[0].Property})");
@@ -125,7 +125,7 @@ public class DbContextDataAccessProvider : IDataAccessProvider
         var invocation = new CSharpMethodChainStatement($"await {_dbSetAccessor}");
         if (expression != null)
         {
-            invocation.AddChainStatement(new CSharpInvocationStatement("Where")
+            invocation.AddChainStatement(new CSharpInvocationStatement(Where())
                 .AddArgument(expression).WithoutSemicolon());
         }
 
@@ -153,7 +153,7 @@ public class DbContextDataAccessProvider : IDataAccessProvider
         var invocation = new CSharpMethodChainStatement($"await {_dbSetAccessor}");
         if (expression != null)
         {
-            invocation.AddChainStatement(new CSharpInvocationStatement(_template.UseType($"System.Linq.Where"))
+            invocation.AddChainStatement(new CSharpInvocationStatement(Where())
                 .AddArgument(expression)
                 .WithoutSemicolon());
         }
@@ -164,6 +164,11 @@ public class DbContextDataAccessProvider : IDataAccessProvider
                 .WithoutSemicolon());
         }
         return invocation.AddChainStatement($"ToPagedListAsync({pageNo}, {pageSize}, cancellationToken)");
+    }
+
+    private string Where()
+    {
+        return _template.UseType($"System.Linq.Where");
     }
 
     private CSharpStatement CreateQueryFilterExpression(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements)
@@ -177,7 +182,7 @@ public class DbContextDataAccessProvider : IDataAccessProvider
             var invocation = new CSharpMethodChainStatement($"{_dbSetAccessor}").WithoutSemicolon();
             if (expression != null)
             {
-                invocation.AddChainStatement(new CSharpInvocationStatement("Where")
+                invocation.AddChainStatement(new CSharpInvocationStatement(Where())
                     .AddArgument(expression).WithoutSemicolon());
             }
 
@@ -188,13 +193,13 @@ public class DbContextDataAccessProvider : IDataAccessProvider
         prerequisiteStatements.Add(declareQueryable);
         if (!string.IsNullOrWhiteSpace(expression))
         {
-            prerequisiteStatements.Add($"queryable = queryable.Where({expression});");
+            prerequisiteStatements.Add($"queryable = queryable.{Where()}({expression});");
         }
 
         foreach (var mappedEnd in queryMapping.MappedEnds.Where(x => x.SourceElement.TypeReference.IsNullable))
         {
             prerequisiteStatements.Add(new CSharpIfStatement(_mappingManager.GenerateSourceStatementForMapping(queryMapping, mappedEnd) + " != null")
-                .AddStatement($"queryable = queryable.Where(x => x.{mappedEnd.TargetElement.Name} == {_mappingManager.GenerateSourceStatementForMapping(queryMapping, mappedEnd)})", x => x.WithSemicolon()));
+                .AddStatement($"queryable = queryable.{Where()}(x => x.{mappedEnd.TargetElement.Name} == {_mappingManager.GenerateSourceStatementForMapping(queryMapping, mappedEnd)})", x => x.WithSemicolon()));
         }
 
         return "queryable";
