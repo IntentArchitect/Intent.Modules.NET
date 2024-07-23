@@ -38,6 +38,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return _matchingElementDetails.Value.IsMatch;
         }
 
+        public void BindToTemplate(ICSharpFileBuilderTemplate template)
+        {
+            template.CSharpFile.AfterBuild(_ => ApplyStrategy());
+        }
+
         internal StrategyData GetStrategyData() => _matchingElementDetails.Value;
 
         public void ApplyStrategy()

@@ -23,6 +23,8 @@ namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence
             _domainEventService = domainEventService;
         }
 
+        public MongoDbSet<Basic> Basics { get; set; }
+
         public MongoDbSet<Customer> Customers { get; set; }
         public MongoDbSet<ExternalDoc> ExternalDocs { get; set; }
         public MongoDbSet<Order> Orders { get; set; }
@@ -63,6 +65,10 @@ namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence
 
         protected override void OnConfigureMapping(MappingBuilder mappingBuilder)
         {
+            mappingBuilder.Entity<Basic>()
+                .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .Ignore(entity => entity.DomainEvents);
+
             mappingBuilder.Entity<Customer>()
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
                 .Ignore(entity => entity.DomainEvents);

@@ -291,7 +291,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             return $"(e, d) => {string.Join(" && ", dtoFields.Select(dtoField => $"e.{(dtoField.Mapping != null ? dtoField.Mapping.Element.AsAttributeModel().Name.ToPascalCase() : "Id")} == d.{dtoField.Name.ToPascalCase()}"))}";
         }
 
-
+        public void BindToTemplate(ICSharpFileBuilderTemplate template)
+        {
+            template.CSharpFile.AfterBuild(_ => ApplyStrategy());
+        }
 
         private void AddCreateOrUpdateMethod(string updateMethodName, IElement domainElement, DTOFieldModel field)
         {

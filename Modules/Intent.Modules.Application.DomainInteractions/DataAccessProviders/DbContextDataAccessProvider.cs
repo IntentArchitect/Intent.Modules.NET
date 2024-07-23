@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -132,13 +133,21 @@ public class DbContextDataAccessProvider : IDataAccessProvider
         return invocation;
     }
 
-    public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, out IList<CSharpStatement> prerequisiteStatements)
+    public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, string? orderBy, out IList<CSharpStatement> prerequisiteStatements)
     {
         var invocation = new CSharpMethodChainStatement($"await {CreateQueryFilterExpression(queryMapping, out prerequisiteStatements)}");
+
+        if (orderBy != null)
+        {
+            invocation.AddChainStatement(new CSharpInvocationStatement(_template.UseType($"System.Linq.Dynamic.Core.OrderBy"))
+                .AddArgument(orderBy)
+                .WithoutSemicolon());
+        }
+
         return invocation.AddChainStatement($"ToPagedListAsync({pageNo}, {pageSize}, cancellationToken)");
     }
 
-    public CSharpStatement FindAllAsync(CSharpStatement expression, string pageNo, string pageSize, out IList<CSharpStatement> prerequisiteStatements)
+    public CSharpStatement FindAllAsync(CSharpStatement expression, string pageNo, string pageSize, string? orderBy, out IList<CSharpStatement> prerequisiteStatements)
     {
         prerequisiteStatements = new List<CSharpStatement>();
         var invocation = new CSharpMethodChainStatement($"await {_dbSetAccessor}");
@@ -148,7 +157,12 @@ public class DbContextDataAccessProvider : IDataAccessProvider
                 .AddArgument(expression)
                 .WithoutSemicolon());
         }
-
+        if (orderBy != null)
+        {
+            invocation.AddChainStatement(new CSharpInvocationStatement(_template.UseType($"System.Linq.Dynamic.Core.OrderBy"))
+                .AddArgument(orderBy)
+                .WithoutSemicolon());
+        }
         return invocation.AddChainStatement($"ToPagedListAsync({pageNo}, {pageSize}, cancellationToken)");
     }
 

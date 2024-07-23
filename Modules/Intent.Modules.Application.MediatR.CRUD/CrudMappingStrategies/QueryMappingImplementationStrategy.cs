@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Numerics;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.DomainInteractions;
@@ -30,6 +31,18 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             _template = (ICSharpFileBuilderTemplate)template;
             _model = template.Model;
         }
+
+        public void BindToTemplate(ICSharpFileBuilderTemplate template)
+        {
+            _template.AddKnownType("System.Linq.Dynamic.Core.PagedResult");
+            if (_model.TypeReference?.Element != null && _model.TypeReference.Element.Name.Contains("PagedResult") && _model.Properties.Any(x => x.Name.ToLower() == "orderby"))
+            {
+                _template.UseType("System.Linq.Dynamic.Core.OrderBy");
+                _template.AddNugetDependency(SharedNuGetPackages.SystemLinqDynamicCore);
+            }
+            template.CSharpFile.AfterBuild(_ => ApplyStrategy());
+        }
+
 
         public bool IsMatch()
         {

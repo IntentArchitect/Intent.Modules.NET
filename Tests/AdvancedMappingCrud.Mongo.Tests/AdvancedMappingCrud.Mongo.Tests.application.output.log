@@ -68,6 +68,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e7dddd38-6e03-4dfe-9df8-8c3948d62354</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#a2127d7c-0ecf-422f-b190-906924691609</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Api/Controllers/BasicsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e7dddd38-6e03-4dfe-9df8-8c3948d62354</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#a59451e7-6a59-4de4-812c-ce1c5f74cc0f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Api/Controllers/CustomersController.cs</ApplicationRelativeFilePath>
@@ -168,6 +176,142 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/AdvancedMappingCrudMongo.Tests.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#0f262506-258f-44da-8a23-d62b71ba35b2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/BasicDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/BasicDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#0f262506-258f-44da-8a23-d62b71ba35b2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/BasicDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/BasicDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#5371efa9-17c9-4cfc-8ae1-26fa08deb440</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/CreateBasic/CreateBasicCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/CreateBasic/CreateBasicCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#5371efa9-17c9-4cfc-8ae1-26fa08deb440</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/CreateBasic/CreateBasicCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/CreateBasic/CreateBasicCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#5371efa9-17c9-4cfc-8ae1-26fa08deb440</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/CreateBasic/CreateBasicCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/CreateBasic/CreateBasicCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#2bd17f80-81ca-4304-acd9-d3dab23121cf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/DeleteBasic/DeleteBasicCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/DeleteBasic/DeleteBasicCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#2bd17f80-81ca-4304-acd9-d3dab23121cf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/DeleteBasic/DeleteBasicCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/DeleteBasic/DeleteBasicCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#2bd17f80-81ca-4304-acd9-d3dab23121cf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/DeleteBasic/DeleteBasicCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/DeleteBasic/DeleteBasicCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#73688772-ede4-47f3-a4d0-5105bfb29700</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/GetBasicById/GetBasicByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicById/GetBasicByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#73688772-ede4-47f3-a4d0-5105bfb29700</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/GetBasicById/GetBasicByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicById/GetBasicByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#73688772-ede4-47f3-a4d0-5105bfb29700</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/GetBasicById/GetBasicByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicById/GetBasicByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#56eb56b1-cc57-44b2-adc4-b63a7ff33065</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/GetBasics/GetBasicsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasics/GetBasicsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#56eb56b1-cc57-44b2-adc4-b63a7ff33065</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/GetBasics/GetBasicsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasics/GetBasicsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#56eb56b1-cc57-44b2-adc4-b63a7ff33065</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/GetBasics/GetBasicsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasics/GetBasicsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#67bb5e9e-6674-4533-86aa-a59271ac2a13</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/UpdateBasic/UpdateBasicCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/UpdateBasic/UpdateBasicCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#67bb5e9e-6674-4533-86aa-a59271ac2a13</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/UpdateBasic/UpdateBasicCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/UpdateBasic/UpdateBasicCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>53131bc2-2986-4729-8e52-df872ae93ceb</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#67bb5e9e-6674-4533-86aa-a59271ac2a13</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Application/Basics/UpdateBasic/UpdateBasicCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/UpdateBasic/UpdateBasicCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1140,6 +1284,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>d29cd8ef-b205-4ca6-b959-6c27436f8b95</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#7e610e06-e66f-4d6d-9b10-a0035ce9ddc1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Domain/Entities/Basic.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basic.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d29cd8ef-b205-4ca6-b959-6c27436f8b95</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#a45dd931-55a8-4f02-8b91-bd479bd0359e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Domain/Entities/Customer.cs</ApplicationRelativeFilePath>
@@ -1176,6 +1328,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Domain/Entities/Product.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Product.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f4c9b206-4fe9-45d8-912b-332fe7b1fef4</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#7e610e06-e66f-4d6d-9b10-a0035ce9ddc1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Domain/Repositories/IBasicRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBasicRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1260,6 +1420,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>8d73b64e-ff55-4e4e-b76a-8f958fc97360</ProjectId>
+      <CorrelationId>Intent.MongoDb.Repositories.Repository#7e610e06-e66f-4d6d-9b10-a0035ce9ddc1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Infrastructure/Repositories/BasicMongoRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicMongoRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8d73b64e-ff55-4e4e-b76a-8f958fc97360</ProjectId>
       <CorrelationId>Intent.MongoDb.Repositories.Repository#a45dd931-55a8-4f02-8b91-bd479bd0359e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Infrastructure/Repositories/CustomerMongoRepository.cs</ApplicationRelativeFilePath>
@@ -1336,6 +1504,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/GlobalUsings.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GlobalUsings.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f4f1d256-fb36-4425-9493-a0f399076870</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#a2127d7c-0ecf-422f-b190-906924691609</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/HttpClients/Basics/BasicsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/BasicsHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f4f1d256-fb36-4425-9493-a0f399076870</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#a2127d7c-0ecf-422f-b190-906924691609</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/HttpClients/Basics/IBasicsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/IBasicsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1448,6 +1632,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/PopulateIdsSpecimenBuilder.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PopulateIdsSpecimenBuilder.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ab1d20bf-1f89-43fc-a5c0-32921e6d7b65</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#0f262506-258f-44da-8a23-d62b71ba35b2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Services/Basics/BasicDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Basics/BasicDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ab1d20bf-1f89-43fc-a5c0-32921e6d7b65</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#5371efa9-17c9-4cfc-8ae1-26fa08deb440</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Services/Basics/CreateBasicCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Basics/CreateBasicCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ab1d20bf-1f89-43fc-a5c0-32921e6d7b65</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#2bd17f80-81ca-4304-acd9-d3dab23121cf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Services/Basics/DeleteBasicCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Basics/DeleteBasicCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ab1d20bf-1f89-43fc-a5c0-32921e6d7b65</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#73688772-ede4-47f3-a4d0-5105bfb29700</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Services/Basics/GetBasicByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Basics/GetBasicByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ab1d20bf-1f89-43fc-a5c0-32921e6d7b65</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#56eb56b1-cc57-44b2-adc4-b63a7ff33065</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Services/Basics/GetBasicsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Basics/GetBasicsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ab1d20bf-1f89-43fc-a5c0-32921e6d7b65</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#67bb5e9e-6674-4533-86aa-a59271ac2a13</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Services/Basics/UpdateBasicCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Basics/UpdateBasicCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1736,6 +1968,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/TestDataFactory.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TestDataFactory.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1e44d63-f7fa-425d-826b-aad28ec11aef</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#5371efa9-17c9-4cfc-8ae1-26fa08deb440</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Tests/Basics/CreateBasicTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/CreateBasicTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1e44d63-f7fa-425d-826b-aad28ec11aef</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#2bd17f80-81ca-4304-acd9-d3dab23121cf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Tests/Basics/DeleteBasicTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/DeleteBasicTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1e44d63-f7fa-425d-826b-aad28ec11aef</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#73688772-ede4-47f3-a4d0-5105bfb29700</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Tests/Basics/GetBasicByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1e44d63-f7fa-425d-826b-aad28ec11aef</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#56eb56b1-cc57-44b2-adc4-b63a7ff33065</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Tests/Basics/GetBasicsTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicsTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1e44d63-f7fa-425d-826b-aad28ec11aef</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#67bb5e9e-6674-4533-86aa-a59271ac2a13</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.IntegrationTests/Tests/Basics/UpdateBasicTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/UpdateBasicTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

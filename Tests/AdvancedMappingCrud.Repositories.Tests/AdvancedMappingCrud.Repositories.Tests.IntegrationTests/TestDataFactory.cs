@@ -1,7 +1,9 @@
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients;
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Basics;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Customers;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Optionals;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Orders;
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Basics;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Customers;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Optionals;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Orders;
@@ -42,6 +44,16 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests
             var customerId = await client.CreateCustomerAsync(command);
             _idTracker["CustomerId"] = customerId;
             return customerId;
+        }
+
+        public async Task<Guid> CreateBasic()
+        {
+            var client = new BasicsHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateBasicCommand>();
+            var basicId = await client.CreateBasicAsync(command);
+            _idTracker["BasicId"] = basicId;
+            return basicId;
         }
 
         public async Task<Guid> CreateOptional()

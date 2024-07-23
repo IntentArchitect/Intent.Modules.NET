@@ -26,6 +26,11 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             _template = template;
         }
 
+        public void BindToTemplate(ICSharpFileBuilderTemplate template, OperationModel operationModel)
+        {
+            template.CSharpFile.AfterBuild(_ => ApplyStrategy(operationModel));
+        }
+
         public bool IsMatch(OperationModel operationModel)
         {
             if (operationModel.CreateEntityActions().Any()

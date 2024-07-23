@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="71d68757-b69a-46c6-bc26-c5ec27d2d2ea">
+  <sourceEnd id="e42baf98-a664-4470-baa2-3e1b436a7ded" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : BasicOrderBies.CreateBasicOrderByCommand</display>
+    <order>0</order>
+    <typeReference id="37bda479-1326-45b2-aa6b-078376911c31">
+      <typeId>eb40429b-4804-45ad-97c5-21e3bd5d75a6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="71d68757-b69a-46c6-bc26-c5ec27d2d2ea" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>basicOrderBy</name>
+    <display>[create] basicOrderBy: BasicOrderBy</display>
+    <order>2</order>
+    <typeReference id="820a1940-6394-4364-b120-cafd6db57c99">
+      <typeId>ba238544-c312-43a9-8e6c-65010bd8d715</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="eb40429b-4804-45ad-97c5-21e3bd5d75a6" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[CreateBasicOrderByCommand]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ba238544-c312-43a9-8e6c-65010bd8d715" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[BasicOrderBy]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateBasicOrderByCommand}</expression>
+            <path>
+              <target id="ba238544-c312-43a9-8e6c-65010bd8d715" name="BasicOrderBy" type="element" specialization="Class" />
+            </path>
+            <sources>
+              <source identifier="CreateBasicOrderByCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="eb40429b-4804-45ad-97c5-21e3bd5d75a6" name="CreateBasicOrderByCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="ba238544-c312-43a9-8e6c-65010bd8d715" name="BasicOrderBy" type="element" specialization="Class" />
+              <target id="a3442dcd-b27a-4b86-9e3a-1d4575b69f0b" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="eb40429b-4804-45ad-97c5-21e3bd5d75a6" name="CreateBasicOrderByCommand" type="element" specialization="Command" />
+                  <target id="64d4985c-69c7-44cc-8fd6-e12d93df49b1" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="ba238544-c312-43a9-8e6c-65010bd8d715" name="BasicOrderBy" type="element" specialization="Class" />
+              <target id="42f3a03e-67b5-4a50-b1e2-0898dfe1fda4" name="Surname" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="eb40429b-4804-45ad-97c5-21e3bd5d75a6" name="CreateBasicOrderByCommand" type="element" specialization="Command" />
+                  <target id="c4e05d9a-c3b3-4c7f-9fdd-e5cad49c85ae" name="Surname" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

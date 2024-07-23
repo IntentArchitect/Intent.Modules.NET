@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Eventing;
+using AdvancedMappingCrud.Repositories.Tests.Application.Common.Pagination;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Validation;
 using AdvancedMappingCrud.Repositories.Tests.Application.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Application.Products;
@@ -144,6 +145,25 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Ok();
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified PagedResult&lt;ProductDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("paged")]
+        [ProducesResponseType(typeof(PagedResult<ProductDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<PagedResult<ProductDto>>> FindProductsPaged(
+            [FromQuery] int pageNo,
+            [FromQuery] int pageSize,
+            [FromQuery] string orderBy,
+            CancellationToken cancellationToken = default)
+        {
+            var result = default(PagedResult<ProductDto>);
+            result = await _appService.FindProductsPaged(pageNo, pageSize, orderBy, cancellationToken);
+            return Ok(result);
         }
     }
 }

@@ -139,6 +139,38 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests.HttpClients.Produ
             }
         }
 
+        public async Task<PagedResult<ProductDto>> GetProductsPaginatedByNameOptionalWithOrderAsync(
+            string? name,
+            int pageNo,
+            int pageSize,
+            string orderBy,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/product/paged-by-name-optional/withorder";
+
+            var queryParams = new Dictionary<string, string?>();
+            queryParams.Add("name", name);
+            queryParams.Add("pageNo", pageNo.ToString());
+            queryParams.Add("pageSize", pageSize.ToString());
+            queryParams.Add("orderBy", orderBy);
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<PagedResult<ProductDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
         public async Task<PagedResult<ProductDto>> GetProductsPaginatedByNameAsync(
             string name,
             int pageNo,
@@ -169,6 +201,38 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests.HttpClients.Produ
             }
         }
 
+        public async Task<PagedResult<ProductDto>> GetProductsPaginatedByNameWithOrderAsync(
+            string name,
+            int pageNo,
+            int pageSize,
+            string orderBy,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/product/paged-by-name/ordered";
+
+            var queryParams = new Dictionary<string, string?>();
+            queryParams.Add("name", name);
+            queryParams.Add("pageNo", pageNo.ToString());
+            queryParams.Add("pageSize", pageSize.ToString());
+            queryParams.Add("orderBy", orderBy);
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<PagedResult<ProductDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
         public async Task<PagedResult<ProductDto>> GetProductsPaginatedAsync(
             int pageNo,
             int pageSize,
@@ -179,6 +243,36 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests.HttpClients.Produ
             var queryParams = new Dictionary<string, string?>();
             queryParams.Add("pageNo", pageNo.ToString());
             queryParams.Add("pageSize", pageSize.ToString());
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<PagedResult<ProductDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
+        public async Task<PagedResult<ProductDto>> GetProductsPaginatedWithOrderAsync(
+            int pageNo,
+            int pageSize,
+            string orderBy,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/product/paged/ordered";
+
+            var queryParams = new Dictionary<string, string?>();
+            queryParams.Add("pageNo", pageNo.ToString());
+            queryParams.Add("pageSize", pageSize.ToString());
+            queryParams.Add("orderBy", orderBy);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Dynamic.Core;
 using System.Threading;
 using System.Threading.Tasks;
+using AdvancedMappingCrud.Repositories.Tests.Application.Common.Pagination;
 using AdvancedMappingCrud.Repositories.Tests.Application.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Application.Products;
 using AdvancedMappingCrud.Repositories.Tests.Domain;
@@ -106,6 +108,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
             var result = await _pricingService.GetProductPriceAsync(productId, cancellationToken);
             var sumPrice = _pricingService.SumPrices(prices);
             return result;
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<Common.Pagination.PagedResult<ProductDto>> FindProductsPaged(
+            int pageNo,
+            int pageSize,
+            string orderBy,
+            CancellationToken cancellationToken = default)
+        {
+            var products = await _productRepository.FindAllAsync(pageNo, pageSize, queryOptions => queryOptions.OrderBy(orderBy), cancellationToken);
+            return products.MapToPagedResult(x => x.MapToProductDto(_mapper));
         }
 
         public void Dispose()

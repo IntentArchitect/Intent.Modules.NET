@@ -76,6 +76,10 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
                 }
                 .Contains(lowerOperationName);
         }
+        public void BindToTemplate(ICSharpFileBuilderTemplate template, OperationModel operationModel)
+        {
+            template.CSharpFile.AfterBuild(_ => ApplyStrategy(operationModel));
+        }
 
         public void ApplyStrategy(OperationModel operationModel)
         {

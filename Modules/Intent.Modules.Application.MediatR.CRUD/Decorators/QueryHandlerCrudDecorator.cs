@@ -37,7 +37,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
             var matchedStrategy = StrategyFactory.GetMatchedQueryStrategy(targetTemplate, application);
             if (matchedStrategy is not null)
             {
-                ((ICSharpFileBuilderTemplate)targetTemplate).CSharpFile.AfterBuild(_ => matchedStrategy.ApplyStrategy());
+                matchedStrategy.BindToTemplate((ICSharpFileBuilderTemplate)targetTemplate);
             }
         }
     }

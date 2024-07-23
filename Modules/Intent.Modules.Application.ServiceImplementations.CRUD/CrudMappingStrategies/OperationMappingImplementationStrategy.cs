@@ -26,13 +26,26 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
         public OperationMappingImplementationStrategy(ICSharpFileBuilderTemplate template)
         {
             _template = template;
-        }
+        }        
 
         public bool IsMatch(OperationModel operationModel)
         {
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id);
             return method is not null && operationModel.HasDomainInteractions();
+        }
+
+        public void BindToTemplate(ICSharpFileBuilderTemplate template, OperationModel operationModel)
+        {
+
+            _template.AddKnownType("System.Linq.Dynamic.Core.PagedResult");
+
+            if (operationModel.ReturnType?.Element != null && operationModel.ReturnType.Element.Name.Contains("PagedResult") && operationModel.Parameters.Any(x => x.Name.ToLower() == "orderby"))
+            {
+                _template.UseType("System.Linq.Dynamic.Core.OrderBy");
+                _template.AddNugetDependency(SharedNuGetPackages.SystemLinqDynamicCore);
+            }
+            template.CSharpFile.AfterBuild(_ => ApplyStrategy(operationModel));
         }
 
         public void ApplyStrategy(OperationModel operationModel)

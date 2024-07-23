@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="f3e368da-8dad-4093-a4ab-04a533eec98c" type="association" specialization="Generalization Target End" />
+          <target id="f3e368da-8dad-4093-a4ab-04a533eec98c" name="base" type="association" specialization="Generalization Target End" />
           <target id="fb6f07e2-2e70-4a4e-bd44-a7c61bfb1ac6" name="Id" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
@@ -64,6 +64,7 @@
             <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="true" />
             <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
             <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" isActive="true" />
             <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
             <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
             <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="true" />
@@ -117,6 +118,7 @@
             <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="true" />
             <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
             <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" isActive="true" />
             <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
             <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
             <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="true" />
@@ -151,7 +153,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="f3e368da-8dad-4093-a4ab-04a533eec98c" type="association" specialization="Generalization Target End" />
+          <target id="f3e368da-8dad-4093-a4ab-04a533eec98c" name="base" type="association" specialization="Generalization Target End" />
           <target id="d2266353-6f88-4e2d-bcbc-0a4845239854" name="GenericAttribute" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
@@ -171,6 +173,7 @@
             <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
             <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="true" />
             <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="true" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" isActive="true" />
             <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
             <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
             <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />

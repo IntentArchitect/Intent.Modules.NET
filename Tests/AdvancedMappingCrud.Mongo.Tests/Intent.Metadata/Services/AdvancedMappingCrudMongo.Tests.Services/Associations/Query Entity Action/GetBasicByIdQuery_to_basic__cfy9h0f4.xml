@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fe66aba5-dc12-469c-a46a-573fd25643dd">
+  <sourceEnd id="8204d6e3-3b63-43f9-8ed6-cdeff1addedb" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetBasicByIdQuery</display>
+    <order>0</order>
+    <typeReference id="b71367aa-4a34-429c-97c3-f486fc9b02ea">
+      <typeId>73688772-ede4-47f3-a4d0-5105bfb29700</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrudMongo.Tests.Services</typePackageName>
+      <typePackageId>c53fd327-47ba-4176-95d7-b3862ece3d57</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fe66aba5-dc12-469c-a46a-573fd25643dd" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>basic</name>
+    <display>[query] basic: Basic</display>
+    <order>1</order>
+    <typeReference id="21c3bba4-556a-41b3-99ca-60efa8110277">
+      <typeId>7e610e06-e66f-4d6d-9b10-a0035ce9ddc1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrudMongo.Tests.Domain</typePackageName>
+      <typePackageId>9af943c7-4a0b-4229-ad6b-31a83928009f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="73688772-ede4-47f3-a4d0-5105bfb29700" location="[AdvancedMappingCrud.Mongo.Tests].[Services].[GetBasicByIdQuery]" />
+        <target applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7e610e06-e66f-4d6d-9b10-a0035ce9ddc1" location="[AdvancedMappingCrud.Mongo.Tests].[Services].[Basic]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="7e610e06-e66f-4d6d-9b10-a0035ce9ddc1" name="Basic" type="element" specialization="Class" />
+              <target id="716fce18-5e97-4f27-b1c1-5f131e86ddd4" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="73688772-ede4-47f3-a4d0-5105bfb29700" name="GetBasicByIdQuery" type="element" specialization="Query" />
+                  <target id="8b54a687-f236-4600-b449-95b7525d71db" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

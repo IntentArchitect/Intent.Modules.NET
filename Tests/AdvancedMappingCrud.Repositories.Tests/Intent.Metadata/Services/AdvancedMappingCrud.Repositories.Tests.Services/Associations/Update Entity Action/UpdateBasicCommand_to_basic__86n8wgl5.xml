@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c7ecdb76-7804-43c6-8b2f-fc1fde6b21a0">
+  <sourceEnd id="5667c20d-cfc1-4aa4-9756-67640ffaf9c1" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Basics.UpdateBasicCommand</display>
+    <order>0</order>
+    <typeReference id="7c3f82b7-c276-401d-9dea-ce9141361b0e">
+      <typeId>3ca66e1a-745b-4b71-86e0-5db2c4781d5e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c7ecdb76-7804-43c6-8b2f-fc1fde6b21a0" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>basic</name>
+    <display>[update] basic: Basic</display>
+    <order>3</order>
+    <typeReference id="ee28aabc-7a05-4f59-81f9-fd8c907d8031">
+      <typeId>73ba71c6-41c6-41ef-ba80-0d589ea75417</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3ca66e1a-745b-4b71-86e0-5db2c4781d5e" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateBasicCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="73ba71c6-41c6-41ef-ba80-0d589ea75417" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Basic]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="73ba71c6-41c6-41ef-ba80-0d589ea75417" name="Basic" type="element" specialization="Class" />
+              <target id="de889aea-4a98-4a7c-aa2d-37fc7f0d9bbe" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="3ca66e1a-745b-4b71-86e0-5db2c4781d5e" name="UpdateBasicCommand" type="element" specialization="Command" />
+                  <target id="e63708b0-17bd-40eb-9f2e-86683db35415" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3ca66e1a-745b-4b71-86e0-5db2c4781d5e" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateBasicCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="73ba71c6-41c6-41ef-ba80-0d589ea75417" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Basic]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="73ba71c6-41c6-41ef-ba80-0d589ea75417" name="Basic" type="element" specialization="Class" />
+              <target id="6651cf58-58bd-4914-a15d-eb79f58c1f5a" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="3ca66e1a-745b-4b71-86e0-5db2c4781d5e" name="UpdateBasicCommand" type="element" specialization="Command" />
+                  <target id="ebd28523-c665-4181-bd25-05e6a835be37" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="73ba71c6-41c6-41ef-ba80-0d589ea75417" name="Basic" type="element" specialization="Class" />
+              <target id="4cc0c652-f950-427d-90ba-d8d47d25f1c2" name="Surname" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="3ca66e1a-745b-4b71-86e0-5db2c4781d5e" name="UpdateBasicCommand" type="element" specialization="Command" />
+                  <target id="3f4c90a4-233c-46cb-9de8-92227bd761c1" name="Surname" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

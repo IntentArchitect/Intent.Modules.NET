@@ -76,6 +76,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e936c843-fe11-41bc-8b71-66145063c8f6</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#bb505216-6a5f-4ae6-8872-1118f716f7f9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Controllers/BasicOrderBiesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBiesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e936c843-fe11-41bc-8b71-66145063c8f6</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#eb7f7fa2-29f6-42b1-9b59-88375dd585ae</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Controllers/ConcurrencyController.cs</ApplicationRelativeFilePath>
@@ -208,6 +216,142 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/AdvancedMappingCrud.Cosmos.Tests.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#0f68f133-909a-4c65-8d6d-6f3493fc9eda</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/BasicOrderByDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/BasicOrderByDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#0f68f133-909a-4c65-8d6d-6f3493fc9eda</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/BasicOrderByDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/BasicOrderByDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#eb40429b-4804-45ad-97c5-21e3bd5d75a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/CreateBasicOrderBy/CreateBasicOrderByCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/CreateBasicOrderBy/CreateBasicOrderByCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#eb40429b-4804-45ad-97c5-21e3bd5d75a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/CreateBasicOrderBy/CreateBasicOrderByCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/CreateBasicOrderBy/CreateBasicOrderByCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#eb40429b-4804-45ad-97c5-21e3bd5d75a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/CreateBasicOrderBy/CreateBasicOrderByCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/CreateBasicOrderBy/CreateBasicOrderByCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6145dab3-d2c0-4b52-9fd1-a8c3c951666c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/DeleteBasicOrderBy/DeleteBasicOrderByCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/DeleteBasicOrderBy/DeleteBasicOrderByCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6145dab3-d2c0-4b52-9fd1-a8c3c951666c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/DeleteBasicOrderBy/DeleteBasicOrderByCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/DeleteBasicOrderBy/DeleteBasicOrderByCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6145dab3-d2c0-4b52-9fd1-a8c3c951666c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/DeleteBasicOrderBy/DeleteBasicOrderByCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/DeleteBasicOrderBy/DeleteBasicOrderByCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#7859b2cd-726c-4600-bb8d-82f186bdcee4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/GetBasicOrderBy/GetBasicOrderByQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/GetBasicOrderBy/GetBasicOrderByQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#7859b2cd-726c-4600-bb8d-82f186bdcee4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/GetBasicOrderBy/GetBasicOrderByQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/GetBasicOrderBy/GetBasicOrderByQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#7859b2cd-726c-4600-bb8d-82f186bdcee4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/GetBasicOrderBy/GetBasicOrderByQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/GetBasicOrderBy/GetBasicOrderByQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#f53f3574-2190-4437-8f3d-7ce8e15c33ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/GetBasicOrderByById/GetBasicOrderByByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/GetBasicOrderByById/GetBasicOrderByByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#f53f3574-2190-4437-8f3d-7ce8e15c33ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/GetBasicOrderByById/GetBasicOrderByByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/GetBasicOrderByById/GetBasicOrderByByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#f53f3574-2190-4437-8f3d-7ce8e15c33ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/GetBasicOrderByById/GetBasicOrderByByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/GetBasicOrderByById/GetBasicOrderByByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6cfddee6-f7c8-437e-a21b-e2603f933639</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/UpdateBasicOrderBy/UpdateBasicOrderByCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/UpdateBasicOrderBy/UpdateBasicOrderByCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6cfddee6-f7c8-437e-a21b-e2603f933639</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/UpdateBasicOrderBy/UpdateBasicOrderByCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/UpdateBasicOrderBy/UpdateBasicOrderByCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ac728b60-fca0-4dd9-ba43-5bb11239aa88</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6cfddee6-f7c8-437e-a21b-e2603f933639</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/BasicOrderBies/UpdateBasicOrderBy/UpdateBasicOrderByCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/UpdateBasicOrderBy/UpdateBasicOrderByCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1372,6 +1516,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>edef835f-e49f-48e6-b7f3-9e625679ec49</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#ba238544-c312-43a9-8e6c-65010bd8d715</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Entities/BasicOrderBy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>edef835f-e49f-48e6-b7f3-9e625679ec49</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#41461520-9a59-4626-b0e9-2926ac9540a4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Entities/Customer.cs</ApplicationRelativeFilePath>
@@ -1444,6 +1596,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>81139bf6-2331-4314-907f-b164c5aadf86</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#ba238544-c312-43a9-8e6c-65010bd8d715</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/Documents/IBasicOrderByDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBasicOrderByDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81139bf6-2331-4314-907f-b164c5aadf86</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#41461520-9a59-4626-b0e9-2926ac9540a4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/Documents/ICustomerDocument.cs</ApplicationRelativeFilePath>
@@ -1496,6 +1656,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/Documents/ISimpleOdataDocument.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISimpleOdataDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2d3e7d09-19c9-4357-8c73-751f590384f8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#ba238544-c312-43a9-8e6c-65010bd8d715</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/IBasicOrderByRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBasicOrderByRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1596,6 +1764,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f74be9d3-c119-4e55-9c4a-73a7db11f4c3</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocument#ba238544-c312-43a9-8e6c-65010bd8d715</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/BasicOrderByDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderByDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f74be9d3-c119-4e55-9c4a-73a7db11f4c3</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBDocument#41461520-9a59-4626-b0e9-2926ac9540a4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/CustomerDocument.cs</ApplicationRelativeFilePath>
@@ -1672,6 +1848,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeExtensionMethods.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2af958ea-bd83-48d7-b454-cec064683968</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepository#ba238544-c312-43a9-8e6c-65010bd8d715</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Repositories/BasicOrderByCosmosDBRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderByCosmosDBRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1768,6 +1952,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/GlobalUsings.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GlobalUsings.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#bb505216-6a5f-4ae6-8872-1118f716f7f9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/BasicOrderBies/BasicOrderBiesHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/BasicOrderBiesHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7dee352a-dfc5-4dff-9675-7e0773cea59c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#bb505216-6a5f-4ae6-8872-1118f716f7f9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/HttpClients/BasicOrderBies/IBasicOrderBiesService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/IBasicOrderBiesService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1896,6 +2096,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/PopulateIdsSpecimenBuilder.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PopulateIdsSpecimenBuilder.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#0f68f133-909a-4c65-8d6d-6f3493fc9eda</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/BasicOrderBies/BasicOrderByDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/BasicOrderBies/BasicOrderByDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#eb40429b-4804-45ad-97c5-21e3bd5d75a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/BasicOrderBies/CreateBasicOrderByCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/BasicOrderBies/CreateBasicOrderByCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#6145dab3-d2c0-4b52-9fd1-a8c3c951666c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/BasicOrderBies/DeleteBasicOrderByCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/BasicOrderBies/DeleteBasicOrderByCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#f53f3574-2190-4437-8f3d-7ce8e15c33ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/BasicOrderBies/GetBasicOrderByByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/BasicOrderBies/GetBasicOrderByByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#7859b2cd-726c-4600-bb8d-82f186bdcee4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/BasicOrderBies/GetBasicOrderByQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/BasicOrderBies/GetBasicOrderByQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f6c2ba26-f45b-416d-9e71-86ab3a6b1be7</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#6cfddee6-f7c8-437e-a21b-e2603f933639</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Services/BasicOrderBies/UpdateBasicOrderByCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/BasicOrderBies/UpdateBasicOrderByCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2240,6 +2488,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/TestDataFactory.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TestDataFactory.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#eb40429b-4804-45ad-97c5-21e3bd5d75a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/BasicOrderBies/CreateBasicOrderByTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/CreateBasicOrderByTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#6145dab3-d2c0-4b52-9fd1-a8c3c951666c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/BasicOrderBies/DeleteBasicOrderByTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/DeleteBasicOrderByTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#f53f3574-2190-4437-8f3d-7ce8e15c33ea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/BasicOrderBies/GetBasicOrderByByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/GetBasicOrderByByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#7859b2cd-726c-4600-bb8d-82f186bdcee4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/BasicOrderBies/GetBasicOrderByTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/GetBasicOrderByTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>14bb1112-cfb0-43a4-b91d-ba28c73bd603</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#6cfddee6-f7c8-437e-a21b-e2603f933639</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/BasicOrderBies/UpdateBasicOrderByTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicOrderBies/UpdateBasicOrderByTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

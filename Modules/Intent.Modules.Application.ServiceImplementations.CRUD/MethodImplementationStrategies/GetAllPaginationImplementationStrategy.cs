@@ -67,6 +67,10 @@ public class GetAllPaginationImplementationStrategy : IImplementationStrategy
 
         return true;
     }
+    public void BindToTemplate(ICSharpFileBuilderTemplate template, OperationModel operationModel)
+    {
+        template.CSharpFile.AfterBuild(_ => ApplyStrategy(operationModel));
+    }
 
     public void ApplyStrategy(OperationModel operationModel)
     {

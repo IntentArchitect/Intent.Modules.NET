@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Templates;
 
 namespace Intent.Modules.Application.DomainInteractions;
 
@@ -143,7 +144,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         return invocation;
     }
 
-    public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, out IList<CSharpStatement> prerequisiteStatements)
+    public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, string? orderBy, out IList<CSharpStatement> prerequisiteStatements)
     {
         var expression = CreateQueryFilterExpression(queryMapping, out prerequisiteStatements);
         var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAllAsync");
@@ -158,14 +159,22 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
 
         if (expression?.ToString().StartsWith("x =>") == false) // a bit rudimentary
         {
+            if (orderBy != null)
+            {
+                expression = new CSharpStatement(expression.GetText("") + $".OrderBy({orderBy})");
+            }
             // When passing in Func<IQueryable, IQueryable> (query option):
             invocation.AddArgument(expression);
+        }
+        else if (orderBy != null) 
+        {
+            invocation.AddArgument($"queryOptions => queryOptions.OrderBy({orderBy})");
         }
         invocation.AddArgument("cancellationToken");
         return invocation;
     }
 
-    public CSharpStatement FindAllAsync(CSharpStatement expression, string pageNo, string pageSize, out IList<CSharpStatement> prerequisiteStatements)
+    public CSharpStatement FindAllAsync(CSharpStatement expression, string pageNo, string pageSize, string? orderBy, out IList<CSharpStatement> prerequisiteStatements)
     {
         prerequisiteStatements = new List<CSharpStatement>();
         var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAllAsync");
@@ -180,13 +189,21 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
 
         if (expression?.ToString().StartsWith("x =>") == false) // a bit rudimentary
         {
+            if (orderBy != null)
+            {
+                expression = new CSharpStatement(expression.GetText("") + $".OrderBy({orderBy})");
+            }
             // pass in Func<IQueryable, IQueryable> (query option):
             invocation.AddArgument(expression);
         }
+        else if (orderBy != null)
+        {
+            invocation.AddArgument($"queryOptions => queryOptions.OrderBy({orderBy})");
+        }
+
         invocation.AddArgument("cancellationToken");
         return invocation;
     }
-
 
     private CSharpStatement CreateQueryFilterExpression(IElementToElementMapping queryMapping, out IList<CSharpStatement> requiredStatements)
     {

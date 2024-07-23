@@ -72,6 +72,11 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             return new[] { "get", "find" }.Any(x => lowerOperationName.Contains(x));
         }
 
+        public void BindToTemplate(ICSharpFileBuilderTemplate template, OperationModel operationModel)
+        {
+            template.CSharpFile.AfterBuild(_ => ApplyStrategy(operationModel));
+        }
+
         public void ApplyStrategy(OperationModel operationModel)
         {
             _template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
