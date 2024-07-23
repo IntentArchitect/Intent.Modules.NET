@@ -24,9 +24,12 @@ namespace Intent.Modules.CosmosDB.Templates
             CSharpClass @class,
             IEnumerable<AttributeModel> attributes,
             IEnumerable<AssociationEndModel> associationEnds,
+            bool isAggregate,
             string documentInterfaceTemplateId = null)
                 where TModel : IMetadataModel
         {
+            var useOptimisticConcurrency = template.ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrency();
+
             foreach (var attribute in attributes)
             {
                 @class.AddProperty(template.GetTypeName(attribute.TypeReference), attribute.Name.ToPascalCase(), property =>
@@ -39,6 +42,12 @@ namespace Intent.Modules.CosmosDB.Templates
                     if (attribute.HasFieldSetting())
                     {
                         property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{attribute.GetFieldSetting().Name()}\")");
+                    }
+
+                    if (attribute.Name.ToLower() == "etag" && useOptimisticConcurrency && template.Id != CosmosDBValueObjectDocumentTemplate.TemplateId && isAggregate)
+                    {
+                        property.Getter.WithExpressionImplementation("_etag");
+                        property.Setter.WithExpressionImplementation("_etag = value");
                     }
                 });
 
@@ -298,7 +307,7 @@ namespace Intent.Modules.CosmosDB.Templates
 
                 if (useOptimisticConcurrency && template.Id != CosmosDBValueObjectDocumentTemplate.TemplateId && isAggregate)
                 {
-                    method.AddStatement($"_etag = getEtag((({template.UseType("Microsoft.Azure.CosmosRepository.IItem")})this).Id);", s => s.SeparatedFromPrevious());
+                    method.AddStatement($"_etag = _etag == null ? getEtag((({template.UseType("Microsoft.Azure.CosmosRepository.IItem")})this).Id) : _etag;", s => s.SeparatedFromPrevious());
                 }
 
                 if (hasBaseType)

@@ -101,7 +101,9 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                             @class: @class,
                             attributes: attributes,
                             associationEnds: associationEnds,
-                            documentInterfaceTemplateId: CosmosDBDocumentInterfaceTemplate.TemplateId);
+                            documentInterfaceTemplateId: CosmosDBDocumentInterfaceTemplate.TemplateId,
+                            isAggregate: Model.IsAggregateRoot()                            
+                            );
                     }
 
                     var pk = Model.GetPrimaryKeyAttribute();

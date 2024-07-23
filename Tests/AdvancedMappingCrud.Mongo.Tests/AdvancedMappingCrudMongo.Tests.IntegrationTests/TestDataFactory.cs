@@ -1,9 +1,7 @@
-using AdvancedMappingCrudMongo.Tests.IntegrationTests.HttpClients.Basics;
 using AdvancedMappingCrudMongo.Tests.IntegrationTests.HttpClients.Customers;
 using AdvancedMappingCrudMongo.Tests.IntegrationTests.HttpClients.ExternalDocs;
 using AdvancedMappingCrudMongo.Tests.IntegrationTests.HttpClients.Orders;
 using AdvancedMappingCrudMongo.Tests.IntegrationTests.HttpClients.Products;
-using AdvancedMappingCrudMongo.Tests.IntegrationTests.Services.Basics;
 using AdvancedMappingCrudMongo.Tests.IntegrationTests.Services.Customers;
 using AdvancedMappingCrudMongo.Tests.IntegrationTests.Services.ExternalDocs;
 using AdvancedMappingCrudMongo.Tests.IntegrationTests.Services.Orders;
@@ -34,16 +32,6 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests
             fixture.RepeatCount = 1;
             fixture.Customizations.Add(new PopulateIdsSpecimenBuilder(_idTracker));
             return fixture.Create<T>();
-        }
-
-        public async Task<string> CreateBasic()
-        {
-            var client = new BasicsHttpClient(_factory.CreateClient());
-
-            var command = CreateCommand<CreateBasicCommand>();
-            var basicId = await client.CreateBasicAsync(command);
-            _idTracker["BasicId"] = basicId;
-            return basicId;
         }
 
         public async Task<string> CreateCustomer()
