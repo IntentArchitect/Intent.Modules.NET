@@ -19,8 +19,10 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests
 
         public EFContainerFixture()
         {
+            //IntentIgnore
             _dbContainer = new MsSqlBuilder()
-                            .WithImage("mcr.microsoft.com/mssql/server:2022-latest")
+                            //.WithImage("mcr.microsoft.com/mssql/server:2022-latest")
+                            .WithImage("mcr.microsoft.com/mssql/server:2022-CU13-ubuntu-22.04")
                             .WithPassword("Strong_password_123!")
                             .Build();
         }
