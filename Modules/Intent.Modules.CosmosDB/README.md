@@ -63,6 +63,29 @@ Connection String Example
 AccountEndpoint={End Point};AccountKey={Key};Database={TenantDb};Container={Default Container};
 ```
 
+## Optimistic Concurrency
+
+Optimistic concurrency in Cosmos DB uses an ETag (entity tag) to manage concurrent updates, ensuring that updates only succeed if the ETag in the update request matches the current ETag of the item in the database. This prevents overwriting changes made by other transactions, maintaining data consistency without locking resources.
+
+You opt into optimistic concurrency through the  `Use Optimistic Concurrency` setting, which is on by default.
+
+ The patterns in this module support this in 2 ways
+
+* Implicit optimistic concurrency
+* Explicit optimistic concurrency
+
+### Implicit optimistic concurrency
+
+The repositories will track the `ETags` of all read documents and ensure that any writes to the DB use the `ETag` which was read, ensure the documents have not been changed between you reading them and writing back to them, with a single service call.
+
+### Explicit optimistic concurrency
+
+In this scenario you can explicitly model an `ETag` attribute of type nullable `string?` on you domain entity. e.g.:
+
+![Sample Model](./docs/images/explicit-optomistic-concurrency.png)
+
+Now you are in full control of how you want to use the `ETag`. Typically making sure you set the `ETag` for updates to the document to be the version you read. 
+
 ## Related Modules
 
 ### Intent.Metadata.DocumentDB
