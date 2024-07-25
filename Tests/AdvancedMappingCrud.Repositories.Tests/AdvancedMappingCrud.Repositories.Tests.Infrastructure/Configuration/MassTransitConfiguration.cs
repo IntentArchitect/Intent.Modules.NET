@@ -41,6 +41,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration
 
         private static void AddConsumers(this IRegistrationConfigurator cfg)
         {
+            cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<EnumSampleEvent>, EnumSampleEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<EnumSampleEvent>, EnumSampleEvent>)).Endpoint(config => config.InstanceId = "AdvancedMappingCrud-Repositories-Tests");
             cfg.AddConsumer<IntegrationEventConsumer<IIntegrationEventHandler<QuoteCreatedIntegrationEvent>, QuoteCreatedIntegrationEvent>>(typeof(IntegrationEventConsumerDefinition<IIntegrationEventHandler<QuoteCreatedIntegrationEvent>, QuoteCreatedIntegrationEvent>)).Endpoint(config => config.InstanceId = "AdvancedMappingCrud-Repositories-Tests");
         }
     }

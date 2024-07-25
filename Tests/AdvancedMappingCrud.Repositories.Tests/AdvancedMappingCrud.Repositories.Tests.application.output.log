@@ -1723,11 +1723,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>955182b1-2717-445b-b6b2-7b254be9aa1f</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#0dbd2b09-6a06-49d7-a1f5-1f551534ad0b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/EnumSampleEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EnumSampleEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>1e361e00-de9a-4870-a610-ac2840d8c682</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#3c699a99-95bd-4bc7-aaa4-4203295be61d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/EventHandlers/Customers/QuoteCreatedIntegrationEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/QuoteCreatedIntegrationEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e361e00-de9a-4870-a610-ac2840d8c682</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#a4478a42-c884-4cb8-9059-a2587efd044b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/EventHandlers/EnumMessage/EnumSampleHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EnumMessage/EnumSampleHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1744,6 +1760,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/QuoteCreatedIntegrationEventQuoteLinesDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QuoteCreatedIntegrationEventQuoteLinesDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>955182b1-2717-445b-b6b2-7b254be9aa1f</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventEnum#3340be3e-b89a-450b-9c52-cb4b46d5cfd1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/SampleType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SampleType.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

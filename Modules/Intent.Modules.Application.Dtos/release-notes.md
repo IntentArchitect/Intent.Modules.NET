@@ -1,3 +1,10 @@
+﻿### Version 4.3.0
+
+- Fixed: An issue where `Event` package enums generated multiple files. 
+> ⚠️ **NOTE**
+>
+> This may move some enums moving to different locations and namespaces.
+
 ### Version 4.2.1
 
 - Improvement: TypeSources added for Contract Clients.

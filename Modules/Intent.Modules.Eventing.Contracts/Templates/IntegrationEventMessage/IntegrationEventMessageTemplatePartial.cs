@@ -32,6 +32,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage
             AddTypeSource(TemplateId);
             AddTypeSource(IntegrationEventEnumTemplate.TemplateId);
             AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
 
             CSharpFile = new CSharpFile(
                     @namespace: Model.InternalElement.Package.Name.ToPascalCase(),

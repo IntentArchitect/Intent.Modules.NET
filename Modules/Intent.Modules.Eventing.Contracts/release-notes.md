@@ -1,3 +1,10 @@
+﻿### Version 5.1.0
+
+- Fixed: An issue where `Event` based enums generated multiple files. 
+> ⚠️ **NOTE**
+>
+> This may move some enums moving to different locations and namespaces.
+
 ### Version 5.0.6
 
 - Improvement: Added `TODO` comments on `NotImplementedException`.
