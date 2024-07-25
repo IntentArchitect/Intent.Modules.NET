@@ -14,7 +14,7 @@ To connect to HashiCorp Vault, include the following configuration in your `apps
     "Enabled": true,
     "Vaults": [
       {
-        "Name": "Test",
+        "Name": "DevVault",
         "Url": "http://127.0.0.1:8200",
         "AuthMethod": {
           "Token": {
@@ -68,6 +68,18 @@ To connect to HashiCorp Vault, include the following configuration in your `apps
   - **CacheTimeoutInSeconds**:
     - Positive value: Interval to re-fetch secrets.
     - Zero: Fetch secrets only at startup.
+
+#### Shorthand configuration
+
+Once you have the vaults configured in your `appsettings.json` file, you can override their values by supplying configuration from a different source (such as Environment variables) using the following notation:
+
+`{Vault Name}_{Property}` = `{Value}`
+
+Using the [appsettings.json here](#connecting-to-hashicorp-vault), here are a few examples:
+
+- DevVault_Url = "http://dev.host.com:8200"
+- DevVault_Token = "alternate_token"
+- DevVault_SecretId = "84921e64-d8d5-4d6e-99d8-71486c2ade10"
 
 ## Running HashiCorp Vault Locally
 

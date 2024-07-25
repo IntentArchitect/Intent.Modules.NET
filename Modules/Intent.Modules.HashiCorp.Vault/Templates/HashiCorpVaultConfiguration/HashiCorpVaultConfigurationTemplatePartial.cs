@@ -27,6 +27,7 @@ namespace Intent.Modules.HashiCorp.Vault.Templates.HashiCorpVaultConfiguration
             
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.Configuration")
+                .AddUsing("System.Linq")
                 .AddClass($"HashiCorpVaultConfiguration", @class =>
                 {
                     @class.Static();
@@ -39,6 +40,8 @@ namespace Intent.Modules.HashiCorp.Vault.Templates.HashiCorpVaultConfiguration
                         method.AddStatement($"var options = new {this.GetHashiCorpVaultOptionsName()}();");
                         method.AddStatement(@"configuration.GetSection(""HashiCorpVault"").Bind(options);");
                         method.AddForEachStatement("vault", "options.Vaults", loop => loop
+                            .AddStatement(@"var shorthandConfig = configuration.GetChildren().Where(p => p.Key.StartsWith($""{vault.Name}_"")).ToArray();")
+                            .AddStatement("vault.ApplyShorthandConfig(shorthandConfig);")
                             .AddStatement($"builder.Add(new {this.GetHashiCorpVaultConfigurationSourceName()}(vault));"));
                     });
                 });
