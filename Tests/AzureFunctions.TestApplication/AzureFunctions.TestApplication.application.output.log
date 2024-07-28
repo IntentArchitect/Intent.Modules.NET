@@ -132,10 +132,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#386bb437-ea36-4345-8a68-22e9754475c1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/FunctionWithIgnoreInApi.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FunctionWithIgnoreInApi.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.AzureFunctions.HostJson#9466369f-8619-418f-972f-413e1ba6cf0e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/host.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>host.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#6b3d5d23-2a03-4faf-83c9-cfb5a01177fc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Ignores/CommandWithIgnoreInApi.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ignores/CommandWithIgnoreInApi.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#6f7282a1-8e12-42e7-a8d0-be19d8bd2183</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Ignores/QueryWithIgnoreInApi.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ignores/QueryWithIgnoreInApi.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -691,6 +715,38 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6b3d5d23-2a03-4faf-83c9-cfb5a01177fc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Ignores/CommandWithIgnoreInApi/CommandWithIgnoreInApi.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ignores/CommandWithIgnoreInApi/CommandWithIgnoreInApi.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6b3d5d23-2a03-4faf-83c9-cfb5a01177fc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Ignores/CommandWithIgnoreInApi/CommandWithIgnoreInApiHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ignores/CommandWithIgnoreInApi/CommandWithIgnoreInApiHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#6f7282a1-8e12-42e7-a8d0-be19d8bd2183</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Ignores/QueryWithIgnoreInApi/QueryWithIgnoreInApi.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ignores/QueryWithIgnoreInApi/QueryWithIgnoreInApi.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#6f7282a1-8e12-42e7-a8d0-be19d8bd2183</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Ignores/QueryWithIgnoreInApi/QueryWithIgnoreInApiHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ignores/QueryWithIgnoreInApi/QueryWithIgnoreInApiHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b682e777-e59e-47f6-9a29-393e201133de</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#6078c0c2-19ff-4cb4-af21-c1cf0672fda3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1120,6 +1176,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/UpdateCustomer/UpdateCustomerCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6b3d5d23-2a03-4faf-83c9-cfb5a01177fc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Ignores/CommandWithIgnoreInApi/CommandWithIgnoreInApiValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ignores/CommandWithIgnoreInApi/CommandWithIgnoreInApiValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bcdfbdd-9d5c-4ad4-bffe-71991b03c925</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#6f7282a1-8e12-42e7-a8d0-be19d8bd2183</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Validators/Ignores/QueryWithIgnoreInApi/QueryWithIgnoreInApiValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ignores/QueryWithIgnoreInApi/QueryWithIgnoreInApiValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -42,7 +42,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPost("api/aggregate-roots", Name = "CreateAggregateRoot")]
+        [HttpPost("api/aggregate-roots")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

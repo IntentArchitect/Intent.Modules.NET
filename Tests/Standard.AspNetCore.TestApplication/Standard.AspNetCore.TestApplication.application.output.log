@@ -76,6 +76,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>4f88782a-ea7b-43f9-af56-d73e8d3dac4f</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#9a0e6ef1-b23c-4861-9c50-db1bada5047d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Controllers/OpenApiIgnoreAllImplicitController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreAllImplicitController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4f88782a-ea7b-43f9-af56-d73e8d3dac4f</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#3772d487-5440-4354-a2b7-25338cebbf1a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Controllers/OpenApiIgnoreSingleController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreSingleController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4f88782a-ea7b-43f9-af56-d73e8d3dac4f</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#a7880008-4c1a-4e08-a9cc-011db7515d2e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Controllers/OpenApiOptOutSingleController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiOptOutSingleController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4f88782a-ea7b-43f9-af56-d73e8d3dac4f</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#b5e34b80-1fc3-4792-894f-3bfa0ae21fb7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Api/Controllers/QueryStringNamesController.cs</ApplicationRelativeFilePath>
@@ -348,6 +372,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>b1bf7835-d81f-42a1-9c85-8314df99c477</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#9a0e6ef1-b23c-4861-9c50-db1bada5047d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Implementation/OpenApiIgnoreAllImplicitService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreAllImplicitService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1bf7835-d81f-42a1-9c85-8314df99c477</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#3772d487-5440-4354-a2b7-25338cebbf1a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Implementation/OpenApiIgnoreSingleService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreSingleService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1bf7835-d81f-42a1-9c85-8314df99c477</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#a7880008-4c1a-4e08-a9cc-011db7515d2e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Implementation/OpenApiOptOutSingleService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiOptOutSingleService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b1bf7835-d81f-42a1-9c85-8314df99c477</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#7078d1c8-12f2-4827-a103-c16f2a6cd4f4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Implementation/PluralsService.cs</ApplicationRelativeFilePath>
@@ -496,6 +544,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Interfaces/IMultiVersionService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IMultiVersionService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cdad2130-6381-437a-9e9d-b09d790f20a8</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#9a0e6ef1-b23c-4861-9c50-db1bada5047d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Interfaces/IOpenApiIgnoreAllImplicitService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IOpenApiIgnoreAllImplicitService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cdad2130-6381-437a-9e9d-b09d790f20a8</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#3772d487-5440-4354-a2b7-25338cebbf1a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Interfaces/IOpenApiIgnoreSingleService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IOpenApiIgnoreSingleService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cdad2130-6381-437a-9e9d-b09d790f20a8</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#a7880008-4c1a-4e08-a9cc-011db7515d2e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Application/Interfaces/IOpenApiOptOutSingleService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IOpenApiOptOutSingleService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

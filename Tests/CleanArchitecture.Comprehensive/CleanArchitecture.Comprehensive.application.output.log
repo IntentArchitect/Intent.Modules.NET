@@ -148,6 +148,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#daa794cc-5bd6-4c7f-aa7c-6f95e4524d22</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/OpenApiIgnoreAllImplicitController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreAllImplicitController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#9bb2db6e-4473-4ab0-a040-1e29f1b0a298</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/OpenApiIgnoreSingleController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreSingleController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#94822e16-398b-41b6-aa4e-a06d3779fe53</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/OperationsClassesController.cs</ApplicationRelativeFilePath>
@@ -3888,6 +3904,102 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/ODataAggs/ODataAggDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ODataAggs/ODataAggDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#b415ba86-5087-42ec-8413-93867889c744</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/OpenApiIgnoreAllImplicit/OperationA/OperationA.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreAllImplicit/OperationA/OperationA.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#b415ba86-5087-42ec-8413-93867889c744</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/OpenApiIgnoreAllImplicit/OperationA/OperationAHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreAllImplicit/OperationA/OperationAHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#b415ba86-5087-42ec-8413-93867889c744</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/OpenApiIgnoreAllImplicit/OperationA/OperationAValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreAllImplicit/OperationA/OperationAValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#5c64c0f2-0c91-43c6-a07d-30231cee87f8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/OpenApiIgnoreAllImplicit/OperationB/OperationB.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreAllImplicit/OperationB/OperationB.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#5c64c0f2-0c91-43c6-a07d-30231cee87f8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/OpenApiIgnoreAllImplicit/OperationB/OperationBHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreAllImplicit/OperationB/OperationBHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#5c64c0f2-0c91-43c6-a07d-30231cee87f8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/OpenApiIgnoreAllImplicit/OperationB/OperationBValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreAllImplicit/OperationB/OperationBValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#e4d22997-2333-4fa9-8f75-c72b99dc0a69</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/OpenApiIgnoreSingle/OperationA/OperationA.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreSingle/OperationA/OperationA.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#e4d22997-2333-4fa9-8f75-c72b99dc0a69</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/OpenApiIgnoreSingle/OperationA/OperationAHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreSingle/OperationA/OperationAHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#e4d22997-2333-4fa9-8f75-c72b99dc0a69</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/OpenApiIgnoreSingle/OperationA/OperationAValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreSingle/OperationA/OperationAValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#5944a4a9-0b96-4d1b-b7d3-bc0176ce727f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/OpenApiIgnoreSingle/OperationB/OperationB.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreSingle/OperationB/OperationB.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#5944a4a9-0b96-4d1b-b7d3-bc0176ce727f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/OpenApiIgnoreSingle/OperationB/OperationBHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreSingle/OperationB/OperationBHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#5944a4a9-0b96-4d1b-b7d3-bc0176ce727f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/OpenApiIgnoreSingle/OperationB/OperationBValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiIgnoreSingle/OperationB/OperationBValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
