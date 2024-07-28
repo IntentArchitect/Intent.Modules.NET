@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
 using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
@@ -17,7 +14,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -28,10 +24,15 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
     public partial class ControllerTemplate : CSharpTemplateBase<IControllerModel, ControllerDecorator>, ICSharpFileBuilderTemplate, IControllerTemplate<IControllerModel>
     {
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.AspNetCore.Controllers.Controller";
+        private readonly bool _isIgnoredForApiExplorer;
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public ControllerTemplate(IOutputTarget outputTarget, IControllerModel model) : base(TemplateId, outputTarget, model)
         {
+            _isIgnoredForApiExplorer =
+                (Model.InternalElement?.TryGetIsIgnoredForApiExplorer(out var isIgnoredForApiExplorer) == true && isIgnoredForApiExplorer) ||
+                Model.Operations.All(x => x.InternalElement.TryGetIsIgnoredForApiExplorer(out var operationIsIgnored) && operationIsIgnored);
+
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(TemplateRoles.Domain.Enum);
             AddTypeSource(TemplateRoles.Application.Command);
@@ -84,7 +85,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                                 {
                                     throw new ElementException(parameter.MappedPayloadProperty as IElement ?? operation.InternalElement, "GET Operations do not support collections on complex objects.");
                                 }
-                                if (isFileUpload && (parameter.Source == HttpInputSource.FromBody || FileTransferHelper.IsStreamType( parameter.TypeReference) || string.Equals("filename", parameter.Name, StringComparison.OrdinalIgnoreCase)))
+                                if (isFileUpload && (parameter.Source == HttpInputSource.FromBody || FileTransferHelper.IsStreamType(parameter.TypeReference) || string.Equals("filename", parameter.Name, StringComparison.OrdinalIgnoreCase)))
                                 {
                                     continue;
                                 }
@@ -120,7 +121,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         private void WorkaroundForGetTypeNameIssue(CSharpFile file)
         {
             var priClass = file.Classes.First();
-            
+
             foreach (var method in priClass.Methods)
             {
                 var parameterTypesToReplace = method.Parameters
@@ -162,7 +163,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return CSharpFile.ToString();
         }
 
-        private IEnumerable<CSharpAttribute> GetControllerAttributes()
+        private List<CSharpAttribute> GetControllerAttributes()
         {
             var attributes = new List<CSharpAttribute>();
 
@@ -173,6 +174,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             else if (Model.AllowAnonymous)
             {
                 attributes.Add(new CSharpAttribute("[AllowAnonymous]"));
+            }
+
+            if (_isIgnoredForApiExplorer)
+            {
+                AddUsing("Microsoft.AspNetCore.Mvc");
+                attributes.Add(new CSharpAttribute($"[ApiExplorerSettings(IgnoreApi = true)]"));
             }
 
             if (Model.Route != null)
@@ -248,8 +255,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return Utils.GetReturnStatement(this, operationModel);
         }
 
-
-        private IEnumerable<CSharpAttribute> GetOperationAttributes(IControllerOperationModel operation)
+        private List<CSharpAttribute> GetOperationAttributes(IControllerOperationModel operation)
         {
             var attributes = new List<CSharpAttribute>
             {
@@ -258,7 +264,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
             if (operation.RequiresAuthorization || operation.AllowAnonymous)
             {
-                if ((!IsControllerSecured() && IsOperationSecured(operation)) 
+                if ((!IsControllerSecured() && IsOperationSecured(operation))
                     || !string.IsNullOrWhiteSpace(operation.AuthorizationModel?.RolesExpression)
                     || !string.IsNullOrWhiteSpace(operation.AuthorizationModel?.Policy))
                 {
@@ -318,6 +324,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             {
                 attributes.Add(new CSharpAttribute("[ProducesResponseType(StatusCodes.Status401Unauthorized)]"));
                 attributes.Add(new CSharpAttribute("[ProducesResponseType(StatusCodes.Status403Forbidden)]"));
+            }
+
+            if (TryGetIsIgnoredForApiExplorer(operation, out var isIgnoredForApiExplorer))
+            {
+                AddUsing("Microsoft.AspNetCore.Mvc");
+                attributes.Add(new CSharpAttribute($"[ApiExplorerSettings(IgnoreApi = {isIgnoredForApiExplorer.ToString().ToLowerInvariant()})]"));
             }
 
             if (operation.CanReturnNotFound())
@@ -398,13 +410,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 arguments.Add($"\"{GetPath(o)}\"");
             }
 
-            var openApiSettings = o.InternalElement.GetStereotype("OpenAPI Settings");
-            if (openApiSettings != null)
+            var operationId = (o.InternalElement.GetStereotype("OpenAPI Settings")?.GetProperty<string>("OperationId") ?? string.Empty)
+                .Replace("{ServiceName}", o.Controller.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterUpper))
+                .Replace("{MethodName}", o.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterUpper));
+            if (!string.IsNullOrWhiteSpace(operationId))
             {
-                var operationId = openApiSettings.GetProperty<string>("OperationId");
-                arguments.Add(string.IsNullOrWhiteSpace(operationId)
-                    ? $"Name = \"{o.Name}\""
-                    : $"Name = \"{operationId}\"");
+                arguments.Add($"Name = \"{operationId}\"");
             }
 
             var joinedArguments = arguments.Any()
@@ -454,6 +465,22 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 HttpInputSource.FromRoute => "[FromRoute]",
                 _ => string.Empty
             };
+        }
+
+        private bool TryGetIsIgnoredForApiExplorer(IControllerOperationModel operation, out bool isIgnoredForApiExplorer)
+        {
+            if (!operation.InternalElement.TryGetIsIgnoredForApiExplorer(out isIgnoredForApiExplorer))
+            {
+                return false;
+            }
+
+            if (_isIgnoredForApiExplorer == isIgnoredForApiExplorer)
+            {
+                isIgnoredForApiExplorer = default;
+                return false;
+            }
+
+            return true;
         }
     }
 }

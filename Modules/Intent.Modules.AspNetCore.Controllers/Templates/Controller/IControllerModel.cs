@@ -1,3 +1,4 @@
+#nullable enable
 using System;
 using System.Collections.Generic;
 using Intent.Metadata.Models;
@@ -8,13 +9,14 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 
 public interface IControllerModel : IHasFolder, IHasName, IMetadataModel
 {
-    string Route { get; }
-    string Comment { get; }
+    string? Route { get; }
+    string? Comment { get; }
     bool RequiresAuthorization { get; }
     bool AllowAnonymous { get; }
-    IAuthorizationModel AuthorizationModel { get; }
+    IAuthorizationModel? AuthorizationModel { get; }
     public IList<IControllerOperationModel> Operations { get; }
     IList<IApiVersionModel> ApplicableVersions { get; }
+    IElement? InternalElement => null;
 }
 
 public interface IControllerOperationModel : IHasName, IHasTypeReference, IMetadataModel
@@ -30,6 +32,7 @@ public interface IControllerOperationModel : IHasName, IHasTypeReference, IMetad
     IElement InternalElement { get; }
     IList<IControllerParameterModel> Parameters { get; }
     IList<IApiVersionModel> ApplicableVersions { get; }
+    IControllerModel Controller { get; }
 }
 
 public interface IControllerParameterModel : IHasName, IHasTypeReference, IMetadataModel
@@ -52,12 +55,12 @@ public interface IAuthorizationModel
     ///<summary>
     /// Gets or sets the policy name that determines access to the resource. Note the format will generate exactly in C#.
     ///</summary>
-    public string Policy { get; }
+    public string? Policy { get; }
 
     ///<summary>
     /// Gets or sets the Roles that determines access to this Resource. Note the format will generate exactly in C#.
     ///</summary>
-    public string RolesExpression { get; }
+    public string? RolesExpression { get; }
 }
 
 public interface IApiVersionModel

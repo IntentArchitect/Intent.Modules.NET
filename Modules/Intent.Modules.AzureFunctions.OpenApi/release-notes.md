@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Improvement: Endpoints will now generate an `[OpenApiIgnoreAttribute]` if they have an _OpenAPI Settings_ Stereotype applied with its _Ignore_ property set to `true`.
+
 ### Version 1.1.0
 
 - Improvement: Module project updated to .NET 8.

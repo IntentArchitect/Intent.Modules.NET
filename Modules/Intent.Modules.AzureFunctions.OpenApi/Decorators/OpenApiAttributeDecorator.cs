@@ -16,7 +16,6 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
 using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.VisualBasic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -60,12 +59,16 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
                 file.AddUsing("Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes");
                 var @class = file.Classes.First();
                 var runMethod = @class.FindMethod("Run");
+                var endpointElement = _template.Model.InternalElement;
+                var openApiSettings = endpointElement.GetStereotype("OpenAPI Settings");
+
                 runMethod.AddAttribute("OpenApiOperation", att =>
                 {
-                    var endpointElement = _template.Model.InternalElement;
                     var operationId = endpointElement.Name;
 
-                    var openApiSettingsOperationId = endpointElement.GetStereotype("OpenAPI Settings")?.GetProperty<string>("OperationId");
+                    var openApiSettingsOperationId = (openApiSettings?.GetProperty<string>("OperationId") ?? string.Empty)
+                        .Replace("{ServiceName}", string.Empty)
+                        .Replace("{MethodName}", endpointElement.Name);
                     if (!string.IsNullOrWhiteSpace(openApiSettingsOperationId))
                     {
                         operationId = openApiSettingsOperationId;
@@ -77,6 +80,10 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
                     att.AddArgument($"Description = \"{GetDescription(endpointElement)}\"");
                 });
 
+                if (openApiSettings?.GetProperty<bool>("Ignore") == true)
+                {
+                    runMethod.AddAttribute("OpenApiIgnoreAttribute");
+                }
 
                 var requestDtoTypeName = template.Model.GetRequestDtoParameter() != null
                     ? template.UseType(template.GetTypeInfo(template.Model.GetRequestDtoParameter().TypeReference).WithIsNullable(false))

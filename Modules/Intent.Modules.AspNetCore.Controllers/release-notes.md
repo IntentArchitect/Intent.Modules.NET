@@ -1,5 +1,6 @@
 ### Version 6.0.9
 
+- Improvement: Controllers and their operations will now generate `[ApiExplorerSettings(IgnoreApi = <value>]` attributes based on the _OpenAPI Settings_ Stereotype's _Ignore_ property's value.
 - Fixed: Issue where Policies where not added to controllers.
 
 ### Version 6.0.8

@@ -1,6 +1,7 @@
 ### Version 5.5.2
 
 - Improvement: Support for modeled security `Role`s and `Policy`s
+- Improvement: Controllers and their operations will now generate `[ApiExplorerSettings(IgnoreApi = <value>]` attributes based on the _OpenAPI Settings_ Stereotype's _Ignore_ property's value.
 
 ### Version 5.5.1
 

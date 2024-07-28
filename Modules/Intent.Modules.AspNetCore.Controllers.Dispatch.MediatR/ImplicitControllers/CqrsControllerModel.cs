@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.CQRS.Api;
@@ -31,7 +30,7 @@ public class CqrsControllerModel : IControllerModel
         ApplicableVersions = new List<IApiVersionModel>();
     }
 
-    private static IControllerOperationModel MapToOperation(IElement element)
+    private IControllerOperationModel MapToOperation(IElement element)
     {
         var httpEndpointModel = HttpEndpointModelFactory.GetEndpoint(element)!;
 
@@ -55,7 +54,8 @@ public class CqrsControllerModel : IControllerModel
                     mappedPayloadProperty: x.MappedPayloadProperty,
                     value: x.Value))
                 .ToList<IControllerParameterModel>(),
-            applicableVersions: GetApplicableVersions(element));
+            applicableVersions: GetApplicableVersions(element),
+            controller: this);
     }
 
     private static IList<IApiVersionModel> GetApplicableVersions(IElement element)
@@ -85,7 +85,7 @@ public class CqrsControllerModel : IControllerModel
     {
         roles = null;
         policy = null;
-        if (!element.HasStereotype("Authorize") &&  !element.HasStereotype("Secured"))
+        if (!element.HasStereotype("Authorize") && !element.HasStereotype("Secured"))
         {
             return false;
         }
@@ -115,7 +115,7 @@ public class CqrsControllerModel : IControllerModel
     private static AuthorizationModel GetAuthorizationModel(IElement element)
     {
         if (!GetAuthorizationRolesAndPolicies(element, out var roles, out var policies))
-        { 
+        {
             return null;
         }
         return new AuthorizationModel

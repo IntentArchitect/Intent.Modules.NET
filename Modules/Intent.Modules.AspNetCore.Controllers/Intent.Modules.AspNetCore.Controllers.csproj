@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <PackageVersion>6.0.9-pre.0</PackageVersion>
+    <PackageVersion>6.0.9-pre.1</PackageVersion>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -41,8 +41,8 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.6.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.6.0" />
-    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.4.3" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.4.4" />
+    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.5.5-pre.1" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.7.3" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

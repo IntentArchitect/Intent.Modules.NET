@@ -36,6 +36,7 @@ public class ServiceControllerModel : IControllerModel
             .Select(s => new ControllerApiVersionModel(s))
             .Cast<IApiVersionModel>()
             .ToList() ?? new List<IApiVersionModel>();
+        InternalElement = model.InternalElement;
     }
 
     private static bool GetAuthorizationRolesAndPolicies(IElement element, out string roles, out string policy)
@@ -120,7 +121,8 @@ public class ServiceControllerModel : IControllerModel
                 ?.ApplicableVersions()
                 .Select(s => new ControllerApiVersionModel(s))
                 .Cast<IApiVersionModel>()
-                .ToList() ?? new List<IApiVersionModel>());
+                .ToList() ?? new List<IApiVersionModel>(),
+            controller: this);
     }
 
     private static IControllerParameterModel GetInput(IHttpEndpointInputModel model)
@@ -146,6 +148,7 @@ public class ServiceControllerModel : IControllerModel
     public string Route { get; }
     public IList<IControllerOperationModel> Operations { get; }
     public IList<IApiVersionModel> ApplicableVersions { get; }
+    public IElement InternalElement { get; }
 }
 
 
@@ -161,7 +164,8 @@ public class ControllerOperationModel : IControllerOperationModel
         bool allowAnonymous,
         IAuthorizationModel authorizationModel,
         IList<IControllerParameterModel> parameters, 
-        IList<IApiVersionModel> applicableVersions)
+        IList<IApiVersionModel> applicableVersions,
+        IControllerModel controller)
     {
         Id = element.Id;
         Name = name;
@@ -176,6 +180,7 @@ public class ControllerOperationModel : IControllerOperationModel
         AuthorizationModel = authorizationModel;
         Parameters = parameters;
         ApplicableVersions = applicableVersions;
+        Controller = controller;
     }
 
     public string Id { get; }
@@ -192,7 +197,7 @@ public class ControllerOperationModel : IControllerOperationModel
     public IAuthorizationModel AuthorizationModel { get; }
     public IList<IControllerParameterModel> Parameters { get; }
     public IList<IApiVersionModel> ApplicableVersions { get; }
-
+    public IControllerModel Controller { get; }
 }
 
 public class ControllerParameterModel : IControllerParameterModel
