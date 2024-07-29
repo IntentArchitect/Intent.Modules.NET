@@ -195,7 +195,7 @@ $validationRules = @{
             return "Could not locate version number $($targetVersion) in release notes"
         }
     }
-	Tags = {
+    Tags = {
         param([ImodSpecInfo]$info)
         if ([System.String]::IsNullOrWhiteSpace($info.Tags)) {
             return "No tags specified"
