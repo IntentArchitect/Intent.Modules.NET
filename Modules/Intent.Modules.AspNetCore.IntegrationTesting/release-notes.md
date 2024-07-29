@@ -1,4 +1,8 @@
-﻿### Version 1.0.5
+﻿### Version 1.0.6
+
+- Improvement: Bump due to shared dependency.
+
+### Version 1.0.5
 
 - New Feature: Added container fixture support for MongoDb.
 - Improvement: DbContext registrations for Integration tests, retain all application configuration options.

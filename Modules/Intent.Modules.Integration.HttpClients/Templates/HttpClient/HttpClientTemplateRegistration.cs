@@ -48,7 +48,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClient
             var proxyModels = _metadataManager.ServiceProxies(application).GetServiceProxyModels()
                 .Union(_metadataManager.Services(application).GetServiceProxyModels())
                 .Where(p => p.HasMappedEndpoints());
-            return proxyModels.Select(p => new ServiceProxyModelAdapter(p, ProxySettingsHelper.GetSerializeEnumsAsStrings(application, p)));
+            return proxyModels.Select(p => new ServiceProxyModelAdapter(p, ProxySettingsHelper.GetSerializeEnumsAsStrings(application, p) == true));
         }
     }
 }

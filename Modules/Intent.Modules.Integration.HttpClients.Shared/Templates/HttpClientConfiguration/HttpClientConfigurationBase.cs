@@ -28,7 +28,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConf
             ) : this(
                     templateId,
                     outputTarget,
-                    model.Select(x => new ServiceProxyModelAdapter(x)).Cast<IServiceProxyModel>().ToList(),
+                    model.Select(x => new ServiceProxyModelAdapter(x, serializeEnumsAsStrings: false)).Cast<IServiceProxyModel>().ToList(),
                     serviceContractTemplateId,
                     httpClientTemplateId,
                     configureHttpClient

@@ -17,10 +17,10 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
         private readonly ServiceProxyModel _model; 
         private readonly bool _serializeEnumsAsStrings;
 
-        public ServiceProxyModelAdapter(ServiceProxyModel model, bool? serializeEnumsAsStrings = false)
+        public ServiceProxyModelAdapter(ServiceProxyModel model, bool serializeEnumsAsStrings)
         {
             _model = model;
-            _serializeEnumsAsStrings = serializeEnumsAsStrings.Value;
+            _serializeEnumsAsStrings = serializeEnumsAsStrings;
         }
 
         public string Name => _model.Name;

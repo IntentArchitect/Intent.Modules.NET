@@ -42,7 +42,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClient
         {
             var proxyModels = _metadataManager.ServiceProxies(application).GetServiceProxyModels()
                 .Where(p => p.HasMappedEndpoints());
-            return proxyModels.Select(p => new ServiceProxyModelAdapter(p, ProxySettingsHelper.GetSerializeEnumsAsStrings(application, p)));
+            return proxyModels.Select(p => new ServiceProxyModelAdapter(p, ProxySettingsHelper.GetSerializeEnumsAsStrings(application, p) == true));
         }
     }
 }
