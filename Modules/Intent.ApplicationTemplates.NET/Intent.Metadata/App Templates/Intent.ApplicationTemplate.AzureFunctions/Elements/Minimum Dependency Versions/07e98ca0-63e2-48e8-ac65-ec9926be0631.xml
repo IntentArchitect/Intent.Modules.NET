@@ -45,7 +45,7 @@
       <name>Intent.Application.Dtos</name>
       <display>Intent.Application.Dtos 4.2.1</display>
       <isAbstract>false</isAbstract>
-      <value>4.2.1</value>
+      <value>4.3.0</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -101,7 +101,7 @@
       <name>Intent.Common.CSharp</name>
       <display>Intent.Common.CSharp 3.7.0</display>
       <isAbstract>false</isAbstract>
-      <value>3.7.0</value>
+      <value>3.7.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -185,7 +185,7 @@
       <name>Intent.Metadata.WebApi</name>
       <display>Intent.Metadata.WebApi 4.5.4</display>
       <isAbstract>false</isAbstract>
-      <value>4.5.4</value>
+      <value>4.5.5</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -269,7 +269,7 @@
       <name>Intent.Modelers.Services</name>
       <display>Intent.Modelers.Services 3.7.3</display>
       <isAbstract>false</isAbstract>
-      <value>3.7.3</value>
+      <value>3.7.4</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -297,7 +297,7 @@
       <name>Intent.Modelers.Services.DomainInteractions</name>
       <display>Intent.Modelers.Services.DomainInteractions 1.1.4</display>
       <isAbstract>false</isAbstract>
-      <value>1.1.4</value>
+      <value>1.1.5</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>

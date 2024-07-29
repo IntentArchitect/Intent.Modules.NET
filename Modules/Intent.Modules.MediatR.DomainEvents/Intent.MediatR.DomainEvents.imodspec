@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.MediatR.DomainEvents</id>
-  <version>5.0.12-pre.0</version>
+  <version>5.0.12</version>
   <supportedClientVersions>[4.1.3-pre.2, 5.0.0-a)</supportedClientVersions>
   <summary>Generates handlers for Domain Events for MediatR</summary>
   <description>Generates handlers for Domain Events for MediatR</description>
@@ -58,7 +58,7 @@
   <dependencies>
     <dependency id="Intent.Application.DependencyInjection.MediatR" version="3.5.0" />
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.1-pre.2" />
+    <dependency id="Intent.Common.CSharp" version="3.7.1" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.DomainEvents" version="5.0.0" />
     <dependency id="Intent.Modelers.Domain" version="3.8.0" />
