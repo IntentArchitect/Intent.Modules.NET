@@ -49,7 +49,8 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
             }
 
             mudDataGrid.AddAttribute("T", _componentTemplate.GetTypeName(mappedSourceType.AsTypeReference()));
-            mudDataGrid.AddAttribute("Items", $"@{_bindingManager.GetElementBinding(model)}");
+            //mudDataGrid.AddAttribute("Items", $"@{_bindingManager.GetElementBinding(model)}");
+            mudDataGrid.AddAttribute("ServerData", $"Load{model.Name.ToCSharpIdentifier()}Data");
             mudDataGrid.AddAttribute("Hover", "true");
 
             if (!string.IsNullOrWhiteSpace(model.GetInteraction()?.OnRowClick()))
@@ -116,7 +117,7 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
             {
                 _componentTemplate.RazorFile.AfterBuild(file =>
                 {
-                    var codeBlock = _componentTemplate.GetCodeBlock();
+                    var codeBlock = _componentTemplate.GetClass();
                     var returnType = $"GridData<{_componentTemplate.GetTypeName(mappedSourceType.AsTypeReference())}>";
                     codeBlock.AddMethod(returnType, $"Load{model.Name.ToCSharpIdentifier()}Data", method =>
                     {

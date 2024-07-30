@@ -22,7 +22,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutCodeBehind
 
         public RazorLayoutCodeBehindTemplateRegistration(IMetadataManager metadataManager)
         {
-            _metadataManager = metadataManager; 
+            _metadataManager = metadataManager;
         }
 
         public override string TemplateId => RazorLayoutCodeBehindTemplate.TemplateId;

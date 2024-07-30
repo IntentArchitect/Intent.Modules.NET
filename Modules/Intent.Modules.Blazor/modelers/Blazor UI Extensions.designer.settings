@@ -11,7 +11,7 @@
       <mappingSettings />
       <macros>
         <macro trigger="on-created">
-          <script>createElement("Component Operation", "OnInitialized", element.id);
+          <script>createElement("Component Operation", "OnInitializedAsync", element.id);
 const folders = element.getParents("Folder");
 if (folders[0].getName() == "Pages") {
     const pageId = "ea4adc09-8978-4ede-ba5f-265debb2b60c";

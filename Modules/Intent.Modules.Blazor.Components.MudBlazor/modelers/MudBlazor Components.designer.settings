@@ -196,6 +196,65 @@ if (selected.type == "core") {
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions>
+    <mappableElementPackageExtension id="652c26a6-ddc8-436f-ad9c-315fb8d227e7" name="Component Code Extensions" extendPackageId="2d30eb9d-daa0-45d7-a596-32c57d61c6bd" extendPackage="Component Code Mappables">
+      <mappableElementExtensions>
+        <mappableElementExtension>
+          <targetSettings>
+            <type type="Property: Property" typeId="dd00e457-f34b-47ea-bca6-138a3f52c385" />
+            <type type="DTO-Field: DTO-Field" typeId="5dacc38f-5bdd-43f5-8d2f-5ad3f12071ee" />
+          </targetSettings>
+          <scriptOptions>
+            <option>
+              <text>Auto-map to Data Grid</text>
+              <shortcut>space</shortcut>
+              <icon type="FontAwesome" source="code" />
+              <isOptionVisibleFunction>return  !element.typeReference.getIsCollection() &amp;&amp; element.typeReference.getType().id == "9204e067-bdc8-45e7-8970-8a833fdc5253"; // PagedResult</isOptionVisibleFunction>
+              <script>const dataBindingMappingTypeId = "ee19a932-0cea-4b90-bd3c-857d7942d390";
+const invocationMappingTypeId = "e4f0c63b-0f00-42bd-a703-00adf44f3364";
+//const paginationStereotypeId = "f0663cd4-da7c-43cc-9cda-bbc7923d5431";
+
+element.typeReference.setIsNullable(true); // paged models will almost always be nullable.
+const dataCollection = element.getChildren().filter(x =&gt; x.getName() == "Data")[0];
+const table = createElement("Data Grid", "DataGrid", mapping.getTargetElement().id);
+//table.addStereotype(paginationStereotypeId);
+
+mapping.addMappedEnd(dataBindingMappingTypeId, dataCollection.getMappingPath(), table.getMappingPath());
+
+const totalCount = element.getChildren().filter(x =&gt; x.getName() == "TotalCount")[0];
+mapping.addMappedEnd(dataBindingMappingTypeId, totalCount.getMappingPath(), table.getMappingPath().concat(["a5e50b44-c402-4006-bcea-a25ab7dc0c56"])); // Total Items
+
+const onPageChangedOperation = createElement("Component Operation", `Fetch${table.getName()}Data`, mapping.getSourceElement().id);
+const pageNoParam = createElement("Parameter", "pageNo", onPageChangedOperation.id);
+pageNoParam.typeReference.setType("fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"); // int
+const pageSizeParam = createElement("Parameter", "pageSize", onPageChangedOperation.id);
+pageSizeParam.typeReference.setType("fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"); // int
+const sortingParam = createElement("Parameter", "sorting", onPageChangedOperation.id);
+mapping.addMappedEnd(invocationMappingTypeId, onPageChangedOperation.getMappingPath(), table.getMappingPath().concat(["53a618ca-e5aa-49ca-a993-8cd935683748"])); // On Load Data
+mapping.addMappingExpression(table.getMappingPath().concat(["53a618ca-e5aa-49ca-a993-8cd935683748", pageNoParam.id]), "pageNo"); // On Load Data -&gt; Parameter (synced)
+mapping.addMappingExpression(table.getMappingPath().concat(["53a618ca-e5aa-49ca-a993-8cd935683748", pageSizeParam.id]), "pageSize"); // On Load Data-&gt; Parameter (synced)
+mapping.addMappingExpression(table.getMappingPath().concat(["53a618ca-e5aa-49ca-a993-8cd935683748", sortingParam.id]), "sorting"); // On Load Data -&gt; Parameter (synced)
+
+dataCollection.getChildren().filter(x =&gt; x.specialization == "Property" || x.specialization == "DTO-Field").forEach(p =&gt; {
+    if (p.typeReference.getTypeId() == "d384db9c-a279-45e1-801e-e4e8099625f2" || // string
+        p.typeReference.getTypeId() == "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74" || // int
+        p.typeReference.getTypeId() == "675c7b84-997a-44e0-82b9-cd724c07c9e6") { // decimal
+        const newColumn = createElement("Data Grid Column", p.getName(), table.id);
+        mapping.addMappedEnd(dataBindingMappingTypeId, p.getMappingPath(), newColumn.getMappingPath())
+    }
+    else if (p.typeReference.getTypeId() == "e6f92b09-b2c5-4536-8270-a4d9e5bbd930"){ // bool
+        const newColumn = createElement("Data Grid Column", p.getName(), table.id);
+        const newInput = createElement("Checkbox", p.getName(), newColumn.id);
+        newInput.removeStereotype("Label Addon");
+        mapping.addMappedEnd(dataBindingMappingTypeId, p.getMappingPath(), newInput.getMappingPath());
+    }
+});</script>
+            </option>
+          </scriptOptions>
+          <staticMappableSettings />
+          <childSettings />
+        </mappableElementExtension>
+      </mappableElementExtensions>
+    </mappableElementPackageExtension>
     <mappableElementPackageExtension id="62163999-a97e-46fc-b744-ad35684ff9f1" name="MudBlazor Bindable Components" extendPackageId="ddf81941-f0b0-4ab0-a8d6-42ddc9e5da99" extendPackage="Bindable Components">
       <mappableElementSettings>
         <mappableElement id="9d4e9c41-b646-4c23-9013-354b3e2daa0f" name="Data Grid" type="Data Grid" typeId="4b33f894-ad6e-43e0-a238-4286375c9ab7" version="2.0.0">
@@ -222,7 +281,7 @@ if (selected.type == "core") {
               <syncStereotypeId>0f3fc9f6-d11b-4e78-b28d-3c818e32d510</syncStereotypeId>
               <syncStereotypePropertyId>0e69d7ce-a9aa-4c8f-8940-6b9964dfa894</syncStereotypePropertyId>
             </staticMappableSetting>
-            <staticMappableSetting id="53a618ca-e5aa-49ca-a993-8cd935683748" name="On Page Changed" type="On Page Changed" typeId="53a618ca-e5aa-49ca-a993-8cd935683748" version="2.0.0">
+            <staticMappableSetting id="53a618ca-e5aa-49ca-a993-8cd935683748" name="On Load Data" type="On Load Data" typeId="53a618ca-e5aa-49ca-a993-8cd935683748" version="2.0.0">
               <allowMultipleMappings>true</allowMultipleMappings>
               <isMappableFunction>return true;</isMappableFunction>
               <isTraversable>false</isTraversable>

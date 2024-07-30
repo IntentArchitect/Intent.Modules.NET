@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
@@ -20,6 +21,10 @@ public interface IRazorComponentClass : IBuildsCSharpMembers
             addInjectedProperty: (fullyQualifiedTypeName, propertyName) =>
             {
                 var type = template.UseType(fullyQualifiedTypeName);
+                if (@class.Properties.Any(x => x.Type == type))
+                {
+                    return;
+                }
                 @class.AddProperty(
                     type: type,
                     name: propertyName ?? type,

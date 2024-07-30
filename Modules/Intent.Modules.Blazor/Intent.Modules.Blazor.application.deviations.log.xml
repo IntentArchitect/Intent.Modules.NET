@@ -15,11 +15,11 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#4a938a9b-e670-43dd-8e6d-f03f0c48d812</correlationId>
       <path>Intent.Modules.Blazor/Templates/Templates/Client/ClientImportsRazor/ClientImportsRazorTemplatePartial.cs</path>
       <count>3</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-26T06:13:53.2223057Z</updatedAt>
-      <deviationsHash>01D1C7420D4F1F912977F593172787834562D1F33533BF4D9FB739A632BE2BA6</deviationsHash>
-      <fileHash>5030A34C2A01E06C0228D9475D32C017BE8CD644FDA129DBD878B398AA4E2092</fileHash>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-07-30T08:35:42.0574148Z</updatedAt>
+      <deviationsHash>197DDA86F8F14D72FB09AFBB2A29BB1EED63C9E164A4AFA88851D27406D899D8</deviationsHash>
+      <fileHash>9251B236C578D345DF8A8F6BD05F261A576A4A85A05727D230C8EAD81F7820B5</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#21e2413b-645f-477d-a38b-730820f9191b</correlationId>
@@ -45,11 +45,11 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#1132514b-15dd-4dac-b602-462278e1128d</correlationId>
       <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorComponent/RazorComponentTemplatePartial.cs</path>
       <count>4</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-26T06:13:53.2223145Z</updatedAt>
-      <deviationsHash>50308B16319725CA0C9D90635FFA366A7894E6B904E317B66928C9A283352DEE</deviationsHash>
-      <fileHash>A5DD1BF6CC3B9C74EAF50EB2720A8ED9D1D9650F38B17D83D18A532A2397AB38</fileHash>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-07-30T08:35:42.057421Z</updatedAt>
+      <deviationsHash>5B4FC996D0B1D7E7E8B07C7285E93EBC876A2B422FA9E05E1E1D580086E1A437</deviationsHash>
+      <fileHash>3BE7C5A7EE87E68D5DC7FBF89A0A46BD21C39F63DC9258C8E550FBD892CAD63C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#1132514b-15dd-4dac-b602-462278e1128d</correlationId>
@@ -85,11 +85,11 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#4220376c-a610-4599-b89c-83599b2f49f0</correlationId>
       <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorLayout/RazorLayoutTemplatePartial.cs</path>
       <count>4</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-26T06:13:53.2223231Z</updatedAt>
-      <deviationsHash>C82CA9425DADF3A851BAD0F278E26FFF8A281963F8165470CEE55BB937E36CA7</deviationsHash>
-      <fileHash>A4BE1DFF256797680B8515110276DDD9C110EF2BF1D6362C067B9901DC337288</fileHash>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-07-30T08:35:42.0574275Z</updatedAt>
+      <deviationsHash>E5218C3759163B12E27FC669443BEE4FAA3C8F98F865F25979C76F3836322F43</deviationsHash>
+      <fileHash>BD98F2C7AD580F1517B6EFD5F01CD77736C7906503CCE7CBE0B44375F474B6AC</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#4220376c-a610-4599-b89c-83599b2f49f0</correlationId>
@@ -109,7 +109,7 @@
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
       <updatedAt>2024-07-07T10:15:40.3903703Z</updatedAt>
       <deviationsHash>97EB23502BDEA3D7451789EDC289B30654A7A25272BFA4772D3A30DC482F2FF3</deviationsHash>
-      <fileHash>E74EE29B74CE919F8ECF8D1A3EB857B750B0E3A361366A12197CAAEF51DCF7BB</fileHash>
+      <fileHash>269A232C62D232B6198E1657D03BD5625BED76601FBDAF6E8DF9B9BA51406E69</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#b08b0ac8-c7ef-4a54-b7fc-1e379e32b449</correlationId>
@@ -119,37 +119,37 @@
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
       <updatedAt>2024-07-07T10:15:40.3904638Z</updatedAt>
       <deviationsHash>0AF36F866FD9B508341E02362ACF5468BA363C9AA671A603B1CC4ACD2255ECB3</deviationsHash>
-      <fileHash>C5C7F585F67C3B5E7AE2DB664F2AEEEE8C4D1F86FD0E4B6220FF9A5E8E507094</fileHash>
+      <fileHash>3CE458EFB8A352822A0166230562738328B21FF8B63ACB60D5F27B663C6D6213</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#92022c0f-33eb-40fd-9d2a-88fb20eefaac</correlationId>
       <path>Intent.Modules.Blazor/Templates/Templates/Client/RoutesRazor/RoutesRazorTemplatePartial.cs</path>
       <count>4</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-26T06:13:53.2223306Z</updatedAt>
-      <deviationsHash>E16DECC2041DC739A9B06F29E6045B18CA58D1072B30677AD2CC58C67B6CF776</deviationsHash>
-      <fileHash>02E07FBDD3F5CB7FCAEF16E40447B43EAB1F16989C74FE48785EA1BC8AD2C8C3</fileHash>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-07-30T08:35:42.0574328Z</updatedAt>
+      <deviationsHash>F80072634E9819B7B3F89F2190E3704F7E35276A6430DDDCA721816AFBC7FDC7</deviationsHash>
+      <fileHash>AB052C5B52E49CAFE0D5DAB0B361772B7C9AD28574182DDFBBB20A4E8536038D</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#b7665695-e7e7-4a21-883a-da6fa2d84710</correlationId>
       <path>Intent.Modules.Blazor/Templates/Templates/Server/AppRazor/AppRazorTemplatePartial.cs</path>
       <count>3</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-26T06:13:53.2222975Z</updatedAt>
-      <deviationsHash>EE4FF15BB1FB98A81AA4206EB49838DBB9AE1F907B3D9C418BB894976BD012C5</deviationsHash>
-      <fileHash>D06F1A459FF4C30C13554C381C13DDB7DA10D1ED4C6DFBE2F410B6FC74E80767</fileHash>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-07-30T08:35:42.0574091Z</updatedAt>
+      <deviationsHash>C239D23A72A353A0D25FF3FBC93F0075FB142FF176FFF968E22978369489A4B6</deviationsHash>
+      <fileHash>0891C4EEFD54564C20EF68F5756714CA48DB6F4B290A9BEA4936B1F3F15065E9</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#f4e96c35-f23e-49b2-ae25-151ec6564357</correlationId>
       <path>Intent.Modules.Blazor/Templates/Templates/Server/ServerImportsRazor/ServerImportsRazorTemplatePartial.cs</path>
       <count>3</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-26T06:13:53.2223386Z</updatedAt>
-      <deviationsHash>759A6D368DC808E3E489942AB2655332A6DDC89EB5B36037D900B4E5E1AA2AB8</deviationsHash>
-      <fileHash>4F1D1E6C573A62655D6F316B64E4C56A3B6D66BB1BCD919AD1A5BB9481ECB74C</fileHash>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-07-30T08:35:42.0574387Z</updatedAt>
+      <deviationsHash>A7072DD60AED32DAE77776CF52DD700CA1A501C4066FE17B7A3EADF68088FE84</deviationsHash>
+      <fileHash>74E2297E759966DD707C829706526A1549F4EC0A229DF2CA0E7B60BD82A40751</fileHash>
     </file>
   </files>
 </deviationsLog>

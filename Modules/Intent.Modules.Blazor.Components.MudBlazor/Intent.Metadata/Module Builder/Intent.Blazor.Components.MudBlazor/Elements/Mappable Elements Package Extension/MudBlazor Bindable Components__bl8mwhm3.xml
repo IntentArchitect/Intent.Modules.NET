@@ -111,8 +111,8 @@
           <childElements />
         </childElement>
         <childElement id="53a618ca-e5aa-49ca-a993-8cd935683748" type="Static Mappable Settings" typeId="c776bc38-c0e8-4535-87dd-79cfd33be2ad">
-          <name>On Page Changed</name>
-          <display>On Page Changed</display>
+          <name>On Load Data</name>
+          <display>On Load Data</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <isMapped>false</isMapped>

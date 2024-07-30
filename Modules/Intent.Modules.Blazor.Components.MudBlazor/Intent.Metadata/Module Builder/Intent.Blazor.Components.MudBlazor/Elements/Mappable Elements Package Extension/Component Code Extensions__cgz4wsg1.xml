@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="652c26a6-ddc8-436f-ad9c-315fb8d227e7" type="Mappable Elements Package Extension" typeId="bddb69f0-e2c8-4373-b5cb-d701f311f935">
+  <name>Component Code Extensions</name>
+  <display>Component Code Extensions: Component Code Mappables</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <typeReference id="f0e90ef6-093a-4f11-8bac-57f84390a0db">
+    <typeId>2d30eb9d-daa0-45d7-a596-32c57d61c6bd</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.UI</typePackageName>
+    <typePackageId>5c4628ec-679e-4f3d-afda-137c978deae0</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>30eb8a90-664b-483b-9dfd-794c8e85f9eb</parentFolderId>
+  <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+  <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c8b92a4f-2367-4ec2-be34-613ac9be2419" type="Mappable Element Extension" typeId="f9449923-9173-4347-a3a2-38d1eb66f6b5">
+      <name>Property Extension</name>
+      <display>Property Extension extends Property, DTO-Field</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>652c26a6-ddc8-436f-ad9c-315fb8d227e7</parentFolderId>
+      <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+      <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="dfd7cc0c-7c7a-47dc-b16d-d3d9f0b7a9b2" name="Mappable Extension Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="bd502960-a08e-4138-b3e0-d3dad4439410" display="Extend Target Settings" value="[&quot;dd00e457-f34b-47ea-bca6-138a3f52c385&quot;,&quot;5dacc38f-5bdd-43f5-8d2f-5ad3f12071ee&quot;]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="29b85939-5c62-4880-bf6c-02ab9e33c0ca" type="Run Script Option" typeId="345d46fb-c500-409a-88c7-26720572c9af">
+          <name>Auto-map to Data Grid</name>
+          <display>Auto-map to Data Grid: Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9530cace-3cc1-4e0c-b2b0-228290efa2cb">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c8b92a4f-2367-4ec2-be34-613ac9be2419</parentFolderId>
+          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const dataBindingMappingTypeId = &quot;ee19a932-0cea-4b90-bd3c-857d7942d390&quot;;&#xD;&#xA;const invocationMappingTypeId = &quot;e4f0c63b-0f00-42bd-a703-00adf44f3364&quot;;&#xD;&#xA;//const paginationStereotypeId = &quot;f0663cd4-da7c-43cc-9cda-bbc7923d5431&quot;;&#xD;&#xA;&#xD;&#xA;element.typeReference.setIsNullable(true); // paged models will almost always be nullable.&#xD;&#xA;const dataCollection = element.getChildren().filter(x =&gt; x.getName() == &quot;Data&quot;)[0];&#xD;&#xA;const table = createElement(&quot;Data Grid&quot;, &quot;DataGrid&quot;, mapping.getTargetElement().id);&#xD;&#xA;//table.addStereotype(paginationStereotypeId);&#xD;&#xA;&#xD;&#xA;mapping.addMappedEnd(dataBindingMappingTypeId, dataCollection.getMappingPath(), table.getMappingPath());&#xD;&#xA;&#xD;&#xA;const totalCount = element.getChildren().filter(x =&gt; x.getName() == &quot;TotalCount&quot;)[0];&#xD;&#xA;mapping.addMappedEnd(dataBindingMappingTypeId, totalCount.getMappingPath(), table.getMappingPath().concat([&quot;a5e50b44-c402-4006-bcea-a25ab7dc0c56&quot;])); // Total Items&#xD;&#xA;&#xD;&#xA;const onPageChangedOperation = createElement(&quot;Component Operation&quot;, `Fetch${table.getName()}Data`, mapping.getSourceElement().id);&#xD;&#xA;const pageNoParam = createElement(&quot;Parameter&quot;, &quot;pageNo&quot;, onPageChangedOperation.id);&#xD;&#xA;pageNoParam.typeReference.setType(&quot;fb0a362d-e9e2-40de-b6ff-5ce8167cbe74&quot;); // int&#xD;&#xA;const pageSizeParam = createElement(&quot;Parameter&quot;, &quot;pageSize&quot;, onPageChangedOperation.id);&#xD;&#xA;pageSizeParam.typeReference.setType(&quot;fb0a362d-e9e2-40de-b6ff-5ce8167cbe74&quot;); // int&#xD;&#xA;const sortingParam = createElement(&quot;Parameter&quot;, &quot;sorting&quot;, onPageChangedOperation.id);&#xD;&#xA;mapping.addMappedEnd(invocationMappingTypeId, onPageChangedOperation.getMappingPath(), table.getMappingPath().concat([&quot;53a618ca-e5aa-49ca-a993-8cd935683748&quot;])); // On Load Data&#xD;&#xA;mapping.addMappingExpression(table.getMappingPath().concat([&quot;53a618ca-e5aa-49ca-a993-8cd935683748&quot;, pageNoParam.id]), &quot;pageNo&quot;); // On Load Data -&gt; Parameter (synced)&#xD;&#xA;mapping.addMappingExpression(table.getMappingPath().concat([&quot;53a618ca-e5aa-49ca-a993-8cd935683748&quot;, pageSizeParam.id]), &quot;pageSize&quot;); // On Load Data-&gt; Parameter (synced)&#xD;&#xA;mapping.addMappingExpression(table.getMappingPath().concat([&quot;53a618ca-e5aa-49ca-a993-8cd935683748&quot;, sortingParam.id]), &quot;sorting&quot;); // On Load Data -&gt; Parameter (synced)&#xD;&#xA;&#xD;&#xA;dataCollection.getChildren().filter(x =&gt; x.specialization == &quot;Property&quot; || x.specialization == &quot;DTO-Field&quot;).forEach(p =&gt; {&#xD;&#xA;    if (p.typeReference.getTypeId() == &quot;d384db9c-a279-45e1-801e-e4e8099625f2&quot; || // string&#xD;&#xA;        p.typeReference.getTypeId() == &quot;fb0a362d-e9e2-40de-b6ff-5ce8167cbe74&quot; || // int&#xD;&#xA;        p.typeReference.getTypeId() == &quot;675c7b84-997a-44e0-82b9-cd724c07c9e6&quot;) { // decimal&#xD;&#xA;        const newColumn = createElement(&quot;Data Grid Column&quot;, p.getName(), table.id);&#xD;&#xA;        mapping.addMappedEnd(dataBindingMappingTypeId, p.getMappingPath(), newColumn.getMappingPath())&#xD;&#xA;    }&#xD;&#xA;    else if (p.typeReference.getTypeId() == &quot;e6f92b09-b2c5-4536-8270-a4d9e5bbd930&quot;){ // bool&#xD;&#xA;        const newColumn = createElement(&quot;Data Grid Column&quot;, p.getName(), table.id);&#xD;&#xA;        const newInput = createElement(&quot;Checkbox&quot;, p.getName(), newColumn.id);&#xD;&#xA;        newInput.removeStereotype(&quot;Label Addon&quot;);&#xD;&#xA;        mapping.addMappedEnd(dataBindingMappingTypeId, p.getMappingPath(), newInput.getMappingPath());&#xD;&#xA;    }&#xD;&#xA;});" isActive="true" />
+              </properties>
+            </stereotype>
+            <stereotype stereotypeDefinitionId="cbe77364-d1d0-400b-a8c4-646a4c869612" name="Option Settings">
+              <comment />
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="b2c3a117-23d3-47e5-8b83-5b902c55a226" display="Icon" isActive="true" />
+                <property name="0abff08a-3986-40b1-a28f-4cc03c4fc1ec" display="Shortcut" value="space" isActive="true" />
+                <property name="79f6973f-5e3a-4618-9d4c-d7cc604bffe0" display="Shortcut (macOS)" isActive="true" />
+                <property name="e034a0ca-0101-4594-8384-43048b714578" display="Type Order" isActive="true" />
+                <property name="c03841e5-a1e9-4e95-b699-5a466dde7d7d" display="Is Option Visible Function" value="return  !element.typeReference.getIsCollection() &amp;&amp; element.typeReference.getType().id == &quot;9204e067-bdc8-45e7-8970-8a833fdc5253&quot;; // PagedResult" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

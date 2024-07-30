@@ -87,7 +87,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="createElement(&quot;Component Operation&quot;, &quot;OnInitialized&quot;, element.id);&#xD;&#xA;const folders = element.getParents(&quot;Folder&quot;);&#xD;&#xA;if (folders[0].getName() == &quot;Pages&quot;) {&#xD;&#xA;    const pageId = &quot;ea4adc09-8978-4ede-ba5f-265debb2b60c&quot;;&#xD;&#xA;    const routeId = &quot;9dff9df1-a993-4bf6-9aa7-c16811142228&quot;;&#xD;&#xA;    const stereotype = element.addStereotype(pageId)&#xD;&#xA;    stereotype.getProperty(routeId).setValue(&quot;/&quot; + folders.slice(1).map(x =&gt; toKebabCase(x.getName()) + &quot;/&quot;) + toKebabCase(element.getName()))&#xD;&#xA;}" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="createElement(&quot;Component Operation&quot;, &quot;OnInitializedAsync&quot;, element.id);&#xD;&#xA;const folders = element.getParents(&quot;Folder&quot;);&#xD;&#xA;if (folders[0].getName() == &quot;Pages&quot;) {&#xD;&#xA;    const pageId = &quot;ea4adc09-8978-4ede-ba5f-265debb2b60c&quot;;&#xD;&#xA;    const routeId = &quot;9dff9df1-a993-4bf6-9aa7-c16811142228&quot;;&#xD;&#xA;    const stereotype = element.addStereotype(pageId)&#xD;&#xA;    stereotype.getProperty(routeId).setValue(&quot;/&quot; + folders.slice(1).map(x =&gt; toKebabCase(x.getName()) + &quot;/&quot;) + toKebabCase(element.getName()))&#xD;&#xA;}" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
