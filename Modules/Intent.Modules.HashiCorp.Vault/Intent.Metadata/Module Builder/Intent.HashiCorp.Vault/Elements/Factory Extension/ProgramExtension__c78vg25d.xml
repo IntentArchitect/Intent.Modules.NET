@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="84a58fa2-d4c5-47de-a6b9-6c773c43e22d" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ProgramExtension</name>
+  <display>ProgramExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>be226310-af67-41e2-b5e8-d89498428519</parentFolderId>
+  <packageId>be226310-af67-41e2-b5e8-d89498428519</packageId>
+  <packageName>Intent.HashiCorp.Vault</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

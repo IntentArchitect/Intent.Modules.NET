@@ -24,6 +24,7 @@ namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence
         }
 
         public MongoDbSet<Customer> Customers { get; set; }
+        public MongoDbSet<ExternalDoc> ExternalDocs { get; set; }
         public MongoDbSet<Order> Orders { get; set; }
         public MongoDbSet<Product> Products { get; set; }
 
@@ -62,8 +63,13 @@ namespace AdvancedMappingCrudMongo.Tests.Infrastructure.Persistence
 
         protected override void OnConfigureMapping(MappingBuilder mappingBuilder)
         {
+
             mappingBuilder.Entity<Customer>()
                 .HasKey(entity => entity.Id, build => build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator))
+                .Ignore(entity => entity.DomainEvents);
+
+            mappingBuilder.Entity<ExternalDoc>()
+                .HasKey(entity => entity.Id)
                 .Ignore(entity => entity.DomainEvents);
 
             mappingBuilder.Entity<Order>()

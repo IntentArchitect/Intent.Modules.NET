@@ -12,5 +12,328 @@
   <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
   <stereotypes />
   <metadata />
-  <childElements />
+  <childElements>
+    <childElement id="54c18d24-0b6f-4f27-b29e-cd2c0baac0b5" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Application.Contracts</name>
+      <display>Intent.Application.Contracts 5.0.7</display>
+      <isAbstract>false</isAbstract>
+      <value>5.0.7</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="decaeac2-5107-46b2-8006-2376073b77ec" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Application.DependencyInjection.MediatR</name>
+      <display>Intent.Application.DependencyInjection.MediatR 3.5.12</display>
+      <isAbstract>false</isAbstract>
+      <value>3.5.12</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="3ec893c6-c8fc-4f4b-9710-8bdcd2866485" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Application.Dtos</name>
+      <display>Intent.Application.Dtos 4.2.1</display>
+      <isAbstract>false</isAbstract>
+      <value>4.3.0</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f78a5eaa-0063-4959-8e54-4f1b19f17370" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Application.FluentValidation.Dtos</name>
+      <display>Intent.Application.FluentValidation.Dtos 3.9.1</display>
+      <isAbstract>false</isAbstract>
+      <value>3.9.1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="65542414-7d10-4ea4-a6d5-78bc1e31144f" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Application.MediatR.FluentValidation</name>
+      <display>Intent.Application.MediatR.FluentValidation 4.6.1</display>
+      <isAbstract>false</isAbstract>
+      <value>4.6.1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="9d012b25-5061-4e2c-8c56-d4559eab0408" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Common</name>
+      <display>Intent.Common 3.6.0</display>
+      <isAbstract>false</isAbstract>
+      <value>3.6.0</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="0aa3bce1-eda1-49fa-b22f-05b12cd40dd6" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Common.CSharp</name>
+      <display>Intent.Common.CSharp 3.7.0</display>
+      <isAbstract>false</isAbstract>
+      <value>3.7.1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="c213e140-4c55-4622-8922-28b622bc0f67" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.DocumentDB.Dtos.AutoMapper</name>
+      <display>Intent.DocumentDB.Dtos.AutoMapper 1.0.1</display>
+      <isAbstract>false</isAbstract>
+      <value>1.0.1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5a6a009a-b194-4831-95c9-f79423fcb3c6" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Entities.Repositories.Api</name>
+      <display>Intent.Entities.Repositories.Api 5.1.1</display>
+      <isAbstract>false</isAbstract>
+      <value>5.1.1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="73017a09-d0f6-464e-8757-442b42f38514" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.EntityFrameworkCore.Interop.DomainEvents</name>
+      <display>Intent.EntityFrameworkCore.Interop.DomainEvents 4.1.0</display>
+      <isAbstract>false</isAbstract>
+      <value>4.1.0</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="aed4e0db-a58d-4fab-988b-bb99080ed0fd" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Metadata.DocumentDB</name>
+      <display>Intent.Metadata.DocumentDB 1.2.0</display>
+      <isAbstract>false</isAbstract>
+      <value>1.2.0</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="361de086-0139-46b8-9440-0815438848d1" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Metadata.RDBMS</name>
+      <display>Intent.Metadata.RDBMS 3.6.2</display>
+      <isAbstract>false</isAbstract>
+      <value>3.6.2</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="90780246-1742-45e9-8e15-594bec1aae18" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Metadata.WebApi</name>
+      <display>Intent.Metadata.WebApi 4.5.4</display>
+      <isAbstract>false</isAbstract>
+      <value>4.5.5</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="91e4aec2-2da0-4328-bb16-c46c3fe9a545" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Modelers.Domain</name>
+      <display>Intent.Modelers.Domain 3.9.0</display>
+      <isAbstract>false</isAbstract>
+      <value>3.9.0</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b3751cba-652e-4e6c-b9ac-7874543b436b" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Modelers.Domain.Events</name>
+      <display>Intent.Modelers.Domain.Events 4.1.0</display>
+      <isAbstract>false</isAbstract>
+      <value>4.1.0</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8145a726-472b-47fd-9c2d-5d8dedadbae8" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Modelers.Domain.Repositories</name>
+      <display>Intent.Modelers.Domain.Repositories 3.5.0</display>
+      <isAbstract>false</isAbstract>
+      <value>3.5.0</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5277f08a-017e-4f04-a3c4-9d3ab0491143" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Modelers.Domain.Services</name>
+      <display>Intent.Modelers.Domain.Services 1.1.0</display>
+      <isAbstract>false</isAbstract>
+      <value>1.1.0</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8f6ce9d1-4574-4c28-93a0-2eac99c8e6b1" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Modelers.Domain.ValueObjects</name>
+      <display>Intent.Modelers.Domain.ValueObjects 3.5.0</display>
+      <isAbstract>false</isAbstract>
+      <value>3.5.0</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="0e9ad9d2-b0a2-458f-b2d4-3aecae09bb9c" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Modelers.Services</name>
+      <display>Intent.Modelers.Services 3.7.3</display>
+      <isAbstract>false</isAbstract>
+      <value>3.7.4</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4b8dac02-1381-4d68-bef8-875ca3acc19d" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Modelers.Services.CQRS</name>
+      <display>Intent.Modelers.Services.CQRS 4.2.0</display>
+      <isAbstract>false</isAbstract>
+      <value>4.2.0</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d865d582-0faa-4973-9f5e-ccfa34525d53" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Modelers.Services.DomainInteractions</name>
+      <display>Intent.Modelers.Services.DomainInteractions 1.1.4</display>
+      <isAbstract>false</isAbstract>
+      <value>1.1.5</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="86673178-9160-402c-85d3-700f4afe3a15" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Modules.Modelers.Domain.StoredProcedures</name>
+      <display>Intent.Modules.Modelers.Domain.StoredProcedures 1.1.0</display>
+      <isAbstract>false</isAbstract>
+      <value>1.1.0</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d8b4c96d-8a4d-40f9-bb33-7e193e9f34f4" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.OutputManager.RoslynWeaver</name>
+      <display>Intent.OutputManager.RoslynWeaver 4.7.6</display>
+      <isAbstract>false</isAbstract>
+      <value>4.7.6</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
+      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
+      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

@@ -31,9 +31,9 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
         public QueryModelsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NuGetPackages.MediatR);
-            
+
             FulfillsRole("Application.Contract.Query");
-            
+
             AddTypeSource(TemplateRoles.Domain.Enum);
             AddTypeSource(TemplateRoles.Application.Contracts.Enum);
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
@@ -107,9 +107,17 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                     {
                         rolesPolicies.Add($"Roles = \"{Model.GetAuthorize().Roles()}\"");
                     }
+                    else if (Model.GetAuthorize().SecurityRoles().Any())
+                    {
+                        rolesPolicies.Add($"Roles = \"{string.Join(",", Model.GetAuthorize().SecurityRoles().Select(e => e.Name))}\"");
+                    }
                     if (!string.IsNullOrWhiteSpace(Model.GetAuthorize().Policy()))
                     {
                         rolesPolicies.Add($"Policy = \"{Model.GetAuthorize().Policy()}\"");
+                    }
+                    else if (Model.GetAuthorize().SecurityPolicies().Any())
+                    {
+                        rolesPolicies.Add($"Policy = \"{string.Join(",", Model.GetAuthorize().SecurityPolicies().Select(e => e.Name))}\"");
                     }
                     @class.AddAttribute(TryGetTypeName("Application.Identity.AuthorizeAttribute")?.RemoveSuffix("Attribute") ?? "Authorize", att =>
                     {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="de427089-c51a-48e9-a8fe-dcd6b4a6dc5b" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
   <name>Api</name>
-  <display>Api</display>
+  <display>Api (5)</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <order>2</order>
@@ -24,7 +24,7 @@
   <childElements>
     <childElement id="a7088fba-3f8b-4e6b-823f-2f931fc275d9" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>ASP.NET Core RESTful Api</name>
-      <display>ASP.NET Core RESTful Api</display>
+      <display>ASP.NET Core RESTful Api (4)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -88,32 +88,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.2.1" isActive="true" />
-                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
-                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
-                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0d36e52d-447e-4ac6-8dec-7caeba2b81f1" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.AspNetCore</name>
-          <display>Intent.AspNetCore</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a7088fba-3f8b-4e6b-823f-2f931fc275d9</parentFolderId>
-          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-              <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.0.2" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.3.0" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -138,7 +113,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.0.8" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.0.9" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -173,36 +148,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="90310d6f-8701-49ff-98d9-ad8377e28236" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.Metadata.WebApi</name>
-          <display>Intent.Metadata.WebApi</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a7088fba-3f8b-4e6b-823f-2f931fc275d9</parentFolderId>
-          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-              <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.5.4" isActive="true" />
-                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
-                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
-                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
       </childElements>
     </childElement>
     <childElement id="2fa5bac8-44af-4a51-9683-1f2ea0f493d1" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Api Authorisation</name>
-      <display>Api Authorisation</display>
+      <display>Api Authorisation (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -255,7 +205,7 @@
     </childElement>
     <childElement id="02423a79-1676-4c4f-b8c5-825f41c77752" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>OpenAPI</name>
-      <display>OpenAPI</display>
+      <display>OpenAPI (2)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -333,7 +283,7 @@
     </childElement>
     <childElement id="d6171bdf-824f-4088-b018-ab19cd2a602f" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>SignalR</name>
-      <display>SignalR</display>
+      <display>SignalR (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -386,7 +336,7 @@
     </childElement>
     <childElement id="48ebac8a-b80c-485e-9e82-55da64861cde" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Health Checks</name>
-      <display>Health Checks</display>
+      <display>Health Checks (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -425,7 +375,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="2.0.4" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="2.0.6" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />

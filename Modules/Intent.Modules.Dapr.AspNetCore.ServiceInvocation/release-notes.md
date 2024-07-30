@@ -1,4 +1,8 @@
-﻿### Version 2.2.6
+﻿### Version 2.2.7
+
+- Improvement: Proxies now respecting Applications Services `Serialize Enums as Strings` setting.
+
+### Version 2.2.6
 
 - Improvement: Added shared template infrastructure to support service proxies being able to respect `Serialize Enum as String` setting.
 

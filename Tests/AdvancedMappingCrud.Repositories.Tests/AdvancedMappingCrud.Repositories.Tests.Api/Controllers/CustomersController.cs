@@ -17,6 +17,7 @@ using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomerBy
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomers;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomersByNameAndSurname;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomersPaginated;
+using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomersPaginatedWithOrder;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomerStatistics;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomersWithParams;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.UpdateCorporateFuneralCoverQuote;
@@ -282,6 +283,27 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomersPaginatedQuery(isActive: isActive, name: name, surname: surname, pageNo: pageNo, pageSize: pageSize), cancellationToken);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified PagedResult&lt;CustomerDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("api/customer/{name}/{surname}/{isActive}/paged/ordered")]
+        [ProducesResponseType(typeof(PagedResult<CustomerDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<PagedResult<CustomerDto>>> GetCustomersPaginatedWithOrder(
+            [FromRoute] bool isActive,
+            [FromRoute] string name,
+            [FromRoute] string surname,
+            [FromQuery] int pageNo,
+            [FromQuery] int pageSize,
+            [FromQuery] string orderBy,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetCustomersPaginatedWithOrderQuery(isActive: isActive, name: name, surname: surname, pageNo: pageNo, pageSize: pageSize, orderBy: orderBy), cancellationToken);
             return Ok(result);
         }
 

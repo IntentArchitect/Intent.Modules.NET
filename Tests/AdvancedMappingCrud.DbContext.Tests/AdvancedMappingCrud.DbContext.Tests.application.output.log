@@ -924,6 +924,78 @@
     </FileLog>
     <FileLog>
       <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#5879e97f-935c-4c46-863b-c176140d7ab4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginatedByNameOptionalWithOrder/GetProductsPaginatedByNameOptionalWithOrderQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedByNameOptionalWithOrder/GetProductsPaginatedByNameOptionalWithOrderQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#5879e97f-935c-4c46-863b-c176140d7ab4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginatedByNameOptionalWithOrder/GetProductsPaginatedByNameOptionalWithOrderQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedByNameOptionalWithOrder/GetProductsPaginatedByNameOptionalWithOrderQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#5879e97f-935c-4c46-863b-c176140d7ab4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginatedByNameOptionalWithOrder/GetProductsPaginatedByNameOptionalWithOrderQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedByNameOptionalWithOrder/GetProductsPaginatedByNameOptionalWithOrderQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#a32d6794-36bb-4fb1-a4c6-0c6de1f9a825</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginatedByNameWithOrder/GetProductsPaginatedByNameWithOrderQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedByNameWithOrder/GetProductsPaginatedByNameWithOrderQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#a32d6794-36bb-4fb1-a4c6-0c6de1f9a825</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginatedByNameWithOrder/GetProductsPaginatedByNameWithOrderQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedByNameWithOrder/GetProductsPaginatedByNameWithOrderQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#a32d6794-36bb-4fb1-a4c6-0c6de1f9a825</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginatedByNameWithOrder/GetProductsPaginatedByNameWithOrderQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedByNameWithOrder/GetProductsPaginatedByNameWithOrderQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#7ac5b75f-ff5f-4cc8-9c2b-d284e22d65de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginatedWithOrder/GetProductsPaginatedWithOrderQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedWithOrder/GetProductsPaginatedWithOrderQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#7ac5b75f-ff5f-4cc8-9c2b-d284e22d65de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginatedWithOrder/GetProductsPaginatedWithOrderQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedWithOrder/GetProductsPaginatedWithOrderQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#7ac5b75f-ff5f-4cc8-9c2b-d284e22d65de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/GetProductsPaginatedWithOrder/GetProductsPaginatedWithOrderQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedWithOrder/GetProductsPaginatedWithOrderQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#f46645db-5a6a-4031-8ab7-d5ab87a71c56</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Products/ProductDto.cs</ApplicationRelativeFilePath>
@@ -1428,6 +1500,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>d2049e4c-ea02-43c8-9986-8749080e35ec</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#5879e97f-935c-4c46-863b-c176140d7ab4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Services/Products/GetProductsPaginatedByNameOptionalWithOrderQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Products/GetProductsPaginatedByNameOptionalWithOrderQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d2049e4c-ea02-43c8-9986-8749080e35ec</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#192e0e88-66c0-4da7-8434-700e3006d32b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Services/Products/GetProductsPaginatedByNameQuery.cs</ApplicationRelativeFilePath>
@@ -1436,10 +1516,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>d2049e4c-ea02-43c8-9986-8749080e35ec</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#a32d6794-36bb-4fb1-a4c6-0c6de1f9a825</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Services/Products/GetProductsPaginatedByNameWithOrderQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Products/GetProductsPaginatedByNameWithOrderQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d2049e4c-ea02-43c8-9986-8749080e35ec</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#160c182a-cc8f-4f40-a1c8-1d7ffd77bb47</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Services/Products/GetProductsPaginatedQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/Products/GetProductsPaginatedQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d2049e4c-ea02-43c8-9986-8749080e35ec</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#7ac5b75f-ff5f-4cc8-9c2b-d284e22d65de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Services/Products/GetProductsPaginatedWithOrderQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Products/GetProductsPaginatedWithOrderQuery.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1636,6 +1732,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>abeb604d-15ce-492d-9f87-0be62589f471</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#5879e97f-935c-4c46-863b-c176140d7ab4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Tests/Products/GetProductsPaginatedByNameOptionalWithOrderTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedByNameOptionalWithOrderTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>abeb604d-15ce-492d-9f87-0be62589f471</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#192e0e88-66c0-4da7-8434-700e3006d32b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Tests/Products/GetProductsPaginatedByNameTests.cs</ApplicationRelativeFilePath>
@@ -1644,10 +1748,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>abeb604d-15ce-492d-9f87-0be62589f471</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#a32d6794-36bb-4fb1-a4c6-0c6de1f9a825</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Tests/Products/GetProductsPaginatedByNameWithOrderTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedByNameWithOrderTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>abeb604d-15ce-492d-9f87-0be62589f471</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#160c182a-cc8f-4f40-a1c8-1d7ffd77bb47</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Tests/Products/GetProductsPaginatedTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Products/GetProductsPaginatedTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>abeb604d-15ce-492d-9f87-0be62589f471</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#7ac5b75f-ff5f-4cc8-9c2b-d284e22d65de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/Tests/Products/GetProductsPaginatedWithOrderTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductsPaginatedWithOrderTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

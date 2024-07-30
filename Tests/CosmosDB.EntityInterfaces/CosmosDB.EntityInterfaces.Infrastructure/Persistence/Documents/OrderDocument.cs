@@ -57,7 +57,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Persistence.Documents
             OrderDate = entity.OrderDate;
             OrderItems = entity.OrderItems.Select(x => OrderItemDocument.FromEntity(x)!).ToList();
 
-            _etag = getEtag(((IItem)this).Id);
+            _etag = _etag == null ? getEtag(((IItem)this).Id) : _etag;
 
             return this;
         }

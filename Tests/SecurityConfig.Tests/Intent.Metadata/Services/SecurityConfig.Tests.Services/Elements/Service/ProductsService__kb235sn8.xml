@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f0b1acfa-9934-4c81-abff-15d535ae852d" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>ProductsService</name>
+  <display>ProductsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</parentFolderId>
+  <packageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</packageId>
+  <packageName>SecurityConfig.Tests.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="api/products" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="89030a3c-caad-41b8-969e-c6c1b96e9e82" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateProduct</name>
+      <display>CreateProduct(dto: ProductCreateDto): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="20338683-3a06-4228-9b76-bfe3a0d4df41">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f0b1acfa-9934-4c81-abff-15d535ae852d</parentFolderId>
+      <packageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</packageId>
+      <packageName>SecurityConfig.Tests.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="a9eade71-1d56-4be7-a80c-81046c0c978b" name="Secured">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="2b39acef-6079-48c9-b85e-2b0981f9de70" display="Roles" value="" isActive="false" />
+            <property name="ae5251ff-40a1-4e46-be66-6b176f329f98" display="Policy" isActive="false" />
+            <property name="28bbe8bb-8d31-44c7-b642-ff0e279ab85f" display="Security Roles" value="[&quot;a795a50e-49ae-4b51-b1da-43243ef474b6&quot;]" isActive="true" />
+            <property name="68cbcd05-cd5c-49f3-a982-8ee9caf554bb" display="Security Policies" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="b5516366-103b-4351-bec0-78f3033d0d23" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: ProductCreateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="48cf46f1-9d9c-4424-b362-949250b01fac">
+            <typeId>f5c7a23d-6d6a-45e9-82f8-8e6c65ff643e</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>SecurityConfig.Tests.Services</typePackageName>
+            <typePackageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>89030a3c-caad-41b8-969e-c6c1b96e9e82</parentFolderId>
+          <packageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</packageId>
+          <packageName>SecurityConfig.Tests.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="2f419088-9649-4d0c-b1d2-cf2b65c5b5e9" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindProductById</name>
+      <display>FindProductById(id: guid): ProductDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="bbd4854d-e49a-48a3-9783-2f98e217c9a3">
+        <typeId>d506307b-5490-4661-8350-97c65d43729f</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>SecurityConfig.Tests.Services</typePackageName>
+        <typePackageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f0b1acfa-9934-4c81-abff-15d535ae852d</parentFolderId>
+      <packageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</packageId>
+      <packageName>SecurityConfig.Tests.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="a9eade71-1d56-4be7-a80c-81046c0c978b" name="Secured">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="2b39acef-6079-48c9-b85e-2b0981f9de70" display="Roles" value="" isActive="false" />
+            <property name="ae5251ff-40a1-4e46-be66-6b176f329f98" display="Policy" isActive="false" />
+            <property name="28bbe8bb-8d31-44c7-b642-ff0e279ab85f" display="Security Roles" value="[&quot;a795a50e-49ae-4b51-b1da-43243ef474b6&quot;]" isActive="true" />
+            <property name="68cbcd05-cd5c-49f3-a982-8ee9caf554bb" display="Security Policies" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="b2e1a7ae-4f62-4343-8ebf-09bddd72cdcd" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="8ccc4935-fe51-4667-a139-02dc5fd690f5">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>2f419088-9649-4d0c-b1d2-cf2b65c5b5e9</parentFolderId>
+          <packageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</packageId>
+          <packageName>SecurityConfig.Tests.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="e3e0afa1-cc4d-4d75-b5c4-28a134e90456" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindProducts</name>
+      <display>FindProducts(): ProductDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3615538d-68c2-4cf1-8d28-f59206571ec1">
+        <typeId>d506307b-5490-4661-8350-97c65d43729f</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>SecurityConfig.Tests.Services</typePackageName>
+        <typePackageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f0b1acfa-9934-4c81-abff-15d535ae852d</parentFolderId>
+      <packageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</packageId>
+      <packageName>SecurityConfig.Tests.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="a9eade71-1d56-4be7-a80c-81046c0c978b" name="Secured">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="2b39acef-6079-48c9-b85e-2b0981f9de70" display="Roles" value="" isActive="false" />
+            <property name="ae5251ff-40a1-4e46-be66-6b176f329f98" display="Policy" isActive="false" />
+            <property name="28bbe8bb-8d31-44c7-b642-ff0e279ab85f" display="Security Roles" value="[&quot;a795a50e-49ae-4b51-b1da-43243ef474b6&quot;]" isActive="true" />
+            <property name="68cbcd05-cd5c-49f3-a982-8ee9caf554bb" display="Security Policies" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="1edc3441-2d85-412b-987e-27608b172c2d" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateProduct</name>
+      <display>UpdateProduct(id: guid, dto: ProductUpdateDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="297e61fa-2833-4bb0-8711-5f554a52fd5d">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f0b1acfa-9934-4c81-abff-15d535ae852d</parentFolderId>
+      <packageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</packageId>
+      <packageName>SecurityConfig.Tests.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="a9eade71-1d56-4be7-a80c-81046c0c978b" name="Secured">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="2b39acef-6079-48c9-b85e-2b0981f9de70" display="Roles" value="" isActive="false" />
+            <property name="ae5251ff-40a1-4e46-be66-6b176f329f98" display="Policy" isActive="false" />
+            <property name="28bbe8bb-8d31-44c7-b642-ff0e279ab85f" display="Security Roles" value="[&quot;a795a50e-49ae-4b51-b1da-43243ef474b6&quot;]" isActive="true" />
+            <property name="68cbcd05-cd5c-49f3-a982-8ee9caf554bb" display="Security Policies" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="8c91be1c-079e-4f8d-9348-c55d405bb184" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a1a31bbe-5200-4286-a132-85a97175ad35">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1edc3441-2d85-412b-987e-27608b172c2d</parentFolderId>
+          <packageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</packageId>
+          <packageName>SecurityConfig.Tests.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bdd21993-5c39-4fbb-a74b-5b6b3b0c587c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: ProductUpdateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="add975ea-0492-41f8-91b0-4cca8064f836">
+            <typeId>fb82678f-c305-45f6-9107-59ff5ff6f751</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>SecurityConfig.Tests.Services</typePackageName>
+            <typePackageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1edc3441-2d85-412b-987e-27608b172c2d</parentFolderId>
+          <packageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</packageId>
+          <packageName>SecurityConfig.Tests.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1fd2d4e9-06f2-44e9-9e9e-d9f93e971d13" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteProduct</name>
+      <display>DeleteProduct(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="1c77d92c-ecdb-4e38-94c2-7b079f04a2f4">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f0b1acfa-9934-4c81-abff-15d535ae852d</parentFolderId>
+      <packageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</packageId>
+      <packageName>SecurityConfig.Tests.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="DELETE" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="a9eade71-1d56-4be7-a80c-81046c0c978b" name="Secured">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="2b39acef-6079-48c9-b85e-2b0981f9de70" display="Roles" value="" isActive="false" />
+            <property name="ae5251ff-40a1-4e46-be66-6b176f329f98" display="Policy" isActive="false" />
+            <property name="28bbe8bb-8d31-44c7-b642-ff0e279ab85f" display="Security Roles" value="[&quot;a795a50e-49ae-4b51-b1da-43243ef474b6&quot;,&quot;a76b1244-b010-4bc1-8afd-a6b9eac0e748&quot;]" isActive="true" />
+            <property name="68cbcd05-cd5c-49f3-a982-8ee9caf554bb" display="Security Policies" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="f60bc611-394e-45a3-a696-a47d8a9aadf4" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="fe60f3d5-374e-4bee-9b41-0e2cd4e76395">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1fd2d4e9-06f2-44e9-9e9e-d9f93e971d13</parentFolderId>
+          <packageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</packageId>
+          <packageName>SecurityConfig.Tests.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

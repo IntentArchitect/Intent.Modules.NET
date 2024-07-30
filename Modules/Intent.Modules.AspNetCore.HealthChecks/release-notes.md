@@ -1,3 +1,7 @@
+### Version 2.0.6
+
+- Improvement: Added support for Kafka.
+
 ### Version 2.0.5
 
 - Fixed: Added warning regarding using Health Checks UI when running against .NET 8 due to the following issues:

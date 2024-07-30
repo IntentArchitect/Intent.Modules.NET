@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a3a5acb6-9812-4a0f-86d7-3318231b505a" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>ClientsService</name>
+  <display>ClientsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>04c6a15c-a669-4006-ac8d-24273331eadf</parentFolderId>
+  <packageId>04c6a15c-a669-4006-ac8d-24273331eadf</packageId>
+  <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="4e196688-04d5-4ec2-bdad-25123cc911f4" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateClient</name>
+      <display>CreateClient(dto: ClientCreateDto): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="5448733e-aa08-456c-865d-f66e443d9c35">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a3a5acb6-9812-4a0f-86d7-3318231b505a</parentFolderId>
+      <packageId>04c6a15c-a669-4006-ac8d-24273331eadf</packageId>
+      <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="f87feee1-ca34-4cdf-8b0b-74040e7d3abd" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: ClientCreateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2fd8fc89-929c-498f-ac77-55869ec08aac">
+            <typeId>0816b4f5-4228-47f3-961d-9d62cfaf046e</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</typePackageName>
+            <typePackageId>04c6a15c-a669-4006-ac8d-24273331eadf</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>4e196688-04d5-4ec2-bdad-25123cc911f4</parentFolderId>
+          <packageId>04c6a15c-a669-4006-ac8d-24273331eadf</packageId>
+          <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="92d5a7c4-179d-4427-abd2-35613935bfff" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="fb6d4362-e097-46af-ac9d-2cf85dc7d127" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindClientById</name>
+      <display>FindClientById(id: guid): ClientDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="a741ac1b-55d6-4e9e-a7b7-2e389588f0c6">
+        <typeId>5a91102f-9206-4dfd-8f65-c02cf4b29080</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+        <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a3a5acb6-9812-4a0f-86d7-3318231b505a</parentFolderId>
+      <packageId>04c6a15c-a669-4006-ac8d-24273331eadf</packageId>
+      <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="b88f531b-1253-4181-b65e-e4d6ae7318da" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="162ad401-fbd3-4677-9c34-2db621c5f5d3">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>fb6d4362-e097-46af-ac9d-2cf85dc7d127</parentFolderId>
+          <packageId>04c6a15c-a669-4006-ac8d-24273331eadf</packageId>
+          <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="7fa239b3-c668-4694-873e-aeae7d668578" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8b0ce65f-67df-4f4c-ba5b-264d3f3c1fa8" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindClients</name>
+      <display>FindClients(): ClientDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5eb50782-d83f-47b0-a446-f9d41604f2fe">
+        <typeId>5a91102f-9206-4dfd-8f65-c02cf4b29080</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+        <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a3a5acb6-9812-4a0f-86d7-3318231b505a</parentFolderId>
+      <packageId>04c6a15c-a669-4006-ac8d-24273331eadf</packageId>
+      <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="768166a3-f7ba-4235-a893-d2df382a0e15" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateClient</name>
+      <display>UpdateClient(id: guid, dto: ClientUpdateDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="e41e0ac0-e555-4be3-a376-19cf0ba8554f">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a3a5acb6-9812-4a0f-86d7-3318231b505a</parentFolderId>
+      <packageId>04c6a15c-a669-4006-ac8d-24273331eadf</packageId>
+      <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="d6306907-a829-4c19-88e8-cc30ee4d3ead" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a1a7519a-2abf-4928-af8f-caea827ef01b">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>768166a3-f7ba-4235-a893-d2df382a0e15</parentFolderId>
+          <packageId>04c6a15c-a669-4006-ac8d-24273331eadf</packageId>
+          <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="91cf6333-5dbe-49e3-b7fb-e19c861e46df" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="93179bb0-19a5-4b25-8ca4-b933ae45ec49" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: ClientUpdateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="89d7608d-6fcc-4e8c-bf46-2f67889e271b">
+            <typeId>0215a422-fbec-4e88-bcca-53ce872a7f7f</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</typePackageName>
+            <typePackageId>04c6a15c-a669-4006-ac8d-24273331eadf</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>768166a3-f7ba-4235-a893-d2df382a0e15</parentFolderId>
+          <packageId>04c6a15c-a669-4006-ac8d-24273331eadf</packageId>
+          <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="d791427b-ceb8-4199-a552-be3d83cff706" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="dd66ca99-6c53-45a0-a610-5048dacdd59c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteClient</name>
+      <display>DeleteClient(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="1d5f4e2e-98e7-4be5-ac13-096190d99be2">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a3a5acb6-9812-4a0f-86d7-3318231b505a</parentFolderId>
+      <packageId>04c6a15c-a669-4006-ac8d-24273331eadf</packageId>
+      <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="30178f0b-fe6e-4381-bb43-a0a575eca5de" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4e3b43bd-ded3-4576-8f4f-5f56ffa9d36b">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>dd66ca99-6c53-45a0-a610-5048dacdd59c</parentFolderId>
+          <packageId>04c6a15c-a669-4006-ac8d-24273331eadf</packageId>
+          <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="0d87db84-d6ba-45f9-ba60-52cdcf8f5dd2" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

@@ -51,5 +51,33 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="8c754cb2-f97a-4262-8f24-74596644f6c7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.AuthorizationHeaderProviderInterface</name>
+      <display>Intent.Integration.HttpClients.AuthorizationHeaderProviderInterface</display>
+      <externalReference>Intent.Integration.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>270c76fd-ca4a-4f3e-833e-235346f9cf15</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c453ed80-02cd-4f72-bc40-9ba767107ee5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.HttpClientAuthorizationHeaderHandler</name>
+      <display>Intent.Integration.HttpClients.HttpClientAuthorizationHeaderHandler</display>
+      <externalReference>Intent.Integration.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>270c76fd-ca4a-4f3e-833e-235346f9cf15</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

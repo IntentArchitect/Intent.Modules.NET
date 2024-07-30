@@ -1,4 +1,8 @@
-﻿### Version 4.2.5
+﻿### Version 4.2.6
+
+- Improvement: Improved `Authorized` modeling.
+
+### Version 4.2.5
 
 - Improvement: Added `TODO` comments on `NotImplementedException`.
 

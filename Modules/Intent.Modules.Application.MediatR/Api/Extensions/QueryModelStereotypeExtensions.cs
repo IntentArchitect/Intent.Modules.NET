@@ -15,14 +15,14 @@ namespace Intent.Application.MediatR.Api
     {
         public static Authorize GetAuthorize(this QueryModel model)
         {
-            var stereotype = model.GetStereotype("Authorize");
+            var stereotype = model.GetStereotype("b06358cd-aed3-4c39-96cf-abb131e4ecde");
             return stereotype != null ? new Authorize(stereotype) : null;
         }
 
 
         public static bool HasAuthorize(this QueryModel model)
         {
-            return model.HasStereotype("Authorize");
+            return model.HasStereotype("b06358cd-aed3-4c39-96cf-abb131e4ecde");
         }
 
         public static bool TryGetAuthorize(this QueryModel model, out Authorize stereotype)
@@ -33,7 +33,7 @@ namespace Intent.Application.MediatR.Api
                 return false;
             }
 
-            stereotype = new Authorize(model.GetStereotype("Authorize"));
+            stereotype = new Authorize(model.GetStereotype("b06358cd-aed3-4c39-96cf-abb131e4ecde"));
             return true;
         }
 
@@ -57,6 +57,16 @@ namespace Intent.Application.MediatR.Api
             public string Policy()
             {
                 return _stereotype.GetProperty<string>("Policy");
+            }
+
+            public IElement[] SecurityRoles()
+            {
+                return _stereotype.GetProperty<IElement[]>("Security Roles") ?? new IElement[0];
+            }
+
+            public IElement[] SecurityPolicies()
+            {
+                return _stereotype.GetProperty<IElement[]>("Security Policies") ?? new IElement[0];
             }
 
         }

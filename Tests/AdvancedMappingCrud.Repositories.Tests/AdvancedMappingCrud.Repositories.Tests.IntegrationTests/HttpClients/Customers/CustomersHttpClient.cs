@@ -283,6 +283,39 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Cu
             }
         }
 
+        public async Task<PagedResult<CustomerDto>> GetCustomersPaginatedWithOrderAsync(
+            bool isActive,
+            string name,
+            string surname,
+            int pageNo,
+            int pageSize,
+            string orderBy,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/customer/{name}/{surname}/{isActive}/paged/ordered";
+
+            var queryParams = new Dictionary<string, string?>();
+            queryParams.Add("pageNo", pageNo.ToString());
+            queryParams.Add("pageSize", pageSize.ToString());
+            queryParams.Add("orderBy", orderBy);
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<PagedResult<CustomerDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
         public async Task<List<CustomerDto>> GetCustomersAsync(CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/customers";

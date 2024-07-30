@@ -25,6 +25,9 @@ namespace Standard.AspNetCore.TestApplication.Application
             services.AddTransient<IIntegrationService, IntegrationService>();
             services.AddTransient<IInvoicesService, InvoicesService>();
             services.AddTransient<IMultiVersionService, MultiVersionService>();
+            services.AddTransient<IOpenApiIgnoreAllImplicitService, OpenApiIgnoreAllImplicitService>();
+            services.AddTransient<IOpenApiIgnoreSingleService, OpenApiIgnoreSingleService>();
+            services.AddTransient<IOpenApiOptOutSingleService, OpenApiOptOutSingleService>();
             services.AddTransient<IPluralsService, PluralsService>();
             services.AddTransient<IQueryStringNamesService, QueryStringNamesService>();
             services.AddTransient<IValidationTestingService, ValidationTestingService>();

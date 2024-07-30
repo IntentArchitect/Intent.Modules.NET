@@ -18,6 +18,7 @@ namespace Intent.Modules.Azure.KeyVault.Templates.AzureKeyVaultConfiguration
     {
         public override string TemplateId => AzureKeyVaultConfigurationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new AzureKeyVaultConfigurationTemplate(outputTarget);

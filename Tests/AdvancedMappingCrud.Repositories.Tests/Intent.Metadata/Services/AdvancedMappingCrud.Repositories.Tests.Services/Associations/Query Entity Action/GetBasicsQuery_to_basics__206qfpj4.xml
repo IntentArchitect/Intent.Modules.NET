@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7a1e0a1d-cda0-4779-b8f0-aa3f9814e534">
+  <sourceEnd id="5d659ee7-ec4d-4a00-a876-1ecad678ec1a" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetBasicsQuery</display>
+    <order>0</order>
+    <typeReference id="f262ba12-7ae7-456a-9a30-564222ea74f3">
+      <typeId>b42fcb56-9797-4a2f-b031-526e76d550b9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7a1e0a1d-cda0-4779-b8f0-aa3f9814e534" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>basics</name>
+    <display>[query] basics: Basic[*]</display>
+    <order>4</order>
+    <typeReference id="548bc911-f871-42c7-8844-7f97e316d61f">
+      <typeId>73ba71c6-41c6-41ef-ba80-0d589ea75417</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b42fcb56-9797-4a2f-b031-526e76d550b9" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[GetBasicsQuery]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="73ba71c6-41c6-41ef-ba80-0d589ea75417" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Basic]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

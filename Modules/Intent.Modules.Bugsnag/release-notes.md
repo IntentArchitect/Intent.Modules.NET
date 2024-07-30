@@ -1,3 +1,7 @@
+### Version 1.0.2
+
+- Fixed: Missed using directive for JobListeners.
+
 ### Version 1.0.1
 
 - Improvement: Logs unhandled exceptions for Quartz Scheduler.

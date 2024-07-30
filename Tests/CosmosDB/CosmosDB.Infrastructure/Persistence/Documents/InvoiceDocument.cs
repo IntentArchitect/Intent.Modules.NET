@@ -70,7 +70,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             LineItems = entity.LineItems.Select(x => LineItemDocument.FromEntity(x)!).ToList();
             InvoiceLogo = InvoiceLogoDocument.FromEntity(entity.InvoiceLogo)!;
 
-            _etag = getEtag(((IItem)this).Id);
+            _etag = _etag == null ? getEtag(((IItem)this).Id) : _etag;
 
             return this;
         }

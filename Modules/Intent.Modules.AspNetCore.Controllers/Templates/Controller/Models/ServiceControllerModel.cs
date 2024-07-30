@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Metadata.WebApi.Models;
@@ -25,7 +26,7 @@ public class ServiceControllerModel : IControllerModel
         RequiresAuthorization = model.HasSecured();
         AllowAnonymous = model.HasUnsecured();
         Route = GetControllerRoute(model.GetHttpServiceSettings()?.Route());
-        AuthorizationModel = GetAuthorizationModel(model.GetSecured()?.Roles());
+        AuthorizationModel = GetAuthorizationModel(model.InternalElement);
         Operations = model.Operations
             .Where(x => x.HasHttpSettings())
             .Select(GetOperation)
@@ -35,14 +36,55 @@ public class ServiceControllerModel : IControllerModel
             .Select(s => new ControllerApiVersionModel(s))
             .Cast<IApiVersionModel>()
             .ToList() ?? new List<IApiVersionModel>();
+        InternalElement = model.InternalElement;
     }
 
-    private static AuthorizationModel GetAuthorizationModel(string roles)
+    private static bool GetAuthorizationRolesAndPolicies(IElement element, out string roles, out string policy)
     {
+        roles = null;
+        policy = null;
+        if (!element.HasStereotype("Authorize") && !element.HasStereotype("Secured"))
+        {
+            return false;
+        }
+        var auth = element.HasStereotype("Authorize") ? element.GetStereotype("Authorize") : element.GetStereotype("Secured");
+
+        if (!string.IsNullOrEmpty(auth.GetProperty<string>("Roles", null)))
+        {
+            roles = auth.GetProperty<string>("Roles");
+        }
+        if (!string.IsNullOrEmpty(auth.GetProperty<string>("Policy", null)))
+        {
+            policy = auth.GetProperty<string>("Policy");
+        }
+        if (auth.GetProperty<IElement[]>("Security Roles", null) != null)
+        {
+            var elements = auth.GetProperty<IElement[]>("Security Roles");
+            roles = string.Join(",", elements.Select(e => e.Name));
+        }
+        if (auth.GetProperty<IElement[]>("Security Policies", null) != null)
+        {
+            var elements = auth.GetProperty<IElement[]>("Security Policies");
+            policy = string.Join(",", elements.Select(e => e.Name));
+        }
+        return roles != null || policy != null;
+    }
+
+    private static AuthorizationModel GetAuthorizationModel(IElement element)
+    {
+        if (!GetAuthorizationRolesAndPolicies(element, out var roles, out var policies))
+        {
+            return null;
+        }
         return new AuthorizationModel
         {
             RolesExpression = !string.IsNullOrWhiteSpace(roles)
                 ? @$"{string.Join("+", roles.Split('+', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(group => string.Join(",", group.Trim().Split(',', StringSplitOptions.RemoveEmptyEntries)
+                        .Select(s => s.Trim()))))}"
+                : null,
+            Policy = !string.IsNullOrWhiteSpace(policies)
+                ? @$"{string.Join("+", policies.Split('+', StringSplitOptions.RemoveEmptyEntries)
                     .Select(group => string.Join(",", group.Trim().Split(',', StringSplitOptions.RemoveEmptyEntries)
                         .Select(s => s.Trim()))))}"
                 : null
@@ -73,13 +115,14 @@ public class ServiceControllerModel : IControllerModel
             mediaType: httpEndpoint.MediaType,
             requiresAuthorization: httpEndpoint.RequiresAuthorization,
             allowAnonymous: httpEndpoint.AllowAnonymous,
-            authorizationModel: GetAuthorizationModel(model.GetSecured()?.Roles()),
+            authorizationModel: GetAuthorizationModel(model.InternalElement),
             parameters: httpEndpoint.Inputs.Select(GetInput).ToList(),
             applicableVersions: model.GetApiVersionSettings()
                 ?.ApplicableVersions()
                 .Select(s => new ControllerApiVersionModel(s))
                 .Cast<IApiVersionModel>()
-                .ToList() ?? new List<IApiVersionModel>());
+                .ToList() ?? new List<IApiVersionModel>(),
+            controller: this);
     }
 
     private static IControllerParameterModel GetInput(IHttpEndpointInputModel model)
@@ -105,6 +148,7 @@ public class ServiceControllerModel : IControllerModel
     public string Route { get; }
     public IList<IControllerOperationModel> Operations { get; }
     public IList<IApiVersionModel> ApplicableVersions { get; }
+    public IElement InternalElement { get; }
 }
 
 
@@ -120,7 +164,8 @@ public class ControllerOperationModel : IControllerOperationModel
         bool allowAnonymous,
         IAuthorizationModel authorizationModel,
         IList<IControllerParameterModel> parameters, 
-        IList<IApiVersionModel> applicableVersions)
+        IList<IApiVersionModel> applicableVersions,
+        IControllerModel controller)
     {
         Id = element.Id;
         Name = name;
@@ -135,6 +180,7 @@ public class ControllerOperationModel : IControllerOperationModel
         AuthorizationModel = authorizationModel;
         Parameters = parameters;
         ApplicableVersions = applicableVersions;
+        Controller = controller;
     }
 
     public string Id { get; }
@@ -151,7 +197,7 @@ public class ControllerOperationModel : IControllerOperationModel
     public IAuthorizationModel AuthorizationModel { get; }
     public IList<IControllerParameterModel> Parameters { get; }
     public IList<IApiVersionModel> ApplicableVersions { get; }
-
+    public IControllerModel Controller { get; }
 }
 
 public class ControllerParameterModel : IControllerParameterModel

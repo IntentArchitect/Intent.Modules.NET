@@ -45,6 +45,10 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventEnum
                 .Except(_metadataManager
                     .GetDesigner(application.Id, "Domain")
                     .GetEnumModels())
+                /*
+                .Except(_metadataManager
+                    .GetDesigner(application.Id, "Services")
+                    .GetEnumModels())*/
                 .ToArray();
         }
     }

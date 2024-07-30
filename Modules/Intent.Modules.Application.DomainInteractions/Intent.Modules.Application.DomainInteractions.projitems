@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\InheritedChildrenMapping.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataAccessProviders\RepositoryDataAccessProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\ServiceOperationMappingTypeResolver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedNuGetPackages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TemplateExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\EntityCreationMappingTypeResolver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\EntityUpdateMappingTypeResolver.cs" />

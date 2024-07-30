@@ -14,10 +14,13 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
 {
     internal class ServiceProxyModelAdapter : IServiceProxyModel
     {
-        private readonly ServiceProxyModel _model;
-        public ServiceProxyModelAdapter(ServiceProxyModel model)
+        private readonly ServiceProxyModel _model; 
+        private readonly bool _serializeEnumsAsStrings;
+
+        public ServiceProxyModelAdapter(ServiceProxyModel model, bool serializeEnumsAsStrings)
         {
             _model = model;
+            _serializeEnumsAsStrings = serializeEnumsAsStrings;
         }
 
         public string Name => _model.Name;
@@ -26,9 +29,11 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
 
         public IMetadataModel UnderlyingModel => _model;
 
+        public ServiceProxyModel Model => _model;
+
         public FolderModel Folder => _model.Folder;
 
-        public bool SerializeEnumsAsStrings => false;
+        public bool SerializeEnumsAsStrings => _serializeEnumsAsStrings;
 
         public IEnumerable<IHttpEndpointModel> GetMappedEndpoints()
         {

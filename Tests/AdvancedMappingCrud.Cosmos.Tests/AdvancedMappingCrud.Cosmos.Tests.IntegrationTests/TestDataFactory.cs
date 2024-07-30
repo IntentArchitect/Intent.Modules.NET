@@ -1,9 +1,13 @@
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients;
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.BasicOrderBies;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Customers;
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.ExplicitETags;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Orders;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Products;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.SimpleOdata;
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.BasicOrderBies;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.Customers;
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.ExplicitETags;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.Orders;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.Products;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.SimpleOdata;
@@ -35,6 +39,16 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests
             return fixture.Create<T>();
         }
 
+        public async Task<string> CreateBasicOrderBy()
+        {
+            var client = new BasicOrderBiesHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateBasicOrderByCommand>();
+            var basicOrderById = await client.CreateBasicOrderByAsync(command);
+            _idTracker["BasicOrderById"] = basicOrderById;
+            return basicOrderById;
+        }
+
         public async Task<string> CreateCustomer()
         {
             var client = new CustomersHttpClient(_factory.CreateClient());
@@ -43,6 +57,16 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests
             var customerId = await client.CreateCustomerAsync(command);
             _idTracker["CustomerId"] = customerId;
             return customerId;
+        }
+
+        public async Task<string> CreateExplicitETag()
+        {
+            var client = new ExplicitETagsHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateExplicitETagCommand>();
+            var explicitETagId = await client.CreateExplicitETagAsync(command);
+            _idTracker["ExplicitETagId"] = explicitETagId;
+            return explicitETagId;
         }
 
         public async Task CreateOrderDependencies()

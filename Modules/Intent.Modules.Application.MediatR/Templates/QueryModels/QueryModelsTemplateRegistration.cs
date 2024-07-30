@@ -27,6 +27,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
 
         public override string TemplateId => QueryModelsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, QueryModel model)
         {
             return new QueryModelsTemplate(outputTarget, model);

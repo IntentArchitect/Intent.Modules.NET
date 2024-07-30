@@ -9,9 +9,10 @@ The `Intent.Integration.HttpClients` module in Intent Architect generates HTTP c
 The `Intent.Integration.HttpClients` module provides several settings that affect the generated HTTP client code:
 
 - **Authorization Setup**:
-    - **Client Access Token Management**: Uses client credentials to obtain and refresh access tokens.
-    - **Transmittable Access Token**: Passes the existing access token from the HTTP context.
-    - **None**: No authorization setup is applied.
+  - **Authorization Header Provider**: Use dependency injection to supply the `Authorization Header` on proxy requests .
+  - **Client Access Token Management**: Uses client credentials to obtain and refresh access tokens.
+  - **Transmittable Access Token**: Passes the existing access token from the HTTP context.
+  - **None**: No authorization setup is applied.
 
 These settings determine how the clients authenticate requests to secured endpoints.
 
@@ -36,6 +37,46 @@ To get started with the `Intent.Integration.HttpClients` module, follow these st
     - Create a new **Service Proxy Package** if one does not exist.
     - Add a package reference to the API application's Service package, which houses the API endpoint metadata.
     - Create a new **Service Proxy element**, which will open a dialog to select the package with the API elements and choose the desired endpoints.
+
+### Configuring your service proxies in your `appsettings.json`
+
+Intent Architect will create a configuration section per package involved, by default all proxies for that package will use this configuration.
+
+```json
+{
+  "HttpClients": {
+    "APIApplication.Services": {
+      "Uri": "https://localhost:44350/",
+      "Timeout": "00:01:00"
+    }
+  }
+}
+```
+
+If you need to tailor a specific service you can simply add a configuration for that service.
+
+```json
+{
+  "HttpClients": {
+    //General config for Proxies from APIApplication
+    "APIApplication.Services": {
+      "Uri": "https://localhost:44350/",
+      "Timeout": "00:01:00"
+    },
+    //Specialized config for AccountsService
+    "AccountsService": {
+      "Uri": "https://localhost:44351/",
+      "Timeout": "00:02:00"
+    }
+  }
+}
+```
+
+These string need to match the string in the `HttpClientConfiguration` file.
+
+```csharp
+    ApplyAppSettings(http, configuration, "APIApplication.Services", "AccountsService");
+```
 
 ### Generated Code
 
@@ -145,16 +186,24 @@ public static class HttpClientConfiguration
         services
             .AddHttpClient<IAccountsService, AccountsServiceHttpClient>(http =>
             {
-                http.BaseAddress = configuration.GetValue<Uri>("HttpClients:AccountsService:Uri");
-                http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:AccountsService:Timeout") ?? TimeSpan.FromSeconds(100);
+                ApplyAppSettings(http, configuration, "APIApplication.Services", "AccountsService");
             });
 
         services
             .AddHttpClient<IClientsService, ClientsServiceHttpClient>(http =>
             {
-                http.BaseAddress = configuration.GetValue<Uri>("HttpClients:ClientsService:Uri");
-                http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:ClientsService:Timeout") ?? TimeSpan.FromSeconds(100);
+                ApplyAppSettings(http, configuration, "APIApplication.Services", "ClientsService");
             });
+    }
+
+    private static void ApplyAppSettings(
+        HttpClient client,
+        IConfiguration configuration,
+        string groupName,
+        string serviceName)
+    {
+        client.BaseAddress = configuration.GetValue<Uri>($"HttpClients:{serviceName}:Uri") ?? configuration.GetValue<Uri>($"HttpClients:{groupName}:Uri");
+        client.Timeout = configuration.GetValue<TimeSpan?>($"HttpClients:{serviceName}:Timeout") ?? configuration.GetValue<TimeSpan?>($"HttpClients:{groupName}:Timeout") ?? TimeSpan.FromSeconds(100);
     }
 }
 ```
@@ -164,19 +213,106 @@ public static class HttpClientConfiguration
 ```json
 {
   "HttpClients": {
-    "AccountsService": {
+    "APIApplication.Services": {
       "Uri": "https://localhost:44350/",
       "Timeout": "00:01:00"
     },
-    "ClientsService": {
-      "Uri": "https://localhost:44350/",
-      "Timeout": "00:01:00"
-    }
   }
 }
 ```
 
 ### Detailed Authorization Setup
+
+#### Authorization Header Provider
+
+The HttpClient registrations will change as follows, note the `AddAuthorizationHeader` invocation:
+
+HttpClientConfiguration update:
+
+```csharp
+public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration)
+{
+    services.AddHttpContextAccessor();
+
+    services
+        .AddHttpClient<IAccountsService, AccountsServiceHttpClient>(http =>
+        {
+            ApplyAppSettings(http, configuration, "APIApplication.Services", "AccountsService");
+        })
+        .AddAuthorizationHeader();
+
+    services
+        .AddHttpClient<IClientsService, ClientsServiceHttpClient>(http =>
+        {
+            ApplyAppSettings(http, configuration, "APIApplication.Services", "ClientsService");
+        })
+        .AddAuthorizationHeader();
+}
+```
+
+The Following interface is generated.
+
+```csharp
+    public interface IAuthorizationHeaderProvider
+    {
+        string? GetAuthorizationHeader();
+    }
+```
+
+You can now simply implement this interface and register it up with your DI container.
+
+Illustrative implementations of `IAuthorizationHeaderProvider`
+
+```csharp
+internal class MyHeaderProvider : IAuthorizationHeaderProvider
+{
+    private readonly IHttpContextAccessor _httpContextAccessor;
+
+    public MyHeaderProvider(IHttpContextAccessor httpContextAccessor)
+    {
+        _httpContextAccessor = httpContextAccessor;
+    }
+
+    public string? GetAuthorizationHeader()
+    {
+        //Propagating the current authorization header
+        if (_httpContextAccessor.HttpContext!.Request.Headers.TryGetValue("Authorization", out var value))
+        {
+            return value.ToString();
+        }
+        return null;
+    }
+}
+```
+
+```csharp
+internal class MyHeaderProvider2 : IAuthorizationHeaderProvider
+{
+
+    public MyHeaderProvider()
+    {
+    }
+
+    public string? GetAuthorizationHeader()
+    {
+        //Bearer Token Sample
+        return new AuthenticationHeaderValue("Bearer", "your_access_token").ToString();
+        
+        //Basic Authentication Sample
+        var byteArray = Encoding.ASCII.GetBytes("username:password");
+        return  AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray)).ToString();
+
+        //Custom Token Sample
+        return new AuthenticationHeaderValue("CustomScheme", "your_custom_token").ToString();
+    }
+}
+```
+
+DI Registration
+
+```csharp
+    services.AddScoped<IAuthorizationHeaderProvider, MyHeaderProvider>();
+```
 
 #### Client Access Token Management
 
@@ -197,12 +333,7 @@ Appsettings.json:
     }
   },
   "HttpClients": {
-    "ClientsService": {
-      "Uri": "https://localhost:44350/",
-      "IdentityClientKey": "default",
-      "Timeout": "00:01:00"
-    },
-    "AccountsService": {
+    "APIApplication.Services": {
       "Uri": "https://localhost:44350/",
       "IdentityClientKey": "default",
       "Timeout": "00:01:00"
@@ -224,16 +355,14 @@ public static void AddHttpClients(this IServiceCollection services, IConfigurati
     services
         .AddHttpClient<IAccountsService, AccountsServiceHttpClient>(http =>
         {
-            http.BaseAddress = configuration.GetValue<Uri>("HttpClients:AccountsService:Uri");
-            http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:AccountsService:Timeout") ?? TimeSpan.FromSeconds(100);
+            ApplyAppSettings(http, configuration, "APIApplication.Services", "AccountsService");
         })
         .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:AccountsService:IdentityClientKey") ?? "default");
 
     services
         .AddHttpClient<IClientsService, ClientsServiceHttpClient>(http =>
         {
-            http.BaseAddress = configuration.GetValue<Uri>("HttpClients:ClientsService:Uri");
-            http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:ClientsService:Timeout") ?? TimeSpan.FromSeconds(100);
+            ApplyAppSettings(http, configuration, "APIApplication.Services", "ClientsService");
         })
         .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:ClientsService:IdentityClientKey") ?? "default");
 }
@@ -253,8 +382,7 @@ public static void AddHttpClients(this IServiceCollection services, IConfigurati
     services
         .AddHttpClient<IAccountsService, AccountsServiceHttpClient>(http =>
         {
-            http.BaseAddress = configuration.GetValue<Uri>("HttpClients:AccountsService:Uri");
-            http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:AccountsService:Timeout") ?? TimeSpan.FromSeconds(100);
+            ApplyAppSettings(http, configuration, "APIApplication.Services", "AccountsService");
         })
         .AddHeaders(config =>
         {
@@ -264,8 +392,7 @@ public static void AddHttpClients(this IServiceCollection services, IConfigurati
     services
         .AddHttpClient<IClientsService, ClientsServiceHttpClient>(http =>
         {
-            http.BaseAddress = configuration.GetValue<Uri>("HttpClients:ClientsService:Uri");
-            http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:ClientsService:Timeout") ?? TimeSpan.FromSeconds(100);
+            ApplyAppSettings(http, configuration, "APIApplication.Services", "ClientsService");
         })
         .AddHeaders(config =>
         {

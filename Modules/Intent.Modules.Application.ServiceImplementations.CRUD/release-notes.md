@@ -1,3 +1,11 @@
+### Version 5.0.12
+
+- Improvement: Support for nullable `OrderBy` on Paging.
+
+### Version 5.0.11
+
+- Improvement: Add support for `OrderBy` on pagination.
+
 ### Version 5.0.10
 
 - Improvement: FindAsync handling more mapping scenarios.

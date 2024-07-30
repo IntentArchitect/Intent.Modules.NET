@@ -44,7 +44,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Controllers", "Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj", "{863DEDBB-B0A4-467E-96EA-F1EE97D7BD10}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR", "Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.csproj", "{80081361-CC7D-430C-8861-8B2AC9D6E8A7}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.MediatR", "Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.csproj", "{80081361-CC7D-430C-8861-8B2AC9D6E8A7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.DependencyInjection", "Intent.Modules.Application.DependencyInjection\Intent.Modules.Application.DependencyInjection.csproj", "{1D15D8BA-269B-4A31-8855-602CDDAA651B}"
 EndProject
@@ -112,7 +112,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.FluentValidation", "Intent.Modules.AzureFunctions.FluentValidation\Intent.Modules.AzureFunctions.FluentValidation.csproj", "{A61FACD5-0E8E-48EE-9260-D14E229DE430}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Dtos.Pagination", "Intent.Modules.Application.Dtos.Pagination\Intent.Modules.Application.Dtos.Pagination.csproj", "{2F154FBE-BD9A-47D5-B1DF-287729FB872B}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.Dtos.Pagination", "Intent.Modules.Application.Dtos.Pagination\Intent.Modules.Application.Dtos.Pagination.csproj", "{2F154FBE-BD9A-47D5-B1DF-287729FB872B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ValueObjects", "Intent.Modules.ValueObjects\Intent.Modules.ValueObjects.csproj", "{BE53D805-6699-498D-A281-05F24E1B3E58}"
 EndProject
@@ -194,7 +194,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Entities.Con
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.OpenApi", "Intent.Modules.AzureFunctions.OpenApi\Intent.Modules.AzureFunctions.OpenApi.csproj", "{28F781AD-1CBA-42FE-8FCC-D4F40A1EDF0F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Azure.KeyVault", "Intent.Modules.Azure.KeyVault\Intent.Modules.Azure.KeyVault.csproj", "{31D61C32-3B68-497E-83E6-F30D7A862894}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Azure.KeyVault", "Intent.Modules.Azure.KeyVault\Intent.Modules.Azure.KeyVault.csproj", "{31D61C32-3B68-497E-83E6-F30D7A862894}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.HotChocolate.GraphQL.AzureFunctions", "Intent.Modules.HotChocolate.GraphQL.AzureFunctions\Intent.Modules.HotChocolate.GraphQL.AzureFunctions.csproj", "{A0DF4C1E-6ABA-4566-951D-2875055BD4F0}"
 EndProject
@@ -291,6 +291,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.Solace", "Intent.Modules.Eventing.Solace\Intent.Modules.Eventing.Solace.csproj", "{A6C98406-2957-4DB7-92C9-42304ABEF86F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapper", "Intent.Modules.Dapper\Intent.Modules.Dapper.csproj", "{D299844E-CEE3-4CCD-87E7-CC188B4D93F7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.HashiCorp.Vault", "Intent.Modules.HashiCorp.Vault\Intent.Modules.HashiCorp.Vault.csproj", "{E9B00204-9260-4D47-A1BF-CE927FAB036E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.Components.Core", "Intent.Modules.Blazor.Components.Core\Intent.Modules.Blazor.Components.Core.csproj", "{7FD68940-2B43-492D-BFB0-E37982918D79}"
 EndProject
@@ -810,6 +812,10 @@ Global
 		{D299844E-CEE3-4CCD-87E7-CC188B4D93F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D299844E-CEE3-4CCD-87E7-CC188B4D93F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D299844E-CEE3-4CCD-87E7-CC188B4D93F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9B00204-9260-4D47-A1BF-CE927FAB036E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9B00204-9260-4D47-A1BF-CE927FAB036E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9B00204-9260-4D47-A1BF-CE927FAB036E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9B00204-9260-4D47-A1BF-CE927FAB036E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7FD68940-2B43-492D-BFB0-E37982918D79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7FD68940-2B43-492D-BFB0-E37982918D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FD68940-2B43-492D-BFB0-E37982918D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -969,6 +975,7 @@ Global
 		{75D9FE6B-EA75-4C88-ACC0-E8A112FCE7A8} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{A6C98406-2957-4DB7-92C9-42304ABEF86F} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{D299844E-CEE3-4CCD-87E7-CC188B4D93F7} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{E9B00204-9260-4D47-A1BF-CE927FAB036E} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{7FD68940-2B43-492D-BFB0-E37982918D79} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{DAB870D2-16E4-46EE-82D9-E78558ED569D} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{B3844F12-304A-475A-99D2-B54E8D202E97} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}

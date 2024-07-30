@@ -15,14 +15,14 @@
   <childElements>
     <childElement id="ffe47b79-3f47-4152-89a3-4d27ea8e2b28" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Id</name>
-      <display>Id: int</display>
+      <display>Id: int?</display>
       <externalReference>Pets.Pet.Id</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="ef4eeaa6-19fb-4975-ace6-012313807ce1">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
         <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
+        <isNullable>true</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
         <typePackageName>Intent.Common.Types</typePackageName>
@@ -111,14 +111,14 @@
     </childElement>
     <childElement id="5802f87b-9b21-439a-acfe-832aacb2c711" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Category</name>
-      <display>Category: Category</display>
+      <display>Category: Category?</display>
       <externalReference>Pets.Pet.Category</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="e69bc46e-875f-4e61-87bc-bb275f707125">
         <typeId>5baee03d-2747-47d0-80e1-c780fc31bf3c</typeId>
         <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
+        <isNullable>true</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
         <typePackageName>OpenApiImporterTest.Services</typePackageName>
@@ -207,14 +207,14 @@
     </childElement>
     <childElement id="59c45052-a758-4ae0-b240-03dca5b4ca72" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Tags</name>
-      <display>Tags: Tag[*]</display>
+      <display>Tags: Tag[*]?</display>
       <externalReference>Pets.Pet.Tags</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="b3a20d95-8f0a-4147-ad8c-2c1d16137658">
         <typeId>614432ce-4c81-4516-823f-15bec3867fe5</typeId>
         <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
+        <isNullable>true</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
         <typePackageName>OpenApiImporterTest.Services</typePackageName>
@@ -255,14 +255,14 @@
     </childElement>
     <childElement id="ff5c0215-2592-4f13-85d1-5bf0acf70b3b" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Status</name>
-      <display>Status: StatusType</display>
+      <display>Status: StatusType?</display>
       <externalReference>Pets.Pet.Status</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="257933f5-2372-4d0e-9081-a2a75217ff5a">
         <typeId>62b20ca6-d81f-4c9b-8f12-08bec844f05e</typeId>
         <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
+        <isNullable>true</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
         <typePackageName>OpenApiImporterTest.Services</typePackageName>

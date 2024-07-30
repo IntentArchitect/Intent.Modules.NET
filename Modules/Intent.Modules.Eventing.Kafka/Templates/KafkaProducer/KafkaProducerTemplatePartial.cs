@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -112,9 +113,14 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaProducer
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("Kafka:DefaultProducerConfig",
                 new
                 {
-                    BootstrapServers = "localhost:61294",
+                    BootstrapServers = "localhost:9092",
                     ClientId = ExecutionContext.GetApplicationConfig().Name
                 }));
+            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.Kafka.Name, new Dictionary<string, string>
+            {
+                { Infrastructure.Kafka.Property.KafkaSettingsName, "DefaultProducerConfig" },
+                { Infrastructure.Kafka.Property.KafkaSettingsPath, "Kafka:DefaultProducerConfig:BootstrapServers" }
+            }));
 
             base.AfterTemplateRegistration();
         }

@@ -42,6 +42,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#337906ce-ec34-4a34-a4d8-e68532b48708</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AuthorizationHeaderProviderInterface/AuthorizationHeaderProviderInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AuthorizationHeaderProviderInterface/AuthorizationHeaderProviderInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#337906ce-ec34-4a34-a4d8-e68532b48708</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AuthorizationHeaderProviderInterface/AuthorizationHeaderProviderInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AuthorizationHeaderProviderInterface/AuthorizationHeaderProviderInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8d97669a-b03f-4f1c-907f-8dbb94dca221</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/HttpClient/HttpClientTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -54,6 +70,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/HttpClient/HttpClientTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClient/HttpClientTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#71068005-5ecf-44a2-a902-3a27395770d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/HttpClientAuthorizationHeaderHandler/HttpClientAuthorizationHeaderHandlerTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientAuthorizationHeaderHandler/HttpClientAuthorizationHeaderHandlerTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eef15ddd-0f48-4ba7-b75d-0b7d383babf3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#71068005-5ecf-44a2-a902-3a27395770d1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/HttpClientAuthorizationHeaderHandler/HttpClientAuthorizationHeaderHandlerTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientAuthorizationHeaderHandler/HttpClientAuthorizationHeaderHandlerTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

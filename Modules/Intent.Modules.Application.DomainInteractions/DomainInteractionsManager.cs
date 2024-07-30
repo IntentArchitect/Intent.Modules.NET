@@ -216,9 +216,9 @@ public class DomainInteractionsManager
                 {
                     //var expression = CreateQueryFilterExpression(queryMapping, out var requiredStatements);
 
-                    if (TryGetPaginationValues(associationEnd, _csharpMapping, out var pageNo, out var pageSize))
+                    if (TryGetPaginationValues(associationEnd, _csharpMapping, out var pageNo, out var pageSize, out var orderBy, out var orderByIsNUllable))
                     {
-                        queryInvocation = dataAccess.FindAllAsync(queryMapping, pageNo, pageSize, out var requiredStatements);
+                        queryInvocation = dataAccess.FindAllAsync(queryMapping, pageNo, pageSize, orderBy, orderByIsNUllable, out var requiredStatements);
                         prerequisiteStatement.AddRange(requiredStatements);
                     }
                     else if (associationEnd.TypeReference.IsCollection)
@@ -330,7 +330,7 @@ public class DomainInteractionsManager
         //This is being done for Dapper
         bool hasUnitOfWork = _template.TryGetTemplate<ITemplate>(TemplateRoles.Domain.UnitOfWork, out _);
 
-		dataAccessProvider = new RepositoryDataAccessProvider(InjectService(repositoryInterface, handlerClass), _template, _csharpMapping, hasUnitOfWork);
+		dataAccessProvider = new RepositoryDataAccessProvider(InjectService(repositoryInterface, handlerClass), _template, _csharpMapping, hasUnitOfWork, foundEntity);
         return true;
     }
 
@@ -961,8 +961,9 @@ public class DomainInteractionsManager
         return true;
     }
 
-    private bool TryGetPaginationValues(IAssociationEnd associationEnd, CSharpClassMappingManager mappingManager, out string pageNo, out string pageSize)
+    private bool TryGetPaginationValues(IAssociationEnd associationEnd, CSharpClassMappingManager mappingManager, out string pageNo, out string pageSize, out string? orderBy, out bool orderByIsNullable)
     {
+        orderByIsNullable = false;
         var handler = (IElement)associationEnd.OtherEnd().TypeReference.Element;
         var returnsPagedResult = IsResultPaginated(handler.TypeReference);
 
@@ -970,6 +971,17 @@ public class DomainInteractionsManager
         var accessVariable = mappingManager.GetFromReplacement(handler);
         pageNo = $"{(accessVariable != null ? $"{accessVariable}." : "")}{handler.ChildElements.SingleOrDefault(IsPageNumberParam)?.Name ?? $"{pageIndexVar} + 1"}";
         pageSize = $"{(accessVariable != null ? $"{accessVariable}." : "")}{handler.ChildElements.SingleOrDefault(IsPageSizeParam)?.Name}";
+
+        var orderByVar = handler.ChildElements.SingleOrDefault(IsOrderByParam);
+        if (orderByVar == null)
+        {
+            orderBy = null;
+        }
+        else
+        {
+            orderByIsNullable = orderByVar.TypeReference.IsNullable;
+            orderBy = $"{(accessVariable != null ? $"{accessVariable}." : "")}{handler.ChildElements.Single(IsOrderByParam)?.Name}";
+        }
 
         return returnsPagedResult;
     }
@@ -1033,6 +1045,22 @@ public class DomainInteractionsManager
         }
 
         return false;
+    }
+
+    private bool IsOrderByParam(IElement param)
+    {
+        if (param.TypeReference.Element.Name != "string")
+        {
+            return false;
+        }
+
+        switch (param.Name.ToLower())
+        {
+            case "orderby":
+                return true;
+            default:
+                return false;
+        }
     }
 }
 

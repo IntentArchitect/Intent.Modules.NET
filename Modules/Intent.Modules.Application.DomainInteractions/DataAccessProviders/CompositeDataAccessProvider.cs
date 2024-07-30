@@ -138,13 +138,13 @@ public class CompositeDataAccessProvider : IDataAccessProvider
         return new CSharpStatement($"{_accessor};");
     }
 
-    public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, out IList<CSharpStatement> prerequisiteStatements)
+    public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, string? orderBy, bool orderByIsNUllable, out IList<CSharpStatement> prerequisiteStatements)
     {
         prerequisiteStatements = new List<CSharpStatement>();
         return new CSharpStatement("");
     }
 
-    public CSharpStatement FindAllAsync(CSharpStatement expression, string pageNo, string pageSize, out IList<CSharpStatement> prerequisiteStatements)
+    public CSharpStatement FindAllAsync(CSharpStatement expression, string pageNo, string pageSize, string? orderBy, bool orderByIsNUllable, out IList<CSharpStatement> prerequisiteStatements)
     {
         prerequisiteStatements = new List<CSharpStatement>();
         return new CSharpStatement("");

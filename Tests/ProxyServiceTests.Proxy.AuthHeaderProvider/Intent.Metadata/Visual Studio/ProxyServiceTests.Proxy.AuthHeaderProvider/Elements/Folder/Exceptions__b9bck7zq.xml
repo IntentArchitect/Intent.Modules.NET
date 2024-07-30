@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="56600c95-310f-4cfa-a3be-4929572f24e5" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Exceptions</name>
+  <display>Exceptions</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>16e7654b-075d-45a0-bc1f-6dcb2e676d6d</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="7f38fb43-c342-4c10-9eee-8215afd3147b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.ForbiddenAccessException</name>
+      <display>Intent.Application.Identity.ForbiddenAccessException</display>
+      <externalReference>Intent.Application.Identity</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>56600c95-310f-4cfa-a3be-4929572f24e5</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="15319ee6-efc6-4a23-b286-c78e1d4df689" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.HttpClientRequestException</name>
+      <display>Intent.Integration.HttpClients.HttpClientRequestException</display>
+      <externalReference>Intent.Integration.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>56600c95-310f-4cfa-a3be-4929572f24e5</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="70f097f1-854b-4f38-8f7e-527d9994fd94" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.ProblemDetailsWithErrors</name>
+      <display>Intent.Integration.HttpClients.ProblemDetailsWithErrors</display>
+      <externalReference>Intent.Integration.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>56600c95-310f-4cfa-a3be-4929572f24e5</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

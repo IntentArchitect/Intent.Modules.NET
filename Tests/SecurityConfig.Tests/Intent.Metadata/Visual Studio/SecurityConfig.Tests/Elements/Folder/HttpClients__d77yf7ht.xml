@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4e4304b1-24a9-42f5-93f5-3d22d1ce2a6d" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>HttpClients</name>
+  <display>HttpClients</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d6405a58-7eb0-4cfb-8a9e-b63a07c77ef8</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="05c33516-352a-43e5-9221-da5e8b85fe96" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.HttpClient</name>
+      <display>Intent.Integration.HttpClients.HttpClient</display>
+      <externalReference>Intent.Integration.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4e4304b1-24a9-42f5-93f5-3d22d1ce2a6d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="722cc9b6-68c0-4716-ac14-ad8a9f6ee02e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate</name>
+      <display>Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate</display>
+      <externalReference>Intent.Integration.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4e4304b1-24a9-42f5-93f5-3d22d1ce2a6d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="0bd61cbd-44f7-4393-956e-b4aa3f548089" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.JsonResponse</name>
+      <display>Intent.Integration.HttpClients.JsonResponse</display>
+      <externalReference>Intent.Integration.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4e4304b1-24a9-42f5-93f5-3d22d1ce2a6d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6291227f-69c8-48d4-b137-754a31c49de7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.AuthorizationHeaderProviderInterface</name>
+      <display>Intent.Integration.HttpClients.AuthorizationHeaderProviderInterface</display>
+      <externalReference>Intent.Integration.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4e4304b1-24a9-42f5-93f5-3d22d1ce2a6d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="0009c45c-6aac-4cb5-9564-a0e6aca2d6c6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Integration.HttpClients.HttpClientAuthorizationHeaderHandler</name>
+      <display>Intent.Integration.HttpClients.HttpClientAuthorizationHeaderHandler</display>
+      <externalReference>Intent.Integration.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4e4304b1-24a9-42f5-93f5-3d22d1ce2a6d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

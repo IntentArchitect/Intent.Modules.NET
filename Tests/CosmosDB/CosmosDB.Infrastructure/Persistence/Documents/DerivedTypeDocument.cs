@@ -27,7 +27,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         {
             DerivedTypeAggregateId = entity.DerivedTypeAggregateId;
 
-            _etag = getEtag(((IItem)this).Id);
+            _etag = _etag == null ? getEtag(((IItem)this).Id) : _etag;
             base.PopulateFromEntity(entity, getEtag);
 
             return this;

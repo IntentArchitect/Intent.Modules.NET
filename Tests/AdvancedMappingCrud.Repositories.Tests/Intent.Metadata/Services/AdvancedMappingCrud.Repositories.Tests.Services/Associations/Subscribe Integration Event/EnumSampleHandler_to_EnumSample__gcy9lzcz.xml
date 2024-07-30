@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4bbf24d0-7ecc-45f1-bf38-2276bc7b46ac">
+  <sourceEnd id="6c0e3a3a-c5d9-462f-a76b-482812a0f437" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: EnumMessage.EnumSampleHandler</display>
+    <order>0</order>
+    <typeReference id="b72d8916-1b14-4b7a-8588-8236d6184712">
+      <typeId>a4478a42-c884-4cb8-9059-a2587efd044b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4bbf24d0-7ecc-45f1-bf38-2276bc7b46ac" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: EnumSample</display>
+    <order>0</order>
+    <typeReference id="1990efef-06bb-4972-adea-f41dbf809588">
+      <typeId>0dbd2b09-6a06-49d7-a1f5-1f551534ad0b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Eventing.Messages</typePackageName>
+      <typePackageId>ff1d4a85-cc14-45d9-9fcc-b37e30143ee0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

@@ -2,6 +2,19 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.AzureFunctions.AzureFunctionClass#386bb437-ea36-4345-8a68-22e9754475c1</correlationId>
+      <path>AzureFunctions.TestApplication.Api/FunctionWithIgnoreInApi.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-07-26T12:16:13.7905303Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-07-28T20:25:03.5081378Z</approvedAt>
+      <deviationsHash>27F327EF59C8165415235EBD7624BA54DF96967871F79D2E5C5969879FC9ED16</deviationsHash>
+      <fileHash>10CEEEBBC787142878C7C102656F4FFDA698473B89FDD5CBCBD520AD3EB1899E</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.AzureFunctions.AzureFunctionClass#9e636440-d5fd-4b08-ac78-47b0e306892b</correlationId>
       <path>AzureFunctions.TestApplication.Api/UnMappedAzureFunction.cs</path>
       <count>1</count>

@@ -32,6 +32,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             return _model.HasDomainInteractions();
         }
 
+        public void BindToTemplate(ICSharpFileBuilderTemplate template)
+        {
+            template.CSharpFile.AfterBuild(_ => ApplyStrategy());
+        }
+
         public void ApplyStrategy()
         {
 

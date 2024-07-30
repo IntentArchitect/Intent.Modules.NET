@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c1aae6cc-8133-431f-83d8-e3c6087524b0">
+  <sourceEnd id="9044d657-06ce-48c8-aa48-04b00c444446" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Basics.DeleteBasicCommand</display>
+    <order>0</order>
+    <typeReference id="6e96a084-c9b3-4110-a957-c3c530993d97">
+      <typeId>6bc044f3-2a58-459c-a11d-d848ea16faff</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c1aae6cc-8133-431f-83d8-e3c6087524b0" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>basic</name>
+    <display>[delete] basic: Basic</display>
+    <order>1</order>
+    <typeReference id="1fcaf6c7-2bb4-4d99-8dca-dc09f60d8677">
+      <typeId>73ba71c6-41c6-41ef-ba80-0d589ea75417</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6bc044f3-2a58-459c-a11d-d848ea16faff" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[DeleteBasicCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="73ba71c6-41c6-41ef-ba80-0d589ea75417" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Basic]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="73ba71c6-41c6-41ef-ba80-0d589ea75417" name="Basic" type="element" specialization="Class" />
+              <target id="de889aea-4a98-4a7c-aa2d-37fc7f0d9bbe" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="6bc044f3-2a58-459c-a11d-d848ea16faff" name="DeleteBasicCommand" type="element" specialization="Command" />
+                  <target id="9c685e0b-a028-44c6-87f1-46a5261940e9" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

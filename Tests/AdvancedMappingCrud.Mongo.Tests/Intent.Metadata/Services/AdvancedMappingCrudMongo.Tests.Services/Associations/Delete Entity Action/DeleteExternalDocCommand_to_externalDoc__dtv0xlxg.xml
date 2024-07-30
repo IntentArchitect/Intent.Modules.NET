@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a2b8b0b9-26cd-4994-86b3-6454efcfad30">
+  <sourceEnd id="f27a0175-9b16-4832-9a14-d442409b5652" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : ExternalDocs.DeleteExternalDocCommand</display>
+    <order>0</order>
+    <typeReference id="c3c552ef-aab8-4e64-a1f7-e8199d61492e">
+      <typeId>55460346-13bc-4b98-b8b7-9802d75b8422</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrudMongo.Tests.Services</typePackageName>
+      <typePackageId>c53fd327-47ba-4176-95d7-b3862ece3d57</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a2b8b0b9-26cd-4994-86b3-6454efcfad30" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>externalDoc</name>
+    <display>[delete] externalDoc: ExternalDoc</display>
+    <order>1</order>
+    <typeReference id="2f66aca6-e99e-460f-954f-6fc0c5bfc56d">
+      <typeId>28874fb1-860d-4952-8441-9631dde3441c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrudMongo.Tests.Domain</typePackageName>
+      <typePackageId>9af943c7-4a0b-4229-ad6b-31a83928009f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="55460346-13bc-4b98-b8b7-9802d75b8422" location="[AdvancedMappingCrud.Mongo.Tests].[Services].[DeleteExternalDocCommand]" />
+        <target applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="28874fb1-860d-4952-8441-9631dde3441c" location="[AdvancedMappingCrud.Mongo.Tests].[Services].[ExternalDoc]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="28874fb1-860d-4952-8441-9631dde3441c" name="ExternalDoc" type="element" specialization="Class" />
+              <target id="89c66030-06ce-4b1a-9fe6-96945fcaac74" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="55460346-13bc-4b98-b8b7-9802d75b8422" name="DeleteExternalDocCommand" type="element" specialization="Command" />
+                  <target id="b6ccf8a4-e98f-4416-84f0-1f85fe73724e" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

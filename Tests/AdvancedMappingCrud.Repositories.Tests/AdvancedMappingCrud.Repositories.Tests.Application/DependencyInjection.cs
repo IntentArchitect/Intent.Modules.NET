@@ -5,6 +5,7 @@ using AdvancedMappingCrud.Repositories.Tests.Application.Common.Validation;
 using AdvancedMappingCrud.Repositories.Tests.Application.Implementation;
 using AdvancedMappingCrud.Repositories.Tests.Application.Implementation.Customers;
 using AdvancedMappingCrud.Repositories.Tests.Application.IntegrationEvents.EventHandlers.Customers;
+using AdvancedMappingCrud.Repositories.Tests.Application.IntegrationEvents.EventHandlers.EnumMessage;
 using AdvancedMappingCrud.Repositories.Tests.Application.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Application.Interfaces.Customers;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Services;
@@ -50,6 +51,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application
             services.AddTransient<IUploadDownloadService, UploadDownloadService>();
             services.AddTransient<IPersonService, PersonService>();
             services.AddTransient<IIntegrationEventHandler<QuoteCreatedIntegrationEvent>, QuoteCreatedIntegrationEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<EnumSampleEvent>, EnumSampleHandler>();
             return services;
         }
     }

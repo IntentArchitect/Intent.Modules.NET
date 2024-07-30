@@ -68,6 +68,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#e0222e50-bd09-4c28-8571-5e56facf9c00</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/BasicsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#0fe46e70-fb75-41d7-afa5-10cb420de4ee</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs</ApplicationRelativeFilePath>
@@ -216,6 +224,166 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/AdvancedMappingCrud.Repositories.Tests.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#fd2b2f67-b872-4ebf-a9bb-67826366da29</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/BasicDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/BasicDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#fd2b2f67-b872-4ebf-a9bb-67826366da29</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/BasicDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/BasicDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#c78d518f-e15b-4db3-9d90-0d526c4ecf1e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/CreateBasic/CreateBasicCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/CreateBasic/CreateBasicCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#c78d518f-e15b-4db3-9d90-0d526c4ecf1e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/CreateBasic/CreateBasicCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/CreateBasic/CreateBasicCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#c78d518f-e15b-4db3-9d90-0d526c4ecf1e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/CreateBasic/CreateBasicCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/CreateBasic/CreateBasicCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6bc044f3-2a58-459c-a11d-d848ea16faff</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/DeleteBasic/DeleteBasicCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/DeleteBasic/DeleteBasicCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6bc044f3-2a58-459c-a11d-d848ea16faff</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/DeleteBasic/DeleteBasicCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/DeleteBasic/DeleteBasicCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6bc044f3-2a58-459c-a11d-d848ea16faff</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/DeleteBasic/DeleteBasicCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/DeleteBasic/DeleteBasicCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#ecc693bf-eb76-4ec8-9aea-77ca2c82880b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/GetBasicById/GetBasicByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicById/GetBasicByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#ecc693bf-eb76-4ec8-9aea-77ca2c82880b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/GetBasicById/GetBasicByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicById/GetBasicByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#ecc693bf-eb76-4ec8-9aea-77ca2c82880b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/GetBasicById/GetBasicByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicById/GetBasicByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#b42fcb56-9797-4a2f-b031-526e76d550b9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/GetBasics/GetBasicsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasics/GetBasicsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#b42fcb56-9797-4a2f-b031-526e76d550b9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/GetBasics/GetBasicsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasics/GetBasicsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#b42fcb56-9797-4a2f-b031-526e76d550b9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/GetBasics/GetBasicsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasics/GetBasicsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#121d0ce3-7e80-475f-adaf-6e03568ea5a7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/GetBasicsNullable/GetBasicsNullableQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicsNullable/GetBasicsNullableQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#121d0ce3-7e80-475f-adaf-6e03568ea5a7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/GetBasicsNullable/GetBasicsNullableQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicsNullable/GetBasicsNullableQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#121d0ce3-7e80-475f-adaf-6e03568ea5a7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/GetBasicsNullable/GetBasicsNullableQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicsNullable/GetBasicsNullableQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#3ca66e1a-745b-4b71-86e0-5db2c4781d5e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/UpdateBasic/UpdateBasicCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/UpdateBasic/UpdateBasicCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#3ca66e1a-745b-4b71-86e0-5db2c4781d5e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/UpdateBasic/UpdateBasicCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/UpdateBasic/UpdateBasicCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#3ca66e1a-745b-4b71-86e0-5db2c4781d5e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/UpdateBasic/UpdateBasicCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/UpdateBasic/UpdateBasicCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -916,6 +1084,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#e9689da1-d562-4306-9d4a-0c8ac53c2acd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCustomersPaginatedWithOrder/GetCustomersPaginatedWithOrderQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersPaginatedWithOrder/GetCustomersPaginatedWithOrderQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#e9689da1-d562-4306-9d4a-0c8ac53c2acd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCustomersPaginatedWithOrder/GetCustomersPaginatedWithOrderQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersPaginatedWithOrder/GetCustomersPaginatedWithOrderQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#e9689da1-d562-4306-9d4a-0c8ac53c2acd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCustomersPaginatedWithOrder/GetCustomersPaginatedWithOrderQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersPaginatedWithOrder/GetCustomersPaginatedWithOrderQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#b2562789-afbc-4c86-886b-6eb51efe9fe6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCustomerStatistics/GetCustomerStatisticsQuery.cs</ApplicationRelativeFilePath>
@@ -1555,11 +1747,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>955182b1-2717-445b-b6b2-7b254be9aa1f</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#0dbd2b09-6a06-49d7-a1f5-1f551534ad0b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/EnumSampleEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EnumSampleEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>1e361e00-de9a-4870-a610-ac2840d8c682</ProjectId>
       <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#3c699a99-95bd-4bc7-aaa4-4203295be61d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/EventHandlers/Customers/QuoteCreatedIntegrationEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/QuoteCreatedIntegrationEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e361e00-de9a-4870-a610-ac2840d8c682</ProjectId>
+      <CorrelationId>Intent.Eventing.MassTransit.IntegrationEventHandler#a4478a42-c884-4cb8-9059-a2587efd044b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/EventHandlers/EnumMessage/EnumSampleHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EnumMessage/EnumSampleHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1576,6 +1784,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/QuoteCreatedIntegrationEventQuoteLinesDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QuoteCreatedIntegrationEventQuoteLinesDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>955182b1-2717-445b-b6b2-7b254be9aa1f</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventEnum#3340be3e-b89a-450b-9c52-cb4b46d5cfd1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/SampleType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SampleType.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2668,6 +2884,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#73ba71c6-41c6-41ef-ba80-0d589ea75417</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Basic.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basic.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#492eec1f-13ec-425c-88ed-04666d2c7a7b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Contract.cs</ApplicationRelativeFilePath>
@@ -2944,6 +3168,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/ExtensiveDomainServices/IConcreteEntityBRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExtensiveDomainServices/IConcreteEntityBRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#73ba71c6-41c6-41ef-ba80-0d589ea75417</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/IBasicRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBasicRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3252,6 +3484,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#73ba71c6-41c6-41ef-ba80-0d589ea75417</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/BasicConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#492eec1f-13ec-425c-88ed-04666d2c7a7b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/ContractConfiguration.cs</ApplicationRelativeFilePath>
@@ -3408,6 +3648,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#73ba71c6-41c6-41ef-ba80-0d589ea75417</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/BasicRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BasicRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3604,6 +3852,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#e0222e50-bd09-4c28-8571-5e56facf9c00</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/Basics/BasicsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/BasicsHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#e0222e50-bd09-4c28-8571-5e56facf9c00</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/Basics/IBasicsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/IBasicsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#0fe46e70-fb75-41d7-afa5-10cb420de4ee</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/Customers/CustomersHttpClient.cs</ApplicationRelativeFilePath>
@@ -3764,6 +4028,62 @@
     </FileLog>
     <FileLog>
       <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#fd2b2f67-b872-4ebf-a9bb-67826366da29</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Basics/BasicDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Basics/BasicDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#c78d518f-e15b-4db3-9d90-0d526c4ecf1e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Basics/CreateBasicCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Basics/CreateBasicCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#6bc044f3-2a58-459c-a11d-d848ea16faff</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Basics/DeleteBasicCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Basics/DeleteBasicCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#ecc693bf-eb76-4ec8-9aea-77ca2c82880b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Basics/GetBasicByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Basics/GetBasicByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#121d0ce3-7e80-475f-adaf-6e03568ea5a7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Basics/GetBasicsNullableQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Basics/GetBasicsNullableQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#b42fcb56-9797-4a2f-b031-526e76d550b9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Basics/GetBasicsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Basics/GetBasicsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#3ca66e1a-745b-4b71-86e0-5db2c4781d5e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Basics/UpdateBasicCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Basics/UpdateBasicCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#6d1da9ea-e70b-4515-8053-5e824366546a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Common/FileDownloadDto.cs</ApplicationRelativeFilePath>
@@ -3872,6 +4192,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Customers/GetCustomersPaginatedQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/Customers/GetCustomersPaginatedQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#e9689da1-d562-4306-9d4a-0c8ac53c2acd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Customers/GetCustomersPaginatedWithOrderQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Customers/GetCustomersPaginatedWithOrderQuery.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4252,6 +4580,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#c78d518f-e15b-4db3-9d90-0d526c4ecf1e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Basics/CreateBasicTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/CreateBasicTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#6bc044f3-2a58-459c-a11d-d848ea16faff</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Basics/DeleteBasicTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/DeleteBasicTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#ecc693bf-eb76-4ec8-9aea-77ca2c82880b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Basics/GetBasicByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#121d0ce3-7e80-475f-adaf-6e03568ea5a7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Basics/GetBasicsNullableTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicsNullableTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#b42fcb56-9797-4a2f-b031-526e76d550b9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Basics/GetBasicsTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicsTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#3ca66e1a-745b-4b71-86e0-5db2c4781d5e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Basics/UpdateBasicTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/UpdateBasicTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#1d883b18-40f6-4097-9989-8a8c0f5c99f2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Customers/ApproveQuoteTests.cs</ApplicationRelativeFilePath>
@@ -4328,6 +4704,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Customers/GetCustomersPaginatedTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/GetCustomersPaginatedTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#e9689da1-d562-4306-9d4a-0c8ac53c2acd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Customers/GetCustomersPaginatedWithOrderTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomersPaginatedWithOrderTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4528,6 +4912,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/ProductsService/FindProductByIdTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProductsService/FindProductByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#5438e628-2bbb-4fc2-8fad-5d0c43521249</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/ProductsService/FindProductsPagedTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductsService/FindProductsPagedTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

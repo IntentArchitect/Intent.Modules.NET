@@ -447,5 +447,127 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="5438e628-2bbb-4fc2-8fad-5d0c43521249" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindProductsPaged</name>
+      <display>FindProductsPaged(pageNo: int, pageSize: int, orderBy: string): PagedResult&lt;ProductDto&gt;</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="24241e31-4584-421d-a40e-21ed23f2ba81">
+        <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Modelers.Services</typePackageName>
+        <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
+        <stereotypes />
+        <genericTypeParameters>
+          <genericTypeParameter id="acef51dc-e66b-4733-9abf-5f1433be1b25">
+            <typeId>49a4c237-46c5-4b2f-9ab4-e6e5a75ad37b</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+            <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+            <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </genericTypeParameter>
+        </genericTypeParameters>
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>731bd71b-a25c-47e6-89a8-46d5d82bcdc8</parentFolderId>
+      <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="paged" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="493b91f9-af50-4f87-b684-21de6ae4d86c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>pageNo</name>
+          <display>in : pageNo: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2f03e3fd-0f7f-431f-bd3f-87d68d0be9e4">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>5438e628-2bbb-4fc2-8fad-5d0c43521249</parentFolderId>
+          <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="57feb730-6cd9-4d70-877e-1f59fddf3251" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>pageSize</name>
+          <display>in : pageSize: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="72ddd9dc-25bc-4b7d-a362-0a6a991d2712">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>5438e628-2bbb-4fc2-8fad-5d0c43521249</parentFolderId>
+          <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6e976689-1dfd-489a-8e3e-eda9d54eed5b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>orderBy</name>
+          <display>in : orderBy: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7c13a211-7e48-479a-8828-d7cc61be9e11">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>5438e628-2bbb-4fc2-8fad-5d0c43521249</parentFolderId>
+          <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

@@ -1,3 +1,4 @@
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Products;
 using Intent.RoslynWeaver.Attributes;
 
@@ -14,5 +15,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
         Task<List<ProductDto>> FindProductsAsync(CancellationToken cancellationToken = default);
         Task UpdateProductAsync(Guid id, ProductUpdateDto dto, CancellationToken cancellationToken = default);
         Task DeleteProductAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<PagedResult<ProductDto>> FindProductsPagedAsync(int pageNo, int pageSize, string orderBy, CancellationToken cancellationToken = default);
     }
 }

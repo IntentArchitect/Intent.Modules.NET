@@ -28,6 +28,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
             _matchingElementDetails = new Lazy<StrategyData>(GetMatchingElementDetails);
         }
+        public void BindToTemplate(ICSharpFileBuilderTemplate template)
+        {
+            template.CSharpFile.AfterBuild(_ => ApplyStrategy());
+        }
 
         public bool IsMatch()
         {

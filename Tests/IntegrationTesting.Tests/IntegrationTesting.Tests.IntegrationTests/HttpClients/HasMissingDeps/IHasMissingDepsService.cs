@@ -10,7 +10,6 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.HasMissingDeps
     public interface IHasMissingDepsService : IDisposable
     {
         Task<Guid> CreateHasMissingDepAsync(CreateHasMissingDepCommand command, CancellationToken cancellationToken = default);
-        Task DeleteHasMissingDepAsync(Guid id, CancellationToken cancellationToken = default);
         Task UpdateHasMissingDepAsync(Guid id, UpdateHasMissingDepCommand command, CancellationToken cancellationToken = default);
         Task<HasMissingDepDto> GetHasMissingDepByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<List<HasMissingDepDto>> GetHasMissingDepsAsync(CancellationToken cancellationToken = default);

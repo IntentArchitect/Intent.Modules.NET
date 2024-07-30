@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="14bddbaa-2990-456f-91c7-e0dacdc0337b">
+  <sourceEnd id="13e336bd-c9b7-421b-b7e4-003b92fdf740" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindProducts</display>
+    <order>0</order>
+    <typeReference id="c0957b25-a325-43a7-9cd4-0810227dcde8">
+      <typeId>e3e0afa1-cc4d-4d75-b5c4-28a134e90456</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SecurityConfig.Tests.Services</typePackageName>
+      <typePackageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="14bddbaa-2990-456f-91c7-e0dacdc0337b" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>products</name>
+    <display>[query] products: Product[*]</display>
+    <order>0</order>
+    <typeReference id="0a95ea4d-b401-483e-9160-de2ee5a3c7fd">
+      <typeId>2e85f6ca-379e-4a69-9838-0253acd7db9c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SecurityConfig.Tests.Domain</typePackageName>
+      <typePackageId>41f9b4a1-c25d-4ca4-9dcf-c20ac1e2cef9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="ae7dbedc-1ada-4fbe-8b75-c1c56540c79b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e3e0afa1-cc4d-4d75-b5c4-28a134e90456" location="[SecurityConfig.Tests].[Services].[FindProducts]" />
+        <target applicationId="ae7dbedc-1ada-4fbe-8b75-c1c56540c79b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="2e85f6ca-379e-4a69-9838-0253acd7db9c" location="[SecurityConfig.Tests].[Services].[Product]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

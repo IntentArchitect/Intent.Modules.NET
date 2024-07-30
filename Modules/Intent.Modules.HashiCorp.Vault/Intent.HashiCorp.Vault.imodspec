@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.HashiCorp.Vault</id>
+  <version>1.0.0</version>
+  <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
+  <summary>Extend .NET Configuration with Secrets stored in HashiCorp Vault.</summary>
+  <description>Extend .NET Configuration with Secrets stored in HashiCorp Vault.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjZmZkODE0IiBkPSJtMCAxLjk1MyA2My43NiAxMjQuMDk0TDEyOCAxLjk1M1ptNTMuODQxIDQ5LjI1NEg0My42ODRWNDEuMDZINTMuODR6bTAtMTUuMjI3SDQzLjY4NFYyNS44MjJINTMuODRaTTY5LjA4IDY2LjQ0NEg1OC45N1Y1Ni4yODZoMTAuMTA4em0wLTE1LjIzN0g1OC45N1Y0MS4wNmgxMC4xMDh6bTAtMTUuMjI3SDU4Ljk3VjI1LjgyMmgxMC4xMDhabTE1LjE0NyAxNS4yMjdINzQuMDI3VjQxLjA2aDEwLjE1OVpNNzQuMDI3IDM1Ljk4VjI1LjgyMmgxMC4xNTlWMzUuOTh6Ii8+PC9zdmc+Cg==</iconUrl>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.HashiCorp.Vault/README.md</projectUrl>
+  <templates>
+    <template id="Intent.HashiCorp.Vault.HashiCorpVaultConfiguration" externalReference="269f05b0-e512-4907-a656-c3f002354cb4">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.HashicorpVaultConfiguration</role>
+      <location>Configuration</location>
+    </template>
+    <template id="Intent.HashiCorp.Vault.HashiCorpVaultConfigurationSource" externalReference="e93cd1f8-0a41-4a63-95b8-7e80bb30909b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.HashiCorpVaultConfigurationSource</role>
+      <location>Configuration</location>
+    </template>
+    <template id="Intent.HashiCorp.Vault.HashiCorpVaultOptions" externalReference="841981ab-80cc-4c98-afc2-de90676c4c49">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.HashicorpVaultOptions</role>
+      <location>Configuration</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.HashiCorp.Vault.ProgramExtension" externalReference="84a58fa2-d4c5-47de-a6b9-6c773c43e22d" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common.CSharp" version="3.5.2" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags>csharp dotnet keyvault secrets vault</tags>
+  <moduleSettingsExtensions />
+  <metadata />
+  <releaseNotes>release-notes.md</releaseNotes>
+</package>

@@ -72,6 +72,11 @@ public class DeleteWithReturnDtoImplementationStrategy : IImplementationStrategy
         return new[] { "delete" }.Any(x => lowerOperationName.Contains(x));
     }
 
+    public void BindToTemplate(ICSharpFileBuilderTemplate template, OperationModel operationModel)
+    {
+        template.CSharpFile.AfterBuild(_ => ApplyStrategy(operationModel));
+    }
+
     public void ApplyStrategy(OperationModel operationModel)
     {
         _template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);

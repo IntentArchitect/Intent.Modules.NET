@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using CleanArchitecture.Comprehensive.Application.IntegrationServices;
 using CleanArchitecture.Comprehensive.Infrastructure.HttpClients;
 using Intent.RoslynWeaver.Attributes;
@@ -23,59 +24,63 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Configuration
             services
                 .AddHttpClient<IBugFixesService, BugFixesServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:BugFixesService:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:BugFixesService:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "CleanArchitecture.Comprehensive.Services", "BugFixesService");
                 });
 
             services
                 .AddHttpClient<INamedQueryStringsService, NamedQueryStringsServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:NamedQueryStringsService:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:NamedQueryStringsService:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "CleanArchitecture.Comprehensive.Services", "NamedQueryStringsService");
                 });
 
             services
                 .AddHttpClient<IPaginationForProxiesService, PaginationForProxiesServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:PaginationForProxiesService:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:PaginationForProxiesService:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "CleanArchitecture.Comprehensive.Services", "PaginationForProxiesService");
                 });
 
             services
                 .AddHttpClient<IParamConversionService, ParamConversionServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:ParamConversionService:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:ParamConversionService:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "CleanArchitecture.Comprehensive.Services", "ParamConversionService");
                 });
 
             services
                 .AddHttpClient<IQueryDtoParameterService, QueryDtoParameterServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:QueryDtoParameterService:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:QueryDtoParameterService:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "CleanArchitecture.Comprehensive.Services", "QueryDtoParameterService");
                 });
 
             services
                 .AddHttpClient<ISecureServicesService, SecureServicesServiceHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:SecureServicesService:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:SecureServicesService:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "CleanArchitecture.Comprehensive.Services", "SecureServicesService");
                 })
-                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:SecureServicesService:IdentityClientKey") ?? "default");
+                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:SecureServicesService:IdentityClientKey") ??
+                    configuration.GetValue<string>("HttpClients:CleanArchitecture.Comprehensive.Services:IdentityClientKey") ??
+                    "default");
 
             services
                 .AddHttpClient<ITestUnversionedProxy, TestUnversionedProxyHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:TestUnversionedProxy:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:TestUnversionedProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "CleanArchitecture.Comprehensive.Services", "TestUnversionedProxy");
                 });
 
             services
                 .AddHttpClient<ITestVersionedProxy, TestVersionedProxyHttpClient>(http =>
                 {
-                    http.BaseAddress = configuration.GetValue<Uri>("HttpClients:TestVersionedProxy:Uri");
-                    http.Timeout = configuration.GetValue<TimeSpan?>("HttpClients:TestVersionedProxy:Timeout") ?? TimeSpan.FromSeconds(100);
+                    ApplyAppSettings(http, configuration, "CleanArchitecture.Comprehensive.Services", "TestVersionedProxy");
                 });
+        }
+
+        private static void ApplyAppSettings(
+            HttpClient client,
+            IConfiguration configuration,
+            string groupName,
+            string serviceName)
+        {
+            client.BaseAddress = configuration.GetValue<Uri>($"HttpClients:{serviceName}:Uri") ?? configuration.GetValue<Uri>($"HttpClients:{groupName}:Uri");
+            client.Timeout = configuration.GetValue<TimeSpan?>($"HttpClients:{serviceName}:Timeout") ?? configuration.GetValue<TimeSpan?>($"HttpClients:{groupName}:Timeout") ?? TimeSpan.FromSeconds(100);
         }
     }
 }

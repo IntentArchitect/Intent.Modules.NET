@@ -60,7 +60,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
             OrderItems = entity.OrderItems.Select(x => OrderItemDocument.FromEntity(x)!).ToList();
             OrderTags = entity.OrderTags.Select(x => OrderTagsDocument.FromEntity(x)!).ToList();
 
-            _etag = getEtag(((IItem)this).Id);
+            _etag = _etag == null ? getEtag(((IItem)this).Id) : _etag;
 
             return this;
         }

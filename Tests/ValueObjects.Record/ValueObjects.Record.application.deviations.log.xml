@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.EFContainerFixture</correlationId>
+      <path>ValueObjects.Record.IntegrationTests/EFContainerFixture.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-07-24T13:22:45.9456181Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-07-24T13:22:45.9457448Z</approvedAt>
+      <deviationsHash>A9B1DEF90B1C88161656E45EAA051298CCCEFF453DA9CE08D2E25D3612CF7532</deviationsHash>
+      <fileHash>9C6F63BF063E52D8F5E6B8844D1DB40E8BF0A849C6E1B2E3ADC81A7C369CE9AF</fileHash>
+    </file>
+  </files>
 </deviationsLog>

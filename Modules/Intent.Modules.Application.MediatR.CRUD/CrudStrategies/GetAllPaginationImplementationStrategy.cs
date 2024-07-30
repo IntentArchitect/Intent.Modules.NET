@@ -34,6 +34,11 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
                && _matchingElementDetails.Value.IsMatch;
     }
 
+    public void BindToTemplate(ICSharpFileBuilderTemplate template)
+    {
+        template.CSharpFile.AfterBuild(_ => ApplyStrategy());
+    }
+
     public void ApplyStrategy()
     {
         var @class = ((ICSharpFileBuilderTemplate)_template).CSharpFile.Classes.First(x => x.HasMetadata("handler"));

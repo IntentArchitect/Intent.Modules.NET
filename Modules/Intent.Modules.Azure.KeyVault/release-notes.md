@@ -1,3 +1,7 @@
+### Version 2.0.3
+
+- Improvement: Catering for case where other modules may need the configuration builder in the Program.cs for the Host Builder.
+
 ### Version 2.0.2
 
 - Improvement: Updated Interoperable dependency versions.

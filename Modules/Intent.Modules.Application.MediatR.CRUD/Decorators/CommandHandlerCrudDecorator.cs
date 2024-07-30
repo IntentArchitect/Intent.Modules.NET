@@ -38,6 +38,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
             var matchedStrategy = StrategyFactory.GetMatchedCommandStrategy(targetTemplate);
             if (matchedStrategy is not null)
             {
+                targetTemplate.AddKnownType("System.Linq.Dynamic.Core.PagedResult");                
                 ((ICSharpFileBuilderTemplate)targetTemplate).CSharpFile.AfterBuild(_ => matchedStrategy.ApplyStrategy());
             };
         }

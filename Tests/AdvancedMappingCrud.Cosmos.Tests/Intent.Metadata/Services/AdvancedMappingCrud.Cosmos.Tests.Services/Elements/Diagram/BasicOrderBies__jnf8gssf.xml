@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="91850af1-7a8b-4261-8b3f-8f5fdbeed176" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>BasicOrderBies</name>
+  <display>BasicOrderBies</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bb505216-6a5f-4ae6-8872-1118f716f7f9</parentFolderId>
+  <packageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</packageId>
+  <packageName>AdvancedMappingCrud.Cosmos.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>bb505216-6a5f-4ae6-8872-1118f716f7f9</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

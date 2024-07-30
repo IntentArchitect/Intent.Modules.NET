@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Integration.HttpClients</id>
-  <version>5.1.7-pre.0</version>
+  <version>5.1.9</version>
   <supportedClientVersions>[4.0.0-beta.4, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</summary>
   <description>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</description>
@@ -11,12 +11,28 @@
   <tags>csharp dotnet http client proxies integration</tags>
   <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/README.md</projectUrl>
   <templates>
+    <template id="Intent.Integration.HttpClients.AuthorizationHeaderProviderInterface" externalReference="337906ce-ec34-4a34-a4d8-e68532b48708">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.HttpClient.AuthorizationHeaderProviderInterface</role>
+      <location>HttpClients</location>
+    </template>
     <template id="Intent.Integration.HttpClients.HttpClient" externalReference="8d97669a-b03f-4f1c-907f-8dbb94dca221">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Infrastructure.HttpClient</role>
+      <location>HttpClients</location>
+    </template>
+    <template id="Intent.Integration.HttpClients.HttpClientAuthorizationHeaderHandler" externalReference="71068005-5ecf-44a2-a902-3a27395770d1">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.HttpClient.HttpClientAuthorizationHeaderHandler</role>
       <location>HttpClients</location>
     </template>
     <template id="Intent.Integration.HttpClients.HttpClientConfiguration" externalReference="e9b86a42-6ac3-412f-96e9-8521215ffe55">
@@ -65,16 +81,17 @@
     <factoryExtension id="Intent.Integration.HttpClients.HttpClientHeaderConfiguratorExtension" externalReference="64e99652-0ac6-4285-8209-b4dbd505e91f" />
   </factoryExtensions>
   <moduleSettings>
-    <group id="f3da943d-d685-47cf-9982-59f1ac7127fd" title="Http Client Settings" externalReference="f3da943d-d685-47cf-9982-59f1ac7127fd">
+    <group id="f3da943d-d685-47cf-9982-59f1ac7127fd" title="Integration Http Client Settings" externalReference="f3da943d-d685-47cf-9982-59f1ac7127fd">
       <settings>
         <setting id="72a03013-072b-4bb7-a67c-dad65bd14b02" title="Authorization Setup" type="select">
           <isRequired>false</isRequired>
           <hint>See [documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/README.md) for more information.</hint>
-          <defaultValue>token-management-server</defaultValue>
+          <defaultValue>client-access-token-management</defaultValue>
           <options>
+            <option value="none" description="(None)" />
+            <option value="authorization-header-provider" description="Authorization Header Provider" />
             <option value="client-access-token-management" description="Client Access Token Management" />
             <option value="transmittable-access-token" description="Transmittable Access Token" />
-            <option value="none" description="None" />
           </options>
         </setting>
       </settings>

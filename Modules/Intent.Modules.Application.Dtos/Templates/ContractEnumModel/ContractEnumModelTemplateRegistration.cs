@@ -35,7 +35,8 @@ namespace Intent.Modules.Application.Dtos.Templates.ContractEnumModel
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<EnumModel> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetEnumModels();
+            return _metadataManager.Services(application).GetEnumModels()
+                    .Where(e => e.InternalElement.Package.SpecializationTypeId != "df96d537-7bb5-4c49-811f-973fa6e95beb");//Eventing Pacakge
         }
     }
 }

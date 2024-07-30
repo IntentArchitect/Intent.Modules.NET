@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2957af95-7a02-4f33-b93b-5ac11a67d3fc">
+  <sourceEnd id="a956158d-89d2-4880-9da6-220f3121d7ed" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : ClientsService.UpdateClient</display>
+    <order>0</order>
+    <typeReference id="691dc1e4-d60c-46a8-8c6b-1af87d67d6e2">
+      <typeId>768166a3-f7ba-4235-a893-d2df382a0e15</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</typePackageName>
+      <typePackageId>04c6a15c-a669-4006-ac8d-24273331eadf</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2957af95-7a02-4f33-b93b-5ac11a67d3fc" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : UpdateClient(...): void</display>
+    <order>2</order>
+    <typeReference id="cf5e51d5-666b-4b08-88fd-36dbadd2713e">
+      <typeId>f608e1d3-7f5f-4fe5-8b79-41c93060de7d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.AuthHeaderProvider.ServiceProxies</typePackageName>
+      <typePackageId>a9393602-131c-4f96-aca1-20d7cd1870ca</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="5c1095ee-898d-46ed-8537-34217f14c8fb" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="768166a3-f7ba-4235-a893-d2df382a0e15" location="[ProxyServiceTests.Proxy.AuthHeaderProvider].[Services].[UpdateClient]" />
+        <target applicationId="5c1095ee-898d-46ed-8537-34217f14c8fb" designerId="2799aa83-e256-46fe-9589-b96f7d6b09f7" elementId="f608e1d3-7f5f-4fe5-8b79-41c93060de7d" location="[ProxyServiceTests.Proxy.AuthHeaderProvider].[Services].[UpdateClient]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{UpdateClient}</expression>
+            <path>
+              <target id="f608e1d3-7f5f-4fe5-8b79-41c93060de7d" name="UpdateClient" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="UpdateClient" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="768166a3-f7ba-4235-a893-d2df382a0e15" name="UpdateClient" type="element" specialization="Operation" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="f608e1d3-7f5f-4fe5-8b79-41c93060de7d" name="UpdateClient" type="element" specialization="Operation" />
+              <target id="e26a5fbf-43b6-4692-900a-6dadd1b839d5" name="id" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="768166a3-f7ba-4235-a893-d2df382a0e15" name="UpdateClient" type="element" specialization="Operation" />
+                  <target id="d6306907-a829-4c19-88e8-cc30ee4d3ead" name="Id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Dto.Id}</expression>
+            <path>
+              <target id="f608e1d3-7f5f-4fe5-8b79-41c93060de7d" name="UpdateClient" type="element" specialization="Operation" />
+              <target id="5fcede48-7b4d-46a7-acc3-4eefe80e8e48" name="dto" type="element" specialization="Parameter" />
+              <target id="17e5f2ec-04b6-47c7-8eca-2520d60d6fe7" name="Id" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Dto.Id" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="768166a3-f7ba-4235-a893-d2df382a0e15" name="UpdateClient" type="element" specialization="Operation" />
+                  <target id="93179bb0-19a5-4b25-8ca4-b933ae45ec49" name="Dto" type="element" specialization="Parameter" />
+                  <target id="93740276-15b4-4d31-a41e-7a41c6879476" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Dto.Name}</expression>
+            <path>
+              <target id="f608e1d3-7f5f-4fe5-8b79-41c93060de7d" name="UpdateClient" type="element" specialization="Operation" />
+              <target id="5fcede48-7b4d-46a7-acc3-4eefe80e8e48" name="dto" type="element" specialization="Parameter" />
+              <target id="9bdd36cf-1601-4b1b-b9df-b43ac3aea270" name="Name" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Dto.Name" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="768166a3-f7ba-4235-a893-d2df382a0e15" name="UpdateClient" type="element" specialization="Operation" />
+                  <target id="93179bb0-19a5-4b25-8ca4-b933ae45ec49" name="Dto" type="element" specialization="Parameter" />
+                  <target id="376d7c16-9d4d-4dc0-91e4-9ced4c4a70d1" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

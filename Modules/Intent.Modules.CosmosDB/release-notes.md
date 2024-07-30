@@ -1,4 +1,8 @@
-﻿### Version 1.2.0
+﻿### Version 1.2.1
+
+- Improvement: Added support for explicit `ETag` modeling for Client/Server concurrency scenarios.
+
+### Version 1.2.0
 
 - New Feature: Added support for separate database multi tenancy.
 - Improvement: Added more Linq support to the repository, also added some `protected` methods for better being able to extend the repository using `SQL`.

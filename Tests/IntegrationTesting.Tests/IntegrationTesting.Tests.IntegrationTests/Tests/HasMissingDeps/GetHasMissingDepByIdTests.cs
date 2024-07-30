@@ -18,7 +18,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         }
 
         [IntentManaged(Mode.Fully, Signature = Mode.Ignore, Attributes = Mode.Ignore)]
-        public async Task DeleteHasMissingDep_ShouldDeleteHasMissingDep()
+        public async Task GetHasMissingDepById_ShouldGetHasMissingDepById()
         {
             // Arrange
             var client = new HasMissingDepsHttpClient(CreateClient());
@@ -26,9 +26,8 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             // Act
 
             // Unable to generate test: Can't determine how to mock data for (MissingDep)
-            // TODO: Implement DeleteHasMissingDep_ShouldDeleteHasMissingDep (GetHasMissingDepByIdTests) functionality
+            // TODO: Implement GetHasMissingDepById_ShouldGetHasMissingDepById (GetHasMissingDepByIdTests) functionality
             throw new NotImplementedException("Your implementation here...");
-
         }
     }
 }

@@ -37,7 +37,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         {
             Id = entity.Id;
 
-            _etag = getEtag(((IItem)this).Id);
+            _etag = _etag == null ? getEtag(((IItem)this).Id) : _etag;
 
             return this;
         }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="98557871-e3b3-4073-90ce-719dd243f882" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
   <name>Application</name>
-  <display>Application</display>
+  <display>Application (7)</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <order>3</order>
@@ -24,7 +24,7 @@
   <childElements>
     <childElement id="ebfe5a66-e026-4261-84e4-c23091a705f3" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>MediatR</name>
-      <display>MediatR</display>
+      <display>MediatR (2)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -48,31 +48,6 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5a185d87-17c8-48ea-988c-a4e85212f1d3" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.Application.DependencyInjection.MediatR</name>
-          <display>Intent.Application.DependencyInjection.MediatR</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ebfe5a66-e026-4261-84e4-c23091a705f3</parentFolderId>
-          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-              <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.5.12" isActive="true" />
-                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
-                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
-                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="1127ade0-df71-413a-8229-eba3b166ce92" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.MediatR</name>
           <display>Intent.Application.MediatR</display>
@@ -88,7 +63,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.2.5" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.2.6" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -98,7 +73,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d4feabbe-ec01-40a7-965a-d2de19c09275" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+        <childElement id="35fe412d-28e1-42b8-97c1-cd02cee04a2d" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
           <name>Intent.Application.MediatR.Behaviours</name>
           <display>Intent.Application.MediatR.Behaviours</display>
           <isAbstract>false</isAbstract>
@@ -123,36 +98,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b26cf3a0-a91c-480a-821f-3328fd703b7d" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.Modelers.Services.CQRS</name>
-          <display>Intent.Modelers.Services.CQRS</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ebfe5a66-e026-4261-84e4-c23091a705f3</parentFolderId>
-          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-              <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.2.0" isActive="true" />
-                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
-                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
-                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
       </childElements>
     </childElement>
     <childElement id="fe374381-78f5-4f7f-9438-c049774c82e4" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Application Services</name>
-      <display>Application Services</display>
+      <display>Application Services (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -205,7 +155,7 @@
     </childElement>
     <childElement id="146f705d-9bae-4e59-a704-74a283b577d6" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>AutoMapper</name>
-      <display>AutoMapper</display>
+      <display>AutoMapper (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -254,61 +204,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="99b5ba4e-ff12-4d8d-9a25-00bf1051261f" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.Application.DependencyInjection.AutoMapper</name>
-          <display>Intent.Application.DependencyInjection.AutoMapper</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>146f705d-9bae-4e59-a704-74a283b577d6</parentFolderId>
-          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-              <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.0.1" isActive="true" />
-                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
-                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
-                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="953c045e-85ad-48d9-8f7b-1c1f56190f07" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.Application.Dtos.AutoMapper</name>
-          <display>Intent.Application.Dtos.AutoMapper</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>146f705d-9bae-4e59-a704-74a283b577d6</parentFolderId>
-          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-              <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.0.7" isActive="true" />
-                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
-                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
-                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
       </childElements>
     </childElement>
     <childElement id="c3f2d306-58cc-417b-8647-ec0f82924d34" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Fluent Validation</name>
-      <display>Fluent Validation</display>
+      <display>Fluent Validation (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -361,7 +261,7 @@
     </childElement>
     <childElement id="c2f3bb6b-46b4-429b-bcde-10a2d8d85e48" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Additional MediatR CRUD Support</name>
-      <display>Additional MediatR CRUD Support</display>
+      <display>Additional MediatR CRUD Support (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -400,32 +300,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.0.12" isActive="true" />
-                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
-                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
-                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a84dc55e-b774-4594-bc69-f51a9491081c" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.Modelers.Services.DomainInteractions</name>
-          <display>Intent.Modelers.Services.DomainInteractions</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c2f3bb6b-46b4-429b-bcde-10a2d8d85e48</parentFolderId>
-          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-              <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.1.4" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.0.14" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -439,7 +314,7 @@
     </childElement>
     <childElement id="4fb26453-9930-47d3-8bab-c14daf3f57e4" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Additional Service CRUD Support</name>
-      <display>Additional Service CRUD Support</display>
+      <display>Additional Service CRUD Support (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -478,32 +353,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.0.9" isActive="true" />
-                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
-                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
-                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ca4d84e8-aa1e-4458-9aed-299fcbd542c1" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.Modelers.Services.DomainInteractions</name>
-          <display>Intent.Modelers.Services.DomainInteractions</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>4fb26453-9930-47d3-8bab-c14daf3f57e4</parentFolderId>
-          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-              <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.1.4" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.0.11" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -517,7 +367,7 @@
     </childElement>
     <childElement id="913bdb96-8ffa-4f78-991e-bc4b65a7386b" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Pagination</name>
-      <display>Pagination</display>
+      <display>Pagination (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -556,7 +406,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.0.9" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.0.10" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />

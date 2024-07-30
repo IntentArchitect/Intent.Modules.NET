@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="40859505-92e2-450d-8bd2-6bf5f4db126b" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>NewDiagram</name>
+  <display>NewDiagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>04c6a15c-a669-4006-ac8d-24273331eadf</parentFolderId>
+  <packageId>04c6a15c-a669-4006-ac8d-24273331eadf</packageId>
+  <packageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</packageName>
+  <diagram>
+    <targetPackageId>04c6a15c-a669-4006-ac8d-24273331eadf</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

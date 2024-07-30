@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f6cabd64-a3d7-4350-a03b-093404a05f0e">
+  <sourceEnd id="3decf9a8-4b17-4c59-b1c8-35d7130f0ffc" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : BasicOrderBies.DeleteBasicOrderByCommand</display>
+    <order>0</order>
+    <typeReference id="d665dfd4-9207-44dc-b387-b4233a099a0d">
+      <typeId>6145dab3-d2c0-4b52-9fd1-a8c3c951666c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f6cabd64-a3d7-4350-a03b-093404a05f0e" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>basicOrderBy</name>
+    <display>[delete] basicOrderBy: BasicOrderBy</display>
+    <order>1</order>
+    <typeReference id="597fb370-0cdc-4534-9334-424233a938f1">
+      <typeId>ba238544-c312-43a9-8e6c-65010bd8d715</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6145dab3-d2c0-4b52-9fd1-a8c3c951666c" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[DeleteBasicOrderByCommand]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ba238544-c312-43a9-8e6c-65010bd8d715" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[BasicOrderBy]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="ba238544-c312-43a9-8e6c-65010bd8d715" name="BasicOrderBy" type="element" specialization="Class" />
+              <target id="11f34fba-45c4-470a-9ee8-92214b416892" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="6145dab3-d2c0-4b52-9fd1-a8c3c951666c" name="DeleteBasicOrderByCommand" type="element" specialization="Command" />
+                  <target id="8b612c6f-caa4-4eb6-9958-67b6563a67f4" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 using Intent.RoslynWeaver.Attributes;
@@ -175,9 +176,14 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("Kafka:SchemaRegistryConfig",
                 new
                 {
-                    Url = "",
-                    BasicAuthUserInfo = "key:secret",
+                    Url = "http://localhost:8081",
+                    BasicAuthUserInfo = "key:secret"
                 }));
+            
+            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.Kafka.Name, new Dictionary<string, string>
+            {
+                { Infrastructure.Kafka.Property.KafkaSchemaRegistryUrl, "Kafka:SchemaRegistryConfig:Url" }
+            }));
 
             var messages = Enumerable.Empty<MessageModel>()
                 .Union(_subscribedMessageModels.Value)

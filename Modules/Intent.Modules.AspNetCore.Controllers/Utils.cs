@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.AspNetCore.Controllers.Templates;
@@ -45,7 +46,7 @@ public static class Utils
                 : "result";
         }
 
-        string returnExpression;
+        string? returnExpression;
         switch (operationModel.Verb)
         {
             case HttpVerb.Get:
@@ -134,7 +135,7 @@ public static class Utils
         return operation.Parameters.Any(x => x.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase) ||
                                              x.Name.StartsWith("id", StringComparison.OrdinalIgnoreCase));
 
-        static bool CSharpTypeIsCollection(ITypeReference typeReference)
+        static bool CSharpTypeIsCollection(ITypeReference? typeReference)
         {
             if (typeReference?.Element is not IElement element)
             {
@@ -151,19 +152,16 @@ public static class Utils
         }
     }
 
-    private static bool IsNonReferenceType(this ITypeReference typeReference)
+    public static bool TryGetIsIgnoredForApiExplorer(this IElement? element, out bool value)
     {
-        if (typeReference?.Element is not IElement element)
+        var openApiSettings = element?.GetStereotype("OpenAPI Settings");
+        if (openApiSettings == null)
         {
+            value = default;
             return false;
         }
 
-        var stereotype = element.GetStereotype("C#");
-        if (stereotype == null)
-        {
-            return false;
-        }
-
-        return stereotype.GetProperty<bool>("Is Collection");
+        value = openApiSettings.GetProperty<bool>("Ignore");
+        return true;
     }
 }

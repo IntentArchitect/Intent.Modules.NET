@@ -43,7 +43,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
     : this(
           templateId, 
           outputTarget, 
-          new ServiceProxyModelAdapter(model), 
+          new ServiceProxyModelAdapter(model, serializeEnumsAsStrings: false), 
           httpClientRequestExceptionTemplateId,
             jsonResponseTemplateId,
             serviceContractTemplateId,

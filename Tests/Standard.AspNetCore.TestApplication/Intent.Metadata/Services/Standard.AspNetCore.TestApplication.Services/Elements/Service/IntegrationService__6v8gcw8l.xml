@@ -24,6 +24,9 @@
       <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
       <properties>
         <property name="2b39acef-6079-48c9-b85e-2b0981f9de70" display="Roles" isActive="true" />
+        <property name="ae5251ff-40a1-4e46-be66-6b176f329f98" display="Policy" isActive="true" />
+        <property name="28bbe8bb-8d31-44c7-b642-ff0e279ab85f" display="Security Roles" isActive="false" />
+        <property name="68cbcd05-cd5c-49f3-a982-8ee9caf554bb" display="Security Policies" isActive="false" />
       </properties>
     </stereotype>
   </stereotypes>

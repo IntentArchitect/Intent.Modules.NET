@@ -1,3 +1,8 @@
+### Version 6.0.9
+
+- Improvement: Controllers and their operations will now generate `[ApiExplorerSettings(IgnoreApi = <value>]` attributes based on the _OpenAPI Settings_ Stereotype's _Ignore_ property's value.
+- Fixed: Issue where Policies where not added to controllers.
+
 ### Version 6.0.8
 
 - Fixed: Due to the nature of how GetTypeName resolves namespaces there are cases where ambiguous references still exist and causes compilation errors, this fix forces to re-evaluate a lot of types in this module.

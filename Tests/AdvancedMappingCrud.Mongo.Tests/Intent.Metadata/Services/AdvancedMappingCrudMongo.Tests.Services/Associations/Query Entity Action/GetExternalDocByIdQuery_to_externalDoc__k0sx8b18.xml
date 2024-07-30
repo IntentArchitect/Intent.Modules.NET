@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="57bd59f6-9992-47cb-949e-8854bdb9dfeb">
+  <sourceEnd id="f633e5c4-3dc8-4d85-8a7b-f41a2c3a8f94" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetExternalDocByIdQuery</display>
+    <order>0</order>
+    <typeReference id="301c87a5-92f3-436f-82dc-58387f42dde0">
+      <typeId>c778b402-2151-4c99-867e-adeede6988ff</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrudMongo.Tests.Services</typePackageName>
+      <typePackageId>c53fd327-47ba-4176-95d7-b3862ece3d57</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="57bd59f6-9992-47cb-949e-8854bdb9dfeb" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>externalDoc</name>
+    <display>[query] externalDoc: ExternalDoc</display>
+    <order>1</order>
+    <typeReference id="94a6404e-ac5d-40e4-bc23-fdc94a16555d">
+      <typeId>28874fb1-860d-4952-8441-9631dde3441c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrudMongo.Tests.Domain</typePackageName>
+      <typePackageId>9af943c7-4a0b-4229-ad6b-31a83928009f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c778b402-2151-4c99-867e-adeede6988ff" location="[AdvancedMappingCrud.Mongo.Tests].[Services].[GetExternalDocByIdQuery]" />
+        <target applicationId="2528e32a-a0c8-4e88-b1ef-5131f49d12a5" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="28874fb1-860d-4952-8441-9631dde3441c" location="[AdvancedMappingCrud.Mongo.Tests].[Services].[ExternalDoc]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="28874fb1-860d-4952-8441-9631dde3441c" name="ExternalDoc" type="element" specialization="Class" />
+              <target id="89c66030-06ce-4b1a-9fe6-96945fcaac74" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="c778b402-2151-4c99-867e-adeede6988ff" name="GetExternalDocByIdQuery" type="element" specialization="Query" />
+                  <target id="52aa2f38-e7b0-4c16-9745-e6df0b2edfd1" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

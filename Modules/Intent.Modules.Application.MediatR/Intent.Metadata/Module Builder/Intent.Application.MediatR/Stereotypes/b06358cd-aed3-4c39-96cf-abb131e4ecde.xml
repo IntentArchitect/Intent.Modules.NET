@@ -11,7 +11,34 @@
   <icon type="UrlImagePath" source="data:image/png;base64,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" />
   <displayIcon>true</displayIcon>
   <displayIconFunction>return true;</displayIconFunction>
-  <displayFunction>return Policy || Roles ? `[Authorize(${Roles ? `Roles = \"${Roles}\"` : ""}${Roles &amp;&amp; Policy ? ", " : ""}${Policy ? `Policy = \"${Policy}\"` : ""})]` : `[Authorize]`</displayFunction>
+  <displayFunction>if (Policy || Roles){
+    return `[Authorize(${Roles ? `Roles = \"${Roles}\"` : ""}${Roles &amp;&amp; Policy ? ", " : ""}${Policy ? `Policy = \"${Policy}\"` : ""})]`;
+}else if (SecurityPolicies || SecurityRoles){
+    return `[Authorize(${hasElements(SecurityRoles) ? `Roles = \"${getAsText(SecurityRoles)}\"` : ""}${ hasElements(SecurityRoles) &amp;&amp; hasElements(SecurityPolicies) ? ", " : ""}${hasElements(SecurityPolicies) ? `Policy = \"${getAsText(SecurityPolicies)}\"` : ""})]`;
+}else{
+    return `[Authorize]`
+}
+
+function hasElements(setting){
+    return setting &amp;&amp; setting != '[]';
+}
+
+function getAsText(values){
+     // Parse the string to get the array of GUIDs
+    const guids = JSON.parse(values);
+    
+    if (!guids?.map){
+        return "";
+    }
+    // Look up the objects and extract the values
+    const lookupValues = guids.map(guid =&gt; {
+        const obj = lookup(guid);
+        return obj ? obj.getName() : null;
+    }).filter(value =&gt; value !== null); // Filter out any null values
+    
+    // Join the lookup values into a single string
+    return lookupValues.join(',');  
+}</displayFunction>
   <displayAsAnnotation>true</displayAsAnnotation>
   <displayAsText>false</displayAsText>
   <autoAdd>false</autoAdd>
@@ -29,6 +56,8 @@
       <placeholder />
       <valueOptions />
       <lookupTypes />
+      <isActiveFunction>let rolesDefined = lookupTypesOf("Security Configuration")[0]?.getChildren()?.length &gt; 0;
+return !rolesDefined || (rolesDefined &amp;&amp;  (Roles !== null &amp;&amp; Roles !== undefined &amp;&amp; Roles.trim() !== ''));</isActiveFunction>
     </property>
     <property id="ced1460d-1bd9-4ec2-92b3-51bdbf173315">
       <name>Policy</name>
@@ -38,6 +67,33 @@
       <placeholder />
       <valueOptions />
       <lookupTypes />
+      <isActiveFunction>let securityDefined = lookupTypesOf("Security Configuration")[0]?.getChildren()?.length &gt; 0;
+return !securityDefined || (securityDefined &amp;&amp;  (Policy !== null &amp;&amp; Policy !== undefined &amp;&amp; Policy.trim() !== ''));</isActiveFunction>
+    </property>
+    <property id="9c5cd2b9-52d8-47a0-96a5-f0026c3b9e48">
+      <name>Security Roles</name>
+      <type>string</type>
+      <controlType>multi-select</controlType>
+      <optionsSource>lookup-element</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes>
+        <type>d6ce4e4c-fdd1-4fa1-82d8-f3405e114ec5</type>
+      </lookupTypes>
+      <isActiveFunction>return lookupTypesOf("Security Configuration")[0]?.getChildren()?.length &gt; 0;</isActiveFunction>
+      <isRequiredFunction />
+    </property>
+    <property id="2d95351e-d2e5-46da-8361-6c29bc690f98">
+      <name>Security Policies</name>
+      <type>string</type>
+      <controlType>multi-select</controlType>
+      <optionsSource>lookup-element</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes>
+        <type>9f37c60e-ad88-4484-98ca-6c9aa7ca3134</type>
+      </lookupTypes>
+      <isActiveFunction>return lookupTypesOf("Security Configuration")[0]?.getChildren()?.length &gt; 0;</isActiveFunction>
     </property>
   </properties>
 </stereotypeDefinition>

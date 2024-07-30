@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3340be3e-b89a-450b-9c52-cb4b46d5cfd1" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>SampleType</name>
+  <display>SampleType</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ff1d4a85-cc14-45d9-9fcc-b37e30143ee0</parentFolderId>
+  <packageId>ff1d4a85-cc14-45d9-9fcc-b37e30143ee0</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="29081df7-b09e-4926-8ee5-ceaad43b9087" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>TypeA</name>
+      <display>TypeA</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3340be3e-b89a-450b-9c52-cb4b46d5cfd1</parentFolderId>
+      <packageId>ff1d4a85-cc14-45d9-9fcc-b37e30143ee0</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="34dab266-4354-446c-94df-78e3d07e198a" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>TypeB</name>
+      <display>TypeB</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3340be3e-b89a-450b-9c52-cb4b46d5cfd1</parentFolderId>
+      <packageId>ff1d4a85-cc14-45d9-9fcc-b37e30143ee0</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

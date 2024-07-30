@@ -1,4 +1,8 @@
-﻿### Version 3.1.4
+﻿### Version 3.1.5
+
+- Improvement: Proxies now respecting Applications Services `Serialize Enums as Strings` setting.
+
+### Version 3.1.4
 
 - Improvement: Added shared template infrastructure to support service proxies being able to respect `Serialize Enum as String` setting.
 

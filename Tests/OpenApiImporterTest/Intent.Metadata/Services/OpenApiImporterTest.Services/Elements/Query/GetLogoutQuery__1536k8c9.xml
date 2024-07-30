@@ -5,7 +5,7 @@
   <externalReference>Users.GetLogoutQuery</externalReference>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="5cb4a5f2-ba3d-4162-b622-9fd584279111">
+  <typeReference id="458e6611-1484-4bf6-9a9e-51f4074c6628">
     <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>

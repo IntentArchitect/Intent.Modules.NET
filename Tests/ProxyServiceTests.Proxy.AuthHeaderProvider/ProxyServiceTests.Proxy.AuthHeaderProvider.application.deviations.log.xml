@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</correlationId>
+      <path>ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-07-18T06:46:26.7091254Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-07-18T06:46:26.7092592Z</approvedAt>
+      <deviationsHash>8A61D0448734C486580A96CE1B3E8E7035D1FDF66415C01747F6B3D1820EE9D4</deviationsHash>
+      <fileHash>90ED1E4D0CC9DB6AB79AD79C92B35E519A621EB26D80A8BA4DBC168E356058A7</fileHash>
+    </file>
+  </files>
+</deviationsLog>

@@ -28,7 +28,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConf
             ) : this(
                     templateId,
                     outputTarget,
-                    model.Select(x => new ServiceProxyModelAdapter(x)).Cast<IServiceProxyModel>().ToList(),
+                    model.Select(x => new ServiceProxyModelAdapter(x, serializeEnumsAsStrings: false)).Cast<IServiceProxyModel>().ToList(),
                     serviceContractTemplateId,
                     httpClientTemplateId,
                     configureHttpClient
@@ -48,6 +48,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConf
             AddNugetDependency(NuGetPackages.IdentityModelAspNetCore);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
+                .AddUsing("System.Net.Http")                
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass("HttpClientConfiguration", @class =>
@@ -78,6 +79,19 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConf
                                         }).WithoutSemicolon());
                             });
                         }
+                    });
+                    @class.AddMethod("void", "ApplyAppSettings", method => 
+                    {
+                        method
+                            .Private()
+                            .Static()
+                            .AddParameter("HttpClient", "client")
+                            .AddParameter("IConfiguration", "configuration")
+                            .AddParameter("string", "groupName")
+                            .AddParameter("string", "serviceName")
+                            ;
+                        method.AddStatement("client.BaseAddress = configuration.GetValue<Uri>($\"HttpClients:{serviceName}:Uri\") ?? configuration.GetValue<Uri>($\"HttpClients:{groupName}:Uri\");");
+                        method.AddStatement("client.Timeout = configuration.GetValue<TimeSpan?>($\"HttpClients:{serviceName}:Timeout\") ?? configuration.GetValue<TimeSpan?>($\"HttpClients:{groupName}:Timeout\") ?? TimeSpan.FromSeconds(100);");
                     });
                 });        
         }

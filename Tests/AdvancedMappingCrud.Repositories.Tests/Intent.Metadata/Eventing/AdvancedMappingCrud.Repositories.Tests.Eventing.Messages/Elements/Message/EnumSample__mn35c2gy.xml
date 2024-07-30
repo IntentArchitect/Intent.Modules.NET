@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0dbd2b09-6a06-49d7-a1f5-1f551534ad0b" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>EnumSample</name>
+  <display>EnumSample</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ff1d4a85-cc14-45d9-9fcc-b37e30143ee0</parentFolderId>
+  <packageId>ff1d4a85-cc14-45d9-9fcc-b37e30143ee0</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="3f232428-ac9e-4525-ae95-ebc7fd5b3821" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1783f917-be2b-4e28-a359-d54411e5670b">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0dbd2b09-6a06-49d7-a1f5-1f551534ad0b</parentFolderId>
+      <packageId>ff1d4a85-cc14-45d9-9fcc-b37e30143ee0</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="1894c522-c865-4406-be70-3e6cc98a04d6" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>SampleType</name>
+      <display>SampleType: SampleType</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ad20cfa9-2a21-4a13-8626-c56a6a8a8545">
+        <typeId>3340be3e-b89a-450b-9c52-cb4b46d5cfd1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.Repositories.Tests.Eventing.Messages</typePackageName>
+        <typePackageId>ff1d4a85-cc14-45d9-9fcc-b37e30143ee0</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0dbd2b09-6a06-49d7-a1f5-1f551534ad0b</parentFolderId>
+      <packageId>ff1d4a85-cc14-45d9-9fcc-b37e30143ee0</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

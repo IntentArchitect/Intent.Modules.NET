@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="204ff23b-0426-4649-bad3-e73f1765f8e2" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
   <name>Integration</name>
-  <display>Integration</display>
+  <display>Integration (1)</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <order>4</order>
@@ -24,7 +24,7 @@
   <childElements>
     <childElement id="a4847324-7d56-4935-a781-b61ab43742bb" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Http Clients</name>
-      <display>Http Clients</display>
+      <display>Http Clients (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -63,32 +63,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.1.5" isActive="true" />
-                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
-                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
-                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="28b81a6a-b5ee-47d9-af18-76cc50399831" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.Modelers.ServiceProxies</name>
-          <display>Intent.Modelers.ServiceProxies</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a4847324-7d56-4935-a781-b61ab43742bb</parentFolderId>
-          <packageId>ca894a4c-ca0c-4d31-a058-1336c12bb71a</packageId>
-          <packageName>Intent.ApplicationTemplate.WindowsServiceHost</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-              <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.2.0" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.1.9" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />

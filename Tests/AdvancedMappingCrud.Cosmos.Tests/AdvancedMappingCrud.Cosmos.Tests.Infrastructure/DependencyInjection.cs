@@ -18,7 +18,9 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddCosmosRepository();
+            services.AddScoped<IBasicOrderByRepository, BasicOrderByCosmosDBRepository>();
             services.AddScoped<ICustomerRepository, CustomerCosmosDBRepository>();
+            services.AddScoped<IExplicitETagRepository, ExplicitETagCosmosDBRepository>();
             services.AddScoped<IOrderRepository, OrderCosmosDBRepository>();
             services.AddScoped<IProductRepository, ProductCosmosDBRepository>();
             services.AddScoped<ISimpleOdataRepository, SimpleOdataCosmosDBRepository>();

@@ -36,8 +36,7 @@ variables:
   value: '##vso[task.logissue type=error;]{@m} {@x}\n'
 
 pool:
-   vmImage: 'ubuntu-latest'
-  # vmImage: 'windows-latest'
+  vmImage: 'ubuntu-latest'
 
 steps:
 
@@ -95,10 +94,10 @@ steps:
       -dotnetPackOutputDirectory $(Build.ArtifactStagingDirectory)
       -vstsFeedUrl $(vstsFeedUrl)
 
-# Push the NuGet packages to the DevOps artifact feed so that it's available to other pipelines
+# Push the NuGet packages to the DevOps artifact feed so that they're available to other pipelines
 - task: NuGetCommand@2
   displayName: 'nuget push'
-  condition: and(succeeded(), in(true, variables.isMaster, variables.isDevelopment))
+  condition: and(succeeded(), in('True', variables.isMaster, variables.isDevelopment))
   inputs:
       command: 'push'
       feedsToUse: 'select'
@@ -120,7 +119,7 @@ steps:
 
 - task: PowerShell@2
   displayName: 'Update Project URLs in imodspecs'
-  condition: and(succeeded(), in(true, variables.isMaster))
+  condition: and(succeeded(), in('True', variables.isMaster))
   inputs:
     targetType: 'inline'
     pwsh: true
@@ -147,7 +146,9 @@ steps:
   inputs:
     command: 'test'
     projects: $(targetsToBuild)
-    arguments: '--no-build'
+    arguments: >
+      --no-build
+      --filter Requirement!=CosmosDB
 
 - task: PowerShell@2
   displayName: 'Install Intent CLI'
@@ -166,12 +167,12 @@ steps:
     targetType: 'inline'
     pwsh: true
     script: |
-      ./PipelineScripts/prepare-intent-testing.ps1
+      ./PipelineScripts/prepare-intent-testing.ps1 "$(Build.ArtifactStagingDirectory)" "$(intent-solution)"
       intent-cli ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_SOLUTION_PATH" --check-deviations
 
 - task: PowerShell@2
   displayName: 'install intent packager'
-  condition: and(succeeded(), in(true, variables.isMaster, variables.isDevelopment))
+  condition: and(succeeded(), in('True', variables.isMaster, variables.isDevelopment))
   inputs:
     targetType: 'inline'
     pwsh: true
@@ -180,7 +181,7 @@ steps:
 
 - task: PowerShell@2
   displayName: 'filter artifacts to publish'
-  condition: and(succeeded(), in(true, variables.isMaster, variables.isDevelopment))
+  condition: and(succeeded(), in('True', variables.isMaster, variables.isDevelopment))
   inputs:
     targetType: inline
     pwsh: true
@@ -209,7 +210,7 @@ steps:
 
 - task: PowerShell@2
   displayName: 'publish modules'
-  condition: and(succeeded(), in(true, variables.isMaster, variables.isDevelopment))
+  condition: and(succeeded(), in('True', variables.isMaster, variables.isDevelopment))
   env:
     DOTNET_NOLOGO: '1'
   inputs:
@@ -217,17 +218,17 @@ steps:
     pwsh: true
     script: |
       $directory = '$(Build.ArtifactStagingDirectory)'
+      $address = 'https://intentarchitect.com/'
       $username = '$(intent-architect-user)'
       $password = '$(intent-architect-password)'
-      $address = 'https://intentarchitect.com/'
 
-      intent-package-management BulkUploadModules -directory "$director" -address "$address" -username "$username" -password "$password"
+      intent-package-management BulkUploadModules -directory "$directory" -address "$address" -username "$username" -password "$password"
       intent-package-management BulkUploadApplicationTemplates -directory "$directory" -address "$address" -username "$username" -password "$password"
 
 # Commented out until we move ownership of all NuGet packages
 # - task: DotNetCoreCLI@2
 #   displayName: 'Push *.nupkg to nuget.org'
-#   condition: and(succeeded(), in(true, variables.isMaster))
+#   condition: and(succeeded(), in('True', variables.isMaster))
 #   inputs:
 #     command: 'custom'
 #     custom: 'nuget'

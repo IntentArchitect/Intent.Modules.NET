@@ -75,6 +75,10 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Met
             var lowerOperationName = operationModel.Name.ToLower();
             return new[] { "put", "update" }.Any(x => lowerOperationName.Contains(x));
         }
+        public void BindToTemplate(ICSharpFileBuilderTemplate template, OperationModel operationModel)
+        {
+            template.CSharpFile.AfterBuild(_ => ApplyStrategy(operationModel));
+        }
 
         public void ApplyStrategy(OperationModel operationModel)
         {

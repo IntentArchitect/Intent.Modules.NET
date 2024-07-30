@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1e77f83c-419b-4fe5-826b-4272dbb77d34" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>ExplicitETags</name>
+  <display>ExplicitETags</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d739bee4-ce9a-4c71-8524-4dbe1593caaf</parentFolderId>
+  <packageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</packageId>
+  <packageName>AdvancedMappingCrud.Cosmos.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>d739bee4-ce9a-4c71-8524-4dbe1593caaf</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -42,7 +42,7 @@ namespace Intent.Modules.CosmosDB.Templates
                     }
                 });
 
-                if (attribute.TypeReference.IsCollection)
+                if (attribute.TypeReference.IsCollection)   
                 {
                     @class.AddProperty(
                         type: $"{template.UseType("System.Collections.Generic.IReadOnlyList")}<{template.GetTypeName((IElement)attribute.TypeReference.Element)}>",
@@ -298,7 +298,7 @@ namespace Intent.Modules.CosmosDB.Templates
 
                 if (useOptimisticConcurrency && template.Id != CosmosDBValueObjectDocumentTemplate.TemplateId && isAggregate)
                 {
-                    method.AddStatement($"_etag = getEtag((({template.UseType("Microsoft.Azure.CosmosRepository.IItem")})this).Id);", s => s.SeparatedFromPrevious());
+                    method.AddStatement($"_etag = _etag == null ? getEtag((({template.UseType("Microsoft.Azure.CosmosRepository.IItem")})this).Id) : _etag;", s => s.SeparatedFromPrevious());
                 }
 
                 if (hasBaseType)

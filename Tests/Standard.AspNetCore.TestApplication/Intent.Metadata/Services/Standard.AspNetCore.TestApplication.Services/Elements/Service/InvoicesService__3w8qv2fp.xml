@@ -58,6 +58,7 @@
           <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
           <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
           <properties>
+            <property name="670baa81-b5c9-4272-a2e0-db1d167dcda4" display="Ignore" value="false" isActive="true" />
             <property name="c6b0e60f-000b-4afb-a226-e3622119e996" display="OperationId" value="CustomOperationName" isActive="true" />
           </properties>
         </stereotype>

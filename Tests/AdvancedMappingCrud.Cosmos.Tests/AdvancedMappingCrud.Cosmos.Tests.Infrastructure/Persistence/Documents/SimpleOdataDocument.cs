@@ -49,7 +49,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Persistence.Documents
             Surname = entity.Surname;
             SimpleChildren = entity.SimpleChildren.Select(x => SimpleChildDocument.FromEntity(x)!).ToList();
 
-            _etag = getEtag(((IItem)this).Id);
+            _etag = _etag == null ? getEtag(((IItem)this).Id) : _etag;
 
             return this;
         }

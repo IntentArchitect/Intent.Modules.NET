@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="25d95ebe-22c5-4e2d-9ac6-ce6ef415b12c" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetCustomersQuery</name>
+  <display>GetCustomersQuery: CustomerDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="054baf1f-8708-4820-affd-a32f6a279663">
+    <typeId>276a7547-12d7-4807-ab71-fb6b42dc50ec</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>SecurityConfig.Tests.Services</typePackageName>
+    <typePackageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>8e47b661-a285-4e8a-9212-405ea5d325fb</parentFolderId>
+  <packageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</packageId>
+  <packageName>SecurityConfig.Tests.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/customers" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="b06358cd-aed3-4c39-96cf-abb131e4ecde" name="Authorize">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Application.MediatR</definitionPackageName>
+      <definitionPackageId>e92495db-1b26-4389-bf06-cc1b375520b1</definitionPackageId>
+      <properties>
+        <property name="98f96218-c5a7-4656-96b6-f173947028f7" display="Roles" isActive="false" />
+        <property name="ced1460d-1bd9-4ec2-92b3-51bdbf173315" display="Policy" value="" isActive="false" />
+        <property name="9c5cd2b9-52d8-47a0-96a5-f0026c3b9e48" display="Security Roles" isActive="true" />
+        <property name="2d95351e-d2e5-46da-8361-6c29bc690f98" display="Security Policies" value="[&quot;e1fd449e-95d2-468e-83a1-7166b476b05a&quot;]" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="Customers" />
+  </metadata>
+  <childElements />
+</class>

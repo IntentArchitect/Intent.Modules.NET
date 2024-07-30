@@ -11,17 +11,17 @@ namespace Intent.Modules.Integration.HttpClients.Settings
 {
     public static class ModuleSettingsExtensions
     {
-        public static HttpClientSettings GetHttpClientSettings(this IApplicationSettingsProvider settings)
+        public static IntegrationHttpClientSettings GetIntegrationHttpClientSettings(this IApplicationSettingsProvider settings)
         {
-            return new HttpClientSettings(settings.GetGroup("f3da943d-d685-47cf-9982-59f1ac7127fd"));
+            return new IntegrationHttpClientSettings(settings.GetGroup("f3da943d-d685-47cf-9982-59f1ac7127fd"));
         }
     }
 
-    public class HttpClientSettings : IGroupSettings
+    public class IntegrationHttpClientSettings : IGroupSettings
     {
         private readonly IGroupSettings _groupSettings;
 
-        public HttpClientSettings(IGroupSettings groupSettings)
+        public IntegrationHttpClientSettings(IGroupSettings groupSettings)
         {
             _groupSettings = groupSettings;
         }
@@ -53,9 +53,10 @@ namespace Intent.Modules.Integration.HttpClients.Settings
             {
                 return Value switch
                 {
+                    "none" => AuthorizationSetupOptionsEnum.None,
+                    "authorization-header-provider" => AuthorizationSetupOptionsEnum.AuthorizationHeaderProvider,
                     "client-access-token-management" => AuthorizationSetupOptionsEnum.ClientAccessTokenManagement,
                     "transmittable-access-token" => AuthorizationSetupOptionsEnum.TransmittableAccessToken,
-                    "none" => AuthorizationSetupOptionsEnum.None,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -63,6 +64,11 @@ namespace Intent.Modules.Integration.HttpClients.Settings
             public bool IsClientAccessTokenManagement()
             {
                 return Value == "client-access-token-management";
+            }
+
+            public bool IsAuthorizationHeaderProvider()
+            {
+                return Value == "authorization-header-provider";
             }
 
             public bool IsTransmittableAccessToken()
@@ -79,6 +85,7 @@ namespace Intent.Modules.Integration.HttpClients.Settings
         public enum AuthorizationSetupOptionsEnum
         {
             ClientAccessTokenManagement,
+            AuthorizationHeaderProvider,
             TransmittableAccessToken,
             None,
         }

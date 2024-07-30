@@ -57,7 +57,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Fac
                         var matchedStrategies = strategies.Where(strategy => strategy.IsMatch(operation)).ToArray();
                         if (matchedStrategies.Length == 1)
                         {
-                            template.CSharpFile.AfterBuild(file2 => matchedStrategies[0].ApplyStrategy(operation));
+                            matchedStrategies[0].BindToTemplate(template, operation);
                         }
                         else if (matchedStrategies.Length > 1)
                         {

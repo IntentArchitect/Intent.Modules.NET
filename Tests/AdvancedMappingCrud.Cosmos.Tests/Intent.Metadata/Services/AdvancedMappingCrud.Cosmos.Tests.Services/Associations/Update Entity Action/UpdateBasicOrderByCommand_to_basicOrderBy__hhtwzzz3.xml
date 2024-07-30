@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5aaa6de0-5c45-4d49-a2b7-3f843c45fd26">
+  <sourceEnd id="cb5e378d-bbc7-4269-9c5f-da764989ed0e" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : BasicOrderBies.UpdateBasicOrderByCommand</display>
+    <order>0</order>
+    <typeReference id="794aa8c1-df7a-4e3c-b8c8-229fc2d531d9">
+      <typeId>6cfddee6-f7c8-437e-a21b-e2603f933639</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5aaa6de0-5c45-4d49-a2b7-3f843c45fd26" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>basicOrderBy</name>
+    <display>[update] basicOrderBy: BasicOrderBy</display>
+    <order>3</order>
+    <typeReference id="3031b184-1cd6-49c0-8fac-3e4bb8a55763">
+      <typeId>ba238544-c312-43a9-8e6c-65010bd8d715</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6cfddee6-f7c8-437e-a21b-e2603f933639" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[UpdateBasicOrderByCommand]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ba238544-c312-43a9-8e6c-65010bd8d715" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[BasicOrderBy]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="ba238544-c312-43a9-8e6c-65010bd8d715" name="BasicOrderBy" type="element" specialization="Class" />
+              <target id="11f34fba-45c4-470a-9ee8-92214b416892" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="6cfddee6-f7c8-437e-a21b-e2603f933639" name="UpdateBasicOrderByCommand" type="element" specialization="Command" />
+                  <target id="1f654beb-4f76-4e89-b3a0-104daa64c2cf" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6cfddee6-f7c8-437e-a21b-e2603f933639" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[UpdateBasicOrderByCommand]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ba238544-c312-43a9-8e6c-65010bd8d715" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[BasicOrderBy]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="ba238544-c312-43a9-8e6c-65010bd8d715" name="BasicOrderBy" type="element" specialization="Class" />
+              <target id="a3442dcd-b27a-4b86-9e3a-1d4575b69f0b" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="6cfddee6-f7c8-437e-a21b-e2603f933639" name="UpdateBasicOrderByCommand" type="element" specialization="Command" />
+                  <target id="c6cecc08-ae32-404f-9185-60381619a2ea" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="ba238544-c312-43a9-8e6c-65010bd8d715" name="BasicOrderBy" type="element" specialization="Class" />
+              <target id="42f3a03e-67b5-4a50-b1e2-0898dfe1fda4" name="Surname" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="6cfddee6-f7c8-437e-a21b-e2603f933639" name="UpdateBasicOrderByCommand" type="element" specialization="Command" />
+                  <target id="c9ca7137-136a-4176-83b7-98d287f86721" name="Surname" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

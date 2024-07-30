@@ -112,10 +112,14 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
             var pk = aggregate.Attributes.SingleOrDefault(x => x.HasPrimaryKey());
             if (pk != null)
             {
-                result.AddChainStatement(new CSharpInvocationStatement("HasKey")
+                var invocation = new CSharpInvocationStatement("HasKey")
                     .WithoutSemicolon()
-                    .AddArgument(new CSharpLambdaBlock("entity").WithExpressionBody($"entity.{pk.Name.ToPascalCase()}"))
-                    .AddArgument(new CSharpLambdaBlock("build").WithExpressionBody(GetKeyGeneratorExpression(pk.Type.Element, aggregate))));
+                    .AddArgument(new CSharpLambdaBlock("entity").WithExpressionBody($"entity.{pk.Name.ToPascalCase()}"));
+                if (!pk.GetPrimaryKey().DataSource().IsUserSupplied())
+                {
+                    invocation.AddArgument(new CSharpLambdaBlock("build").WithExpressionBody(GetKeyGeneratorExpression(pk.Type.Element, aggregate)));
+                }
+                result.AddChainStatement(invocation);
             }
 
             if (aggregate.HasCollection() || aggregate.Folder?.HasCollection() == true)
@@ -195,13 +199,11 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
 
         private static string GetKeyGeneratorExpression(ICanBeReferencedType typeElement, ClassModel aggregate)
         {
+
             return typeElement switch
             {
-                //_ when typeElement.IsObjectIdType() => "build.HasKeyGenerator(EntityKeyGenerators.ObjectIdKeyGenerator)",
                 _ when typeElement.IsStringType() => "build.HasKeyGenerator(EntityKeyGenerators.StringKeyGenerator)",
                 _ when typeElement.IsGuidType() => "build.HasKeyGenerator(EntityKeyGenerators.GuidKeyGenerator)",
-                //_ when typeElement.IsIntType() => "new Int32KeyGenerator<MyEntity>(this.Connection)",
-                //_ when typeElement.IsLongType() => "new Int64KeyGenerator<MyEntity>(this.Connection)",
                 _ => throw new InvalidOperationException($"Given Type [{typeElement.Name}] is not valid for an Id for Element {aggregate.Name} [{aggregate.Id}].")
             };
         }

@@ -60,6 +60,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>283ac2ba-f99d-4c62-ba93-1bff4b3548d0</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#3b669f3d-f6f8-4e8c-b760-8f6d76c23efd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Api/Controllers/AccountController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>283ac2ba-f99d-4c62-ba93-1bff4b3548d0</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#59493451-7855-494d-8df8-b6df3f313c3c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OpenApiImporterTest.Api/Controllers/CustomerController.cs</ApplicationRelativeFilePath>
@@ -72,6 +80,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OpenApiImporterTest.Api/Controllers/PetsController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PetsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>283ac2ba-f99d-4c62-ba93-1bff4b3548d0</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#a57996f6-4e4d-4d1b-b73d-79dd770faf23</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Api/Controllers/PlayersController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PlayersController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -160,6 +176,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OpenApiImporterTest.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#762c7b2e-eafd-42a5-9569-fa37d7c88a67</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Accounts/AccountDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/AccountDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#819e656a-3877-4b2f-984b-f05afe85bf9c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Accounts/CreateAccountCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/CreateAccountCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#819e656a-3877-4b2f-984b-f05afe85bf9c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Accounts/CreateAccountCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/CreateAccountCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#1a03533f-2bf0-4a83-8dd3-bdb5419133d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Accounts/UpdateAccountCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/UpdateAccountCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#1a03533f-2bf0-4a83-8dd3-bdb5419133d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Accounts/UpdateAccountCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/UpdateAccountCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -436,10 +492,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>30e6726e-dc2b-437a-846e-7512ed19c3ba</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#3b669f3d-f6f8-4e8c-b760-8f6d76c23efd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Implementation/AccountService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>30e6726e-dc2b-437a-846e-7512ed19c3ba</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#59493451-7855-494d-8df8-b6df3f313c3c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Implementation/CustomerService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>47fcb9cb-c212-4463-a538-1b162d30b495</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#3b669f3d-f6f8-4e8c-b760-8f6d76c23efd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Interfaces/IAccountService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAccountService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -648,6 +720,62 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Pets/UpdatePet/UpdatePetCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pets/UpdatePet/UpdatePetCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#5a192fe7-67b3-41d4-b598-0764392fe8be</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Players/BetItemViewModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Players/BetItemViewModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#ed234465-c8ec-4b83-9821-a9408a6d788f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Players/CreateBetsMax/CreateBetsMaxCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Players/CreateBetsMax/CreateBetsMaxCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#ed234465-c8ec-4b83-9821-a9408a6d788f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Players/CreateBetsMax/CreateBetsMaxCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Players/CreateBetsMax/CreateBetsMaxCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#ed234465-c8ec-4b83-9821-a9408a6d788f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Players/CreateBetsMax/CreateBetsMaxCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Players/CreateBetsMax/CreateBetsMaxCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#90bfdf6d-46fd-4bf7-b5be-57de2769cc94</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Players/MaxBetResultViewModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Players/MaxBetResultViewModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#97ff9182-38f4-4d9f-8a35-eb850adc4b08</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Players/PlayerType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Players/PlayerType.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c8a9ebaa-cd85-47d1-a639-cdd26d02fa9a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.ContractEnumModel#6eeaaaeb-11bf-45d1-8798-a14cc3bc7d21</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Application/Players/PriceChangeType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Players/PriceChangeType.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

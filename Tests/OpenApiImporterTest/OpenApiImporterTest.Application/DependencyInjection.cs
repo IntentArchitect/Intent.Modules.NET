@@ -32,6 +32,7 @@ namespace OpenApiImporterTest.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<ICustomerService, CustomerService>();
             return services;
         }

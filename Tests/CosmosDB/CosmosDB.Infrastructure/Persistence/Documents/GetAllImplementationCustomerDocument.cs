@@ -46,7 +46,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             Name = entity.Name;
             GetAllImplementationOrder = GetAllImplementationOrderDocument.FromEntity(entity.GetAllImplementationOrder)!;
 
-            _etag = getEtag(((IItem)this).Id);
+            _etag = _etag == null ? getEtag(((IItem)this).Id) : _etag;
 
             return this;
         }

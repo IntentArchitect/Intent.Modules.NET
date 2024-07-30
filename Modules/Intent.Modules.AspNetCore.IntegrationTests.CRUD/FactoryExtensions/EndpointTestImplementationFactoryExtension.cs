@@ -65,28 +65,28 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
             {
                 var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.Create.Id);
                 template.AddNugetDependency(NugetPackages.AutoFixture);
-                DoNotImplementedTest(template, crudTest);
+                DoNotImplementedTest(template, crudTest, crudTest.Create);
                 template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.GetById.Id);
-                DoNotImplementedTest(template, crudTest);
+                DoNotImplementedTest(template, crudTest, crudTest.GetById);
                 if (crudTest.Update != null)
                 {
                     template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.Update.Id);
-                    DoNotImplementedTest(template, crudTest);
+                    DoNotImplementedTest(template, crudTest, crudTest.Update);
                 }
                 if (crudTest.Delete != null)
                 {
                     template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.Delete.Id);
-                    DoNotImplementedTest(template, crudTest);
+                    DoNotImplementedTest(template, crudTest, crudTest.Delete);
                 }
                 if (crudTest.GetAll != null)
                 {
                     template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.GetAll.Id);
-                    DoNotImplementedTest(template, crudTest);
+                    DoNotImplementedTest(template, crudTest, crudTest.GetAll);
                 }
             }
         }
 
-        private void DoNotImplementedTest(ICSharpFileBuilderTemplate template, CrudMap crudTest)
+        private void DoNotImplementedTest(ICSharpFileBuilderTemplate template, CrudMap crudTest, IHttpEndpointModel operation)
         {
             template.CSharpFile.OnBuild(file =>
             {
@@ -95,7 +95,6 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                 template.GetHttpClientRequestExceptionName();
 
                 var @class = template.CSharpFile.Classes.First();
-                var operation = crudTest.Delete!;
 
                 @class.AddMethod("Task", $"{operation.Name}_Should{operation.Name}", method =>
                 {

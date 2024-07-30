@@ -46,6 +46,7 @@ namespace Intent.Modules.Bugsnag.FactoryExtensions
                     return;
                 }
 
+                file.AddUsing("Quartz.Impl.Matchers");
                 method.InsertStatement(0, $"services.AddTransient<{configTemplate.GetBugSnagQuartzJobListenerName()}>();");
                 var addQuartzChain = method.Statements.OfType<CSharpMethodChainStatement>().FirstOrDefault();
                 var addQuartzInv = addQuartzChain?.Statements.FirstOrDefault() as CSharpInvocationStatement;

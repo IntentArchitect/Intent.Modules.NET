@@ -13,6 +13,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Contracts.Clients.Http.Shared;
 using Intent.Modules.Integration.HttpClients.Settings;
 using Intent.Modules.Integration.HttpClients.Shared;
+using Intent.Modules.Integration.HttpClients.Templates.HttpClientAuthorizationHeaderHandler;
 using Intent.Modules.Integration.HttpClients.Templates.HttpClientConfiguration;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Plugins.FactoryExtensions;
@@ -34,14 +35,19 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            if (application.Settings.GetHttpClientSettings().AuthorizationSetup().IsTransmittableAccessToken())
+            if (application.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsTransmittableAccessToken())
             {
                 HttpClientHeaderConfiguratorHelper.UpdateProxyAuthHeaderPopulation(application, HttpClientConfigurationTemplate.TemplateId);
             }
 
-            if (application.Settings.GetHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
+            if (application.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
             {
                 UpdateProxyTokenRefreshPopulation(application);
+            }
+
+            if (application.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsAuthorizationHeaderProvider())
+            {
+                HttpClientHeaderConfiguratorHelper.ImplementAuthorizationHeaderProvider(application, HttpClientConfigurationTemplate.TemplateId, HttpClientAuthorizationHeaderHandlerTemplate.TemplateId);
             }
         }
 
@@ -75,23 +81,21 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
                 {
                     var proxyModel = proxyConfiguration.GetMetadata<ServiceProxyModel>("model");
 
-                    if (RequiresMessageHandler(proxyModel))
+                    if (RequiresSecurity(proxyModel))
                     {
                         proxyConfiguration.AddChainStatement(new CSharpInvocationStatement($"AddClientAccessTokenHandler")
-                            .AddArgument($"configuration.GetValue<string>(\"{GetConfigKey(proxyModel, "IdentityClientKey")}\") ?? \"default\"").WithoutSemicolon());
+                            .AddArgument($@"configuration.GetValue<string>(""{HttpClientConfigurationTemplate.GetConfigKey(proxyModel, KeyType.Service, "IdentityClientKey")}"") ?? 
+                    configuration.GetValue<string>(""{HttpClientConfigurationTemplate.GetConfigKey(proxyModel, KeyType.Group, "IdentityClientKey")}"") ?? 
+                    ""default""").WithoutSemicolon());
                     }
                 }
             });
         }
 
 
-        private string GetConfigKey(ServiceProxyModel proxy, string key)
-        {
-            return $"HttpClients:{proxy.Name.ToPascalCase()}{(string.IsNullOrEmpty(key) ? string.Empty : ":")}{key?.ToPascalCase()}";
-        }
 
 
-        private bool RequiresMessageHandler(ServiceProxyModel proxy)
+        private bool RequiresSecurity(ServiceProxyModel proxy)
         {
             var parentSecured = default(bool?);
             return !ServiceProxyHelpers.GetMappedEndpoints(proxy)

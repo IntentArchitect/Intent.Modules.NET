@@ -82,4 +82,16 @@ public static class Infrastructure
             public const string ConnectionStringSettingPath = nameof(ConnectionStringSettingPath);
         }
     }
+
+    public static class Kafka
+    {
+        public const string Name = nameof(Kafka);
+
+        public static class Property
+        {
+            public const string KafkaSettingsPath = nameof(KafkaSettingsPath);
+            public const string KafkaSettingsName = nameof(KafkaSettingsName);
+            public const string KafkaSchemaRegistryUrl = nameof(KafkaSchemaRegistryUrl);
+        }
+    }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e1fd449e-95d2-468e-83a1-7166b476b05a" type="Policy" typeId="9f37c60e-ad88-4484-98ca-6c9aa7ca3134">
+  <name>Customer</name>
+  <display>Customer</display>
+  <isAbstract>false</isAbstract>
+  <order>2</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>10fac28c-c375-4b90-bb5e-2e17148d5cd9</parentFolderId>
+  <packageId>bc3c3691-efc4-4ac5-9c5c-baa37280d2a1</packageId>
+  <packageName>SecurityConfig.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

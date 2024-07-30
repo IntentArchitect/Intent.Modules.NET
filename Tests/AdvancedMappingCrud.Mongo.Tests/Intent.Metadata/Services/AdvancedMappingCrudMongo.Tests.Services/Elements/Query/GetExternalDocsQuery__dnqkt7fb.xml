@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d3f74db7-8fd8-46db-a246-151a1830ea26" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetExternalDocsQuery</name>
+  <display>GetExternalDocsQuery: ExternalDocDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="0fef7d55-c6e3-4988-b1c0-89657146dd7d">
+    <typeId>72a84450-df6c-49d9-83bb-f98ece15eefe</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AdvancedMappingCrudMongo.Tests.Services</typePackageName>
+    <typePackageId>c53fd327-47ba-4176-95d7-b3862ece3d57</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>e0248f89-9130-4361-b8c7-9a503f41c697</parentFolderId>
+  <packageId>c53fd327-47ba-4176-95d7-b3862ece3d57</packageId>
+  <packageName>AdvancedMappingCrudMongo.Tests.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/external-docs" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="ExternalDocs" />
+  </metadata>
+  <childElements />
+</class>

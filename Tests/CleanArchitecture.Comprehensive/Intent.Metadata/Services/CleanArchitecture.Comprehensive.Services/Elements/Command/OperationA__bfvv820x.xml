@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e4d22997-2333-4fa9-8f75-c72b99dc0a69" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>OperationA</name>
+  <display>OperationA: void</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="7953f820-cb84-4354-81a6-f768bb9c4d9d">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>9bb2db6e-4473-4ab0-a040-1e29f1b0a298</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b6197544-7e0e-4900-a6e2-9747fb7e4ac4" name="OpenAPI Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="670baa81-b5c9-4272-a2e0-db1d167dcda4" display="Ignore" value="true" isActive="true" />
+        <property name="c6b0e60f-000b-4afb-a226-e3622119e996" display="OperationId" value="{ServiceName}.{MethodName}" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/open-api-ignore-single/operation-a" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

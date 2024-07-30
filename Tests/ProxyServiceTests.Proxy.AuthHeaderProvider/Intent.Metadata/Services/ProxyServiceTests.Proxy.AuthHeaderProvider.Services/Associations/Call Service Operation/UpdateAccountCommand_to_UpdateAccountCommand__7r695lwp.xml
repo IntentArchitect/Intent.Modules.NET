@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="31d89d03-91c1-4b94-b7ab-7a0c87b80452">
+  <sourceEnd id="9901633b-7552-4fcd-9e8b-e7e33267f7d8" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : AccountsServices.UpdateAccountCommand</display>
+    <order>0</order>
+    <typeReference id="0be17dc1-e61a-482d-8f80-dbfde54dccc1">
+      <typeId>c1d6c930-f868-4614-a647-81ac762ed42c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.AuthHeaderProvider.Services</typePackageName>
+      <typePackageId>04c6a15c-a669-4006-ac8d-24273331eadf</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="31d89d03-91c1-4b94-b7ab-7a0c87b80452" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : UpdateAccountCommand(...): void</display>
+    <order>5</order>
+    <typeReference id="d45c8b41-db98-428c-b4d9-4bbb15d41616">
+      <typeId>429c26eb-15aa-44f4-83db-c6a78bdaaf0e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.AuthHeaderProvider.ServiceProxies</typePackageName>
+      <typePackageId>a9393602-131c-4f96-aca1-20d7cd1870ca</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="5c1095ee-898d-46ed-8537-34217f14c8fb" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c1d6c930-f868-4614-a647-81ac762ed42c" location="[ProxyServiceTests.Proxy.AuthHeaderProvider].[Services].[UpdateAccountCommand]" />
+        <target applicationId="5c1095ee-898d-46ed-8537-34217f14c8fb" designerId="2799aa83-e256-46fe-9589-b96f7d6b09f7" elementId="429c26eb-15aa-44f4-83db-c6a78bdaaf0e" location="[ProxyServiceTests.Proxy.AuthHeaderProvider].[Services].[UpdateAccountCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{UpdateAccountCommand}</expression>
+            <path>
+              <target id="429c26eb-15aa-44f4-83db-c6a78bdaaf0e" name="UpdateAccountCommand" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="UpdateAccountCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="c1d6c930-f868-4614-a647-81ac762ed42c" name="UpdateAccountCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="429c26eb-15aa-44f4-83db-c6a78bdaaf0e" name="UpdateAccountCommand" type="element" specialization="Operation" />
+              <target id="389f0f18-1679-4267-a386-fb0e30fb931a" name="id" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="c1d6c930-f868-4614-a647-81ac762ed42c" name="UpdateAccountCommand" type="element" specialization="Command" />
+                  <target id="b5a55d86-ba38-42e3-b2d0-3595b5807fef" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Number}</expression>
+            <path>
+              <target id="429c26eb-15aa-44f4-83db-c6a78bdaaf0e" name="UpdateAccountCommand" type="element" specialization="Operation" />
+              <target id="f4989d76-fc8c-4b79-870d-eb32d9d4c728" name="command" type="element" specialization="Parameter" />
+              <target id="7beeae8c-dc97-487d-8ccb-fe386ef00e43" name="Number" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Number" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="c1d6c930-f868-4614-a647-81ac762ed42c" name="UpdateAccountCommand" type="element" specialization="Command" />
+                  <target id="2ad86f2f-124a-45e8-a727-18b89956274d" name="Number" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Amount.Amount}</expression>
+            <path>
+              <target id="429c26eb-15aa-44f4-83db-c6a78bdaaf0e" name="UpdateAccountCommand" type="element" specialization="Operation" />
+              <target id="f4989d76-fc8c-4b79-870d-eb32d9d4c728" name="command" type="element" specialization="Parameter" />
+              <target id="78d7f5df-0577-42f8-93c7-1d952930191f" name="Amount" type="element" specialization="DTO-Field" />
+              <target id="7d1bf58b-9583-4591-b18b-ac17d70fd1d8" name="Amount" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Amount.Amount" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="c1d6c930-f868-4614-a647-81ac762ed42c" name="UpdateAccountCommand" type="element" specialization="Command" />
+                  <target id="e3b2a526-ecf0-43c4-8e17-5f78fd554e7b" name="Amount" type="element" specialization="DTO-Field" />
+                  <target id="9f54e6ee-a11a-45ce-8180-9d891e076fdd" name="Amount" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Amount.Currency}</expression>
+            <path>
+              <target id="429c26eb-15aa-44f4-83db-c6a78bdaaf0e" name="UpdateAccountCommand" type="element" specialization="Operation" />
+              <target id="f4989d76-fc8c-4b79-870d-eb32d9d4c728" name="command" type="element" specialization="Parameter" />
+              <target id="78d7f5df-0577-42f8-93c7-1d952930191f" name="Amount" type="element" specialization="DTO-Field" />
+              <target id="f3b371d3-2c7d-423f-92d6-58beee723871" name="Currency" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="Amount.Currency" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="c1d6c930-f868-4614-a647-81ac762ed42c" name="UpdateAccountCommand" type="element" specialization="Command" />
+                  <target id="e3b2a526-ecf0-43c4-8e17-5f78fd554e7b" name="Amount" type="element" specialization="DTO-Field" />
+                  <target id="eb6c11b6-2d3c-4c1f-b138-bacdc2b20817" name="Currency" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ClientId}</expression>
+            <path>
+              <target id="429c26eb-15aa-44f4-83db-c6a78bdaaf0e" name="UpdateAccountCommand" type="element" specialization="Operation" />
+              <target id="f4989d76-fc8c-4b79-870d-eb32d9d4c728" name="command" type="element" specialization="Parameter" />
+              <target id="ae514173-4b60-4aa1-b9ea-687994357da6" name="ClientId" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="ClientId" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="c1d6c930-f868-4614-a647-81ac762ed42c" name="UpdateAccountCommand" type="element" specialization="Command" />
+                  <target id="c4646cad-a723-4654-97f7-ea63164902b0" name="ClientId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{UpdateAccountCommandId}</expression>
+            <path>
+              <target id="429c26eb-15aa-44f4-83db-c6a78bdaaf0e" name="UpdateAccountCommand" type="element" specialization="Operation" />
+              <target id="f4989d76-fc8c-4b79-870d-eb32d9d4c728" name="command" type="element" specialization="Parameter" />
+              <target id="0a63e1a0-d244-4dc1-9d1d-85792b72defe" name="Id" type="element" specialization="DTO-Field" />
+            </path>
+            <sources>
+              <source identifier="UpdateAccountCommandId" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="c1d6c930-f868-4614-a647-81ac762ed42c" name="UpdateAccountCommand" type="element" specialization="Command" />
+                  <target id="46d74075-8af5-4fe8-90d2-3522fba96092" name="UpdateAccountCommandId" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

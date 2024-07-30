@@ -30,7 +30,7 @@ public class CqrsControllerModel : IControllerModel
         ApplicableVersions = new List<IApiVersionModel>();
     }
 
-    private static IControllerOperationModel MapToOperation(IElement element)
+    private IControllerOperationModel MapToOperation(IElement element)
     {
         var httpEndpointModel = HttpEndpointModelFactory.GetEndpoint(element)!;
 
@@ -54,7 +54,8 @@ public class CqrsControllerModel : IControllerModel
                     mappedPayloadProperty: x.MappedPayloadProperty,
                     value: x.Value))
                 .ToList<IControllerParameterModel>(),
-            applicableVersions: GetApplicableVersions(element));
+            applicableVersions: GetApplicableVersions(element),
+            controller: this);
     }
 
     private static IList<IApiVersionModel> GetApplicableVersions(IElement element)
@@ -80,28 +81,52 @@ public class CqrsControllerModel : IControllerModel
         return new List<IApiVersionModel>();
     }
 
-    private static string GetAuthorizationRoles(IElement element)
+    private static bool GetAuthorizationRolesAndPolicies(IElement element, out string roles, out string policy)
     {
-        if (element.HasStereotype("Authorize") && !string.IsNullOrEmpty(element.GetStereotype("Authorize").GetProperty<string>("Roles", null)))
+        roles = null;
+        policy = null;
+        if (!element.HasStereotype("Authorize") && !element.HasStereotype("Secured"))
         {
-            return element.GetStereotype("Authorize").GetProperty<string>("Roles");
+            return false;
         }
-        if (element.HasStereotype("Secured") && !string.IsNullOrEmpty(element.GetStereotype("Secured").GetProperty<string>("Roles", null)))
+        var auth = element.HasStereotype("Authorize") ? element.GetStereotype("Authorize") : element.GetStereotype("Secured");
+
+        if (!string.IsNullOrEmpty(auth.GetProperty<string>("Roles", null)))
         {
-            return element.GetStereotype("Secured").GetProperty<string>("Roles");
+            roles = auth.GetProperty<string>("Roles");
         }
-        return null;
+        if (!string.IsNullOrEmpty(auth.GetProperty<string>("Policy", null)))
+        {
+            policy = auth.GetProperty<string>("Policy");
+        }
+        if (auth.GetProperty<IElement[]>("Security Roles", null) != null)
+        {
+            var elements = auth.GetProperty<IElement[]>("Security Roles");
+            roles = string.Join(",", elements.Select(e => e.Name));
+        }
+        if (auth.GetProperty<IElement[]>("Security Policies", null) != null)
+        {
+            var elements = auth.GetProperty<IElement[]>("Security Policies");
+            policy = string.Join(",", elements.Select(e => e.Name));
+        }
+        return roles != null || policy != null;
     }
 
     private static AuthorizationModel GetAuthorizationModel(IElement element)
     {
-        var roles = GetAuthorizationRoles(element);
-        if (string.IsNullOrEmpty(roles))
+        if (!GetAuthorizationRolesAndPolicies(element, out var roles, out var policies))
+        {
             return null;
+        }
         return new AuthorizationModel
         {
             RolesExpression = !string.IsNullOrWhiteSpace(roles)
                 ? @$"{string.Join("+", roles.Split('+', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(group => string.Join(",", group.Trim().Split(',', StringSplitOptions.RemoveEmptyEntries)
+                        .Select(s => s.Trim()))))}"
+                : null,
+            Policy = !string.IsNullOrWhiteSpace(policies)
+                ? @$"{string.Join("+", policies.Split('+', StringSplitOptions.RemoveEmptyEntries)
                     .Select(group => string.Join(",", group.Trim().Split(',', StringSplitOptions.RemoveEmptyEntries)
                         .Select(s => s.Trim()))))}"
                 : null
