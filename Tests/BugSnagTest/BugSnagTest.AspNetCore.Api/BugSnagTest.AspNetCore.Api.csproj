@@ -9,18 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BugSnagTest.Application\BugSnagTest.Application.csproj" />
-    <ProjectReference Include="..\BugSnagTest.Infrastructure\BugSnagTest.Infrastructure.csproj" />
-    <ProjectReference Include="..\BugSnagTest.AspNetCore.Application\BugSnagTest.AspNetCore.Application.csproj" />
-    <ProjectReference Include="..\BugSnagTest.AspNetCore.Infrastructure\BugSnagTest.AspNetCore.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Asp.Versioning.Mvc" Version="7.0.0" />
     <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="7.0.0" />
     <PackageReference Include="Bugsnag.AspNet.Core" Version="3.1.0" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.4" />
+    <PackageReference Include="Quartz.AspNetCore" Version="3.8.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BugSnagTest.AspNetCore.Application\BugSnagTest.AspNetCore.Application.csproj" />
+    <ProjectReference Include="..\BugSnagTest.AspNetCore.Infrastructure\BugSnagTest.AspNetCore.Infrastructure.csproj" />
   </ItemGroup>
   </Project>

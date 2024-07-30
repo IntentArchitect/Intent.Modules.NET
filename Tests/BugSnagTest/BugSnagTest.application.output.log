@@ -52,6 +52,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1c6634da-090c-4b7b-b5fd-598d28ea49c6</ProjectId>
+      <CorrelationId>Intent.QuartzScheduler.QuartzConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Configuration/QuartzConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QuartzConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c6634da-090c-4b7b-b5fd-598d28ea49c6</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
@@ -80,6 +88,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dee2b152-0486-429c-ba99-a861fd9750ce</ProjectId>
+      <CorrelationId>Intent.Bugsnag.BugSnagQuartzJobListener</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Jobs/BugSnagQuartzJobListener.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BugSnagQuartzJobListener.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dee2b152-0486-429c-ba99-a861fd9750ce</ProjectId>
+      <CorrelationId>Intent.QuartzScheduler.ScheduledJob#e354c480-7bd8-482b-95bd-8fa1f0628eb7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Jobs/ScheduledJob.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScheduledJob.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -115,6 +139,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>3e1a01ae-26a6-46ec-8d6a-fcd7cf9d15f4</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e1a01ae-26a6-46ec-8d6a-fcd7cf9d15f4</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e9f4a3cc-e325-49cc-a800-5b92f251cce1</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -144,6 +184,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Application/RequestDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e9f4a3cc-e325-49cc-a800-5b92f251cce1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#b6f68119-7dfc-441a-848a-d18c2a0e7a09</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Application/Scheduled/ScheduledCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Scheduled/ScheduledCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e9f4a3cc-e325-49cc-a800-5b92f251cce1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#b6f68119-7dfc-441a-848a-d18c2a0e7a09</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Application/Scheduled/ScheduledCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Scheduled/ScheduledCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

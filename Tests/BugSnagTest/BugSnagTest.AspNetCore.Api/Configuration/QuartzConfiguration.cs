@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using BugSnagTest.ServiceHost.Jobs;
+using BugSnagTest.AspNetCore.Api.Jobs;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,7 +10,7 @@ using Quartz.Impl.Matchers;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.QuartzScheduler.QuartzConfiguration", Version = "1.0")]
 
-namespace BugSnagTest.ServiceHost.Configuration
+namespace BugSnagTest.AspNetCore.Api.Configuration
 {
     public static class QuartzConfiguration
     {
@@ -41,6 +41,4 @@ namespace BugSnagTest.ServiceHost.Configuration
             return services;
         }
     }
-
-
 }

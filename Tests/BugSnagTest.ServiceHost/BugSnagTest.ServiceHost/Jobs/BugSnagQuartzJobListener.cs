@@ -1,8 +1,10 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Bugsnag;
 using Bugsnag.Payload;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.DependencyInjection;
 using Quartz;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -12,11 +14,11 @@ namespace BugSnagTest.ServiceHost.Jobs;
 
 public class BugSnagQuartzJobListener : IJobListener
 {
-    private readonly IClient _client;
+    private readonly IServiceProvider _serviceProvider;
 
-    public BugSnagQuartzJobListener(IClient client)
+    public BugSnagQuartzJobListener(IServiceProvider serviceProvider)
     {
-        _client = client;
+        _serviceProvider = serviceProvider;
     }
 
     public string Name => "BugSnag";
@@ -31,16 +33,17 @@ public class BugSnagQuartzJobListener : IJobListener
         return Task.CompletedTask;
     }
 
-    public Task JobWasExecuted(
+    public async Task JobWasExecuted(
             IJobExecutionContext context,
             JobExecutionException? jobException,
             CancellationToken cancellationToken = default)
     {
+        await using var scopedServiceProvider = _serviceProvider.CreateAsyncScope();
+        var client = scopedServiceProvider.ServiceProvider.GetRequiredService<IClient>();
+
         if (jobException is not null)
         {
-            _client.Notify(jobException, HandledState.ForUnhandledException());
+            client.Notify(jobException, HandledState.ForUnhandledException());
         }
-
-        return Task.CompletedTask;
     }
 }

@@ -23,15 +23,17 @@ namespace Intent.Modules.Bugsnag.Templates.BugSnagQuartzJobListener
         public BugSnagQuartzJobListenerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Quartz")
                 .AddUsing("Bugsnag")
                 .AddUsing("Bugsnag.Payload")
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"BugSnagQuartzJobListener", @class =>
                 {
                     @class.ImplementsInterface("IJobListener");
-                    @class.AddConstructor(ctor => ctor.AddParameter("IClient", "client", param => param.IntroduceReadonlyField()));
+                    @class.AddConstructor(ctor => ctor.AddParameter("IServiceProvider", "serviceProvider", param => param.IntroduceReadonlyField()));
                     @class.AddProperty("string", "Name", prop =>
                     {
                         prop.WithoutSetter();
@@ -45,13 +47,15 @@ namespace Intent.Modules.Bugsnag.Templates.BugSnagQuartzJobListener
                         method => method.AddParameter("IJobExecutionContext", "context")
                             .AddOptionalCancellationTokenParameter(this)
                             .AddStatement("return Task.CompletedTask;"));
-                    @class.AddMethod("Task", "JobWasExecuted", method =>
-                        method.AddParameter("IJobExecutionContext", "context")
-                            .AddParameter("JobExecutionException" + (OutputTarget.GetProject().NullableEnabled ? "?" : ""), "jobException")
-                            .AddOptionalCancellationTokenParameter(this)
-                            .AddStatement(new CSharpIfStatement("jobException is not null")
-                                .AddStatement("_client.Notify(jobException, HandledState.ForUnhandledException());"))
-                            .AddStatement("return Task.CompletedTask;"));
+                    @class.AddMethod("Task", "JobWasExecuted", method => method
+                        .Async()
+                        .AddParameter("IJobExecutionContext", "context")
+                        .AddParameter("JobExecutionException" + (OutputTarget.GetProject().NullableEnabled ? "?" : ""), "jobException")
+                        .AddOptionalCancellationTokenParameter(this)
+                        .AddStatement("await using var scopedServiceProvider = _serviceProvider.CreateAsyncScope();")
+                        .AddStatement("var client = scopedServiceProvider.ServiceProvider.GetRequiredService<IClient>();")
+                        .AddStatement(new CSharpIfStatement("jobException is not null")
+                            .AddStatement("client.Notify(jobException, HandledState.ForUnhandledException());")));
                 });
         }
 

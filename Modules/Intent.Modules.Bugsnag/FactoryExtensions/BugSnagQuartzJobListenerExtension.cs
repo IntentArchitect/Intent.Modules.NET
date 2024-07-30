@@ -47,11 +47,11 @@ namespace Intent.Modules.Bugsnag.FactoryExtensions
                 }
 
                 file.AddUsing("Quartz.Impl.Matchers");
-                method.InsertStatement(0, $"services.AddTransient<{configTemplate.GetBugSnagQuartzJobListenerName()}>();");
+                method.InsertStatement(0, $"services.AddSingleton<{configTemplate.GetBugSnagQuartzJobListenerName()}>();");
                 var addQuartzChain = method.Statements.OfType<CSharpMethodChainStatement>().FirstOrDefault();
                 var addQuartzInv = addQuartzChain?.Statements.FirstOrDefault() as CSharpInvocationStatement;
                 var addQuartzLambda = addQuartzInv?.Statements.FirstOrDefault() as CSharpLambdaBlock;
-                addQuartzLambda?.AddStatement($"q.AddJobListener(sp => sp.GetRequiredService<{configTemplate.GetBugSnagQuartzJobListenerName()}>(), GroupMatcher<JobKey>.AnyGroup());");
+                addQuartzLambda?.AddStatement($"q.AddJobListener<{configTemplate.GetBugSnagQuartzJobListenerName()}>(GroupMatcher<JobKey>.AnyGroup());");
             });
         }
     }

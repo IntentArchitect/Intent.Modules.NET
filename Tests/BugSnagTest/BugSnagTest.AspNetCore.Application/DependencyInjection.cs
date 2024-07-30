@@ -14,6 +14,10 @@ namespace BugSnagTest.AspNetCore.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+            });
             services.AddTransient<ITestService, TestService>();
             return services;
         }

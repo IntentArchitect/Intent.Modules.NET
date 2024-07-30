@@ -43,6 +43,7 @@ namespace BugSnagTest.AspNetCore.Api
             services.ConfigureApiVersioning();
             services.ConfigureBugsnag(Configuration);
             services.AddInfrastructure(Configuration);
+            services.ConfigureQuartz(Configuration);
             services.ConfigureSwagger(Configuration);
         }
 

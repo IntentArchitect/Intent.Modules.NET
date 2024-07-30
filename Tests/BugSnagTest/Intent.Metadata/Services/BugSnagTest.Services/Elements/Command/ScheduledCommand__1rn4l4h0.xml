@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b6f68119-7dfc-441a-848a-d18c2a0e7a09" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>ScheduledCommand</name>
+  <display>ScheduledCommand: void</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="ad317ea5-2ff4-410a-9f72-1209628762ec">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>d0a18b7c-ca5d-4f6d-abad-e5be8b8207a7</parentFolderId>
+  <packageId>d0a18b7c-ca5d-4f6d-abad-e5be8b8207a7</packageId>
+  <packageName>BugSnagTest.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
