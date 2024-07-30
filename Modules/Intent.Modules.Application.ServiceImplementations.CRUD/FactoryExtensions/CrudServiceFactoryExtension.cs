@@ -11,6 +11,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 using Intent.Utils;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -36,6 +37,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Fac
 
             foreach (var template in templates)
             {
+                template.AddKnownType("System.Linq.Dynamic.Core.PagedResult");
+
                 var strategies = new List<IImplementationStrategy>
                 {
                     new OperationMappingImplementationStrategy(template),
