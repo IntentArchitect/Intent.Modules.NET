@@ -1,3 +1,4 @@
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Basics;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,6 +12,24 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
     {
         public GetBasicsTests(IntegrationTestWebAppFactory factory) : base(factory)
         {
+        }
+
+
+        [Fact]
+        public async Task GetBasics_ShouldGetBasics()
+        {
+            // Arrange
+            var client = new BasicsHttpClient(CreateClient());
+
+            var dataFactory = new TestDataFactory(WebAppFactory);
+            await dataFactory.CreateBasic();
+
+            // Act
+            var basics = await client.GetBasicsAsync(1, 10, "Name");
+
+            // Assert
+            Assert.NotNull(basics);
+            Assert.True(basics.Data.Count() > 0);
         }
     }
 }

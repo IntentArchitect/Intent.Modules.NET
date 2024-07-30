@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ed5f56d0-46ca-400f-9e9a-6c20c5026719">
+  <sourceEnd id="e3204b6d-ddab-4f96-9688-b5a3bce539f4" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : PagingTSService.CreatePagingTS</display>
+    <order>0</order>
+    <typeReference id="7b115e78-35d7-4235-844a-7d56d0b9c9c6">
+      <typeId>4aaeedcf-d6aa-488c-8dc0-32df69bfd55c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ed5f56d0-46ca-400f-9e9a-6c20c5026719" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>pagingTS</name>
+    <display>[create] pagingTS: PagingTS</display>
+    <order>1</order>
+    <typeReference id="7a7fc17f-8c39-4056-af66-9cf7ad37df08">
+      <typeId>13f910fd-2cb9-4a66-b42e-d95846a50867</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4aaeedcf-d6aa-488c-8dc0-32df69bfd55c" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CreatePagingTS]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="13f910fd-2cb9-4a66-b42e-d95846a50867" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[PagingTS]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreatePagingTS}</expression>
+            <path>
+              <target id="13f910fd-2cb9-4a66-b42e-d95846a50867" name="PagingTS" type="element" specialization="Class" />
+            </path>
+            <sources>
+              <source identifier="CreatePagingTS" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="4aaeedcf-d6aa-488c-8dc0-32df69bfd55c" name="CreatePagingTS" type="element" specialization="Operation" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Name}</expression>
+            <path>
+              <target id="13f910fd-2cb9-4a66-b42e-d95846a50867" name="PagingTS" type="element" specialization="Class" />
+              <target id="34f7bdd1-c5d8-4fd6-af8f-71a66b79efeb" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="4aaeedcf-d6aa-488c-8dc0-32df69bfd55c" name="CreatePagingTS" type="element" specialization="Operation" />
+                  <target id="831c210d-e652-4c2d-91ec-71016c109042" name="dto" type="element" specialization="Parameter" />
+                  <target id="b5accb07-d7b7-4657-996e-aa1c3f18faa4" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

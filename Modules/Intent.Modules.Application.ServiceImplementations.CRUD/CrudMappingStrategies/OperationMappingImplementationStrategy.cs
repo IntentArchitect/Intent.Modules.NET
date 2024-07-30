@@ -53,7 +53,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
                         if (method.ReturnTypeInfo.GetTaskGenericType().ToString().StartsWith("PagedResult"))
                         {
                             string pagedResultTypeName = template.GetTypeName((IElement)operationModel.ReturnType.Element);
-                            method.WithReturnType(method.ReturnType.Replace("PageResult", pagedResultTypeName));
+                            method.WithReturnType(method.ReturnType.Replace("PagedResult", pagedResultTypeName));
                         }
                     }
                 }, 100);

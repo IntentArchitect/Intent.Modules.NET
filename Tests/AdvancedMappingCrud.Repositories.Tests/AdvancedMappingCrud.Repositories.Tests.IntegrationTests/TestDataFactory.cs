@@ -7,6 +7,7 @@ using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Basics;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Customers;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Optionals;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Orders;
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.PagingTS;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Products;
 using AutoFixture;
 using Intent.RoslynWeaver.Attributes;
@@ -101,6 +102,16 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests
             var orderItemId = await client.CreateOrderOrderItemAsync(command);
             _idTracker["OrderItemId"] = orderItemId;
             return (orderId, orderItemId);
+        }
+
+        public async Task<Guid> CreatePagingTS()
+        {
+            var client = new PagingTSServiceHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<PagingTSCreateDto>();
+            var pagingTSId = await client.CreatePagingTSAsync(command);
+            _idTracker["PagingTSId"] = pagingTSId;
+            return pagingTSId;
         }
 
         public async Task<Guid> CreateProduct()

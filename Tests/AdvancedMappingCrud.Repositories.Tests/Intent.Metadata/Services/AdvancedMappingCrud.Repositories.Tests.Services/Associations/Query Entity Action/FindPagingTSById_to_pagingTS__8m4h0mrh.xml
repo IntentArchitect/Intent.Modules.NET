@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7e59b07c-2135-40f5-a2f0-e9afbd1471e1">
+  <sourceEnd id="3621571d-d42b-4c32-b96b-159f78f52b57" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindPagingTSById</display>
+    <order>0</order>
+    <typeReference id="b0e5f4cd-da30-4046-beee-c78cb47c60dc">
+      <typeId>24ec3c6b-a4fa-40c0-9bf9-b2efe6cfc19c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7e59b07c-2135-40f5-a2f0-e9afbd1471e1" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>pagingTS</name>
+    <display>[query] pagingTS: PagingTS</display>
+    <order>1</order>
+    <typeReference id="eb389f70-8203-41ec-bf85-fdca4a1773ce">
+      <typeId>13f910fd-2cb9-4a66-b42e-d95846a50867</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="24ec3c6b-a4fa-40c0-9bf9-b2efe6cfc19c" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[FindPagingTSById]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="13f910fd-2cb9-4a66-b42e-d95846a50867" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[PagingTS]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="13f910fd-2cb9-4a66-b42e-d95846a50867" name="PagingTS" type="element" specialization="Class" />
+              <target id="3ad008dd-ad65-4755-bc58-666ecd9dbe3a" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="24ec3c6b-a4fa-40c0-9bf9-b2efe6cfc19c" name="FindPagingTSById" type="element" specialization="Operation" />
+                  <target id="e7b19f63-ba80-4c39-a9b9-f55db45eae8c" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

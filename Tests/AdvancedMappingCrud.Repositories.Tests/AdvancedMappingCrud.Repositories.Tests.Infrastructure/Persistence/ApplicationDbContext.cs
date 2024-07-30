@@ -42,6 +42,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
         public DbSet<FuneralCoverQuote> FuneralCoverQuotes { get; set; }
         public DbSet<Optional> Optionals { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<PagingTS> PagingTs { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Quote> Quotes { get; set; }
@@ -82,6 +83,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new FuneralCoverQuoteConfiguration());
             modelBuilder.ApplyConfiguration(new OptionalConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new PagingTSConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new QuoteConfiguration());

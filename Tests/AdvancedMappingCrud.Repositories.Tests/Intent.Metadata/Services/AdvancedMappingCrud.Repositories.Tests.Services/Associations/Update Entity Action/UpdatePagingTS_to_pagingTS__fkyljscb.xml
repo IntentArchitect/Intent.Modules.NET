@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="dead7ac4-6434-4fbd-98d7-402404bd464b">
+  <sourceEnd id="8f4ee7ab-e426-4fa9-8abb-acddfbd5d678" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : PagingTSService.UpdatePagingTS</display>
+    <order>0</order>
+    <typeReference id="159b73cf-cdf0-4c6c-bc31-d4ee5026521e">
+      <typeId>f78bcd27-c267-4e6f-8d2e-77af2175af88</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="dead7ac4-6434-4fbd-98d7-402404bd464b" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>pagingTS</name>
+    <display>[update] pagingTS: PagingTS</display>
+    <order>2</order>
+    <typeReference id="9aab0298-9a75-4ca1-8b80-b032db607fa0">
+      <typeId>13f910fd-2cb9-4a66-b42e-d95846a50867</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f78bcd27-c267-4e6f-8d2e-77af2175af88" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdatePagingTS]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="13f910fd-2cb9-4a66-b42e-d95846a50867" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[PagingTS]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="13f910fd-2cb9-4a66-b42e-d95846a50867" name="PagingTS" type="element" specialization="Class" />
+              <target id="3ad008dd-ad65-4755-bc58-666ecd9dbe3a" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="f78bcd27-c267-4e6f-8d2e-77af2175af88" name="UpdatePagingTS" type="element" specialization="Operation" />
+                  <target id="8170ab6b-a7b8-42f3-a4d1-d3c9f444da08" name="id" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f78bcd27-c267-4e6f-8d2e-77af2175af88" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdatePagingTS]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="13f910fd-2cb9-4a66-b42e-d95846a50867" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[PagingTS]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.Name}</expression>
+            <path>
+              <target id="13f910fd-2cb9-4a66-b42e-d95846a50867" name="PagingTS" type="element" specialization="Class" />
+              <target id="34f7bdd1-c5d8-4fd6-af8f-71a66b79efeb" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="f78bcd27-c267-4e6f-8d2e-77af2175af88" name="UpdatePagingTS" type="element" specialization="Operation" />
+                  <target id="540ab648-ba98-4b8a-a8e6-b3d1d135ac6c" name="dto" type="element" specialization="Parameter" />
+                  <target id="fc70ad94-2851-4812-ab4e-33e63911a8c9" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>
