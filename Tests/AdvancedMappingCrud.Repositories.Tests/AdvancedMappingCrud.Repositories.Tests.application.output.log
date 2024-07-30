@@ -340,6 +340,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#121d0ce3-7e80-475f-adaf-6e03568ea5a7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/GetBasicsNullable/GetBasicsNullableQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicsNullable/GetBasicsNullableQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#121d0ce3-7e80-475f-adaf-6e03568ea5a7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/GetBasicsNullable/GetBasicsNullableQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicsNullable/GetBasicsNullableQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#121d0ce3-7e80-475f-adaf-6e03568ea5a7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/GetBasicsNullable/GetBasicsNullableQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicsNullable/GetBasicsNullableQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#3ca66e1a-745b-4b71-86e0-5db2c4781d5e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Basics/UpdateBasic/UpdateBasicCommand.cs</ApplicationRelativeFilePath>
@@ -4036,6 +4060,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#121d0ce3-7e80-475f-adaf-6e03568ea5a7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Basics/GetBasicsNullableQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Basics/GetBasicsNullableQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#b42fcb56-9797-4a2f-b031-526e76d550b9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Basics/GetBasicsQuery.cs</ApplicationRelativeFilePath>
@@ -4568,6 +4600,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Basics/GetBasicByIdTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Basics/GetBasicByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#121d0ce3-7e80-475f-adaf-6e03568ea5a7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Basics/GetBasicsNullableTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Basics/GetBasicsNullableTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

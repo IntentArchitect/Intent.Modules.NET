@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Templates;
+using static Intent.Modules.Constants.TemplateRoles.Domain;
 
 namespace Intent.Modules.Application.DomainInteractions;
 
@@ -17,13 +20,17 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
     private readonly ICSharpFileBuilderTemplate _template;
     private readonly CSharpClassMappingManager _mappingManager;
 	private readonly bool _hasUnitOfWork;
+    private readonly CSharpProperty[] _pks;
 
-	public RepositoryDataAccessProvider(string repositoryFieldName, ICSharpFileBuilderTemplate template, CSharpClassMappingManager mappingManager, bool hasUnitOfWork)
+    public RepositoryDataAccessProvider(string repositoryFieldName, ICSharpFileBuilderTemplate template, CSharpClassMappingManager mappingManager, bool hasUnitOfWork, ClassModel entity)
     {
         _hasUnitOfWork = hasUnitOfWork;
 		_repositoryFieldName = repositoryFieldName;
         _template = template;
         _mappingManager = mappingManager;
+        var entityTemplate = _template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, entity);
+        _pks = entityTemplate.CSharpFile.Classes.First().GetPropertiesWithPrimaryKey();
+
     }
 
     public CSharpStatement SaveChangesAsync()
@@ -144,7 +151,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         return invocation;
     }
 
-    public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, string? orderBy, out IList<CSharpStatement> prerequisiteStatements)
+    public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, string? orderBy, bool orderByIsNullable, out IList<CSharpStatement> prerequisiteStatements)
     {
         var expression = CreateQueryFilterExpression(queryMapping, out prerequisiteStatements);
         var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAllAsync");
@@ -161,20 +168,20 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         {
             if (orderBy != null)
             {
-                expression = new CSharpStatement(expression.GetText("") + $".OrderBy({orderBy})");
+                expression = new CSharpStatement(expression.GetText("") + $".OrderBy({GetOrderByValue(orderByIsNullable, orderBy)})");
             }
             // When passing in Func<IQueryable, IQueryable> (query option):
             invocation.AddArgument(expression);
         }
         else if (orderBy != null) 
         {
-            invocation.AddArgument($"queryOptions => queryOptions.OrderBy({orderBy})");
+            invocation.AddArgument($"queryOptions => queryOptions.OrderBy({GetOrderByValue(orderByIsNullable, orderBy)})");
         }
         invocation.AddArgument("cancellationToken");
         return invocation;
     }
 
-    public CSharpStatement FindAllAsync(CSharpStatement expression, string pageNo, string pageSize, string? orderBy, out IList<CSharpStatement> prerequisiteStatements)
+    public CSharpStatement FindAllAsync(CSharpStatement expression, string pageNo, string pageSize, string? orderBy, bool orderByIsNullable, out IList<CSharpStatement> prerequisiteStatements)
     {
         prerequisiteStatements = new List<CSharpStatement>();
         var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAllAsync");
@@ -191,14 +198,14 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         {
             if (orderBy != null)
             {
-                expression = new CSharpStatement(expression.GetText("") + $".OrderBy({orderBy})");
+                expression = new CSharpStatement(expression.GetText("") + $".OrderBy({GetOrderByValue(orderByIsNullable, orderBy)})");
             }
             // pass in Func<IQueryable, IQueryable> (query option):
             invocation.AddArgument(expression);
         }
         else if (orderBy != null)
         {
-            invocation.AddArgument($"queryOptions => queryOptions.OrderBy({orderBy})");
+            invocation.AddArgument($"queryOptions => queryOptions.OrderBy({GetOrderByValue(orderByIsNullable, orderBy)})");
         }
 
         invocation.AddArgument("cancellationToken");
@@ -238,5 +245,10 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         requiredStatements.Add(block);
 
         return filterName;
+    }
+
+    private string GetOrderByValue(bool orderByIsNullable, string? orderByField)
+    {
+        return orderByIsNullable ? $"{orderByField} ?? \"{_pks[0].Name}\"" : orderByField;
     }
 }

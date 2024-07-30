@@ -14,6 +14,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Ba
         Task DeleteBasicAsync(Guid id, CancellationToken cancellationToken = default);
         Task UpdateBasicAsync(Guid id, UpdateBasicCommand command, CancellationToken cancellationToken = default);
         Task<BasicDto> GetBasicByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<PagedResult<BasicDto>> GetBasicsNullableAsync(int pageNo, int pageSize, string? orderBy, CancellationToken cancellationToken = default);
         Task<PagedResult<BasicDto>> GetBasicsAsync(int pageNo, int pageSize, string orderBy, CancellationToken cancellationToken = default);
     }
 }

@@ -1,3 +1,7 @@
+### Version 6.0.15
+
+- Improvement: Support for nullable `OrderBy` on Paging.
+
 ### Version 6.0.14
 
 - Improvement: Support for `OrderBy` on Paging.

@@ -23,6 +23,7 @@ function changeReturnType(element) {
     element.typeReference.setIsNullable(false);
 }
 function addPagingParameters(element, childElementType) {
+    var _a;
     const commonTypes = {
         guid: "6b649125-18ea-48fd-a6ba-0bfff0d8f488",
         long: "33013006-E404-48C2-AC46-24EF5A5774FD",
@@ -46,6 +47,7 @@ function addPagingParameters(element, childElementType) {
     if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "orderby")) {
         let pageSize = createElement(childElementType, "OrderBy", element.id);
         pageSize.typeReference.setType(commonTypes.string);
+        (_a = pageSize.typeReference) === null || _a === void 0 ? void 0 : _a.setIsNullable(true);
     }
 }
 /// &lt;reference path="../common/common-paginate.ts" /&gt;
@@ -83,6 +85,7 @@ function changeReturnType(element) {
     element.typeReference.setIsNullable(false);
 }
 function addPagingParameters(element, childElementType) {
+    var _a;
     const commonTypes = {
         guid: "6b649125-18ea-48fd-a6ba-0bfff0d8f488",
         long: "33013006-E404-48C2-AC46-24EF5A5774FD",
@@ -106,6 +109,7 @@ function addPagingParameters(element, childElementType) {
     if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "orderby")) {
         let pageSize = createElement(childElementType, "OrderBy", element.id);
         pageSize.typeReference.setType(commonTypes.string);
+        (_a = pageSize.typeReference) === null || _a === void 0 ? void 0 : _a.setIsNullable(true);
     }
 }
 /// &lt;reference path="../common/common-paginate.ts" /&gt;

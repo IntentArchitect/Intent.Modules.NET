@@ -1,3 +1,7 @@
+### Version 4.0.11
+
+- Improvement: Support for nullable `OrderBy` on Paging.
+
 ### Version 4.0.10
 
 - Improvement: Support for `OrderBy` on pagination.

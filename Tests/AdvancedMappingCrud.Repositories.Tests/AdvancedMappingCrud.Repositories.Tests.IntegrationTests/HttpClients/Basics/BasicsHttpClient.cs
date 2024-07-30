@@ -107,6 +107,36 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Ba
             }
         }
 
+        public async Task<PagedResult<BasicDto>> GetBasicsNullableAsync(
+            int pageNo,
+            int pageSize,
+            string? orderBy,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/basics/nullable";
+
+            var queryParams = new Dictionary<string, string?>();
+            queryParams.Add("pageNo", pageNo.ToString());
+            queryParams.Add("pageSize", pageSize.ToString());
+            queryParams.Add("orderBy", orderBy);
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<PagedResult<BasicDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
         public async Task<PagedResult<BasicDto>> GetBasicsAsync(
             int pageNo,
             int pageSize,

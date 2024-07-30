@@ -133,21 +133,21 @@ public class DbContextDataAccessProvider : IDataAccessProvider
         return invocation;
     }
 
-    public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, string? orderBy, out IList<CSharpStatement> prerequisiteStatements)
+    public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, string? orderBy, bool orderByIsNullable, out IList<CSharpStatement> prerequisiteStatements)
     {
         var invocation = new CSharpMethodChainStatement($"await {CreateQueryFilterExpression(queryMapping, out prerequisiteStatements)}");
 
         if (orderBy != null)
         {
             invocation.AddChainStatement(new CSharpInvocationStatement(_template.UseType($"System.Linq.Dynamic.Core.OrderBy"))
-                .AddArgument(orderBy)
+                .AddArgument(GetOrderByValue(orderByIsNullable, orderBy))
                 .WithoutSemicolon());
         }
 
         return invocation.AddChainStatement($"ToPagedListAsync({pageNo}, {pageSize}, cancellationToken)");
     }
 
-    public CSharpStatement FindAllAsync(CSharpStatement expression, string pageNo, string pageSize, string? orderBy, out IList<CSharpStatement> prerequisiteStatements)
+    public CSharpStatement FindAllAsync(CSharpStatement expression, string pageNo, string pageSize, string? orderBy, bool orderByIsNullable, out IList<CSharpStatement> prerequisiteStatements)
     {
         prerequisiteStatements = new List<CSharpStatement>();
         var invocation = new CSharpMethodChainStatement($"await {_dbSetAccessor}");
@@ -160,10 +160,15 @@ public class DbContextDataAccessProvider : IDataAccessProvider
         if (orderBy != null)
         {
             invocation.AddChainStatement(new CSharpInvocationStatement(_template.UseType($"System.Linq.Dynamic.Core.OrderBy"))
-                .AddArgument(orderBy)
+                .AddArgument(GetOrderByValue(orderByIsNullable, orderBy))
                 .WithoutSemicolon());
         }
         return invocation.AddChainStatement($"ToPagedListAsync({pageNo}, {pageSize}, cancellationToken)");
+    }
+
+    private string GetOrderByValue(bool orderByIsNullable, string? orderByField)
+    {
+        return orderByIsNullable ? $"{orderByField} ?? \"{_pks[0].Name}\"" : orderByField;
     }
 
     private string Where()

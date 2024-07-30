@@ -9,6 +9,7 @@ using AdvancedMappingCrud.Repositories.Tests.Application.Basics.CreateBasic;
 using AdvancedMappingCrud.Repositories.Tests.Application.Basics.DeleteBasic;
 using AdvancedMappingCrud.Repositories.Tests.Application.Basics.GetBasicById;
 using AdvancedMappingCrud.Repositories.Tests.Application.Basics.GetBasics;
+using AdvancedMappingCrud.Repositories.Tests.Application.Basics.GetBasicsNullable;
 using AdvancedMappingCrud.Repositories.Tests.Application.Basics.UpdateBasic;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Pagination;
 using Intent.RoslynWeaver.Attributes;
@@ -112,6 +113,24 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         {
             var result = await _mediator.Send(new GetBasicByIdQuery(id: id), cancellationToken);
             return result == null ? NotFound() : Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified PagedResult&lt;BasicDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("api/basics/nullable")]
+        [ProducesResponseType(typeof(PagedResult<BasicDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<PagedResult<BasicDto>>> GetBasicsNullable(
+            [FromQuery] int pageNo,
+            [FromQuery] int pageSize,
+            [FromQuery] string? orderBy,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetBasicsNullableQuery(pageNo: pageNo, pageSize: pageSize, orderBy: orderBy), cancellationToken);
+            return Ok(result);
         }
 
         /// <summary>

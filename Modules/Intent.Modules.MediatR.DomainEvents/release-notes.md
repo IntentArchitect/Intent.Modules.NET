@@ -1,3 +1,7 @@
+### Version 5.0.13
+
+- Improvement: Support for nullable `OrderBy` on Paging.
+
 ### Version 5.0.12
 
 - Improvement: Support for `OrderBy` on Paging.
