@@ -11,6 +11,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
+using Intent.Modules.EntityFrameworkCore.Helpers;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface;
@@ -53,6 +54,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
 
             FulfillsRole(TemplateRoles.Infrastructure.Data.ConnectionStringDbContext);
 
+            var currentDatabaseProvider = DbContextManager.GetDatabaseProviderForDbContext(Model.DbProvider, ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum());
+            
             CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")
                 .AddClass(Model.DbContextName, @class =>
                 {
@@ -70,6 +73,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
                         {
                             method.AddStatement($@"modelBuilder.HasDefaultSchema(""{ExecutionContext.Settings.GetDatabaseSettings().DefaultSchemaName()}"");");
                         }
+
+                        if (currentDatabaseProvider == DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql && NetTopologySuiteHelper.IsInstalled(ExecutionContext))
+                        {
+                            method.AddStatement(@"modelBuilder.HasPostgresExtension(""postgis"");");
+                        }
+
                         method.AddStatement("ConfigureModel(modelBuilder);", s => s.SeparatedFromPrevious());
                     });
 
@@ -90,7 +99,7 @@ modelBuilder.Entity<Car>().HasData(
 */");
                     });
 
-                    if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsCosmos())
+                    if (currentDatabaseProvider == DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos)
                     {
                         @class.AddMethod(UseType("System.Threading.Tasks.Task"), "EnsureDbCreatedAsync", method =>
                         {

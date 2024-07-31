@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.EntityFrameworkCore.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
@@ -10,10 +9,10 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Constants;
+using Intent.Modules.EntityFrameworkCore.Helpers;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Metadata.RDBMS.Settings;
-using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -48,7 +47,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             var defaultDbProvider = dependencyInjectionTemplate.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum();
             foreach (var dbContextInstance in dbContexts)
             {
-                var targetDbProvider = GetDatabaseProviderForDbContext(dbContextInstance.DbProvider, defaultDbProvider);
+                var targetDbProvider = DbContextManager.GetDatabaseProviderForDbContext(dbContextInstance.DbProvider, defaultDbProvider);
                 switch (targetDbProvider)
                 {
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
@@ -129,28 +128,6 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             }
         }
 
-        private static DatabaseSettingsExtensions.DatabaseProviderOptionsEnum GetDatabaseProviderForDbContext(
-            DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum? dbProvider,
-            DatabaseSettingsExtensions.DatabaseProviderOptionsEnum defaultDbProvider)
-        {
-            return dbProvider switch
-            {
-                null => defaultDbProvider,
-                DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Default => defaultDbProvider,
-                DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.SQLServer =>
-                    DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer,
-                DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.PostgreSQL =>
-                    DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql,
-                DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.MySQL =>
-                    DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql,
-                DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Oracle =>
-                    DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Oracle,
-                DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.InMemory =>
-                    DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory,
-                _ => throw new ArgumentOutOfRangeException($"DbProvider option '{dbProvider}' is not supported")
-            };
-        }
-
         private static string GetSqlServerExtendedConnectionString(ICSharpProject project)
         {
             return project.TryGetMaxNetAppVersion(out var version) && version.Major >= 7
@@ -198,7 +175,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 builderStatements.Add($@"b.MigrationsHistoryTable(HistoryRepository.DefaultTableName, ""{dependencyInjection.ExecutionContext.Settings.GetDatabaseSettings().DefaultSchemaName()}"");");
             }
 
-            var targetDbProvider = GetDatabaseProviderForDbContext(dbContextInstance.DbProvider, defaultDbProvider);
+            var targetDbProvider = DbContextManager.GetDatabaseProviderForDbContext(dbContextInstance.DbProvider, defaultDbProvider);
             switch (targetDbProvider)
             {
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
@@ -230,6 +207,16 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         .WithArgumentsOnNewLines()
                         .AddArgument($"configuration.GetConnectionString({connectionString})", a => a.AddMetadata("is-connection-string", true))
                         .AddArgument(dbContextOptionsBuilderStatement));
+
+                    // Determining which DbContext is using the Geometry types and targeting that one only requires that you determine which
+                    // Domain package contains Models that are referencing those types. A simple way to achieve that is to have the TypeResolver
+                    // publish an Event (which needs to be introduced to both EF and NetTopologySuite modules) and upon detection figure out
+                    // the package in question. Not doing that for now and only assuming main DB context is using this.
+                    if (NetTopologySuiteHelper.IsInstalled(dependencyInjection.ExecutionContext) && dbContextInstance.IsApplicationDbContext)
+                    {
+                        builderStatements.Add("b.UseNetTopologySuite();");
+                    }
+                    
                     break;
 
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:

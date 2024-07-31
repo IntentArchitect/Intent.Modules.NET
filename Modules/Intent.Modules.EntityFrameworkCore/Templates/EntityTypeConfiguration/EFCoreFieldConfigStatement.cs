@@ -181,6 +181,10 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
                     statements.Add($".HasColumnType(\"decimal({safeString})\")");
                 }
             }
+            else if (attribute.Type.Element is IElement geoElement && geoElement.Metadata.TryGetValue("geometry", out var value))
+            {
+                statements.Add($@".HasColumnType(""geography ({value.ToLower()})"")");
+            }
         }
 
         var columnName = attribute.GetColumn()?.Name();

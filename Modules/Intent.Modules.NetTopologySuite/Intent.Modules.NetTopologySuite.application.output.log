@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>ac49e34e-9d17-4dfb-93cd-3a4fd3a0768c</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#ff3bd82c-50ed-42ea-abb0-cea595fdc2f0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>16d1b403-43c7-44e0-8f1d-2714f54f97e3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#b604e8a9-21a9-429c-9505-9d595d83e867</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/GeometryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2c59d9e4-799a-4b53-ac6e-ef51198ae68a</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#2c59d9e4-799a-4b53-ac6e-ef51198ae68a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.NetTopologySuite.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.NetTopologySuite.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2c59d9e4-799a-4b53-ac6e-ef51198ae68a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.NetTopologySuite.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.NetTopologySuite.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2c59d9e4-799a-4b53-ac6e-ef51198ae68a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

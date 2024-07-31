@@ -29,10 +29,31 @@ public static class DbContextManager
         var pkg = classModel.InternalElement.Package.AsDomainPackageModel();
         if (pkg is null)
         {
-            throw new Exception($"Class is not found within a Domain Package");
+            throw new Exception($"Class ({classModel.Id}, {classModel.Name}) is not found within a Domain Package");
         }
 
         return new DbContextInstance(pkg);
+    }
+
+    internal static DatabaseSettingsExtensions.DatabaseProviderOptionsEnum GetDatabaseProviderForDbContext(DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum? dbProvider,
+        DatabaseSettingsExtensions.DatabaseProviderOptionsEnum defaultDbProvider)
+    {
+        return dbProvider switch
+        {
+            null => defaultDbProvider,
+            DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Default => defaultDbProvider,
+            DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.SQLServer =>
+                DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer,
+            DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.PostgreSQL =>
+                DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql,
+            DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.MySQL =>
+                DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql,
+            DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Oracle =>
+                DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Oracle,
+            DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.InMemory =>
+                DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory,
+            _ => throw new ArgumentOutOfRangeException($"DbProvider option '{dbProvider}' is not supported")
+        };
     }
 
     private static IList<DbContextInstance> GetDbContexts(IDesigner domainDesigner)

@@ -144,5 +144,6 @@
     <application id="5bca5abc-7b7a-40d4-9fec-220705ed94ed" name="Intent.Modules.Eventing.Solace" relativePath="Intent.Modules.Eventing.Solace/Intent.Modules.Eventing.Solace.application.config" />
     <application id="4a709c8e-37f0-40ba-94d3-fb0fb1e00b18" name="Intent.Modules.Dapper" relativePath="Intent.Modules.Dapper/Intent.Modules.Dapper.application.config" />
     <application id="758dcf4d-aac0-4c2c-8a7d-a50e4116e360" name="Intent.Modules.HashiCorp.Vault" relativePath="Intent.Modules.HashiCorp.Vault/Intent.Modules.HashiCorp.Vault.application.config" />
+    <application id="ac49e34e-9d17-4dfb-93cd-3a4fd3a0768c" name="Intent.Modules.NetTopologySuite" relativePath="Intent.Modules.NetTopologySuite/Intent.Modules.NetTopologySuite.application.config" />
   </applications>
 </solution>
