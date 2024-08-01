@@ -43,6 +43,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>8e71320f-0b23-4673-b960-93f56bbd07de</ProjectId>
+      <CorrelationId>Intent.NetTopologySuite.GeoDestructureSerilogPolicy</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Api/Logging/GeoDestructureSerilogPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeoDestructureSerilogPolicy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>504b651e-9eb8-429a-810e-4f301ef7f95f</ProjectId>
       <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

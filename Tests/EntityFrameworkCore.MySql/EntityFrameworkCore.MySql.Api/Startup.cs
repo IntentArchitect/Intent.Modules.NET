@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using NetTopologySuite.IO.Converters;
 using Serilog;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -37,7 +38,11 @@ namespace EntityFrameworkCore.MySql.Api
                 opt =>
                 {
                     opt.Filters.Add<ExceptionFilter>();
-                });
+                })
+            .AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new GeoJsonConverterFactory());
+            });
             services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureProblemDetails();
