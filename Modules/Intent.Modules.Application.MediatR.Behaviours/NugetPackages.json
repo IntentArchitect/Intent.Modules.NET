@@ -1,0 +1,30 @@
+{
+  "packages": [
+    {
+      "name": "MediatR",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "12.4.0"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Extensions.Logging",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "7.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "8.0.0"
+        }
+      ]
+    }
+  ]
+}

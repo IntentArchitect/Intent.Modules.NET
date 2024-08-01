@@ -1,0 +1,13 @@
+{
+  "packages": [
+    {
+      "name": "FluentValidation.DependencyInjectionExtensions",
+      "versions": [
+        {
+          "framework": "2.0",
+          "version": "11.9.2"
+        }
+      ]
+    }
+  ]
+}
