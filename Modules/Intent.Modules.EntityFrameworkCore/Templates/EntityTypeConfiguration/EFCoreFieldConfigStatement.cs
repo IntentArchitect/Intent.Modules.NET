@@ -5,6 +5,7 @@ using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.EntityFrameworkCore.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.Settings;
@@ -181,9 +182,9 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
                     statements.Add($".HasColumnType(\"decimal({safeString})\")");
                 }
             }
-            else if (attribute.Type.Element is IElement geoElement && geoElement.Metadata.TryGetValue("geometry", out var value))
+            else if (attribute.Type.Element.HasStereotype("Geometry") && dbSettings.DatabaseProvider().IsPostgresql())
             {
-                statements.Add($@".HasColumnType(""geography ({value.ToLower()})"")");
+                statements.Add($@".HasColumnType(""geography ({attribute.Type.Element.Name.ToLower()})"")");
             }
         }
 

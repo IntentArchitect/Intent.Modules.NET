@@ -4,7 +4,6 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Constants;
-using Intent.Modules.NetTopologySuite.TypeSources;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -31,16 +30,10 @@ namespace Intent.Modules.NetTopologySuite.FactoryExtensions
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var templates = application.FindTemplateInstances<ICSharpTemplate>(TemplateRoles.Application.Contracts.Dto)
-                .Concat(application.FindTemplateInstances<ICSharpTemplate>(TemplateRoles.Application.Command))
-                .Concat(application.FindTemplateInstances<ICSharpTemplate>(TemplateRoles.Application.Query))
-                .Concat(application.FindTemplateInstances<ICSharpTemplate>(TemplateRoles.Domain.Entity.Interface))
-                .Concat(application.FindTemplateInstances<ICSharpTemplate>(TemplateRoles.Domain.Entity.State))
-                .Concat(application.FindTemplateInstances<ICSharpTemplate>(TemplateRoles.Repository.Interface.Entity))
-                .ToList();
+            var templates = application.FindTemplateInstances<ICSharpTemplate>(TemplateRoles.Domain.Entity.Primary).ToList();
             foreach (var template in templates)
             {
-                template.AddTypeSource(new GeometryTypeSource(template));
+                template.AddNugetDependency(NugetPackages.NetTopologySuite);
             }
         }
     }

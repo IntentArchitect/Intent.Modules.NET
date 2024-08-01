@@ -62,14 +62,6 @@ public static class NugetPackages
             (7, 0) => "7.21.13",
             _ => "8.21.121"
         });
-
-    private static string GetMicrosoftEfVersion(IOutputTarget outputTarget) => outputTarget.GetMaxNetAppVersion() switch
-    {
-        (5, 0) => "5.0.17",
-        (6, 0) => "6.0.25",
-        (7, 0) => "7.0.14",
-        _ => "8.0.0"
-    };
     
     // Has only support for EF 6 & 7: https://erikej.github.io/efcore/sqlserver/2023/09/03/efcore-dateonly-timeonly.html
     // EF 8 already has support for DateOnly.
@@ -90,4 +82,42 @@ public static class NugetPackages
             _ => false
         };
     }
+
+    public static NugetPackageInfo GetNpgsqlEntityFrameworkCorePostgreSQLNetTopologySuite(IOutputTarget outputTarget) => new(
+        name: "Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite",
+        version: outputTarget.GetMaxNetAppVersion() switch
+        {
+            (5, 0) => "5.0.10",
+            (6, 0) => "6.0.22",
+            (7, 0) => "7.0.11",
+            _ => "8.0.0"
+        });
+    
+    public static NugetPackageInfo GetMicrosoftEntityFrameworkCoreSqlServerNetTopologySuite(IOutputTarget outputTarget) => new(
+        name: "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite",
+        version: outputTarget.GetMaxNetAppVersion() switch
+        {
+            (5, 0) => "5.0.10",
+            (6, 0) => "6.0.22",
+            (7, 0) => "7.0.11",
+            _ => "8.0.0"
+        });
+    
+    public static NugetPackageInfo GetPomeloEntityFrameworkCoreMySqlNetTopologySuite(IOutputTarget outputTarget) => new(
+        name: "Pomelo.EntityFrameworkCore.MySql.NetTopologySuite",
+        version: outputTarget.GetMaxNetAppVersion() switch
+        {
+            (5, 0) => "5.0.10",
+            (6, 0) => "6.0.22",
+            (7, 0) => "7.0.11",
+            _ => "8.0.0"
+        });
+    
+    private static string GetMicrosoftEfVersion(IOutputTarget outputTarget) => outputTarget.GetMaxNetAppVersion() switch
+    {
+        (5, 0) => "5.0.17",
+        (6, 0) => "6.0.25",
+        (7, 0) => "7.0.14",
+        _ => "8.0.0"
+    };
 }

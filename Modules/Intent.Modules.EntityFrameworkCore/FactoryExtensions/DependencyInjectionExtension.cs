@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Helpers;
 using Intent.Modules.EntityFrameworkCore.Settings;
@@ -197,6 +198,9 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     {
                         builderStatements.Add("b.UseDateOnlyTimeOnly()");
                     }
+                    
+                    
+                    ConfigureNetTopologySuite(dependencyInjection, dbContextInstance, builderStatements, NugetPackages.GetMicrosoftEntityFrameworkCoreSqlServerNetTopologySuite(dependencyInjection.OutputTarget));
 
                     break;
 
@@ -208,14 +212,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         .AddArgument($"configuration.GetConnectionString({connectionString})", a => a.AddMetadata("is-connection-string", true))
                         .AddArgument(dbContextOptionsBuilderStatement));
 
-                    // Determining which DbContext is using the Geometry types and targeting that one only requires that you determine which
-                    // Domain package contains Models that are referencing those types. A simple way to achieve that is to have the TypeResolver
-                    // publish an Event (which needs to be introduced to both EF and NetTopologySuite modules) and upon detection figure out
-                    // the package in question. Not doing that for now and only assuming main DB context is using this.
-                    if (NetTopologySuiteHelper.IsInstalled(dependencyInjection.ExecutionContext) && dbContextInstance.IsApplicationDbContext)
-                    {
-                        builderStatements.Add("b.UseNetTopologySuite();");
-                    }
+                    ConfigureNetTopologySuite(dependencyInjection, dbContextInstance, builderStatements, NugetPackages.GetNpgsqlEntityFrameworkCorePostgreSQLNetTopologySuite(dependencyInjection.OutputTarget));
                     
                     break;
 
@@ -226,6 +223,9 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         .AddArgument($"configuration.GetConnectionString({connectionString})", a => a.AddMetadata("is-connection-string", true))
                         .AddArgument(@"ServerVersion.Parse(""8.0"")")
                         .AddArgument(dbContextOptionsBuilderStatement));
+                    
+                    ConfigureNetTopologySuite(dependencyInjection, dbContextInstance, builderStatements, NugetPackages.GetPomeloEntityFrameworkCoreMySqlNetTopologySuite(dependencyInjection.OutputTarget));
+                    
                     break;
 
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
@@ -270,6 +270,20 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
             addDbContext.AddConfigOptionStatements(statements);
             return addDbContext;
+        }
+
+        private static void ConfigureNetTopologySuite(ICSharpFileBuilderTemplate dependencyInjection, DbContextInstance dbContextInstance, List<CSharpStatement> builderStatements,
+            NugetPackageInfo nuget)
+        {
+            // Determining which DbContext is using the Geometry types and targeting that one only requires that you determine which
+            // Domain package contains Models that are referencing those types. A simple way to achieve that is to have the TypeResolver
+            // publish an Event (which needs to be introduced to both EF and NetTopologySuite modules) and upon detection figure out
+            // the package in question. Not doing that for now and only assuming main DB context is using this.
+            if (NetTopologySuiteHelper.IsInstalled(dependencyInjection.ExecutionContext) && dbContextInstance.IsApplicationDbContext)
+            {
+                dependencyInjection.AddNugetDependency(nuget);
+                builderStatements.Add("b.UseNetTopologySuite();");
+            }
         }
     }
 }
