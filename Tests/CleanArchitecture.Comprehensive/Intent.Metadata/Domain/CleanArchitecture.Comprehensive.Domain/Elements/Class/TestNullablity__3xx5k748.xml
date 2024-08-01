@@ -59,7 +59,7 @@
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+        <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
         <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -192,7 +192,7 @@
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+        <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
         <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -253,7 +253,7 @@
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+        <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
         <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -330,7 +330,7 @@
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+            <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
             <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
             <stereotypes />
             <genericTypeParameters />
@@ -487,7 +487,7 @@
             <isNullable>true</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+            <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
             <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
             <stereotypes />
             <genericTypeParameters />
@@ -518,7 +518,7 @@
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>CleanArchitecture.TestApplication.Domain</typePackageName>
+            <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
             <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
             <stereotypes />
             <genericTypeParameters />

@@ -14,6 +14,7 @@ using CleanArchitecture.Comprehensive.Domain.Entities.DDD;
 using CleanArchitecture.Comprehensive.Domain.Entities.DefaultDiagram;
 using CleanArchitecture.Comprehensive.Domain.Entities.Enums;
 using CleanArchitecture.Comprehensive.Domain.Entities.General;
+using CleanArchitecture.Comprehensive.Domain.Entities.Geometry;
 using CleanArchitecture.Comprehensive.Domain.Entities.Inheritance;
 using CleanArchitecture.Comprehensive.Domain.Entities.Nullability;
 using CleanArchitecture.Comprehensive.Domain.Entities.ODataQuery;
@@ -31,6 +32,7 @@ using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.DefaultDiagram;
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.Enums;
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.General;
+using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.Geometry;
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.Inheritance;
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.Nullability;
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.ODataQuery;
@@ -78,6 +80,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence
         public DbSet<ClassWithDefault> ClassWithDefaults { get; set; }
         public DbSet<ClassWithEnums> ClassWithEnums { get; set; }
         public DbSet<CustomMapping> CustomMappings { get; set; }
+        public DbSet<GeometryType> GeometryTypes { get; set; }
         public DbSet<BaseClass> BaseClasses { get; set; }
         public DbSet<ConcreteClass> ConcreteClasses { get; set; }
         public DbSet<CompositeManyB> CompositeManyBs { get; set; }
@@ -140,6 +143,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new ClassWithDefaultConfiguration());
             modelBuilder.ApplyConfiguration(new ClassWithEnumsConfiguration());
             modelBuilder.ApplyConfiguration(new CustomMappingConfiguration());
+            modelBuilder.ApplyConfiguration(new GeometryTypeConfiguration());
             modelBuilder.ApplyConfiguration(new BaseClassConfiguration());
             modelBuilder.ApplyConfiguration(new ConcreteClassConfiguration());
             modelBuilder.ApplyConfiguration(new NullabilityPeerConfiguration());

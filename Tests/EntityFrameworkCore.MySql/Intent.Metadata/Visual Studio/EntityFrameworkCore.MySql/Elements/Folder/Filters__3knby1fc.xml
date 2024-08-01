@@ -69,5 +69,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="7b58df98-b198-40a9-805e-a9f19a5d45a1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.NetTopologySuite.GeoJsonSchemaSwaggerFilter</name>
+      <display>Intent.NetTopologySuite.GeoJsonSchemaSwaggerFilter</display>
+      <externalReference>Intent.NetTopologySuite</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6a08a633-3654-4856-9ffb-25dbace22ab4</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

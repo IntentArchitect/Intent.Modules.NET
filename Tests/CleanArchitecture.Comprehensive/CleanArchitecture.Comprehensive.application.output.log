@@ -116,6 +116,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#ca77a7f4-9305-4696-88c3-74f2aa32de64</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/GeometryTypesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#5355c4ab-3cc6-40e3-a16f-a8e0c7bdbf07</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/IntegrationTriggeringsAnemicController.cs</ApplicationRelativeFilePath>
@@ -344,6 +352,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
+      <CorrelationId>Intent.NetTopologySuite.GeoJsonSchemaSwaggerFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Filters/GeoJsonSchemaFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeoJsonSchemaFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -872,6 +888,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application.Tests/Extensions/RepositoryExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#eb720540-8523-40dd-9da4-39dad2aefaf9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application.Tests/Geometry/GeometryTypes/GeometryTypeAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Geometry/GeometryTypes/GeometryTypeAssertions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3296,6 +3320,142 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/General/CustomMappingDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>General/CustomMappingDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#ed5f06af-8de2-4f49-967c-c7e75823223d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/CreateGeometryType/CreateGeometryTypeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/CreateGeometryType/CreateGeometryTypeCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#ed5f06af-8de2-4f49-967c-c7e75823223d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/CreateGeometryType/CreateGeometryTypeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/CreateGeometryType/CreateGeometryTypeCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#ed5f06af-8de2-4f49-967c-c7e75823223d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/CreateGeometryType/CreateGeometryTypeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/CreateGeometryType/CreateGeometryTypeCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#3dc73836-d557-4cf9-b073-111cab36d8cc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/DeleteGeometryType/DeleteGeometryTypeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/DeleteGeometryType/DeleteGeometryTypeCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#3dc73836-d557-4cf9-b073-111cab36d8cc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/DeleteGeometryType/DeleteGeometryTypeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/DeleteGeometryType/DeleteGeometryTypeCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#3dc73836-d557-4cf9-b073-111cab36d8cc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/DeleteGeometryType/DeleteGeometryTypeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/DeleteGeometryType/DeleteGeometryTypeCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#4cb31d4f-00f2-4534-922c-3832d8290e41</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/GeometryTypeDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/GeometryTypeDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#4cb31d4f-00f2-4534-922c-3832d8290e41</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/GeometryTypeDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/GeometryTypeDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#91623eda-ccc9-4b5e-8a3c-b67027f60416</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/GetGeometryTypeById/GetGeometryTypeByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/GetGeometryTypeById/GetGeometryTypeByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#91623eda-ccc9-4b5e-8a3c-b67027f60416</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/GetGeometryTypeById/GetGeometryTypeByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/GetGeometryTypeById/GetGeometryTypeByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#91623eda-ccc9-4b5e-8a3c-b67027f60416</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/GetGeometryTypeById/GetGeometryTypeByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/GetGeometryTypeById/GetGeometryTypeByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#1d158404-d2aa-4aa4-872b-a7a662d460c7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/GetGeometryTypes/GetGeometryTypesQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/GetGeometryTypes/GetGeometryTypesQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#1d158404-d2aa-4aa4-872b-a7a662d460c7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/GetGeometryTypes/GetGeometryTypesQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/GetGeometryTypes/GetGeometryTypesQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#1d158404-d2aa-4aa4-872b-a7a662d460c7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/GetGeometryTypes/GetGeometryTypesQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/GetGeometryTypes/GetGeometryTypesQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#8b5197f6-8853-4077-a6e1-1368803ae59c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/UpdateGeometryType/UpdateGeometryTypeCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/UpdateGeometryType/UpdateGeometryTypeCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#8b5197f6-8853-4077-a6e1-1368803ae59c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/UpdateGeometryType/UpdateGeometryTypeCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/UpdateGeometryType/UpdateGeometryTypeCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#8b5197f6-8853-4077-a6e1-1368803ae59c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/UpdateGeometryType/UpdateGeometryTypeCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeometryTypes/UpdateGeometryType/UpdateGeometryTypeCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6692,6 +6852,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#eb720540-8523-40dd-9da4-39dad2aefaf9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Entities/Geometry/GeometryType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Geometry/GeometryType.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#506bade0-2acf-41ce-8373-3e73fb7e1b83</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Entities/Inheritance/BaseClass.cs</ApplicationRelativeFilePath>
@@ -7016,6 +7184,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Repositories/General/ICustomMappingRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>General/ICustomMappingRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#eb720540-8523-40dd-9da4-39dad2aefaf9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Repositories/Geometry/IGeometryTypeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Geometry/IGeometryTypeRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -7540,6 +7716,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#eb720540-8523-40dd-9da4-39dad2aefaf9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Persistence/Configurations/Geometry/GeometryTypeConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Geometry/GeometryTypeConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#506bade0-2acf-41ce-8373-3e73fb7e1b83</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Persistence/Configurations/Inheritance/BaseClassConfiguration.cs</ApplicationRelativeFilePath>
@@ -7792,6 +7976,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Repositories/General/CustomMappingRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>General/CustomMappingRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#eb720540-8523-40dd-9da4-39dad2aefaf9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Repositories/Geometry/GeometryTypeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Geometry/GeometryTypeRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

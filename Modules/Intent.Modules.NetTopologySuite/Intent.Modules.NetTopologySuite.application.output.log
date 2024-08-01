@@ -25,6 +25,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>16d1b403-43c7-44e0-8f1d-2714f54f97e3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#40b2ee5e-8312-47af-a098-a65cb3d46c17</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/StartupExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StartupExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>16d1b403-43c7-44e0-8f1d-2714f54f97e3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#ff1d7080-7204-4e2b-bd09-9f4e173850d0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/SwaggerConfigExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SwaggerConfigExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>2c59d9e4-799a-4b53-ac6e-ef51198ae68a</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#2c59d9e4-799a-4b53-ac6e-ef51198ae68a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -46,6 +62,30 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ed8d9207-7475-45f0-8d6a-0e396061b846</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b380dffd-d9d8-4abe-84a2-5e0a7ceab541</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/GeoJsonSchemaSwaggerFilter/GeoJsonSchemaSwaggerFilterTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeoJsonSchemaSwaggerFilter/GeoJsonSchemaSwaggerFilterTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ed8d9207-7475-45f0-8d6a-0e396061b846</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#b380dffd-d9d8-4abe-84a2-5e0a7ceab541</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/GeoJsonSchemaSwaggerFilter/GeoJsonSchemaSwaggerFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeoJsonSchemaSwaggerFilter/GeoJsonSchemaSwaggerFilterTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ed8d9207-7475-45f0-8d6a-0e396061b846</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="862520b5-52c2-45c6-9810-c4f8d113671d">
+  <sourceEnd id="184fc6c9-573b-4853-991d-23ec1323106b" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetGeometryTypesQuery</display>
+    <order>0</order>
+    <typeReference id="c8a06f53-fe48-438b-b615-fd8b4c19f925">
+      <typeId>1d158404-d2aa-4aa4-872b-a7a662d460c7</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="862520b5-52c2-45c6-9810-c4f8d113671d" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>geometryTypes</name>
+    <display>[query] geometryTypes: GeometryType[*]</display>
+    <order>0</order>
+    <typeReference id="099b04e2-f2e6-41ed-8b86-85641b435eca">
+      <typeId>eb720540-8523-40dd-9da4-39dad2aefaf9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1d158404-d2aa-4aa4-872b-a7a662d460c7" location="[CleanArchitecture.Comprehensive].[Services].[GetGeometryTypesQuery]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="eb720540-8523-40dd-9da4-39dad2aefaf9" location="[CleanArchitecture.Comprehensive].[Services].[GeometryType]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

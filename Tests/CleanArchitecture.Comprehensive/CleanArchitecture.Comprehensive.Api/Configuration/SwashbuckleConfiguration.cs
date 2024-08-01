@@ -45,6 +45,7 @@ namespace CleanArchitecture.Comprehensive.Api.Configuration
                     {
                         options.IncludeXmlComments(applicationXmlFile);
                     }
+                    options.SchemaFilter<GeoJsonSchemaFilter>();
                     options.SchemaFilter<TypeSchemaFilter>();
                     options.OperationFilter<ODataQueryFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
