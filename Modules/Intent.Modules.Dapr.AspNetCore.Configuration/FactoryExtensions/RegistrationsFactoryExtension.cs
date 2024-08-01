@@ -36,7 +36,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Configuration.FactoryExtensions
                 return;
             }
 
-            startupTemplate.AddNugetDependency(NuGetPackages.DaprExtensionsConfiguration);
+            startupTemplate.AddNugetDependency(NugetPackages.DaprExtensionsConfiguration(startupTemplate.OutputTarget));
             startupTemplate.CSharpFile.AfterBuild(_ =>
             {
                 startupTemplate.StartupFile.ConfigureApp((hasCSharpStatements, ctx) =>
@@ -55,7 +55,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Configuration.FactoryExtensions
                 return;
             }
 
-            programTemplate.AddNugetDependency(NuGetPackages.DaprExtensionsConfiguration);
+            programTemplate.AddNugetDependency(NugetPackages.DaprExtensionsConfiguration(programTemplate.OutputTarget));
 
             programTemplate.CSharpFile.OnBuild(file =>
             {

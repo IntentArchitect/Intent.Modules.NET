@@ -23,7 +23,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandlerImplementa
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public EventHandlerImplementationTemplate(IOutputTarget outputTarget, MessageModel model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.MediatR);
+            AddNugetDependency(NugetPackages.MediatR(outputTarget));
 
             CSharpFile = new CSharpFile(
                     @namespace: this.GetNamespace(),

@@ -1,3 +1,7 @@
+### Version 2.0.4
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 2.0.3
 
 - Improvement: Updated Interoperable dependency versions.

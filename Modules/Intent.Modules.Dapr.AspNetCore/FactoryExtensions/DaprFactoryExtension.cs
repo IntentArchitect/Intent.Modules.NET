@@ -41,7 +41,7 @@ namespace Intent.Modules.Dapr.AspNetCore.FactoryExtensions
 
             var startup = startupTemplate.StartupFile;
 
-            startupTemplate.AddNugetDependency(NuGetPackages.ManDaprSidekickAspNetCore);
+            startupTemplate.AddNugetDependency(NugetPackages.ManDaprSidekickAspNetCore(startupTemplate.OutputTarget));
             startupTemplate.CSharpFile.AfterBuild(_ =>
             {
                 startup.ConfigureServices((statements, context) =>

@@ -29,7 +29,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CommandModelsTemplate(IOutputTarget outputTarget, CommandModel model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.MediatR);
+            AddNugetDependency(NugetPackages.MediatR(outputTarget));
 
             FulfillsRole("Application.Contract.Command");
 

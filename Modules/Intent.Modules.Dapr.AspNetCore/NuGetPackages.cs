@@ -1,13 +1,47 @@
-﻿using Intent.Modules.Common.VisualStudio;
+using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 
-namespace Intent.Modules.Dapr.AspNetCore;
-
-public static class NuGetPackages
+namespace Intent.Modules.Dapr.AspNetCore
 {
-    public static readonly INugetPackageInfo DaprAspNetCore = new NugetPackageInfo("Dapr.AspNetCore", "1.9.0");
-    public static readonly INugetPackageInfo DaprClient = new NugetPackageInfo("Dapr.Client", "1.9.0");
-    public static readonly INugetPackageInfo MediatR = new NugetPackageInfo("MediatR", "12.1.1");
-    public static readonly INugetPackageInfo ManDaprSidekickAspNetCore = new NugetPackageInfo("Man.Dapr.Sidekick.AspNetCore", "1.1.0");
-    public static readonly INugetPackageInfo DaprExtensionsConfiguration = new NugetPackageInfo("Dapr.Extensions.Configuration", "1.9.0");
-    
+    public static class NugetPackages
+    {
+
+        public static NugetPackageInfo DaprAspNetCore(IOutputTarget outputTarget) => new(
+            name: "Dapr.AspNetCore",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "1.13.1",
+                _ => "1.13.1",
+            });
+
+        public static NugetPackageInfo DaprClient(IOutputTarget outputTarget) => new(
+            name: "Dapr.Client",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "1.13.1",
+                _ => "1.13.1",
+            });
+
+        public static NugetPackageInfo MediatR(IOutputTarget outputTarget) => new(
+            name: "MediatR",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                _ => "12.4.0",
+            });
+
+        public static NugetPackageInfo ManDaprSidekickAspNetCore(IOutputTarget outputTarget) => new(
+            name: "Man.Dapr.Sidekick.AspNetCore",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                _ => "1.2.2",
+            });
+
+        public static NugetPackageInfo DaprExtensionsConfiguration(IOutputTarget outputTarget) => new(
+            name: "Dapr.Extensions.Configuration",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "1.13.1",
+                _ => "1.13.1",
+            });
+    }
 }

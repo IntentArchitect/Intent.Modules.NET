@@ -24,7 +24,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventBusImplementation
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public EventBusImplementationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.DaprClient);
+            AddNugetDependency(NugetPackages.DaprClient(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Collections.Concurrent")

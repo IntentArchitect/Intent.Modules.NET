@@ -1,4 +1,8 @@
-﻿### Version 2.2.7
+﻿### Version 2.2.8
+
+- Improvement: Updated NuGet packages to latest stables.
+
+### Version 2.2.7
 
 - Improvement: Proxies now respecting Applications Services `Serialize Enums as Strings` setting.
 

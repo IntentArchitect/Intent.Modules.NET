@@ -1,0 +1,13 @@
+{
+  "packages": [
+    {
+      "name": "MediatR",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "12.4.0"
+        }
+      ]
+    }
+  ]
+}
