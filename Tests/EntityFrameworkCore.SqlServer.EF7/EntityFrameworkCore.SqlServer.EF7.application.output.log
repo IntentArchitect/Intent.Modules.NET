@@ -596,6 +596,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1889c19a-4c9e-4960-81fc-6f57a716e796</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#b8d99c69-3cfb-4182-8bc4-35e54981a450</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Entities/Geometry/GeometryType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Geometry/GeometryType.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1889c19a-4c9e-4960-81fc-6f57a716e796</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#3ee0b8f0-0426-4325-bc37-35f49b717cf1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Entities/Indexes/ComplexDefaultIndex.cs</ApplicationRelativeFilePath>
@@ -1704,6 +1712,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Repositories/ExplicitKeys/IPK_PrimaryKeyLongRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExplicitKeys/IPK_PrimaryKeyLongRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd4094d-1dc3-4cd3-87d2-4e7005f2d2a8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#b8d99c69-3cfb-4182-8bc4-35e54981a450</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Domain/Repositories/Geometry/IGeometryTypeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Geometry/IGeometryTypeRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2828,6 +2844,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>a3451ed3-3890-4518-8a8b-31b7941f4ec2</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#b8d99c69-3cfb-4182-8bc4-35e54981a450</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Persistence/Configurations/Geometry/GeometryTypeConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Geometry/GeometryTypeConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a3451ed3-3890-4518-8a8b-31b7941f4ec2</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#3ee0b8f0-0426-4325-bc37-35f49b717cf1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Persistence/Configurations/Indexes/ComplexDefaultIndexConfiguration.cs</ApplicationRelativeFilePath>
@@ -3864,6 +3888,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Repositories/ExplicitKeys/PK_PrimaryKeyLongRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExplicitKeys/PK_PrimaryKeyLongRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5aa5f510-6a2e-41d5-8e9c-1acc09cb770e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#b8d99c69-3cfb-4182-8bc4-35e54981a450</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Infrastructure/Repositories/Geometry/GeometryTypeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Geometry/GeometryTypeRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

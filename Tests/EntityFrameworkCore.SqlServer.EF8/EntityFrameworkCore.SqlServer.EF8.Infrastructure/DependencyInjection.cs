@@ -5,6 +5,7 @@ using EntityFrameworkCore.SqlServer.EF8.Domain.Repositories.Accounts.NotSchema;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Repositories.Associations;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Repositories.BasicAudit;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Repositories.ExplicitKeys;
+using EntityFrameworkCore.SqlServer.EF8.Domain.Repositories.Geometry;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Repositories.Indexes;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Repositories.NestedAssociations;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Repositories.NotSchema;
@@ -24,6 +25,7 @@ using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.Accounts.Not
 using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.Associations;
 using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.BasicAudit;
 using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.ExplicitKeys;
+using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.Geometry;
 using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.Indexes;
 using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.NestedAssociations;
 using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.NotSchema;
@@ -54,7 +56,11 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure
             {
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
+                    b =>
+                    {
+                        b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
+                        b.UseNetTopologySuite();
+                    });
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
@@ -105,6 +111,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure
             services.AddTransient<IPK_B_CompositeKeyRepository, PK_B_CompositeKeyRepository>();
             services.AddTransient<IPK_PrimaryKeyIntRepository, PK_PrimaryKeyIntRepository>();
             services.AddTransient<IPK_PrimaryKeyLongRepository, PK_PrimaryKeyLongRepository>();
+            services.AddTransient<IGeometryTypeRepository, GeometryTypeRepository>();
             services.AddTransient<IComplexDefaultIndexRepository, ComplexDefaultIndexRepository>();
             services.AddTransient<ICustomIndexRepository, CustomIndexRepository>();
             services.AddTransient<IDefaultIndexRepository, DefaultIndexRepository>();
