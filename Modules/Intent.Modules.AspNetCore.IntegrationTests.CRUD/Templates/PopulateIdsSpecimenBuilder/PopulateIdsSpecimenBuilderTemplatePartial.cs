@@ -22,7 +22,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.Templates.PopulateIdsS
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public PopulateIdsSpecimenBuilderTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.AutoFixture);
+            AddNugetDependency(NugetPackages.AutoFixture(outputTarget));
             
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("AutoFixture.Kernel")

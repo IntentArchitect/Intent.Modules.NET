@@ -15,7 +15,6 @@ using Intent.Templates;
 
 namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationService
 {
-    using NuGetPackages = Modules.FluentValidation.Shared.NuGetPackages;
 
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class ValidationServiceTemplate : CSharpTemplateBase<object>
@@ -25,7 +24,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationS
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ValidationServiceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.FluentValidation);
+            AddNugetDependency(NugetPackages.FluentValidation(outputTarget));
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

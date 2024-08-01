@@ -1,3 +1,7 @@
+### Version 3.9.2
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 3.9.1
 
 - Improvement: Added `TODO` comments on `NotImplementedException`.

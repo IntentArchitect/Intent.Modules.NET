@@ -1,33 +1,86 @@
-﻿using Intent.Engine;
+using Intent.Engine;
 using Intent.Modules.Common.VisualStudio;
-using System;
 
 namespace Intent.Modules.AspNetCore.IntegrationTesting
 {
-    public class NugetPackages
+    public static class NugetPackages
     {
 
-        public static readonly INugetPackageInfo AutoFixture = new NugetPackageInfo("AutoFixture", "4.18.0");
-        public static readonly INugetPackageInfo MicrosoftNETTestSdk = new NugetPackageInfo("Microsoft.NET.Test.Sdk", "17.6.0");
-        public static readonly INugetPackageInfo Xunit = new NugetPackageInfo("xunit", "2.4.2");
-        public static readonly INugetPackageInfo XunitRunnerVisualstudio = new NugetPackageInfo("xunit.runner.visualstudio", "2.4.5");
-        public static readonly INugetPackageInfo TestcontainersCosmosDb = new NugetPackageInfo("Testcontainers.CosmosDb", "3.9.0");
-        public static readonly INugetPackageInfo TestcontainersMsSql = new NugetPackageInfo("Testcontainers.MsSql", "3.9.0");
-        public static readonly INugetPackageInfo TestcontainersMongoDb = new NugetPackageInfo("Testcontainers.MongoDb", "3.9.0");
-        public static readonly INugetPackageInfo TestcontainersPostgreSql = new NugetPackageInfo("Testcontainers.PostgreSql", "3.9.0");
-		public static readonly INugetPackageInfo IEvangelistAzureCosmosRepository = new NugetPackageInfo("IEvangelist.Azure.CosmosRepository", "8.1.5");
-		//These are brought in by "IEvangelist.Azure.CosmosRepository"
-		public static readonly INugetPackageInfo MicrosoftExtensionsConfigurationAbstractions = new NugetPackageInfo("Microsoft.Extensions.Configuration.Abstractions", "8.0.0");
-		public static readonly INugetPackageInfo MicrosoftExtensionsConfigurationBinder = new NugetPackageInfo("Microsoft.Extensions.Configuration.Binder", "8.0.0");
-		public static readonly INugetPackageInfo MicrosoftExtensionsDependencyInjection = new NugetPackageInfo("Microsoft.Extensions.DependencyInjection", "8.0.0");
+        public static NugetPackageInfo AutoFixture(IOutputTarget outputTarget) => new(
+            name: "AutoFixture",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                _ => "4.18.1",
+            });
 
-		public static NugetPackageInfo MicrosoftAspNetCoreMvcTesting(IOutputTarget outputTarget) => new(
+        public static NugetPackageInfo MicrosoftNETTestSdk(IOutputTarget outputTarget) => new(
+            name: "Microsoft.NET.Test.Sdk",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                _ => "15.5.0",
+            });
+
+        public static NugetPackageInfo Xunit(IOutputTarget outputTarget) => new(
+            name: "xunit",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                _ => "2.9.0",
+            });
+
+        public static NugetPackageInfo XunitRunnerVisualstudio(IOutputTarget outputTarget) => new(
+            name: "xunit.runner.visualstudio",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                _ => "2.8.2",
+            });
+
+        public static NugetPackageInfo TestcontainersCosmosDb(IOutputTarget outputTarget) => new(
+            name: "Testcontainers.CosmosDb",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "3.9.0",
+                _ => "3.9.0",
+            });
+
+        public static NugetPackageInfo TestcontainersMsSql(IOutputTarget outputTarget) => new(
+            name: "Testcontainers.MsSql",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "3.9.0",
+                _ => "3.9.0",
+            });
+
+        public static NugetPackageInfo TestcontainersPostgreSql(IOutputTarget outputTarget) => new(
+            name: "Testcontainers.PostgreSql",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "3.9.0",
+                _ => "3.9.0",
+            });
+
+        public static NugetPackageInfo TestcontainersMongoDb(IOutputTarget outputTarget) => new(
+            name: "Testcontainers.MongoDb",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "3.9.0",
+                _ => "3.9.0",
+            });
+
+        public static NugetPackageInfo IEvangelistAzureCosmosRepository(IOutputTarget outputTarget) => new(
+            name: "IEvangelist.Azure.CosmosRepository",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (7, 0) => "8.1.7",
+                _ => "8.1.7",
+            });
+
+        public static NugetPackageInfo MicrosoftAspNetCoreMvcTesting(IOutputTarget outputTarget) => new(
             name: "Microsoft.AspNetCore.Mvc.Testing",
             version: outputTarget.GetMaxNetAppVersion() switch
             {
-                (6, 0) => "6.0.26",
-                (7, 0) => "7.0.15",
-                _ => "8.0.1"
+                (6, 0) => "6.0.32",
+                (7, 0) => "7.0.20",
+                _ => "8.0.7",
             });
     }
 }

@@ -33,11 +33,8 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
         {
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
             var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrency();
-            AddNugetDependency(NugetDependencies.IEvangelistAzureCosmosRepository);
-			AddNugetDependency(NugetDependencies.MicrosoftExtensionsDependencyInjection);
-			AddNugetDependency(NugetDependencies.MicrosoftExtensionsConfigurationAbstractions);
-			AddNugetDependency(NugetDependencies.MicrosoftExtensionsConfigurationBinder);
-			AddNugetDependency(NugetDependencies.NewtonsoftJson);
+            AddNugetDependency(NugetPackages.IEvangelistAzureCosmosRepository(outputTarget));
+			AddNugetDependency(NugetPackages.NewtonsoftJson(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

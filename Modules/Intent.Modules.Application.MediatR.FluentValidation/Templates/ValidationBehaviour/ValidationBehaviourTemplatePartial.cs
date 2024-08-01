@@ -21,7 +21,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.Validati
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ValidationBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.FluentValidation);
+            AddNugetDependency(NugetPackages.FluentValidation(outputTarget));
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

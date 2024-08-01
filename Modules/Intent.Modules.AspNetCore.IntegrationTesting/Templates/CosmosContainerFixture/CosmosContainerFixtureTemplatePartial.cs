@@ -38,7 +38,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.CosmosContainer
                     AddUsing("Microsoft.Azure.CosmosRepository.Providers");
                     AddUsing("Microsoft.Extensions.Options");
                     AddUsing("Testcontainers.CosmosDb");
-                    AddNugetDependency(NugetPackages.TestcontainersCosmosDb);
+                    AddNugetDependency(NugetPackages.TestcontainersCosmosDb(outputTarget));
                     @class.AddField("string", "_accountEndpoint", f => f.PrivateReadOnly().WithAssignment("\"https://localhost:{0}/\""));
                     @class.AddField("string", "_accountKey", f => f.PrivateReadOnly().WithAssignment("\"C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==\""));
                     @class.AddField("CosmosDbContainer", "_dbContainer", f => f.PrivateReadOnly());
