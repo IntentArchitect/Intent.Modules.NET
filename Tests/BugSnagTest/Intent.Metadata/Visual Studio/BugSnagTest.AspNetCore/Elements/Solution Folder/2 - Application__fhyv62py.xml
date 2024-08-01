@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1ca88cc3-61a3-4d4b-bfe0-c33a5a8f544c" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>2 - Application</name>
+  <display>2 - Application</display>
+  <externalReference>b44dfcb9-e9e9-43a2-855e-abf9c45a0359</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</parentFolderId>
+  <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+  <packageName>BugSnagTest.AspNetCore</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

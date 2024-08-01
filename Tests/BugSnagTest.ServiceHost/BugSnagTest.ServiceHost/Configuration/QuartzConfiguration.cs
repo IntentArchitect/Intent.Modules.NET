@@ -16,7 +16,8 @@ namespace BugSnagTest.ServiceHost.Configuration
     {
         public static IServiceCollection ConfigureQuartz(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddTransient<BugSnagQuartzJobListener>();
+            services.AddSingleton<BugSnagQuartzJobListener>();
+
             services
                 .AddQuartz(q =>
                 {
@@ -28,7 +29,7 @@ namespace BugSnagTest.ServiceHost.Configuration
                             trigger.WithIdentity("ScheduledJob");
                         });
                     }
-                    q.AddJobListener(sp => sp.GetRequiredService<BugSnagQuartzJobListener>(), GroupMatcher<JobKey>.AnyGroup());
+                    q.AddJobListener<BugSnagQuartzJobListener>(GroupMatcher<JobKey>.AnyGroup());
                 });
 
             services

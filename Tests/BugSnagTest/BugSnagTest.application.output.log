@@ -6,7 +6,7 @@
       <ProjectId>ec86453e-3687-49ef-bc6b-89cebfb86d04</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#ec86453e-3687-49ef-bc6b-89cebfb86d04</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Api/appsettings.json</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/appsettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>appsettings.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -14,15 +14,15 @@
       <ProjectId>ec86453e-3687-49ef-bc6b-89cebfb86d04</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#ec86453e-3687-49ef-bc6b-89cebfb86d04</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Api/BugSnagTest.Api.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BugSnagTest.Api.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/BugSnagTest.AspNetCore.Api.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BugSnagTest.AspNetCore.Api.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1c6634da-090c-4b7b-b5fd-598d28ea49c6</ProjectId>
       <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Api/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersioningConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -30,7 +30,7 @@
       <ProjectId>1c6634da-090c-4b7b-b5fd-598d28ea49c6</ProjectId>
       <CorrelationId>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Configuration/ApiVersionSwaggerGenOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApiVersionSwaggerGenOptions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -38,7 +38,7 @@
       <ProjectId>1c6634da-090c-4b7b-b5fd-598d28ea49c6</ProjectId>
       <CorrelationId>Intent.Bugsnag.BugsnagConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Api/Configuration/BugsnagConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Configuration/BugsnagConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BugsnagConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -46,15 +46,23 @@
       <ProjectId>1c6634da-090c-4b7b-b5fd-598d28ea49c6</ProjectId>
       <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c6634da-090c-4b7b-b5fd-598d28ea49c6</ProjectId>
+      <CorrelationId>Intent.QuartzScheduler.QuartzConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Configuration/QuartzConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>QuartzConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>1c6634da-090c-4b7b-b5fd-598d28ea49c6</ProjectId>
       <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -62,7 +70,7 @@
       <ProjectId>66a8e44b-a559-4ae6-8b3f-e911e81322c0</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#731ffab9-72e7-4d5a-8416-8f58a59973b7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Api/Controllers/TestController.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Controllers/TestController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TestController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -70,7 +78,7 @@
       <ProjectId>9c2575fe-fe8c-47b2-aa08-4a720d921e9d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -78,15 +86,31 @@
       <ProjectId>9c2575fe-fe8c-47b2-aa08-4a720d921e9d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dee2b152-0486-429c-ba99-a861fd9750ce</ProjectId>
+      <CorrelationId>Intent.Bugsnag.BugSnagQuartzJobListener</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Jobs/BugSnagQuartzJobListener.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BugSnagQuartzJobListener.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dee2b152-0486-429c-ba99-a861fd9750ce</ProjectId>
+      <CorrelationId>Intent.QuartzScheduler.ScheduledJob#e354c480-7bd8-482b-95bd-8fa1f0628eb7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Jobs/ScheduledJob.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScheduledJob.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>ec86453e-3687-49ef-bc6b-89cebfb86d04</ProjectId>
       <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Api/Program.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Program.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -94,7 +118,7 @@
       <ProjectId>ec86453e-3687-49ef-bc6b-89cebfb86d04</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#ec86453e-3687-49ef-bc6b-89cebfb86d04</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Api/Properties/launchSettings.json</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Properties/launchSettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -102,7 +126,7 @@
       <ProjectId>ec86453e-3687-49ef-bc6b-89cebfb86d04</ProjectId>
       <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Api/Startup.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -110,15 +134,31 @@
       <ProjectId>e9f4a3cc-e325-49cc-a800-5b92f251cce1</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#e9f4a3cc-e325-49cc-a800-5b92f251cce1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Application/BugSnagTest.Application.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BugSnagTest.Application.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Application/BugSnagTest.AspNetCore.Application.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BugSnagTest.AspNetCore.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e1a01ae-26a6-46ec-8d6a-fcd7cf9d15f4</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e1a01ae-26a6-46ec-8d6a-fcd7cf9d15f4</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Application/Common/Interfaces/IQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IQuery.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e9f4a3cc-e325-49cc-a800-5b92f251cce1</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -126,7 +166,7 @@
       <ProjectId>d0dc2ce3-c958-4d2f-9c42-2d0b3f16a36f</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#731ffab9-72e7-4d5a-8416-8f58a59973b7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Application/Implementation/TestService.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Application/Implementation/TestService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TestService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -134,7 +174,7 @@
       <ProjectId>33c854ae-bea8-4bd5-892e-6882b6c45a13</ProjectId>
       <CorrelationId>Intent.Application.Contracts.ServiceContract#731ffab9-72e7-4d5a-8416-8f58a59973b7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Application/Interfaces/ITestService.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Application/Interfaces/ITestService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ITestService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
@@ -142,38 +182,54 @@
       <ProjectId>e9f4a3cc-e325-49cc-a800-5b92f251cce1</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#c3b02ef3-ffe9-479e-8a08-f78e2bbe6f39</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Application/RequestDto.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Application/RequestDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RequestDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e9f4a3cc-e325-49cc-a800-5b92f251cce1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#b6f68119-7dfc-441a-848a-d18c2a0e7a09</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Application/Scheduled/ScheduledCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Scheduled/ScheduledCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e9f4a3cc-e325-49cc-a800-5b92f251cce1</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#b6f68119-7dfc-441a-848a-d18c2a0e7a09</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Application/Scheduled/ScheduledCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Scheduled/ScheduledCommandHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>12e0aaa8-e489-4854-83f9-e981b11f3510</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#12e0aaa8-e489-4854-83f9-e981b11f3510</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Domain/BugSnagTest.Domain.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BugSnagTest.Domain.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Domain/BugSnagTest.AspNetCore.Domain.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BugSnagTest.AspNetCore.Domain.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>578111a3-b8a3-4a32-ba5a-bdff50405d25</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#578111a3-b8a3-4a32-ba5a-bdff50405d25</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Infrastructure/BugSnagTest.Infrastructure.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BugSnagTest.Infrastructure.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Infrastructure/BugSnagTest.AspNetCore.Infrastructure.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BugSnagTest.AspNetCore.Infrastructure.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>578111a3-b8a3-4a32-ba5a-bdff50405d25</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#04efcf03-925e-4fd9-9eff-433f8fd7cd82</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>BugSnagTest.sln</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>BugSnagTest.AspNetCore.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

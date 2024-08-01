@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="95326d3a-3af2-4a21-8971-9049ae91d774">
+  <sourceEnd id="b9307139-7936-4e9d-91c6-a6c2c0ad43f5" type="Scheduled Command Publish Source End" typeId="cdc46a25-9f81-4ea8-9a5d-d9e9a283652b">
+    <display>publishes: BugSnagTest.Services.ScheduledJob</display>
+    <order>0</order>
+    <typeReference id="10d38d92-aadd-4923-b7e9-f02904cc5a3c">
+      <typeId>e354c480-7bd8-482b-95bd-8fa1f0628eb7</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BugSnagTest.Services</typePackageName>
+      <typePackageId>d0a18b7c-ca5d-4f6d-abad-e5be8b8207a7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="95326d3a-3af2-4a21-8971-9049ae91d774" type="Scheduled Command Publish Target End" typeId="6c92ad1e-8353-4703-894f-12dc1db00acc">
+    <display>publishes: ScheduledCommand</display>
+    <order>0</order>
+    <typeReference id="e3fa62d6-8c46-42dd-807d-f101dc230f77">
+      <typeId>b6f68119-7dfc-441a-848a-d18c2a0e7a09</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>BugSnagTest.Services</typePackageName>
+      <typePackageId>d0a18b7c-ca5d-4f6d-abad-e5be8b8207a7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Scheduled Command Publish</associationType>
+  <associationTypeId>411881c2-8521-4d56-91a3-54bb48bce507</associationTypeId>
+  <stereotypes />
+</association>

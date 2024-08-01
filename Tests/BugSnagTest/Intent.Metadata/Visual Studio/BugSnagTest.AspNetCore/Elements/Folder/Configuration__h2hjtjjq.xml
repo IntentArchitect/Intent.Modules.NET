@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1c6634da-090c-4b7b-b5fd-598d28ea49c6" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Configuration</name>
+  <display>Configuration</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ec86453e-3687-49ef-bc6b-89cebfb86d04</parentFolderId>
+  <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+  <packageName>BugSnagTest.AspNetCore</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="a939620e-c224-4c64-b41e-efa33e3bcd35" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
+      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
+      <externalReference>Intent.AspNetCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1c6634da-090c-4b7b-b5fd-598d28ea49c6</parentFolderId>
+      <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+      <packageName>BugSnagTest.AspNetCore</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="95c2c73d-8fbe-4320-bf94-1331db7abc81" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</name>
+      <display>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1c6634da-090c-4b7b-b5fd-598d28ea49c6</parentFolderId>
+      <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+      <packageName>BugSnagTest.AspNetCore</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="4da0321e-0121-4b16-936a-fc15d9ea6619" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</display>
+      <externalReference>Intent.AspNetCore.Versioning</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1c6634da-090c-4b7b-b5fd-598d28ea49c6</parentFolderId>
+      <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+      <packageName>BugSnagTest.AspNetCore</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ea1c62aa-8429-4237-86c5-d6a218263efc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</display>
+      <externalReference>Intent.AspNetCore.Versioning</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1c6634da-090c-4b7b-b5fd-598d28ea49c6</parentFolderId>
+      <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+      <packageName>BugSnagTest.AspNetCore</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2fdcfda4-78e4-4fef-9ddb-bbdfbeee11b9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Bugsnag.BugsnagConfiguration</name>
+      <display>Intent.Bugsnag.BugsnagConfiguration</display>
+      <externalReference>Intent.Bugsnag</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1c6634da-090c-4b7b-b5fd-598d28ea49c6</parentFolderId>
+      <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+      <packageName>BugSnagTest.AspNetCore</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e35b7de1-c879-491b-aac7-baadcf46ea87" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.QuartzScheduler.QuartzConfiguration</name>
+      <display>Intent.QuartzScheduler.QuartzConfiguration</display>
+      <externalReference>Intent.QuartzScheduler</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1c6634da-090c-4b7b-b5fd-598d28ea49c6</parentFolderId>
+      <packageId>04efcf03-925e-4fd9-9eff-433f8fd7cd82</packageId>
+      <packageName>BugSnagTest.AspNetCore</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

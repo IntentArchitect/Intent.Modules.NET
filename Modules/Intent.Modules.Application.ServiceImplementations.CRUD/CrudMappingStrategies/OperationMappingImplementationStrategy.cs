@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Intent.Exceptions;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.DomainInteractions;
@@ -38,12 +39,24 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
         public void BindToTemplate(ICSharpFileBuilderTemplate template, OperationModel operationModel)
         {
 
-            _template.AddKnownType("System.Linq.Dynamic.Core.PagedResult");
-
             if (operationModel.ReturnType?.Element != null && operationModel.ReturnType.Element.Name.Contains("PagedResult") && operationModel.Parameters.Any(x => x.Name.ToLower() == "orderby"))
             {
                 _template.UseType("System.Linq.Dynamic.Core.OrderBy");
                 _template.AddNugetDependency(SharedNuGetPackages.SystemLinqDynamicCore);
+
+                template.CSharpFile.AfterBuild(file => 
+                {
+                    var @class = _template.CSharpFile.Classes.First();
+                    var method = @class.FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id);
+                    if (method.ReturnTypeInfo.IsTask())
+                    {
+                        if (method.ReturnTypeInfo.GetTaskGenericType().ToString().StartsWith("PagedResult"))
+                        {
+                            string pagedResultTypeName = template.GetTypeName((IElement)operationModel.ReturnType.Element);
+                            method.WithReturnType(method.ReturnType.Replace("PagedResult", pagedResultTypeName));
+                        }
+                    }
+                }, 100);
             }
             template.CSharpFile.AfterBuild(_ => ApplyStrategy(operationModel));
         }
