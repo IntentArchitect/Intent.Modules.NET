@@ -22,7 +22,7 @@ namespace Intent.Modules.NetTopologySuite.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
-        protected override void OnAfterTemplateRegistrations (IApplication application)
+        protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration"));
             if (template == null)
@@ -40,10 +40,10 @@ namespace Intent.Modules.NetTopologySuite.FactoryExtensions
                     return;
                 }
 
-                configureSwaggerOptionsBlock.AddStatement($@"options.SchemaFilter<{template.GetGeoJsonSchemaSwaggerFilterName()}>();"); 
+                configureSwaggerOptionsBlock.AddStatement($@"options.SchemaFilter<{template.GetGeoJsonSchemaSwaggerFilterName()}>();");
             });
         }
-        
+
         private static CSharpLambdaBlock? GetConfigureSwaggerOptionsBlock(CSharpClass @class)
         {
             var configureSwaggerMethod = @class.FindMethod("ConfigureSwagger");

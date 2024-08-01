@@ -41,7 +41,7 @@ namespace Intent.Modules.NetTopologySuite.FactoryExtensions
                 var lastConfigStatement = (CSharpInvocationStatement)configServicesMethod!.Statements.Last(p => p.HasMetadata("configure-services-controllers"));
 
                 var addJsonOptionsStatement =
-                    configServicesMethod.FindStatement(s => s.TryGetMetadata<string>("configure-services-controllers", out var v) && v == "json") 
+                    configServicesMethod.FindStatement(s => s.TryGetMetadata<string>("configure-services-controllers", out var v) && v == "json")
                         as CSharpInvocationStatement;
                 if (addJsonOptionsStatement is null)
                 {

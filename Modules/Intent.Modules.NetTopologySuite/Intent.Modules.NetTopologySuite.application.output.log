@@ -66,6 +66,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>ed8d9207-7475-45f0-8d6a-0e396061b846</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f7a0accc-e650-4526-9a65-eb5f571c420e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/GeoDestructureSerilogPolicy/GeoDestructureSerilogPolicyTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeoDestructureSerilogPolicy/GeoDestructureSerilogPolicyTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ed8d9207-7475-45f0-8d6a-0e396061b846</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f7a0accc-e650-4526-9a65-eb5f571c420e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/GeoDestructureSerilogPolicy/GeoDestructureSerilogPolicyTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GeoDestructureSerilogPolicy/GeoDestructureSerilogPolicyTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ed8d9207-7475-45f0-8d6a-0e396061b846</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b380dffd-d9d8-4abe-84a2-5e0a7ceab541</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/GeoJsonSchemaSwaggerFilter/GeoJsonSchemaSwaggerFilterTemplatePartial.cs</ApplicationRelativeFilePath>

@@ -33,7 +33,7 @@ namespace Intent.Modules.NetTopologySuite.Templates.GeoJsonSchemaSwaggerFilter
                     {
                         method.AddParameter("OpenApiSchema", "schema");
                         method.AddParameter("SchemaFilterContext", "context");
-                        method.AddIfStatement("context.Type == typeof(Point)", stmt=>stmt
+                        method.AddIfStatement("context.Type == typeof(Point)", stmt => stmt
                             .AddStatement(@"schema.Format = ""geojson"";")
                             .AddStatement(new CSharpAssignmentStatement("schema.Example", new CSharpObjectInitializerBlock("new OpenApiObject")
                                 .AddKeyAndValue(@"""type""", @"new OpenApiString(""Point"")")
@@ -43,7 +43,7 @@ namespace Intent.Modules.NetTopologySuite.Templates.GeoJsonSchemaSwaggerFilter
                     });
                 });
         }
-        
+
         public override bool CanRunTemplate()
         {
             return ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration")) != null;
