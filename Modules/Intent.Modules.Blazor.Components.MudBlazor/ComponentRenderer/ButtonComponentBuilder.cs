@@ -44,7 +44,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
 
             _componentTemplate.RazorFile.AfterBuild(file =>
             {
-                _componentTemplate.GetClass().TryGetReferenceForModel(onClickMapping.SourceElement.Id, out var reference);
+                _componentTemplate.GetCodeBehind().TryGetReferenceForModel(onClickMapping.SourceElement.Id, out var reference);
                 if (reference is CSharpClassMethod method)
                 {
                     var form = component.GetParentPath().Reverse().FirstOrDefault(x => x.IsFormModel());
@@ -67,7 +67,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
                     }
                     htmlElement.WithText(null); // clear text
                     var processingFieldName = $"{method.Name}Processing".ToPrivateMemberName();
-                    _componentTemplate.GetClass().AddField("bool", processingFieldName, f => f.WithAssignment("false"));
+                    _componentTemplate.GetCodeBehind().AddField("bool", processingFieldName, f => f.WithAssignment("false"));
                     ((CSharpTryBlock)method.FindStatement(x => x is CSharpTryBlock))?.InsertStatement(0, new CSharpAssignmentStatement(processingFieldName, "true").WithSemicolon());
                     ((CSharpFinallyBlock)method.FindStatement(x => x is CSharpFinallyBlock))?.InsertStatement(0, new CSharpAssignmentStatement(processingFieldName, "false").WithSemicolon());
 

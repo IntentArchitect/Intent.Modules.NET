@@ -54,7 +54,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
 
                     ComponentBuilderProvider.ResolveFor(Model.View.InternalElement).BuildComponent(Model.View.InternalElement, file);
 
-                    var block = GetClass();
+                    var block = GetCodeBehind();
                     block.AddCodeBlockMembers(this, Model.InternalElement);
                     if (Model.HasPage())
                     {

@@ -23,7 +23,7 @@ public class CheckboxComponentBuilder : IRazorComponentBuilder
         var model = new CheckboxModel(component);
         var htmlElement = new HtmlElement("MudCheckBox", _componentTemplate.RazorFile);
         htmlElement.AddAttributeIfNotEmpty("@bind-Value", _bindingManager.GetElementBinding(model, parentNode)?.ToString())
-            .AddAttributeIfNotEmpty("Label", model.GetLabelAddon()?.Label());
+            .AddAttributeIfNotEmpty("Label", model.GetLabelAddon()?.Label() ?? model.Name);
 
         parentNode.AddChildNode(htmlElement);
     }

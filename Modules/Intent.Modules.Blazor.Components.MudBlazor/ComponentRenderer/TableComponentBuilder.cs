@@ -98,7 +98,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
             {
                 _componentTemplate.RazorFile.AfterBuild(file =>
                 {
-                    if (_componentTemplate.GetClass().TryGetReferenceForModel(_bindingManager.GetMappedEndFor(table, "913e0abf-0bec-43ea-9286-eb70187c84ef")?.SourceElement.Id, out var reference)
+                    if (_componentTemplate.GetCodeBehind().TryGetReferenceForModel(_bindingManager.GetMappedEndFor(table, "913e0abf-0bec-43ea-9286-eb70187c84ef")?.SourceElement.Id, out var reference)
                         && reference is CSharpClassMethod method)
                     {
                         var processingFieldName = method.AddProcessingFieldName();

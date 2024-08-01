@@ -55,6 +55,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.DtoContract
                 {
                     if (x.InternalElement.IsCommandModel() || x.InternalElement.IsQueryModel())
                     {
+                        // Excludes Commands / Queries and aren't actually payloads:
                         return HttpEndpointModelFactory.GetEndpoint(x.InternalElement)?.Inputs.Any(i => i.Id == x.Id) == true;
                     }
 

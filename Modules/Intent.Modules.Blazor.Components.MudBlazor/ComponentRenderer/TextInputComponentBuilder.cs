@@ -26,7 +26,7 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
         var valueMapping = _bindingManager.GetMappedEndFor(textInput);
         var valueBinding = _bindingManager.GetBinding(valueMapping)?.ToString();
         htmlElement.AddAttributeIfNotEmpty("@bind-Value", valueBinding)
-                        .AddAttributeIfNotEmpty("Label", textInput.GetLabelAddon()?.Label().TrimEnd(':'));
+                        .AddAttributeIfNotEmpty("Label", textInput.GetLabelAddon()?.Label().TrimEnd(':') ?? textInput.Name);
         parentNode.AddChildNode(htmlElement);
         if (parentNode.GetAllNodesInHierarchy().OfType<HtmlElement>().Any(x => x.Name == "MudForm"))
         {

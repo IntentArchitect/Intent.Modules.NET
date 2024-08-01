@@ -322,6 +322,26 @@ dataCollection.getChildren().filter(x =&gt; x.specialization == "Property" || x.
           </childSettings>
         </mappableElement>
       </mappableElementSettings>
+      <mappableElementExtensions>
+        <mappableElementExtension>
+          <targetSettings>
+            <type type="On Row Click" typeId="5e17d25c-5d06-4db6-9961-51910f21b41f" />
+          </targetSettings>
+          <scriptOptions>
+            <option>
+              <text>Auto-map to Operation</text>
+              <shortcut>space</shortcut>
+              <icon type="FontAwesome" source="code" />
+              <script>const invocationMappingTYpeId = "e4f0c63b-0f00-42bd-a703-00adf44f3364";
+const parentElement = mapping.getSourceElement();
+const newElement = createElement("Component Operation", (element.getParent().getName() + element.getName().replace("On ", "")).replace(" ", ""), parentElement.id);
+mapping.addMappedEnd(invocationMappingTYpeId, newElement.getMappingPath(), element.getMappingPath());</script>
+            </option>
+          </scriptOptions>
+          <staticMappableSettings />
+          <childSettings />
+        </mappableElementExtension>
+      </mappableElementExtensions>
     </mappableElementPackageExtension>
   </mappableElementPackageExtensions>
 </settings>

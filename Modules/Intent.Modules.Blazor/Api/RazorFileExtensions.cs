@@ -6,6 +6,7 @@ using Intent.Modelers.UI.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Templates;
 
 namespace Intent.Modules.Blazor.Api;
 
@@ -39,7 +40,31 @@ public static class RazorFileExtensions
         }
     }
 
-    public static void AddCodeBlockMembers(this IRazorComponentClass block, IRazorComponentTemplate template, IElement componentElement)
+    public static void InjectServiceProperty(this IBuildsCSharpMembers block, string fullyQualifiedTypeName, string? propertyName = null)
+    {
+        if (block is IRazorCodeBlock razorCodeBlock)
+        {
+            razorCodeBlock.RazorFile.AddInjectDirective(fullyQualifiedTypeName, propertyName);
+        }
+        else if (block is ICSharpClass @class)
+        {
+            var type = block.Template.UseType(fullyQualifiedTypeName);
+            if (@class.Properties.Any(x => x.Type == type))
+            {
+                return;
+            }
+            @class.AddProperty(
+                type: type,
+                name: propertyName ?? type,
+                configure: property =>
+                {
+                    property.AddAttribute(block.Template.UseType("Microsoft.AspNetCore.Components.Inject"));
+                    property.WithInitialValue("default!");
+                });
+        }
+    }
+
+    public static void AddCodeBlockMembers(this IBuildsCSharpMembers block, IRazorComponentTemplate template, IElement componentElement)
     {
         foreach (var child in componentElement.ChildElements)
         {
@@ -80,7 +105,7 @@ public static class RazorFileExtensions
                 block.AddMethod(block.Template.GetTypeName(operation.TypeReference), methodName, method =>
                 {
                     method.RepresentsModel(child); // throws exception because parent Class not set. Refactor CSharp builder to accomodate
-                    if (methodName.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase) && operation.CallServiceOperationActionTargets().Any())
+                    if (methodName.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase)/* && operation.CallServiceOperationActionTargets().Any()*/)
                     {
                         method.Async();
                     }
@@ -135,7 +160,7 @@ public static class RazorFileExtensions
                                 foreach (var serviceCall in operation.CallServiceOperationActionTargets())
                                 {
                                     var serviceName = ((IElement)serviceCall.Element).ParentElement.Name.ToPropertyName();
-                                    block.AddInjectedProperty(block.Template.GetTypeName(((IElement)serviceCall.Element).ParentElement), serviceName);
+                                    block.InjectServiceProperty(block.Template.GetTypeName(((IElement)serviceCall.Element).ParentElement), serviceName);
                                     var invocation = mappingManager.GenerateUpdateStatements(serviceCall.GetMapInvocationMapping()).First();
                                     if (serviceCall.GetMapResponseMapping() != null)
                                     {
@@ -174,7 +199,7 @@ public static class RazorFileExtensions
                                     catchBlock.AddStatement(new CSharpAssignmentStatement(errorMessageProperty, "e.Message"), s => s.WithSemicolon());
                                 }
 
-                                block.AddInjectedProperty("MudBlazor.ISnackbar", "Snackbar");
+                                block.InjectServiceProperty("MudBlazor.ISnackbar", "Snackbar");
                                 catchBlock.AddStatement($"Snackbar.Add(e.Message, {block.Template.UseType("MudBlazor.Severity")}.Error);");
                             });
                             method.AddFinallyBlock(finallyBlock =>
@@ -209,7 +234,7 @@ public static class RazorFileExtensions
                                 }
                             }
 
-                            block.AddInjectedProperty("Microsoft.AspNetCore.Components.NavigationManager");
+                            block.InjectServiceProperty("Microsoft.AspNetCore.Components.NavigationManager");
                             operationImplementationBlock.AddStatement($"NavigationManager.NavigateTo({(route.Route.Contains("{") ? $"${route.Route}" : route.Route)});");
                         }
                     });

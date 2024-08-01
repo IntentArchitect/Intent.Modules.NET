@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Api.Mappings;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -18,7 +19,7 @@ public abstract class RazorComponentTemplateBase<TModel> : RazorTemplateBase<TMo
     where TModel : IElementWrapper, IMetadataModel
 {
     private readonly Queue<Action<ICSharpFileBuilderTemplate>> _onCodeBehindSetActions = [];
-    private IRazorComponentClass? _razorComponentClass;
+    private IBuildsCSharpMembers? _codeBehind;
 
     protected RazorComponentTemplateBase(string templateId, IOutputTarget outputTarget, TModel model) : base(templateId, outputTarget, model)
     {
@@ -42,23 +43,24 @@ public abstract class RazorComponentTemplateBase<TModel> : RazorTemplateBase<TMo
     public abstract IRazorFile RazorFile { get; }
     public IRazorComponentBuilderProvider ComponentBuilderProvider { get; }
 
-    public IRazorComponentClass GetClass()
+    public IBuildsCSharpMembers GetCodeBehind()
     {
-        if (_razorComponentClass != null)
+        if (_codeBehind != null)
         {
-            return _razorComponentClass;
+            return _codeBehind;
         }
 
         if (CodeBehindTemplate != null)
         {
-            _razorComponentClass = IRazorComponentClass.CreateForCodeBehindFile(CodeBehindTemplate);
+
+            _codeBehind = CodeBehindTemplate.CSharpFile.Classes.First();// IRazorComponentClass.CreateForCodeBehindFile(CodeBehindTemplate);
         }
         else
         {
-            RazorFile.AddCodeBlock(x => _razorComponentClass = IRazorComponentClass.CreateForCodeBlock(x));
+            RazorFile.AddCodeBlock(x => _codeBehind = x);
         }
 
-        return _razorComponentClass!;
+        return _codeBehind!;
     }
 
     /// <summary>

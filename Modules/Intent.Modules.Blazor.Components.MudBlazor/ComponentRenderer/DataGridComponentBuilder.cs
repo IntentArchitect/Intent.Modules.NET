@@ -56,7 +56,7 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
             if (!string.IsNullOrWhiteSpace(model.GetInteraction()?.OnRowClick()))
             {
                 mudDataGrid.AddMappingReplacement(mappedEnd.SourceElement, "e.Item");
-                mudDataGrid.AddAttributeIfNotEmpty("OnRowClick", $"{_bindingManager.GetBinding(model, "On Row Click", mudDataGrid).ToLambda("e")}");
+                mudDataGrid.AddAttributeIfNotEmpty("RowClick", $"{_bindingManager.GetBinding(model, "On Row Click", mudDataGrid).ToLambda("e")}");
             }
 
             if (model.Toolbar != null)
@@ -117,7 +117,7 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
             {
                 _componentTemplate.RazorFile.AfterBuild(file =>
                 {
-                    var codeBlock = _componentTemplate.GetClass();
+                    var codeBlock = _componentTemplate.GetCodeBehind();
                     var returnType = $"GridData<{_componentTemplate.GetTypeName(mappedSourceType.AsTypeReference())}>";
                     codeBlock.AddMethod(returnType, $"Load{model.Name.ToCSharpIdentifier()}Data", method =>
                     {
