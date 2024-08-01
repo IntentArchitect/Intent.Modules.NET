@@ -40,7 +40,8 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
                     {
                         statement
                             .WithArgumentsOnNewLines() // To maintain formatting of existing files
-                            .AddMetadata("configure-services-controllers-generic", true);
+                            .AddMetadata("configure-services-controllers-generic", true) // legacy
+                            .AddMetadata("configure-services-controllers", "generic"); // easier to identify
 
                         lambda.AddStatement($"{context.Parameters[0]}.Filters.Add<{template.GetExceptionFilterName()}>();");
                     },

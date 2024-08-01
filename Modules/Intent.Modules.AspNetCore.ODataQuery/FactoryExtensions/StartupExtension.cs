@@ -34,17 +34,14 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
             {
                 var @class = file.Classes.First();
 
-                if (@class.FindMethod("ConfigureServices")
-                        .FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not
-                    CSharpInvocationStatement controllersStatement)
-                {
-                    return;
-                }
+                var configServicesMethod = @class.FindMethod("ConfigureServices");
+                var lastConfigStatement = (CSharpInvocationStatement)configServicesMethod.Statements.Last(p => p.HasMetadata("configure-services-controllers"));
 
                 template.AddUsing("Microsoft.AspNetCore.OData");
-                controllersStatement.WithoutSemicolon();
-                controllersStatement.InsertBelow(new CSharpInvocationStatement(".AddOData"), stmt =>
+                lastConfigStatement.WithoutSemicolon();
+                lastConfigStatement.InsertBelow(new CSharpInvocationStatement(".AddOData"), stmt =>
                 {
+                    stmt.AddMetadata("configure-services-controllers", "odata");
                     CSharpInvocationStatement invocation = (CSharpInvocationStatement)stmt;
                     CSharpLambdaBlock lambda;
                     if (!invocation.Statements.Any())

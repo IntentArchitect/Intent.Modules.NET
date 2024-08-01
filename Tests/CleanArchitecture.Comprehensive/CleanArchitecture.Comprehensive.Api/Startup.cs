@@ -40,13 +40,13 @@ namespace CleanArchitecture.Comprehensive.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 })
-            .AddJsonOptions(options =>
-            {
-                options.JsonSerializerOptions.Converters.Add(new GeoJsonConverterFactory());
-            })
             .AddOData(options =>
             {
                 options.Filter().OrderBy().Select().SetMaxTop(200);
+            })
+            .AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new GeoJsonConverterFactory());
             });
             services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);

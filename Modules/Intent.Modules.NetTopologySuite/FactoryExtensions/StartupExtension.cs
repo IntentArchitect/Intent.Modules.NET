@@ -37,24 +37,20 @@ namespace Intent.Modules.NetTopologySuite.FactoryExtensions
             template?.CSharpFile.AfterBuild(file =>
             {
                 var @class = file.Classes.First();
-                var confServMethod = @class.FindMethod("ConfigureServices");
+                var configServicesMethod = @class.FindMethod("ConfigureServices");
+                var lastConfigStatement = (CSharpInvocationStatement)configServicesMethod!.Statements.Last(p => p.HasMetadata("configure-services-controllers"));
 
-                if (confServMethod.FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not
-                    CSharpInvocationStatement controllersStatement)
-                {
-                    return;
-                }
-
-                var addJsonOptionsStatement = confServMethod.FindStatement(s => s.HasMetadata("configure-services-controllers-json")) as CSharpInvocationStatement;
+                var addJsonOptionsStatement =
+                    configServicesMethod.FindStatement(s => s.TryGetMetadata<string>("configure-services-controllers", out var v) && v == "json") 
+                        as CSharpInvocationStatement;
                 if (addJsonOptionsStatement is null)
                 {
                     addJsonOptionsStatement = new CSharpInvocationStatement(".AddJsonOptions");
-                    addJsonOptionsStatement.AddMetadata("configure-services-controllers-json", true);
-                    controllersStatement.InsertBelow(addJsonOptionsStatement);
+                    addJsonOptionsStatement.AddMetadata("configure-services-controllers", "json");
+                    lastConfigStatement.InsertBelow(addJsonOptionsStatement);
                 }
 
-                addJsonOptionsStatement.WithoutSemicolon();
-                controllersStatement.WithoutSemicolon();
+                lastConfigStatement.WithoutSemicolon();
 
                 var lambda = addJsonOptionsStatement.Statements.FirstOrDefault() as CSharpLambdaBlock;
                 if (lambda is null)

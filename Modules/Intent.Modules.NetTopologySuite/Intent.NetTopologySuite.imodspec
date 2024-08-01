@@ -24,6 +24,18 @@
     <factoryExtension id="Intent.NetTopologySuite.SwaggerConfigExtension" externalReference="ff1d7080-7204-4e2b-bd09-9f4e173850d0" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
+  <interoperability>
+    <detect id="Intent.AspNetCore.Controllers">
+      <install>
+        <package id="Intent.AspNetCore.Controllers" version="6.0.10-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.AspNetCore.ODataQuery">
+      <install>
+        <package id="Intent.AspNetCore.ODataQuery" version="1.0.5-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
     <dependency id="Intent.Common.CSharp" version="3.7.1" />
