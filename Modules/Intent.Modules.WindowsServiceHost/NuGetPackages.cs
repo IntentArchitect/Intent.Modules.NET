@@ -28,7 +28,7 @@ namespace Intent.Modules.WindowsServiceHost
             name: "Microsoft.Extensions.Configuration.Abstractions",
             version: outputTarget.GetMaxNetAppVersion() switch
             {
-                (6, 0) => "8.0.0",
+                (6, 0) => "6.0.0",
                 (7, 0) => "8.0.0",
                 _ => "8.0.0",
             });
@@ -37,7 +37,7 @@ namespace Intent.Modules.WindowsServiceHost
             name: "Microsoft.Extensions.DependencyInjection",
             version: outputTarget.GetMaxNetAppVersion() switch
             {
-                (6, 0) => "8.0.0",
+                (6, 0) => "6.0.1",
                 (7, 0) => "8.0.0",
                 _ => "8.0.0",
             });
@@ -46,7 +46,7 @@ namespace Intent.Modules.WindowsServiceHost
             name: "Microsoft.Extensions.Configuration.Binder",
             version: outputTarget.GetMaxNetAppVersion() switch
             {
-                (6, 0) => "8.0.2",
+                (6, 0) => "6.0.0",
                 (7, 0) => "8.0.2",
                 _ => "8.0.2",
             });

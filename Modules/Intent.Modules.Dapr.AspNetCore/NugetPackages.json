@@ -30,8 +30,13 @@
       "name": "MediatR",
       "versions": [
         {
-          "framework": "6.0",
+          "framework": "7.0",
           "version": "12.4.0"
+        },
+        {
+          "locked": true,
+          "framework": "6.0",
+          "version": "12.1.1"
         }
       ]
     },

@@ -111,6 +111,6 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
 
     public IEnumerable<INugetPackageInfo> GetNugetDependencies()
     {
-        yield return NuGetPackages.MicrosoftAzureWebJobsExtensionsStorageQueues;
+        yield return NugetPackages.MicrosoftAzureWebJobsExtensionsStorageQueues(_template.OutputTarget);
     }
 }

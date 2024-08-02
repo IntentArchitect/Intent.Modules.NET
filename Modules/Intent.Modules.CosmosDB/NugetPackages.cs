@@ -17,9 +17,7 @@ namespace Intent.Modules.CosmosDB
             name: "Finbuckle.MultiTenant",
             version: outputTarget.GetMaxNetAppVersion() switch
             {
-                (6, 0) => "7.0.1",
-                (7, 0) => "7.0.1",
-                _ => "7.0.1",
+                _ => "6.13.1",
             });
 
         public static NugetPackageInfo IEvangelistAzureCosmosRepository(IOutputTarget outputTarget) => new(

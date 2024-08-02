@@ -54,7 +54,7 @@ internal class AzureServiceBusTriggerHandler : IFunctionTriggerHandler
 
     public IEnumerable<INugetPackageInfo> GetNugetDependencies()
     {
-        yield return NuGetPackages.MicrosoftAzureServiceBus;
-        yield return NuGetPackages.MicrosoftAzureWebJobsExtensionsServiceBus;
+        yield return NugetPackages.MicrosoftAzureServiceBus(_template.OutputTarget);
+        yield return NugetPackages.MicrosoftAzureWebJobsExtensionsServiceBus(_template.OutputTarget);
     }
 }

@@ -1,0 +1,47 @@
+{
+  "packages": [
+    {
+      "name": "Microsoft.EntityFrameworkCore.InMemory",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.7"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.0.20"
+        }
+      ]
+    },
+    {
+      "name": "Finbuckle.MultiTenant",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "6.13.1"
+        }
+      ]
+    },
+    {
+      "name": "Finbuckle.MultiTenant.AspNetCore",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "6.13.1"
+        }
+      ]
+    },
+    {
+      "name": "Finbuckle.MultiTenant.EntityFrameworkCore",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "6.13.1"
+        }
+      ]
+    }
+  ]
+}

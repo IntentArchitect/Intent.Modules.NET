@@ -13,7 +13,8 @@
         },
         {
           "framework": "6.0",
-          "version": "8.0.0"
+          "version": "6.0.0",
+          "locked": true
         }
       ]
     },
@@ -30,7 +31,8 @@
         },
         {
           "framework": "6.0",
-          "version": "8.0.0"
+          "version": "6.0.1",
+          "locked": true
         }
       ]
     },
@@ -47,7 +49,8 @@
         },
         {
           "framework": "6.0",
-          "version": "8.0.2"
+          "version": "6.0.0",
+          "locked": true
         }
       ]
     }

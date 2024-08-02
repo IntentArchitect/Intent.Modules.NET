@@ -1,3 +1,7 @@
+### Version 4.1.2
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 4.1.1
 
 - Fixed: _Http Settings_ stereotype will no longer be removed from operations, queries or commands unless an _Azure Function_ stereotype is present with its _Trigger_ set to anything other than `Http Trigger`.

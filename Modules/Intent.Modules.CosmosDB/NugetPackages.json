@@ -11,18 +11,11 @@
     },
     {
       "name": "Finbuckle.MultiTenant",
+      "locked": true,
       "versions": [
         {
           "framework": "8.0",
-          "version": "7.0.1"
-        },
-        {
-          "framework": "7.0",
-          "version": "7.0.1"
-        },
-        {
-          "framework": "6.0",
-          "version": "7.0.1"
+          "version": "6.13.1"
         }
       ]
     },

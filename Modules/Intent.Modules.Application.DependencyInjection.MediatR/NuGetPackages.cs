@@ -10,6 +10,7 @@ namespace Intent.Modules.Application.DependencyInjection.MediatR
             name: "MediatR",
             version: outputTarget.GetMaxNetAppVersion() switch
             {
+                (6, 0) => "12.1.1",
                 _ => "12.4.0",
             });
     }

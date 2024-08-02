@@ -22,7 +22,7 @@ public class RabbitMQTriggerHandler : IFunctionTriggerHandler
 
     public IEnumerable<INugetPackageInfo> GetNugetDependencies()
     {
-        yield return NuGetPackages.MicrosoftAzureWebJobsExtensionsRabbitMQ;
+        yield return NugetPackages.MicrosoftAzureWebJobsExtensionsRabbitMQ(_template.OutputTarget);
     }
 
     public void ApplyMethodParameters(CSharpClassMethod method)

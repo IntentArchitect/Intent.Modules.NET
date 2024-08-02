@@ -34,9 +34,9 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         {
             _triggerStrategyHandler = TriggerStrategyResolver.GetFunctionTriggerHandler(this, model);
 
-            AddNugetDependency(NuGetPackages.MicrosoftNETSdkFunctions);
-            AddNugetDependency(NuGetPackages.MicrosoftExtensionsDependencyInjection);
-            AddNugetDependency(NuGetPackages.MicrosoftAzureFunctionsExtensions);
+            AddNugetDependency(NugetPackages.MicrosoftNETSdkFunctions(outputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection(outputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsExtensions(outputTarget));
 
             foreach (var dependency in _triggerStrategyHandler.GetNugetDependencies())
             {

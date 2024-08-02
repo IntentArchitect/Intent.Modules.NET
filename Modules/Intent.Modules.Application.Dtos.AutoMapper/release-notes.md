@@ -1,3 +1,7 @@
+### Version 4.0.9
+
+- Improvement: Improved internal NuGet package management.
+
 ### Version 4.0.8
 
 - Fixed: Member mapping configurations traversing a nullable association could result in a runtime error when the mapping was used with Entity Framework Core with an `IQueryable`.

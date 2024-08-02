@@ -1,4 +1,8 @@
-﻿### Version 1.0.5
+﻿### Version 1.0.6
+
+- Improvement: Updated NuGet package infrastructure.
+
+### Version 1.0.5
 
 - Fixed: Bug where SF would crash around CRUD services without `Delete`, `Update` and /or `GetAll` implementations.
 
