@@ -76,9 +76,9 @@ namespace Intent.Modules.Dapr.AspNetCore.FactoryExtensions
                         }
                     });
                 });
-                startupTemplate.StartupFile.ConfigureApp((statements2, _) =>
+                startupTemplate.StartupFile.ConfigureApp((statements, _) =>
                 {
-                    statements2
+                    statements
                         .FindStatement(x => x.ToString()!.Contains(".UseHttpsRedirection()"))?
                         .Remove();
                 });
