@@ -1,3 +1,7 @@
+### Version 6.0.10
+
+- Improvement: The code responsible for generating the AddControllers line in the Startup routine has been enhanced to better identify that statement at runtime.
+
 ### Version 6.0.9
 
 - Improvement: Controllers and their operations will now generate `[ApiExplorerSettings(IgnoreApi = <value>]` attributes based on the _OpenAPI Settings_ Stereotype's _Ignore_ property's value.

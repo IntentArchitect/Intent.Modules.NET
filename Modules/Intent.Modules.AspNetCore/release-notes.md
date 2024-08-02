@@ -1,7 +1,10 @@
-﻿### Version 6.0.2
+﻿### Version 6.0.3
+
+- Fixed: Program.cs generation more robust for Top-level statements and Minimal Hosting model configuration.
+
+### Version 6.0.2
 
 - Improvement: Dependent modules changed, version bumped.
-
 
 ### Version 6.0.1
 

@@ -1,3 +1,7 @@
+### Version 5.1.5
+
+- Fixed: Program.cs generation more robust for Top-level statements and Minimal Hosting model configuration.
+
 ### Version 5.1.4
 
 - Fixed: Not respecting explicit array based format for `WriteTo`.
