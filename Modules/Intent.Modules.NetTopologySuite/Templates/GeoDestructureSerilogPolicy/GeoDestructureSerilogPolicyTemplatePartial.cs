@@ -61,21 +61,6 @@ namespace Intent.Modules.NetTopologySuite.Templates.GeoDestructureSerilogPolicy
             return ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Modules.AspNetCore.Logging.Serilog");
         }
 
-        public override void BeforeTemplateExecution()
-        {
-            this.ApplyAppSetting("Serilog:Destructure", new object[]
-            {
-                new
-                {
-                    Name = "With",
-                    Args = new
-                    {
-                        policy = $"{this.FullTypeName()}, {OutputTarget.GetProject().Name}"
-                    }
-                }
-            });
-        }
-
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 

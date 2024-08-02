@@ -25,9 +25,10 @@
       <location>Filters</location>
     </template>
   </templates>
-  <decorators></decorators>
+  <decorators />
   <factoryExtensions>
     <factoryExtension id="Intent.NetTopologySuite.GeometryExtension" externalReference="b604e8a9-21a9-429c-9505-9d595d83e867" />
+    <factoryExtension id="Intent.NetTopologySuite.SerilogStartupConfigurationExtension" externalReference="14cad78b-692b-429d-8269-4e3943437ef4" />
     <factoryExtension id="Intent.NetTopologySuite.StartupExtension" externalReference="40b2ee5e-8312-47af-a098-a65cb3d46c17" />
     <factoryExtension id="Intent.NetTopologySuite.SwaggerConfigExtension" externalReference="ff1d7080-7204-4e2b-bd09-9f4e173850d0" />
   </factoryExtensions>
@@ -49,6 +50,7 @@
     <dependency id="Intent.Common.CSharp" version="3.7.1" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+    <dependency id="Intent.VisualStudio.Projects" version="3.7.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

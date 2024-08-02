@@ -182,8 +182,11 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
                     statements.Add($".HasColumnType(\"decimal({safeString})\")");
                 }
             }
-            else if (attribute.Type.Element.HasStereotype("Geometry") && dbSettings.DatabaseProvider().IsPostgresql())
+            else if (attribute.Type.Element.GetStereotype("C#")?.GetProperty("Namespace")?.Value == "NetTopologySuite.Geometries" && 
+                     dbSettings.DatabaseProvider().IsPostgresql())
             {
+                // https://www.npgsql.org/efcore/mapping/nts.html#constraining-your-type-names
+                // It follows convention
                 statements.Add($@".HasColumnType(""geography ({attribute.Type.Element.Name.ToLower()})"")");
             }
         }

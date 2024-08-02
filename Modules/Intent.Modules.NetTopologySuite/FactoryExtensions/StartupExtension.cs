@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
@@ -31,36 +33,66 @@ namespace Intent.Modules.NetTopologySuite.FactoryExtensions
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Distribution.WebApi.Startup));
-            template.AddNugetDependency(NugetPackages.NetTopologySuiteIoGeoJson4Stj);
-
-            template?.CSharpFile.AfterBuild(file =>
+            var startupTemplate = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            if (startupTemplate is null)
             {
-                var @class = file.Classes.First();
-                var configServicesMethod = @class.FindMethod("ConfigureServices");
-                var lastConfigStatement = (CSharpInvocationStatement)configServicesMethod!.Statements.Last(p => p.HasMetadata("configure-services-controllers"));
+                return;
+            }
 
-                var addJsonOptionsStatement =
-                    configServicesMethod.FindStatement(s => s.TryGetMetadata<string>("configure-services-controllers", out var v) && v == "json")
-                        as CSharpInvocationStatement;
-                if (addJsonOptionsStatement is null)
+            startupTemplate.CSharpFile.OnBuild(file =>
+            {
+                startupTemplate.StartupFile.ConfigureServices((statements, context) =>
                 {
-                    addJsonOptionsStatement = new CSharpInvocationStatement(".AddJsonOptions");
-                    addJsonOptionsStatement.AddMetadata("configure-services-controllers", "json");
-                    lastConfigStatement.InsertBelow(addJsonOptionsStatement);
-                }
+                    // Until we can make the "AddController" statement in the Intent.AspNetCore.Controllers be
+                    // a CSharpInvocationStatement that supports method chaining, this will have to do.
+                    // It's our original hack approach anyway and turning this into a CSharpMethodChainStatement will
+                    // only make the CSharpInvocationStatement change later difficult. 
+                    file.AfterBuild(nestedFile =>
+                    {
+                        var statementsToCheck = new List<CSharpStatement>();
+                        ExtractPossibleStatements(statements, statementsToCheck);
+                        
+                        var lastConfigStatement = (CSharpInvocationStatement)statementsToCheck.Last(p => p.HasMetadata("configure-services-controllers"));
+                        var addJsonOptionsStatement = statements.FindStatement(s => s.TryGetMetadata<string>("configure-services-controllers", out var v) && v == "json")
+                            as CSharpInvocationStatement;
+                        if (addJsonOptionsStatement is null)
+                        {
+                            addJsonOptionsStatement = new CSharpInvocationStatement(".AddJsonOptions");
+                            addJsonOptionsStatement.AddMetadata("configure-services-controllers", "json");
+                            lastConfigStatement.InsertBelow(addJsonOptionsStatement);
+                        }
 
-                lastConfigStatement.WithoutSemicolon();
+                        lastConfigStatement.WithoutSemicolon();
 
-                var lambda = addJsonOptionsStatement.Statements.FirstOrDefault() as CSharpLambdaBlock;
-                if (lambda is null)
+                        var lambda = addJsonOptionsStatement.Statements.FirstOrDefault() as CSharpLambdaBlock;
+                        if (lambda is null)
+                        {
+                            lambda = new CSharpLambdaBlock("options");
+                            addJsonOptionsStatement.AddArgument(lambda);
+                        }
+
+                        lambda.AddStatement($@"options.JsonSerializerOptions.Converters.Add(new {startupTemplate.UseType("NetTopologySuite.IO.Converters.GeoJsonConverterFactory")}());"); 
+                    });
+                });
+            }, 15);
+        }
+        
+        private static void ExtractPossibleStatements(IHasCSharpStatements targetBlock, List<CSharpStatement> statementsToCheck)
+        {
+            foreach (var statement in targetBlock.Statements)
+            {
+                if (statement is CSharpInvocationStatement)
                 {
-                    lambda = new CSharpLambdaBlock("options");
-                    addJsonOptionsStatement.AddArgument(lambda);
+                    statementsToCheck.Add(statement);
                 }
-
-                lambda.AddStatement($@"options.JsonSerializerOptions.Converters.Add(new {template.UseType("NetTopologySuite.IO.Converters.GeoJsonConverterFactory")}());");
-            }, 10);
+                else if (statement is IHasCSharpStatements container)
+                {
+                    foreach (var nested in container.Statements)
+                    {
+                        statementsToCheck.Add(nested);
+                    }
+                }
+            }
         }
     }
 }

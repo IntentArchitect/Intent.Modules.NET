@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="14cad78b-692b-429d-8269-4e3943437ef4" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>SerilogStartupConfigurationExtension</name>
+  <display>SerilogStartupConfigurationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0f76b5d4-168c-4ff3-86e7-0c07b39dfceb</parentFolderId>
+  <packageId>0f76b5d4-168c-4ff3-86e7-0c07b39dfceb</packageId>
+  <packageName>Intent.NetTopologySuite</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

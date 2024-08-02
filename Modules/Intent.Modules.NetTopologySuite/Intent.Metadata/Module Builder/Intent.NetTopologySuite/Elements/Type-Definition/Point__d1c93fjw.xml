@@ -20,12 +20,6 @@
         <property name="0a577584-e2d4-4e5a-8649-296036a91575" display="Is Collection" value="false" isActive="true" />
       </properties>
     </stereotype>
-    <stereotype stereotypeDefinitionId="7fdf11a8-5962-472c-8916-ebb8323de8b7" name="Geometry">
-      <addedByDefault>false</addedByDefault>
-      <definitionPackageName>Intent.NetTopologySuite</definitionPackageName>
-      <definitionPackageId>0f76b5d4-168c-4ff3-86e7-0c07b39dfceb</definitionPackageId>
-      <properties />
-    </stereotype>
   </stereotypes>
   <metadata />
   <childElements />
