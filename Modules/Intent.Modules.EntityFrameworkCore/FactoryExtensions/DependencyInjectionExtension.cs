@@ -45,10 +45,9 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         private static void ApplyApplicationSettings(ICSharpFileBuilderTemplate dependencyInjectionTemplate, IApplication application, IEnumerable<DbContextInstance> dbContexts)
         {
-            var defaultDbProvider = dependencyInjectionTemplate.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum();
             foreach (var dbContextInstance in dbContexts)
             {
-                var targetDbProvider = DbContextManager.GetDatabaseProviderForDbContext(dbContextInstance.DbProvider, defaultDbProvider);
+                var targetDbProvider = DbContextManager.GetDatabaseProviderForDbContext(dbContextInstance.DbProvider, dependencyInjectionTemplate.ExecutionContext);
                 switch (targetDbProvider)
                 {
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
@@ -142,16 +141,16 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             {
                 file.AddUsing("Microsoft.EntityFrameworkCore");
                 var method = file.Classes.First().FindMethod("AddInfrastructure");
-                var defaultDbProvider = dependencyInjectionTemplate.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum();
                 foreach (var dbContextInstance in dbContexts)
                 {
-                    method.AddStatement(CreateAddDbContextStatement(dependencyInjectionTemplate, dbContextInstance, defaultDbProvider));
+                    method.AddStatement(CreateAddDbContextStatement(dependencyInjectionTemplate, dbContextInstance, dependencyInjectionTemplate.ExecutionContext));
                 }
             });
         }
 
-        private static AddDbContextStatement CreateAddDbContextStatement(ICSharpFileBuilderTemplate dependencyInjection, DbContextInstance dbContextInstance,
-            DatabaseSettingsExtensions.DatabaseProviderOptionsEnum defaultDbProvider)
+        private static AddDbContextStatement CreateAddDbContextStatement(ICSharpFileBuilderTemplate dependencyInjection, 
+            DbContextInstance dbContextInstance,
+            ISoftwareFactoryExecutionContext executionContext)
         {
             var connectionString = $@"""{dbContextInstance.ConnectionStringName}""";
 
@@ -176,7 +175,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 builderStatements.Add($@"b.MigrationsHistoryTable(HistoryRepository.DefaultTableName, ""{dependencyInjection.ExecutionContext.Settings.GetDatabaseSettings().DefaultSchemaName()}"");");
             }
 
-            var targetDbProvider = DbContextManager.GetDatabaseProviderForDbContext(dbContextInstance.DbProvider, defaultDbProvider);
+            var targetDbProvider = DbContextManager.GetDatabaseProviderForDbContext(dbContextInstance.DbProvider, executionContext);
             switch (targetDbProvider)
             {
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:

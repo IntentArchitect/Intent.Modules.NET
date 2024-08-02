@@ -7,11 +7,11 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
-using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Settings;
-using DomainPackageModelStereotypeExtensions = Intent.EntityFrameworkCore.Api.DomainPackageModelStereotypeExtensions;
+using Intent.Modules.Metadata.RDBMS.Settings;
+using PackageDbProvider = Intent.EntityFrameworkCore.Api.DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum;
 
 #nullable enable
 
@@ -35,24 +35,27 @@ public static class DbContextManager
         return new DbContextInstance(pkg);
     }
 
-    internal static DatabaseSettingsExtensions.DatabaseProviderOptionsEnum GetDatabaseProviderForDbContext(DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum? dbProvider,
+    internal static DatabaseSettingsExtensions.DatabaseProviderOptionsEnum GetDatabaseProviderForDbContext(
+        PackageDbProvider? packageDbProvider,
+        ISoftwareFactoryExecutionContext executionContext)
+    {
+        return GetDatabaseProviderForDbContext(packageDbProvider, executionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum());
+    }
+
+    internal static DatabaseSettingsExtensions.DatabaseProviderOptionsEnum GetDatabaseProviderForDbContext(
+        PackageDbProvider? packageDbProvider,
         DatabaseSettingsExtensions.DatabaseProviderOptionsEnum defaultDbProvider)
     {
-        return dbProvider switch
+        return packageDbProvider switch
         {
             null => defaultDbProvider,
-            DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Default => defaultDbProvider,
-            DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.SQLServer =>
-                DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer,
-            DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.PostgreSQL =>
-                DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql,
-            DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.MySQL =>
-                DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql,
-            DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Oracle =>
-                DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Oracle,
-            DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.InMemory =>
-                DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory,
-            _ => throw new ArgumentOutOfRangeException($"DbProvider option '{dbProvider}' is not supported")
+            PackageDbProvider.Default => defaultDbProvider,
+            PackageDbProvider.SQLServer => DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer,
+            PackageDbProvider.PostgreSQL => DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql,
+            PackageDbProvider.MySQL => DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql,
+            PackageDbProvider.Oracle => DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Oracle,
+            PackageDbProvider.InMemory => DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory,
+            _ => throw new ArgumentOutOfRangeException($"DbProvider option '{packageDbProvider}' is not supported")
         };
     }
 
@@ -96,14 +99,14 @@ public class DbContextInstance : IMetadataModel
         ConnectionStringName = connectionStringInput;
         
         Id = ConnectionStringName;
-        DbProvider = dbSettings?.DatabaseProvider().AsEnum() ?? DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Default;
+        DbProvider = dbSettings?.DatabaseProvider().AsEnum() ?? PackageDbProvider.Default;
         DomainPackageModel = domainPackageModel;
     }
     
     public string Id { get; }
 
     public string ConnectionStringName { get; }
-    public DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum DbProvider { get; }
+    public PackageDbProvider DbProvider { get; }
     public DomainPackageModel DomainPackageModel { get; }
 
     public bool IsApplicationDbContext => DbContextName == ApplicationDbContext;
