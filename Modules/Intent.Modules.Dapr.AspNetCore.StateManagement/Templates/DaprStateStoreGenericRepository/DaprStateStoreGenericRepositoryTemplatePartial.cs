@@ -22,7 +22,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DaprStateStoreGenericRepositoryTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.DaprClient);
+            AddNugetDependency(NugetPackages.DaprClient(outputTarget));
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

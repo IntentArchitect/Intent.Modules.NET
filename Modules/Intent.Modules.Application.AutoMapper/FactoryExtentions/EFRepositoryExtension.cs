@@ -132,7 +132,7 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
                 var pagedListInterface = template.TryGetTypeName(TemplateRoles.Repository.Interface.PagedList, out var name)
                     ? name
                     : template.GetTypeName(TemplateRoles.Repository.Interface.PagedResult); // for backward compatibility
-                template.AddNugetDependency(NugetPackages.AutoMapper);
+                template.AddNugetDependency(NugetPackages.AutoMapper(template.OutputTarget));
                 var @class = file.Classes.First();
                 var constructor = @class.Constructors.First();
                 if (constructor == null) return;

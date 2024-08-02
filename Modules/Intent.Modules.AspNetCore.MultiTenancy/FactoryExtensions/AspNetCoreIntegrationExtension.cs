@@ -61,7 +61,7 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
                     throw new("app.UseRouting() was not configured");
                 }
 
-                useRoutingStatement.InsertBelow($"{ctx.App}.UseCosmosMultiTenantMiddleware();");
+                useRoutingStatement.InsertBelow($"{ctx.App}.UseMultiTenancy();");
             });
         }, 10);
 
@@ -134,8 +134,8 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
             return;
         }
 
-        template.AddNugetDependency(NugetPackages.FinbuckleMultiTenant);
-        template.AddNugetDependency(NugetPackages.FinbuckleMultiTenantEntityFrameworkCore);
+        template.AddNugetDependency(NugetPackages.FinbuckleMultiTenant(template.OutputTarget));
+        template.AddNugetDependency(NugetPackages.FinbuckleMultiTenantEntityFrameworkCore(template.OutputTarget));
 
         dbContextTemplate.CSharpFile.AfterBuild(file =>
         {
@@ -214,8 +214,8 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
             return;
         }
 
-        template.AddNugetDependency(NugetPackages.FinbuckleMultiTenant);
-        template.AddNugetDependency(NugetPackages.FinbuckleMultiTenantEntityFrameworkCore);
+        template.AddNugetDependency(NugetPackages.FinbuckleMultiTenant(template.OutputTarget));
+        template.AddNugetDependency(NugetPackages.FinbuckleMultiTenantEntityFrameworkCore(template.OutputTarget));
 
         template.CSharpFile.AfterBuild(file =>
         {

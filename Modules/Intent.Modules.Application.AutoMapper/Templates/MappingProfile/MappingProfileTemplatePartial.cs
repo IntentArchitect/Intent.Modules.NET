@@ -21,7 +21,7 @@ namespace Intent.Modules.Application.AutoMapper.Templates.MappingProfile
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public MappingProfileTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.AutoMapper);
+            AddNugetDependency(NugetPackages.AutoMapper(outputTarget));
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

@@ -21,7 +21,7 @@ namespace Intent.Modules.Application.AutoMapper.Templates.MapFromInterface
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public MapFromInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.AutoMapper);
+            AddNugetDependency(NugetPackages.AutoMapper(outputTarget));
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

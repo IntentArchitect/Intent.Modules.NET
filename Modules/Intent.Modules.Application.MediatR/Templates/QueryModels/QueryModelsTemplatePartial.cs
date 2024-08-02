@@ -30,7 +30,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public QueryModelsTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.MediatR);
+            AddNugetDependency(NugetPackages.MediatR(outputTarget));
 
             FulfillsRole("Application.Contract.Query");
 

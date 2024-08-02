@@ -1,4 +1,8 @@
-﻿### Version 4.2.6
+### Version 4.2.7
+
+- Improvement: Updated NuGet packages to latest stables.
+
+### Version 4.2.6
 
 - Improvement: Improved `Authorized` modeling.
 

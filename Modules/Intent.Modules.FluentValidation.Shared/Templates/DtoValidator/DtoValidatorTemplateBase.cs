@@ -103,7 +103,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         params string[] additionalFolders)
         : base(templateId, outputTarget, dtoModel)
     {
-        AddNugetDependency(NuGetPackages.FluentValidation);
+        AddNugetDependency(NugetPackages.FluentValidation(outputTarget));
 
         CSharpFile = new CSharpFile(
             @namespace: @namespace ?? this.GetNamespace(additionalFolders),

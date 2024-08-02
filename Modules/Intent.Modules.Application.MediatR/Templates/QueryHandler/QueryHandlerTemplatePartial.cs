@@ -41,7 +41,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
 
         public static void Configure(ICSharpFileBuilderTemplate template, QueryModel model)
         {
-            template.AddNugetDependency(NuGetPackages.MediatR);
+            template.AddNugetDependency(NugetPackages.MediatR(template.OutputTarget));
             template.AddTypeSource(TemplateRoles.Application.Query);
             template.AddTypeSource(TemplateRoles.Domain.Enum);
             template.AddTypeSource(TemplateRoles.Application.Contracts.Dto);

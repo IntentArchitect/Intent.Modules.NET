@@ -1,3 +1,7 @@
+### Version 4.6.2
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 4.6.1
 
 - Improvement: Added `TODO` comments on `NotImplementedException`.

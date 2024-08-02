@@ -28,8 +28,8 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DaprEventHandlerControllerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.DaprAspNetCore);
-            AddNugetDependency(NuGetPackages.MediatR);
+            AddNugetDependency(NugetPackages.DaprAspNetCore(outputTarget));
+            AddNugetDependency(NugetPackages.MediatR(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Threading")

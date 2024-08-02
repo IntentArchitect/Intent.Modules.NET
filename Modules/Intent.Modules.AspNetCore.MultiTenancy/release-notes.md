@@ -1,3 +1,7 @@
+### Version 5.1.3
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 5.1.2
 
 - Improvement: Updated Interoperable dependency versions.

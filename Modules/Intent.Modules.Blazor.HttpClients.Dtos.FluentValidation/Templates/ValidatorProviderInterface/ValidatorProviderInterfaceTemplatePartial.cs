@@ -23,7 +23,7 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.Vali
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ValidatorProviderInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(Intent.Modules.FluentValidation.Shared.NuGetPackages.FluentValidation);
+            AddNugetDependency(Intent.Modules.FluentValidation.Shared.NugetPackages.FluentValidation(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("FluentValidation")

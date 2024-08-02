@@ -22,8 +22,8 @@ namespace Intent.Modules.AmazonS3.ObjectStorage.Templates.AmazonS3ObjectStorageI
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AmazonS3ObjectStorageImplementationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.AWSSDKS3);
-            AddNugetDependency(NuGetPackages.AWSSDKExtensionsNETCoreSetup);
+            AddNugetDependency(NugetPackages.AWSSDKS3(outputTarget));
+            AddNugetDependency(NugetPackages.AWSSDKExtensionsNETCoreSetup(outputTarget));
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

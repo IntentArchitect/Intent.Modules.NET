@@ -27,7 +27,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.MongoDbContaine
                     AddUsing("Microsoft.Extensions.DependencyInjection");
                     AddUsing("MongoFramework");
                     AddUsing("Testcontainers.MongoDb");
-                    AddNugetDependency(NugetPackages.TestcontainersMongoDb);
+                    AddNugetDependency(NugetPackages.TestcontainersMongoDb(outputTarget));
                     @class.AddField("MongoDbContainer", "_dbContainer", f => f.PrivateReadOnly());
 
                     @class.AddConstructor(ctor =>

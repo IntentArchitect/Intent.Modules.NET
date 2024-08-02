@@ -26,7 +26,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ContainerCosmos
                 .AddUsing("Microsoft.Azure.CosmosRepository.Providers")
                 .AddClass($"ContainerCosmosClientProvider", @class =>
                 {
-                    AddNugetDependency(NugetPackages.IEvangelistAzureCosmosRepository);
+                    AddNugetDependency(NugetPackages.IEvangelistAzureCosmosRepository(outputTarget));
                     @class
                         .ImplementsInterface("ICosmosClientProvider")
                         .ImplementsInterface("IDisposable");

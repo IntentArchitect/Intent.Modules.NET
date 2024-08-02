@@ -28,7 +28,7 @@ namespace Intent.Modules.Application.FluentValidation.FactoryExtensions
             {
                 return;
             }
-            template.AddNugetDependency(NuGetPackages.FluentValidationDependencyInjectionExtensions);
+            template.AddNugetDependency(NugetPackages.FluentValidationDependencyInjectionExtensions(template.OutputTarget));
             template.CSharpFile.OnBuild(file =>
             {
                 file.AddUsing("FluentValidation");

@@ -1,3 +1,7 @@
+### Version 3.5.13
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 3.5.12
 
 - Improvement: Updated Interoperable dependency version.

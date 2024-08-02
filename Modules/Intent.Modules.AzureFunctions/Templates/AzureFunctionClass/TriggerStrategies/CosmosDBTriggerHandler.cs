@@ -98,7 +98,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStra
 
         public IEnumerable<INugetPackageInfo> GetNugetDependencies()
         {
-            yield return NuGetPackages.MicrosoftAzureWebJobsExtensionsCosmosDB;
+            yield return NugetPackages.MicrosoftAzureWebJobsExtensionsCosmosDB(_template.OutputTarget);
         }
     }
 }
