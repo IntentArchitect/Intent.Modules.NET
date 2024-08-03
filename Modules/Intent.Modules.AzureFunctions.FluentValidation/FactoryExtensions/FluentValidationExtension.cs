@@ -38,7 +38,7 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.FactoryExtensions
                     continue;
                 }
 
-                template.AddNugetDependency(NuGetPackages.FluentValidation);
+                template.AddNugetDependency(NugetPackages.FluentValidation(template.OutputTarget));
 
                 template.CSharpFile.OnBuild(file =>
                 {

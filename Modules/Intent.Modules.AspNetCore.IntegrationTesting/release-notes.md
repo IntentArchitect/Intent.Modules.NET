@@ -1,5 +1,6 @@
-﻿### Version 1.0.6
+### Version 1.0.6
 
+- Improvement: Updated NuGet packages to latest stables.
 - Improvement: Bump due to shared dependency.
 
 ### Version 1.0.5

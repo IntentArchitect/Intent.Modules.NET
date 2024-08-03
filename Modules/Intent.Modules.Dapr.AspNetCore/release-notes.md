@@ -1,3 +1,8 @@
+### Version 2.0.4
+
+- Improvement: Updated NuGet packages to latest stables.
+- Fixed: Startup configuration update due to changes introduced in `Intent.AspNetCore` module.
+
 ### Version 2.0.3
 
 - Improvement: Updated Interoperable dependency versions.

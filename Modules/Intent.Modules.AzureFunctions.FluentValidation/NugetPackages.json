@@ -1,0 +1,21 @@
+{
+  "packages": [
+    {
+      "name": "FluentValidation",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "11.9.2"
+        },
+        {
+          "framework": "7.0",
+          "version": "11.9.2"
+        },
+        {
+          "framework": "6.0",
+          "version": "11.9.2"
+        }
+      ]
+    }
+  ]
+}

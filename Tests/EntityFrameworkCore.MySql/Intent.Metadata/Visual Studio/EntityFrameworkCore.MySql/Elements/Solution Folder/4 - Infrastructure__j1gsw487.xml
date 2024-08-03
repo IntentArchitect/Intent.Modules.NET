@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d62832e8-76fc-43e5-933c-d73ba2e22347" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</parentFolderId>
+  <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+  <packageName>EntityFrameworkCore.MySql</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

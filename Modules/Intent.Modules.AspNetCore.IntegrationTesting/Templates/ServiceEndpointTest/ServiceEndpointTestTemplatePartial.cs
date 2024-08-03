@@ -27,7 +27,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ServiceEndpoint
 
         public ServiceEndpointTestTemplate(IOutputTarget outputTarget, IHttpEndpointModel model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.AutoFixture);
+            AddNugetDependency(NugetPackages.AutoFixture(outputTarget));
             AddTypeSource(ProxyServiceContractTemplate.TemplateId);
             AddTypeSource(DtoContractTemplate.TemplateId);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(Model.InternalElement.ParentElement.Name))

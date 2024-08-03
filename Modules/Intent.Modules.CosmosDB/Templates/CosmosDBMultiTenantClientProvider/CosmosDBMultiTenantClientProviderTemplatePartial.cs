@@ -35,7 +35,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBMultiTenantClientProvider
 				.AddUsing("Microsoft.Azure.CosmosRepository.Providers")
 				.AddClass($"CosmosDBMultiTenantClientProvider", @class =>
                 {
-					AddNugetDependency(NugetDependencies.FinbuckleMultiTenant);
+					AddNugetDependency(NugetPackages.FinbuckleMultiTenant(outputTarget));
 
 					@class.ImplementsInterfaces(new string[]{ "ICosmosClientProvider", "IDisposable" });
 

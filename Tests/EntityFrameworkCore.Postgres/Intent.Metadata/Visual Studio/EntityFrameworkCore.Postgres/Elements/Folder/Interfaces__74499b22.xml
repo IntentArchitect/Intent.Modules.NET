@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f63a3767-bdd5-4541-853a-5d368f61db7a" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Interfaces</name>
+  <display>Interfaces</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c0294342-3cca-465f-b282-9b9d9194f1ec</parentFolderId>
+  <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+  <packageName>EntityFrameworkCore.Postgres</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="210006ef-af72-4ccc-bf56-9ea9397abc9c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.BasicAuditing.AuditableInterface</name>
+      <display>Intent.Entities.BasicAuditing.AuditableInterface</display>
+      <externalReference>Intent.Entities.BasicAuditing</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f63a3767-bdd5-4541-853a-5d368f61db7a</parentFolderId>
+      <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+      <packageName>EntityFrameworkCore.Postgres</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="59908178-a20c-4022-bd7e-a66c73285d4d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.UnitOfWorkInterface</name>
+      <display>Intent.Entities.Repositories.Api.UnitOfWorkInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f63a3767-bdd5-4541-853a-5d368f61db7a</parentFolderId>
+      <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+      <packageName>EntityFrameworkCore.Postgres</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="bd355a96-d294-4db9-95d5-030ba8845125" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInterface</name>
+      <display>Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInterface</display>
+      <externalReference>Intent.EntityFrameworkCore.SoftDelete</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f63a3767-bdd5-4541-853a-5d368f61db7a</parentFolderId>
+      <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
+      <packageName>EntityFrameworkCore.Postgres</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

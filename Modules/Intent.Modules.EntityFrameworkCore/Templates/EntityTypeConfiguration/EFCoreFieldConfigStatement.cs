@@ -5,6 +5,7 @@ using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.EntityFrameworkCore.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.Settings;
@@ -180,6 +181,13 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
                     var safeString = dbSettings.DecimalPrecisionAndScale().Trim().Replace("(","").Replace(")", "");
                     statements.Add($".HasColumnType(\"decimal({safeString})\")");
                 }
+            }
+            else if (attribute.Type.Element.GetStereotype("C#")?.GetProperty("Namespace")?.Value == "NetTopologySuite.Geometries" && 
+                     dbSettings.DatabaseProvider().IsPostgresql())
+            {
+                // https://www.npgsql.org/efcore/mapping/nts.html#constraining-your-type-names
+                // It follows convention
+                statements.Add($@".HasColumnType(""geography ({attribute.Type.Element.Name.ToLower()})"")");
             }
         }
 

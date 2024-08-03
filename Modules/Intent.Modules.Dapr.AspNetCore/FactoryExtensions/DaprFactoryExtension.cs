@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
@@ -20,7 +21,7 @@ namespace Intent.Modules.Dapr.AspNetCore.FactoryExtensions
 
         [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
-        protected override void OnBeforeTemplateExecution(IApplication application)
+        protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             application.EventDispatcher.Publish(LaunchProfileHttpPortRequired.EventId, new Dictionary<string, string>());
             application.EventDispatcher.Publish(new AppSettingRegistrationRequest("DaprSidekick", new
@@ -39,32 +40,60 @@ namespace Intent.Modules.Dapr.AspNetCore.FactoryExtensions
                 return;
             }
 
-            var startup = startupTemplate.StartupFile;
-
-            startupTemplate.AddNugetDependency(NuGetPackages.ManDaprSidekickAspNetCore);
-            startupTemplate.CSharpFile.AfterBuild(_ =>
+            startupTemplate.AddNugetDependency(NugetPackages.ManDaprSidekickAspNetCore(startupTemplate.OutputTarget));
+            startupTemplate.CSharpFile.OnBuild(file =>
             {
-                startup.ConfigureServices((statements, context) =>
+                startupTemplate.StartupFile.ConfigureServices((statements, context) =>
                 {
-                    if (statements.FindStatement(s => s.HasMetadata("configure-services-controllers-generic")) is not CSharpInvocationStatement controllersStatement)
+                    statements.Statements.Add(new CSharpInvocationStatement($"{context.Services}.AddDaprSidekick").AddArgument(context.Configuration));
+                    
+                    // Until we can make the "AddController" statement in the Intent.AspNetCore.Controllers be
+                    // a CSharpInvocationStatement that supports method chaining, this will have to do.
+                    // It's our original hack approach anyway and turning this into a CSharpMethodChainStatement will
+                    // only make the CSharpInvocationStatement change later difficult. 
+                    file.AfterBuild(nestedFile =>
                     {
-                        return;
-                    }
+                        var statementsToCheck = new List<CSharpStatement>();
+                        ExtractPossibleStatements(statements, statementsToCheck);
 
-                    controllersStatement.WithoutSemicolon();
-                    controllersStatement.InsertBelow(new CSharpInvocationStatement(".AddDapr"));
-                    statements.FindStatement(p => p.GetText(string.Empty).Contains("AddDapr"))
-                        ?.InsertBelow(new CSharpInvocationStatement($"{context.Services}.AddDaprSidekick")
-                            .AddArgument(context.Configuration));
+                        var lastConfigStatement = (CSharpInvocationStatement)statementsToCheck.Last(p => p.HasMetadata("configure-services-controllers"));
+                        var addDaprStatement = statements.FindStatement(s => s.TryGetMetadata<string>("configure-services-controllers", out var v) && v == "dapr")
+                            as CSharpInvocationStatement;
+                        if (addDaprStatement is null)
+                        {
+                            addDaprStatement = new CSharpInvocationStatement(".AddDapr");
+                            addDaprStatement.AddMetadata("configure-services-controllers", "dapr");
+                            lastConfigStatement.InsertBelow(addDaprStatement);
+                        }
+
+                        lastConfigStatement.WithoutSemicolon();
+                    });
                 });
-
-                startup.ConfigureApp((statements, _) =>
+                startupTemplate.StartupFile.ConfigureApp((statements, _) =>
                 {
                     statements
                         .FindStatement(x => x.ToString()!.Contains(".UseHttpsRedirection()"))?
                         .Remove();
                 });
-            }, 11);
+            }, 15);
+        }
+
+        private static void ExtractPossibleStatements(IHasCSharpStatements targetBlock, List<CSharpStatement> statementsToCheck)
+        {
+            foreach (var statement in targetBlock.Statements)
+            {
+                if (statement is CSharpInvocationStatement)
+                {
+                    statementsToCheck.Add(statement);
+                }
+                else if (statement is IHasCSharpStatements container)
+                {
+                    foreach (var nested in container.Statements)
+                    {
+                        statementsToCheck.Add(nested);
+                    }
+                }
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Intent.Engine;
-using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.AspNetCore.Logging.Serilog

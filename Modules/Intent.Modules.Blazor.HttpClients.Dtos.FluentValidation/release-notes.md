@@ -1,3 +1,7 @@
+### Version 1.1.2
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 1.1.1
 
 - Improvement: Added `TODO` comments on `NotImplementedException`.

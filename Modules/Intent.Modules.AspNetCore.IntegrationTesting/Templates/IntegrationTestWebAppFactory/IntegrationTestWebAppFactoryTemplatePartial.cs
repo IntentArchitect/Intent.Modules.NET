@@ -23,9 +23,9 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.IntegrationTest
         public IntegrationTestWebAppFactoryTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.MicrosoftAspNetCoreMvcTesting(OutputTarget));
-            AddNugetDependency(NugetPackages.MicrosoftNETTestSdk);
-            AddNugetDependency(NugetPackages.Xunit);
-            AddNugetDependency(NugetPackages.XunitRunnerVisualstudio);
+            AddNugetDependency(NugetPackages.MicrosoftNETTestSdk(outputTarget));
+            AddNugetDependency(NugetPackages.Xunit(outputTarget));
+            AddNugetDependency(NugetPackages.XunitRunnerVisualstudio(outputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddAssemblyAttribute("CollectionBehavior", a => a.AddArgument("DisableTestParallelization = true"))
                 .AddUsing("System.Threading.Tasks")

@@ -10,6 +10,7 @@ using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Accounts.NotSchema;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Associations;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.BasicAudit;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.ExplicitKeys;
+using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Geometry;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Indexes;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.NestedAssociations;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.NotSchema;
@@ -28,6 +29,7 @@ using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configuration
 using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configurations.Associations;
 using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configurations.BasicAudit;
 using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configurations.ExplicitKeys;
+using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configurations.Geometry;
 using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configurations.Indexes;
 using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configurations.NestedAssociations;
 using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configurations.NotSchema;
@@ -108,6 +110,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence
         public DbSet<PK_B_CompositeKey> PK_B_CompositeKeys { get; set; }
         public DbSet<PK_PrimaryKeyInt> PK_PrimaryKeyInts { get; set; }
         public DbSet<PK_PrimaryKeyLong> PK_PrimaryKeyLongs { get; set; }
+        public DbSet<GeometryType> GeometryTypes { get; set; }
         public DbSet<ComplexDefaultIndex> ComplexDefaultIndices { get; set; }
         public DbSet<CustomIndex> CustomIndices { get; set; }
         public DbSet<DefaultIndex> DefaultIndices { get; set; }
@@ -262,6 +265,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new PK_B_CompositeKeyConfiguration());
             modelBuilder.ApplyConfiguration(new PK_PrimaryKeyIntConfiguration());
             modelBuilder.ApplyConfiguration(new PK_PrimaryKeyLongConfiguration());
+            modelBuilder.ApplyConfiguration(new GeometryTypeConfiguration());
             modelBuilder.ApplyConfiguration(new ComplexDefaultIndexConfiguration());
             modelBuilder.ApplyConfiguration(new CustomIndexConfiguration());
             modelBuilder.ApplyConfiguration(new DefaultIndexConfiguration());

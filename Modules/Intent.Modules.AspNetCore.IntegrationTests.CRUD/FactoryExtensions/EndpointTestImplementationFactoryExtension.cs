@@ -64,7 +64,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
             foreach (var crudTest in cantImplementCrudMaps)
             {
                 var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.Create.Id);
-                template.AddNugetDependency(NugetPackages.AutoFixture);
+                template.AddNugetDependency(NugetPackages.AutoFixture(template.OutputTarget));
                 DoNotImplementedTest(template, crudTest, crudTest.Create);
                 template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.GetById.Id);
                 DoNotImplementedTest(template, crudTest, crudTest.GetById);
@@ -122,7 +122,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
             foreach (var crudTest in crudMaps)
             {
                 var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.Create.Id);
-                template.AddNugetDependency(NugetPackages.AutoFixture);
+                template.AddNugetDependency(NugetPackages.AutoFixture(template.OutputTarget));
                 DoCreateTest(template, crudTest);
                 template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.GetById.Id);
                 DoGetByIdTest(template, crudTest);

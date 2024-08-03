@@ -1,8 +1,11 @@
 using System;
+using System.Linq;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
+using NuGet.Versioning;
 
 namespace Intent.Modules.Blazor.Api.Mappings;
 
@@ -48,6 +51,17 @@ public class RazorEventBindingMapping : CSharpMappingBase
             var argument = argumentMapping.GetSourceStatement();
             invocation.AddArgument(argument);
         }
+
+        //if (Mapping.SourceElement.IsEventEmitterModel() && (Template is IRazorComponentTemplate razorComponentTemplate | Template is ICSharpFileBuilderTemplate cSharpFileBuilderTemplate))
+        //{
+        //    (cSharpFileBuilderTemplate?.CSharpFile.Classes.First() ?? razorComponentTemplate.GetCode()).AddMethod("void", $"Invoke{Mapping.SourceElement.Name.ToCSharpIdentifier()}", method =>
+        //    {
+        //        method.Async();
+        //        method.AddStatement(new CSharpAwaitExpression(invocation).WithSemicolon());
+        //    });
+        //    return $"Invoke{Mapping.SourceElement.Name.ToCSharpIdentifier()}()";
+        //}
+
         return invocation;
     }
 }

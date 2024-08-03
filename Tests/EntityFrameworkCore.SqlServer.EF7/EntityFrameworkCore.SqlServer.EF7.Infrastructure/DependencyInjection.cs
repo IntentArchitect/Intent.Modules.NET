@@ -5,6 +5,7 @@ using EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.Accounts.NotSchema;
 using EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.Associations;
 using EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.BasicAudit;
 using EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.ExplicitKeys;
+using EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.Geometry;
 using EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.Indexes;
 using EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.NestedAssociations;
 using EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.NotSchema;
@@ -24,6 +25,7 @@ using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.Accounts.Not
 using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.Associations;
 using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.BasicAudit;
 using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.ExplicitKeys;
+using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.Geometry;
 using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.Indexes;
 using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.NestedAssociations;
 using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.NotSchema;
@@ -59,6 +61,7 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure
                     {
                         b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
                         b.UseDateOnlyTimeOnly();
+                        b.UseNetTopologySuite();
                     });
                 options.UseLazyLoadingProxies();
             });
@@ -110,6 +113,7 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure
             services.AddTransient<IPK_B_CompositeKeyRepository, PK_B_CompositeKeyRepository>();
             services.AddTransient<IPK_PrimaryKeyIntRepository, PK_PrimaryKeyIntRepository>();
             services.AddTransient<IPK_PrimaryKeyLongRepository, PK_PrimaryKeyLongRepository>();
+            services.AddTransient<IGeometryTypeRepository, GeometryTypeRepository>();
             services.AddTransient<IComplexDefaultIndexRepository, ComplexDefaultIndexRepository>();
             services.AddTransient<ICustomIndexRepository, CustomIndexRepository>();
             services.AddTransient<IDefaultIndexRepository, DefaultIndexRepository>();

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b8d99c69-3cfb-4182-8bc4-35e54981a450" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>GeometryType</name>
+  <display>GeometryType</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cceedf4a-c465-4cb4-9bb9-b605f1e5aba6</parentFolderId>
+  <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
+  <packageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="fa85d734-76cd-4d3b-aceb-0e11fd98ed3a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7c18ab1a-a630-47ad-a1fd-5e7c945770ed">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>b8d99c69-3cfb-4182-8bc4-35e54981a450</parentFolderId>
+      <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="8dae2866-ca3c-41b2-86fc-31a4dad2842f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Point</name>
+      <display>Point: Point</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0a731387-ca63-48c2-9012-4fba01a563e3">
+        <typeId>553b44ae-1d22-4b27-aec9-23f61328d2b8</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.NetTopologySuite</typePackageName>
+        <typePackageId>0f76b5d4-168c-4ff3-86e7-0c07b39dfceb</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>b8d99c69-3cfb-4182-8bc4-35e54981a450</parentFolderId>
+      <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

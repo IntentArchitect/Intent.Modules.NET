@@ -6,10 +6,13 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions;
 
 public class AddDbContextStatement : CSharpStatement, IHasCSharpStatements
 {
+
     public AddDbContextStatement(string dbContextName) : base($@"services.AddDbContext<{dbContextName}>((sp, options) =>")
     {
+        DbContextName = dbContextName;
     }
-
+    
+    public string DbContextName { get; }
     public IList<CSharpStatement> Statements { get; } = new List<CSharpStatement>();
 
     public AddDbContextStatement AddConfigOptionStatement(CSharpStatement statement)

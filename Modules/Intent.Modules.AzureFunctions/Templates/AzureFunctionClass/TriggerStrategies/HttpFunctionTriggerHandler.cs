@@ -139,7 +139,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
 
     public IEnumerable<INugetPackageInfo> GetNugetDependencies()
     {
-        yield return NuGetPackages.MicrosoftExtensionsHttp;
+        yield return NugetPackages.MicrosoftExtensionsHttp(_template.OutputTarget);
     }
 
     private IAzureFunctionParameterModel GetRequestInput()

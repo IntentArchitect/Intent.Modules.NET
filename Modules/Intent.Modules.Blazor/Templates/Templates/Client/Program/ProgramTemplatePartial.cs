@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.Configuration;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
@@ -67,6 +68,18 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
                         method.AddStatement("builder.Configuration.AddJsonStream(stream);");
                     });
                 });
+
+            ExecutionContext.EventDispatcher.Subscribe<HostingSettingsCreatedEvent>(x =>
+            {
+                ExecutionContext.EventDispatcher.Publish(new LaunchProfileRegistrationRequest
+                {
+                    Name = this.OutputTarget.GetProject().ApplicationName() + ".Client",
+                    CommandName = "Project",
+                    LaunchBrowser = true,
+                    ApplicationUrl = $"https://localhost:{x.SslPort}/",
+                    LaunchUrl = $"https://localhost:{x.SslPort}",
+                });
+            });
         }
 
         [IntentManaged(Mode.Fully)]

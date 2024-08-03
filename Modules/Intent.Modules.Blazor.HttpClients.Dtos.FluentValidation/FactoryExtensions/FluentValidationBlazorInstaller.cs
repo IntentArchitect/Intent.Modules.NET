@@ -32,7 +32,7 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.FactoryExtensi
                 return;
             }
 
-            template.AddNugetDependency(NuGetPackages.FluentValidationDependencyInjectionExtensions);
+            template.AddNugetDependency(NugetPackages.FluentValidationDependencyInjectionExtensions(template.OutputTarget));
             template.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();

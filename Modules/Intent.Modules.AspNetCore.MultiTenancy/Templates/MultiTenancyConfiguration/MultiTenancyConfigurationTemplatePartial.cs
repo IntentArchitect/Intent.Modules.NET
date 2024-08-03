@@ -25,8 +25,8 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public MultiTenancyConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.FinbuckleMultiTenant);
-            AddNugetDependency(NugetPackages.FinbuckleMultiTenantAspNetCore);
+            AddNugetDependency(NugetPackages.FinbuckleMultiTenant(outputTarget));
+            AddNugetDependency(NugetPackages.FinbuckleMultiTenantAspNetCore(outputTarget));
             FulfillsRole(TemplateRoles.Distribution.WebApi.MultiTenancyConfiguration);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())

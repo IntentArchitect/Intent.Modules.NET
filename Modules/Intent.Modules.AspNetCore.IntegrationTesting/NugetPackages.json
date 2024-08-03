@@ -1,0 +1,122 @@
+{
+  "packages": [
+    {
+      "name": "AutoFixture",
+      "versions": [
+        {
+          "framework": "2.0",
+          "version": "4.18.1"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.NET.Test.Sdk",
+      "versions": [
+        {
+          "framework": "0.0",
+          "version": "15.5.0"
+        }
+      ]
+    },
+    {
+      "name": "xunit",
+      "versions": [
+        {
+          "framework": "0.0",
+          "version": "2.9.0"
+        }
+      ]
+    },
+    {
+      "name": "xunit.runner.visualstudio",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "2.8.2"
+        }
+      ]
+    },
+    {
+      "name": "Testcontainers.CosmosDb",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "3.9.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "3.9.0"
+        }
+      ]
+    },
+    {
+      "name": "Testcontainers.MsSql",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "3.9.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "3.9.0"
+        }
+      ]
+    },
+    {
+      "name": "Testcontainers.PostgreSql",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "3.9.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "3.9.0"
+        }
+      ]
+    },
+    {
+      "name": "Testcontainers.MongoDb",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "3.9.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "3.9.0"
+        }
+      ]
+    },
+    {
+      "name": "IEvangelist.Azure.CosmosRepository",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.1.7"
+        },
+        {
+          "framework": "7.0",
+          "version": "8.1.7"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.AspNetCore.Mvc.Testing",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.7"
+        },
+        {
+          "framework": "7.0",
+          "version": "7.0.20"
+        },
+        {
+          "framework": "6.0",
+          "version": "6.0.32"
+        }
+      ]
+    }
+  ]
+}

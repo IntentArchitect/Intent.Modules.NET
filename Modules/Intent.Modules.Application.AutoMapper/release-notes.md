@@ -1,3 +1,7 @@
+### Version 5.1.2
+
+- Improvement: Dependency bump.
+
 ### Version 5.1.1
 
 - Improvement: Bumped AutoMapper to latest stable version `13.0.1`

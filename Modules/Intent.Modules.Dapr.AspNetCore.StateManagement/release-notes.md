@@ -1,3 +1,7 @@
+### Version 1.2.5
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 1.2.4
 
 - Improvement: Updated Interoperable dependency versions.

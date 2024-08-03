@@ -39,7 +39,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
 
         internal static void Configure(ICSharpFileBuilderTemplate template, CommandModel model)
         {
-            template.AddNugetDependency(NuGetPackages.MediatR);
+            template.AddNugetDependency(NugetPackages.MediatR(template.OutputTarget));
             template.AddTypeSource(TemplateRoles.Application.Command);
             template.AddTypeSource(TemplateRoles.Domain.Enum);
             template.AddTypeSource(TemplateRoles.Application.Contracts.Dto);

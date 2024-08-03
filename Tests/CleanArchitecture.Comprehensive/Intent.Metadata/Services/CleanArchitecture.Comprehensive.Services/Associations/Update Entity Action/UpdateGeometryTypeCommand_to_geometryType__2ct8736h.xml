@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c5f17322-287a-4641-b814-4ecb53b78595">
+  <sourceEnd id="4f47bda0-ff72-4341-a1f0-a245ef1497f0" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : GeometryTypes.UpdateGeometryTypeCommand</display>
+    <order>0</order>
+    <typeReference id="c1463b5b-4623-47c0-946d-f37187af1d14">
+      <typeId>8b5197f6-8853-4077-a6e1-1368803ae59c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c5f17322-287a-4641-b814-4ecb53b78595" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>geometryType</name>
+    <display>[update] geometryType: GeometryType</display>
+    <order>2</order>
+    <typeReference id="e126dcc5-cc7c-48d4-9184-cddbb1a6c2e2">
+      <typeId>eb720540-8523-40dd-9da4-39dad2aefaf9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8b5197f6-8853-4077-a6e1-1368803ae59c" location="[CleanArchitecture.Comprehensive].[Services].[UpdateGeometryTypeCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="eb720540-8523-40dd-9da4-39dad2aefaf9" location="[CleanArchitecture.Comprehensive].[Services].[GeometryType]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="eb720540-8523-40dd-9da4-39dad2aefaf9" name="GeometryType" type="element" specialization="Class" />
+              <target id="d217b783-9255-4952-a874-ec8f1ab4c2e5" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="8b5197f6-8853-4077-a6e1-1368803ae59c" name="UpdateGeometryTypeCommand" type="element" specialization="Command" />
+                  <target id="f10e9620-1491-4e36-aca7-326c62872bff" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8b5197f6-8853-4077-a6e1-1368803ae59c" location="[CleanArchitecture.Comprehensive].[Services].[UpdateGeometryTypeCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="eb720540-8523-40dd-9da4-39dad2aefaf9" location="[CleanArchitecture.Comprehensive].[Services].[GeometryType]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Point}</expression>
+            <path>
+              <target id="eb720540-8523-40dd-9da4-39dad2aefaf9" name="GeometryType" type="element" specialization="Class" />
+              <target id="afbc32c1-e3a8-46b9-be5d-4ac6e2c04b1e" name="Point" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Point" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="8b5197f6-8853-4077-a6e1-1368803ae59c" name="UpdateGeometryTypeCommand" type="element" specialization="Command" />
+                  <target id="182dae7e-d0ab-4c62-a7e5-993cdfae4035" name="Point" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

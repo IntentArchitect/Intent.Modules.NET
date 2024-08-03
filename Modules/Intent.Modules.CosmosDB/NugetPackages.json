@@ -1,0 +1,36 @@
+{
+  "packages": [
+    {
+      "name": "Newtonsoft.Json",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "13.0.3"
+        }
+      ]
+    },
+    {
+      "name": "Finbuckle.MultiTenant",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "6.13.1"
+        }
+      ]
+    },
+    {
+      "name": "IEvangelist.Azure.CosmosRepository",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.1.7"
+        },
+        {
+          "framework": "7.0",
+          "version": "8.1.7"
+        }
+      ]
+    }
+  ]
+}

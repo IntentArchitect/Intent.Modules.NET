@@ -1,4 +1,8 @@
-﻿### Version 1.2.1
+### Version 1.2.2
+
+- Improvement: Updated NuGet packages to latest stables.
+
+### Version 1.2.1
 
 - Improvement: Added support for explicit `ETag` modeling for Client/Server concurrency scenarios.
 

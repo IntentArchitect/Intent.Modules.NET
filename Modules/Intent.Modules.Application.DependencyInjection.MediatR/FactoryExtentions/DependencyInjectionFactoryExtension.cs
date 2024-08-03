@@ -65,7 +65,7 @@ namespace Intent.Modules.Application.DependencyInjection.MediatR.FactoryExtentio
             {
                 return;
             }
-            template.AddNugetDependency(NuGetPackages.MediatR);
+            template.AddNugetDependency(NugetPackages.MediatR(template.OutputTarget));
             application.EventDispatcher.Publish(new RemoveNugetPackageEvent("MediatR.Extensions.Microsoft.DependencyInjection", template.OutputTarget));
 
             template.CSharpFile.AfterBuild(file =>

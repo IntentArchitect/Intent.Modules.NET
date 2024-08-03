@@ -1,4 +1,8 @@
-﻿### Version 1.0.4
+﻿### Version 1.0.5
+
+- Fixed: Startup configuration update due to changes introduced in `Intent.AspNetCore` module.
+
+### Version 1.0.4
 
 - Improvement: Added support for CosmosDb as the persistence store.
 

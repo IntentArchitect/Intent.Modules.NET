@@ -30,8 +30,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                 {
                     var dbStrategy = ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum() switch
                     {
-                        DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer => GetSqlServerStrategy(),
-                        DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql => GetPostgresStrategy(),
+                        DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer => GetSqlServerStrategy(outputTarget),
+                        DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql => GetPostgresStrategy(outputTarget),
                         _ => throw new Exception($"Integration Testings patterns do not currently support : {ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().Value}"),
                     };
                     AddUsing("System.Reflection");
@@ -128,7 +128,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
                 }, 10000);
         }
 
-        private DbStrategy GetPostgresStrategy()
+        private DbStrategy GetPostgresStrategy(IOutputTarget outputTarget)
         {
             var containerInitialization = @"_dbContainer = new PostgreSqlBuilder()
         .WithImage(""postgres:14.7"")
@@ -142,12 +142,12 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
             return new DbStrategy(
                 containerType: "PostgreSqlContainer ",
                 usings: new() { "Testcontainers.PostgreSql", "Microsoft.EntityFrameworkCore" },
-                nuGetPackages: new() { NugetPackages.TestcontainersPostgreSql },
+                nuGetPackages: new() { NugetPackages.TestcontainersPostgreSql(outputTarget) },
                 containerInitialization: containerInitialization
                 );
         }
 
-        private DbStrategy GetSqlServerStrategy()
+        private DbStrategy GetSqlServerStrategy(IOutputTarget outputTarget)
         {
             var containerInitialization = @"_dbContainer = new MsSqlBuilder()
                 .WithImage(""mcr.microsoft.com/mssql/server:2022-latest"")
@@ -158,7 +158,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
             return new DbStrategy(
                 containerType: "MsSqlContainer",
                 usings: new() { "Testcontainers.MsSql", "Microsoft.EntityFrameworkCore" },
-                nuGetPackages: new() { NugetPackages.TestcontainersMsSql },
+                nuGetPackages: new() { NugetPackages.TestcontainersMsSql(outputTarget) },
                 containerInitialization: containerInitialization
                 );
         }

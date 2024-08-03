@@ -34,11 +34,11 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
             ProgramFile = new ProgramFile(this);
 
             _startupFile = new AppStartupFile(this);
-            AddNugetDependency(NuGetPackages.MicrosoftExtensionsHosting(outputTarget));
-            AddNugetDependency(NuGetPackages.MicrosoftExtensionsHostingWindowsServices(outputTarget));
-			AddNugetDependency(NuGetPackages.MicrosoftExtensionsDependencyInjection(outputTarget));
-			AddNugetDependency(NuGetPackages.MicrosoftExtensionsConfigurationAbstractions(outputTarget));
-			AddNugetDependency(NuGetPackages.MicrosoftExtensionsConfigurationBinder(outputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsHosting(outputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsHostingWindowsServices(outputTarget));
+			AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection(outputTarget));
+			AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationAbstractions(outputTarget));
+			AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationBinder(outputTarget));
 			switch (true, useTopLevelStatements)
             {
                 // Generic hosting model with Program class and Main method

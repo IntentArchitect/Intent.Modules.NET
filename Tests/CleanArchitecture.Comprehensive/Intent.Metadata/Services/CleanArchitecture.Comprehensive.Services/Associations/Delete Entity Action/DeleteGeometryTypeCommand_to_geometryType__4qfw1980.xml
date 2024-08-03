@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="51975a44-63b1-421d-b26b-07ea4d432a86">
+  <sourceEnd id="6da9695c-9445-41f4-8d13-0fe7227080e7" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : GeometryTypes.DeleteGeometryTypeCommand</display>
+    <order>0</order>
+    <typeReference id="684e0ad2-7fb6-4ff7-b53f-e7a8abf58dc2">
+      <typeId>3dc73836-d557-4cf9-b073-111cab36d8cc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="51975a44-63b1-421d-b26b-07ea4d432a86" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>geometryType</name>
+    <display>[delete] geometryType: GeometryType</display>
+    <order>1</order>
+    <typeReference id="27f7cd2b-b32f-4ed1-a35d-8bd6d476213c">
+      <typeId>eb720540-8523-40dd-9da4-39dad2aefaf9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3dc73836-d557-4cf9-b073-111cab36d8cc" location="[CleanArchitecture.Comprehensive].[Services].[DeleteGeometryTypeCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="eb720540-8523-40dd-9da4-39dad2aefaf9" location="[CleanArchitecture.Comprehensive].[Services].[GeometryType]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="eb720540-8523-40dd-9da4-39dad2aefaf9" name="GeometryType" type="element" specialization="Class" />
+              <target id="d217b783-9255-4952-a874-ec8f1ab4c2e5" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="3dc73836-d557-4cf9-b073-111cab36d8cc" name="DeleteGeometryTypeCommand" type="element" specialization="Command" />
+                  <target id="da0fcbcc-129d-47a3-b7d0-7cf9315a1ad3" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

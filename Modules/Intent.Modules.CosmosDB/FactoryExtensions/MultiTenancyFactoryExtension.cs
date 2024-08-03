@@ -149,7 +149,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
         private static void UpdateRepositoryBase(ICSharpFileBuilderTemplate template)
         {
-			template.AddNugetDependency(NugetDependencies.FinbuckleMultiTenant);
+			template.AddNugetDependency(NugetPackages.FinbuckleMultiTenant(template.OutputTarget));
 			template.CSharpFile.OnBuild(file =>
             {
                 string nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";

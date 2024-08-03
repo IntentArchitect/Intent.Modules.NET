@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using NetTopologySuite.IO.Converters;
 using Serilog;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -42,6 +43,10 @@ namespace CleanArchitecture.Comprehensive.Api
             .AddOData(options =>
             {
                 options.Filter().OrderBy().Select().SetMaxTop(200);
+            })
+            .AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new GeoJsonConverterFactory());
             });
             services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);

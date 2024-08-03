@@ -1,0 +1,92 @@
+{
+  "packages": [
+    {
+      "name": "Microsoft.Extensions.Hosting",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "7.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "8.0.0"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Extensions.Hosting.WindowsServices",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "7.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "8.0.0"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Extensions.Configuration.Abstractions",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "7.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "6.0.0",
+          "locked": true
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "7.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "6.0.1",
+          "locked": true
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Extensions.Configuration.Binder",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.2"
+        },
+        {
+          "framework": "7.0",
+          "version": "8.0.2"
+        },
+        {
+          "framework": "6.0",
+          "version": "6.0.0",
+          "locked": true
+        }
+      ]
+    }
+  ]
+}

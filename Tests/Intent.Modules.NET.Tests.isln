@@ -127,5 +127,7 @@
     <application id="ae7dbedc-1ada-4fbe-8b75-c1c56540c79b" name="SecurityConfig.Tests" relativePath="SecurityConfig.Tests/SecurityConfig.Tests.application.config" />
     <application id="5c1095ee-898d-46ed-8537-34217f14c8fb" name="ProxyServiceTests.Proxy.AuthHeaderProvider" relativePath="ProxyServiceTests.Proxy.AuthHeaderProvider/ProxyServiceTests.Proxy.AuthHeaderProvider.application.config" />
     <application id="7f57e139-b7d4-40b6-96ca-624ec08d719f" name="HashiCorpVault" relativePath="HashiCorpVault/HashiCorpVault.application.config" />
+    <application id="91b6bf45-10fb-405d-874c-851233e4fc37" name="EntityFrameworkCore.Postgres" relativePath="EntityFrameworkCore.Postgres/EntityFrameworkCore.Postgres.application.config" />
+    <application id="02808467-d0f1-40b4-877a-9206ff897be8" name="EntityFrameworkCore.MySql" relativePath="EntityFrameworkCore.MySql/EntityFrameworkCore.MySql.application.config" />
   </applications>
 </solution>

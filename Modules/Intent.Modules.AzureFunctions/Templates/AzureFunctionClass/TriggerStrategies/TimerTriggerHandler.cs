@@ -46,7 +46,7 @@ internal class TimerTriggerHandler : IFunctionTriggerHandler
     {
         if (!_template.OutputTarget.GetProject().IsNetApp(6))
         {
-            yield return NuGetPackages.MicrosoftAzureFunctionsWorkerExtensionsTimer;
+            yield return NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsTimer(_template.OutputTarget);
         }
     }
 }

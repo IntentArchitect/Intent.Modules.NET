@@ -56,8 +56,8 @@ internal class EventHubTriggerHandler : IFunctionTriggerHandler
     {
         if (!_azureFunctionModel.Parameters.Any())
         {
-            yield return NuGetPackages.AzureMessagingEventHubs;
+            yield return NugetPackages.AzureMessagingEventHubs(_template.OutputTarget);
         }
-        yield return NuGetPackages.MicrosoftAzureWebJobsExtensionsEventHubs;
+        yield return NugetPackages.MicrosoftAzureWebJobsExtensionsEventHubs(_template.OutputTarget);
     }
 }

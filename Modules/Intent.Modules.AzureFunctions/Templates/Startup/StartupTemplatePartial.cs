@@ -28,7 +28,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
         public StartupTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleServiceConfigurationRequest);
-            AddNugetDependency(NuGetPackages.MicrosoftAzureFunctionsExtensions);
+            AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsExtensions(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Azure.Functions.Extensions.DependencyInjection")

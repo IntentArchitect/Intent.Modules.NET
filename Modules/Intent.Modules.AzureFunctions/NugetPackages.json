@@ -1,0 +1,124 @@
+{
+  "packages": [
+    {
+      "name": "Microsoft.NET.Sdk.Functions",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "4.2.0"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Extensions.Http",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "6.0.0"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Azure.Functions.Extensions",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "1.1.0"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Azure.ServiceBus",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "5.2.0"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Azure.WebJobs.Extensions.ServiceBus",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "5.5.1"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Azure.WebJobs.Extensions.Storage.Queues",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "5.0.0"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Azure.WebJobs.Extensions.EventHubs",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "5.3.0"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Azure.Functions.Worker.Extensions.Timer",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "4.2.0"
+        }
+      ]
+    },
+    {
+      "name": "Azure.Messaging.EventHubs",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "5.9.0"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Azure.WebJobs.Extensions.CosmosDB",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "4.3.0"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Azure.WebJobs.Extensions.RabbitMQ",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "2.0.3"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "6.0.1"
+        }
+      ]
+    }
+  ]
+}
