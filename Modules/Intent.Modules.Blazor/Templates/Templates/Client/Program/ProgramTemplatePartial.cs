@@ -78,6 +78,8 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
                     LaunchBrowser = true,
                     ApplicationUrl = $"https://localhost:{x.SslPort}/",
                     LaunchUrl = $"https://localhost:{x.SslPort}",
+                    PublishAllPorts = false,
+                    EnvironmentVariables = new Dictionary<string, string> { { "ASPNETCORE_ENVIRONMENT", "Development" } }
                 });
             });
         }
