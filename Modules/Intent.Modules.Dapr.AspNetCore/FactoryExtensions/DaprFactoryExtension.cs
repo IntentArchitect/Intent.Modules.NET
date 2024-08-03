@@ -67,13 +67,6 @@ namespace Intent.Modules.Dapr.AspNetCore.FactoryExtensions
                         }
 
                         lastConfigStatement.WithoutSemicolon();
-
-                        var lambda = addDaprStatement.Statements.FirstOrDefault() as CSharpLambdaBlock;
-                        if (lambda is null)
-                        {
-                            lambda = new CSharpLambdaBlock("options");
-                            addDaprStatement.AddArgument(lambda);
-                        }
                     });
                 });
                 startupTemplate.StartupFile.ConfigureApp((statements, _) =>
