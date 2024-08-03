@@ -1,6 +1,7 @@
 using System;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.OData;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MinimalHostingModel.Api;
@@ -32,7 +33,11 @@ try
         opt =>
         {
             opt.Filters.Add<ExceptionFilter>();
-        });
+        })
+    .AddOData(options =>
+    {
+        options.Filter().OrderBy().Select().SetMaxTop(200);
+    });
     builder.Services.AddApplication(builder.Configuration);
     builder.Services.ConfigureApplicationSecurity(builder.Configuration);
     builder.Services.ConfigureCors(builder.Configuration);

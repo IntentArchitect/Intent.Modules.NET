@@ -39,7 +39,6 @@ namespace CleanArchitecture.SingleFiles.Api
                     opt.Filters.Add<ExceptionFilter>();
                 })
             .AddDapr();
-            services.AddDaprSidekick(Configuration);
             services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureHealthChecks(Configuration);
@@ -47,6 +46,7 @@ namespace CleanArchitecture.SingleFiles.Api
             services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
+            services.AddDaprSidekick(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
