@@ -334,7 +334,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const invocationMappingTYpeId = &quot;e4f0c63b-0f00-42bd-a703-00adf44f3364&quot;;&#xD;&#xA;const parentElement = mapping.getSourceElement();&#xD;&#xA;const newElement = createElement(&quot;Component Operation&quot;, (element.getParent().getName() + element.getName().replace(&quot;On &quot;, &quot;&quot;)).replace(&quot; &quot;, &quot;&quot;), parentElement.id);&#xD;&#xA;mapping.addMappedEnd(invocationMappingTYpeId, newElement.getMappingPath(), element.getMappingPath());" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const invocationMappingTYpeId = &quot;e4f0c63b-0f00-42bd-a703-00adf44f3364&quot;;&#xD;&#xA;const parentElement = mapping.getSourceElement();&#xD;&#xA;const newOperation = createElement(&quot;Component Operation&quot;, (element.getParent().getName() + element.getName().replace(&quot;On &quot;, &quot;&quot;)).replace(&quot; &quot;, &quot;&quot;), parentElement.id);&#xD;&#xA;const param = createElement(&quot;Parameter&quot;, &quot;rowId&quot;, newOperation.id);&#xD;&#xA;mapping.addMappedEnd(invocationMappingTYpeId, newOperation.getMappingPath(), element.getMappingPath());" isActive="true" />
               </properties>
             </stereotype>
             <stereotype stereotypeDefinitionId="cbe77364-d1d0-400b-a8c4-646a4c869612" name="Option Settings">

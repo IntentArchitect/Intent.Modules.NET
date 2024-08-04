@@ -334,8 +334,9 @@ dataCollection.getChildren().filter(x =&gt; x.specialization == "Property" || x.
               <icon type="FontAwesome" source="code" />
               <script>const invocationMappingTYpeId = "e4f0c63b-0f00-42bd-a703-00adf44f3364";
 const parentElement = mapping.getSourceElement();
-const newElement = createElement("Component Operation", (element.getParent().getName() + element.getName().replace("On ", "")).replace(" ", ""), parentElement.id);
-mapping.addMappedEnd(invocationMappingTYpeId, newElement.getMappingPath(), element.getMappingPath());</script>
+const newOperation = createElement("Component Operation", (element.getParent().getName() + element.getName().replace("On ", "")).replace(" ", ""), parentElement.id);
+const param = createElement("Parameter", "rowId", newOperation.id);
+mapping.addMappedEnd(invocationMappingTYpeId, newOperation.getMappingPath(), element.getMappingPath());</script>
             </option>
           </scriptOptions>
           <staticMappableSettings />

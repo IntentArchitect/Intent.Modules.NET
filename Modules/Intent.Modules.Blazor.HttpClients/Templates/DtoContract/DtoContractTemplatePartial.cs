@@ -23,9 +23,10 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.DtoContract
                 templateId: TemplateId,
                 outputTarget: outputTarget,
                 model: model,
-                enumContractTemplateId: EnumContractTemplate.TemplateId,
-                pagedResultTemplateId: PagedResultTemplate.TemplateId,
-                fileNamespaceProvider: new OutputTargetFileNamespaceProvider())
+                config: new DtoContractTemplateConfig(EnumContractTemplate.TemplateId, PagedResultTemplate.TemplateId, new OutputTargetFileNamespaceProvider())
+                {
+                    InstantiateNonNullableDtoProperties = true
+                })
         {
         }
     }
