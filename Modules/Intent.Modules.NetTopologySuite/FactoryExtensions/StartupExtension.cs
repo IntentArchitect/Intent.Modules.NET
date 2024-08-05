@@ -39,6 +39,7 @@ namespace Intent.Modules.NetTopologySuite.FactoryExtensions
                 return;
             }
 
+            startupTemplate.AddNugetDependency(NugetPackages.NetTopologySuiteIoGeoJson4Stj);
             startupTemplate.CSharpFile.OnBuild(file =>
             {
                 startupTemplate.StartupFile.ConfigureServices((statements, context) =>
