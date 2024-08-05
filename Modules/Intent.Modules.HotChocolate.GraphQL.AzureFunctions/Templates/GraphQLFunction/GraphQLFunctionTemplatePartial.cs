@@ -21,7 +21,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.AzureFunctions.Templates.GraphQLFu
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public GraphQLFunctionTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.HotChocolateAzureFunctions);
+            AddNugetDependency(NugetPackages.HotChocolateAzureFunctions(OutputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Threading.Tasks")
                 .AddClass($"GraphQLFunction", @class =>

@@ -1,3 +1,7 @@
+### Version 4.2.1
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 4.2.0
 
 - Improvement: Upgraded module to support new 4.1 SDK features.

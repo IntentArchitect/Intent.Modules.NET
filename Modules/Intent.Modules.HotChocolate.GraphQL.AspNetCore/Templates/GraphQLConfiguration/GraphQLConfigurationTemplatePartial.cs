@@ -25,8 +25,8 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.GraphQLConfig
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public GraphQLConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.HotChocolateAspNetCore);
-            AddNugetDependency(NuGetPackages.HotChocolateAspNetCoreAuthorization);
+            AddNugetDependency(NugetPackages.HotChocolateAspNetCore(OutputTarget));
+            AddNugetDependency(NugetPackages.HotChocolateAspNetCoreAuthorization(OutputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")

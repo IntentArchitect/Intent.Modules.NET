@@ -32,7 +32,7 @@ namespace Intent.Modules.Ardalis.GuardClauses.FactoryExtensions
             var entityTemplates = application.FindTemplateInstances<ICSharpTemplate>(TemplateDependency.OnTemplate("Domain.Entity"));
             foreach (var template in entityTemplates)
             {
-                template.AddNugetDependency(NugetPackages.ArdalisGuardClauses);
+                template.AddNugetDependency(NugetPackages.ArdalisGuardClauses(template.OutputTarget));
                 template.AddUsing("Ardalis.GuardClauses");
             }
         }

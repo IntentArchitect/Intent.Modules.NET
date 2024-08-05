@@ -1,15 +1,25 @@
-﻿using Intent.Modules.Common.VisualStudio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.Eventing.Solace
 {
-	internal class NuGetPackages
-	{
-		public static readonly INugetPackageInfo SolaceSystemsSolclientMessaging = new NugetPackageInfo("SolaceSystems.Solclient.Messaging", "10.24.0");
-		public static INugetPackageInfo MicrosoftExtensionsHosting = new NugetPackageInfo("Microsoft.Extensions.Hosting", "8.0.0");
-	}
+    public static class NugetPackages
+    {
+
+        public static NugetPackageInfo SolaceSystemsSolclientMessaging(IOutputTarget outputTarget) => new(
+            name: "SolaceSystems.Solclient.Messaging",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                _ => "10.25.0",
+            });
+
+        public static NugetPackageInfo MicrosoftExtensionsHosting(IOutputTarget outputTarget) => new(
+            name: "Microsoft.Extensions.Hosting",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "8.0.0",
+                (7, 0) => "8.0.0",
+                _ => "8.0.0",
+            });
+    }
 }

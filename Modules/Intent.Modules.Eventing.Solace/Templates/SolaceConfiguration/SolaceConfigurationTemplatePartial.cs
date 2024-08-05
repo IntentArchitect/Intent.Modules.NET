@@ -26,7 +26,7 @@ namespace Intent.Modules.Eventing.Solace.Templates.SolaceConfiguration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SolaceConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.SolaceSystemsSolclientMessaging);
+            AddNugetDependency(NugetPackages.SolaceSystemsSolclientMessaging(OutputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

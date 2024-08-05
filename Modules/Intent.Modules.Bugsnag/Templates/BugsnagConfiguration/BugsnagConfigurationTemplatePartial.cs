@@ -22,7 +22,7 @@ namespace Intent.Modules.Bugsnag.Templates.BugsnagConfiguration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public BugsnagConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.BugsnagAspNetCore);
+            AddNugetDependency(NugetPackages.BugsnagAspNetCore(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Bugsnag.AspNet.Core")

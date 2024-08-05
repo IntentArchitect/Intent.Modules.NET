@@ -1,3 +1,7 @@
+### Version 1.0.2
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 1.0.1
 
 - Improvement: Changed the Connection String name from `REDIS_CONNECTION_STRING` to `RedisOmConnectionString`.

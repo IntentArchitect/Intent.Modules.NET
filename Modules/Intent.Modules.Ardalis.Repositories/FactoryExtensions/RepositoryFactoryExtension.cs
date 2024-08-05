@@ -50,7 +50,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
             var template = application.FindTemplateInstance<CSharpTemplateBase<object>>(TemplateDependency.OnTemplate(RepositoryBaseTemplate.TemplateId));
             if (template != null)
             {
-                template.AddNugetDependency(NugetPackages.ArdalisSpecificationEntityFrameworkCore);
+                template.AddNugetDependency(NugetPackages.ArdalisSpecificationEntityFrameworkCore(template.OutputTarget));
 
                 ((ICSharpFileBuilderTemplate)template).CSharpFile.AfterBuild(file =>
                 {
@@ -186,7 +186,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
             var repoInterfaceTemplates = application.FindTemplateInstances<CSharpTemplateBase<ClassModel>>(TemplateDependency.OnTemplate(EntityRepositoryInterfaceTemplate.TemplateId));
             foreach (var template in repoInterfaceTemplates)
             {
-                template.AddNugetDependency(NugetPackages.ArdalisSpecification);
+                template.AddNugetDependency(NugetPackages.ArdalisSpecification(template.OutputTarget));
 
                 ((ICSharpFileBuilderTemplate)template).CSharpFile.AfterBuild(file =>
                 {
@@ -212,7 +212,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
             var entityRepoTemplates = application.FindTemplateInstances<CSharpTemplateBase<ClassModel>>(TemplateDependency.OnTemplate(RepositoryTemplate.TemplateId));
             foreach (var template in entityRepoTemplates)
             {
-                template.AddNugetDependency(NugetPackages.ArdalisSpecificationEntityFrameworkCore);
+                template.AddNugetDependency(NugetPackages.ArdalisSpecificationEntityFrameworkCore(template.OutputTarget));
 
                 ((ICSharpFileBuilderTemplate)template).CSharpFile.AfterBuild(file =>
                 {

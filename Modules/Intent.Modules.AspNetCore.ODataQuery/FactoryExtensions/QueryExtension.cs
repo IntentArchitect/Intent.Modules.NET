@@ -46,7 +46,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                     Logging.Log.Warning($"`Select enabled` for OData Query : {queryModel.Name} but `Select` is disabled at an API level.");
                     return;
                 }
-                queryTemplate.AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreOData);
+                queryTemplate.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreOData(queryTemplate.OutputTarget));
 
                 UpdateQuery(application, queryTemplate, queryModel, queryModel.GetODataQuery().EnableSelect());
                 UpdateHandler(application, queryModel, queryModel.GetODataQuery().EnableSelect());

@@ -1,13 +1,63 @@
+using Intent.Engine;
 using Intent.Modules.Common.VisualStudio;
 
-namespace Intent.Modules.Eventing.MassTransit;
-
-public static class NuGetPackages
+namespace Intent.Modules.Eventing.MassTransit
 {
-    public static readonly INugetPackageInfo MassTransit = new NugetPackageInfo("MassTransit", "8.1.3");
-    public static readonly INugetPackageInfo MassTransitAbstractions = new NugetPackageInfo("MassTransit.Abstractions", "8.1.3");
-    public static readonly INugetPackageInfo MassTransitRabbitMq = new NugetPackageInfo("MassTransit.RabbitMQ", "8.1.3");
-    public static readonly INugetPackageInfo MassTransitAzureServiceBusCore = new NugetPackageInfo("MassTransit.Azure.ServiceBus.Core", "8.1.3");
-    public static readonly INugetPackageInfo MassTransitAmazonSqs = new NugetPackageInfo("MassTransit.AmazonSQS", "8.1.3");
-    public static readonly INugetPackageInfo MassTransitEntityFrameworkCore = new NugetPackageInfo("MassTransit.EntityFrameworkCore", "8.1.3");
+    public static class NugetPackages
+    {
+
+        public static NugetPackageInfo MassTransit(IOutputTarget outputTarget) => new(
+            name: "MassTransit",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "8.2.3",
+                (7, 0) => "8.2.1",
+                _ => "8.2.3",
+            });
+
+        public static NugetPackageInfo MassTransitAbstractions(IOutputTarget outputTarget) => new(
+            name: "MassTransit.Abstractions",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "8.2.3",
+                (7, 0) => "8.2.1",
+                _ => "8.2.3",
+            });
+
+        public static NugetPackageInfo MassTransitRabbitMQ(IOutputTarget outputTarget) => new(
+            name: "MassTransit.RabbitMQ",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "8.2.3",
+                (7, 0) => "8.2.1",
+                _ => "8.2.3",
+            });
+
+        public static NugetPackageInfo MassTransitAzureServiceBusCore(IOutputTarget outputTarget) => new(
+            name: "MassTransit.Azure.ServiceBus.Core",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "8.2.3",
+                (7, 0) => "8.2.1",
+                _ => "8.2.3",
+            });
+
+        public static NugetPackageInfo MassTransitAmazonSQS(IOutputTarget outputTarget) => new(
+            name: "MassTransit.AmazonSQS",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "8.2.3",
+                (7, 0) => "8.2.1",
+                _ => "8.2.3",
+            });
+
+        public static NugetPackageInfo MassTransitEntityFrameworkCore(IOutputTarget outputTarget) => new(
+            name: "MassTransit.EntityFrameworkCore",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "8.2.3",
+                (7, 0) => "8.2.1",
+                _ => "8.2.3",
+            });
+    }
 }

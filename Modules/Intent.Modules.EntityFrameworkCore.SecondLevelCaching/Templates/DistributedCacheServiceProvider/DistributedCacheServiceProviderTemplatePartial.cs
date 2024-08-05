@@ -24,8 +24,8 @@ namespace Intent.Modules.EntityFrameworkCore.SecondLevelCaching.Templates.Distri
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DistributedCacheServiceProviderTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.EFCoreSecondLevelCacheInterceptor);
-            AddNugetDependency(NugetPackages.MessagePack);
+            AddNugetDependency(NugetPackages.EFCoreSecondLevelCacheInterceptor(OutputTarget));
+            AddNugetDependency(NugetPackages.MessagePack(OutputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

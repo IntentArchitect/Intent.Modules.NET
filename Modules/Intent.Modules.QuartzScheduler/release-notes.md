@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 1.0.2
 
 - Fixed: Fixed template name spelling mistake, also made template role more distinct.

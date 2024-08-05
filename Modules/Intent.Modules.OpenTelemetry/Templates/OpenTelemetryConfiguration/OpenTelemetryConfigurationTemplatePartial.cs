@@ -27,9 +27,9 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
     public OpenTelemetryConfigurationTemplate(IOutputTarget outputTarget, object model = null)
         : base(TemplateId, outputTarget, model)
     {
-        AddNugetDependency(NugetPackages.OpenTelemetry);
-        AddNugetDependency(NugetPackages.OpenTelemetryExtensionsHosting);
-        AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationAspNetCore);
+        AddNugetDependency(NugetPackages.OpenTelemetry(OutputTarget));
+        AddNugetDependency(NugetPackages.OpenTelemetryExtensionsHosting(OutputTarget));
+        AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationAspNetCore(OutputTarget));
 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("OpenTelemetry.Resources")
@@ -111,13 +111,13 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
 
         if (ExecutionContext.Settings.GetOpenTelemetry().HTTPInstrumentation())
         {
-            AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationHttp);
+            AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationHttp(OutputTarget));
             traceChain.AddChainStatement("AddHttpClientInstrumentation()");
         }
 
         if (ExecutionContext.Settings.GetOpenTelemetry().SQLInstrumentation())
         {
-            AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationSqlClient);
+            AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationSqlClient(OutputTarget));
             traceChain.AddChainStatement("AddSqlClientInstrumentation()");
         }
 
@@ -131,12 +131,12 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
         switch (ExecutionContext.Settings.GetOpenTelemetry().Export().AsEnum())
         {
             case Settings.OpenTelemetry.ExportOptionsEnum.Console:
-                AddNugetDependency(NugetPackages.OpenTelemetryExporterConsole);
+                AddNugetDependency(NugetPackages.OpenTelemetryExporterConsole(OutputTarget));
                 AddUsing("OpenTelemetry.Trace");
                 configChain.AddChainStatement(new CSharpInvocationStatement("AddConsoleExporter").WithoutSemicolon());
                 break;
             case Settings.OpenTelemetry.ExportOptionsEnum.OpenTelemetryProtocol:
-                AddNugetDependency(NugetPackages.OpenTelemetryExporterOpenTelemetryProtocol);
+                AddNugetDependency(NugetPackages.OpenTelemetryExporterOpenTelemetryProtocol(OutputTarget));
                 AddUsing("OpenTelemetry.Trace");
                 configChain.AddChainStatement(new CSharpInvocationStatement("AddOtlpExporter")
                     .WithoutSemicolon()
@@ -145,7 +145,7 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
                         .AddStatement($@"opt.Protocol = configuration.GetValue<{UseType("OpenTelemetry.Exporter.OtlpExportProtocol")}>(""open-telemetry-protocol:protocol"");")));
                 break;
             case Settings.OpenTelemetry.ExportOptionsEnum.AzureApplicationInsights:
-                AddNugetDependency(NugetPackages.AzureMonitorOpenTelemetryExporter);
+                AddNugetDependency(NugetPackages.AzureMonitorOpenTelemetryExporter(OutputTarget));
                 AddUsing("Azure.Monitor.OpenTelemetry.Exporter");
                 configChain.AddChainStatement(new CSharpInvocationStatement("AddAzureMonitorTraceExporter")
                     .WithoutSemicolon()

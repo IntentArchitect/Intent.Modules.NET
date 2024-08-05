@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 1.0.2
 
 - Improvement: Added support for publishing priority

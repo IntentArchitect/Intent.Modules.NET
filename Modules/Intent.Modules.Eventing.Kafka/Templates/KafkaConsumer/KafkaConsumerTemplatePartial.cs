@@ -29,8 +29,8 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConsumer
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public KafkaConsumerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.ConfluentKafka);
-            AddNugetDependency(NugetPackages.ConfluentSchemaRegistrySerdesJson);
+            AddNugetDependency(NugetPackages.ConfluentKafka(OutputTarget));
+            AddNugetDependency(NugetPackages.ConfluentSchemaRegistrySerdesJson(OutputTarget));
 
             AddKnownType("Confluent.Kafka.IsolationLevel");
 

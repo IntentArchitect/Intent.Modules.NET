@@ -51,13 +51,13 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 switch (targetDbProvider)
                 {
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
-                        dependencyInjectionTemplate.AddNugetDependency(NugetPackages.EntityFrameworkCoreInMemory(dependencyInjectionTemplate.OutputTarget.GetProject()));
+                        dependencyInjectionTemplate.AddNugetDependency(NugetPackages.MicrosoftEntityFrameworkCoreInMemory(dependencyInjectionTemplate.OutputTarget.GetProject()));
                         break;
 
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
-                        dependencyInjectionTemplate.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(dependencyInjectionTemplate.OutputTarget.GetProject()));
+                        dependencyInjectionTemplate.AddNugetDependency(NugetPackages.MicrosoftEntityFrameworkCoreSqlServer(dependencyInjectionTemplate.OutputTarget.GetProject()));
 
-                        if (NugetPackages.ShouldInstallErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjectionTemplate.OutputTarget))
+                        if (ShouldInstallErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjectionTemplate.OutputTarget))
                         {
                             dependencyInjectionTemplate.AddNugetDependency(
                                 NugetPackages.ErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjectionTemplate.OutputTarget));
@@ -90,7 +90,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         break;
 
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:
-                        dependencyInjectionTemplate.AddNugetDependency(NugetPackages.MySqlEntityFrameworkCore(dependencyInjectionTemplate.OutputTarget.GetProject()));
+                        dependencyInjectionTemplate.AddNugetDependency(NugetPackages.PomeloEntityFrameworkCoreMySql(dependencyInjectionTemplate.OutputTarget.GetProject()));
                         application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
                             name: dbContextInstance.ConnectionStringName,
                             connectionString: $"Server=localhost;Database={dependencyInjectionTemplate.OutputTarget.ApplicationName()};Uid=root;Pwd=P@ssw0rd;",
@@ -100,7 +100,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         break;
 
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
-                        dependencyInjectionTemplate.AddNugetDependency(NugetPackages.EntityFrameworkCoreCosmos(dependencyInjectionTemplate.OutputTarget.GetProject()));
+                        dependencyInjectionTemplate.AddNugetDependency(NugetPackages.MicrosoftEntityFrameworkCoreCosmos(dependencyInjectionTemplate.OutputTarget.GetProject()));
                         application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:AccountEndpoint", "https://localhost:8081"));
                         application.EventDispatcher.Publish(new AppSettingRegistrationRequest($"{ConfigSectionCosmos}:AccountKey",
                             "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="));
@@ -179,21 +179,21 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             switch (targetDbProvider)
             {
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
-                    dependencyInjection.AddNugetDependency(NugetPackages.EntityFrameworkCoreInMemory(dependencyInjection.OutputTarget.GetProject()));
+                    dependencyInjection.AddNugetDependency(NugetPackages.MicrosoftEntityFrameworkCoreInMemory(dependencyInjection.OutputTarget.GetProject()));
 
                     statements.Add(new CSharpInvocationStatement("options.UseInMemoryDatabase")
                         .AddArgument($"{connectionString}", a => a.AddMetadata("is-connection-string", true)));
                     break;
 
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
-                    dependencyInjection.AddNugetDependency(NugetPackages.EntityFrameworkCoreSqlServer(dependencyInjection.OutputTarget.GetProject()));
+                    dependencyInjection.AddNugetDependency(NugetPackages.MicrosoftEntityFrameworkCoreSqlServer(dependencyInjection.OutputTarget.GetProject()));
 
                     statements.Add(new CSharpInvocationStatement("options.UseSqlServer")
                         .WithArgumentsOnNewLines()
                         .AddArgument($"configuration.GetConnectionString({connectionString})", a => a.AddMetadata("is-connection-string", true))
                         .AddArgument(dbContextOptionsBuilderStatement));
 
-                    if (NugetPackages.ShouldInstallErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjection.OutputTarget))
+                    if (ShouldInstallErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(dependencyInjection.OutputTarget))
                     {
                         builderStatements.Add("b.UseDateOnlyTimeOnly()");
                     }
@@ -216,7 +216,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     break;
 
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:
-                    dependencyInjection.AddNugetDependency(NugetPackages.MySqlEntityFrameworkCore(dependencyInjection.OutputTarget.GetProject()));
+                    dependencyInjection.AddNugetDependency(NugetPackages.PomeloEntityFrameworkCoreMySql(dependencyInjection.OutputTarget.GetProject()));
 
                     statements.Add(new CSharpInvocationStatement("options.UseMySql")
                         .AddArgument($"configuration.GetConnectionString({connectionString})", a => a.AddMetadata("is-connection-string", true))
@@ -228,7 +228,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     break;
 
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:
-                    dependencyInjection.AddNugetDependency(NugetPackages.EntityFrameworkCoreCosmos(dependencyInjection.OutputTarget.GetProject()));
+                    dependencyInjection.AddNugetDependency(NugetPackages.MicrosoftEntityFrameworkCoreCosmos(dependencyInjection.OutputTarget.GetProject()));
 
                     statements.Add(new CSharpInvocationStatement("options.UseCosmos")
                         .WithArgumentsOnNewLines()
@@ -284,5 +284,16 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 builderStatements.Add("b.UseNetTopologySuite();");
             }
         }
+
+        public static bool ShouldInstallErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(IOutputTarget outputTarget)
+        {
+            return outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => true,
+                (7, 0) => true,
+                _ => false
+            };
+        }
+
     }
 }

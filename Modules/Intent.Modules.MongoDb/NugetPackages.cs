@@ -1,11 +1,16 @@
-﻿using Intent.Modules.Common.VisualStudio;
+using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 
-namespace Intent.Modules.MongoDb;
-
-public static class NugetPackages
+namespace Intent.Modules.MongoDb
 {
-    public static readonly INugetPackageInfo MongoDbDataUnitOfWork = new NugetPackageInfo("MongoDB.Data.UnitOfWork", "1.1.5");
-    public static readonly INugetPackageInfo MongoDBDataGenerators = new NugetPackageInfo("MongoDB.Data.Generators", "1.1.5");
+    public static class NugetPackages
+    {
 
-    public static readonly INugetPackageInfo MongoFramework = new NugetPackageInfo("MongoFramework", "0.29.0");    
+        public static NugetPackageInfo MongoFramework(IOutputTarget outputTarget) => new(
+            name: "MongoFramework",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                _ => "0.29.0",
+            });
+    }
 }

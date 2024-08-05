@@ -1,12 +1,41 @@
-﻿using Intent.Modules.Common.VisualStudio;
+using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.Eventing.Kafka
 {
-    internal class NugetPackages
+    public static class NugetPackages
     {
-        public static INugetPackageInfo ConfluentKafka = new NugetPackageInfo("Confluent.Kafka", "2.3.0");
-        public static INugetPackageInfo ConfluentSchemaRegistrySerdesJson = new NugetPackageInfo("Confluent.SchemaRegistry.Serdes.Json", "2.3.0");
-        public static INugetPackageInfo MicrosoftExtensionsDependencyInjection = new NugetPackageInfo("Microsoft.Extensions.DependencyInjection", "8.0.0");
-        public static INugetPackageInfo MicrosoftExtensionsHosting = new NugetPackageInfo("Microsoft.Extensions.Hosting", "8.0.0");
+
+        public static NugetPackageInfo ConfluentKafka(IOutputTarget outputTarget) => new(
+            name: "Confluent.Kafka",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                _ => "2.5.1",
+            });
+
+        public static NugetPackageInfo ConfluentSchemaRegistrySerdesJson(IOutputTarget outputTarget) => new(
+            name: "Confluent.SchemaRegistry.Serdes.Json",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                _ => "2.5.1",
+            });
+
+        public static NugetPackageInfo MicrosoftExtensionsDependencyInjection(IOutputTarget outputTarget) => new(
+            name: "Microsoft.Extensions.DependencyInjection",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "8.0.0",
+                (7, 0) => "8.0.0",
+                _ => "8.0.0",
+            });
+
+        public static NugetPackageInfo MicrosoftExtensionsHosting(IOutputTarget outputTarget) => new(
+            name: "Microsoft.Extensions.Hosting",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (6, 0) => "8.0.0",
+                (7, 0) => "8.0.0",
+                _ => "8.0.0",
+            });
     }
 }

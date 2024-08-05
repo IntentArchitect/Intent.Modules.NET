@@ -27,7 +27,7 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
             {
                 return;
             }
-            template.AddNugetDependency(NugetPackages.IdentityModel);
+            template.AddNugetDependency(NugetPackages.IdentityModel(template.OutputTarget));
             template.CSharpFile.AfterBuild(file =>
             {
                 file.AddUsing("System.Security.Claims");

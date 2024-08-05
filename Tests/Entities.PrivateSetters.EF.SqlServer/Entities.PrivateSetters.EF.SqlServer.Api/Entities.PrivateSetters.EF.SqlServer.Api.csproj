@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.4" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.0" />
   </ItemGroup>
 
 </Project>

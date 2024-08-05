@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
@@ -32,7 +33,7 @@ internal class InMemoryMessageBroker : MessageBrokerBase
         return default;
     }
 
-    public override INugetPackageInfo? GetNugetDependency()
+    public override INugetPackageInfo? GetNugetDependency(IOutputTarget outputTarget)
     {
         return default;
     }

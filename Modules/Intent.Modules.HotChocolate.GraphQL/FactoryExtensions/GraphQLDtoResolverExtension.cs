@@ -47,7 +47,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.FactoryExtensions
                         var @class = file.Classes.First();
                         foreach (var resolver in extensionModel.Resolvers.Select(x => new GraphQLResolverModel(x)).ToList<IGraphQLResolverModel>())
                         {
-                            template.AddNugetDependency(NuGetPackages.HotChocolate);
+                            template.AddNugetDependency(NugetPackages.HotChocolate(template.OutputTarget));
 
                             @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}<{template.GetTypeName(resolver.TypeReference)}>", resolver.Name.ToPascalCase(), method =>
                             {

@@ -1,15 +1,16 @@
-﻿using Intent.Modules.Common.VisualStudio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.AzureFunctions.OpenApi
 {
-    public class NuGetPackages
+    public static class NugetPackages
     {
-        public static readonly INugetPackageInfo MicrosoftAzureWebJobsExtensionsOpenApi = new NugetPackageInfo("Microsoft.Azure.WebJobs.Extensions.OpenApi", "1.5.1");
 
+        public static NugetPackageInfo MicrosoftAzureWebJobsExtensionsOpenApi(IOutputTarget outputTarget) => new(
+            name: "Microsoft.Azure.WebJobs.Extensions.OpenApi",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                _ => "1.5.1",
+            });
     }
 }

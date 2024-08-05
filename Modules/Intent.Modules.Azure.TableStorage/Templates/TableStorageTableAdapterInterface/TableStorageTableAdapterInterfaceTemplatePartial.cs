@@ -21,7 +21,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableAdapterIn
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public TableStorageTableAdapterInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetDependencies.AzureDataTables);
+            AddNugetDependency(NugetPackages.AzureDataTables(OutputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddUsing("System")
             .AddInterface($"ITableAdapter", @interface =>

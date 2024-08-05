@@ -1,4 +1,8 @@
-﻿### Version 1.0.1
+### Version 1.0.2
+
+- Improvement: Updated NuGet packages to latest stables.
+
+### Version 1.0.1
 
 - Improvement: Add the ability to reconfigure Policy timeouts through `appsedttings.json` at runtime.
 

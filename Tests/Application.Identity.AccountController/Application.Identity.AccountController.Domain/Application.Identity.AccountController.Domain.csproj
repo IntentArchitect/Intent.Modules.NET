@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.4" />
-    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="8.0.7" />
   </ItemGroup>
 
 </Project>

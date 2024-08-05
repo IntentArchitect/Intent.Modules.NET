@@ -1,0 +1,151 @@
+{
+  "packages": [
+    {
+      "name": "Microsoft.EntityFrameworkCore",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.7"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.0.20"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.EntityFrameworkCore.Design",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.7"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.0.20"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.EntityFrameworkCore.Tools",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.7"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.0.20"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.EntityFrameworkCore.SqlServer",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.7"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.0.20"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.EntityFrameworkCore.Cosmos",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.7"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.0.20"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.EntityFrameworkCore.InMemory",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.7"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.0.20"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.EntityFrameworkCore.Proxies",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.7"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.0.20"
+        }
+      ]
+    },
+    {
+      "name": "Npgsql.EntityFrameworkCore.PostgreSQL",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.4"
+        },
+        {
+          "framework": "7.0",
+          "version": "7.0.18"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.0.18"
+        }
+      ]
+    },
+    {
+      "name": "Pomelo.EntityFrameworkCore.MySql",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.2"
+        },
+        {
+          "framework": "7.0",
+          "version": "7.0.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.0.0"
+        }
+      ]
+    },
+    {
+      "name": "Oracle.EntityFrameworkCore",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.23.50"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.21.13"
+        }
+      ]
+    },
+    {
+      "name": "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "7.0.10"
+        }
+      ]
+    }
+  ]
+}

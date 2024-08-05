@@ -27,7 +27,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public RedisOmRepositoryBaseTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetDependencies.RedisOM);
+            AddNugetDependency(NugetPackages.RedisOM(OutputTarget));
 
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
 

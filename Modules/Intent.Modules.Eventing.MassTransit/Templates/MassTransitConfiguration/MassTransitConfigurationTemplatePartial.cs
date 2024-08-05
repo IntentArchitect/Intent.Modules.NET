@@ -37,10 +37,10 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public MassTransitConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
-        AddNugetDependency(NuGetPackages.MassTransit);
+        AddNugetDependency(NugetPackages.MassTransit(OutputTarget));
 
         _messageBroker = GetMessageBroker();
-        var messageBrokerDependency = _messageBroker.GetNugetDependency();
+        var messageBrokerDependency = _messageBroker.GetNugetDependency(OutputTarget);
         if (messageBrokerDependency is not null)
         {
             AddNugetDependency(messageBrokerDependency);

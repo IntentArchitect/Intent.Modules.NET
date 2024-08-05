@@ -104,8 +104,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
         {
             return new[]
             {
-                NugetPackages.EntityFrameworkCoreDesign(OutputTarget),
-                NugetPackages.EntityFrameworkCoreTools(OutputTarget)
+                NugetPackages.MicrosoftEntityFrameworkCoreDesign(OutputTarget),
+                NugetPackages.MicrosoftEntityFrameworkCoreTools(OutputTarget)
             };
         }
 

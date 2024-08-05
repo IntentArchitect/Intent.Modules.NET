@@ -1,0 +1,35 @@
+{
+  "packages": [
+    {
+      "name": "Microsoft.AspNetCore.Components.WebAssembly",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.7"
+        },
+        {
+          "framework": "7.0",
+          "version": "7.0.20"
+        },
+        {
+          "framework": "6.0",
+          "version": "6.0.32"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.AspNetCore.Components.WebAssembly.DevServer",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.8"
+        },
+        {
+          "framework": "7.0",
+          "version": "7.0.14"
+        }
+      ]
+    }
+  ]
+}

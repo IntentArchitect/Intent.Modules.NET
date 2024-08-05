@@ -1,3 +1,7 @@
+### Version 1.1.2
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 1.1.1
 
 - Fixed: The obsolete `Microsoft.AspNetCore.Mvc.Versioning` and `Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer` NuGet packages were not automatically removed if installed by an earlier version of this module.

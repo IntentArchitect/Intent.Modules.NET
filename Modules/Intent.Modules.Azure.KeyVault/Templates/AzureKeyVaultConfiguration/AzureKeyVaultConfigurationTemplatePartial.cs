@@ -21,9 +21,9 @@ namespace Intent.Modules.Azure.KeyVault.Templates.AzureKeyVaultConfiguration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureKeyVaultConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.AzureExtensionsAspNetCoreConfigurationSecrets);
-            AddNugetDependency(NugetPackages.AzureIdentity);
-            AddNugetDependency(NugetPackages.AzureSecurityKeyVaultSecrets);
+            AddNugetDependency(NugetPackages.AzureExtensionsAspNetCoreConfigurationSecrets(OutputTarget));
+            AddNugetDependency(NugetPackages.AzureIdentity(OutputTarget));
+            AddNugetDependency(NugetPackages.AzureSecurityKeyVaultSecrets(OutputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

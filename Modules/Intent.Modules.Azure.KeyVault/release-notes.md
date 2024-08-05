@@ -1,3 +1,7 @@
+### Version 2.0.4
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 2.0.3
 
 - Improvement: Catering for case where other modules may need the configuration builder in the Program.cs for the Host Builder.

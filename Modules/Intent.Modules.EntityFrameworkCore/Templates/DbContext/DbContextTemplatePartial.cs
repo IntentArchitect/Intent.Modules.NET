@@ -283,12 +283,12 @@ modelBuilder.Entity<Car>().HasData(
             return (UseLazyLoadingProxies
                     ? new[]
                     {
-                        NugetPackages.EntityFrameworkCore(Project),
-                        NugetPackages.EntityFrameworkCoreProxies(Project),
+                        NugetPackages.MicrosoftEntityFrameworkCore(Project),
+                        NugetPackages.MicrosoftEntityFrameworkCoreProxies(Project),
                     }
                     : new[]
                     {
-                        NugetPackages.EntityFrameworkCore(Project),
+                        NugetPackages.MicrosoftEntityFrameworkCore(Project),
                     })
                 .Union(base.GetNugetDependencies())
                 .ToArray();

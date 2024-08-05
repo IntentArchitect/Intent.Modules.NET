@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
@@ -43,9 +44,9 @@ internal class AmazonSqsMessageBroker : MessageBrokerBase
         });
     }
 
-    public override INugetPackageInfo? GetNugetDependency()
+    public override INugetPackageInfo? GetNugetDependency(IOutputTarget outputTarget)
     {
-        return NuGetPackages.MassTransitAmazonSqs;
+        return NugetPackages.MassTransitAmazonSQS(outputTarget);
     }
 
     public override IEnumerable<CSharpStatement> GetCustomConfigurationStatements(Consumer consumer, string sanitizedAppName)

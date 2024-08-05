@@ -21,7 +21,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AccountControllerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.IdentityModel);
+            AddNugetDependency(NugetPackages.IdentityModel(OutputTarget));
             AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationJwtBearer(OutputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())

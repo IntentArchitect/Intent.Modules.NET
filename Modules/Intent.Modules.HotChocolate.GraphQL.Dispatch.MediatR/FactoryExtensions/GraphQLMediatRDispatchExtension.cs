@@ -45,7 +45,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
             {
                 template.AddTypeSource(TemplateRoles.Application.Query);
                 template.AddTypeSource(TemplateRoles.Application.Command);
-                template.AddNugetDependency(NuGetPackages.HotChocolate);
+                template.AddNugetDependency(NugetPackages.HotChocolate(template.OutputTarget));
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.First();
@@ -67,7 +67,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.FactoryExtensions
             {
                 template.AddTypeSource(TemplateRoles.Application.Query);
                 template.AddTypeSource(TemplateRoles.Application.Command);
-                template.AddNugetDependency(NuGetPackages.HotChocolate);
+                template.AddNugetDependency(NugetPackages.HotChocolate(template.OutputTarget));
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.First();

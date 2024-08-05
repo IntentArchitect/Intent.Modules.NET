@@ -1,8 +1,16 @@
-﻿using Intent.Modules.Common.VisualStudio;
+using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 
-namespace Intent.Modules.Bugsnag;
-
-public static class NugetPackages
+namespace Intent.Modules.Bugsnag
 {
-    public static readonly INugetPackageInfo BugsnagAspNetCore = new NugetPackageInfo("Bugsnag.AspNet.Core", "3.1.0");
+    public static class NugetPackages
+    {
+
+        public static NugetPackageInfo BugsnagAspNetCore(IOutputTarget outputTarget) => new(
+            name: "Bugsnag.AspNet.Core",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                _ => "3.1.0",
+            });
+    }
 }

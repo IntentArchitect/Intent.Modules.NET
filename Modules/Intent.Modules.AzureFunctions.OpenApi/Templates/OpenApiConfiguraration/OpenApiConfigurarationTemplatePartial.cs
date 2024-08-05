@@ -21,7 +21,7 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Templates.OpenApiConfiguraration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public OpenApiConfigurarationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.MicrosoftAzureWebJobsExtensionsOpenApi);
+            AddNugetDependency(NugetPackages.MicrosoftAzureWebJobsExtensionsOpenApi(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums")

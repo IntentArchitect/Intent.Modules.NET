@@ -1,3 +1,7 @@
+### Version 1.2.1
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 1.2.0
 
 - Improvement: Changed repository contract to only have 1 generic parameter <TDomain> vs `<TDamain, TPersistence>`.

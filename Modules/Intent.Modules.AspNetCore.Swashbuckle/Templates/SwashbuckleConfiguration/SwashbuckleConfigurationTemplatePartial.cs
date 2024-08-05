@@ -26,7 +26,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
         var useSimpleSchemaIdentifiers = ExecutionContext.Settings.GetSwaggerSettings().UseSimpleSchemaIdentifiers();
         var markNonNullableFieldsAsRequired = ExecutionContext.Settings.GetSwaggerSettings().MarkNonNullableFieldsAsRequired();
 
-        AddNugetDependency(NugetPackages.SwashbuckleAspNetCore);
+        AddNugetDependency(NugetPackages.SwashbuckleAspNetCore(OutputTarget));
         AddUsing("System");
         AddUsing("System.Collections.Generic");
         AddUsing("System.IO");

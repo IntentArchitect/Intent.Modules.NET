@@ -21,7 +21,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConsumerBackgroundService
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public KafkaConsumerBackgroundServiceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.MicrosoftExtensionsHosting);
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsHosting(OutputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Collections.Generic")

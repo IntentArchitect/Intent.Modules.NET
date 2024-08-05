@@ -23,7 +23,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.Templates.ODataQuerySwaggerFilter
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ODataQuerySwaggerFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreOData);
+            AddNugetDependency(NugetPackages.MicrosoftAspNetCoreOData(OutputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"ODataQueryFilter", @class =>
                 {

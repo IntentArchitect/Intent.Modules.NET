@@ -50,24 +50,24 @@ namespace Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.FactoryExtensi
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory:
                     Logging.Log.Warning(
                         $@"Database Provider {provider} is not supported for Entity Framework outbox pattern.");
-                    template.AddNugetDependency(NuGetPackages.MassTransitEntityFrameworkCore);
+                    template.AddNugetDependency(NugetPackages.MassTransitEntityFrameworkCore(template.OutputTarget));
                     AddEntityFrameworkOutboxStatement(template, conf => conf
                         .AddStatement("o.UseBusOutbox();"));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
-                    template.AddNugetDependency(NuGetPackages.MassTransitEntityFrameworkCore);
+                    template.AddNugetDependency(NugetPackages.MassTransitEntityFrameworkCore(template.OutputTarget));
                     AddEntityFrameworkOutboxStatement(template, conf => conf
                         .AddStatement("o.UseSqlServer();")
                         .AddStatement("o.UseBusOutbox();"));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql:
-                    template.AddNugetDependency(NuGetPackages.MassTransitEntityFrameworkCore);
+                    template.AddNugetDependency(NugetPackages.MassTransitEntityFrameworkCore(template.OutputTarget));
                     AddEntityFrameworkOutboxStatement(template, conf => conf
                         .AddStatement("o.UsePostgres();")
                         .AddStatement("o.UseBusOutbox();"));
                     break;
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:
-                    template.AddNugetDependency(NuGetPackages.MassTransitEntityFrameworkCore);
+                    template.AddNugetDependency(NugetPackages.MassTransitEntityFrameworkCore(template.OutputTarget));
                     AddEntityFrameworkOutboxStatement(template, conf => conf
                         .AddStatement("o.UseMySql();")
                         .AddStatement("o.UseBusOutbox();"));

@@ -32,11 +32,11 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public HealthChecksConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUIClient(outputTarget));
+            AddNugetDependency(NugetPackages.AspNetCoreHealthChecksUIClient(outputTarget));
 
             if (ExecutionContext.Settings.GetHealthChecks().PublishEvents().IsAzureApplicationInsights())
             {
-                AddNugetDependency(NugetPackage.AspNetcoreHealthChecksPublisherApplicationInsights(outputTarget));
+                AddNugetDependency(NugetPackages.AspNetcoreHealthChecksPublisherApplicationInsights(outputTarget));
             }
 
             if (ExecutionContext.Settings.GetHealthChecks().HealthChecksUI())
@@ -50,8 +50,8 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                                         """);
                 }
 
-                AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUI(outputTarget));
-                AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUIInMemoryStorage(outputTarget));
+                AddNugetDependency(NugetPackages.AspNetCoreHealthChecksUI(outputTarget));
+                AddNugetDependency(NugetPackages.AspNetCoreHealthChecksUIInMemoryStorage(outputTarget));
             }
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -130,8 +130,8 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
         {
             if (!ExecutionContext.Settings.GetHealthChecks().HealthChecksUI()) { return; }
 
-            AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUI(OutputTarget));
-            AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUIInMemoryStorage(OutputTarget));
+            AddNugetDependency(NugetPackages.AspNetCoreHealthChecksUI(OutputTarget));
+            AddNugetDependency(NugetPackages.AspNetCoreHealthChecksUIInMemoryStorage(OutputTarget));
 
             method.AddInvocationStatement("services.AddHealthChecksUI", stmt => stmt
                 .AddArgument(new CSharpLambdaBlock("settings")
@@ -157,56 +157,56 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
             switch (@event.InfrastructureComponent)
             {
                 case Infrastructure.SqlServer.Name:
-                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksSqlServer(OutputTarget));
+                    AddNugetDependency(NugetPackages.AspNetCoreHealthChecksSqlServer(OutputTarget));
                     return GetDatabaseHealthCheckStatements(
                         @event: @event,
                         expression: "hcBuilder.AddSqlServer",
                         connectionStringNameVar: Infrastructure.SqlServer.Property.ConnectionStringName,
                         connectionStringSettingPathVar: Infrastructure.SqlServer.Property.ConnectionStringSettingPath);
                 case Infrastructure.PostgreSql.Name:
-                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksNpgSql(OutputTarget));
+                    AddNugetDependency(NugetPackages.AspNetCoreHealthChecksNpgSql(OutputTarget));
                     return GetDatabaseHealthCheckStatements(
                         @event: @event,
                         expression: "hcBuilder.AddNpgSql",
                         connectionStringNameVar: Infrastructure.PostgreSql.Property.ConnectionStringName,
                         connectionStringSettingPathVar: Infrastructure.PostgreSql.Property.ConnectionStringSettingPath);
                 case Infrastructure.MySql.Name:
-                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksMySql(OutputTarget));
+                    AddNugetDependency(NugetPackages.AspNetCoreHealthChecksMySql(OutputTarget));
                     return GetDatabaseHealthCheckStatements(
                         @event: @event,
                         expression: "hcBuilder.AddMySql",
                         connectionStringNameVar: Infrastructure.MySql.Property.ConnectionStringName,
                         connectionStringSettingPathVar: Infrastructure.MySql.Property.ConnectionStringSettingPath);
                 case Infrastructure.CosmosDb.Name:
-                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksCosmosDb(OutputTarget));
+                    AddNugetDependency(NugetPackages.AspNetCoreHealthChecksCosmosDb(OutputTarget));
                     return GetCosmosDbStatements(
                         @event: @event,
                         connectionStringNameVar: Infrastructure.CosmosDb.Property.ConnectionStringName,
                         connectionStringSettingPathVar: Infrastructure.CosmosDb.Property.ConnectionStringSettingPath);
                 case Infrastructure.MongoDb.Name:
-                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksMongoDb(OutputTarget));
+                    AddNugetDependency(NugetPackages.AspNetCoreHealthChecksMongoDb(OutputTarget));
                     return GetDatabaseHealthCheckStatements(
                         @event: @event,
                         expression: "hcBuilder.AddMongoDb",
                         connectionStringNameVar: Infrastructure.MongoDb.Property.ConnectionStringName,
                         connectionStringSettingPathVar: Infrastructure.MongoDb.Property.ConnectionStringSettingPath);
                 case Infrastructure.Oracle.Name:
-                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksOracle(OutputTarget));
+                    AddNugetDependency(NugetPackages.AspNetCoreHealthChecksOracle(OutputTarget));
                     return GetDatabaseHealthCheckStatements(
                         @event: @event,
                         expression: "hcBuilder.AddOracle",
                         connectionStringNameVar: Infrastructure.Oracle.Property.ConnectionStringName,
                         connectionStringSettingPathVar: Infrastructure.Oracle.Property.ConnectionStringSettingPath);
                 case Infrastructure.Redis.Name:
-                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksRedis(OutputTarget));
+                    AddNugetDependency(NugetPackages.AspNetCoreHealthChecksRedis(OutputTarget));
                     return GetDatabaseHealthCheckStatements(
                         @event: @event,
                         expression: "hcBuilder.AddRedis",
                         connectionStringNameVar: Infrastructure.Redis.Property.ConnectionStringName,
                         connectionStringSettingPathVar: Infrastructure.Redis.Property.ConnectionStringSettingPath);
                 case Infrastructure.Kafka.Name:
-                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksKafka(OutputTarget));
-                    AddNugetDependency(NugetPackage.AspNetCoreHealthChecksUris(OutputTarget));
+                    AddNugetDependency(NugetPackages.AspNetCoreHealthChecksKafka(OutputTarget));
+                    AddNugetDependency(NugetPackages.AspNetCoreHealthChecksUris(OutputTarget));
                     return GetKafkaHealthCheckStatements(@event: @event);
                 default:
                     return Enumerable.Empty<CSharpInvocationStatement>();
@@ -258,8 +258,10 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
             string connectionStringNameVar,
             string connectionStringSettingPathVar)
         {
-            var dotnetMajorVer = OutputTarget.GetMaxNetAppVersion().Major;
-            if (dotnetMajorVer < 7)
+            var nuGetVersion = NugetPackages.AspNetCoreHealthChecksCosmosDb(OutputTarget);
+            var nugetMajorVersion = int.Parse(nuGetVersion.Version.Split('.')[0]);
+
+            if (nugetMajorVersion < 7)
             {
                 return GetDatabaseHealthCheckStatements(
                     @event: @event,
@@ -272,7 +274,7 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
             addSingletonStatement.AddArgument($"_ => new {UseType("Microsoft.Azure.Cosmos.CosmosClient")}({GetConnectionStringRetrievalExpression(@event, connectionStringNameVar, connectionStringSettingPathVar)})");
 
             var addCosmosStatement = new CSharpInvocationStatement("hcBuilder.AddAzureCosmosDB");
-            var argName = dotnetMajorVer < 8
+            var argName = nugetMajorVersion < 8
                 ? "healthCheckName"
                 : "name";
 

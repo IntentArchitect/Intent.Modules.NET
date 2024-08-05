@@ -28,8 +28,8 @@ namespace Intent.Modules.Dapper.Templates.RepositoryBase
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public RepositoryBaseTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.Dapper);
-            AddNugetDependency(NuGetPackages.SystemDataSqlClient);
+            AddNugetDependency(NugetPackages.Dapper(OutputTarget));
+            AddNugetDependency(NugetPackages.SystemDataSqlClient(OutputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Data")

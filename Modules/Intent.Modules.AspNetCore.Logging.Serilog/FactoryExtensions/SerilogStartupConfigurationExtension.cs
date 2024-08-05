@@ -41,22 +41,22 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
 
             if (application.Settings.GetSerilogSettings().Sinks().Any(x => x.IsGraylog()))
             {
-                template.AddNugetDependency(NugetPackages.SerilogSinksGraylog);
-                template.AddNugetDependency(NugetPackages.SerilogEnrichersSpan);
+                template.AddNugetDependency(NugetPackages.SerilogSinksGraylog(template.OutputTarget));
+                template.AddNugetDependency(NugetPackages.SerilogEnrichersSpan(template.OutputTarget));
             }
             else
             {
-                application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.SerilogSinksGraylog.Name, template.OutputTarget));
-                application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.SerilogEnrichersSpan.Name, template.OutputTarget));
+                application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.SerilogSinksGraylog(template.OutputTarget).Name, template.OutputTarget));
+                application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.SerilogEnrichersSpan(template.OutputTarget).Name, template.OutputTarget));
             }
 
             if (application.Settings.GetSerilogSettings().Sinks().Any(x => x.IsApplicationInsights()))
             {
-                template.AddNugetDependency(NugetPackages.SerilogSinksApplicationInsights);
+                template.AddNugetDependency(NugetPackages.SerilogSinksApplicationInsights(template.OutputTarget));
             }
             else
             {
-                application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.SerilogSinksApplicationInsights.Name, template.OutputTarget));
+                application.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.SerilogSinksApplicationInsights(template.OutputTarget).Name, template.OutputTarget));
             }
 
             application.EventDispatcher.Publish(

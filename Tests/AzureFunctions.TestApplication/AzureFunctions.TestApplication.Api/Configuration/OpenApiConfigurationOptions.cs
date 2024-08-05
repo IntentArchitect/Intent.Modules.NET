@@ -7,7 +7,7 @@ using Microsoft.OpenApi.Models;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.OpenApi.OpenApiConfigurarationTemplate", Version = "1.0")]
 
-namespace _1Api
+namespace AzureFunctions.TestApplication.Api.Configuration
 {
     public class OpenApiConfigurationOptions : IOpenApiConfigurationOptions
     {

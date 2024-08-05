@@ -29,7 +29,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid.FactoryEx
             }
             template.CSharpFile.OnBuild(file => 
             {
-				template.AddNugetDependency(NuGetPackages.Dapper);
+				template.AddNugetDependency(NugetPackages.Dapper(template.OutputTarget));
 				var @class = template.CSharpFile.TypeDeclarations.First();
 
 				@class.AddMethod(template.UseType("System.Data.IDbConnection"), "GetConnection", method =>
