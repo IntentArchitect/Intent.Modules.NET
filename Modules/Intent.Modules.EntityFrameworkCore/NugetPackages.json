@@ -2,106 +2,134 @@
   "packages": [
     {
       "name": "Microsoft.EntityFrameworkCore",
+      "comment": "Locked for Azure Functions",
+      "locked": true,
       "versions": [
         {
           "framework": "8.0",
           "version": "8.0.7"
         },
         {
+          "framework": "7.0",
+          "version": "7.0.20"
+        },
+        {
           "framework": "6.0",
-          "version": "6.0.32",
-          "comment": "Locked for Azure Functions",
-          "locked": true
+          "version": "6.0.32"
         }
       ]
     },
     {
       "name": "Microsoft.EntityFrameworkCore.Design",
+      "comment": "Locked for Azure Functions",
+      "locked": true,
       "versions": [
         {
           "framework": "8.0",
           "version": "8.0.7"
         },
         {
+          "framework": "7.0",
+          "version": "7.0.20"
+        },
+        {
           "framework": "6.0",
-          "version": "6.0.32",
-          "comment": "Locked for Azure Functions",
-          "locked": true
+          "version": "6.0.32"
         }
       ]
     },
     {
       "name": "Microsoft.EntityFrameworkCore.Tools",
+      "comment": "Locked for Azure Functions",
+      "locked": true,
       "versions": [
         {
           "framework": "8.0",
           "version": "8.0.7"
         },
         {
+          "framework": "7.0",
+          "version": "7.0.20"
+        },
+        {
           "framework": "6.0",
-          "version": "6.0.32",
-          "comment": "Locked for Azure Functions",
-          "locked": true
+          "version": "6.0.32"
         }
       ]
     },
     {
       "name": "Microsoft.EntityFrameworkCore.SqlServer",
+      "comment": "Locked for Azure Functions",
+      "locked": true,
       "versions": [
         {
           "framework": "8.0",
           "version": "8.0.7"
         },
         {
+          "framework": "7.0",
+          "version": "7.0.20"
+        },
+        {
           "framework": "6.0",
-          "version": "6.0.32",
-          "comment": "Locked for Azure Functions",
-          "locked": true
+          "version": "6.0.32"
         }
       ]
     },
     {
       "name": "Microsoft.EntityFrameworkCore.Cosmos",
+      "comment": "Locked for Azure Functions",
+      "locked": true,
       "versions": [
         {
           "framework": "8.0",
           "version": "8.0.7"
         },
         {
+          "framework": "7.0",
+          "version": "7.0.20"
+        },
+        {
           "framework": "6.0",
-          "version": "6.0.32",
-          "comment": "Locked for Azure Functions",
-          "locked": true
+          "version": "6.0.32"
         }
       ]
     },
     {
       "name": "Microsoft.EntityFrameworkCore.InMemory",
+      "comment": "Locked for Azure Functions",
+      "locked": true,
       "versions": [
         {
           "framework": "8.0",
           "version": "8.0.7"
         },
         {
+          "framework": "7.0",
+          "version": "7.0.20"
+        },
+        {
           "framework": "6.0",
-          "version": "6.0.32",
-          "comment": "Locked for Azure Functions",
-          "locked": true
+          "version": "6.0.32"
         }
       ]
     },
     {
       "name": "Microsoft.EntityFrameworkCore.Proxies",
+      "comment": "Locked for Azure Functions",
+      "locked": true,
       "versions": [
         {
           "framework": "8.0",
           "version": "8.0.7"
         },
         {
+          "framework": "7.0",
+          "version": "7.0.20"
+        },
+        {
           "framework": "6.0",
-          "version": "6.0.32",
-          "comment": "Locked for Azure Functions",
-          "locked": true
+          "version": "6.0.32"
         }
       ]
     },

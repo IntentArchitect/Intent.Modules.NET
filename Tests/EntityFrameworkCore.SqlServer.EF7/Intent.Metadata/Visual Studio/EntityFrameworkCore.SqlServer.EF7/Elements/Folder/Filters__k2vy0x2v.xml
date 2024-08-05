@@ -77,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6e8450f7-77b1-46f1-acb4-78a12ee28033</parentFolderId>
+      <packageId>eee79cda-e2b5-4c4f-b24e-fd6fe4686047</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.EF7</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

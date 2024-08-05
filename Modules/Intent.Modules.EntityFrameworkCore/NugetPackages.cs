@@ -6,73 +6,80 @@ namespace Intent.Modules.EntityFrameworkCore
 {
     public static class NugetPackages
     {
+        //Locked for Azure Functions
 
         public static NugetPackageInfo MicrosoftEntityFrameworkCore(IOutputTarget outputTarget) => new NugetPackageInfo(
             name: "Microsoft.EntityFrameworkCore",
             version: outputTarget.GetMaxNetAppVersion() switch
             {
                 (>= 8, 0) => "8.0.7",
-                //Locked for Azure Functions
+                (>= 7, 0) => "7.0.20",
                 (>= 6, 0) => "6.0.32",
                 _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.EntityFrameworkCore'")
             });
+        //Locked for Azure Functions
 
         public static NugetPackageInfo MicrosoftEntityFrameworkCoreDesign(IOutputTarget outputTarget) => new NugetPackageInfo(
             name: "Microsoft.EntityFrameworkCore.Design",
             version: outputTarget.GetMaxNetAppVersion() switch
             {
                 (>= 8, 0) => "8.0.7",
-                //Locked for Azure Functions
+                (>= 7, 0) => "7.0.20",
                 (>= 6, 0) => "6.0.32",
                 _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.EntityFrameworkCore.Design'")
             });
+        //Locked for Azure Functions
 
         public static NugetPackageInfo MicrosoftEntityFrameworkCoreTools(IOutputTarget outputTarget) => new NugetPackageInfo(
             name: "Microsoft.EntityFrameworkCore.Tools",
             version: outputTarget.GetMaxNetAppVersion() switch
             {
                 (>= 8, 0) => "8.0.7",
-                //Locked for Azure Functions
+                (>= 7, 0) => "7.0.20",
                 (>= 6, 0) => "6.0.32",
                 _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.EntityFrameworkCore.Tools'")
             });
+        //Locked for Azure Functions
 
         public static NugetPackageInfo MicrosoftEntityFrameworkCoreSqlServer(IOutputTarget outputTarget) => new NugetPackageInfo(
             name: "Microsoft.EntityFrameworkCore.SqlServer",
             version: outputTarget.GetMaxNetAppVersion() switch
             {
                 (>= 8, 0) => "8.0.7",
-                //Locked for Azure Functions
+                (>= 7, 0) => "7.0.20",
                 (>= 6, 0) => "6.0.32",
                 _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.EntityFrameworkCore.SqlServer'")
             });
+        //Locked for Azure Functions
 
         public static NugetPackageInfo MicrosoftEntityFrameworkCoreCosmos(IOutputTarget outputTarget) => new NugetPackageInfo(
             name: "Microsoft.EntityFrameworkCore.Cosmos",
             version: outputTarget.GetMaxNetAppVersion() switch
             {
                 (>= 8, 0) => "8.0.7",
-                //Locked for Azure Functions
+                (>= 7, 0) => "7.0.20",
                 (>= 6, 0) => "6.0.32",
                 _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.EntityFrameworkCore.Cosmos'")
             });
+        //Locked for Azure Functions
 
         public static NugetPackageInfo MicrosoftEntityFrameworkCoreInMemory(IOutputTarget outputTarget) => new NugetPackageInfo(
             name: "Microsoft.EntityFrameworkCore.InMemory",
             version: outputTarget.GetMaxNetAppVersion() switch
             {
                 (>= 8, 0) => "8.0.7",
-                //Locked for Azure Functions
+                (>= 7, 0) => "7.0.20",
                 (>= 6, 0) => "6.0.32",
                 _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.EntityFrameworkCore.InMemory'")
             });
+        //Locked for Azure Functions
 
         public static NugetPackageInfo MicrosoftEntityFrameworkCoreProxies(IOutputTarget outputTarget) => new NugetPackageInfo(
             name: "Microsoft.EntityFrameworkCore.Proxies",
             version: outputTarget.GetMaxNetAppVersion() switch
             {
                 (>= 8, 0) => "8.0.7",
-                //Locked for Azure Functions
+                (>= 7, 0) => "7.0.20",
                 (>= 6, 0) => "6.0.32",
                 _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.EntityFrameworkCore.Proxies'")
             });
