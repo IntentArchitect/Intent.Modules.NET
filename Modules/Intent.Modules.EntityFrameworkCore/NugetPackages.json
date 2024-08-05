@@ -8,8 +8,16 @@
           "version": "8.0.7"
         },
         {
+          "framework": "7.0",
+          "version": "7.0.20",
+          "comment": "Manually added for .net7 and the work around for Azure Functions",
+          "locked": true
+        },
+        {
           "framework": "6.0",
-          "version": "7.0.20"
+          "version": "6.0.32",
+          "comment": "Locked for Azure Functions",
+          "locked": true
         }
       ]
     },
@@ -21,8 +29,16 @@
           "version": "8.0.7"
         },
         {
+          "framework": "7.0",
+          "version": "7.0.20",
+          "comment": "Manually added for .net7 and the work around for Azure Functions",
+          "locked": true
+        },
+        {
           "framework": "6.0",
-          "version": "7.0.20"
+          "version": "6.0.32",
+          "comment": "Locked for Azure Functions",
+          "locked": true
         }
       ]
     },
@@ -34,8 +50,16 @@
           "version": "8.0.7"
         },
         {
+          "framework": "7.0",
+          "version": "7.0.20",
+          "comment": "Manually added for .net7 and the work around for Azure Functions",
+          "locked": true
+        },
+        {
           "framework": "6.0",
-          "version": "7.0.20"
+          "version": "6.0.32",
+          "comment": "Locked for Azure Functions",
+          "locked": true
         }
       ]
     },
@@ -47,8 +71,16 @@
           "version": "8.0.7"
         },
         {
+          "framework": "7.0",
+          "version": "7.0.20",
+          "comment": "Manually added for .net7 and the work around for Azure Functions",
+          "locked": true
+        },
+        {
           "framework": "6.0",
-          "version": "7.0.20"
+          "version": "6.0.32",
+          "comment": "Locked for Azure Functions",
+          "locked": true
         }
       ]
     },
@@ -60,8 +92,16 @@
           "version": "8.0.7"
         },
         {
+          "framework": "7.0",
+          "version": "7.0.20",
+          "comment": "Manually added for .net7 and the work around for Azure Functions",
+          "locked": true
+        },
+        {
           "framework": "6.0",
-          "version": "7.0.20"
+          "version": "6.0.32",
+          "comment": "Locked for Azure Functions",
+          "locked": true
         }
       ]
     },
@@ -73,8 +113,16 @@
           "version": "8.0.7"
         },
         {
+          "framework": "7.0",
+          "version": "7.0.20",
+          "comment": "Manually added for .net7 and the work around for Azure Functions",
+          "locked": true
+        },
+        {
           "framework": "6.0",
-          "version": "7.0.20"
+          "version": "6.0.32",
+          "comment": "Locked for Azure Functions",
+          "locked": true
         }
       ]
     },
@@ -86,8 +134,16 @@
           "version": "8.0.7"
         },
         {
+          "framework": "7.0",
+          "version": "7.0.20",
+          "comment": "Manually added for .net7 and the work around for Azure Functions",
+          "locked": true
+        },
+        {
           "framework": "6.0",
-          "version": "7.0.20"
+          "version": "6.0.32",
+          "comment": "Locked for Azure Functions",
+          "locked": true
         }
       ]
     },
