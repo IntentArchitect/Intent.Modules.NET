@@ -199,7 +199,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     }
                     
                     
-                    ConfigureNetTopologySuite(dependencyInjection, dbContextInstance, builderStatements, NugetPackages.GetMicrosoftEntityFrameworkCoreSqlServerNetTopologySuite(dependencyInjection.OutputTarget));
+                    ConfigureNetTopologySuite(dependencyInjection, dbContextInstance, builderStatements, NugetPackages.MicrosoftEntityFrameworkCoreSqlServerNetTopologySuite(dependencyInjection.OutputTarget));
 
                     break;
 
@@ -211,7 +211,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         .AddArgument($"configuration.GetConnectionString({connectionString})", a => a.AddMetadata("is-connection-string", true))
                         .AddArgument(dbContextOptionsBuilderStatement));
 
-                    ConfigureNetTopologySuite(dependencyInjection, dbContextInstance, builderStatements, NugetPackages.GetNpgsqlEntityFrameworkCorePostgreSQLNetTopologySuite(dependencyInjection.OutputTarget));
+                    ConfigureNetTopologySuite(dependencyInjection, dbContextInstance, builderStatements, NugetPackages.NpgsqlEntityFrameworkCorePostgreSQLNetTopologySuite(dependencyInjection.OutputTarget));
                     
                     break;
 
@@ -223,7 +223,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         .AddArgument(@"ServerVersion.Parse(""8.0"")")
                         .AddArgument(dbContextOptionsBuilderStatement));
                     
-                    ConfigureNetTopologySuite(dependencyInjection, dbContextInstance, builderStatements, NugetPackages.GetPomeloEntityFrameworkCoreMySqlNetTopologySuite(dependencyInjection.OutputTarget));
+                    ConfigureNetTopologySuite(dependencyInjection, dbContextInstance, builderStatements, NugetPackages.PomeloEntityFrameworkCoreMySqlNetTopologySuite(dependencyInjection.OutputTarget));
                     
                     break;
 

@@ -8,12 +8,6 @@
           "version": "8.0.7"
         },
         {
-          "framework": "7.0",
-          "version": "7.0.20",
-          "comment": "Manually added for .net7 and the work around for Azure Functions",
-          "locked": true
-        },
-        {
           "framework": "6.0",
           "version": "6.0.32",
           "comment": "Locked for Azure Functions",
@@ -27,12 +21,6 @@
         {
           "framework": "8.0",
           "version": "8.0.7"
-        },
-        {
-          "framework": "7.0",
-          "version": "7.0.20",
-          "comment": "Manually added for .net7 and the work around for Azure Functions",
-          "locked": true
         },
         {
           "framework": "6.0",
@@ -50,12 +38,6 @@
           "version": "8.0.7"
         },
         {
-          "framework": "7.0",
-          "version": "7.0.20",
-          "comment": "Manually added for .net7 and the work around for Azure Functions",
-          "locked": true
-        },
-        {
           "framework": "6.0",
           "version": "6.0.32",
           "comment": "Locked for Azure Functions",
@@ -69,12 +51,6 @@
         {
           "framework": "8.0",
           "version": "8.0.7"
-        },
-        {
-          "framework": "7.0",
-          "version": "7.0.20",
-          "comment": "Manually added for .net7 and the work around for Azure Functions",
-          "locked": true
         },
         {
           "framework": "6.0",
@@ -92,12 +68,6 @@
           "version": "8.0.7"
         },
         {
-          "framework": "7.0",
-          "version": "7.0.20",
-          "comment": "Manually added for .net7 and the work around for Azure Functions",
-          "locked": true
-        },
-        {
           "framework": "6.0",
           "version": "6.0.32",
           "comment": "Locked for Azure Functions",
@@ -113,12 +83,6 @@
           "version": "8.0.7"
         },
         {
-          "framework": "7.0",
-          "version": "7.0.20",
-          "comment": "Manually added for .net7 and the work around for Azure Functions",
-          "locked": true
-        },
-        {
           "framework": "6.0",
           "version": "6.0.32",
           "comment": "Locked for Azure Functions",
@@ -132,12 +96,6 @@
         {
           "framework": "8.0",
           "version": "8.0.7"
-        },
-        {
-          "framework": "7.0",
-          "version": "7.0.20",
-          "comment": "Manually added for .net7 and the work around for Azure Functions",
-          "locked": true
         },
         {
           "framework": "6.0",
@@ -200,6 +158,49 @@
         {
           "framework": "6.0",
           "version": "7.0.10"
+        }
+      ]
+    },
+    {
+      "name": "Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.4"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.0.18"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.7"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.0.20"
+        }
+      ]
+    },
+    {
+      "name": "Pomelo.EntityFrameworkCore.MySql.NetTopologySuite",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.2"
+        },
+        {
+          "framework": "7.0",
+          "version": "7.0.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.0.0"
         }
       ]
     }
