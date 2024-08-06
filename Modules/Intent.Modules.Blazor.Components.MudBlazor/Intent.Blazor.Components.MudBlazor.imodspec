@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Blazor.Components.MudBlazor</id>
   <version>1.0.0-alpha.0</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>A custom module for Intent.Modules.NET.</summary>
   <description>A custom module for Intent.Modules.NET.</description>
   <authors>Intent.Modules.NET</authors>

@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Blazor</id>
   <version>1.0.0-alpha.0</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Automates the bootstrapping of a Blazor web application.</summary>
   <description>Automates the bootstrapping of a Blazor web application.</description>
   <authors>Intent.Modules.NET</authors>
