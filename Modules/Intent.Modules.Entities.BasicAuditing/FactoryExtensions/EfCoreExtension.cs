@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Entities.BasicAuditing.Api;
 using Intent.Modelers.Domain.Api;
@@ -9,6 +10,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Entities.BasicAuditing.Settings;
 using Intent.Modules.Entities.BasicAuditing.Templates;
 using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.Plugins.FactoryExtensions;
@@ -110,9 +112,11 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                 @class.ImplementsInterface(auditableInterfaceName);
             }
 
+            string userIdType = TemplateHelper.GetUserIdentifierType(entityTemplate.ExecutionContext);
+
             @class.AddMethod("void", "SetCreated", method =>
             {
-                method.AddParameter("string", "createdBy");
+                method.AddParameter(entityTemplate.UseType(userIdType), "createdBy");
                 method.AddParameter("DateTimeOffset", "createdDate");
                 method.IsExplicitImplementationFor(auditableInterfaceName);
                 method.WithExpressionBody("(CreatedBy, CreatedDate) = (createdBy, createdDate)");
@@ -120,7 +124,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
 
             @class.AddMethod("void", "SetUpdated", method =>
             {
-                method.AddParameter("string", "updatedBy");
+                method.AddParameter(entityTemplate.UseType(userIdType), "updatedBy");
                 method.AddParameter("DateTimeOffset", "updatedDate");
                 method.IsExplicitImplementationFor(auditableInterfaceName);
                 method.WithExpressionBody("(UpdatedBy, UpdatedDate) = (updatedBy, updatedDate)");
@@ -156,8 +160,19 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
 
                 method.AddIfStatement("!auditableEntries.Any()", @if => @if.AddStatement("return;"));
 
+                string userIdentityProperty;
+                switch (template.ExecutionContext.Settings.GetBasicAuditing().UserIdentityToAudit().AsEnum())
+                {
+                    case Settings.BasicAuditing.UserIdentityToAuditOptionsEnum.UserName:
+                        userIdentityProperty = "UserName";
+                        break;
+                    case Settings.BasicAuditing.UserIdentityToAuditOptionsEnum.UserId:
+                    default:
+                        userIdentityProperty = "UserId";
+                        break;
+                }
                 method.AddStatement(
-                    "var userId = _currentUserService.UserId ?? throw new InvalidOperationException(\"UserId is null\");",
+                    $"var userIdentifier = _currentUserService.{userIdentityProperty} ?? throw new InvalidOperationException(\"{userIdentityProperty} is null\");",
                     s => s.SeparatedFromPrevious());
                 method.AddStatement(
                     "var timestamp = DateTimeOffset.UtcNow;");
@@ -166,10 +181,10 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
                 {
                     forStmt.AddSwitchStatement("entry.State", switchStmt => switchStmt
                         .AddCase("EntityState.Added", block => block
-                            .AddStatement("entry.Auditable.SetCreated(userId, timestamp);")
+                            .AddStatement("entry.Auditable.SetCreated(userIdentifier, timestamp);")
                             .WithBreak())
                         .AddCase("EntityState.Modified or EntityState.Deleted", block => block
-                            .AddStatement("entry.Auditable.SetUpdated(userId, timestamp);")
+                            .AddStatement("entry.Auditable.SetUpdated(userIdentifier, timestamp);")
                             .AddStatement("entry.Property(\"CreatedBy\").IsModified = false;")
                             .AddStatement("entry.Property(\"CreatedDate\").IsModified = false;")
                             .WithBreak())

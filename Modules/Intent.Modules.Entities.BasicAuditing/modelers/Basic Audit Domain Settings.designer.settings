@@ -25,50 +25,159 @@
 
 execute();</script>
         </option>
-      </scriptOptions>
-      <typeOrder />
-      <mappingSettings />
-      <macros>
-        <macro trigger="on-changed">
-          <script>function execute() {
-    const auditStereotypeId = "796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93";
+        <option>
+          <text>Synchronize Auditing Identifiers</text>
+          <icon type="UrlImagePath" source="data:image/png;base64,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" />
+          <isOptionVisibleFunction>return element.hasStereotype("Basic Auditing");</isOptionVisibleFunction>
+          <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
+function getUserIdentityType() {
+    var _a, _b, _c, _d, _e, _f;
     const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
-    const dateTimeOffsetTypeId = "f1ba4df3-a5bc-427e-a591-4f6029f89bd7";
-
-    if (element.hasStereotype(auditStereotypeId)) {
-        ensureAttribute(stringTypeId, false, "CreatedBy");
-        ensureAttribute(dateTimeOffsetTypeId, false, "CreatedDate");
-        ensureAttribute(stringTypeId, true, "UpdatedBy");
-        ensureAttribute(dateTimeOffsetTypeId, true, "UpdatedDate");
-    } else {
-        removeAttribute("CreatedBy");
-        removeAttribute("CreatedDate");
-        removeAttribute("UpdatedBy");
-        removeAttribute("UpdatedDate");
+    const guidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+    const intTypeId = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+    const longTypeId = "33013006-E404-48C2-AC46-24EF5A5774FD";
+    //Setttings
+    const basicAudtingSettingsId = "e51c0868-816d-432b-9cc3-c597fdb1ef0d";
+    const userIdentityToAuditFieldId = "5f617e3b-b027-4b23-aeb5-5ee4c7968173";
+    const identitySettingsId = "1045dea6-d28f-4ab8-9b5e-6f360035fdb6";
+    const userIdTypeFieldId = "0ac959d1-dc9e-4403-ae44-2a75c53a1331";
+    let userIdentityToAudit = (_c = (_b = (_a = application.getSettings(basicAudtingSettingsId)) === null || _a === void 0 ? void 0 : _a.getField(userIdentityToAuditFieldId)) === null || _b === void 0 ? void 0 : _b.value) !== null &amp;&amp; _c !== void 0 ? _c : "user-id";
+    if (userIdentityToAudit == "user-name") {
+        return stringTypeId;
+    }
+    let userIdTypeName = (_f = (_e = (_d = application.getSettings(identitySettingsId)) === null || _d === void 0 ? void 0 : _d.getField(userIdTypeFieldId)) === null || _e === void 0 ? void 0 : _e.value) !== null &amp;&amp; _f !== void 0 ? _f : "string";
+    switch (userIdTypeName) {
+        case 'long':
+            return longTypeId;
+        case 'int':
+            return intTypeId;
+        case 'guid':
+            return guidTypeId;
+        case 'string':
+        default:
+            return stringTypeId;
     }
 }
-
-function ensureAttribute(typeId, isNullable, name) {
+function ensureAttributes(element, userIdentifier, enforceFieldTypes) {
+    const dateTimeOffsetTypeId = "f1ba4df3-a5bc-427e-a591-4f6029f89bd7";
+    ensureAttribute(element, userIdentifier, false, "CreatedBy", enforceFieldTypes);
+    ensureAttribute(element, dateTimeOffsetTypeId, false, "CreatedDate", enforceFieldTypes);
+    ensureAttribute(element, userIdentifier, true, "UpdatedBy", enforceFieldTypes);
+    ensureAttribute(element, dateTimeOffsetTypeId, true, "UpdatedDate", enforceFieldTypes);
+}
+function ensureAttribute(element, typeId, isNullable, name, enforceFieldType) {
     let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
     if (el == null) {
         el = createElement("Attribute", name, element.id);
-        el.setMetadata("set-by-infrastructure", true);
+        el.setMetadata("set-by-infrastructure", "true");
+        el.typeReference.setIsNullable(isNullable);
+        el.typeReference.setType(typeId);
+    }
+    if (enforceFieldType) {
         el.typeReference.setIsNullable(isNullable);
         el.typeReference.setType(typeId);
     }
 }
-
-function removeAttribute(name) {
+/// &lt;reference path="../common/basic-auditing.ts" /&gt;
+/**
+ * Used by Intent.Modules.NET\Modules\Intent.Modules.Entities.BasicAuditing
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/DesignerMacros/src/basic-auditing/synchronize-auditing-identifiers/synchronize-auditing-identifiers.ts
+ */
+function execute(element) {
+    let userIdentifier = getUserIdentityType();
+    let classes = lookupTypesOf("Class").filter(x =&gt; x.hasStereotype("Basic Auditing"));
+    classes.forEach(audit =&gt; {
+        ensureAttributes(audit, userIdentifier, true);
+    });
+}
+execute(element);
+</script>
+        </option>
+      </scriptOptions>
+      <mappingOptions />
+      <typeOrder />
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-changed">
+          <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
+function getUserIdentityType() {
+    var _a, _b, _c, _d, _e, _f;
+    const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+    const guidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+    const intTypeId = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+    const longTypeId = "33013006-E404-48C2-AC46-24EF5A5774FD";
+    //Setttings
+    const basicAudtingSettingsId = "e51c0868-816d-432b-9cc3-c597fdb1ef0d";
+    const userIdentityToAuditFieldId = "5f617e3b-b027-4b23-aeb5-5ee4c7968173";
+    const identitySettingsId = "1045dea6-d28f-4ab8-9b5e-6f360035fdb6";
+    const userIdTypeFieldId = "0ac959d1-dc9e-4403-ae44-2a75c53a1331";
+    let userIdentityToAudit = (_c = (_b = (_a = application.getSettings(basicAudtingSettingsId)) === null || _a === void 0 ? void 0 : _a.getField(userIdentityToAuditFieldId)) === null || _b === void 0 ? void 0 : _b.value) !== null &amp;&amp; _c !== void 0 ? _c : "user-id";
+    if (userIdentityToAudit == "user-name") {
+        return stringTypeId;
+    }
+    let userIdTypeName = (_f = (_e = (_d = application.getSettings(identitySettingsId)) === null || _d === void 0 ? void 0 : _d.getField(userIdTypeFieldId)) === null || _e === void 0 ? void 0 : _e.value) !== null &amp;&amp; _f !== void 0 ? _f : "string";
+    switch (userIdTypeName) {
+        case 'long':
+            return longTypeId;
+        case 'int':
+            return intTypeId;
+        case 'guid':
+            return guidTypeId;
+        case 'string':
+        default:
+            return stringTypeId;
+    }
+}
+function ensureAttributes(element, userIdentifier, enforceFieldTypes) {
+    const dateTimeOffsetTypeId = "f1ba4df3-a5bc-427e-a591-4f6029f89bd7";
+    ensureAttribute(element, userIdentifier, false, "CreatedBy", enforceFieldTypes);
+    ensureAttribute(element, dateTimeOffsetTypeId, false, "CreatedDate", enforceFieldTypes);
+    ensureAttribute(element, userIdentifier, true, "UpdatedBy", enforceFieldTypes);
+    ensureAttribute(element, dateTimeOffsetTypeId, true, "UpdatedDate", enforceFieldTypes);
+}
+function ensureAttribute(element, typeId, isNullable, name, enforceFieldType) {
+    let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
+    if (el == null) {
+        el = createElement("Attribute", name, element.id);
+        el.setMetadata("set-by-infrastructure", "true");
+        el.typeReference.setIsNullable(isNullable);
+        el.typeReference.setType(typeId);
+    }
+    if (enforceFieldType) {
+        el.typeReference.setIsNullable(isNullable);
+        el.typeReference.setType(typeId);
+    }
+}
+/// &lt;reference path="../common/basic-auditing.ts" /&gt;
+/**
+ * Used by Intent.Modules.NET\Modules\Intent.Modules.Entities.BasicAuditing
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/DesignerMacros/src/basic-auditing/class-on-changed/class-on-changed.ts
+ */
+function execute(element) {
+    const auditStereotypeId = "796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93";
+    let userIdentifier = getUserIdentityType();
+    if (element.hasStereotype(auditStereotypeId)) {
+        ensureAttributes(element, userIdentifier);
+    }
+    else {
+        removeAttribute(element, "CreatedBy");
+        removeAttribute(element, "CreatedDate");
+        removeAttribute(element, "UpdatedBy");
+        removeAttribute(element, "UpdatedDate");
+    }
+}
+function removeAttribute(element, name) {
     let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
     if (el == null || !el.hasMetadata("set-by-infrastructure")) {
         return;
     }
-
     el.delete();
 }
-
-execute();
-
+execute(element);
 </script>
         </macro>
       </macros>

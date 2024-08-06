@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase;
+using Intent.Modules.Entities.BasicAuditing.Settings;
 using Intent.Modules.Entities.BasicAuditing.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -48,26 +49,39 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
             template.CSharpFile.OnBuild(file =>
             {
                 file.AddUsing("System");
+                string userIdType = TemplateHelper.GetUserIdentifierType(template.ExecutionContext);
 
                 var @class = file.Classes.First();
-                @class.AddField("Lazy<(string UserName, DateTimeOffset TimeStamp)>", "_auditDetails", f => f.PrivateReadOnly());
+                @class.AddField($"Lazy<({template.UseType(userIdType)} UserIdentifier, DateTimeOffset TimeStamp)>", "_auditDetails", f => f.PrivateReadOnly());
 
                 var constructor = @class.Constructors.First();
 
                 constructor.AddParameter(
                     template.GetCurrentUserServiceInterfaceName(), "currentUserService",
                     param => param.IntroduceReadonlyField());
-                constructor.AddStatement("_auditDetails = new Lazy<(string UserName, DateTimeOffset TimeStamp)>(GetAuditDetails);");
+                constructor.AddStatement($"_auditDetails = new Lazy<({template.UseType(userIdType)} UserIdentifier, DateTimeOffset TimeStamp)>(GetAuditDetails);");
 
-                @class.AddMethod("(string UserName, DateTimeOffset TimeStamp)", "GetAuditDetails", method =>
+                @class.AddMethod($"({template.UseType(userIdType)} UserIdentifier, DateTimeOffset TimeStamp)", "GetAuditDetails", method =>
                 {
+                    string userIdentityProperty;
+                    switch (template.ExecutionContext.Settings.GetBasicAuditing().UserIdentityToAudit().AsEnum())
+                    {
+                        case Settings.BasicAuditing.UserIdentityToAuditOptionsEnum.UserName:
+                            userIdentityProperty = "UserName";
+                            break;
+                        case Settings.BasicAuditing.UserIdentityToAuditOptionsEnum.UserId:
+                        default:
+                            userIdentityProperty = "UserId";
+                            break;
+                    }
+
                     method.Private();
                     method.AddStatements(new[]
                     {
-                        "var userName = _currentUserService.UserId ?? throw new InvalidOperationException(\"UserId is null\");",
+                        $"var userIdentifier = _currentUserService.{userIdentityProperty} ?? throw new InvalidOperationException(\"{userIdentityProperty} is null\");",
                         "var timestamp = DateTimeOffset.UtcNow;",
                         "",
-                        "return (userName, timestamp);"
+                        "return (userIdentifier, timestamp);"
                     });
                 });
 
@@ -79,7 +93,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
 
                     invocationArgument.InsertStatement(
                         index: 0,
-                        statement: $"(entity as {template.GetAuditableInterfaceName()})?.SetCreated(_auditDetails.Value.UserName, _auditDetails.Value.TimeStamp);");
+                        statement: $"(entity as {template.GetAuditableInterfaceName()})?.SetCreated(_auditDetails.Value.UserIdentifier, _auditDetails.Value.TimeStamp);");
                 }
 
                 // Update
@@ -90,7 +104,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
 
                     invocationArgument.InsertStatement(
                         index: 0,
-                        statement: $"(entity as {template.GetAuditableInterfaceName()})?.SetUpdated(_auditDetails.Value.UserName, _auditDetails.Value.TimeStamp);");
+                        statement: $"(entity as {template.GetAuditableInterfaceName()})?.SetUpdated(_auditDetails.Value.UserIdentifier, _auditDetails.Value.TimeStamp);");
                 }
             }, 1000);
         }

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e51c0868-816d-432b-9cc3-c597fdb1ef0d" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>Basic Auditing</name>
+  <display>Basic Auditing</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bed6bd70-2214-4a74-a437-dfb3b68dd198</parentFolderId>
+  <packageId>bed6bd70-2214-4a74-a437-dfb3b68dd198</packageId>
+  <packageName>Intent.Entities.BasicAuditing</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="5f617e3b-b027-4b23-aeb5-5ee4c7968173" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>User Identity to Audit</name>
+      <display>User Identity to Audit</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e51c0868-816d-432b-9cc3-c597fdb1ef0d</parentFolderId>
+      <packageId>bed6bd70-2214-4a74-a437-dfb3b68dd198</packageId>
+      <packageName>Intent.Entities.BasicAuditing</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Which data would you like to audit to identify the user." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="user-id" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="f3a3cd9e-8177-42ec-8917-1938acfe3020" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>User Id</name>
+          <display>User Id</display>
+          <isAbstract>false</isAbstract>
+          <value>user-id</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5f617e3b-b027-4b23-aeb5-5ee4c7968173</parentFolderId>
+          <packageId>bed6bd70-2214-4a74-a437-dfb3b68dd198</packageId>
+          <packageName>Intent.Entities.BasicAuditing</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="911f0e0b-c538-4f48-a9b3-c444e8858ea4" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>User Name</name>
+          <display>User Name</display>
+          <isAbstract>false</isAbstract>
+          <value>user-name</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5f617e3b-b027-4b23-aeb5-5ee4c7968173</parentFolderId>
+          <packageId>bed6bd70-2214-4a74-a437-dfb3b68dd198</packageId>
+          <packageName>Intent.Entities.BasicAuditing</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
