@@ -29,9 +29,7 @@ Your Entity will now be extended with the following attributes:
 
 ## Application Settings which affect this module
 
-### Basic Auditing Settings - User Identity to Audit
-
-This module uses the `ICurrentUserService` to determine the current users identity.
+This module uses the `ICurrentUserService` to determine the current user's identity.
 
 ```csharp
 public interface ICurrentUserService
@@ -42,7 +40,10 @@ public interface ICurrentUserService
 }
 ```
 
-This setting allows you to select which field you would like to use as your Audit of the user's identity, the options are:
+
+### Basic Auditing Settings - User Identity to Audit
+
+This setting allows you to select which field you would like to use as your audit of the user's identity, the options are:
 
 * User Id (default), will use the `UserId` property and is typically more technical in nature.
 * User Name, will use the `UserName` property.
@@ -52,7 +53,7 @@ This setting allows you to select which field you would like to use as your Audi
 This setting allows you to specify what the type of the UserId on the `ICurrentUserService` should be. Allowing you to customize how you want you audi data persisted.
 
 * string (default)
-* Guid
+* guid
 * int
 * long
 
