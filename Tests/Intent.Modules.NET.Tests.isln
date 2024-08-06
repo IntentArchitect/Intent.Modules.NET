@@ -129,5 +129,6 @@
     <application id="7f57e139-b7d4-40b6-96ca-624ec08d719f" name="HashiCorpVault" relativePath="HashiCorpVault/HashiCorpVault.application.config" />
     <application id="91b6bf45-10fb-405d-874c-851233e4fc37" name="EntityFrameworkCore.Postgres" relativePath="EntityFrameworkCore.Postgres/EntityFrameworkCore.Postgres.application.config" />
     <application id="02808467-d0f1-40b4-877a-9206ff897be8" name="EntityFrameworkCore.MySql" relativePath="EntityFrameworkCore.MySql/EntityFrameworkCore.MySql.application.config" />
+    <application id="75cf5e5a-53b1-4fa4-8f66-a81e38fc3356" name="BasicAuditing.CustomUserId.Tests" relativePath="BasicAuditing.CustomUserId.Tests/BasicAuditing.CustomUserId.Tests.application.config" />
   </applications>
 </solution>

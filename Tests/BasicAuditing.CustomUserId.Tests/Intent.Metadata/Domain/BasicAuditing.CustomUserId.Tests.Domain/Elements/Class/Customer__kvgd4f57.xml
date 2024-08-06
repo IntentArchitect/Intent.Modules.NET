@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="21495508-05bb-4402-808f-627e27590237" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Customer</name>
+  <display>Customer</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a82bf06f-7c6f-4c27-bde0-a553052003d2</parentFolderId>
+  <packageId>a82bf06f-7c6f-4c27-bde0-a553052003d2</packageId>
+  <packageName>BasicAuditing.CustomUserId.Tests.Domain</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93" name="Basic Auditing">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Entities.BasicAuditing</definitionPackageName>
+      <definitionPackageId>bed6bd70-2214-4a74-a437-dfb3b68dd198</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="cbfb5f8e-8c23-44a9-a07e-399855daf6e3" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7081ba39-6127-451f-b807-efe8be6f98cd">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>21495508-05bb-4402-808f-627e27590237</parentFolderId>
+      <packageId>a82bf06f-7c6f-4c27-bde0-a553052003d2</packageId>
+      <packageName>BasicAuditing.CustomUserId.Tests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="aa155330-c05e-4d69-82f0-93d909686d70" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="18362ff3-be95-44f5-b496-eb8537f8f06e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>21495508-05bb-4402-808f-627e27590237</parentFolderId>
+      <packageId>a82bf06f-7c6f-4c27-bde0-a553052003d2</packageId>
+      <packageName>BasicAuditing.CustomUserId.Tests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="675b4acb-6f7b-4edd-af6a-c74daec7e0a9" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CreatedBy</name>
+      <display>CreatedBy: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ea2207f3-cbf2-4256-98ab-cd1cde383712">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>21495508-05bb-4402-808f-627e27590237</parentFolderId>
+      <packageId>a82bf06f-7c6f-4c27-bde0-a553052003d2</packageId>
+      <packageName>BasicAuditing.CustomUserId.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="49fa48f4-5ae0-454c-a57d-596ad71144e2" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CreatedDate</name>
+      <display>CreatedDate: datetimeoffset</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2c146191-a367-4672-8555-641cc947fed2">
+        <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>21495508-05bb-4402-808f-627e27590237</parentFolderId>
+      <packageId>a82bf06f-7c6f-4c27-bde0-a553052003d2</packageId>
+      <packageName>BasicAuditing.CustomUserId.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="0eadb0c8-3fc4-4c34-b7d7-5248f1d058fd" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>UpdatedBy</name>
+      <display>UpdatedBy: guid?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4bbf2c1e-fe58-4d10-8c19-f8a53295ab5b">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>21495508-05bb-4402-808f-627e27590237</parentFolderId>
+      <packageId>a82bf06f-7c6f-4c27-bde0-a553052003d2</packageId>
+      <packageName>BasicAuditing.CustomUserId.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="90ec4d52-1f68-4724-9dce-d5cf0705a152" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>UpdatedDate</name>
+      <display>UpdatedDate: datetimeoffset?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="44c21380-3521-40b7-bb5a-18364f8c47e0">
+        <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>21495508-05bb-4402-808f-627e27590237</parentFolderId>
+      <packageId>a82bf06f-7c6f-4c27-bde0-a553052003d2</packageId>
+      <packageName>BasicAuditing.CustomUserId.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

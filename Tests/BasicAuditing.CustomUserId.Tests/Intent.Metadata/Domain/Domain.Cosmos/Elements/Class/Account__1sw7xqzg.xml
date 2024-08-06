@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ebd8141a-b01d-4e0a-9494-4c01ad647781" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Account</name>
+  <display>Account</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6213fb8f-3fd0-430a-9bd7-6fc7be885dfa</parentFolderId>
+  <packageId>6213fb8f-3fd0-430a-9bd7-6fc7be885dfa</packageId>
+  <packageName>Domain.Cosmos</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93" name="Basic Auditing">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Entities.BasicAuditing</definitionPackageName>
+      <definitionPackageId>bed6bd70-2214-4a74-a437-dfb3b68dd198</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="currentPartitionKey" value="" />
+  </metadata>
+  <childElements>
+    <childElement id="7c18db50-bb4f-4ef9-a3f2-927fd014d1e9" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b0561f9b-08f6-4219-9a88-64431367c492">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ebd8141a-b01d-4e0a-9494-4c01ad647781</parentFolderId>
+      <packageId>6213fb8f-3fd0-430a-9bd7-6fc7be885dfa</packageId>
+      <packageName>Domain.Cosmos</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e9f59a1a-a3d8-48e8-9720-2e584c88e448" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0c249e53-8962-436f-8596-ba97d50080dd">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ebd8141a-b01d-4e0a-9494-4c01ad647781</parentFolderId>
+      <packageId>6213fb8f-3fd0-430a-9bd7-6fc7be885dfa</packageId>
+      <packageName>Domain.Cosmos</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5941a92d-a5a6-4fd4-858f-a104574e4238" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CreatedBy</name>
+      <display>CreatedBy: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="dfd36cdb-a58e-480f-a355-40d4dfff5e56">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ebd8141a-b01d-4e0a-9494-4c01ad647781</parentFolderId>
+      <packageId>6213fb8f-3fd0-430a-9bd7-6fc7be885dfa</packageId>
+      <packageName>Domain.Cosmos</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="5c024435-41ca-4b73-96f3-ebd664226153" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>CreatedDate</name>
+      <display>CreatedDate: datetimeoffset</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1c4d94c3-d247-4567-8313-7abad8991a0e">
+        <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ebd8141a-b01d-4e0a-9494-4c01ad647781</parentFolderId>
+      <packageId>6213fb8f-3fd0-430a-9bd7-6fc7be885dfa</packageId>
+      <packageName>Domain.Cosmos</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="1d1b6e6e-a7f9-454f-b2a4-5322da45f818" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>UpdatedBy</name>
+      <display>UpdatedBy: guid?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a5b899fb-b4d9-4e05-a516-99cc7acc9e3c">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ebd8141a-b01d-4e0a-9494-4c01ad647781</parentFolderId>
+      <packageId>6213fb8f-3fd0-430a-9bd7-6fc7be885dfa</packageId>
+      <packageName>Domain.Cosmos</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="cac3621c-baf2-4155-898f-6fe9296a981a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>UpdatedDate</name>
+      <display>UpdatedDate: datetimeoffset?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7c88f56c-a250-4bb6-a6f3-ac3c39cde636">
+        <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ebd8141a-b01d-4e0a-9494-4c01ad647781</parentFolderId>
+      <packageId>6213fb8f-3fd0-430a-9bd7-6fc7be885dfa</packageId>
+      <packageName>Domain.Cosmos</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
