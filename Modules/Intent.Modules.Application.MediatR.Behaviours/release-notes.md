@@ -1,7 +1,8 @@
 ### Version 4.2.14
 
 - Improvement: Updated NuGet packages to latest stables.
-
+- Improvement: Added support for different UserId Types (guid, long, int).
+- 
 ### Version 4.2.13
 
 - Fixed: Duplicate `IDistributedCacheWithUnitOfWork` would be generated into classes under certain circumstances.
