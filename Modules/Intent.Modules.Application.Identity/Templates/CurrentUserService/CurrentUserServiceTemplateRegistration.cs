@@ -18,6 +18,7 @@ namespace Intent.Modules.Application.Identity.Templates.CurrentUserService
     {
         public override string TemplateId => CurrentUserServiceTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new CurrentUserServiceTemplate(outputTarget);

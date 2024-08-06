@@ -1,6 +1,8 @@
+using System;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
@@ -41,10 +43,11 @@ namespace Intent.Modules.Security.JWT.FactoryExtensions
                 ctor.AddParameter("IHttpContextAccessor", "httpContextAccessor");
                 ctor.AddStatement($@"_claimsPrincipal = httpContextAccessor?.HttpContext?.User;");
                 ctor.AddParameter("IAuthorizationService", "authorizationService", prop => prop.IntroduceReadonlyField());
-                priClass.Properties.First(p => p.Name == "UserId")
+                var userIdProperty = priClass.Properties.First(p => p.Name == "UserId");
+                userIdProperty
                     .WithoutSetter()
                     .Getter
-                    .WithExpressionImplementation("_claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value");
+                    .WithExpressionImplementation(GetUserIdImplimentation(userIdProperty));
                 priClass.Properties.First(p => p.Name == "UserName")
                     .WithoutSetter()
                     .Getter
@@ -59,6 +62,19 @@ namespace Intent.Modules.Security.JWT.FactoryExtensions
                 roleMethod.Statements.Clear();
                 roleMethod.Statements.Add("return await Task.FromResult(_claimsPrincipal?.IsInRole(role) ?? false);");
             });
+        }
+
+        private string GetUserIdImplimentation(CSharpProperty p)
+        {
+            var propertyType = p.Type.Replace("?", "");
+            if (propertyType == "string")
+            {
+                return "_claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value";
+            }
+            else
+            {
+                return $"{propertyType}.TryParse(_claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value, out var parsed) ? parsed : null";
+            }
         }
     }
 }

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1045dea6-d28f-4ab8-9b5e-6f360035fdb6" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>Identity Settings</name>
+  <display>Identity Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b09f5a25-2251-4e93-acf2-8a84e42e4cb6</parentFolderId>
+  <packageId>b09f5a25-2251-4e93-acf2-8a84e42e4cb6</packageId>
+  <packageName>Intent.Application.Identity</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="0ac959d1-dc9e-4403-ae44-2a75c53a1331" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>UserId Type</name>
+      <display>UserId Type</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1045dea6-d28f-4ab8-9b5e-6f360035fdb6</parentFolderId>
+      <packageId>b09f5a25-2251-4e93-acf2-8a84e42e4cb6</packageId>
+      <packageName>Intent.Application.Identity</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Which Type is used to represent authenticated user's identity." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="string" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="72d6d5ab-0719-4047-a67d-0a5792048b89" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>guid</name>
+          <display>guid</display>
+          <isAbstract>false</isAbstract>
+          <value>guid</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>0ac959d1-dc9e-4403-ae44-2a75c53a1331</parentFolderId>
+          <packageId>b09f5a25-2251-4e93-acf2-8a84e42e4cb6</packageId>
+          <packageName>Intent.Application.Identity</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5892347e-7653-4015-9d10-0ae150300a99" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>int</name>
+          <display>int</display>
+          <isAbstract>false</isAbstract>
+          <value>int</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>0ac959d1-dc9e-4403-ae44-2a75c53a1331</parentFolderId>
+          <packageId>b09f5a25-2251-4e93-acf2-8a84e42e4cb6</packageId>
+          <packageName>Intent.Application.Identity</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ab3d803d-3967-4c25-b48c-de0ad4298bf6" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>long</name>
+          <display>long</display>
+          <isAbstract>false</isAbstract>
+          <value>long</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>0ac959d1-dc9e-4403-ae44-2a75c53a1331</parentFolderId>
+          <packageId>b09f5a25-2251-4e93-acf2-8a84e42e4cb6</packageId>
+          <packageName>Intent.Application.Identity</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7fcb69f3-da7b-49c9-851e-081cef6e26b7" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>string</name>
+          <display>string</display>
+          <isAbstract>false</isAbstract>
+          <value>string</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>0ac959d1-dc9e-4403-ae44-2a75c53a1331</parentFolderId>
+          <packageId>b09f5a25-2251-4e93-acf2-8a84e42e4cb6</packageId>
+          <packageName>Intent.Application.Identity</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

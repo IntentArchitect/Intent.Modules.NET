@@ -1,3 +1,6 @@
+### Version 3.5.2
+
+- Improvement: Added support for different UserId Types (guid, long, int).
 
 ### Version 3.5.1
 

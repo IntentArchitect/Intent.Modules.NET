@@ -18,6 +18,7 @@ namespace Intent.Modules.Application.Identity.Templates.ApplicationSecurityConfi
     {
         public override string TemplateId => ApplicationSecurityConfigurationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ApplicationSecurityConfigurationTemplate(outputTarget);

@@ -1,5 +1,6 @@
-### Version 1.0.4
+### Version 1.0.3
 
+- Improvement: Updated Designer script to not modify attributes if they already exist.
 - Improvement: Upgraded module to support new 4.1 SDK features.
 
 ### Version 1.0.2

@@ -1,6 +1,7 @@
 ### Version 4.2.1
 
 - Improvement: Updated NuGet packages to latest stables.
+- Improvement: Added support for different UserId Types (guid, long, int).
 
 ### Version 4.2.0
 
