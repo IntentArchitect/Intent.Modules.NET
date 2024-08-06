@@ -67,6 +67,18 @@
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
+  <interoperability>
+    <detect id="Intent.Security.JWT">
+      <install>
+        <package id="Intent.Security.JWT" version="	4.2.1-pre.1" />
+      </install>
+    </detect>
+    <detect id="Intent.Security.MSAL">
+      <install>
+        <package id="Intent.Security.MSAL" version="	4.2.1-pre.1" />
+      </install>
+    </detect>
+  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />

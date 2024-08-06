@@ -111,7 +111,7 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.P
                 return;
             }
 
-            var userId = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");
+            var userIdentifier = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");
             var timestamp = DateTimeOffset.UtcNow;
 
             foreach (var entry in auditableEntries)
@@ -119,10 +119,10 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.P
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        entry.Auditable.SetCreated(userId, timestamp);
+                        entry.Auditable.SetCreated(userIdentifier, timestamp);
                         break;
                     case EntityState.Modified or EntityState.Deleted:
-                        entry.Auditable.SetUpdated(userId, timestamp);
+                        entry.Auditable.SetUpdated(userIdentifier, timestamp);
                         entry.Property("CreatedBy").IsModified = false;
                         entry.Property("CreatedDate").IsModified = false;
                         break;

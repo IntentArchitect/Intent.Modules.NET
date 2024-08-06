@@ -25,8 +25,8 @@ namespace MassTransit.RabbitMQ.Application.Common.Behaviours
         public Task Process(TRequest request, CancellationToken cancellationToken)
         {
             var requestName = typeof(TRequest).Name;
-            var userId = _currentUserService.UserId ?? string.Empty;
-            var userName = _currentUserService.UserName ?? string.Empty;
+            var userId = _currentUserService.UserId;
+            var userName = _currentUserService.UserName;
 
             _logger.LogInformation("MassTransit.RabbitMQ Request: {Name} {@UserId} {@UserName} {@Request}",
                 requestName, userId, userName, request);
