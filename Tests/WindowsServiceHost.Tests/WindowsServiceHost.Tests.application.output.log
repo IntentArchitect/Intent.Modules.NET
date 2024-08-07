@@ -138,6 +138,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0da1c5db-f98c-4823-b467-1708a6b3ce35</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#0da1c5db-f98c-4823-b467-1708a6b3ce35</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Properties/launchSettings.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0da1c5db-f98c-4823-b467-1708a6b3ce35</ProjectId>
       <CorrelationId>Intent.WindowsServiceHost.WindowsBackgroundService</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>WindowsServiceHost.Tests/WindowsBackgroundService.cs</ApplicationRelativeFilePath>

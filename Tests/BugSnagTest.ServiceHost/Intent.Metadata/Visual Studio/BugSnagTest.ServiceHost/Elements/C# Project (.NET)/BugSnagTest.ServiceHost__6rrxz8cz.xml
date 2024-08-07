@@ -4,10 +4,12 @@
   <display>BugSnagTest.ServiceHost</display>
   <externalReference>07f26793-cab0-4608-98c9-d2dc9df74b77</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ee92094a-40b1-4395-84d1-94de082dfe06</parentFolderId>
+  <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+  <packageName>BugSnagTest.ServiceHost</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
       <addedByDefault>true</addedByDefault>
@@ -48,54 +50,6 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="744e0b8a-1b9e-4173-9a9f-50eb9801a836" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Application</name>
-      <display>Application</display>
-      <externalReference>594d29e3-6854-44b1-baed-d5f7c5cb5ffa</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="cf649985-e734-4c92-96b1-749b271747c5" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Distribution</name>
-      <display>Distribution</display>
-      <externalReference>e74ca953-b17d-4f18-962e-73ec194c9276</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="1d329423-4f02-4df5-9e5c-9f8141e28407" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Infrastructure</name>
-      <display>NewRole</display>
-      <externalReference>36aea3f9-fb44-4e9b-be63-466f170ae108</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="55931048-0ede-4c49-9db3-ac06e0528d61" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Startup</name>
-      <display>Startup</display>
-      <externalReference>c3823a27-c93f-4d25-ac5a-063f18ea6891</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="ea661e38-14f7-4a33-a1dc-9fd59e1b7802" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.DependencyInjection.DependencyInjection</name>
       <display>Intent.Application.DependencyInjection.DependencyInjection</display>
@@ -104,6 +58,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -118,6 +74,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -132,6 +90,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -146,6 +106,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -160,6 +122,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -174,6 +138,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -188,6 +154,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -202,10 +170,68 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="744e0b8a-1b9e-4173-9a9f-50eb9801a836" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Application</name>
+      <display>Application</display>
+      <externalReference>594d29e3-6854-44b1-baed-d5f7c5cb5ffa</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="cf649985-e734-4c92-96b1-749b271747c5" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Distribution</name>
+      <display>Distribution</display>
+      <externalReference>e74ca953-b17d-4f18-962e-73ec194c9276</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="1d329423-4f02-4df5-9e5c-9f8141e28407" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Infrastructure</name>
+      <display>Infrastructure</display>
+      <externalReference>36aea3f9-fb44-4e9b-be63-466f170ae108</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="55931048-0ede-4c49-9db3-ac06e0528d61" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Startup</name>
+      <display>Startup</display>
+      <externalReference>c3823a27-c93f-4d25-ac5a-063f18ea6891</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b010e961-a456-4294-8fac-64fdd27f23fa</parentFolderId>
+      <packageId>ee92094a-40b1-4395-84d1-94de082dfe06</packageId>
+      <packageName>BugSnagTest.ServiceHost</packageName>
+      <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>
