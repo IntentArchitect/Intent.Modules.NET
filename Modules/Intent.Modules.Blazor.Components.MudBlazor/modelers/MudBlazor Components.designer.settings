@@ -51,7 +51,8 @@
       <mappingSettings />
       <macros>
         <macro trigger="on-created">
-          <script>createElement("9af26915-0394-4cda-864d-0e7f9f9943dc", "Toolbar", element.id);</script>
+          <script>if (element.getChildren("Toolbar").length == 0)
+    createElement("9af26915-0394-4cda-864d-0e7f9f9943dc", "Toolbar", element.id);</script>
         </macro>
       </macros>
       <childElementSettings>
@@ -238,11 +239,11 @@ dataCollection.getChildren().filter(x =&gt; x.specialization == "Property" || x.
     if (p.typeReference.getTypeId() == "d384db9c-a279-45e1-801e-e4e8099625f2" || // string
         p.typeReference.getTypeId() == "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74" || // int
         p.typeReference.getTypeId() == "675c7b84-997a-44e0-82b9-cd724c07c9e6") { // decimal
-        const newColumn = createElement("Data Grid Column", p.getName(), table.id);
+        const newColumn = createElement("Data Grid Column", toTitleCase(p.getName()), table.id);
         mapping.addMappedEnd(dataBindingMappingTypeId, p.getMappingPath(), newColumn.getMappingPath())
     }
     else if (p.typeReference.getTypeId() == "e6f92b09-b2c5-4536-8270-a4d9e5bbd930"){ // bool
-        const newColumn = createElement("Data Grid Column", p.getName(), table.id);
+        const newColumn = createElement("Data Grid Column", toTitleCase(p.getName()), table.id);
         const newInput = createElement("Checkbox", p.getName(), newColumn.id);
         newInput.removeStereotype("Label Addon");
         mapping.addMappedEnd(dataBindingMappingTypeId, p.getMappingPath(), newInput.getMappingPath());

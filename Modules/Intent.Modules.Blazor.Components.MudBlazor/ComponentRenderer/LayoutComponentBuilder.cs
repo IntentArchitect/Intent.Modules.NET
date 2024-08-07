@@ -25,7 +25,9 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
     {
         var layoutModel = new LayoutModel(component);
         parentNode.AddChildNode(new HtmlElement("MudThemingProvider", _componentTemplate.RazorFile));
-        parentNode.AddChildNode(new HtmlElement("MudPopoverProvider", _componentTemplate.RazorFile));
+        var popoverProvider = new HtmlElement("MudPopoverProvider", _componentTemplate.RazorFile);
+        //popoverProvider.AddAttribute("@rendermode", "InteractiveServer"); // throws exception. Check with Dom
+        parentNode.AddChildNode(popoverProvider);
         parentNode.AddChildNode(new HtmlElement("MudDialogProvider", _componentTemplate.RazorFile));
         parentNode.AddChildNode(new HtmlElement("MudSnackbarProvider", _componentTemplate.RazorFile));
         parentNode.AddChildNode(new EmptyLine(_componentTemplate.RazorFile));

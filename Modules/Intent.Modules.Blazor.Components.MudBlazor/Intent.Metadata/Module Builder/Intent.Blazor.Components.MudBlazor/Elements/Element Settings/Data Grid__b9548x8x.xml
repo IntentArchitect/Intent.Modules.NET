@@ -191,7 +191,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="createElement(&quot;9af26915-0394-4cda-864d-0e7f9f9943dc&quot;, &quot;Toolbar&quot;, element.id);" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="if (element.getChildren(&quot;Toolbar&quot;).length == 0)&#xD;&#xA;    createElement(&quot;9af26915-0394-4cda-864d-0e7f9f9943dc&quot;, &quot;Toolbar&quot;, element.id);" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

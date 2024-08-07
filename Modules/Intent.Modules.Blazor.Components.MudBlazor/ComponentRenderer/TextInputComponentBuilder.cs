@@ -24,7 +24,7 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
         var textInput = new TextInputModel(component);
         var htmlElement = new HtmlElement("MudTextField", _componentTemplate.RazorFile);
         var valueMapping = _bindingManager.GetMappedEndFor(textInput);
-        var valueBinding = _bindingManager.GetBinding(valueMapping)?.ToString();
+        var valueBinding = _bindingManager.GetBinding(valueMapping, parentNode)?.ToString();
         htmlElement.AddAttributeIfNotEmpty("@bind-Value", valueBinding)
                         .AddAttributeIfNotEmpty("Label", textInput.GetLabelAddon()?.Label().TrimEnd(':') ?? textInput.Name);
         parentNode.AddChildNode(htmlElement);

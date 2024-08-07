@@ -23,7 +23,7 @@ public class SelectComponentBuilder : IRazorComponentBuilder
         var selectModel = new SelectModel(component);
         var htmlElement = new HtmlElement("MudSelect", _componentTemplate.RazorFile);
         var modelMapping = _bindingManager.GetMappedEndFor(selectModel);
-        htmlElement.AddAttributeIfNotEmpty("@bind-Value", _bindingManager.GetBinding(modelMapping)?.ToString());
+        htmlElement.AddAttributeIfNotEmpty("@bind-Value", _bindingManager.GetBinding(modelMapping, parentNode)?.ToString());
         htmlElement.AddAttribute("Label", selectModel.TryGetLabelAddon(out var label) ? label.Label() : selectModel.Name);
 
         var mappedEnd = _bindingManager.GetMappedEndFor(selectModel, "Options");

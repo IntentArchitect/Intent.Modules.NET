@@ -25,7 +25,6 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
     public void BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var button = new ButtonModel(component);
-
         var onClickMapping = _bindingManager.GetMappedEndFor(button, "On Click");
         var htmlElement = new HtmlElement("MudButton", _componentTemplate.RazorFile)
             .AddAttribute("Variant", "Variant.Filled")

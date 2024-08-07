@@ -113,7 +113,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
             app.OnBuild(file =>
             {
                 // Add Blazorise dependencies
-                var baseElement = file.SelectHtmlElements("/head/link").SingleOrDefault(x => x.HasAttribute("href", "app.css"));
+                var baseElement = file.SelectHtmlElements("/html/head/link").SingleOrDefault(x => x.HasAttribute("href", "app.css"));
                 if (baseElement != null)
                 {
                     baseElement.AddAbove(
@@ -127,7 +127,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
                         new EmptyLine(app));
                 }
 
-                var routes = file.SelectHtmlElements("/body/script").Last();
+                var routes = file.SelectHtmlElements("/html/body/script").Last();
                 routes.AddBelow(new HtmlElement("script", app)
                     .AddAttribute("src", "_content/MudBlazor/MudBlazor.min.js"));
 
