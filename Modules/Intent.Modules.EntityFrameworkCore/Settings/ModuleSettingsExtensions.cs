@@ -133,6 +133,8 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
 
         public static bool StoreEnumsAsStrings(this DatabaseSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("df567ad2-98a7-49ce-9952-4a26b6074410")?.Value.ToPascalCase(), out var result) && result;
 
+        public static bool EnumCheckConstraints(this DatabaseSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("e396f58c-f184-48b1-bf36-399af463c3c1")?.Value.ToPascalCase(), out var result) && result;
+
         public static string DefaultSchemaName(this DatabaseSettings groupSettings) => groupSettings.GetSetting("7e0f472d-6cf0-423e-872a-cd6b2e0614bc")?.Value;
 
         public static bool MaintainColumnOrdering(this DatabaseSettings groupSettings) => bool.TryParse(groupSettings.GetSetting("1cb44856-03a7-4a0c-88cf-ae9f84b9dd79")?.Value.ToPascalCase(), out var result) && result;

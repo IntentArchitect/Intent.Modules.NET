@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading;
 using Intent.Engine;
@@ -11,6 +12,7 @@ using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
@@ -544,11 +546,41 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private IEnumerable<string> GetCheckConstraints(ClassModel model)
         {
+            if (ExecutionContext.Settings.GetDatabaseSettings().EnumCheckConstraints() && model.Attributes.Any(a => a.TypeReference.Element.IsEnumModel()))
+            {
+                var enumsStoredAsStrings = ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings();
+                var attributesToAdd = model.Attributes.Where(a => a.TypeReference.Element.IsEnumModel());
+                foreach (var enumAttribute in attributesToAdd)
+                {
+                    AddUsing("System");
+                    var constraint = new StringBuilder();
+                    string enumType = _entityTemplate.GetTypeName(enumAttribute.TypeReference);
+                    if (ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings())
+                    {
+                        constraint.AppendLine( @$"var enumValues =  Enum.GetNames<{enumType}>()
+                .Select(e => $""'{{e}}'"");");
+                    }
+                    else
+                    {
+                        constraint.AppendLine(@$"var enumValues = Enum.GetValuesAsUnderlyingType<{enumType}>()
+                .Cast<object>()
+                .Select(value => value.ToString());");
+                    }
+                    constraint.AppendLine();
+                    constraint.AppendLine(@$"builder.ToTable(tb => tb.HasCheckConstraint(""{GetContraintName(enumAttribute)}"", $""\""{enumAttribute.Name}\"" IN ({{string.Join("","", enumValues)}})""));");
+                    yield return constraint.ToString();
+                }
+            }
             var checkConstraints = model.GetCheckConstraints();
             foreach (var checkConstraint in checkConstraints)
             {
                 yield return @$"builder.HasCheckConstraint(""{checkConstraint.Name()}"", ""{checkConstraint.SQL()}"");";
             }
+        }
+
+        private string GetContraintName(AttributeModel Model)
+        {
+            return (Model.InternalElement.ParentElement.Name + Model.Name + "Check").ToSnakeCase();
         }
 
         private CSharpStatement[] GetIndexes(ClassModel model)
