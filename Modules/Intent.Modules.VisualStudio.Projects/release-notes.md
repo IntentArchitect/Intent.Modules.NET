@@ -1,7 +1,10 @@
+### Version 3.7.4
+
+- Improvement: Added `launchSettings.json` for `Microsoft.NET.Sdk.Worker` projects.
+
 ### Version 3.7.3
 
 - Improvement: Added support for appsettings.json respecting `.editorconfig` files.
-
 
 ### Version 3.7.2
 

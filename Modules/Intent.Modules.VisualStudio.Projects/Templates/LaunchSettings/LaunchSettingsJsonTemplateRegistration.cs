@@ -22,7 +22,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
             var modelIds = _metadataManager.VisualStudio(application).GetASPNETCoreWebApplicationModels()
                 .Select(x => x.Id)
                 .Union(_metadataManager.VisualStudio(application).GetCSharpProjectNETModels()
-                    .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdkWeb() || x.GetNETSettings().SDK().IsMicrosoftNETSdkBlazorWebAssembly())
+                    .Where(x => x.GetNETSettings().SDK().IsMicrosoftNETSdkWeb() || x.GetNETSettings().SDK().IsMicrosoftNETSdkBlazorWebAssembly() || x.GetNETSettings().SDK().IsMicrosoftNETSdkWorker())
                     .Select(x => x.Id));
 
             foreach (var modelId in modelIds)
