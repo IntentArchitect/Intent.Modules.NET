@@ -1,3 +1,7 @@
+### Version 1.0.3
+ 
+- Improvement: Upgraded module to support new 4.1 SDK features.
+
 ### Version 1.0.2
 
 - Improvement: Upgraded module to support new 4.1 SDK features.

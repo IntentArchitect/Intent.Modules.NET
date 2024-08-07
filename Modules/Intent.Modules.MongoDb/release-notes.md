@@ -1,3 +1,7 @@
+### Version 1.0.15
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 1.0.14
 
 - Improvement: Updated NuGet package `MongoFramework` to latest(0.29.0).

@@ -33,7 +33,7 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Templates.OutputCachingC
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"OutputCachingConfiguration", @class =>
                 {
-                    AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreOutputCachingStackExchangeRedis);
+                    AddNugetDependency(NugetPackages.MicrosoftAspNetCoreOutputCachingStackExchangeRedis(OutputTarget));
                     @class.Static();
                     @class.AddMethod("IServiceCollection", "ConfigureOutputCaching", method =>
                     {

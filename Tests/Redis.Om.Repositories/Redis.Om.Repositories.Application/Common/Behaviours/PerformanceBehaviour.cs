@@ -41,8 +41,8 @@ namespace Redis.Om.Repositories.Application.Common.Behaviours
             if (elapsedMilliseconds > 500)
             {
                 var requestName = typeof(TRequest).Name;
-                var userId = _currentUserService.UserId ?? string.Empty;
-                var userName = _currentUserService.UserName ?? string.Empty;
+                var userId = _currentUserService.UserId;
+                var userName = _currentUserService.UserName;
 
                 _logger.LogWarning("Redis.Om.Repositories Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
                     requestName, elapsedMilliseconds, userId, userName, request);

@@ -1,0 +1,98 @@
+{
+  "packages": [
+    {
+      "name": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.7"
+        },
+        {
+          "framework": "7.0",
+          "version": "7.0.20"
+        },
+        {
+          "framework": "6.0",
+          "version": "6.0.32"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.AspNetCore.Authentication.JwtBearer",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.7"
+        },
+        {
+          "framework": "7.0",
+          "version": "7.0.20"
+        },
+        {
+          "framework": "6.0",
+          "version": "6.0.32"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Identity.Web",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "3.0.1"
+        },
+        {
+          "framework": "7.0",
+          "version": "3.0.1"
+        },
+        {
+          "framework": "6.0",
+          "version": "3.0.1"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Identity.Web.MicrosoftGraph",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "3.0.1"
+        },
+        {
+          "framework": "7.0",
+          "version": "3.0.1"
+        },
+        {
+          "framework": "6.0",
+          "version": "3.0.1"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Identity.Web.UI",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "3.0.1"
+        },
+        {
+          "framework": "7.0",
+          "version": "3.0.1"
+        },
+        {
+          "framework": "6.0",
+          "version": "3.0.1"
+        }
+      ]
+    },
+    {
+      "name": "IdentityModel",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "7.0.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,29 +1,19 @@
-﻿using Intent.Engine;
-using Intent.Modules.Common.CSharp.VisualStudio;
-using Intent.Modules.Common.VisualStudio;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.EntityFrameworkCore.BulkOperations
 {
-    internal class NugetPackages
+    public static class NugetPackages
     {
-        public static NugetPackageInfo ZEntityFrameworkExtensionsEFCore(IOutputTarget outputTarget) => new NugetPackageInfo("Z.EntityFramework.Extensions.EFCore", GetVersion(outputTarget.GetProject()));
 
-        private static string GetVersion(ICSharpProject project)
-        {
-            return project switch
+        public static NugetPackageInfo ZEntityFrameworkExtensionsEFCore(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Z.EntityFramework.Extensions.EFCore",
+            version: outputTarget.GetMaxNetAppVersion() switch
             {
-                _ when project.IsNetApp(5) => "5.101.0",
-                _ when project.IsNetApp(6) => "6.101.0",
-                _ when project.IsNetApp(7) => "7.101.0",
-                _ when project.IsNetApp(8) => "8.101.0",
-                _ => throw new Exception("Not supported version of .NET Core")
-            };
-        }
-
+                (>= 8, 0) => "8.103.1",
+                (>= 6, 0) => "7.103.1",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Z.EntityFramework.Extensions.EFCore'")
+            });
     }
 }

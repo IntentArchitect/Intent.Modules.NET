@@ -23,6 +23,7 @@ namespace Intent.Modules.NetTopologySuite.Templates.GeoDestructureSerilogPolicy
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public GeoDestructureSerilogPolicyTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.NetTopologySuite);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("NetTopologySuite.Geometries")
                 .AddUsing("Serilog.Core")

@@ -1,0 +1,13 @@
+{
+  "packages": [
+    {
+      "name": "Microsoft.AspNetCore.OData",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "8.2.5"
+        }
+      ]
+    }
+  ]
+}

@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>63b99628-8dbe-416e-929e-4048644ec4e7</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

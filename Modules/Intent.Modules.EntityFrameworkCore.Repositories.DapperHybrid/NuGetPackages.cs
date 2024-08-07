@@ -1,11 +1,18 @@
-﻿using System.Diagnostics;
+using System;
 using Intent.Engine;
 using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid
 {
-	internal class NuGetPackages
-	{
-		public static readonly INugetPackageInfo Dapper = new NugetPackageInfo("Dapper", "2.1.35");
-	}
+    public static class NugetPackages
+    {
+
+        public static NugetPackageInfo Dapper(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Dapper",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 7, 0) => "2.1.35",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Dapper'")
+            });
+    }
 }

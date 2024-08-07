@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Application.Identity.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
@@ -33,7 +34,8 @@ public partial class CurrentUserServiceTemplate : CSharpTemplateBase<object>, IC
                 var priClass = file.Classes.First();
                 priClass.ImplementsInterface(this.GetCurrentUserServiceInterfaceName());
                 priClass.AddConstructor();
-                priClass.AddProperty("string?", "UserId");
+                string userIdType = ExecutionContext.Settings.GetIdentitySettings().UserIdType().ToCSharpType();
+                priClass.AddProperty($"{this.UseType(userIdType)}?", "UserId");
                 priClass.AddProperty("string?", "UserName");
                 priClass.AddMethod($"Task<bool>", "AuthorizeAsync", method =>
                 {

@@ -3,7 +3,7 @@
   <ApplicationId>2dbbb91b-54b6-4157-b30d-e42e1ab90a8b</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#36c56252-afae-4a84-8cfc-ef61056209d0</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#36c56252-afae-4a84-8cfc-ef61056209d0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.Net.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -25,11 +25,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>deddb78d-352e-4fe1-b7af-5f1ac59e4f55</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <ProjectId>1e1d6eea-83ce-4717-958f-5c52e7492dcf</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#b09f5a25-2251-4e93-acf2-8a84e42e4cb6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -94,22 +94,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CurrentUserService/CurrentUserServiceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService/CurrentUserServiceTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>dc679d96-e52c-4347-8e1d-2771cac060fb</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#fd12be89-437b-49b9-ba8f-6dba11f39d90</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CurrentUserServiceInterface/CurrentUserServiceInterfaceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CurrentUserServiceInterface/CurrentUserServiceInterfaceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>dc679d96-e52c-4347-8e1d-2771cac060fb</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#fd12be89-437b-49b9-ba8f-6dba11f39d90</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CurrentUserServiceInterface/CurrentUserServiceInterfaceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CurrentUserServiceInterface/CurrentUserServiceInterfaceTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

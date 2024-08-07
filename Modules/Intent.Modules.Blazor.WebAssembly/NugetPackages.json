@@ -1,0 +1,36 @@
+{
+  "packages": [
+    {
+      "name": "Microsoft.AspNetCore.Components.WebAssembly",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.7"
+        },
+        {
+          "framework": "7.0",
+          "version": "7.0.20"
+        },
+        {
+          "framework": "6.0",
+          "version": "6.0.32"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.AspNetCore.Components.WebAssembly.DevServer",
+      "comment": "This assembly does not have dependency info, also 8.0.7 \u0026 8.0.8 seem problematic",
+      "locked": true,
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "7.0",
+          "version": "7.0.14"
+        }
+      ]
+    }
+  ]
+}

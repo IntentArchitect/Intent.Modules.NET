@@ -23,7 +23,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.SubscriptionType
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SubscriptionTypeTemplate(IOutputTarget outputTarget, GraphQLSubscriptionTypeModel model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.HotChocolate);
+            AddNugetDependency(NugetPackages.HotChocolate(OutputTarget));
             AddTypeSource(TemplateRoles.Application.Contracts.Dto);
             AddTypeSource(TemplateRoles.Domain.Entity.Primary);
             AddTypeSource(TemplateRoles.Domain.ValueObject);

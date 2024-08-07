@@ -16,7 +16,7 @@ public static class ConsumerHelper
 {
     public static void AddConsumerDependencies<TModel>(CSharpTemplateBase<TModel> template)
     {
-        template.AddNugetDependency(NuGetPackages.MassTransitAbstractions);
+        template.AddNugetDependency(NugetPackages.MassTransitAbstractions(template.OutputTarget));
         template.AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
         template.AddTypeSource(IntegrationCommandTemplate.TemplateId);
     }

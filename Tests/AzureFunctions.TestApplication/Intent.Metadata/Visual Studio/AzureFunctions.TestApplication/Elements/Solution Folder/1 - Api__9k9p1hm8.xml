@@ -12,22 +12,5 @@
   <packageName>AzureFunctions.TestApplication</packageName>
   <stereotypes />
   <metadata />
-  <childElements>
-    <childElement id="8d3e4733-d8d5-4e1a-b743-f3f3e28f1dd3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AzureFunctions.OpenApi.OpenApiConfigurarationTemplate</name>
-      <display>Intent.AzureFunctions.OpenApi.OpenApiConfigurarationTemplate</display>
-      <externalReference>Intent.AzureFunctions.OpenApi</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7e7f4d8a-d2a0-45fd-997d-74c5a27e235e</parentFolderId>
-      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
-      <packageName>AzureFunctions.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-  </childElements>
+  <childElements />
 </class>

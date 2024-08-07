@@ -1,0 +1,38 @@
+{
+  "packages": [
+    {
+      "name": "Microsoft.Extensions.Caching.Abstractions",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "7.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "8.0.0"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Extensions.Caching.StackExchangeRedis",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.7"
+        },
+        {
+          "framework": "7.0",
+          "version": "7.0.20"
+        },
+        {
+          "framework": "6.0",
+          "version": "6.0.32"
+        }
+      ]
+    }
+  ]
+}

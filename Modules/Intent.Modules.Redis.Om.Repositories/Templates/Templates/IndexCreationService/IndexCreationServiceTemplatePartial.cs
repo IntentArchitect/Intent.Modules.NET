@@ -24,7 +24,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.IndexCreation
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public IndexCreationServiceTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetDependencies.MicrosoftExtensionsHostingAbstractions(OutputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsHostingAbstractions(OutputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Threading")

@@ -30,7 +30,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.MutationType
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MutationTypeTemplate(IOutputTarget outputTarget, IGraphQLMutationTypeModel model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.HotChocolate);
+            AddNugetDependency(NugetPackages.HotChocolate(OutputTarget));
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.Create("System.Collections.Generic.IReadOnlyList<{0}>"));
             AddTypeSource(TemplateRoles.Application.Contracts.Dto);
             AddTypeSource(TemplateRoles.Domain.Entity.Primary);

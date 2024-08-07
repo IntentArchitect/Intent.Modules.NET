@@ -27,7 +27,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase
         public TableStorageRepositoryBaseTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
-            AddNugetDependency(NugetDependencies.AzureDataTables);
+            AddNugetDependency(NugetPackages.AzureDataTables(OutputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")

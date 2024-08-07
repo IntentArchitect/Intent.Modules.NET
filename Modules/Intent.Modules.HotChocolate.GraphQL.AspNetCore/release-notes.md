@@ -1,3 +1,7 @@
+### Version 5.0.4
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 5.0.3
 
 - Improvement: Bumped module version dependency for core HotChoclate module.

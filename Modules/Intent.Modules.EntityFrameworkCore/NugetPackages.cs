@@ -1,123 +1,152 @@
-﻿using System.Diagnostics;
+using System;
 using Intent.Engine;
 using Intent.Modules.Common.VisualStudio;
 
-namespace Intent.Modules.EntityFrameworkCore;
-
-public static class NugetPackages
+namespace Intent.Modules.EntityFrameworkCore
 {
-    public static NugetPackageInfo EntityFrameworkCore(IOutputTarget outputTarget) => new(
-        name: "Microsoft.EntityFrameworkCore",
-        version: GetMicrosoftEfVersion(outputTarget));
-
-    public static NugetPackageInfo EntityFrameworkCoreDesign(IOutputTarget outputTarget) => new(
-        name: "Microsoft.EntityFrameworkCore.Design",
-        version: GetMicrosoftEfVersion(outputTarget));
-
-    public static NugetPackageInfo EntityFrameworkCoreTools(IOutputTarget outputTarget) => new(
-        name: "Microsoft.EntityFrameworkCore.Tools",
-        version: GetMicrosoftEfVersion(outputTarget));
-
-    public static NugetPackageInfo EntityFrameworkCoreSqlServer(IOutputTarget outputTarget) => new(
-        name: "Microsoft.EntityFrameworkCore.SqlServer",
-        version: GetMicrosoftEfVersion(outputTarget));
-    public static NugetPackageInfo EntityFrameworkCoreCosmos(IOutputTarget outputTarget) => new(
-        name: "Microsoft.EntityFrameworkCore.Cosmos",
-        version: GetMicrosoftEfVersion(outputTarget));
-
-    public static NugetPackageInfo EntityFrameworkCoreInMemory(IOutputTarget outputTarget) => new(
-        name: "Microsoft.EntityFrameworkCore.InMemory",
-        version: GetMicrosoftEfVersion(outputTarget));
-
-    public static NugetPackageInfo EntityFrameworkCoreProxies(IOutputTarget outputTarget) => new(
-        name: "Microsoft.EntityFrameworkCore.Proxies",
-        version: GetMicrosoftEfVersion(outputTarget));
-
-    public static NugetPackageInfo NpgsqlEntityFrameworkCorePostgreSQL(IOutputTarget outputTarget) => new(
-        name: "Npgsql.EntityFrameworkCore.PostgreSQL",
-        version: outputTarget.GetMaxNetAppVersion() switch
-        {
-            (5, 0) => "5.0.10",
-            (6, 0) => "6.0.22",
-            (7, 0) => "7.0.11",
-            _ => "8.0.0"
-        });
-
-    public static NugetPackageInfo MySqlEntityFrameworkCore(IOutputTarget outputTarget) => new(
-        name: "Pomelo.EntityFrameworkCore.MySql",
-        version: outputTarget.GetMaxNetAppVersion() switch
-        {
-            (5, 0) => "5.0.4",
-            (6, 0) => "6.0.2",
-            (7, 0) => "7.0.0",
-            _ => "8.0.0"
-        });
-
-    public static NugetPackageInfo OracleEntityFrameworkCore(IOutputTarget outputTarget) => new(
-        name: "Oracle.EntityFrameworkCore",
-        version: outputTarget.GetMaxNetAppVersion() switch
-        {
-            (5, 0) => "5.21.90",
-            (6, 0) => "6.21.130",
-            (7, 0) => "7.21.13",
-            _ => "8.21.121"
-        });
-    
-    // Has only support for EF 6 & 7: https://erikej.github.io/efcore/sqlserver/2023/09/03/efcore-dateonly-timeonly.html
-    // EF 8 already has support for DateOnly.
-    public static NugetPackageInfo ErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(IOutputTarget outputTarget) => new(
-        name: "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly",
-        version: outputTarget.GetMaxNetAppVersion() switch
-        {
-            (6, 0) => "6.0.0",
-            _ => "7.0.0"
-        });
-
-    public static bool ShouldInstallErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(IOutputTarget outputTarget)
+    public static class NugetPackages
     {
-        return outputTarget.GetMaxNetAppVersion() switch
-        {
-            (6, 0) => true,
-            (7, 0) => true,
-            _ => false
-        };
+        //Locked for Azure Functions
+
+        public static NugetPackageInfo MicrosoftEntityFrameworkCore(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Microsoft.EntityFrameworkCore",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.0.7",
+                (>= 7, 0) => "7.0.20",
+                (>= 6, 0) => "6.0.32",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.EntityFrameworkCore'")
+            });
+        //Locked for Azure Functions
+
+        public static NugetPackageInfo MicrosoftEntityFrameworkCoreDesign(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Microsoft.EntityFrameworkCore.Design",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.0.7",
+                (>= 7, 0) => "7.0.20",
+                (>= 6, 0) => "6.0.32",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.EntityFrameworkCore.Design'")
+            });
+        //Locked for Azure Functions
+
+        public static NugetPackageInfo MicrosoftEntityFrameworkCoreTools(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Microsoft.EntityFrameworkCore.Tools",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.0.7",
+                (>= 7, 0) => "7.0.20",
+                (>= 6, 0) => "6.0.32",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.EntityFrameworkCore.Tools'")
+            });
+        //Locked for Azure Functions
+
+        public static NugetPackageInfo MicrosoftEntityFrameworkCoreSqlServer(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Microsoft.EntityFrameworkCore.SqlServer",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.0.7",
+                (>= 7, 0) => "7.0.20",
+                (>= 6, 0) => "6.0.32",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.EntityFrameworkCore.SqlServer'")
+            });
+        //Locked for Azure Functions
+
+        public static NugetPackageInfo MicrosoftEntityFrameworkCoreCosmos(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Microsoft.EntityFrameworkCore.Cosmos",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.0.7",
+                (>= 7, 0) => "7.0.20",
+                (>= 6, 0) => "6.0.32",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.EntityFrameworkCore.Cosmos'")
+            });
+        //Locked for Azure Functions
+
+        public static NugetPackageInfo MicrosoftEntityFrameworkCoreInMemory(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Microsoft.EntityFrameworkCore.InMemory",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.0.7",
+                (>= 7, 0) => "7.0.20",
+                (>= 6, 0) => "6.0.32",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.EntityFrameworkCore.InMemory'")
+            });
+        //Locked for Azure Functions
+
+        public static NugetPackageInfo MicrosoftEntityFrameworkCoreProxies(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Microsoft.EntityFrameworkCore.Proxies",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.0.7",
+                (>= 7, 0) => "7.0.20",
+                (>= 6, 0) => "6.0.32",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.EntityFrameworkCore.Proxies'")
+            });
+
+        public static NugetPackageInfo NpgsqlEntityFrameworkCorePostgreSQL(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Npgsql.EntityFrameworkCore.PostgreSQL",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.0.4",
+                (>= 7, 0) => "7.0.18",
+                (>= 6, 0) => "7.0.18",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Npgsql.EntityFrameworkCore.PostgreSQL'")
+            });
+
+        public static NugetPackageInfo PomeloEntityFrameworkCoreMySql(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Pomelo.EntityFrameworkCore.MySql",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.0.2",
+                (>= 7, 0) => "7.0.0",
+                (>= 6, 0) => "7.0.0",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Pomelo.EntityFrameworkCore.MySql'")
+            });
+
+        public static NugetPackageInfo OracleEntityFrameworkCore(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Oracle.EntityFrameworkCore",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.23.50",
+                (>= 6, 0) => "7.21.13",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Oracle.EntityFrameworkCore'")
+            });
+
+        public static NugetPackageInfo ErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnly(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 6, 0) => "7.0.10",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly'")
+            });
+
+        public static NugetPackageInfo NpgsqlEntityFrameworkCorePostgreSQLNetTopologySuite(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.0.4",
+                (>= 6, 0) => "7.0.18",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite'")
+            });
+
+        public static NugetPackageInfo MicrosoftEntityFrameworkCoreSqlServerNetTopologySuite(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.0.7",
+                (>= 6, 0) => "7.0.20",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite'")
+            });
+
+        public static NugetPackageInfo PomeloEntityFrameworkCoreMySqlNetTopologySuite(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Pomelo.EntityFrameworkCore.MySql.NetTopologySuite",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.0.2",
+                (>= 7, 0) => "7.0.0",
+                (>= 6, 0) => "7.0.0",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Pomelo.EntityFrameworkCore.MySql.NetTopologySuite'")
+            });
     }
-
-    public static NugetPackageInfo GetNpgsqlEntityFrameworkCorePostgreSQLNetTopologySuite(IOutputTarget outputTarget) => new(
-        name: "Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite",
-        version: outputTarget.GetMaxNetAppVersion() switch
-        {
-            (5, 0) => "5.0.10",
-            (6, 0) => "6.0.22",
-            (7, 0) => "7.0.11",
-            _ => "8.0.0"
-        });
-    
-    public static NugetPackageInfo GetMicrosoftEntityFrameworkCoreSqlServerNetTopologySuite(IOutputTarget outputTarget) => new(
-        name: "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite",
-        version: outputTarget.GetMaxNetAppVersion() switch
-        {
-            (5, 0) => "5.0.10",
-            (6, 0) => "6.0.22",
-            (7, 0) => "7.0.11",
-            _ => "8.0.0"
-        });
-    
-    public static NugetPackageInfo GetPomeloEntityFrameworkCoreMySqlNetTopologySuite(IOutputTarget outputTarget) => new(
-        name: "Pomelo.EntityFrameworkCore.MySql.NetTopologySuite",
-        version: outputTarget.GetMaxNetAppVersion() switch
-        {
-            (5, 0) => "5.0.10",
-            (6, 0) => "6.0.22",
-            (7, 0) => "7.0.11",
-            _ => "8.0.0"
-        });
-    
-    private static string GetMicrosoftEfVersion(IOutputTarget outputTarget) => outputTarget.GetMaxNetAppVersion() switch
-    {
-        (5, 0) => "5.0.17",
-        (6, 0) => "6.0.25",
-        (7, 0) => "7.0.14",
-        _ => "8.0.0"
-    };
 }

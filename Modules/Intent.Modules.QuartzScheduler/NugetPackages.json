@@ -1,0 +1,30 @@
+{
+  "packages": [
+    {
+      "name": "Quartz.Extensions.Hosting",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "3.12.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "3.12.0"
+        }
+      ]
+    },
+    {
+      "name": "Quartz.AspNetCore",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "3.12.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "3.12.0"
+        }
+      ]
+    }
+  ]
+}

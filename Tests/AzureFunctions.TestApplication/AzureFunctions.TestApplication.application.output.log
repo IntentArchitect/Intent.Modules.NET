@@ -27,6 +27,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>068c81ed-d7c8-4b6b-be53-cceb04ad1312</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.OpenApi.OpenApiConfigurarationTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Api/Configuration/OpenApiConfigurationOptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiConfigurationOptions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
       <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#decd7cea-fd44-47c9-a93f-04e90b998e60</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1494,14 +1502,6 @@
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#dd3f3e5c-e812-46db-af89-f630a56fa304</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.sln</ApplicationRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7e7f4d8a-d2a0-45fd-997d-74c5a27e235e</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.OpenApi.OpenApiConfigurarationTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OpenApiConfigurationOptions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OpenApiConfigurationOptions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

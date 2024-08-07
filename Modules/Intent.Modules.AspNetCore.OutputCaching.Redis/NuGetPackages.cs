@@ -1,14 +1,18 @@
-﻿using Intent.Modules.Common.VisualStudio;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.AspNetCore.OutputCaching.Redis
 {
-	internal class NuGetPackages
-	{
-		public static readonly INugetPackageInfo MicrosoftAspNetCoreOutputCachingStackExchangeRedis = new NugetPackageInfo("Microsoft.AspNetCore.OutputCaching.StackExchangeRedis", "8.0.4");
-	}
+    public static class NugetPackages
+    {
+
+        public static NugetPackageInfo MicrosoftAspNetCoreOutputCachingStackExchangeRedis(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Microsoft.AspNetCore.OutputCaching.StackExchangeRedis",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.0.7",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.AspNetCore.OutputCaching.StackExchangeRedis'")
+            });
+    }
 }

@@ -29,7 +29,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ApplicationMongoDbContextTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.MongoFramework);
+            AddNugetDependency(NugetPackages.MongoFramework(OutputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System.Threading")

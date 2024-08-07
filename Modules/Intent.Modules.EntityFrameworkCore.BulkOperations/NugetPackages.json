@@ -1,0 +1,17 @@
+{
+  "packages": [
+    {
+      "name": "Z.EntityFramework.Extensions.EFCore",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.103.1"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.103.1"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "packages": [
+    {
+      "name": "Confluent.Kafka",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "2.5.1"
+        }
+      ]
+    },
+    {
+      "name": "Confluent.SchemaRegistry.Serdes.Json",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "2.5.1"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "7.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "8.0.0"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft.Extensions.Hosting",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "7.0",
+          "version": "8.0.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "8.0.0"
+        }
+      ]
+    }
+  ]
+}

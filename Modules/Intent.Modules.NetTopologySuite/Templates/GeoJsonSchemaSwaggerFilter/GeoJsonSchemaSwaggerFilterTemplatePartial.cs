@@ -21,6 +21,7 @@ namespace Intent.Modules.NetTopologySuite.Templates.GeoJsonSchemaSwaggerFilter
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public GeoJsonSchemaSwaggerFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.NetTopologySuite);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.OpenApi.Any")
                 .AddUsing("Microsoft.OpenApi.Models")

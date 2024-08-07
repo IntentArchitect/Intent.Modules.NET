@@ -1,3 +1,7 @@
+### Version 1.1.2
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 1.1.1
 
 - Improvement: Endpoints will now generate an `[OpenApiIgnoreAttribute]` if they have an _OpenAPI Settings_ Stereotype applied with its _Ignore_ property set to `true`.

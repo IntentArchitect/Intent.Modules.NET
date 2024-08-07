@@ -41,8 +41,8 @@ namespace Entities.PrivateSetters.TestApplication.Application.Common.Behaviours
             if (elapsedMilliseconds > 500)
             {
                 var requestName = typeof(TRequest).Name;
-                var userId = _currentUserService.UserId ?? string.Empty;
-                var userName = _currentUserService.UserName ?? string.Empty;
+                var userId = _currentUserService.UserId;
+                var userName = _currentUserService.UserName;
 
                 _logger.LogWarning("Entities.PrivateSetters.TestApplication Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
                     requestName, elapsedMilliseconds, userId, userName, request);

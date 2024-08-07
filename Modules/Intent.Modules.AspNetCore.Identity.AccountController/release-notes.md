@@ -1,4 +1,8 @@
-﻿### Version 3.1.1
+### Version 3.1.2
+
+- Improvement: Updated NuGet packages to latest stables.
+
+### Version 3.1.1
 
 - Fixed: `ForgotPassword` and `ResetPassword` endpoints did not have `[AllowAnonymous]` set.
 

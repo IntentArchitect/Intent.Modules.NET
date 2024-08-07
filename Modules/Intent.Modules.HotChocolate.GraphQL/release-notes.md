@@ -1,3 +1,7 @@
+### Version 4.0.5
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 4.0.4
 
 - Improvement: Added some basic docs.

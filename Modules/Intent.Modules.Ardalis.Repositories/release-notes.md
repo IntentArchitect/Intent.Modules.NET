@@ -1,3 +1,7 @@
+### Version 4.1.1
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 4.1.0
 
 - Improvement: Updated module project to .NET 8.

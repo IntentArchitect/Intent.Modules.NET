@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore</id>
-  <version>6.0.3-pre.1</version>
+  <version>6.0.3-pre.2</version>
   <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <summary>Generates base code for hosting Web services on the ASP.NET Core infrastructure</summary>
   <description>Generates base code for hosting Web services on the ASP.NET Core infrastructure</description>
@@ -41,7 +41,7 @@
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.AspNetCore.Controllers ">
       <install>
-        <package id="Intent.AspNetCore.Controllers " version="6.0.0-beta.0" />
+        <package id="Intent.AspNetCore.Controllers " version="6.0.10-pre.2" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.HealthChecks">
@@ -56,7 +56,7 @@
     </detect>
     <detect id="Intent.Modules.AspNetCore.Logging.Serilog">
       <install>
-        <package id="Intent.Modules.AspNetCore.Logging.Serilog" version="5.0.2" />
+        <package id="Intent.Modules.AspNetCore.Logging.Serilog" version="5.1.5-pre.1" />
       </install>
     </detect>
     <detect id="Intent.Modules.AspNetCore.MultiTenancy">

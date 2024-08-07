@@ -15,14 +15,14 @@ namespace Intent.Entities.BasicAuditing.Api
     {
         public static BasicAuditing GetBasicAuditing(this ClassModel model)
         {
-            var stereotype = model.GetStereotype("Basic Auditing");
+            var stereotype = model.GetStereotype("796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93");
             return stereotype != null ? new BasicAuditing(stereotype) : null;
         }
 
 
         public static bool HasBasicAuditing(this ClassModel model)
         {
-            return model.HasStereotype("Basic Auditing");
+            return model.HasStereotype("796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93");
         }
 
         public static bool TryGetBasicAuditing(this ClassModel model, out BasicAuditing stereotype)
@@ -33,7 +33,7 @@ namespace Intent.Entities.BasicAuditing.Api
                 return false;
             }
 
-            stereotype = new BasicAuditing(model.GetStereotype("Basic Auditing"));
+            stereotype = new BasicAuditing(model.GetStereotype("796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93"));
             return true;
         }
 

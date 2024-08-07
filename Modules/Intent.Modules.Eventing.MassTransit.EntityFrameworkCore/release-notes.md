@@ -1,3 +1,7 @@
+### Version 5.2.2
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 5.2.1
 
 - Fixed: Missing using directive for Outbox pattern in EF DbContext.

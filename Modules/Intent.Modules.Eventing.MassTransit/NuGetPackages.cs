@@ -1,13 +1,70 @@
+using System;
+using Intent.Engine;
 using Intent.Modules.Common.VisualStudio;
 
-namespace Intent.Modules.Eventing.MassTransit;
-
-public static class NuGetPackages
+namespace Intent.Modules.Eventing.MassTransit
 {
-    public static readonly INugetPackageInfo MassTransit = new NugetPackageInfo("MassTransit", "8.1.3");
-    public static readonly INugetPackageInfo MassTransitAbstractions = new NugetPackageInfo("MassTransit.Abstractions", "8.1.3");
-    public static readonly INugetPackageInfo MassTransitRabbitMq = new NugetPackageInfo("MassTransit.RabbitMQ", "8.1.3");
-    public static readonly INugetPackageInfo MassTransitAzureServiceBusCore = new NugetPackageInfo("MassTransit.Azure.ServiceBus.Core", "8.1.3");
-    public static readonly INugetPackageInfo MassTransitAmazonSqs = new NugetPackageInfo("MassTransit.AmazonSQS", "8.1.3");
-    public static readonly INugetPackageInfo MassTransitEntityFrameworkCore = new NugetPackageInfo("MassTransit.EntityFrameworkCore", "8.1.3");
+    public static class NugetPackages
+    {
+
+        public static NugetPackageInfo MassTransit(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "MassTransit",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.2.3",
+                (>= 7, 0) => "8.2.1",
+                (>= 6, 0) => "8.2.3",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'MassTransit'")
+            });
+
+        public static NugetPackageInfo MassTransitAbstractions(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "MassTransit.Abstractions",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.2.3",
+                (>= 7, 0) => "8.2.1",
+                (>= 6, 0) => "8.2.3",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'MassTransit.Abstractions'")
+            });
+
+        public static NugetPackageInfo MassTransitRabbitMQ(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "MassTransit.RabbitMQ",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.2.3",
+                (>= 7, 0) => "8.2.1",
+                (>= 6, 0) => "8.2.3",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'MassTransit.RabbitMQ'")
+            });
+
+        public static NugetPackageInfo MassTransitAzureServiceBusCore(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "MassTransit.Azure.ServiceBus.Core",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.2.3",
+                (>= 7, 0) => "8.2.1",
+                (>= 6, 0) => "8.2.3",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'MassTransit.Azure.ServiceBus.Core'")
+            });
+
+        public static NugetPackageInfo MassTransitAmazonSQS(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "MassTransit.AmazonSQS",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.2.3",
+                (>= 7, 0) => "8.2.1",
+                (>= 6, 0) => "8.2.3",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'MassTransit.AmazonSQS'")
+            });
+
+        public static NugetPackageInfo MassTransitEntityFrameworkCore(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "MassTransit.EntityFrameworkCore",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.2.3",
+                (>= 7, 0) => "8.2.1",
+                (>= 6, 0) => "8.2.3",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'MassTransit.EntityFrameworkCore'")
+            });
+    }
 }

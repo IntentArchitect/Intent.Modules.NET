@@ -1,5 +1,6 @@
 ### Version 1.0.3
 
+- Improvement: Updated NuGet packages to latest stables.
 - Fixed: JobListeners are set up as [singleton](https://stackoverflow.com/questions/67323533/how-can-i-use-di-in-quartz-joblistener) and adjusted accordingly and Scoped Service Providers are introduced in `BugSnagQuartzJobListener` for resolving BugSnag.
 
 ### Version 1.0.2

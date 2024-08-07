@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.BasicAuditing</id>
-  <version>1.0.2</version>
-  <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
+  <version>1.0.3-pre.1</version>
+  <supportedClientVersions>[4.1.0,5.0.0)</supportedClientVersions>
   <summary>Applies basic auditing to selected domain entities (i.e. when an entity is created or updated and by who).</summary>
   <description>Applies basic auditing to selected domain entities (i.e. when an entity is created or updated and by who).</description>
   <tags>csharp dotnet entities auditing</tags>
@@ -25,19 +25,48 @@
     <factoryExtension id="Intent.Entities.BasicAuditing.CosmosDbExtension" externalReference="04dbb899-54b8-4e9d-9d54-36dda861bf3c" />
     <factoryExtension id="Intent.Entities.BasicAuditing.EfCoreExtension" externalReference="5c2b2464-aaf2-40bb-8c23-f3608e8ed4aa" />
   </factoryExtensions>
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="e51c0868-816d-432b-9cc3-c597fdb1ef0d" title="Basic Auditing" externalReference="e51c0868-816d-432b-9cc3-c597fdb1ef0d">
+      <settings>
+        <setting id="5f617e3b-b027-4b23-aeb5-5ee4c7968173" title="User Identity to Audit" type="select">
+          <isRequired>false</isRequired>
+          <hint>Which data would you like to audit to identify the user.</hint>
+          <defaultValue>user-id</defaultValue>
+          <options>
+            <option value="user-id" description="User Id" />
+            <option value="user-name" description="User Name" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Application.Identity" version="3.5.1" />
-    <dependency id="Intent.Common" version="3.4.3" />
-    <dependency id="Intent.Common.CSharp" version="3.3.39" />
-    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Application.Identity" version="3.5.2-pre.0" />
+    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common.CSharp" version="3.5.2" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Domain" version="3.4.6" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <interoperability>
     <detect id="Intent.EntityFrameworkCore.BasicAuditing">
       <install>
         <package id="Intent.EntityFrameworkCore.BasicAuditing" version="1.0.4" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.Identity">
+      <install>
+        <package id="Intent.Application.Identity" version="3.5.2-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.MediatR.Behaviours">
+      <install>
+        <package id="Intent.Application.MediatR.Behaviours" version="	4.2.14-pre.2" />
+      </install>
+    </detect>
+    <detect id="Intent.Security.JWT">
+      <install>
+        <package id="Intent.Security.JWT" version="	4.2.1-pre.1" />
       </install>
     </detect>
   </interoperability>

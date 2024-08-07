@@ -1,0 +1,99 @@
+{
+  "packages": [
+    {
+      "name": "OpenTelemetry",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "1.9.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "1.9.0"
+        }
+      ]
+    },
+    {
+      "name": "OpenTelemetry.Extensions.Hosting",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "1.9.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "1.9.0"
+        }
+      ]
+    },
+    {
+      "name": "OpenTelemetry.Instrumentation.AspNetCore",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "1.9.0"
+        },
+        {
+          "framework": "7.0",
+          "version": "1.9.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "1.9.0"
+        }
+      ]
+    },
+    {
+      "name": "OpenTelemetry.Instrumentation.Http",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "1.9.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "1.9.0"
+        }
+      ]
+    },
+    {
+      "name": "OpenTelemetry.Instrumentation.SqlClient",
+      "versions": []
+    },
+    {
+      "name": "OpenTelemetry.Exporter.Console",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "1.9.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "1.9.0"
+        }
+      ]
+    },
+    {
+      "name": "OpenTelemetry.Exporter.OpenTelemetryProtocol",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "1.9.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "1.9.0"
+        }
+      ]
+    },
+    {
+      "name": "Azure.Monitor.OpenTelemetry.Exporter",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "1.3.0"
+        }
+      ]
+    }
+  ]
+}

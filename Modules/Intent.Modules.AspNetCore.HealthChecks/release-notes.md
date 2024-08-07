@@ -1,3 +1,7 @@
+### Version 2.0.7
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 2.0.6
 
 - Improvement: Added support for Kafka.

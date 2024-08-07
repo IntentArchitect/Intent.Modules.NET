@@ -1,3 +1,7 @@
+### Version 2.1.1
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 2.1.0
 
 - Improvement: Service name is now configurable in appsettings.json.

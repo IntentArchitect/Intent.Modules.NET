@@ -1,3 +1,7 @@
+### Version 3.4.2
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 3.4.1
 
 - Improvement: Updated `BlobStorageExtensions` with more `ConfigureAwait` configurations.

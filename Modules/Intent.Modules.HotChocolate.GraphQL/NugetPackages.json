@@ -1,0 +1,21 @@
+{
+  "packages": [
+    {
+      "name": "HotChocolate",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "13.9.9"
+        },
+        {
+          "framework": "7.0",
+          "version": "13.9.9"
+        },
+        {
+          "framework": "6.0",
+          "version": "13.9.9"
+        }
+      ]
+    }
+  ]
+}

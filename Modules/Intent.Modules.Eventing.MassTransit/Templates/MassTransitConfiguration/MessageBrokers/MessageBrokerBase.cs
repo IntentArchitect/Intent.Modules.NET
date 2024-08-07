@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Intent.Engine;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
@@ -20,7 +21,7 @@ internal abstract class MessageBrokerBase
     public abstract string GetMessageBrokerBusFactoryConfiguratorName();
     public abstract CSharpInvocationStatement AddMessageBrokerConfiguration(string busRegistrationVarName, string factoryConfigVarName, IEnumerable<CSharpStatement> moreConfiguration);
     public abstract AppSettingRegistrationRequest? GetAppSettings();
-    public abstract INugetPackageInfo? GetNugetDependency();
+    public abstract INugetPackageInfo? GetNugetDependency(IOutputTarget outputTarget);
     public abstract IEnumerable<CSharpStatement> GetCustomConfigurationStatements(Consumer consumer, string sanitizedAppName);
     public abstract IEnumerable<CSharpClassMethod> GetCustomConfigurationHelperMethods(CSharpClass configurationClass);
 

@@ -1,0 +1,145 @@
+{
+  "packages": [
+    {
+      "name": "AspNetCore.HealthChecks.UI",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.1"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.0.2"
+        }
+      ]
+    },
+    {
+      "name": "AspNetCore.HealthChecks.UI.Client",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.1"
+        },
+        {
+          "framework": "7.0",
+          "version": "8.0.1"
+        },
+        {
+          "framework": "6.0",
+          "version": "8.0.1"
+        }
+      ]
+    },
+    {
+      "name": "AspNetCore.HealthChecks.UI.InMemory.Storage",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.1"
+        },
+        {
+          "framework": "6.0",
+          "version": "7.0.0"
+        }
+      ]
+    },
+    {
+      "name": "AspNetcore.HealthChecks.Publisher.ApplicationInsights",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "8.0.1"
+        }
+      ]
+    },
+    {
+      "name": "AspNetCore.HealthChecks.SqlServer",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "8.0.2"
+        }
+      ]
+    },
+    {
+      "name": "AspNetCore.HealthChecks.NpgSql",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.0.1"
+        },
+        {
+          "framework": "7.0",
+          "version": "8.0.1"
+        },
+        {
+          "framework": "6.0",
+          "version": "6.0.2"
+        }
+      ]
+    },
+    {
+      "name": "AspNetCore.HealthChecks.MySql",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "8.0.1"
+        }
+      ]
+    },
+    {
+      "name": "AspNetCore.HealthChecks.CosmosDb",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "8.0.1"
+        }
+      ]
+    },
+    {
+      "name": "AspNetCore.HealthChecks.MongoDb",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "8.0.1"
+        }
+      ]
+    },
+    {
+      "name": "AspNetCore.HealthChecks.Oracle",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "8.0.1"
+        }
+      ]
+    },
+    {
+      "name": "AspNetCore.HealthChecks.Redis",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "8.0.1"
+        }
+      ]
+    },
+    {
+      "name": "AspNetCore.HealthChecks.Kafka",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "8.0.1"
+        }
+      ]
+    },
+    {
+      "name": "AspNetCore.HealthChecks.Uris",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "6.0.3"
+        }
+      ]
+    }
+  ]
+}

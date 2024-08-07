@@ -40,11 +40,11 @@ namespace Intent.Modules.QuartzScheduler.Templates.QuartzConfiguration
                 {
                     if (ExecutionContext.InstalledModules.Any(p => p.ModuleId == "Intent.AspNetCore"))
                     {
-                        AddNugetDependency(NuGetPackages.QuartzAspNetCore);
+                        AddNugetDependency(NugetPackages.QuartzAspNetCore(OutputTarget));
                     }
                     else
                     {
-                        AddNugetDependency(NuGetPackages.QuartzExtensionsHosting);
+                        AddNugetDependency(NugetPackages.QuartzExtensionsHosting(OutputTarget));
                     }
                     @class.Static();
                     @class.AddMethod("IServiceCollection", "ConfigureQuartz", method =>

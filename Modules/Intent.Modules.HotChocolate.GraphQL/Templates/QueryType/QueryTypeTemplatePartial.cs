@@ -29,7 +29,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.QueryType
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public QueryTypeTemplate(IOutputTarget outputTarget, IGraphQLQueryTypeModel model) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.HotChocolate);
+            AddNugetDependency(NugetPackages.HotChocolate(OutputTarget));
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.Create("System.Collections.Generic.IReadOnlyList<{0}>"));
             AddTypeSource(TemplateRoles.Application.Contracts.Dto);
             AddTypeSource(TemplateRoles.Domain.Entity.Primary);

@@ -45,7 +45,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             _enforceColumnOrdering = ExecutionContext.Settings.GetDatabaseSettings().MaintainColumnOrdering();
 
-            AddNugetDependency(NugetPackages.EntityFrameworkCore(Project));
+            AddNugetDependency(NugetPackages.MicrosoftEntityFrameworkCore(Project));
             AddTypeSource("Domain.Entity");
             AddTypeSource("Domain.ValueObject");
 

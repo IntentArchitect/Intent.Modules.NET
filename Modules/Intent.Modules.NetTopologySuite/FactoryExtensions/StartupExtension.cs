@@ -39,6 +39,7 @@ namespace Intent.Modules.NetTopologySuite.FactoryExtensions
                 return;
             }
 
+            startupTemplate.AddNugetDependency(NugetPackages.NetTopologySuiteIoGeoJson4Stj);
             startupTemplate.CSharpFile.OnBuild(file =>
             {
                 startupTemplate.StartupFile.ConfigureServices((statements, context) =>
@@ -51,7 +52,7 @@ namespace Intent.Modules.NetTopologySuite.FactoryExtensions
                     {
                         var statementsToCheck = new List<CSharpStatement>();
                         ExtractPossibleStatements(statements, statementsToCheck);
-                        
+
                         var lastConfigStatement = (CSharpInvocationStatement)statementsToCheck.Last(p => p.HasMetadata("configure-services-controllers"));
                         var addJsonOptionsStatement = statements.FindStatement(s => s.TryGetMetadata<string>("configure-services-controllers", out var v) && v == "json")
                             as CSharpInvocationStatement;
@@ -71,12 +72,12 @@ namespace Intent.Modules.NetTopologySuite.FactoryExtensions
                             addJsonOptionsStatement.AddArgument(lambda);
                         }
 
-                        lambda.AddStatement($@"options.JsonSerializerOptions.Converters.Add(new {startupTemplate.UseType("NetTopologySuite.IO.Converters.GeoJsonConverterFactory")}());"); 
+                        lambda.AddStatement($@"options.JsonSerializerOptions.Converters.Add(new {startupTemplate.UseType("NetTopologySuite.IO.Converters.GeoJsonConverterFactory")}());");
                     });
                 });
             }, 15);
         }
-        
+
         private static void ExtractPossibleStatements(IHasCSharpStatements targetBlock, List<CSharpStatement> statementsToCheck)
         {
             foreach (var statement in targetBlock.Statements)

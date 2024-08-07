@@ -1,0 +1,38 @@
+{
+  "packages": [
+    {
+      "name": "Asp.Versioning.Mvc",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.1.0"
+        },
+        {
+          "framework": "7.0",
+          "version": "7.1.1"
+        },
+        {
+          "framework": "6.0",
+          "version": "6.4.1"
+        }
+      ]
+    },
+    {
+      "name": "Asp.Versioning.Mvc.ApiExplorer",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "8.1.0"
+        },
+        {
+          "framework": "7.0",
+          "version": "7.1.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "6.4.0"
+        }
+      ]
+    }
+  ]
+}

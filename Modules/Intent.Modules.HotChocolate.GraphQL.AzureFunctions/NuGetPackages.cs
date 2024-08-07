@@ -1,14 +1,19 @@
-﻿using Intent.Modules.Common.VisualStudio;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.HotChocolate.GraphQL.AzureFunctions
 {
-    public class NuGetPackages
+    public static class NugetPackages
     {
-        public static INugetPackageInfo HotChocolateAzureFunctions => new NugetPackageInfo("HotChocolate.AzureFunctions", "13.1.0");
+
+        public static NugetPackageInfo HotChocolateAzureFunctions(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "HotChocolate.AzureFunctions",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 7, 0) => "13.9.9",
+                (>= 6, 0) => "13.9.9",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'HotChocolate.AzureFunctions'")
+            });
     }
 }

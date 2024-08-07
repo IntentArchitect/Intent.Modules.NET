@@ -1,27 +1,30 @@
-﻿using Intent.Modules.Common.CSharp.VisualStudio;
+using System;
+using Intent.Engine;
 using Intent.Modules.Common.VisualStudio;
 
-namespace Intent.Modules.AspNetCore.Identity;
-
-public static class NugetPackages
+namespace Intent.Modules.AspNetCore.Identity
 {
-    public static NugetPackageInfo MicrosoftAspNetCoreIdentityEntityFrameworkCore(ICSharpProject project) => new(
-        "Microsoft.AspNetCore.Identity.EntityFrameworkCore",
-        version: project.GetMaxNetAppVersion() switch
-        {
-            (5, 0) => "5.0.17",
-            (6, 0) => "6.0.25",
-            (7, 0) => "7.0.14",
-            _ => "8.0.0"
-        });
+    public static class NugetPackages
+    {
 
-    public static NugetPackageInfo MicrosoftExtensionsIdentityStores(ICSharpProject project) => new(
-        "Microsoft.Extensions.Identity.Stores",
-        version: project.GetMaxNetAppVersion() switch
-        {
-            (5, 0) => "5.0.17",
-            (6, 0) => "6.0.25",
-            (7, 0) => "7.0.14",
-            _ => "8.0.0"
-        });
+        public static NugetPackageInfo MicrosoftAspNetCoreIdentityEntityFrameworkCore(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Microsoft.AspNetCore.Identity.EntityFrameworkCore",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.0.7",
+                (>= 7, 0) => "7.0.20",
+                (>= 6, 0) => "6.0.32",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.AspNetCore.Identity.EntityFrameworkCore'")
+            });
+
+        public static NugetPackageInfo MicrosoftExtensionsIdentityStores(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Microsoft.Extensions.Identity.Stores",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "8.0.7",
+                (>= 7, 0) => "7.0.20",
+                (>= 6, 0) => "6.0.32",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.Extensions.Identity.Stores'")
+            });
+    }
 }

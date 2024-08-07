@@ -29,8 +29,8 @@ namespace Intent.Modules.Blazor.WebAssembly.Templates.Program
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ProgramTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreComponentsWebAssembly(outputTarget));
-            AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreComponentsWebAssemblyDevServer(outputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftAspNetCoreComponentsWebAssembly(outputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftAspNetCoreComponentsWebAssemblyDevServer(outputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.AspNetCore.Components.Web")
                 .AddUsing("Microsoft.AspNetCore.Components.WebAssembly.Hosting")

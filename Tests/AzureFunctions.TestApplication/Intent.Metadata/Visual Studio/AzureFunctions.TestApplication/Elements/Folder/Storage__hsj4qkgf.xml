@@ -3,7 +3,6 @@
   <name>Storage</name>
   <display>Storage</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>dd1d875e-06c6-4043-a000-9fc5a05229c9</parentFolderId>

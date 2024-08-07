@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="52d45cd5-382d-47cd-ae21-192df6925a19" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a82bf06f-7c6f-4c27-bde0-a553052003d2</parentFolderId>
+  <packageId>a82bf06f-7c6f-4c27-bde0-a553052003d2</packageId>
+  <packageName>BasicAuditing.CustomUserId.Tests.Domain</packageName>
+  <diagram>
+    <targetPackageId>a82bf06f-7c6f-4c27-bde0-a553052003d2</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -49,7 +49,7 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
                 Logging.Log.Warning($"Http Settings could not be found on Azure Function [{template.Model.Name}] that is Http triggered");
             }
 
-            _template.AddNugetDependency(NuGetPackages.MicrosoftAzureWebJobsExtensionsOpenApi);
+            _template.AddNugetDependency(NugetPackages.MicrosoftAzureWebJobsExtensionsOpenApi(_template.OutputTarget));
 
 
             template.CSharpFile.OnBuild(file =>

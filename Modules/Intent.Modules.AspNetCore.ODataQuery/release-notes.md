@@ -1,6 +1,7 @@
 ﻿### Version 1.0.5
 
 - Fixed: Startup configuration update due to changes introduced in `Intent.AspNetCore` module.
+- Improvement: Updated NuGet packages to latest stables.
 
 ### Version 1.0.4
 

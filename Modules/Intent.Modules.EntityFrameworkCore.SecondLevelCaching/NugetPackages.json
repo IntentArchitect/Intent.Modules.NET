@@ -1,0 +1,30 @@
+{
+  "packages": [
+    {
+      "name": "EFCoreSecondLevelCacheInterceptor",
+      "versions": [
+        {
+          "framework": "8.0",
+          "version": "4.6.0"
+        },
+        {
+          "framework": "7.0",
+          "version": "4.6.0"
+        },
+        {
+          "framework": "6.0",
+          "version": "4.6.0"
+        }
+      ]
+    },
+    {
+      "name": "MessagePack",
+      "versions": [
+        {
+          "framework": "6.0",
+          "version": "2.5.172"
+        }
+      ]
+    }
+  ]
+}

@@ -29,7 +29,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContextInterface
         {
             if (IsEnabled)
             {
-                AddNugetDependency(NugetPackages.EntityFrameworkCore(OutputTarget));
+                AddNugetDependency(NugetPackages.MicrosoftEntityFrameworkCore(OutputTarget));
             }
 
             if (Model.IsApplicationDbContext)

@@ -1,15 +1,28 @@
-﻿using Intent.Modules.Common.VisualStudio;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Intent.Engine;
+using Intent.Modules.Common.VisualStudio;
 
 namespace Intent.Modules.QuartzScheduler
 {
-	internal class NuGetPackages
-	{
-		public static readonly INugetPackageInfo QuartzExtensionsHosting = new NugetPackageInfo("Quartz.Extensions.Hosting", "3.8.1");
-		public static readonly INugetPackageInfo QuartzAspNetCore = new NugetPackageInfo("Quartz.AspNetCore", "3.8.1");
-	}
+    public static class NugetPackages
+    {
+
+        public static NugetPackageInfo QuartzExtensionsHosting(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Quartz.Extensions.Hosting",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "3.12.0",
+                (>= 6, 0) => "3.12.0",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Quartz.Extensions.Hosting'")
+            });
+
+        public static NugetPackageInfo QuartzAspNetCore(IOutputTarget outputTarget) => new NugetPackageInfo(
+            name: "Quartz.AspNetCore",
+            version: outputTarget.GetMaxNetAppVersion() switch
+            {
+                (>= 8, 0) => "3.12.0",
+                (>= 6, 0) => "3.12.0",
+                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Quartz.AspNetCore'")
+            });
+    }
 }

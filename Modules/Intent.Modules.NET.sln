@@ -48,7 +48,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.DependencyInjection", "Intent.Modules.Application.DependencyInjection\Intent.Modules.Application.DependencyInjection.csproj", "{1D15D8BA-269B-4A31-8855-602CDDAA651B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Identity", "Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj", "{DEDDB78D-352E-4FE1-B7AF-5F1AC59E4F55}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.Identity", "Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj", "{DEDDB78D-352E-4FE1-B7AF-5F1AC59E4F55}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.Behaviours", "Intent.Modules.Application.MediatR.Behaviours\Intent.Modules.Application.MediatR.Behaviours.csproj", "{8DE7DB33-7D69-403F-AD45-3B3D753705F2}"
 EndProject
@@ -240,7 +240,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.Serve
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Application.Shared", "Intent.Modules.Application.Shared\Intent.Modules.Application.Shared.shproj", "{D2273A64-721E-4A48-AFF5-2058000D55BA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Entities.BasicAuditing", "Intent.Modules.Entities.BasicAuditing\Intent.Modules.Entities.BasicAuditing.csproj", "{E8FC2C42-6FC9-4A68-8F84-79CEA0EA9CAB}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Entities.BasicAuditing", "Intent.Modules.Entities.BasicAuditing\Intent.Modules.Entities.BasicAuditing.csproj", "{E8FC2C42-6FC9-4A68-8F84-79CEA0EA9CAB}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.UnitOfWork.Persistence.Shared", "Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.shproj", "{AD3459E5-44CE-4C5F-9BF8-8FD2BA15FC05}"
 EndProject

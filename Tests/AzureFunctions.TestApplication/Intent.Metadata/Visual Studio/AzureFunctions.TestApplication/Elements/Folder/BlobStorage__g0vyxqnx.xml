@@ -3,7 +3,6 @@
   <name>BlobStorage</name>
   <display>BlobStorage</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>53ac4ed2-2438-49bf-b131-1ec31bcbe287</parentFolderId>

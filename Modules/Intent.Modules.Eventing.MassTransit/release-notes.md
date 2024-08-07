@@ -1,3 +1,7 @@
+### Version 6.2.4
+
+- Improvement: Updated NuGet packages to latest stables.
+
 ### Version 6.2.3
 
 - Fixed: Azure Service Bus settings accepting a time span (Default time to live, Lock duration, duplicate detection time window) had an issue where the generated time was different to the specified time in some scenarios.

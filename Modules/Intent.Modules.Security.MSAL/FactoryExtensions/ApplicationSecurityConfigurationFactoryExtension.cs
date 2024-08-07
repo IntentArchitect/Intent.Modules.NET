@@ -31,9 +31,9 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
 
             template.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationJwtBearer(template.OutputTarget));
             template.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationOpenIdConnect(template.OutputTarget));
-            template.AddNugetDependency(NugetPackages.MicrosoftIdentityWeb);
-            template.AddNugetDependency(NugetPackages.MicrosoftIdentityWebMicrosoftGraph);
-            template.AddNugetDependency(NugetPackages.MicrosoftIdentityWebUI);
+            template.AddNugetDependency(NugetPackages.MicrosoftIdentityWeb(template.OutputTarget));
+            template.AddNugetDependency(NugetPackages.MicrosoftIdentityWebMicrosoftGraph(template.OutputTarget));
+            template.AddNugetDependency(NugetPackages.MicrosoftIdentityWebUI(template.OutputTarget));
             
             template.CSharpFile.AfterBuild(file =>
             {

@@ -162,6 +162,22 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="87187f28-ff67-44cd-bb30-e98b4bf4ca69" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.IntegrationTesting.MongoDbContainerFixture</name>
+      <display>Intent.AspNetCore.IntegrationTesting.MongoDbContainerFixture</display>
+      <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</parentFolderId>
+      <packageId>e8c23427-3443-420a-b219-bac8e6a8f88b</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="d7ce4e4b-726c-4fbb-b08f-9510e42189e5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.IntegrationTesting.SharedContainerFixture</name>
       <display>Intent.AspNetCore.IntegrationTesting.SharedContainerFixture</display>
@@ -238,20 +254,6 @@
       <packageName>AdvancedMappingCrud.Repositories.Tests</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="87187f28-ff67-44cd-bb30-e98b4bf4ca69" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.IntegrationTesting.MongoDbContainerFixture</name>
-      <display>Intent.AspNetCore.IntegrationTesting.MongoDbContainerFixture</display>
-      <externalReference>Intent.AspNetCore.IntegrationTesting</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
       <childElements />
     </childElement>
   </childElements>
