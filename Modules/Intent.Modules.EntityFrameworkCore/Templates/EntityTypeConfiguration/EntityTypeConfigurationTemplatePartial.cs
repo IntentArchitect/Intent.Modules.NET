@@ -50,6 +50,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             AddNugetDependency(NugetPackages.MicrosoftEntityFrameworkCore(Project));
             AddTypeSource("Domain.Entity");
             AddTypeSource("Domain.ValueObject");
+            AddTypeSource("Intent.Entities.DomainEnum");
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.EntityFrameworkCore")
@@ -73,7 +74,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             }
 
                             method.AddStatements(GetTypeConfiguration(Model.InternalElement, @class, null));
-                            method.AddStatements(GetCheckConstraints(Model));
+                            //Moved this into GetTypeConfiguration as its applicabale for Owned Tables too
+                            //method.AddStatements(GetCheckConstraints(Model));
                             method.Statements.SeparateAll();
 
                             AddIgnoreForNonPersistent(method, isOwned: false);
@@ -238,6 +240,11 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             statements.AddRange(GetAssociations(targetType)
                 .Where(RequiresConfiguration)
                 .Select(x => GetAssociationMapping(x, targetType, @class)));
+
+            if (targetType.IsClassModel())
+            {
+                statements.AddRange(GetCheckConstraints(targetType.AsClassModel()).Select(s => new CSharpStatement(s)));
+            }
 
             return statements.Where(x => x != null).ToList();
         }
@@ -553,8 +560,9 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 foreach (var enumAttribute in attributesToAdd)
                 {
                     AddUsing("System");
+                    AddUsing("System.Linq");
                     var constraint = new StringBuilder();
-                    string enumType = _entityTemplate.GetTypeName(enumAttribute.TypeReference);
+                    string enumType = this.GetTypeName(enumAttribute.TypeReference);
                     if (ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings())
                     {
                         constraint.AppendLine( @$"var enumValues =  Enum.GetNames<{enumType}>()

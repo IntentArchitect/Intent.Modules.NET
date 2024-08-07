@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+using AdvancedMappingCrud.DbContext.Tests.Domain;
 using AdvancedMappingCrud.DbContext.Tests.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +35,12 @@ namespace AdvancedMappingCrud.DbContext.Tests.Infrastructure.Persistence.Configu
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.OwnsMany(x => x.OrderItems, ConfigureOrderItems);
+
+            var enumValues = Enum.GetValuesAsUnderlyingType<OrderStatus>()
+                .Cast<object>()
+                .Select(value => value.ToString());
+
+            builder.ToTable(tb => tb.HasCheckConstraint("order_order_status_check", $"\"OrderStatus\" IN ({string.Join(",", enumValues)})"));
 
             builder.Ignore(e => e.DomainEvents);
         }

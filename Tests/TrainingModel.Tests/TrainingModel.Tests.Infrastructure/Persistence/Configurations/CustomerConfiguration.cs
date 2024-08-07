@@ -1,6 +1,9 @@
+using System;
+using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using TrainingModel.Tests.Domain;
 using TrainingModel.Tests.Domain.Entities;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -71,6 +74,11 @@ namespace TrainingModel.Tests.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.CustomersId)
                 .IsRequired();
+
+            var enumValues = Enum.GetNames<AddressType>()
+                .Select(e => $"'{e}'");
+
+            builder.ToTable(tb => tb.HasCheckConstraint("address_address_type_check", $"\"AddressType\" IN ({string.Join(",", enumValues)})"));
         }
     }
 }

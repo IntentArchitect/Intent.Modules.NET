@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -68,6 +69,12 @@ namespace TrainingModel.Tests.Infrastructure.Persistence
                 new Car() { CarId = 2, Make = "Ferrari", Model = "F50" },
                 new Car() { CarId = 3, Make = "Lamborghini", Model = "Countach" });
             */
+        }
+
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            base.ConfigureConventions(configurationBuilder);
+            configurationBuilder.Properties(typeof(Enum)).HaveConversion<string>();
         }
 
         private async Task DispatchEventsAsync(CancellationToken cancellationToken = default)
