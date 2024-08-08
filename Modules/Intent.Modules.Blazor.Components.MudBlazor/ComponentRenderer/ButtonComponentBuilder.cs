@@ -68,7 +68,14 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
                     var processingFieldName = $"{method.Name}Processing".ToPrivateMemberName();
                     _componentTemplate.GetCodeBehind().AddField("bool", processingFieldName, f => f.WithAssignment("false"));
                     ((CSharpTryBlock)method.FindStatement(x => x is CSharpTryBlock))?.InsertStatement(0, new CSharpAssignmentStatement(processingFieldName, "true").WithSemicolon());
-                    ((CSharpFinallyBlock)method.FindStatement(x => x is CSharpFinallyBlock))?.InsertStatement(0, new CSharpAssignmentStatement(processingFieldName, "false").WithSemicolon());
+                    var finallyBlock = ((CSharpFinallyBlock)method.FindStatement(x => x is CSharpFinallyBlock));
+                    if (finallyBlock is null)
+                    {
+                        finallyBlock = new CSharpFinallyBlock();
+                        ((CSharpCatchBlock)method.FindStatement(x => x is CSharpCatchBlock))?.InsertBelow(finallyBlock);
+                    }
+
+                    finallyBlock?.InsertStatement(0, new CSharpAssignmentStatement(processingFieldName, "false").WithSemicolon());
 
                     htmlElement.AddAttribute("Disabled", $"@{processingFieldName}");
                     htmlElement.AddCodeBlock($"@if ({processingFieldName})", code =>

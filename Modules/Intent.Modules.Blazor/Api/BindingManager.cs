@@ -18,12 +18,12 @@ public class BindingManager
 
     public IElementToElementMapping ViewBinding { get; }
 
-    public CSharpStatement GetEventEmitterBinding(IElementToElementMappedEnd mappedEnd, IRazorFileNode razorNode = null)
+    public CSharpStatement? GetEventEmitterBinding(IElementToElementMappedEnd mappedEnd, IRazorFileNode razorNode = null)
     {
         return GetBinding(mappedEnd, razorNode).ToLambda();
     }
 
-    public CSharpStatement GetBinding(IElementToElementMappedEnd? mappedEnd, IRazorFileNode? razorNode = null, bool? isTargetNullable = default)
+    public CSharpStatement? GetBinding(IElementToElementMappedEnd? mappedEnd, IRazorFileNode? razorNode = null, bool? isTargetNullable = default)
     {
         if (mappedEnd == null)
         {
@@ -43,7 +43,7 @@ public class BindingManager
         return mappingManager.GenerateSourceStatementForMapping(ViewBinding, mappedEnd, isTargetNullable)?.ToString();
     }
 
-    public CSharpStatement GetBinding(IMetadataModel model, string mappableNameOrId, IRazorFileNode razorNode = null)
+    public CSharpStatement? GetBinding(IMetadataModel model, string mappableNameOrId, IRazorFileNode razorNode = null)
     {
         var mappedEnd = GetMappedEndFor(model, mappableNameOrId);
         return GetBinding(mappedEnd, razorNode);
@@ -59,13 +59,13 @@ public class BindingManager
         return ViewBinding?.MappedEnds.SingleOrDefault(x => x.TargetPath.Any(x => x.Id == model.Id) && (x.TargetPath.Last().Name == mappableNameOrId || x.TargetPath.Last().Id == mappableNameOrId));
     }
 
-    public CSharpStatement GetElementBinding(IMetadataModel model, IRazorFileNode razorNode = null, bool? isTargetNullable = default)
+    public CSharpStatement? GetElementBinding(IMetadataModel model, IRazorFileNode razorNode = null, bool? isTargetNullable = default)
     {
         var mappedEnd = GetMappedEndFor(model);
         return GetBinding(mappedEnd, razorNode, isTargetNullable);
     }
 
-    public CSharpStatement GetElementBinding(IMetadataModel model, string mappableNameOrId, IRazorFileNode razorNode = null, bool? isTargetNullable = default)
+    public CSharpStatement? GetElementBinding(IMetadataModel model, string mappableNameOrId, IRazorFileNode razorNode = null, bool? isTargetNullable = default)
     {
         var mappedEnd = GetMappedEndFor(model, mappableNameOrId);
         return GetBinding(mappedEnd, razorNode, isTargetNullable);

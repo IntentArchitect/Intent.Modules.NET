@@ -141,10 +141,6 @@ public static class RazorFileExtensions
                             method.AddTryBlock(tryBlock =>
                             {
                                 operationImplementationBlock = tryBlock;
-                                if (isLoadingProperty != null)
-                                {
-                                    tryBlock.AddStatement(new CSharpAssignmentStatement(isLoadingProperty, "true"), s => s.WithSemicolon());
-                                }
                                 if (errorMessageProperty != null)
                                 {
                                     tryBlock.AddStatement(new CSharpAssignmentStatement(errorMessageProperty, "null"), s => s.WithSemicolon());
@@ -203,18 +199,19 @@ public static class RazorFileExtensions
                                 block.InjectServiceProperty("MudBlazor.ISnackbar", "Snackbar");
                                 catchBlock.AddStatement($"Snackbar.Add(e.Message, {block.Template.UseType("MudBlazor.Severity")}.Error);");
                             });
-                            method.AddFinallyBlock(finallyBlock =>
-                            {
-                                if (isLoadingProperty != null)
-                                {
-                                    finallyBlock.AddStatement(new CSharpAssignmentStatement(isLoadingProperty, "false"), s => s.WithSemicolon());
-                                }
-                                //if (mappings.Any(x => x.TargetPath.Any(p => p.Element.SpecializationType == "Button")))
-                                //{
-                                //    finallyBlock.AddStatement(new CSharpAssignmentStatement($"{operation.Name}Processing".ToPrivateMemberName(), "false"));
-                                //}
-                            });
 
+                            if (mappings.Count == 0)
+                            {
+                                method.AddStatement("StateHasChanged();");
+                            }
+
+                        }
+
+                        var hasImplicitEventEmitter = componentElement.ChildElements.SingleOrDefault(x => method.Name == $"On{x.Name.ToPropertyName()}");
+                        if (hasImplicitEventEmitter != null)
+                        {
+                            method.Async();
+                            method.AddStatement($"await {hasImplicitEventEmitter.Name.ToPropertyName()}.InvokeAsync();");
                         }
 
                         foreach (var navigationModel in operation.NavigateToComponents())

@@ -2,6 +2,7 @@
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.RazorBuilder;
+using System.Linq;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
@@ -22,8 +23,9 @@ public class SelectComponentBuilder : IRazorComponentBuilder
     {
         var selectModel = new SelectModel(component);
         var htmlElement = new HtmlElement("MudSelect", _componentTemplate.RazorFile);
-        var modelMapping = _bindingManager.GetMappedEndFor(selectModel);
-        htmlElement.AddAttributeIfNotEmpty("@bind-Value", _bindingManager.GetBinding(modelMapping, parentNode)?.ToString());
+        var valueMapping = _bindingManager.GetMappedEndFor(selectModel);
+        var valueBinding = _bindingManager.GetBinding(valueMapping, parentNode)?.ToString();
+        htmlElement.AddAttributeIfNotEmpty("@bind-Value", _bindingManager.GetBinding(valueMapping, parentNode)?.ToString());
         htmlElement.AddAttribute("Label", selectModel.TryGetLabelAddon(out var label) ? label.Label() : selectModel.Name);
 
         var mappedEnd = _bindingManager.GetMappedEndFor(selectModel, "Options");
@@ -37,8 +39,8 @@ public class SelectComponentBuilder : IRazorComponentBuilder
             code.AddHtmlElement("MudSelectItem", selectItem =>
             {
                 var selectItemMapping = _bindingManager.GetMappedEndFor(selectModel, "Value");
-                selectItem.AddAttributeIfNotEmpty("T", !selectItemMapping.SourceElement.TypeReference.Equals(modelMapping.SourceElement.TypeReference)
-                    ? _componentTemplate.GetTypeName(modelMapping.SourceElement.TypeReference)
+                selectItem.AddAttributeIfNotEmpty("T", !selectItemMapping.SourceElement.TypeReference.Equals(valueMapping.SourceElement.TypeReference)
+                    ? _componentTemplate.GetTypeName(valueMapping.SourceElement.TypeReference)
                     : null);
                 // TODO: Use bindings:
                 selectItem.AddAttribute("Value", _bindingManager.GetBinding(selectModel, "Value", htmlElement)?.ToString())
@@ -46,5 +48,12 @@ public class SelectComponentBuilder : IRazorComponentBuilder
             });
         });
         parentNode.AddChildNode(htmlElement);
+        if (parentNode.GetAllNodesInHierarchy().OfType<HtmlElement>().Any(x => x.Name == "MudForm"))
+        {
+            if (valueMapping != null)
+            {
+                htmlElement.AddAttribute("For", $"@(() => {valueBinding})");
+            }
+        }
     }
 }
