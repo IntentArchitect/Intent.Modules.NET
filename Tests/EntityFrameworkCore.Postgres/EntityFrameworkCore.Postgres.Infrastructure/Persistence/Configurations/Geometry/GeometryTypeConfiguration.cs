@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.Point)
                 .IsRequired()
-                .HasColumnType("geography (point)");
+                .HasColumnType("point");
         }
     }
 }
