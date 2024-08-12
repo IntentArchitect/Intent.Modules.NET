@@ -68,6 +68,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f9bb1504-72e2-41cf-bda9-423df1040d37</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#30f760be-2b16-4004-8335-c69a099c0ff1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Controllers/AccountsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f9bb1504-72e2-41cf-bda9-423df1040d37</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#e5abf22d-82d1-4d08-aacc-e166e045b0c5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Controllers/CustomersController.cs</ApplicationRelativeFilePath>
@@ -184,6 +192,142 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#448d6e23-2935-4b34-affb-30c3e77946be</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/AccountDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/AccountDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#448d6e23-2935-4b34-affb-30c3e77946be</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/AccountDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/AccountDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#80437224-d82d-4b5d-9305-c4ffc4b9a775</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/CreateAccount/CreateAccountCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/CreateAccount/CreateAccountCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#80437224-d82d-4b5d-9305-c4ffc4b9a775</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/CreateAccount/CreateAccountCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/CreateAccount/CreateAccountCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#80437224-d82d-4b5d-9305-c4ffc4b9a775</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/CreateAccount/CreateAccountCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/CreateAccount/CreateAccountCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#3310d34a-2467-4cef-a84d-aaea5dbbd2b3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/DeleteAccount/DeleteAccountCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/DeleteAccount/DeleteAccountCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#3310d34a-2467-4cef-a84d-aaea5dbbd2b3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/DeleteAccount/DeleteAccountCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/DeleteAccount/DeleteAccountCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#3310d34a-2467-4cef-a84d-aaea5dbbd2b3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/DeleteAccount/DeleteAccountCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/DeleteAccount/DeleteAccountCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#a4bd647e-7790-491d-a59b-3637aa8f96e6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/GetAccountById/GetAccountByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/GetAccountById/GetAccountByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#a4bd647e-7790-491d-a59b-3637aa8f96e6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/GetAccountById/GetAccountByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/GetAccountById/GetAccountByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#a4bd647e-7790-491d-a59b-3637aa8f96e6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/GetAccountById/GetAccountByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/GetAccountById/GetAccountByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#4cca0579-5044-44b4-a901-314dfe14a69f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/GetAccounts/GetAccountsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/GetAccounts/GetAccountsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#4cca0579-5044-44b4-a901-314dfe14a69f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/GetAccounts/GetAccountsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/GetAccounts/GetAccountsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#4cca0579-5044-44b4-a901-314dfe14a69f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/GetAccounts/GetAccountsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/GetAccounts/GetAccountsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#d6cc8a0a-92f0-4c15-9fcb-82ea0efee0ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/UpdateAccount/UpdateAccountCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/UpdateAccount/UpdateAccountCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#d6cc8a0a-92f0-4c15-9fcb-82ea0efee0ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/UpdateAccount/UpdateAccountCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/UpdateAccount/UpdateAccountCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b47ab40c-3e60-4441-9e11-49dce158014c</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#d6cc8a0a-92f0-4c15-9fcb-82ea0efee0ac</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Application/Accounts/UpdateAccount/UpdateAccountCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Accounts/UpdateAccount/UpdateAccountCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -868,6 +1012,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7f0595d6-5c90-457f-a770-d8fa5f76e73b</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#62c60393-e005-4f94-9c7c-c8729f48be39</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Domain/Entities/Account.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Account.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f0595d6-5c90-457f-a770-d8fa5f76e73b</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#5385562b-8635-4601-978d-a7f20bd628d9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Domain/Entities/Customer.cs</ApplicationRelativeFilePath>
@@ -904,6 +1056,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Domain/OutputCachingRedis.Tests.Domain.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OutputCachingRedis.Tests.Domain.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cd6e04b5-aad2-444a-9d33-2ec221a6f91b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#62c60393-e005-4f94-9c7c-c8729f48be39</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Domain/Repositories/IAccountRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAccountRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -988,6 +1148,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>a9e9e2cc-812a-4ab2-8036-4bd71bf9e138</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#62c60393-e005-4f94-9c7c-c8729f48be39</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Infrastructure/Persistence/Configurations/AccountConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a9e9e2cc-812a-4ab2-8036-4bd71bf9e138</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5385562b-8635-4601-978d-a7f20bd628d9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs</ApplicationRelativeFilePath>
@@ -1024,6 +1192,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>69fe9750-8a46-4272-9ada-bf0ff43eeb3c</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#62c60393-e005-4f94-9c7c-c8729f48be39</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Infrastructure/Repositories/AccountRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

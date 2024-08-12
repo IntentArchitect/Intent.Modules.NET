@@ -28,10 +28,12 @@ namespace OutputCachingRedis.Tests.Api.Configuration
             services.AddOutputCache(options =>
             {
                 options.AddBasePolicy(b => b.NoCache());
+                options.AddPolicy("All Default", builder => builder
+                    .Expire(TimeSpan.FromSeconds(configuration.GetValue<int?>("OutputCaching:Policies:AllDefault:Duration") ?? options.DefaultExpirationTimeSpan.Seconds)));
                 options.AddPolicy("Long Term", builder => builder
-                    .Expire(TimeSpan.FromSeconds(configuration.GetValue<int?>("OutputCaching:Policies:Long Term:Duration") ?? 900)));
+                    .Expire(TimeSpan.FromSeconds(configuration.GetValue<int?>("OutputCaching:Policies:LongTerm:Duration") ?? 900)));
                 options.AddPolicy("Short Term", builder => builder
-                    .Expire(TimeSpan.FromSeconds(configuration.GetValue<int?>("OutputCaching:Policies:Short Term:Duration") ?? 60)));
+                    .Expire(TimeSpan.FromSeconds(configuration.GetValue<int?>("OutputCaching:Policies:ShortTerm:Duration") ?? 60)));
             });
             return services;
         }

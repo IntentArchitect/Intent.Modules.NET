@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c8d66c67-81ba-4997-9615-3b30d2967b16" type="Caching Policies" typeId="4cd00683-9b6e-4340-a4be-6c6a4e36a274">
+  <name>Caching Policies</name>
+  <display>Caching Policies</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b911cd36-0eed-4c4a-bcd3-9eb16635ab7a</parentFolderId>
+  <packageId>b911cd36-0eed-4c4a-bcd3-9eb16635ab7a</packageId>
+  <packageName>OutputCachingRedis.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3b641372-1bbd-4cc3-9b14-55da14607482">
+  <sourceEnd id="584ab4dc-e327-4607-be18-7d0a25e1657b" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Accounts.DeleteAccountCommand</display>
+    <order>0</order>
+    <typeReference id="6e54adf8-1368-4207-8d77-a94a2e345195">
+      <typeId>3310d34a-2467-4cef-a84d-aaea5dbbd2b3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Services</typePackageName>
+      <typePackageId>b911cd36-0eed-4c4a-bcd3-9eb16635ab7a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3b641372-1bbd-4cc3-9b14-55da14607482" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>account</name>
+    <display>[delete] account: Account</display>
+    <order>1</order>
+    <typeReference id="485edd93-81d3-4388-9a8a-cc7cc1917616">
+      <typeId>62c60393-e005-4f94-9c7c-c8729f48be39</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Domain</typePackageName>
+      <typePackageId>2278c2d2-2678-4601-8076-39089497d72b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3310d34a-2467-4cef-a84d-aaea5dbbd2b3" location="[OutputCachingRedis.Tests].[Services].[DeleteAccountCommand]" />
+        <target applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="62c60393-e005-4f94-9c7c-c8729f48be39" location="[OutputCachingRedis.Tests].[Services].[Account]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="62c60393-e005-4f94-9c7c-c8729f48be39" name="Account" type="element" specialization="Class" />
+              <target id="4deb1a09-e6d4-426a-95c7-87b226ef2ca4" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="3310d34a-2467-4cef-a84d-aaea5dbbd2b3" name="DeleteAccountCommand" type="element" specialization="Command" />
+                  <target id="49e1cd16-7c5d-4677-917b-2370ae34331b" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

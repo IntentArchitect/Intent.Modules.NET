@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b409c284-4fee-47f5-89c6-4464c4a9dc96">
+  <sourceEnd id="e7ed44cd-0c8c-4742-93b8-fb7c26e33e9e" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetAccountByIdQuery</display>
+    <order>0</order>
+    <typeReference id="a6ac7fbe-7e52-4f64-9870-bc44f6296724">
+      <typeId>a4bd647e-7790-491d-a59b-3637aa8f96e6</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Services</typePackageName>
+      <typePackageId>b911cd36-0eed-4c4a-bcd3-9eb16635ab7a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b409c284-4fee-47f5-89c6-4464c4a9dc96" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>account</name>
+    <display>[query] account: Account</display>
+    <order>1</order>
+    <typeReference id="f7b69bda-75b1-4e9b-8183-811cbd2caacd">
+      <typeId>62c60393-e005-4f94-9c7c-c8729f48be39</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Domain</typePackageName>
+      <typePackageId>2278c2d2-2678-4601-8076-39089497d72b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a4bd647e-7790-491d-a59b-3637aa8f96e6" location="[OutputCachingRedis.Tests].[Services].[GetAccountByIdQuery]" />
+        <target applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="62c60393-e005-4f94-9c7c-c8729f48be39" location="[OutputCachingRedis.Tests].[Services].[Account]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="62c60393-e005-4f94-9c7c-c8729f48be39" name="Account" type="element" specialization="Class" />
+              <target id="4deb1a09-e6d4-426a-95c7-87b226ef2ca4" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="a4bd647e-7790-491d-a59b-3637aa8f96e6" name="GetAccountByIdQuery" type="element" specialization="Query" />
+                  <target id="3dee7a2c-a2af-4590-ba93-34b685e39b08" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

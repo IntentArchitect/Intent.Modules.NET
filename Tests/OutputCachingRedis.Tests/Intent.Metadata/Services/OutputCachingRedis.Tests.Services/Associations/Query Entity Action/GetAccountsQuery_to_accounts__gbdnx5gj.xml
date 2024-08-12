@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a2f0b006-6fc8-466f-a65b-de5c3ce4fdb1">
+  <sourceEnd id="89bcd75e-91e5-4c4b-84d8-407eb6c147ab" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetAccountsQuery</display>
+    <order>0</order>
+    <typeReference id="291a15c3-2c8c-4618-9c94-6ebc7a47a919">
+      <typeId>4cca0579-5044-44b4-a901-314dfe14a69f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Services</typePackageName>
+      <typePackageId>b911cd36-0eed-4c4a-bcd3-9eb16635ab7a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a2f0b006-6fc8-466f-a65b-de5c3ce4fdb1" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>accounts</name>
+    <display>[query] accounts: Account[*]</display>
+    <order>0</order>
+    <typeReference id="2adeb1ee-d3f4-4d9b-9c3d-ac5d1f7bcb75">
+      <typeId>62c60393-e005-4f94-9c7c-c8729f48be39</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Domain</typePackageName>
+      <typePackageId>2278c2d2-2678-4601-8076-39089497d72b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4cca0579-5044-44b4-a901-314dfe14a69f" location="[OutputCachingRedis.Tests].[Services].[GetAccountsQuery]" />
+        <target applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="62c60393-e005-4f94-9c7c-c8729f48be39" location="[OutputCachingRedis.Tests].[Services].[Account]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>
