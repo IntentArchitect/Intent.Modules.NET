@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.IArchitect.Agent.Persistence;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.RoslynWeaver.Attributes;
@@ -76,7 +77,6 @@ namespace Intent.AspNetCore.OutputCaching.Redis.Api
             {
                 return _stereotype.GetProperty<bool>("No Caching");
             }
-
         }
 
     }

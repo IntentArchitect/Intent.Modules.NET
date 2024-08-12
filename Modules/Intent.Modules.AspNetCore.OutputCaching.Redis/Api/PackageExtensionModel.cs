@@ -20,10 +20,10 @@ namespace Intent.AspNetCore.OutputCaching.Redis.Api
         }
 
         [IntentManaged(Mode.Fully)]
-        public IList<CachingPolicyModel> CachingPolicies => UnderlyingPackage.ChildElements
-            .GetElementsOfType(CachingPolicyModel.SpecializationTypeId)
-            .Select(x => new CachingPolicyModel(x))
-            .ToList();
+        public CachingPoliciesModel CachingPolicies => UnderlyingPackage.ChildElements
+            .GetElementsOfType(CachingPoliciesModel.SpecializationTypeId)
+            .Select(x => new CachingPoliciesModel(x))
+            .SingleOrDefault();
 
     }
 }

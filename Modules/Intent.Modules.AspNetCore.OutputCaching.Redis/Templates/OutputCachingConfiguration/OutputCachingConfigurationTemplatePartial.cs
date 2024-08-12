@@ -13,6 +13,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.AspNetCore.OutputCaching.Redis.Api.CachingPolicyModelStereotypeExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -70,7 +71,7 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Templates.OutputCachingC
                                     {
                                         if (config.Duration() is not null)
                                         {
-                                            builderFluent.AddChainStatement($"Expire(TimeSpan.FromSeconds(configuration.GetValue<int?>(\"OutputCaching:Policies:{cachingPolicy.Name}:Duration\") ?? {config.Duration()}))");
+                                            builderFluent.AddChainStatement($"Expire(TimeSpan.FromSeconds(configuration.GetValue<int?>(\"{ GetTimeoutConfigSetting(cachingPolicy) }\") ?? {config.Duration()}))");
                                         }
                                         if (!string.IsNullOrEmpty(config.Tags()))
                                         {
@@ -91,6 +92,10 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Templates.OutputCachingC
                                         {
                                             string headerNames = string.Join(", ", config.VaryByHeaderNames().Split(",").Select(x => $"\"{x.Trim()}\""));
                                             builderFluent.AddChainStatement($"SetVaryByHeader({headerNames})");
+                                        }
+                                        if (NothingConfigured(config))
+                                        {
+                                            builderFluent.AddChainStatement($"Expire(TimeSpan.FromSeconds(configuration.GetValue<int?>(\"{ GetTimeoutConfigSetting(cachingPolicy) }\") ?? 300))");
                                         }
                                     }
                                     lambda.AddInvocationStatement("options.AddPolicy", policy =>
@@ -113,6 +118,21 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Templates.OutputCachingC
                      });
                 });
         }
+
+        internal bool NothingConfigured(CachingConfig config)
+        {
+            return config.Duration() is null
+                && string.IsNullOrEmpty(config.Tags())
+                && string.IsNullOrEmpty(config.VaryByRouteValueNames())
+                && string.IsNullOrEmpty(config.VaryByQueryKeys())
+                && string.IsNullOrEmpty(config.VaryByHeaderNames());
+        }
+
+        internal string GetTimeoutConfigSetting(CachingPolicyModel cachingPolicy)
+        {
+            return $"OutputCaching:Policies:{cachingPolicy.Name.ToCSharpIdentifier()}:Duration";
+        }
+
 
         public override void AfterTemplateRegistration()
         {

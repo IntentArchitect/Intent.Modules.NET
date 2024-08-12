@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#227e229e-59ac-4c9c-a539-d4a52838157c</correlationId>
+      <path>Intent.Modules.AspNetCore.OutputCaching.Redis/Templates/OutputCachingConfiguration/OutputCachingConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-08T13:31:00.8055304Z</updatedAt>
+      <deviationsHash>29E74E9EBD6E80F345C6DDB0D29C817836362C69AD4ACAA5D59D7A0712E65B6E</deviationsHash>
+      <fileHash>57282EA7E9F3B233FBCF1385A954F06C2A9DBE4C6DEDFE30C5ED22C03360BB4C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#227e229e-59ac-4c9c-a539-d4a52838157c</correlationId>
+      <path>Intent.Modules.AspNetCore.OutputCaching.Redis/Templates/OutputCachingConfiguration/OutputCachingConfigurationTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-08T13:31:00.8055377Z</updatedAt>
+      <deviationsHash>A0E45C5066D6300D22E0D8DB1C4BE8C2336EFCCB1B109D0B9BDB0D416BC79748</deviationsHash>
+      <fileHash>383E825641444CC92284FDA636E3B4EAA403526AB263687FA4DDC2801474A664</fileHash>
+    </file>
+  </files>
+</deviationsLog>

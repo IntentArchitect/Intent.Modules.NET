@@ -49,10 +49,10 @@ Secondly, ASP.Net Core output caching operates off a default set of rules which 
 
 By default, output caching follows these rules:
 
-Only HTTP 200 responses are cached.
-Only HTTP GET or HEAD requests are cached.
-Responses that set cookies aren't cached.
-Responses to authenticated requests aren't cached.
+- Only HTTP 200 responses are cached.
+- Only HTTP GET or HEAD requests are cached.
+- Responses that set cookies aren't cached.
+- Responses to authenticated requests aren't cached.
 
 For more details on this, check out their [official docs](https://learn.microsoft.com/en-us/aspnet/core/performance/caching/output?view=aspnetcore-8.0#default-output-caching-policy).
 
