@@ -32,7 +32,7 @@
       <isActiveFunction>return NoCaching === false;</isActiveFunction>
     </property>
     <property id="1370668f-ac9c-4909-bbbf-8d3be6045b44">
-      <hint>Tags to apply. (comma separated list)</hint>
+      <hint>This is metadata which can be used for cache [invalidation](https://learn.microsoft.com/en-us/aspnet/core/performance/caching/output?view=aspnetcore-8.0#cache-revalidation).(comma separated list)</hint>
       <name>Tags</name>
       <type>string</type>
       <controlType>text</controlType>

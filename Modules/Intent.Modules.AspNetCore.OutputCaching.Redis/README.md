@@ -18,9 +18,12 @@ This module consumes your `Service Model`, which you build in the `Service Desig
 
 ## Service Designer
 
-Caching is typically done through policies which describe the caching behaviour. Caching on you end-point operations can by done with or with out policies, and policies can be tailored per end-point.
+Caching is typically done through policies which describe the caching behaviour. Caching on your end-point operations can by done with or without policies, and policies can be tailored per end-point.
 
-To create Policies simply add them to you service designer as follows:
+To create Policies simply:
+
+- `Right Click` on the `Package` and select `Add Caching Policies`.
+- `Right Click` on the `Caching Policies` and select `New Caching Policy`.
 
 ![Creating Policies](./docs/images/caching-policy.png)
 

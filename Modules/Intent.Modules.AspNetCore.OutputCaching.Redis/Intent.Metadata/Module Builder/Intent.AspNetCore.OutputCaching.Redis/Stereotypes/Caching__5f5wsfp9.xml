@@ -28,7 +28,7 @@
   <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
   <properties>
     <property id="191622f4-df2a-4e74-9c6b-86b833cdcc3c">
-      <hint>Tags to apply. (comma separated list)</hint>
+      <hint>This is metadata which can be used for cache [invalidation](https://learn.microsoft.com/en-us/aspnet/core/performance/caching/output?view=aspnetcore-8.0#cache-revalidation).(comma separated list)</hint>
       <name>Tags</name>
       <type>string</type>
       <controlType>text</controlType>

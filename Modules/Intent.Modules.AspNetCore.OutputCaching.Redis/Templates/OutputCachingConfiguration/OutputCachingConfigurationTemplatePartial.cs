@@ -71,7 +71,7 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Templates.OutputCachingC
                                     {
                                         if (config.Duration() is not null)
                                         {
-                                            builderFluent.AddChainStatement($"Expire(TimeSpan.FromSeconds(configuration.GetValue<int?>(\"{ GetTimeoutConfigSetting(cachingPolicy) }\") ?? {config.Duration()}))");
+                                            builderFluent.AddChainStatement($"Expire(TimeSpan.FromSeconds(configuration.GetValue<int?>(\"{GetTimeoutConfigSetting(cachingPolicy)}\") ?? {config.Duration()}))");
                                         }
                                         if (!string.IsNullOrEmpty(config.Tags()))
                                         {
@@ -95,7 +95,7 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Templates.OutputCachingC
                                         }
                                         if (NothingConfigured(config))
                                         {
-                                            builderFluent.AddChainStatement($"Expire(TimeSpan.FromSeconds(configuration.GetValue<int?>(\"{ GetTimeoutConfigSetting(cachingPolicy) }\") ?? 300))");
+                                            builderFluent.AddChainStatement($"Expire(TimeSpan.FromSeconds(configuration.GetValue<int?>(\"{GetTimeoutConfigSetting(cachingPolicy)}\") ?? 300))");
                                         }
                                     }
                                     lambda.AddInvocationStatement("options.AddPolicy", policy =>
