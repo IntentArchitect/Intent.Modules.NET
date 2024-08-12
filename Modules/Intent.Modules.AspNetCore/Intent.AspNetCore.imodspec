@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore</id>
-  <version>6.0.3-pre.2</version>
+  <version>6.0.3</version>
   <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <summary>Generates base code for hosting Web services on the ASP.NET Core infrastructure</summary>
   <description>Generates base code for hosting Web services on the ASP.NET Core infrastructure</description>
@@ -41,7 +41,7 @@
     <!-- Minimum Compatible Versions -->
     <detect id="Intent.AspNetCore.Controllers ">
       <install>
-        <package id="Intent.AspNetCore.Controllers " version="6.0.10-pre.2" />
+        <package id="Intent.AspNetCore.Controllers " version="6.0.10" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.HealthChecks">
@@ -56,7 +56,7 @@
     </detect>
     <detect id="Intent.Modules.AspNetCore.Logging.Serilog">
       <install>
-        <package id="Intent.Modules.AspNetCore.Logging.Serilog" version="5.1.5-pre.1" />
+        <package id="Intent.Modules.AspNetCore.Logging.Serilog" version="5.1.5" />
       </install>
     </detect>
     <detect id="Intent.Modules.AspNetCore.MultiTenancy">
@@ -122,8 +122,8 @@
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0-pre.0" />
-    <dependency id="Intent.Common.CSharp" version="3.6.0-pre.2" />
+    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common.CSharp" version="3.6.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
     <dependency id="Intent.VisualStudio.Projects" version="3.5.0" />

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities.BasicAuditing</id>
-  <version>1.0.3-pre.1</version>
+  <version>1.0.3</version>
   <supportedClientVersions>[4.1.0,5.0.0)</supportedClientVersions>
   <summary>Applies basic auditing to selected domain entities (i.e. when an entity is created or updated and by who).</summary>
   <description>Applies basic auditing to selected domain entities (i.e. when an entity is created or updated and by who).</description>
@@ -41,7 +41,7 @@
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Application.Identity" version="3.5.2-pre.0" />
+    <dependency id="Intent.Application.Identity" version="3.5.2" />
     <dependency id="Intent.Common" version="3.6.0" />
     <dependency id="Intent.Common.CSharp" version="3.5.2" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
@@ -56,17 +56,17 @@
     </detect>
     <detect id="Intent.Application.Identity">
       <install>
-        <package id="Intent.Application.Identity" version="3.5.2-pre.0" />
+        <package id="Intent.Application.Identity" version="3.5.2" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR.Behaviours">
       <install>
-        <package id="Intent.Application.MediatR.Behaviours" version="	4.2.14-pre.2" />
+        <package id="Intent.Application.MediatR.Behaviours" version="4.2.14" />
       </install>
     </detect>
     <detect id="Intent.Security.JWT">
       <install>
-        <package id="Intent.Security.JWT" version="	4.2.1-pre.1" />
+        <package id="Intent.Security.JWT" version="4.2.1" />
       </install>
     </detect>
   </interoperability>

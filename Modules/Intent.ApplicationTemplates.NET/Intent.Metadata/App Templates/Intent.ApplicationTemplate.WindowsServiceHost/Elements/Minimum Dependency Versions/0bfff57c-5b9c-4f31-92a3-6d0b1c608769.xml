@@ -15,9 +15,9 @@
   <childElements>
     <childElement id="658914c8-a420-49d9-b901-aa1d08d1c535" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Application.DependencyInjection.MediatR</name>
-      <display>Intent.Application.DependencyInjection.MediatR 3.5.12</display>
+      <display>Intent.Application.DependencyInjection.MediatR 3.5.13</display>
       <isAbstract>false</isAbstract>
-      <value>3.5.12</value>
+      <value>3.5.13</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
@@ -43,9 +43,37 @@
     </childElement>
     <childElement id="edb1c6e8-59c3-4ff8-a79a-c85154d9821d" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.7.1</display>
+      <display>Intent.Common.CSharp 3.7.2</display>
       <isAbstract>false</isAbstract>
-      <value>3.7.1</value>
+      <value>3.7.2</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
+      <packageId>ca894a4c-ca0c-4d31-a058-1336c12bb71a</packageId>
+      <packageName>Intent.ApplicationTemplate.WindowsServiceHost</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="ce75394c-35fa-481a-8fb9-aaa95fe344a3" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</name>
+      <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory 4.2.1</display>
+      <isAbstract>false</isAbstract>
+      <value>4.2.1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
+      <packageId>ca894a4c-ca0c-4d31-a058-1336c12bb71a</packageId>
+      <packageName>Intent.ApplicationTemplate.WindowsServiceHost</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="619c45ba-7c69-4672-b98e-744777fdd44c" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Eventing.MassTransit.EntityFrameworkCore</name>
+      <display>Intent.Eventing.MassTransit.EntityFrameworkCore 5.2.2</display>
+      <isAbstract>false</isAbstract>
+      <value>5.2.2</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
@@ -99,9 +127,9 @@
     </childElement>
     <childElement id="a75c5de0-ef72-42a6-bebc-40662853ff3c" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services</name>
-      <display>Intent.Modelers.Services 3.7.4</display>
+      <display>Intent.Modelers.Services 3.7.5</display>
       <isAbstract>false</isAbstract>
-      <value>3.7.4</value>
+      <value>3.7.5</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
