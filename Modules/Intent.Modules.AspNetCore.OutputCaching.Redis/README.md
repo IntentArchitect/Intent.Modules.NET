@@ -12,7 +12,7 @@ For more information on Output caching, check out their [official docs](https://
 
 This module consumes your `Service Model`, which you build in the `Service Designer` and integrates this design into your ASP.NET application:-
 
-* Hosing setup and configuration.
+* Hosting setup and configuration.
 * Controller annotations for caching.
 * `app.settings` configuration.
 

@@ -1,8 +1,10 @@
-### Version 4.2.14
+﻿### Version 4.2.14
 
 - Improvement: Updated NuGet packages to latest stables.
 - Improvement: Added support for different UserId Types (guid, long, int).
-- 
+> ⚠️ **NOTE**
+> `LoggingBehaviour`, `PerformanceBehaviour` - simplified the code removing unnecessary null coalescing to empty strings.
+
 ### Version 4.2.13
 
 - Fixed: Duplicate `IDistributedCacheWithUnitOfWork` would be generated into classes under certain circumstances.
