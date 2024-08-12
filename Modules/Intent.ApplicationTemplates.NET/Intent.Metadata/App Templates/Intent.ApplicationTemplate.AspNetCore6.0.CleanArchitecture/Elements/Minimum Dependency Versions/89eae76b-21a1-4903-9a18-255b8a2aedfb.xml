@@ -155,7 +155,7 @@
     </childElement>
     <childElement id="e12102a4-a113-47b8-ada5-9f676f5d7c46" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.7.0</display>
+      <display>Intent.Common.CSharp 3.7.1</display>
       <isAbstract>false</isAbstract>
       <value>3.7.1</value>
       <genericTypes />
@@ -211,7 +211,7 @@
     </childElement>
     <childElement id="89e242c3-7a5d-4450-b79d-6b062ceb9287" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Eventing.Contracts</name>
-      <display>Intent.Eventing.Contracts 5.0.6</display>
+      <display>Intent.Eventing.Contracts 5.1.0</display>
       <isAbstract>false</isAbstract>
       <value>5.1.0</value>
       <genericTypes />
@@ -253,7 +253,7 @@
     </childElement>
     <childElement id="c4481412-fb2b-48ff-8654-a1f23c8b3292" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.WebApi</name>
-      <display>Intent.Metadata.WebApi 4.5.4</display>
+      <display>Intent.Metadata.WebApi 4.5.5</display>
       <isAbstract>false</isAbstract>
       <value>4.5.5</value>
       <genericTypes />
@@ -365,7 +365,7 @@
     </childElement>
     <childElement id="abcc0a85-5004-4355-9943-e8b0fdf11807" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services</name>
-      <display>Intent.Modelers.Services 3.7.3</display>
+      <display>Intent.Modelers.Services 3.7.4</display>
       <isAbstract>false</isAbstract>
       <value>3.7.4</value>
       <genericTypes />
@@ -393,7 +393,7 @@
     </childElement>
     <childElement id="14106d6d-8c5b-4dd4-9857-84e54e82194e" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services.DomainInteractions</name>
-      <display>Intent.Modelers.Services.DomainInteractions 1.1.4</display>
+      <display>Intent.Modelers.Services.DomainInteractions 1.1.5</display>
       <isAbstract>false</isAbstract>
       <value>1.1.5</value>
       <genericTypes />
@@ -410,6 +410,20 @@
       <display>Intent.Modelers.Services.EventInteractions 1.1.1</display>
       <isAbstract>false</isAbstract>
       <value>1.1.1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
+      <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4261d6e1-ba19-4df3-9f49-cad729bf2913" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
+      <name>Intent.Modelers.Types.ServiceProxies</name>
+      <display>Intent.Modelers.Types.ServiceProxies 5.3.0</display>
+      <isAbstract>false</isAbstract>
+      <value>5.3.0</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
