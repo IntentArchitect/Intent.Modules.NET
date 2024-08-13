@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="fecc1ead-1e37-42a5-884b-1b96f61d9292" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
   <name>Cross-Cutting</name>
-  <display>Cross-Cutting (2)</display>
+  <display>Cross-Cutting (1)</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <order>8</order>
@@ -64,59 +64,6 @@
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
                 <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.1.3" isActive="true" />
-                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
-                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
-                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="210f0b24-2d3f-43ce-94dc-49c8a0dd8a1f" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
-      <name>Open Telemetry</name>
-      <display>Open Telemetry (1)</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-manually</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>fecc1ead-1e37-42a5-884b-1b96f61d9292</parentFolderId>
-      <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
-      <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-          <properties>
-            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/png;base64,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&quot;}" isActive="true" />
-            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Introduces an open framework for collecting and exporting telemetry data." isActive="true" />
-            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
-            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
-            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="ab53f7d8-e276-4bd4-856e-c486971a2f7b" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.OpenTelemetry</name>
-          <display>Intent.OpenTelemetry</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>210f0b24-2d3f-43ce-94dc-49c8a0dd8a1f</parentFolderId>
-          <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-              <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="2.1.1" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
