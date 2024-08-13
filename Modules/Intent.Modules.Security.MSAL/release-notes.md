@@ -1,4 +1,4 @@
-### Version 4.2.3
+### Version 4.2.2
 
 - Improvement: Internal updates to module project.
 - Fixed: Changed `JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();` to `JwtSecurityTokenHandler.DefaultMapInboundClaims = false;`.
