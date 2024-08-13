@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4934faae-04ac-4d86-a3cf-25a3fa335ca7" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>StackExchangeRedis</name>
+  <display>StackExchangeRedis ( Microsoft.AspNetCore.OutputCaching.StackExchangeRedis )</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>61c33c31-4663-4fdb-ad04-4954aeb6a169</parentFolderId>
+  <packageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</packageId>
+  <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Name" value="Microsoft.AspNetCore.OutputCaching.StackExchangeRedis" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>
