@@ -1,3 +1,7 @@
+### Version 3.1.3
+
+- Fixed: dependency bump.
+
 ### Version 3.1.2
 
 - Improvement: Updated NuGet packages to latest stables.
