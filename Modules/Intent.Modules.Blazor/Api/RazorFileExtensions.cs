@@ -133,6 +133,17 @@ public static class RazorFileExtensions
                         var operationImplementationBlock = (IHasCSharpStatements)method;
                         var mappings = template.BindingManager.ViewBinding.MappedEnds.Where(x => x.SourceElement?.Id == operation.Id).ToList() ?? new();
                         var mappedButton = mappings.FirstOrDefault(x => x.TargetPath.Any(p => p.Element.SpecializationType == "Button"));
+
+                        var operationMapping = operation.InternalElement.Mappings.SingleOrDefault();
+                        if (operationMapping is not null)
+                        {
+                            foreach (var childElement in operation.InternalElement.ChildElements.Where(x => x.IsInvocationModel()))
+                            {
+                                var mappedEnd = operationMapping.MappedEnds.FirstOrDefault(x => x.SourceElement.Id == childElement.Id);
+                                var t = mappingManager.GenerateSourceStatementForMapping(operationMapping, mappedEnd);
+                                method.AddStatement(t);
+                            }
+                        }
                         if (operation.CallServiceOperationActionTargets().Any())
                         {
                             var isLoadingProperty = template.BindingManager.GetElementBinding(componentElement.AsComponentModel().View, "2cfd43b2-2a18-4ac0-8cf3-d1aec9d7e699", isTargetNullable: false);

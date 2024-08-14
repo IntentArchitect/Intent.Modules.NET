@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Linq;
 using Intent.Blazor.Components.MudBlazor.Api;
@@ -80,22 +81,33 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
                 rowTemplate.AddMappingReplacement(mappedEnd.SourceElement, null);
                 foreach (var column in model.Columns)
                 {
-                    rowTemplate.AddHtmlElement("PropertyColumn", col =>
+                    var columnMapping = _bindingManager.GetElementBinding(column, rowTemplate);
+                    if (columnMapping != null)
                     {
-                        var columnMapping = _bindingManager.GetElementBinding(column, rowTemplate);
-                        if (columnMapping != null)
+                        rowTemplate.AddHtmlElement("PropertyColumn", col =>
                         {
+                            col.AddAttributeIfNotEmpty("Class", !string.IsNullOrWhiteSpace(model.GetInteraction()?.OnRowClick()) ? "cursor-pointer" : null);
+                            col.AddAttribute("Title", column.Name);
+
                             col.AddAttribute("Property", $"x => x.{columnMapping}");
-                        }
-                        col.AddAttributeIfNotEmpty("Class", !string.IsNullOrWhiteSpace(model.GetInteraction()?.OnRowClick()) ? "cursor-pointer" : null);
-                        //else
-                        //{
-                        //    foreach (var child in column.InternalElement.ChildElements)
-                        //    {
-                        //        _componentResolver.ResolveFor(child).BuildComponent(child, col);
-                        //    }
-                        //}
-                    });
+                        });
+                    }
+                    else
+                    {
+                        rowTemplate.AddHtmlElement("TemplateColumn", tc =>
+                            tc.AddHtmlElement("CellTemplate", ct =>
+                                ct.AddHtmlElement("MudStack", ms =>
+                                {
+                                    ms.AddMappingReplacement(mappedEnd.SourceElement, "context.Item");
+                                    ms.AddAttribute("Row");
+
+                                    foreach (var child in column.InternalElement.ChildElements)
+                                    {
+                                        _componentResolver.ResolveFor(child).BuildComponent(child, ms);
+                                    }
+                                })));
+
+                    }
                 }
             });
 
