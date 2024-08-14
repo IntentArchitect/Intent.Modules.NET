@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Improvement: `InstanceName` configuration setting will by default take on the Application name.
+
 ### Version 1.1.0
 
 - Improvement: Added `Caching Policies` element to centralize `Caching Policy`s.

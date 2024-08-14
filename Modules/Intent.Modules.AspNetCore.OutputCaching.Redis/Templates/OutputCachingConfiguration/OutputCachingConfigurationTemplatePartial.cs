@@ -158,7 +158,7 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Templates.OutputCachingC
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("OutputCaching", new
             {
                 Configuration = "localhost:6379",
-                InstanceName = "SampleInstance",
+                InstanceName = ExecutionContext.GetApplicationConfig().Name.ToCSharpIdentifier() // "options.InstanceName, it’s going to be your application name" - https://nishanc.medium.com/redis-as-a-distributed-cache-on-net-6-0-949ef5b795ee
             }));
 
         }
