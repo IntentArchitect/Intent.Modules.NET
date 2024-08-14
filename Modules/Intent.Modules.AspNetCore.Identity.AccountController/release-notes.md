@@ -1,6 +1,6 @@
 ### Version 3.1.3
 
-- Fixed: dependency bump.
+- Fixed: updated module dependencies.
 
 ### Version 3.1.2
 
