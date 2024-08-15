@@ -1,6 +1,9 @@
-### Version 5.0.9
+### Version 5.0.10
 
 - New Feature: [NetTopologySuite](https://nettopologysuite.github.io/NetTopologySuite/) introduced to store geospatial coordinates in [PostgreSQL](https://www.npgsql.org/efcore/mapping/nts.html?tabs=with-datasource), [MySQL](https://www.nuget.org/packages/Pomelo.EntityFrameworkCore.MySql.NetTopologySuite) and [SQL Server](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite).
+
+### Version 5.0.9
+
 - Improvement: Updated NuGet packages to latest stables.
 - Improvement: Added support for SQL Check Constraints on Enums when `Store enums as strings` is on.
 
