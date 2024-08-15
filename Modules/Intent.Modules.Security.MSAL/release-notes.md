@@ -1,3 +1,8 @@
+### Version 4.2.2
+
+- Improvement: Internal updates to module project.
+- Fixed: Changed `JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();` to `JwtSecurityTokenHandler.DefaultMapInboundClaims = false;`.
+
 ### Version 4.2.1
 
 - Improvement: Updated NuGet packages to latest stables.

@@ -14,6 +14,7 @@ using Intent.Modules.EntityFrameworkCore.Helpers;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Metadata.RDBMS.Settings;
+using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -148,7 +149,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
             });
         }
 
-        private static AddDbContextStatement CreateAddDbContextStatement(ICSharpFileBuilderTemplate dependencyInjection, 
+        private static AddDbContextStatement CreateAddDbContextStatement(ICSharpFileBuilderTemplate dependencyInjection,
             DbContextInstance dbContextInstance,
             ISoftwareFactoryExecutionContext executionContext)
         {
@@ -197,8 +198,8 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     {
                         builderStatements.Add("b.UseDateOnlyTimeOnly()");
                     }
-                    
-                    
+
+
                     ConfigureNetTopologySuite(dependencyInjection, dbContextInstance, builderStatements, NugetPackages.MicrosoftEntityFrameworkCoreSqlServerNetTopologySuite(dependencyInjection.OutputTarget));
 
                     break;
@@ -212,7 +213,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         .AddArgument(dbContextOptionsBuilderStatement));
 
                     ConfigureNetTopologySuite(dependencyInjection, dbContextInstance, builderStatements, NugetPackages.NpgsqlEntityFrameworkCorePostgreSQLNetTopologySuite(dependencyInjection.OutputTarget));
-                    
+
                     break;
 
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql:
@@ -222,9 +223,9 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         .AddArgument($"configuration.GetConnectionString({connectionString})", a => a.AddMetadata("is-connection-string", true))
                         .AddArgument(@"ServerVersion.Parse(""8.0"")")
                         .AddArgument(dbContextOptionsBuilderStatement));
-                    
+
                     ConfigureNetTopologySuite(dependencyInjection, dbContextInstance, builderStatements, NugetPackages.PomeloEntityFrameworkCoreMySqlNetTopologySuite(dependencyInjection.OutputTarget));
-                    
+
                     break;
 
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos:

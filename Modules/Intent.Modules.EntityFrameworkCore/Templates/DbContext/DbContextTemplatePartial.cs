@@ -55,7 +55,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
             FulfillsRole(TemplateRoles.Infrastructure.Data.ConnectionStringDbContext);
 
             var currentDatabaseProvider = DbContextManager.GetDatabaseProviderForDbContext(Model.DbProvider, ExecutionContext);
-            
+
             CSharpFile = new CSharpFile(OutputTarget.GetNamespace(), "")
                 .AddClass(Model.DbContextName, @class =>
                 {

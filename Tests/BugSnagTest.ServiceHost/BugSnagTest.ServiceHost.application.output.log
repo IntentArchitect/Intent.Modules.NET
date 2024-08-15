@@ -98,6 +98,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b010e961-a456-4294-8fac-64fdd27f23fa</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#b010e961-a456-4294-8fac-64fdd27f23fa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BugSnagTest.ServiceHost/Properties/launchSettings.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b010e961-a456-4294-8fac-64fdd27f23fa</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#c6ae3849-25d3-436b-8759-658256b13208</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BugSnagTest.ServiceHost/Scheduled/ScheduledCommand.cs</ApplicationRelativeFilePath>

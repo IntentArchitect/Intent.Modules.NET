@@ -12,15 +12,18 @@ For more information on Output caching, check out their [official docs](https://
 
 This module consumes your `Service Model`, which you build in the `Service Designer` and integrates this design into your ASP.NET application:-
 
-* Hosing setup and configuration.
+* Hosting setup and configuration.
 * Controller annotations for caching.
 * `app.settings` configuration.
 
 ## Service Designer
 
-Caching is typically done through policies which describe the caching behaviour. Caching on you end-point operations can by done with or with out policies, and policies can be tailored per end-point.
+Caching is typically done through policies which describe the caching behaviour. Caching on your end-point operations can by done with or without policies, and policies can be tailored per end-point.
 
-To create Policies simply add them to you service designer as follows:
+To create Policies simply:
+
+- `Right Click` on the `Package` and select `Add Caching Policies`.
+- `Right Click` on the `Caching Policies` and select `New Caching Policy`.
 
 ![Creating Policies](./docs/images/caching-policy.png)
 
@@ -49,10 +52,10 @@ Secondly, ASP.Net Core output caching operates off a default set of rules which 
 
 By default, output caching follows these rules:
 
-Only HTTP 200 responses are cached.
-Only HTTP GET or HEAD requests are cached.
-Responses that set cookies aren't cached.
-Responses to authenticated requests aren't cached.
+- Only HTTP 200 responses are cached.
+- Only HTTP GET or HEAD requests are cached.
+- Responses that set cookies aren't cached.
+- Responses to authenticated requests aren't cached.
 
 For more details on this, check out their [official docs](https://learn.microsoft.com/en-us/aspnet/core/performance/caching/output?view=aspnetcore-8.0#default-output-caching-policy).
 

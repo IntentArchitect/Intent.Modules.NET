@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>5.0.9-pre.3</version>
+  <version>5.0.10-pre.0</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
@@ -159,6 +159,11 @@
         <setting id="df567ad2-98a7-49ce-9952-4a26b6074410" title="Store enums as strings" type="switch">
           <isRequired>false</isRequired>
           <hint>Enables a convention to convert enums to/from strings.</hint>
+          <defaultValue>false</defaultValue>
+        </setting>
+        <setting id="e396f58c-f184-48b1-bf36-399af463c3c1" title="Enum check constraints" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Add SQL Table check constraints to ensure data corresponds to the enum.</hint>
           <defaultValue>false</defaultValue>
         </setting>
         <setting id="7e0f472d-6cf0-423e-872a-cd6b2e0614bc" title="Default schema name" type="text">

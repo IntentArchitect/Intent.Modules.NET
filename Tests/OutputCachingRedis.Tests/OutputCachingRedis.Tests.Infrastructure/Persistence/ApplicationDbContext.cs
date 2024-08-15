@@ -23,6 +23,8 @@ namespace OutputCachingRedis.Tests.Infrastructure.Persistence
             _domainEventService = domainEventService;
         }
 
+        public DbSet<Account> Accounts { get; set; }
+
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Files> Files { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -47,6 +49,7 @@ namespace OutputCachingRedis.Tests.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new AccountConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new FilesConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());

@@ -34,7 +34,7 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
             template.AddNugetDependency(NugetPackages.MicrosoftIdentityWeb(template.OutputTarget));
             template.AddNugetDependency(NugetPackages.MicrosoftIdentityWebMicrosoftGraph(template.OutputTarget));
             template.AddNugetDependency(NugetPackages.MicrosoftIdentityWebUI(template.OutputTarget));
-            
+
             template.CSharpFile.AfterBuild(file =>
             {
                 file.AddUsing("System");
@@ -51,7 +51,7 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
                 var priClass = file.Classes.First();
                 var configMethod = priClass.FindMethod("ConfigureApplicationSecurity");
                 configMethod.FindStatement(stmt => stmt.GetText("").Contains("return services")).Remove();
-                configMethod.AddStatement("JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();");
+                configMethod.AddStatement("JwtSecurityTokenHandler.DefaultMapInboundClaims = false;");
                 configMethod.AddStatement("services.AddHttpContextAccessor();");
                 configMethod.AddMethodChainStatement("services", stmt => stmt
                     .AddChainStatement("AddAuthentication(JwtBearerDefaults.AuthenticationScheme)")

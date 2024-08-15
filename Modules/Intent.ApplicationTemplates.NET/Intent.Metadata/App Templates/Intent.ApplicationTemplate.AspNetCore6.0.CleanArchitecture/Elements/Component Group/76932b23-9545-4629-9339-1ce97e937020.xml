@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="76932b23-9545-4629-9339-1ce97e937020" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
+  <name>Cloud</name>
+  <display>Cloud (2)</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <order>12</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9612bb90-998c-4dda-b8af-98f201160728</parentFolderId>
+  <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="08b4c68f-3654-44cc-b3a1-87de79c23936" name="Component Group Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+      <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+      <properties>
+        <property name="54b29a03-082b-407a-b42e-cbacbcfa7fd7" display="Selection Mode" value="Allow Multiple" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="f276965e-a77f-40b9-9f9d-ccfc07d384ed" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>AmazonS3 ObjectStorage</name>
+      <display>AmazonS3 ObjectStorage (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>76932b23-9545-4629-9339-1ce97e937020</parentFolderId>
+      <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iVHJhc2giIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDUwIDUwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50IiB4MT0iLTU2IiB5MT0iMTgyLjkiIHgyPSItNTYiIHkyPSIxODIuOSIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgxMzk5NDQgNDU3MzY5KSBzY2FsZSgyNTAwIC0yNTAwKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMxYjY2MGYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNmNhZTNlIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cGF0aCBkPSJNOS4xLDBoMzEuN2M1LjEsMCw5LjEsNC4xLDkuMSw5LjF2MzEuN2MwLDUuMS00LjEsOS4xLTkuMSw5LjFIOS4xYy01LjEsMC05LjEtNC4xLTkuMS05LjFWOS4xQzAsNC4xLDQuMSwwLDkuMSwwWiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZS13aWR0aD0iMCIvPgogIDxwYXRoIGQ9Ik0zOC4xLDI2LjhsLjItMS43YzIuMiwxLjMsMi4yLDEuOSwyLjIsMS45LDAsMC0uNC4zLTIuNS0uMlpNMzYuOSwyNi41Yy0zLjgtMS4yLTkuMi0zLjYtMTEuMy00LjYsMCwwLDAsMCwwLDAsMC0uOC0uNy0xLjUtMS41LTEuNS0uOCwwLTEuNS43LTEuNSwxLjVzLjcsMS41LDEuNSwxLjUuNy0uMSwxLS40YzIuNSwxLjIsNy44LDMuNiwxMS43LDQuN2wtMS41LDEwLjhzMCwwLDAsMGMwLC45LTQuMiwyLjctMTEsMi43cy0xMS4yLTEuNy0xMS4yLTIuNywwLDAsMCwwbC0zLjItMjMuM2MyLjgsMS45LDguNywyLjksMTQuNCwyLjlzMTEuNi0xLDE0LjMtMi45bC0xLjYsMTEuMlpNOS40LDEyLjhjMC0uOCw0LjgtNCwxNC43LTRzMTQuNiwzLjIsMTQuNyw0di4zYy0uNSwxLjgtNi43LDMuOC0xNC43LDMuOHMtMTQuMi0yLTE0LjctMy44di0uM1pNNDAuMSwxMi44YzAtMi4yLTYuMi01LjMtMTUuOS01LjNzLTE1LjksMy4xLTE1LjksNS4zdi41YzAsMCwzLjUsMjUuMywzLjUsMjUuMywwLDIuOCw3LjYsMy45LDEyLjQsMy45czEyLjItMS40LDEyLjMtMy45bDEuNS0xMC42Yy44LjIsMS41LjMsMi4xLjNzMS4yLS4yLDEuNS0uNWMuMi0uMy4zLS43LjMtMS0uMi0uOS0xLjItMS44LTMuMy0zbDEuNS0xMC41di0uNVoiIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLXdpZHRoPSIwIi8+Cjwvc3ZnPg==&quot;}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Introduces a Object storage client that can link with Amazon S3." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="3f80cc1f-ba60-4f9e-bd81-4aeaaca86e70" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.AmazonS3.ObjectStorage</name>
+          <display>Intent.AmazonS3.ObjectStorage</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f276965e-a77f-40b9-9f9d-ccfc07d384ed</parentFolderId>
+          <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.1" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="461cb776-bbd7-4257-b303-5b2c7f0b71b4" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>Azure Blob Storage</name>
+      <display>Azure Blob Storage (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>76932b23-9545-4629-9339-1ce97e937020</parentFolderId>
+      <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/png;base64,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&quot;}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Introduces a Blob storage client that can link with Azure's Blob Storage." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="45430a9b-178d-433f-85dd-1aee9ee9d6eb" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Azure.BlobStorage</name>
+          <display>Intent.Azure.BlobStorage</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>461cb776-bbd7-4257-b303-5b2c7f0b71b4</parentFolderId>
+          <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.4.2" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

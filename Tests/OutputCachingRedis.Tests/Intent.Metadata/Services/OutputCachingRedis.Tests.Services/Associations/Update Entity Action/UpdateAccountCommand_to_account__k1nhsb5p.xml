@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c241c0f6-c3a0-45cc-aef8-f97f92002330">
+  <sourceEnd id="f8758d5d-1077-451a-9197-8e1bd63f461c" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Accounts.UpdateAccountCommand</display>
+    <order>0</order>
+    <typeReference id="3f6d1ad6-1854-4521-8b34-2b83d2a1738d">
+      <typeId>d6cc8a0a-92f0-4c15-9fcb-82ea0efee0ac</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Services</typePackageName>
+      <typePackageId>b911cd36-0eed-4c4a-bcd3-9eb16635ab7a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c241c0f6-c3a0-45cc-aef8-f97f92002330" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>account</name>
+    <display>[update] account: Account</display>
+    <order>2</order>
+    <typeReference id="4124262f-b8b2-4eb1-b02c-b9d49fcf9ac8">
+      <typeId>62c60393-e005-4f94-9c7c-c8729f48be39</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OutputCachingRedis.Tests.Domain</typePackageName>
+      <typePackageId>2278c2d2-2678-4601-8076-39089497d72b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d6cc8a0a-92f0-4c15-9fcb-82ea0efee0ac" location="[OutputCachingRedis.Tests].[Services].[UpdateAccountCommand]" />
+        <target applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="62c60393-e005-4f94-9c7c-c8729f48be39" location="[OutputCachingRedis.Tests].[Services].[Account]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="62c60393-e005-4f94-9c7c-c8729f48be39" name="Account" type="element" specialization="Class" />
+              <target id="4deb1a09-e6d4-426a-95c7-87b226ef2ca4" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="d6cc8a0a-92f0-4c15-9fcb-82ea0efee0ac" name="UpdateAccountCommand" type="element" specialization="Command" />
+                  <target id="74ebca75-8098-4cb2-823f-e2eda1d50801" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d6cc8a0a-92f0-4c15-9fcb-82ea0efee0ac" location="[OutputCachingRedis.Tests].[Services].[UpdateAccountCommand]" />
+        <target applicationId="555d779f-5d5d-49fd-b0eb-598c02922aeb" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="62c60393-e005-4f94-9c7c-c8729f48be39" location="[OutputCachingRedis.Tests].[Services].[Account]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="62c60393-e005-4f94-9c7c-c8729f48be39" name="Account" type="element" specialization="Class" />
+              <target id="8d2b5986-c06d-42ec-917d-c2cc245d948c" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="d6cc8a0a-92f0-4c15-9fcb-82ea0efee0ac" name="UpdateAccountCommand" type="element" specialization="Command" />
+                  <target id="3b147a00-4c35-4259-8753-1f78c711ac52" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

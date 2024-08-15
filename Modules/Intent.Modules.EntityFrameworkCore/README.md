@@ -67,12 +67,33 @@ When enabled, the EF configuration will be set up to preserve the column orderin
 The ordering is achieved using EF Core's `HasColumnOrder` functionality.
 
 ```csharp
-            builder.Property(x => x.Id)
-                .HasColumnOrder(0);
+    builder.Property(x => x.Id)
+        .HasColumnOrder(0);
 
-            builder.Property(x => x.Name)
-                .IsRequired()
-                .HasColumnOrder(1);
+    builder.Property(x => x.Name)
+        .IsRequired()
+        .HasColumnOrder(1);
+```
+
+### Database Settings - `Enum check constraints`
+
+When enabled, the EF configuration will set up a SQL table check constraints to ensure the data stored in the underlying column adheres to the `Enum`.
+
+```csharp
+    var enumValues = Enum.GetValuesAsUnderlyingType<CustomerType>()
+        .Cast<object>()
+        .Select(value => value.ToString());
+
+    builder.ToTable(tb => tb.HasCheckConstraint("customer_customer_type_check", $"\"CustomerType\" IN ({string.Join(",", enumValues)})"));
+```
+
+If you are using the `Store enums as strings` setting you will get the following
+
+```csharp
+    var enumValues = Enum.GetNames<CustomerType>()
+        .Select(e => $"'{e}'");
+
+    builder.ToTable(tb => tb.HasCheckConstraint("customer_customer_type_check", $"\"CustomerType\" IN ({string.Join(",", enumValues)})"));
 ```
 
 Intent will automatically do the Column ordering but if you want to get very specific you can use the `DataColumn` stereotype to explicitly set the ordering. 

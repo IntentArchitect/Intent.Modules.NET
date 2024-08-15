@@ -39,6 +39,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         public string Type => SpecializationType;
 
+        [IntentIgnore]
         public string ProjectTypeId
         {
             get
@@ -62,9 +63,9 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
                 return VisualStudioProjectTypeIds.CoreCSharpLibrary;
                 */
-				return VisualStudioProjectTypeIds.SdkCSharpProject;
-			}
-		}
+                return VisualStudioProjectTypeIds.SdkCSharpProject;
+            }
+        }
 
         public string RelativeLocation { get; }
 

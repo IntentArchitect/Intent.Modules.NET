@@ -86,7 +86,7 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Api
 					}
 					caching = result;
 				}
-				if (caching.NoCaching == null)
+				if (caching.NoCaching == true)
 					return false;
 				return true;
 			}
@@ -191,7 +191,6 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Api
 					}
 				}
 			}
-
 		}
 	}
 }

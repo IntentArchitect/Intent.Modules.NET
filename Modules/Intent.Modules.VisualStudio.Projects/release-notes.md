@@ -1,7 +1,14 @@
+### Version 3.7.5
+
+- Fixed: A `Could not load file or assembly 'NuGet.Versioning...` exception would occur when using this module with Intent Architect version 4.3.0-beta.4 or higher.
+
+### Version 3.7.4
+
+- Improvement: Added `launchSettings.json` for `Microsoft.NET.Sdk.Worker` projects.
+
 ### Version 3.7.3
 
 - Improvement: Added support for appsettings.json respecting `.editorconfig` files.
-
 
 ### Version 3.7.2
 

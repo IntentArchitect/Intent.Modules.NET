@@ -1,7 +1,9 @@
-### Version 1.0.3
+﻿### Version 1.0.3
 
 - Improvement: Updated Designer script to not modify attributes if they already exist.
 - Improvement: Added support for different UserId Types (guid, long, int).
+> ⚠️ **NOTE**
+> Standardized to `UserIdentifer` for auditing logic which can work with `UserId` or `UserName`.
 - Improvement: Upgraded module to support new 4.1 SDK features.
 
 ### Version 1.0.2

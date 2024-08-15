@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3e63b0ac-757d-4e85-ab19-27b42da8a88d" type="Caching Policy" typeId="1425f74f-3aa9-4dfd-8676-baa7e8d00a17">
+  <name>All Default</name>
+  <display>All Default</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c8d66c67-81ba-4997-9615-3b30d2967b16</parentFolderId>
+  <packageId>b911cd36-0eed-4c4a-bcd3-9eb16635ab7a</packageId>
+  <packageName>OutputCachingRedis.Tests.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="56f48881-3e17-43bf-aead-e222a8f725fd" name="Caching Config">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.AspNetCore.OutputCaching.Redis</definitionPackageName>
+      <definitionPackageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</definitionPackageId>
+      <properties>
+        <property name="8f9a025a-fc3c-4e50-a42c-d4b004c7f47b" display="Duration" isActive="true" />
+        <property name="1370668f-ac9c-4909-bbbf-8d3be6045b44" display="Tags" isActive="true" />
+        <property name="918474b5-0dc9-42e0-bf60-f59cef4024ef" display="Vary By Query Keys" isActive="true" />
+        <property name="83b5eeb6-8937-45a8-8d08-c2a5f0a662d0" display="Vary By Header Names" isActive="true" />
+        <property name="6910f48f-1454-49c6-ac7b-553b439f91d4" display="Vary By Route Value Names" isActive="true" />
+        <property name="85f804e7-4357-48c3-adcf-340aaf376ffe" display="No Caching" value="false" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

@@ -24,6 +24,7 @@ namespace OutputCachingRedis.Tests.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IFilesRepository, FilesRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();

@@ -9,6 +9,40 @@
       <requiredPackages />
       <creationOptions>
         <option type="element">
+          <text>Add Caching Policies</text>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAA+ZJREFUaEPt2V1oW2Ucx/Hvc05OTpI6axPWUTvbwjYdTifuRUQvpohTwZuJNK3M4cUcDER25wteeNs7X/DCC0HwYjAVvPBClOGwoDAQRQeba7qthb6sc6WveevJ+cuTY0aapuuS03DS0XMTCCdPns/z//+ePEkUG/xSG3z+3P2Aj87npCFVUgycOmi/63fsNSvQCEAsrEjnBdYBEQjgxQdDDF4rsLgOiEAAR/ZYZJZkXRCBAXTvrwciUMB6IAIH+EU0BcAPomkA9SKaClAPoukAlYhTT9i3nWMggFqOD5uARpyFNitQtgKbGailHeq5dzPEd3WIB775p56uWPaad1596LZjNLSFNjzA9/LfwQANrcAdvL/vWxoKqKeF1up5LTYo8NTSx7hzDgcjZy317DlntZXw9UHWCMAWmeT5/Ad0FP7EncziipxXitcifanhaghfAN/9UTaALfPsdU7z+NJXWGRgycGdzIFlIiKLCjUQNgufqN4rs+XvGxjAkgwx+Zd29yJd7m/sdH4iRNab2/QMjE6wOCKEd2zFTGzRP4JpSFopOYOYP4hZ+N3Otkz4AtTSQpW9fzL9JAZlra1/wJybh4kpWEgXHQvXPI/ZGiW0vQ2zrWVZ0UXECQzwZvoQYRa9Sc8uwMwc5PLLJlgClJ5UEQsz3oLZFitixJV5XwA/GTiWeRkdWC5chmyu6lCVgFuQqEV0fw8Io4EBXskdL+40DF31KlDlWg1gtMWI7OlEcAd9AWrJQGl+pSw8l/uQ3YXvYWQcbtysCWB1tGLtaAfcLwMDPOJ8zaH8ANyYhpGxmgDhXdsIbbsXpTjpC+AnA1vdi/RmX/f6X+eghhaKHuhBB1oh+wMD6OPCG5kXiMrMqkGulgEjFiayr1uv/pTV3tkZGEAvuG4h3UqMT8H49RU1qAawuhJYXXGUks/CydRbgQL0LqR3IxwH/roE7vK/41YADEWxfcIhDHGftvqHfw0UoDfy/mwfcXfYC7IOdNlVCSjtPoL8bSdTjymFBAyAXYUfOZx736vChSHv8f+rHKAsE3tfN4ZlgpKknUyd0bcFDtBVOJI9wf3uHzA9C1dGVwIU2Ls7MBP36OPDL3Z/6hm9+k0CgPtklN7MUSzS3mFuzAt0qQJWTwJre7x49sEIHYj0Xbq17zZBBbwF3+mc5XD+PRSuhxi/zsJVsLoTWA/EEaGgDJJ2cujb8pysCfDzYVXra/M/7z2Oks+V/lY5O8/SWL54+hRwDZET4f7UF5VjNhVAT8459+hLLnJaoVr1V8rikdk0jtnJy99VW5CmA+hJyuDDXU7B/NSdzIlrOG9He8uSXaH4D8AUT1NLGzpNAAAAAElFTkSuQmCC" />
+          <specializationType>Caching Policies</specializationType>
+          <specializationTypeId>4cd00683-9b6e-4340-a4be-6c6a4e36a274</specializationTypeId>
+          <defaultName>Caching Policies</defaultName>
+          <allowMultiple>false</allowMultiple>
+        </option>
+      </creationOptions>
+      <scriptOptions />
+      <typeOrder>
+        <type>Caching Policies</type>
+      </typeOrder>
+    </packageExtension>
+  </packageExtensions>
+  <elementSettings>
+    <elementSetting type="Caching Policies" typeId="4cd00683-9b6e-4340-a4be-6c6a4e36a274">
+      <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAA+ZJREFUaEPt2V1oW2Ucx/Hvc05OTpI6axPWUTvbwjYdTifuRUQvpohTwZuJNK3M4cUcDER25wteeNs7X/DCC0HwYjAVvPBClOGwoDAQRQeba7qthb6sc6WveevJ+cuTY0aapuuS03DS0XMTCCdPns/z//+ePEkUG/xSG3z+3P2Aj87npCFVUgycOmi/63fsNSvQCEAsrEjnBdYBEQjgxQdDDF4rsLgOiEAAR/ZYZJZkXRCBAXTvrwciUMB6IAIH+EU0BcAPomkA9SKaClAPoukAlYhTT9i3nWMggFqOD5uARpyFNitQtgKbGailHeq5dzPEd3WIB775p56uWPaad1596LZjNLSFNjzA9/LfwQANrcAdvL/vWxoKqKeF1up5LTYo8NTSx7hzDgcjZy317DlntZXw9UHWCMAWmeT5/Ad0FP7EncziipxXitcifanhaghfAN/9UTaALfPsdU7z+NJXWGRgycGdzIFlIiKLCjUQNgufqN4rs+XvGxjAkgwx+Zd29yJd7m/sdH4iRNab2/QMjE6wOCKEd2zFTGzRP4JpSFopOYOYP4hZ+N3Otkz4AtTSQpW9fzL9JAZlra1/wJybh4kpWEgXHQvXPI/ZGiW0vQ2zrWVZ0UXECQzwZvoQYRa9Sc8uwMwc5PLLJlgClJ5UEQsz3oLZFitixJV5XwA/GTiWeRkdWC5chmyu6lCVgFuQqEV0fw8Io4EBXskdL+40DF31KlDlWg1gtMWI7OlEcAd9AWrJQGl+pSw8l/uQ3YXvYWQcbtysCWB1tGLtaAfcLwMDPOJ8zaH8ANyYhpGxmgDhXdsIbbsXpTjpC+AnA1vdi/RmX/f6X+eghhaKHuhBB1oh+wMD6OPCG5kXiMrMqkGulgEjFiayr1uv/pTV3tkZGEAvuG4h3UqMT8H49RU1qAawuhJYXXGUks/CydRbgQL0LqR3IxwH/roE7vK/41YADEWxfcIhDHGftvqHfw0UoDfy/mwfcXfYC7IOdNlVCSjtPoL8bSdTjymFBAyAXYUfOZx736vChSHv8f+rHKAsE3tfN4ZlgpKknUyd0bcFDtBVOJI9wf3uHzA9C1dGVwIU2Ls7MBP36OPDL3Z/6hm9+k0CgPtklN7MUSzS3mFuzAt0qQJWTwJre7x49sEIHYj0Xbq17zZBBbwF3+mc5XD+PRSuhxi/zsJVsLoTWA/EEaGgDJJ2cujb8pysCfDzYVXra/M/7z2Oks+V/lY5O8/SWL54+hRwDZET4f7UF5VjNhVAT8459+hLLnJaoVr1V8rikdk0jtnJy99VW5CmA+hJyuDDXU7B/NSdzIlrOG9He8uSXaH4D8AUT1NLGzpNAAAAAElFTkSuQmCC" />
+      <saveAsOwnFile>true</saveAsOwnFile>
+      <allowRename>false</allowRename>
+      <allowAbstract>false</allowAbstract>
+      <allowStatic>false</allowStatic>
+      <allowGenericTypes>false</allowGenericTypes>
+      <allowMapping>false</allowMapping>
+      <allowSorting>true</allowSorting>
+      <sortChildren>by-type-then-by-name</sortChildren>
+      <allowFindInView>false</allowFindInView>
+      <allowTypeReference>false</allowTypeReference>
+      <allowConvertToType p4:nil="true" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance" />
+      <allowSetValue>false</allowSetValue>
+      <typeOrder>
+        <type order="0">Caching Policy</type>
+      </typeOrder>
+      <creationOptions>
+        <option type="element">
           <text>New Caching Policy</text>
           <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAvZJREFUeF7tnL9LXEEQx2f1zHtwJ3hBIo8jiCRBsUvjIdcEJam0Umz8J+xSWeUfSP6HWFpprZWQ2KYQQgqb5CBgxHgXnz/gBUOQ0/jcyc3s3nu+79Uzs7Of/c7O3IpnCB8RASPyhjMBoFAEAAiAQgJCdygQAIUEhO5QoC+AM2utDeFazt0TMrvby+U3zhfqWICtwJm1duIzse7WSja3livz3fl25wWA3XG78gJAAOwkgBIW6gEAAVBIQOheAAUOhYaCfiGnFPcH/Wb3+aMBlTlwpV7a5GTpvQvXoz4aqfRxcuupzcpUwGLDMrrcidYgDYBCXQAgAF4jgBJOEQTuQGGleAf4ff8b/TpuWdOen35MY9Gg1a7XBt4B7n/6TMcHR9Z9L72aoGejVatdrw0AUHgC3gGihC0nhkH6dkAYYzDGCC+7rABEFxbegVoA2/EFNQ9jdVlF1ZDKYYkd13sX1gL4pdmi9Z2v7I1yDRcaNXoaVbjm5B3gyc82XZydWxN8MTFItWqQaldYgFZyfw1sz1kAaCFpA8g9CNd2uS1h12C48b0D1Goi3A26tsstwOaPmHb2DpzyiaoBNSaH71wjtwBdNZFOWk+iCi02atkCyJWMrYkAoLALF7aEtRTIjePazvsdiAfVjDwmuFYWN753BWrNgZpN5PXiOJfXP3beAWqVcGEBco/a5xiTKwVqAdR8UP2f97+b+XsvYS2A3Diu7bwD1GoirsFw4+cWoGYJp8EqByWKHobZ+i6spUDNLpxGKJOPCVn/mwheY7iXF8Mukwpk5P3HxDYHcuO4tvPeRLgbAkAuqRQ7AHQMUPNB1fZsf9dWclvCmmNMIb8LA6ClxG13IEpYCFB4xaq5q9+Bs+/jOY3sXo6Z1XCApjRiuYyhDlAr2bcf4w0yRuUwtHK6LQ4ACukCIAAKCQjdoUAAFBIQukOB9xXguw+nq4lJsj8H1kPWr8Cx/1dOeKD31h0AhUcLgAAoJCB0hwIBUEhA6A4FAqCQgND9NxYvBG8ubNiXAAAAAElFTkSuQmCC" />
           <specializationType>Caching Policy</specializationType>
@@ -18,12 +52,10 @@
         </option>
       </creationOptions>
       <scriptOptions />
-      <typeOrder>
-        <type>Caching Policy</type>
-      </typeOrder>
-    </packageExtension>
-  </packageExtensions>
-  <elementSettings>
+      <mappingOptions />
+      <mappingSettings />
+      <childElementSettings />
+    </elementSetting>
     <elementSetting type="Caching Policy" typeId="1425f74f-3aa9-4dfd-8676-baa7e8d00a17">
       <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAvZJREFUeF7tnL9LXEEQx2f1zHtwJ3hBIo8jiCRBsUvjIdcEJam0Umz8J+xSWeUfSP6HWFpprZWQ2KYQQgqb5CBgxHgXnz/gBUOQ0/jcyc3s3nu+79Uzs7Of/c7O3IpnCB8RASPyhjMBoFAEAAiAQgJCdygQAIUEhO5QoC+AM2utDeFazt0TMrvby+U3zhfqWICtwJm1duIzse7WSja3livz3fl25wWA3XG78gJAAOwkgBIW6gEAAVBIQOheAAUOhYaCfiGnFPcH/Wb3+aMBlTlwpV7a5GTpvQvXoz4aqfRxcuupzcpUwGLDMrrcidYgDYBCXQAgAF4jgBJOEQTuQGGleAf4ff8b/TpuWdOen35MY9Gg1a7XBt4B7n/6TMcHR9Z9L72aoGejVatdrw0AUHgC3gGihC0nhkH6dkAYYzDGCC+7rABEFxbegVoA2/EFNQ9jdVlF1ZDKYYkd13sX1gL4pdmi9Z2v7I1yDRcaNXoaVbjm5B3gyc82XZydWxN8MTFItWqQaldYgFZyfw1sz1kAaCFpA8g9CNd2uS1h12C48b0D1Goi3A26tsstwOaPmHb2DpzyiaoBNSaH71wjtwBdNZFOWk+iCi02atkCyJWMrYkAoLALF7aEtRTIjePazvsdiAfVjDwmuFYWN753BWrNgZpN5PXiOJfXP3beAWqVcGEBco/a5xiTKwVqAdR8UP2f97+b+XsvYS2A3Diu7bwD1GoirsFw4+cWoGYJp8EqByWKHobZ+i6spUDNLpxGKJOPCVn/mwheY7iXF8Mukwpk5P3HxDYHcuO4tvPeRLgbAkAuqRQ7AHQMUPNB1fZsf9dWclvCmmNMIb8LA6ClxG13IEpYCFB4xaq5q9+Bs+/jOY3sXo6Z1XCApjRiuYyhDlAr2bcf4w0yRuUwtHK6LQ4ACukCIAAKCQjdoUAAFBIQukOB9xXguw+nq4lJsj8H1kPWr8Cx/1dOeKD31h0AhUcLgAAoJCB0hwIBUEhA6A4FAqCQgND9NxYvBG8ubNiXAAAAAElFTkSuQmCC" />
       <saveAsOwnFile>true</saveAsOwnFile>

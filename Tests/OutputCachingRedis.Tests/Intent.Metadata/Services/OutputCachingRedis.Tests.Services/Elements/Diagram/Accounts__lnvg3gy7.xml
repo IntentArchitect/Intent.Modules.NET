@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6d25b708-c21a-46ba-8114-3e1bf7d49695" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Accounts</name>
+  <display>Accounts</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>30f760be-2b16-4004-8335-c69a099c0ff1</parentFolderId>
+  <packageId>b911cd36-0eed-4c4a-bcd3-9eb16635ab7a</packageId>
+  <packageName>OutputCachingRedis.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>30f760be-2b16-4004-8335-c69a099c0ff1</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

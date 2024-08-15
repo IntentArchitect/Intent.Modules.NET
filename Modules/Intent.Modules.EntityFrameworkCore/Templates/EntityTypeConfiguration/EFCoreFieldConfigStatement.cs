@@ -186,7 +186,6 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
                      dbSettings.DatabaseProvider().IsPostgresql())
             {
                 // https://www.npgsql.org/efcore/mapping/nts.html#constraining-your-type-names
-                // It follows convention
                 statements.Add($@".HasColumnType(""geography ({attribute.Type.Element.Name.ToLower()})"")");
             }
         }
