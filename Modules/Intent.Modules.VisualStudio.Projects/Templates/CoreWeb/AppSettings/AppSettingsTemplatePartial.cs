@@ -46,12 +46,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
             return Model.IncludeAllowHosts;
         }
 
-		public bool IncludeAspNetCoreLoggingLevel()
-		{
-			return Model.IncludeAspNetCoreLoggingLevel;
-		}
+        public bool IncludeAspNetCoreLoggingLevel()
+        {
+            return Model.IncludeAspNetCoreLoggingLevel;
+        }
 
-		public override string RunTemplate()
+        public override string RunTemplate()
         {
             if (!TryGetExistingFileContent(out var content))
             {
@@ -115,8 +115,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
             if (editorFiles.Any())
             {
                 var settings = new Dictionary<string, string>(DefaultSettings, StringComparer.OrdinalIgnoreCase);
-                    foreach (var editorFile in editorFiles)
-                    {
+                foreach (var editorFile in editorFiles)
+                {
                     try
                     {
                         ParseEditorConfigToSettings(editorFile, settings);
@@ -170,7 +170,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
                 if (line.StartsWith("["))
                 {
                     string match = line.Substring(1, line.Length - 2);//Remove[]
-                    if (match is not "*" or "*.json" )
+                    if (match is not "*" or "*.json")
                     {
                         continue;
                     }

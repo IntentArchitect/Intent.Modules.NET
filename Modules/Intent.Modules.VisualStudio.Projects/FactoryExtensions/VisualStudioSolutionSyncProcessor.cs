@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Intent.Engine;
 using Intent.Eventing;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
