@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#FFD54A85-9362-48AC-B646-C93AB9AC63D2</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/ASPNETCoreWebApplicationModel.cs</path>
+      <count>23</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6772043Z</updatedAt>
+      <deviationsHash>1971D059409425A8FD73A6EE995ACFA76E5F9FD7DF5408933D86D5D095CFBC8B</deviationsHash>
+      <fileHash>07FF131A2E9D236637E8B741D58A1555DF10BE505D9773AB65984E45144B3EE3</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#8AF747CF-58F0-449C-8B95-46080FEFC8C0</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/ASPNETWebApplicationNETFrameworkModel.cs</path>
+      <count>23</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6772162Z</updatedAt>
+      <deviationsHash>AAD71D96FE4FDE71E070E93F44B47C54D88FB5BCD18D18CF232E51A888BBE88D</deviationsHash>
+      <fileHash>3709E234281C3FADF8C2C748C180DFB3177132958626BDA0789EDB77463F80A0</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#73e51385-5e20-4e2c-aa0b-6eb2dc8de52e</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/AzureFunctionsProjectModel.cs</path>
+      <count>17</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6772265Z</updatedAt>
+      <deviationsHash>E66F242ED05B17A9B67BE693B9890EE26886F8247893525B7F08BA5C8A5C2DC1</deviationsHash>
+      <fileHash>35EBC082BC18A31CB228CAF30B325D57209E826D5209FA612D154DCFD3871087</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/ClassLibraryNETCoreModel.cs</path>
+      <count>23</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6772515Z</updatedAt>
+      <deviationsHash>133B4BDD24F7455DB83B5B8AC1610D1192CA93CEBBE351964E0C6AAF457FA156</deviationsHash>
+      <fileHash>A7C76DCE01EDF0B93C2667C9A72DFA23CD95FD912498496A85897FED2FAAD5BF</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#0FEBBF41-7C8E-4F98-85A5-F8B5236CFD7D</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/ClassLibraryNETFrameworkModel.cs</path>
+      <count>23</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6772626Z</updatedAt>
+      <deviationsHash>B798F50475ECB3405AE2BFC4CBB112C890725CEB2DE2CD790E9228736719618E</deviationsHash>
+      <fileHash>3BEF6E7662C81F30E1B670FBCC5A8C61C3F41E30EB04BE6E4EE04ABB2C074D22</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#27b265c8-e185-4c33-9908-8d23d5e945d1</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/ConsoleAppNETCoreModel.cs</path>
+      <count>17</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6772742Z</updatedAt>
+      <deviationsHash>62B2447D29D1623D6F519A0D6908A74EDC9309F6F912AF05074ED773C025CEC9</deviationsHash>
+      <fileHash>89B1AF9D8885EEBDC72F56B7041E0B4824CDF3FD5A4ED305B8BAF7B844B3A24A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#673AAE96-C9B1-4B7E-9A52-ADE5F9218CFC</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/ConsoleAppNETFrameworkModel.cs</path>
+      <count>23</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.677285Z</updatedAt>
+      <deviationsHash>1DDB4D3095551DC18B397F1547AD747DC6312DD143BEDC314C8E67B6A9859063</deviationsHash>
+      <fileHash>00277CB4710520954FFC1F5D2AFC4D8E33C965437516C29C4F82A617BFA59773</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#8e9e6693-2888-4f48-a0d6-0f163baab740</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/CSharpProjectNETModel.cs</path>
+      <count>12</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.677239Z</updatedAt>
+      <deviationsHash>AE3CDDCDEB754CE8A010A721A4FC7315FA769925FB6D12A5089F87F6BB56E8DE</deviationsHash>
+      <fileHash>8FEC1C870E6540CA262C754E872F7232A3A6E536324ACBEA3B7DA6169E6BC1F3</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#3407a825-1331-4f3f-89a4-901903ed97ce</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/FolderModel.cs</path>
+      <count>18</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6772949Z</updatedAt>
+      <deviationsHash>B6F933A54EA9EA3516133850BFFE4B82C7F8DF30B7F1B3EC1724E28BE2F3536F</deviationsHash>
+      <fileHash>E0278246806A20E0270D643AD30957813678874CE31BF79EA5089002583AD784</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#69af0b31-9d69-4b5a-a6a2-fc9314f11d92</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/JavaScriptProjectModel.cs</path>
+      <count>8</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6773071Z</updatedAt>
+      <deviationsHash>7BE979218D2E2BD6FFB34CDAC0562A9F9256774AB0D315EEFDE21F5121DAD8ED</deviationsHash>
+      <fileHash>6D699A48AC02C16A75D6D19BB0577B5F2F98B8729E9A73BDC967FA90298431B6</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#65fb2757-ce97-41a8-9c53-b03d53c2c03f</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/NETCoreVersionModel.cs</path>
+      <count>12</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6771838Z</updatedAt>
+      <deviationsHash>64E0894249825AFF0CCBD05AF3305F89391049971B0DACB5DA3E9E2AD2BD114F</deviationsHash>
+      <fileHash>B154FF9088F55339A5974F579F0CA53A718527AB089DB06891769ECE0EB36721</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#6453c4bd-78b8-4589-a223-9f57a348a1a1</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/NETFrameworkVersionModel.cs</path>
+      <count>12</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.677192Z</updatedAt>
+      <deviationsHash>B704C1D974A12F49BD8BBFB14E8EA85D48A929BFA6B2968E3C439A6CEDD7C81C</deviationsHash>
+      <fileHash>06B8D7513EBD967A0C37D64DAB9D895235283FA51A7670D8292493ED31B259CA</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#025e933b-b602-4b6d-95ab-0ec36ae940da</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/RoleModel.cs</path>
+      <count>15</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6773155Z</updatedAt>
+      <deviationsHash>FFE6023FB16F75952F980563A3790432FAC2F98C3AB46D1DB2AC8EC8D3D8D4CC</deviationsHash>
+      <fileHash>4A3E9A47197F2B144DB4789AC3C7595B3F311FC877CDB5C312685732DDB459A9</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#9edf270e-3f38-406c-ac94-07b9737bb531</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/RuntimeEnvironmentModel.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6773203Z</updatedAt>
+      <deviationsHash>5B5ECDD474110A0757E23FD0C8EFB15E938F196D819BB1AC5CAB12795E888A9F</deviationsHash>
+      <fileHash>A050A6DC232CD46D0B5929802BD374D310B68790C14714F777AF77CB7630887C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#0dc2b846-c968-49eb-99b7-8776919313a8</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/SolutionFolderModel.cs</path>
+      <count>18</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6773316Z</updatedAt>
+      <deviationsHash>0E04C0B9FFE30A7CB90161480131567DB7D3CA886B13297A418C8763564B7FAA</deviationsHash>
+      <fileHash>220B07D02BEE88EE7D2839321945324D7815C03EC312FD88E02A8D8EC5A39122</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#00D1A9C2-B5F0-4AF3-8072-F6C62B433612</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/SQLServerDatabaseProjectModel.cs</path>
+      <count>13</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6773408Z</updatedAt>
+      <deviationsHash>923B09E869FFA09E4B762B608C9726D26B8F64D8FDA7E2F5D7FCD8D188824802</deviationsHash>
+      <fileHash>A8597228A4104C60096007B1296809A8FB37F9C10639FCE95A7C164215182779</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#d421c322-7a51-4094-89fa-e5d8a0a97b27</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/TemplateOutputModel.cs</path>
+      <count>5</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6773527Z</updatedAt>
+      <deviationsHash>57682FC5C5D598E4A278465FCF23E35DE92473497AEF244D7A6D5298F0DE753C</deviationsHash>
+      <fileHash>A8FD9F6A851FB709A07800BBF3B5D2FBDBEFA3285A1C527B58BB23ACD2C751D3</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiPackageModel#07e7b690-a59d-4b72-8440-4308a121d32c</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/VisualStudioSolutionModel.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6773718Z</updatedAt>
+      <deviationsHash>6F9BF5837CD50A531E67C624BDD4FF2AFA2CC808691595801928068AF0ADB5DB</deviationsHash>
+      <fileHash>4D89BC31C1F283769EF82D511B4038694513D16B5951ED7109548BD971A3BA71</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#3CDFF513-03D8-4BAB-9435-160108A086A3</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Api/WCFServiceApplicationModel.cs</path>
+      <count>23</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6773641Z</updatedAt>
+      <deviationsHash>7009269084079F10187981BE558BD3E997D7646C37FAE757D5473A75EBD66AB5</deviationsHash>
+      <fileHash>9757DB631349D9AEDB53B32B3A0551237946051FF85D6A210E06865E3AF9C7FD</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/ApiMetadataProviderExtensions.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6771726Z</updatedAt>
+      <deviationsHash>5E8A006FC2F3EB14BD1FBC96FFE5B6D716265458AC258462B865034915B8045C</deviationsHash>
+      <fileHash>98638CD0C0E23A79D46B2BA38C14B39040798B61B7A5791E1B9D9B50CF9900A8</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#8b11dd91-de7f-48c0-a4a9-206b1108d703</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/FactoryExtensions/VisualStudioSolutionSyncProcessor.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.677526Z</updatedAt>
+      <deviationsHash>1C8092733868808EEB134BEC97CA63B83C37B211AA3CD8BD0FFBBC2E9DBF14D9</deviationsHash>
+      <fileHash>B7495DEEE08327EE7EFE70133E5478F1DC417E0247817E893B90E5C3F8E543F3</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#e305389f-befa-46ce-96d3-1f50fe7199ea</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Templates/AzureFunctions/HostJson/HostJsonTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.677561Z</updatedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>EF578B4B3213DEC17F97C30BF73CA35D5146417DE1F7CB8525F58485C3EC322D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#e305389f-befa-46ce-96d3-1f50fe7199ea</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Templates/AzureFunctions/HostJson/HostJsonTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6775975Z</updatedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>C544AE4177B599BEA391B72C93E040695872D6140C26D5635453C5D55512B8DD</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#bb4e8c29-f58b-4191-b034-61d9d9793637</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Templates/AzureFunctions/LocalSettingsJson/LocalSettingsJsonTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6775703Z</updatedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>85E42C66DD7F05251E7260F5E2A7C96B95B55FF2A2608855403ECCD0CD737E9C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#e2ec6205-819b-4c6c-8bbd-b15dd573c525</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Templates/CoreWeb/AppSettings/AppSettingsDecorator.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6776185Z</updatedAt>
+      <deviationsHash>46442CFDC483F4850B4CEDE8C6B0FE81CF89D2B79B65738804CF046EE3FABC0D</deviationsHash>
+      <fileHash>4112D8FB91233A5C0D58F6C90748CE84C4B0DAF5CCAD154762C881C099863744</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#cc3f8b62-c026-49c9-bef2-52cdd44f0ebd</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Templates/CoreWeb/AppSettings/AppSettingsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6775461Z</updatedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>09A7644747A62FCA9ABD8DC3BFB34C2C6C9CF8B52CF96B2482607E8257DCA018</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#cc3f8b62-c026-49c9-bef2-52cdd44f0ebd</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Templates/CoreWeb/AppSettings/AppSettingsTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.677588Z</updatedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>B1AD4CE758B45E543463AB6727A34D97C11800851CBBE5CAD4DFC96CB0219801</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#807ee533-3ab8-4fe6-a06c-30d45eecf014</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplate.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6776116Z</updatedAt>
+      <deviationsHash>D6F65EDB6B63E9C130BB21B2CDEFE5206B9A0BBFAC07D220CC92EE5B4FB7FC1C</deviationsHash>
+      <fileHash>7CF43D7E6025C85BDAC55EA117B6AE53DDECAA8E98A94F37CD114BFE5CB16B4A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#807ee533-3ab8-4fe6-a06c-30d45eecf014</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplatePartial.cs</path>
+      <count>6</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6775551Z</updatedAt>
+      <deviationsHash>3DBAA20E4D9741889E9370A222E1AA6991F34D689F28910F3E367B6D59C31DAB</deviationsHash>
+      <fileHash>67CCCA4694FBA893FAFDA93A4B1933FE68E3E04769652D110BD4052E038C0922</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#807ee533-3ab8-4fe6-a06c-30d45eecf014</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplateRegistration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6775932Z</updatedAt>
+      <deviationsHash>6D944B68C67E0F3D844AF312A2401B2370272FFAABABA14E5883C8E8698CB505</deviationsHash>
+      <fileHash>9D229A9511D658D60C75FD0171D0AE3CFDB3794989E3D40CE317DA9DB29AF022</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#90bf72bb-3741-4c8e-8954-2a9a65d37740</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Templates/SqlServerDatabase/SqlProject/SqlProjectTemplatePartial.cs</path>
+      <count>4</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.677578Z</updatedAt>
+      <deviationsHash>C2A68A2D774AD7441FC2090920DF871D181BA3F1315DB59B8277407F2CA9AC53</deviationsHash>
+      <fileHash>A43EDDD5788E5802B3E540D30ED0469AD5C677695AFFC63F706CC2A8CE4862BB</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#90bf72bb-3741-4c8e-8954-2a9a65d37740</correlationId>
+      <path>Intent.Modules.VisualStudio.Projects/Templates/SqlServerDatabase/SqlProject/SqlProjectTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-08-15T11:53:38.6776071Z</updatedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>D7230B4FED6D304D612841609FBB31B1619135BCDAF4DFF9E5D9EDC13A477708</fileHash>
+    </file>
+  </files>
+</deviationsLog>
