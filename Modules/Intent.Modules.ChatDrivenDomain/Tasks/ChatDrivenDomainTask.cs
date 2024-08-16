@@ -41,32 +41,43 @@ public class ChatDrivenDomainTask : IModuleTask
                   ```
                   Class
                   {
-                      Id: string
-                      Name: string
-                      Comment: string
-                      Associations: Association*
-                      Attributes: Attribute*
+                      id: string
+                      name: string
+                      comment: string
+                      associations: Association*
+                      attributes: Attribute*
                   }
 
                   Association
                   {
-                      Name: string
-                      Specialization: string
-                      SpecializationEndType: string
-                      ClassId: string
-                      Type: string
+                      name: string
+                      specialization: string
+                      specializationEndType: string
+                      classId: string
+                      type: string
                   }
 
                   Attribute
                   {
-                      Id: string
-                      Name: string
-                      Type: string
-                      IsNullable: bool
-                      IsCollection: bool
-                      Comment: string
+                      id: string
+                      name: string
+                      type: string
+                      isNullable: bool
+                      isCollection: bool
+                      comment: string
                   }
                   ```
+                  
+                  The primitive types that are available are:
+                  
+                  - string
+                  - int
+                  - long
+                  - decimal
+                  - datetime
+                  - bool
+                  - guid
+                  - object
                   
                   The * denotes a collection of notation.
                   You will receive a JSON payload that conforms to the structure above.

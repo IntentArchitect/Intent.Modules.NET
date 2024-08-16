@@ -88,7 +88,7 @@ console.log(outClasses);
 
 let types = lookupTypesOf("Type-Definition", true);
 var dict = {}
-types.forEach((el, index) =&gt; dict[el.id] = types.length - index);
+types.forEach((el, index) =&gt; dict[el.getName()] = el.id);
 
 for (let jClass of outClasses) {
     let clazz = lookup(jClass.id);
@@ -101,8 +101,8 @@ for (let jClass of outClasses) {
         if (!attr) {
             attr = createElement("Attribute", jAttr.name, clazz.id);
         }
-        if (dict[jAttr.id]) {
-            attr.typeReference.setType(dict[jAttr.id].id);
+        if (dict[jAttr.type]) {
+            attr.typeReference.setType(dict[jAttr.type]);
         }
     }
 }</script>
