@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="51dc626f-5593-462c-984a-6e9c0c9228db" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>33084118-5d41-4965-a200-54aa73ba9021</parentFolderId>
+  <packageId>33084118-5d41-4965-a200-54aa73ba9021</packageId>
+  <packageName>Intent.Application.DependencyInjection</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

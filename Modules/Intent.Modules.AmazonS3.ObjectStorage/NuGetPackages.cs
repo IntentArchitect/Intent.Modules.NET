@@ -1,27 +1,41 @@
 using System;
 using Intent.Engine;
+using Intent.Modules.Common.CSharp.Nuget;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.NugetPackages", Version = "1.0")]
 
 namespace Intent.Modules.AmazonS3.ObjectStorage
 {
-    public static class NugetPackages
+    public class NugetPackages
     {
+        public const string AWSSDKExtensionsNETCoreSetupPackageName = "AWSSDK.Extensions.NETCore.Setup";
+        public const string AWSSDKS3PackageName = "AWSSDK.S3";
 
-        public static NugetPackageInfo AWSSDKS3(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "AWSSDK.S3",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 0, 0) => "3.7.400.2",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'AWSSDK.S3'")
-            });
+        static NugetPackages()
+        {
+            NugetRegistry.Register(AWSSDKExtensionsNETCoreSetupPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("3.7.7"),
+                        ( >= 0, 0) => new PackageVersion("3.7.301"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AWSSDKExtensionsNETCoreSetupPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(AWSSDKS3PackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 0, 0) => new PackageVersion("3.7.400.2"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AWSSDKS3PackageName}'"),
+                    }
+                );
+        }
 
-        public static NugetPackageInfo AWSSDKExtensionsNETCoreSetup(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "AWSSDK.Extensions.NETCore.Setup",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 2, 0) => "3.7.7",
-                (>= 0, 0) => "3.7.301",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'AWSSDK.Extensions.NETCore.Setup'")
-            });
+        public static NugetPackageInfo AWSSDKS3(IOutputTarget outputTarget) => NugetRegistry.GetVersion(AWSSDKS3PackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo AWSSDKExtensionsNETCoreSetup(IOutputTarget outputTarget) => NugetRegistry.GetVersion(AWSSDKExtensionsNETCoreSetupPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

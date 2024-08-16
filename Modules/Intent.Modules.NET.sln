@@ -46,13 +46,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.C
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.MediatR", "Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.csproj", "{80081361-CC7D-430C-8861-8B2AC9D6E8A7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.DependencyInjection", "Intent.Modules.Application.DependencyInjection\Intent.Modules.Application.DependencyInjection.csproj", "{1D15D8BA-269B-4A31-8855-602CDDAA651B}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.DependencyInjection", "Intent.Modules.Application.DependencyInjection\Intent.Modules.Application.DependencyInjection.csproj", "{1D15D8BA-269B-4A31-8855-602CDDAA651B}"
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.Identity", "Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj", "{DEDDB78D-352E-4FE1-B7AF-5F1AC59E4F55}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.Behaviours", "Intent.Modules.Application.MediatR.Behaviours\Intent.Modules.Application.MediatR.Behaviours.csproj", "{8DE7DB33-7D69-403F-AD45-3B3D753705F2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.DependencyInjection.MediatR", "Intent.Modules.Application.DependencyInjection.MediatR\Intent.Modules.Application.DependencyInjection.MediatR.csproj", "{237C143B-3123-4722-BDF6-24A34537C85B}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.DependencyInjection.MediatR", "Intent.Modules.Application.DependencyInjection.MediatR\Intent.Modules.Application.DependencyInjection.MediatR.csproj", "{237C143B-3123-4722-BDF6-24A34537C85B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.ApplicationTemplates.NET", "Intent.ApplicationTemplates.NET\Intent.ApplicationTemplates.NET.csproj", "{54EBD782-E0A1-44F7-9B81-E3F97573F275}"
 EndProject

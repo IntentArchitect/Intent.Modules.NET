@@ -22,7 +22,7 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis
             NugetRegistry.Register(StackExchangeRedisPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.7"),
+                        ( >= 8, 0) => new PackageVersion("8.0.8"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{StackExchangeRedisPackageName}'"),
                     }
                 );

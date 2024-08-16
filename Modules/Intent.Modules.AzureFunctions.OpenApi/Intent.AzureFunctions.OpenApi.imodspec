@@ -27,7 +27,7 @@
   <dependencies>
     <dependency id="Intent.AzureFunctions" version="4.1.0" />
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.6.0" />
+    <dependency id="Intent.Common.CSharp" version="3.7.3-pre.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.WebApi" version="4.5.5" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />

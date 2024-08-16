@@ -10,7 +10,7 @@ namespace Intent.Modules.Application.DependencyInjection.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetDependencyInjectionName<T>(this IntentTemplateBase<T> template)
+        public static string GetDependencyInjectionName(this IIntentTemplate template)
         {
             return template.GetTypeName(DependencyInjectionTemplate.TemplateId);
         }

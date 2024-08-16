@@ -18,9 +18,10 @@ namespace Intent.Modules.Application.DependencyInjection.Templates.DependencyInj
     {
         public override string TemplateId => DependencyInjectionTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new DependencyInjectionTemplate(outputTarget, null);
+            return new DependencyInjectionTemplate(outputTarget);
         }
     }
 }
