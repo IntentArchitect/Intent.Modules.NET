@@ -209,5 +209,19 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="4cff5a2a-e085-4e18-bdaf-c4a1920193dc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cb1a4b18-443d-4196-8a7e-d3318a2f1fa8</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

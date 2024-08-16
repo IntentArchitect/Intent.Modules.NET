@@ -59,22 +59,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="0ed052ed-c656-4ad3-b452-d894a028c58b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.ReadMe</name>
-      <display>Intent.ModuleBuilder.ReadMe</display>
-      <externalReference>Intent.ModuleBuilder</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>4b8347b4-3ac3-49b2-8e72-2c7b10476943</parentFolderId>
-      <packageId>302a4a1b-8851-4516-9046-526a0e237c62</packageId>
-      <packageName>Intent.Modules.NET</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="4213f7f7-0f5f-4d5e-8276-c7d96d568614" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Api.ApiMetadataDesignerExtensions</name>
       <display>Intent.ModuleBuilder.Templates.Api.ApiMetadataDesignerExtensions</display>
@@ -207,6 +191,34 @@
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4ee17a0d-bcbf-465c-9a1d-b0542febc1d2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.ReleaseNotes</name>
+      <display>Intent.ModuleBuilder.Templates.ReleaseNotes</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4b8347b4-3ac3-49b2-8e72-2c7b10476943</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ed7f730f-33ee-4c9a-a5ff-fc977005977c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4b8347b4-3ac3-49b2-8e72-2c7b10476943</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>
