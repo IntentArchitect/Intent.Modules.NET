@@ -38,6 +38,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
             DefaultRazorComponentBuilderProvider.Register(CheckboxModel.SpecializationTypeId, (provider, componentTemplate) => new CheckboxComponentBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(DataGridModel.SpecializationTypeId, (provider, componentTemplate) => new DataGridComponentBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(DatePickerModel.SpecializationTypeId, (provider, componentTemplate) => new DatePickerComponentBuilder(provider, componentTemplate));
+            DefaultRazorComponentBuilderProvider.Register(DialogModel.SpecializationTypeId, (provider, componentTemplate) => new DialogComponentBuilder(provider, componentTemplate));
         }
     }
 }

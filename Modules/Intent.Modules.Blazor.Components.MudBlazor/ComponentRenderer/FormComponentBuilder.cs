@@ -66,7 +66,6 @@ public class FormComponentBuilder : IRazorComponentBuilder
 
                 //form.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetBinding(formModel, "On Valid Submit")?.ToLambda()}");
                 //form.AddAttributeIfNotEmpty("OnInvalidSubmit", $"{_bindingManager.GetBinding(formModel, "On Invalid Submit")?.ToLambda()}");
-
                 form.AddHtmlElement("MudCard", card =>
                 {
                     var headerModel = formModel.Containers.SingleOrDefault(x => x.Name == "Header");
