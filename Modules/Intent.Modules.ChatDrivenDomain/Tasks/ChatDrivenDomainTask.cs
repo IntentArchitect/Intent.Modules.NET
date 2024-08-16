@@ -33,8 +33,7 @@ public class ChatDrivenDomainTask : IModuleTask
             var requestFunction = kernel.CreateFunctionFromPrompt(
                   """
                   You are an agent that is working alongside a product referred to as Intent Architect. You are an expert in designing business domains
-                  for software development and know how Domain Driven Design works. You will receive a domain to work with and execute instructions to
-                  provide a mutated version of that domain as a result in JSON notation.
+                  for software development and know how Domain Driven Design works.
 
                   There will be an input model supplied that will have the following structure:
                   
@@ -50,11 +49,11 @@ public class ChatDrivenDomainTask : IModuleTask
 
                   Association
                   {
+                      id: string
                       name: string
-                      specialization: string
-                      specializationEndType: string
+                      associationEndType: string
                       classId: string
-                      type: string
+                      relationship: string
                   }
 
                   Attribute
@@ -82,9 +81,11 @@ public class ChatDrivenDomainTask : IModuleTask
                   The * denotes a collection of notation.
                   You will receive a JSON payload that conforms to the structure above.
                   Classes are the root elements which will have Attributes which make up what information the Class can hold such as a "Name", "PhoneNumber", etc.
-                  Associations will have information on how Classes relate to one another. The ClassId will point to a Class in the collection you already have. 
-                  The "Type" field will give a relationship description like "1 -> *" which will be like standard UML Class relationships. 
-                  You **WILL** need to understand that relationship information **ALONGSIDE** the "SpecializationEndType" field.
+                  Associations will have information on how Classes relate to one another.
+                  The Id for the Association on both classes will be the same. 
+                  The ClassId will point to a Class in the collection you already have. 
+                  The "relationship" field will give a relationship description like "1 -> *" which will be like standard UML Class relationships. 
+                  You **WILL** need to understand that relationship information **ALONGSIDE** the "associationEndType" field.
                   So if you get the following:
                   
                   ```
@@ -94,11 +95,11 @@ public class ChatDrivenDomainTask : IModuleTask
                         "name": "Order",
                         "associations": [
                             {
+                            "id": "4d7b42ee-105a-4685-ae14-68d4932000c0",
                             "name": "OrderLines",
-                            "specialization": "Association Target End",
                             "associationEndType": "Target End",
                             "classId": "938ed54f-d622-4424-bfb9-02c486299b55",
-                            "type": "1 -> *"
+                            "relationship": "1 -> *"
                             }
                         ]
                     },
@@ -107,11 +108,11 @@ public class ChatDrivenDomainTask : IModuleTask
                         "name": "OrderLine",
                         "associations": [
                             {
+                            "id": "4d7b42ee-105a-4685-ae14-68d4932000c0",
                             "name": "Order",
-                            "specialization": "Association Source End",
                             "associationEndType": "Source End",
                             "classId": "0e8579d1-3a03-4248-941a-0eec8d05c154",
-                            "type": "1 -> *"
+                            "relationship": "1 -> *"
                             }
                         ]
                     }
@@ -135,9 +136,20 @@ public class ChatDrivenDomainTask : IModuleTask
                   ```
                   
                   Output instructions:
-                  When you are generating new "Id" values, use a unique GUID.
-                  Only output in JSON format and notation.
+                  When you mutate the above given domain based on the above prompt, use the structure provided initially.
+                  Any new IDs that are assigned should be in the form "Element-number".
+                  Additionally the Associations should have "isNullable" and "isCollection" fields that reflect
+                  the "relationship" field. * = collection, 0..1 = nullable.
+                  ONLY output the structure in JSON format. 
                   """);
+            
+            /*
+             you will record each action in the following manner.
+             Keep the structure above except that you will add a "action" field that can hold 3 modes: "Create", "Modify", "Delete".
+                  When you create a new Class, set the "action" on the Class, Attributes and Associations to "Create".
+                  When you mutate Attributes or Associations in any way, you will need to set the Class's "action" to "Modify".
+                  When you delete an existing Class you will need to set it and its children to "Delete".
+             */
             
             var result = requestFunction.InvokeAsync(kernel, new KernelArguments
             {

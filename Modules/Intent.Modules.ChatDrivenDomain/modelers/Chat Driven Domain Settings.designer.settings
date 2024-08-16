@@ -18,7 +18,7 @@
         {
             id: "prompt",
             fieldType: "textarea",
-            label: "Enter AI prompt"
+            label: "Enter AI prompt (ALPHA)"
         }
     ]
 });
@@ -67,10 +67,11 @@ let inClasses = element.getChildren("Class").map(clazz =&gt; {
         }),
         associations: clazz.getAssociations().map(assos =&gt; {
             return {
+                id: assos.getParent().id,
                 name: assos.getName(),
                 associationEndType: assos.isSourceEnd() ? "Source End" : assos.isTargetEnd() ? "Target End" : "Unknown",
                 classId: assos.typeReference.getTypeId(),
-                type: getRelationship(assos)
+                relationship: getRelationship(assos)
             };
         })
     }; 
@@ -87,23 +88,45 @@ let outClasses = JSON.parse(outputStr);
 console.log(outClasses);
 
 let types = lookupTypesOf("Type-Definition", true);
-var dict = {}
-types.forEach((el, index) =&gt; dict[el.getName()] = el.id);
+let typesLookup = {};
+types.forEach((el, index) =&gt; typesLookup[el.getName()] = el.id);
+
+let classIdLookup = {};
 
 for (let jClass of outClasses) {
     let clazz = lookup(jClass.id);
     if (!clazz) {
         clazz = createElement("Class", jClass.name, element.id);
     }
+    classIdLookup[jClass.id] = clazz;
 
     for (let jAttr of jClass.attributes) {
         let attr = lookup(jAttr.id);
         if (!attr) {
             attr = createElement("Attribute", jAttr.name, clazz.id);
         }
-        if (dict[jAttr.type]) {
-            attr.typeReference.setType(dict[jAttr.type]);
+        if (typesLookup[jAttr.type]) {
+            attr.typeReference.setType(typesLookup[jAttr.type]);
         }
+    }
+}
+
+assosIdLookup = {};
+
+for (let jClass of outClasses) {
+    let clazz = classIdLookup[jClass.id] || lookup(jClass.id);
+    for (let jAssos of jClass.associations) {
+        let pointerClass = classIdLookup[jAssos.classId];
+        let sourceClass = jAssos.associationEndType === "Source End" ? pointerClass : clazz;
+        let targetClass = jAssos.associationEndType === "Target End" ? pointerClass : clazz;
+        
+        let assos = assosIdLookup[jAssos.id] || lookup(jAssos.id);
+
+        if (!assos) {
+            assos = createAssociation("Association", sourceClass.id, targetClass.id);
+            assosIdLookup[jAssos.id] = assos;
+        }
+        console.log(`association id:${assos.id}, name:${assos.name}, children:${assos.getChildren().length}`);
     }
 }</script>
         </option>
