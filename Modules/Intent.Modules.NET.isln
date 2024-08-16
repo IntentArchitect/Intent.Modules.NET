@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.70" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.71" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -145,5 +145,6 @@
     <application id="4a709c8e-37f0-40ba-94d3-fb0fb1e00b18" name="Intent.Modules.Dapper" relativePath="Intent.Modules.Dapper/Intent.Modules.Dapper.application.config" />
     <application id="758dcf4d-aac0-4c2c-8a7d-a50e4116e360" name="Intent.Modules.HashiCorp.Vault" relativePath="Intent.Modules.HashiCorp.Vault/Intent.Modules.HashiCorp.Vault.application.config" />
     <application id="ac49e34e-9d17-4dfb-93cd-3a4fd3a0768c" name="Intent.Modules.NetTopologySuite" relativePath="Intent.Modules.NetTopologySuite/Intent.Modules.NetTopologySuite.application.config" />
+    <application id="04173526-2384-4828-9f9c-80fdde7c5460" name="Intent.Modules.ChatDrivenDomain" relativePath="Intent.Modules.ChatDrivenDomain/Intent.Modules.ChatDrivenDomain.application.config" />
   </applications>
 </solution>
