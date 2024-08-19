@@ -71,9 +71,11 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
 
             ExecutionContext.EventDispatcher.Subscribe<HostingSettingsCreatedEvent>(x =>
             {
+                var profileName = OutputTarget.GetProject().ApplicationName() + ".Client";
                 ExecutionContext.EventDispatcher.Publish(new LaunchProfileRegistrationRequest
                 {
-                    Name = this.OutputTarget.GetProject().ApplicationName() + ".Client",
+                    ForProjectWithRole = "Distribution",
+                    Name = profileName,
                     CommandName = "Project",
                     LaunchBrowser = true,
                     ApplicationUrl = $"https://localhost:{x.SslPort}/",
