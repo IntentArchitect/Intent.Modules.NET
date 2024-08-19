@@ -12,6 +12,7 @@ namespace Intent.Modules.Application.DependencyInjection.AutoMapper.Decorators
     [Description(AutoMapperDependencyInjectionDecorator.DecoratorId)]
     public class AutoMapperDependencyInjectionDecoratorRegistration : DecoratorRegistration<DependencyInjectionTemplate, DependencyInjectionDecorator>
     {
+        [IntentManaged(Mode.Fully)]
         public override DependencyInjectionDecorator CreateDecoratorInstance(DependencyInjectionTemplate template, IApplication application)
         {
             return new AutoMapperDependencyInjectionDecorator(template, application);

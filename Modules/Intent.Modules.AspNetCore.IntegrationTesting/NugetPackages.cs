@@ -1,97 +1,127 @@
 using System;
 using Intent.Engine;
+using Intent.Modules.Common.CSharp.Nuget;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.NugetPackages", Version = "1.0")]
 
 namespace Intent.Modules.AspNetCore.IntegrationTesting
 {
-    public static class NugetPackages
+    public class NugetPackages
     {
+        public const string AutoFixturePackageName = "AutoFixture";
+        public const string IEvangelistAzureCosmosRepositoryPackageName = "IEvangelist.Azure.CosmosRepository";
+        public const string MicrosoftAspNetCoreMvcTestingPackageName = "Microsoft.AspNetCore.Mvc.Testing";
+        public const string MicrosoftNETTestSdkPackageName = "Microsoft.NET.Test.Sdk";
+        public const string TestcontainersCosmosDbPackageName = "Testcontainers.CosmosDb";
+        public const string TestcontainersMongoDbPackageName = "Testcontainers.MongoDb";
+        public const string TestcontainersMsSqlPackageName = "Testcontainers.MsSql";
+        public const string TestcontainersPostgreSqlPackageName = "Testcontainers.PostgreSql";
+        public const string XunitPackageName = "xunit";
+        public const string XunitRunnerVisualstudioPackageName = "xunit.runner.visualstudio";
 
-        public static NugetPackageInfo AutoFixture(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "AutoFixture",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 2, 0) => "4.18.1",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'AutoFixture'")
-            });
+        static NugetPackages()
+        {
+            NugetRegistry.Register(AutoFixturePackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("4.18.1"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AutoFixturePackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(IEvangelistAzureCosmosRepositoryPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 8, 0) => new PackageVersion("8.1.7"),
+                        ( >= 7, 0) => new PackageVersion("8.1.7"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IEvangelistAzureCosmosRepositoryPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MicrosoftAspNetCoreMvcTestingPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 8, 0) => new PackageVersion("8.0.7"),
+                        ( >= 7, 0) => new PackageVersion("7.0.20"),
+                        ( >= 6, 0) => new PackageVersion("6.0.32"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreMvcTestingPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MicrosoftNETTestSdkPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 0, 0) => new PackageVersion("15.5.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftNETTestSdkPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(TestcontainersCosmosDbPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 8, 0) => new PackageVersion("3.9.0"),
+                        ( >= 6, 0) => new PackageVersion("3.9.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{TestcontainersCosmosDbPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(TestcontainersMongoDbPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 8, 0) => new PackageVersion("3.9.0"),
+                        ( >= 6, 0) => new PackageVersion("3.9.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{TestcontainersMongoDbPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(TestcontainersMsSqlPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 8, 0) => new PackageVersion("3.9.0"),
+                        ( >= 6, 0) => new PackageVersion("3.9.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{TestcontainersMsSqlPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(TestcontainersPostgreSqlPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 8, 0) => new PackageVersion("3.9.0"),
+                        ( >= 6, 0) => new PackageVersion("3.9.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{TestcontainersPostgreSqlPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(XunitPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 0, 0) => new PackageVersion("2.9.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{XunitPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(XunitRunnerVisualstudioPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 6, 0) => new PackageVersion("2.8.2"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{XunitRunnerVisualstudioPackageName}'"),
+                    }
+                );
+        }
 
-        public static NugetPackageInfo MicrosoftNETTestSdk(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Microsoft.NET.Test.Sdk",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 0, 0) => "15.5.0",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.NET.Test.Sdk'")
-            });
+        public static NugetPackageInfo AutoFixture(IOutputTarget outputTarget) => NugetRegistry.GetVersion(AutoFixturePackageName, outputTarget.GetMaxNetAppVersion());
 
-        public static NugetPackageInfo Xunit(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "xunit",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 0, 0) => "2.9.0",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'xunit'")
-            });
+        public static NugetPackageInfo MicrosoftNETTestSdk(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftNETTestSdkPackageName, outputTarget.GetMaxNetAppVersion());
 
-        public static NugetPackageInfo XunitRunnerVisualstudio(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "xunit.runner.visualstudio",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 6, 0) => "2.8.2",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'xunit.runner.visualstudio'")
-            });
+        public static NugetPackageInfo Xunit(IOutputTarget outputTarget) => NugetRegistry.GetVersion(XunitPackageName, outputTarget.GetMaxNetAppVersion());
 
-        public static NugetPackageInfo TestcontainersCosmosDb(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Testcontainers.CosmosDb",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 8, 0) => "3.9.0",
-                (>= 6, 0) => "3.9.0",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Testcontainers.CosmosDb'")
-            });
+        public static NugetPackageInfo XunitRunnerVisualstudio(IOutputTarget outputTarget) => NugetRegistry.GetVersion(XunitRunnerVisualstudioPackageName, outputTarget.GetMaxNetAppVersion());
 
-        public static NugetPackageInfo TestcontainersMsSql(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Testcontainers.MsSql",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 8, 0) => "3.9.0",
-                (>= 6, 0) => "3.9.0",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Testcontainers.MsSql'")
-            });
+        public static NugetPackageInfo TestcontainersCosmosDb(IOutputTarget outputTarget) => NugetRegistry.GetVersion(TestcontainersCosmosDbPackageName, outputTarget.GetMaxNetAppVersion());
 
-        public static NugetPackageInfo TestcontainersPostgreSql(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Testcontainers.PostgreSql",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 8, 0) => "3.9.0",
-                (>= 6, 0) => "3.9.0",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Testcontainers.PostgreSql'")
-            });
+        public static NugetPackageInfo TestcontainersMsSql(IOutputTarget outputTarget) => NugetRegistry.GetVersion(TestcontainersMsSqlPackageName, outputTarget.GetMaxNetAppVersion());
 
-        public static NugetPackageInfo TestcontainersMongoDb(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Testcontainers.MongoDb",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 8, 0) => "3.9.0",
-                (>= 6, 0) => "3.9.0",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Testcontainers.MongoDb'")
-            });
+        public static NugetPackageInfo TestcontainersPostgreSql(IOutputTarget outputTarget) => NugetRegistry.GetVersion(TestcontainersPostgreSqlPackageName, outputTarget.GetMaxNetAppVersion());
 
-        public static NugetPackageInfo IEvangelistAzureCosmosRepository(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "IEvangelist.Azure.CosmosRepository",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 8, 0) => "8.1.7",
-                (>= 7, 0) => "8.1.7",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'IEvangelist.Azure.CosmosRepository'")
-            });
+        public static NugetPackageInfo TestcontainersMongoDb(IOutputTarget outputTarget) => NugetRegistry.GetVersion(TestcontainersMongoDbPackageName, outputTarget.GetMaxNetAppVersion());
 
-        public static NugetPackageInfo MicrosoftAspNetCoreMvcTesting(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Microsoft.AspNetCore.Mvc.Testing",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 8, 0) => "8.0.7",
-                (>= 7, 0) => "7.0.20",
-                (>= 6, 0) => "6.0.32",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.AspNetCore.Mvc.Testing'")
-            });
+        public static NugetPackageInfo IEvangelistAzureCosmosRepository(IOutputTarget outputTarget) => NugetRegistry.GetVersion(IEvangelistAzureCosmosRepositoryPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftAspNetCoreMvcTesting(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAspNetCoreMvcTestingPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

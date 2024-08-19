@@ -1,34 +1,50 @@
 using System;
 using Intent.Engine;
+using Intent.Modules.Common.CSharp.Nuget;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.NugetPackages", Version = "1.0")]
 
 namespace Intent.Modules.Azure.KeyVault
 {
-    public static class NugetPackages
+    public class NugetPackages
     {
+        public const string AzureExtensionsAspNetCoreConfigurationSecretsPackageName = "Azure.Extensions.AspNetCore.Configuration.Secrets";
+        public const string AzureIdentityPackageName = "Azure.Identity";
+        public const string AzureSecurityKeyVaultSecretsPackageName = "Azure.Security.KeyVault.Secrets";
 
-        public static NugetPackageInfo AzureSecurityKeyVaultSecrets(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Azure.Security.KeyVault.Secrets",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 2, 0) => "4.6.0",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Azure.Security.KeyVault.Secrets'")
-            });
+        static NugetPackages()
+        {
+            NugetRegistry.Register(AzureExtensionsAspNetCoreConfigurationSecretsPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("1.3.1"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureExtensionsAspNetCoreConfigurationSecretsPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(AzureIdentityPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("1.12.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureIdentityPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(AzureSecurityKeyVaultSecretsPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("4.6.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureSecurityKeyVaultSecretsPackageName}'"),
+                    }
+                );
+        }
 
-        public static NugetPackageInfo AzureExtensionsAspNetCoreConfigurationSecrets(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Azure.Extensions.AspNetCore.Configuration.Secrets",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 2, 0) => "1.3.1",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Azure.Extensions.AspNetCore.Configuration.Secrets'")
-            });
+        public static NugetPackageInfo AzureSecurityKeyVaultSecrets(IOutputTarget outputTarget) => NugetRegistry.GetVersion(AzureSecurityKeyVaultSecretsPackageName, outputTarget.GetMaxNetAppVersion());
 
-        public static NugetPackageInfo AzureIdentity(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Azure.Identity",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 2, 0) => "1.12.0",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Azure.Identity'")
-            });
+        public static NugetPackageInfo AzureExtensionsAspNetCoreConfigurationSecrets(IOutputTarget outputTarget) => NugetRegistry.GetVersion(AzureExtensionsAspNetCoreConfigurationSecretsPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo AzureIdentity(IOutputTarget outputTarget) => NugetRegistry.GetVersion(AzureIdentityPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

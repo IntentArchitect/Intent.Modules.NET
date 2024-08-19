@@ -36,7 +36,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHa
             AddTypeSource(TemplateRoles.Application.Contracts.Enum);
             AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
             AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
-            
+
             FulfillsRole("Application.Implementation.Custom");
 
             var parentName = (model.ParentService.Name + "Handlers").ToPascalCase();
@@ -57,7 +57,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHa
                     @class.AddMethod(GetOperationReturnType(model), "Handle", method =>
                     {
                         method.AddMetadata("model", model);
-                        
+
                         foreach (var parameter in model.Parameters)
                         {
                             method.AddParameter(GetTypeName(parameter.TypeReference), parameter.Name);
@@ -88,7 +88,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHa
 
             return o.IsAsync() ? $"{UseType("System.Threading.Tasks.Task")}<{GetTypeName(o.ReturnType)}>" : GetTypeName(o.TypeReference);
         }
-        
+
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bd32cb35-22c9-47dc-931c-e8da480e3566" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+  <name>11.9.2</name>
+  <display>11.9.2 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>29fc2833-fd27-477b-b6e2-efa3f799e45b</parentFolderId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+        <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

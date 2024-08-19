@@ -42,8 +42,8 @@ namespace Intent.Modules.Dapper.Templates.Repository
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("Microsoft.Extensions.Configuration")
-				.AddUsing("Dapper")
-				.AddClass($"{Model.Name}Repository", @class =>
+                .AddUsing("Dapper")
+                .AddClass($"{Model.Name}Repository", @class =>
                 {
                     @class.AddMetadata("model", model);
                     @class.AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]");

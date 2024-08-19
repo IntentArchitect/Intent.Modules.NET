@@ -31,7 +31,7 @@ namespace Intent.Modules.HashiCorp.Vault.Templates.HashiCorpVaultOptions
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }
-        
+
         public string Nullable => OutputTarget.GetProject().NullableEnabled ? "?" : string.Empty;
     }
 }

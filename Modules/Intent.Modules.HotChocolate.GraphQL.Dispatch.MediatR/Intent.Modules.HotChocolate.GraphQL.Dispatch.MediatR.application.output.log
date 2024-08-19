@@ -3,7 +3,7 @@
   <ApplicationId>29280c3e-8c72-48c9-8bd3-fd0d42342315</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#fc4f5f3f-b40d-497b-b568-fc7d87508634</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#fc4f5f3f-b40d-497b-b568-fc7d87508634</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -46,14 +46,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1d7c5084-a09e-47e2-812e-474532076426</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

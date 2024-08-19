@@ -18,6 +18,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.AzureFunctions.Templates.GraphQLCo
     {
         public override string TemplateId => GraphQLConfigTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new GraphQLConfigTemplate(outputTarget);

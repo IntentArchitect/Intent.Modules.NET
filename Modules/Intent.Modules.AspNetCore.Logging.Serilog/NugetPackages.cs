@@ -1,46 +1,64 @@
 using System;
 using Intent.Engine;
+using Intent.Modules.Common.CSharp.Nuget;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.NugetPackages", Version = "1.0")]
 
 namespace Intent.Modules.AspNetCore.Logging.Serilog
 {
-    public static class NugetPackages
+    public class NugetPackages
     {
+        public const string SerilogAspNetCorePackageName = "Serilog.AspNetCore";
+        public const string SerilogEnrichersSpanPackageName = "Serilog.Enrichers.Span";
+        public const string SerilogSinksApplicationInsightsPackageName = "Serilog.Sinks.ApplicationInsights";
+        public const string SerilogSinksGraylogPackageName = "serilog.sinks.graylog";
 
-        public static NugetPackageInfo SerilogAspNetCore(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Serilog.AspNetCore",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 8, 0) => "8.0.2",
-                (>= 7, 0) => "8.0.2",
-                (>= 6, 0) => "8.0.2",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Serilog.AspNetCore'")
-            });
+        static NugetPackages()
+        {
+            NugetRegistry.Register(SerilogAspNetCorePackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 8, 0) => new PackageVersion("8.0.2"),
+                        ( >= 7, 0) => new PackageVersion("8.0.2"),
+                        ( >= 6, 0) => new PackageVersion("8.0.2"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SerilogAspNetCorePackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(SerilogEnrichersSpanPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 7, 0) => new PackageVersion("3.1.0"),
+                        ( >= 6, 0) => new PackageVersion("3.1.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SerilogEnrichersSpanPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(SerilogSinksApplicationInsightsPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 6, 0) => new PackageVersion("4.0.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SerilogSinksApplicationInsightsPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(SerilogSinksGraylogPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 7, 0) => new PackageVersion("3.1.1"),
+                        ( >= 6, 0) => new PackageVersion("3.1.1"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SerilogSinksGraylogPackageName}'"),
+                    }
+                );
+        }
 
-        public static NugetPackageInfo SerilogSinksGraylog(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "serilog.sinks.graylog",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 7, 0) => "3.1.1",
-                (>= 6, 0) => "3.1.1",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'serilog.sinks.graylog'")
-            });
+        public static NugetPackageInfo SerilogAspNetCore(IOutputTarget outputTarget) => NugetRegistry.GetVersion(SerilogAspNetCorePackageName, outputTarget.GetMaxNetAppVersion());
 
-        public static NugetPackageInfo SerilogEnrichersSpan(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Serilog.Enrichers.Span",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 7, 0) => "3.1.0",
-                (>= 6, 0) => "3.1.0",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Serilog.Enrichers.Span'")
-            });
+        public static NugetPackageInfo SerilogSinksGraylog(IOutputTarget outputTarget) => NugetRegistry.GetVersion(SerilogSinksGraylogPackageName, outputTarget.GetMaxNetAppVersion());
 
-        public static NugetPackageInfo SerilogSinksApplicationInsights(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Serilog.Sinks.ApplicationInsights",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 6, 0) => "4.0.0",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Serilog.Sinks.ApplicationInsights'")
-            });
+        public static NugetPackageInfo SerilogEnrichersSpan(IOutputTarget outputTarget) => NugetRegistry.GetVersion(SerilogEnrichersSpanPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo SerilogSinksApplicationInsights(IOutputTarget outputTarget) => NugetRegistry.GetVersion(SerilogSinksApplicationInsightsPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

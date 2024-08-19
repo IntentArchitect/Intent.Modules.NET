@@ -1,4 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8d97669a-b03f-4f1c-907f-8dbb94dca221</correlationId>
+      <path>Intent.Modules.Integration.HttpClients/Templates/HttpClient/HttpClientTemplatePartial.cs</path>
+      <count>6</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T06:37:39.8967361Z</updatedAt>
+      <deviationsHash>6357C141ADCE345BD3F44BEF4119BB8C7C7896DD0BF9F93130A4A2083ABA1ED8</deviationsHash>
+      <fileHash>F48ECE6C5B23460AB91CC12F366EF94296E13FB54DFCF2573922A94FA604093D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#8d97669a-b03f-4f1c-907f-8dbb94dca221</correlationId>
+      <path>Intent.Modules.Integration.HttpClients/Templates/HttpClient/HttpClientTemplateRegistration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T06:37:39.8968091Z</updatedAt>
+      <deviationsHash>3C61B780C0CE1D415622C2E91942D3BA16A91AC2F83A743A66E7A7E51C84688A</deviationsHash>
+      <fileHash>630C7C17E0F53EADB39DEF82C07983AB6B5F707007D9A676442E860FA486A7C9</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e9b86a42-6ac3-412f-96e9-8521215ffe55</correlationId>
+      <path>Intent.Modules.Integration.HttpClients/Templates/HttpClientConfiguration/HttpClientConfigurationTemplatePartial.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T06:37:39.8967636Z</updatedAt>
+      <deviationsHash>7005909DE53D955ABFA5DF326C4D3718463190691902FCBA6F5614C4747111C0</deviationsHash>
+      <fileHash>99126A3610F7DB9BD344A415DB6E28513CEB62307307B734CC1456B5129736A4</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2de50976-c2bf-4bdd-9c10-a222a6b59ebf</correlationId>
+      <path>Intent.Modules.Integration.HttpClients/Templates/HttpClientHeaderHandler/HttpClientHeaderHandlerTemplatePartial.cs</path>
+      <count>6</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T06:37:39.8967727Z</updatedAt>
+      <deviationsHash>51C92802417F613C2A3C5D3C3000D0429DA73A68AE9D269A73C6F2C6D82A08B9</deviationsHash>
+      <fileHash>082C1B8690368BF4F73B62B59F0862DD8B4736EE55F0F3DAEEF1DAF17B74B6C1</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#cc5d11e5-be38-40cb-b020-2b748e031a14</correlationId>
+      <path>Intent.Modules.Integration.HttpClients/Templates/HttpClientRequestException/HttpClientRequestExceptionTemplatePartial.cs</path>
+      <count>6</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T06:37:39.896782Z</updatedAt>
+      <deviationsHash>DC721C7BC7E9A082D4A9DA571ED04CD819C535B317387B4398093C7EEB56F2E8</deviationsHash>
+      <fileHash>95D7B818FB2F35E91072D67B6248EDF106A35E18A6944D689B439CEF3791D36B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fb39fd49-934d-4b91-9b0f-d8bc3586242d</correlationId>
+      <path>Intent.Modules.Integration.HttpClients/Templates/JsonResponse/JsonResponseTemplatePartial.cs</path>
+      <count>6</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T06:37:39.896791Z</updatedAt>
+      <deviationsHash>EAFF80E2258A052393CD428187F76F0DCF6129012F04216A7F02E1E765D6DBCB</deviationsHash>
+      <fileHash>5A4625B11C8BE91758862E0F89E43EB5034129EF3314218380933D135645E94B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4ce41bc1-e95c-4392-8a8c-0086dcaba43c</correlationId>
+      <path>Intent.Modules.Integration.HttpClients/Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T06:37:39.8967999Z</updatedAt>
+      <deviationsHash>1AC426D9F27BE05804E039194154F6ED42E76CEF7259EA9298B1CC8A55F1BBFB</deviationsHash>
+      <fileHash>D9E071905A8F3F469F53333CC1752FBF1601F1CD39169703A5A11D7C35F5FCEA</fileHash>
+    </file>
+  </files>
 </deviationsLog>

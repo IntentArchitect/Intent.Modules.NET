@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Dtos.Templates.ContractEnumModel;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,21 +13,22 @@ namespace Intent.Modules.Application.Dtos.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetContractEnumModelName<T>(this IntentTemplateBase<T> template) where T : Intent.Modules.Common.Types.Api.EnumModel
+        public static string GetContractEnumModelName<T>(this IIntentTemplate<T> template) where T : EnumModel
         {
             return template.GetTypeName(ContractEnumModelTemplate.TemplateId, template.Model);
         }
 
-        public static string GetContractEnumModelName(this IntentTemplateBase template, Intent.Modules.Common.Types.Api.EnumModel model)
+        public static string GetContractEnumModelName(this IIntentTemplate template, EnumModel model)
         {
             return template.GetTypeName(ContractEnumModelTemplate.TemplateId, model);
         }
-        public static string GetDtoModelName<T>(this IntentTemplateBase<T> template) where T : Intent.Modelers.Services.Api.DTOModel
+
+        public static string GetDtoModelName<T>(this IIntentTemplate<T> template) where T : DTOModel
         {
             return template.GetTypeName(DtoModelTemplate.TemplateId, template.Model);
         }
 
-        public static string GetDtoModelName(this IntentTemplateBase template, Intent.Modelers.Services.Api.DTOModel model)
+        public static string GetDtoModelName(this IIntentTemplate template, DTOModel model)
         {
             return template.GetTypeName(DtoModelTemplate.TemplateId, model);
         }

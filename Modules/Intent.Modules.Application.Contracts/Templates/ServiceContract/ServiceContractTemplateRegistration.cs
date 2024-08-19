@@ -26,6 +26,7 @@ namespace Intent.Modules.Application.Contracts.Templates.ServiceContract
 
         public override string TemplateId => ServiceContractTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ServiceModel model)
         {
             return new ServiceContractTemplate(outputTarget, model);

@@ -19,7 +19,8 @@ namespace Intent.Modules.Dapr.AspNetCore.Templates.StaticContentTemplateRegistra
 
         public override string ContentSubFolder => "DaprFiles";
 
-        public override string RelativeOutputPathPrefix => "dapr";
+
+        public override string[] BinaryFileGlobbingPatterns => new string[] { "*.jpg", "*.png", "*.xlsx", "*.ico", "*.pdf" };
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget) => new Dictionary<string, string>();

@@ -38,12 +38,14 @@ namespace Intent.Modules.Blazor.Server.FactoryExtensions
 
             startup?.CSharpFile.AfterBuild(file =>
             {
-                startup.StartupFile.ConfigureServices((statements, context) => {
+                startup.StartupFile.ConfigureServices((statements, context) =>
+                {
                     statements.AddStatement($"{context.Services}.AddRazorPages();");
                     statements.AddStatement($"{context.Services}.AddServerSideBlazor();");
                 });
 
-                startup.StartupFile.ConfigureApp((statements, context) => {
+                startup.StartupFile.ConfigureApp((statements, context) =>
+                {
                     var ifDevelopmentStatement = (CSharpIfStatement)statements
                         .FindStatement(m => m is CSharpIfStatement cif && cif.GetText("").Contains("env.IsDevelopment()"));
 

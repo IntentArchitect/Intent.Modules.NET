@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Repositories</id>
   <version>4.6.2</version>
@@ -63,7 +63,7 @@
   <interoperability></interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.0" />
+    <dependency id="Intent.Common.CSharp" version="3.7.3-pre.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Entities.Repositories.Api" version="5.1.0" />
     <dependency id="Intent.EntityFrameworkCore" version="5.0.4" />

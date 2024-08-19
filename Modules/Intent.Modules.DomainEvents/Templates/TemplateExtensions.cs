@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Modelers.Domain.Events.Api;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.DomainEvents.Templates.DomainEvent;
 using Intent.Modules.DomainEvents.Templates.DomainEventBase;
@@ -43,12 +44,12 @@ namespace Intent.Modules.DomainEvents.Templates
             return template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId);
         }
 
-        public static string GetDomainEventName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Events.Api.DomainEventModel
+        public static string GetDomainEventName<T>(this IIntentTemplate<T> template) where T : DomainEventModel
         {
             return template.GetTypeName(DomainEventTemplate.TemplateId, template.Model);
         }
 
-        public static string GetDomainEventName(this IIntentTemplate template, Intent.Modelers.Domain.Events.Api.DomainEventModel model)
+        public static string GetDomainEventName(this IIntentTemplate template, DomainEventModel model)
         {
             return template.GetTypeName(DomainEventTemplate.TemplateId, model);
         }

@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.MongoDb.Api
 {
     [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-    public class IndexFieldModel : IMetadataModel, IHasStereotypes, IHasName
+    public class IndexFieldModel : IMetadataModel, IHasStereotypes, IHasName, IElementWrapper
     {
         public const string SpecializationType = "Index Field";
         public const string SpecializationTypeId = "e22a4f98-e62c-428c-8fc8-a6523f72d6e6";

@@ -1,18 +1,30 @@
 using System;
 using Intent.Engine;
+using Intent.Modules.Common.CSharp.Nuget;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.NugetPackages", Version = "1.0")]
 
 namespace Intent.Modules.Application.AutoMapper
 {
-    public static class NugetPackages
+    public class NugetPackages
     {
+        public const string AutoMapperPackageName = "AutoMapper";
 
-        public static NugetPackageInfo AutoMapper(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "AutoMapper",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 6, 0) => "13.0.1",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'AutoMapper'")
-            });
+        static NugetPackages()
+        {
+            NugetRegistry.Register(AutoMapperPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 6, 0) => new PackageVersion("13.0.1"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AutoMapperPackageName}'"),
+                    }
+                );
+        }
+
+        public static NugetPackageInfo AutoMapper(IOutputTarget outputTarget) => NugetRegistry.GetVersion(AutoMapperPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

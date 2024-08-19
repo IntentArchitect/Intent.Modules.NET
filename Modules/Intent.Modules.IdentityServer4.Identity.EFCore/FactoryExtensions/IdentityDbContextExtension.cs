@@ -38,12 +38,12 @@ public class IdentityDbContextExtension : FactoryExtensionBase
             return;
         }
         template.FulfillsRole("Infrastructure.Data.IdentityDbContext");
-        
+
         // IdentityServer4.EntityFramework is no longer in production and
         // has a hard dependency on Automapper 10, only way to resolve compilation
         // issue with newer Automapper is to actually install it on this project
         template.AddNugetDependency(NugetPackages.Automapper);
-            
+
         template.AddNugetDependency(NugetPackages.IdentityServer4EntityFramework);
         template.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreIdentityEntityFrameworkCore(template.OutputTarget.GetProject()));
 

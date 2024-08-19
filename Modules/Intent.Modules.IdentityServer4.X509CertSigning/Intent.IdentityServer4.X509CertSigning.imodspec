@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IdentityServer4.X509CertSigning</id>
   <version>4.1.0</version>
@@ -23,11 +23,11 @@
     <decorator id="Intent.IdentityServer4.X509CertSigning.X509CertSigningIdentityConfigurationDecorator" externalReference="e5a6a18d-f239-4eb0-aabb-31e64a3669d1" />
   </decorators>
   <dependencies>
-    <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.4.0" />
-    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common.CSharp" version="3.7.3-pre.0" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.IdentityServer4.SecureTokenServer" version="4.1.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.3.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
     <dependency id="Intent.VisualStudio.Projects" version="3.3.25" />
   </dependencies>
   <files>

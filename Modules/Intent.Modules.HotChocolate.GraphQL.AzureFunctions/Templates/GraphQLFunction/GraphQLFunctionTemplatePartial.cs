@@ -33,7 +33,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.AzureFunctions.Templates.GraphQLFu
                             param.IntroduceReadonlyField();
                         });
                     });
-                    @class.AddMethod($"Task<{UseType("Microsoft.AspNetCore.Mvc.IActionResult")}>", "Run", method => 
+                    @class.AddMethod($"Task<{UseType("Microsoft.AspNetCore.Mvc.IActionResult")}>", "Run", method =>
                     {
                         method.AddAttribute(UseType("Microsoft.Azure.WebJobs.FunctionName"), attr => attr.AddArgument("\"GraphQLHttpFunction\""));
 

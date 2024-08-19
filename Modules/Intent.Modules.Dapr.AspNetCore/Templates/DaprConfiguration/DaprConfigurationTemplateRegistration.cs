@@ -18,6 +18,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Templates.DaprConfiguration
     {
         public override string TemplateId => DaprConfigurationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new DaprConfigurationTemplate(outputTarget);

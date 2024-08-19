@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9d83e8c1-fe70-4f85-875c-b96917ab6ec9" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>eeebdd4f-16e7-44c5-854e-a66217f01f20</parentFolderId>
+  <packageId>eeebdd4f-16e7-44c5-854e-a66217f01f20</packageId>
+  <packageName>Intent.Dapr.AspNetCore</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,18 +1,30 @@
 using System;
 using Intent.Engine;
+using Intent.Modules.Common.CSharp.Nuget;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.NugetPackages", Version = "1.0")]
 
 namespace Intent.Modules.AspNetCore.Swashbuckle
 {
-    public static class NugetPackages
+    public class NugetPackages
     {
+        public const string SwashbuckleAspNetCorePackageName = "Swashbuckle.AspNetCore";
 
-        public static NugetPackageInfo SwashbuckleAspNetCore(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Swashbuckle.AspNetCore",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 2, 0) => "6.7.0",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Swashbuckle.AspNetCore'")
-            });
+        static NugetPackages()
+        {
+            NugetRegistry.Register(SwashbuckleAspNetCorePackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("6.7.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SwashbuckleAspNetCorePackageName}'"),
+                    }
+                );
+        }
+
+        public static NugetPackageInfo SwashbuckleAspNetCore(IOutputTarget outputTarget) => NugetRegistry.GetVersion(SwashbuckleAspNetCorePackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

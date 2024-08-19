@@ -15,14 +15,14 @@ namespace Intent.CosmosDB.Api
     {
         public static FieldSetting GetFieldSetting(this AttributeModel model)
         {
-            var stereotype = model.GetStereotype("Field Setting");
+            var stereotype = model.GetStereotype("fb47f1e4-447b-4a67-947d-590fc24c20c1");
             return stereotype != null ? new FieldSetting(stereotype) : null;
         }
 
 
         public static bool HasFieldSetting(this AttributeModel model)
         {
-            return model.HasStereotype("Field Setting");
+            return model.HasStereotype("fb47f1e4-447b-4a67-947d-590fc24c20c1");
         }
 
         public static bool TryGetFieldSetting(this AttributeModel model, out FieldSetting stereotype)
@@ -33,7 +33,7 @@ namespace Intent.CosmosDB.Api
                 return false;
             }
 
-            stereotype = new FieldSetting(model.GetStereotype("Field Setting"));
+            stereotype = new FieldSetting(model.GetStereotype("fb47f1e4-447b-4a67-947d-590fc24c20c1"));
             return true;
         }
 

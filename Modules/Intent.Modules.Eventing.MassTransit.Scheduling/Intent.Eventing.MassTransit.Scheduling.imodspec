@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit.Scheduling</id>
   <version>1.0.2</version>
@@ -17,9 +17,9 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.5.0" />
+    <dependency id="Intent.Common" version="3.6.0" />
     <dependency id="Intent.Common.CSharp" version="3.4.1" />
-    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Eventing.MassTransit" version="6.1.0" />
   </dependencies>
   <files>

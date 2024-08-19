@@ -43,16 +43,16 @@ namespace Intent.Modules.IdentityServer4.Identity.EFCore.FactoryExtensions
             {
                 return;
             }
-            
+
             template.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();
-                
+
                 file.Usings.Add(new CSharpUsing("Microsoft.AspNetCore.Identity"));
                 file.Usings.Add(new CSharpUsing("System.Security.Claims"));
 
                 @class.FindMethod("Configure").AddStatement("CreateTestUsers(app);");
-                
+
                 @class.AddMethod("void", "CreateTestUsers", method =>
                 {
                     method.Private()

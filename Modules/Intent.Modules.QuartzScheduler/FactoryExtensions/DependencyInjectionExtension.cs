@@ -1,4 +1,5 @@
 using Intent.Engine;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;

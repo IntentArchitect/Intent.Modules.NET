@@ -28,7 +28,9 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
     }
-    [IntentManaged(Mode.Merge)]
+
+#warning is this actually used and just lying around here - 16 Aug 2024
+    [IntentManaged(Mode.Ignore)]
     public class DbContextFactoryExtension : FactoryExtensionBase
     {
         public override string Id => "Intent.AspNetCore.Identity.DbContextFactoryExtension";

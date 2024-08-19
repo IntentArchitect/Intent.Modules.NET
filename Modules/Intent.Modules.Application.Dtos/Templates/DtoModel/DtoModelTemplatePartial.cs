@@ -67,11 +67,11 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                             }
                             else
                             {
-                                protectedCtor.Protected();   
+                                protectedCtor.Protected();
                             }
                             PopulateDefaultCtor(protectedCtor);
                         });
-                        
+
                         foreach (var field in Model.Fields)
                         {
                             ctor.AddParameter(GetTypeName(field.TypeReference), field.Name.ToParameterName());
@@ -104,7 +104,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                                     {
                                         block.AddArgument(field.Name.ToParameterName());
                                     }
-                                });  
+                                });
                             }
                             else
                             {
@@ -115,7 +115,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                                         block.AddInitStatement(field.Name.ToPascalCase(), field.Name.ToParameterName());
                                     }
                                     block.WithSemicolon();
-                                });   
+                                });
                             }
                         });
                     }

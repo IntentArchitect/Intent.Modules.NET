@@ -14,8 +14,8 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.SoftwareFactory;
 using Intent.Templates;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
 namespace Intent.Modules.Entities.Templates.DomainEntity
 {

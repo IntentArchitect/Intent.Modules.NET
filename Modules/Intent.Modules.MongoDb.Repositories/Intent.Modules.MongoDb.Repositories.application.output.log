@@ -3,7 +3,7 @@
   <ApplicationId>e406684b-ac67-4f35-8f6c-c02af49695d4</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#5637d6fc-735f-4a5f-abdd-0b99bd35cc92</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#5637d6fc-735f-4a5f-abdd-0b99bd35cc92</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,14 +38,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.MongoDb.Repositories.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.MongoDb.Repositories.imodspec</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>bf01f56c-fc9f-424a-8bf5-38ca6f65e2bc</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -118,7 +110,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
   </FileLogs>
 </outputLog>

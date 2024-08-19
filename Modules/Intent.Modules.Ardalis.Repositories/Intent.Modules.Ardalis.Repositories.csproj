@@ -21,7 +21,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.6.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.5.5" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.7.3-pre.0" />
     <PackageReference Include="Intent.Modules.EntityFrameworkCore.Repositories" Version="4.5.5" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.9.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">

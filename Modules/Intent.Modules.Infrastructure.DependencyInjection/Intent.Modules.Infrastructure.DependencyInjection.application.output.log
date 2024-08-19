@@ -3,7 +3,7 @@
   <ApplicationId>5d935a54-a908-4812-9169-cf57c94719b3</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#7751518a-8789-4fc4-a472-85c1a00955ad</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#7751518a-8789-4fc4-a472-85c1a00955ad</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -19,17 +19,17 @@
     <FileLog>
       <ProjectId>17a3cb70-a261-43ea-b2b3-6f106af95a0b</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#17a3cb70-a261-43ea-b2b3-6f106af95a0b</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Infrastructure.DependencyInjection.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Infrastructure.DependencyInjection.csproj</ProjectRelativeFilePath>
       <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>17a3cb70-a261-43ea-b2b3-6f106af95a0b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NugetPackages.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -62,7 +62,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
   </FileLogs>
 </outputLog>

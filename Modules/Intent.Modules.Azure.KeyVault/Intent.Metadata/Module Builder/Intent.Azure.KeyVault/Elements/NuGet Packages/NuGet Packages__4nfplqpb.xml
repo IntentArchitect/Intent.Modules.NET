@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d3f06a43-ecb4-4b5c-b875-4ac2afee5a5e" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fc85592b-ee1e-4416-aeda-4bf7c425b47d</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

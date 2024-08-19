@@ -18,6 +18,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
     {
         public override string TemplateId => UnitOfWorkBehaviourTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new UnitOfWorkBehaviourTemplate(outputTarget);

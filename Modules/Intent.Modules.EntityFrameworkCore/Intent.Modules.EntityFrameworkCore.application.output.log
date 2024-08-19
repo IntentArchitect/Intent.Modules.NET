@@ -121,6 +121,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>a1131531-4494-4841-85fa-1e3f07268ca9</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NugetPackages.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>fed3139b-f756-4f55-a155-e374d2965abf</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#a9d2a398-04e4-4300-9fbb-768568c65f9e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

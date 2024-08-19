@@ -15,14 +15,14 @@ namespace Intent.Application.ServiceImplementations.Api
     {
         public static ContractOnly GetContractOnly(this ServiceModel model)
         {
-            var stereotype = model.GetStereotype("Contract Only");
+            var stereotype = model.GetStereotype("f7a2e653-d654-48d6-9a44-18cf49c9233e");
             return stereotype != null ? new ContractOnly(stereotype) : null;
         }
 
 
         public static bool HasContractOnly(this ServiceModel model)
         {
-            return model.HasStereotype("Contract Only");
+            return model.HasStereotype("f7a2e653-d654-48d6-9a44-18cf49c9233e");
         }
 
         public static bool TryGetContractOnly(this ServiceModel model, out ContractOnly stereotype)
@@ -33,7 +33,7 @@ namespace Intent.Application.ServiceImplementations.Api
                 return false;
             }
 
-            stereotype = new ContractOnly(model.GetStereotype("Contract Only"));
+            stereotype = new ContractOnly(model.GetStereotype("f7a2e653-d654-48d6-9a44-18cf49c9233e"));
             return true;
         }
 

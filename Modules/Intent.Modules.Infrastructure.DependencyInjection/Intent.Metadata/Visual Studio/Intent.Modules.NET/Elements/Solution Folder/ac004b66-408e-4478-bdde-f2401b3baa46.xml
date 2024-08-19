@@ -3,7 +3,7 @@
   <name>NET Core</name>
   <display>NET Core</display>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>7751518a-8789-4fc4-a472-85c1a00955ad</parentFolderId>

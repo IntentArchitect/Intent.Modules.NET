@@ -18,9 +18,10 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
     {
         public override string TemplateId => AuthorizationBehaviourTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new AuthorizationBehaviourTemplate(outputTarget, null);
+            return new AuthorizationBehaviourTemplate(outputTarget);
         }
     }
 }

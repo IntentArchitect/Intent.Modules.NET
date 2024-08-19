@@ -15,14 +15,14 @@ namespace Intent.HotChocolate.GraphQL.Dispatch.Services.Api
     {
         public static GraphQLEnabled GetGraphQLEnabled(this OperationModel model)
         {
-            var stereotype = model.GetStereotype("GraphQL Enabled");
+            var stereotype = model.GetStereotype("b7dc433a-8d6d-4cae-88e3-780e5aa0c418");
             return stereotype != null ? new GraphQLEnabled(stereotype) : null;
         }
 
 
         public static bool HasGraphQLEnabled(this OperationModel model)
         {
-            return model.HasStereotype("GraphQL Enabled");
+            return model.HasStereotype("b7dc433a-8d6d-4cae-88e3-780e5aa0c418");
         }
 
         public static bool TryGetGraphQLEnabled(this OperationModel model, out GraphQLEnabled stereotype)
@@ -33,7 +33,7 @@ namespace Intent.HotChocolate.GraphQL.Dispatch.Services.Api
                 return false;
             }
 
-            stereotype = new GraphQLEnabled(model.GetStereotype("GraphQL Enabled"));
+            stereotype = new GraphQLEnabled(model.GetStereotype("b7dc433a-8d6d-4cae-88e3-780e5aa0c418"));
             return true;
         }
 

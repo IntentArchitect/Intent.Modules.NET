@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f9817e5f-293b-47bb-895e-22d387b7c6f0</correlationId>
+      <path>Intent.Modules.AspNetCore.Swashbuckle/Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplatePartial.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T12:51:45.7727408Z</updatedAt>
+      <deviationsHash>4CBB3166FB45F3EF7CB4B8D6387CA98B886C20293F5FB816802BC1C9C02E9946</deviationsHash>
+      <fileHash>A30D18F54351BB822CA8FF76658380D62B2807EA1B78C902D1BB987EEFC8DE2E</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f9817e5f-293b-47bb-895e-22d387b7c6f0</correlationId>
+      <path>Intent.Modules.AspNetCore.Swashbuckle/Templates/SwashbuckleConfiguration/SwashbuckleConfigurationTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T12:51:45.7727506Z</updatedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>B6F49A48807FDE7CBED353DA455677ED67649D6C66803E146A014B4D1F5014FC</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
+      <path>Intent.Modules.AspNetCore.Swashbuckle/Templates/TemplateExtensions.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T12:51:45.7727584Z</updatedAt>
+      <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
+      <fileHash>5530D5BDD197DF5974831CEACE8E620F4CE11BC00FB83AE6ACA933B05F40D558</fileHash>
+    </file>
+  </files>
+</deviationsLog>

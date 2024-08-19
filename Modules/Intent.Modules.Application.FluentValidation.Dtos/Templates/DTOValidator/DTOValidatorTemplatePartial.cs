@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
@@ -6,7 +7,6 @@ using Intent.Modules.Application.FluentValidation.Settings;
 using Intent.Modules.Constants;
 using Intent.Modules.FluentValidation.Shared.Templates.DtoValidator;
 using Intent.RoslynWeaver.Attributes;
-using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Ignore, Targets = Targets.Usings)]

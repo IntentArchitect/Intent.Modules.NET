@@ -50,7 +50,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     // so that this template can be found when searched for by Id and the repository model (e.g. DomainInteractions with repositories):
                     application.RegisterTemplateInRoleForModel(interfaceTemplate.Id, entry.Repository, interfaceTemplate);
                 }
-                
+
 
                 var repositoryTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(RepositoryTemplate.TemplateId, entry.Entity);
                 if (repositoryTemplate is not null)

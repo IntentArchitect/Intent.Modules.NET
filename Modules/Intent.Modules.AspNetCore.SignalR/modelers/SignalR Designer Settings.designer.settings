@@ -29,6 +29,7 @@
       <saveAsOwnFile>true</saveAsOwnFile>
       <allowRename>true</allowRename>
       <allowAbstract>false</allowAbstract>
+      <allowStatic>false</allowStatic>
       <allowGenericTypes>false</allowGenericTypes>
       <allowMapping>false</allowMapping>
       <allowSorting>true</allowSorting>
@@ -76,6 +77,7 @@ element.getStereotype(hubSettingsStereotypeId)
           <saveAsOwnFile>false</saveAsOwnFile>
           <allowRename>false</allowRename>
           <allowAbstract>false</allowAbstract>
+          <allowStatic>false</allowStatic>
           <allowGenericTypes>false</allowGenericTypes>
           <allowMapping>false</allowMapping>
           <allowSorting>false</allowSorting>
@@ -127,6 +129,7 @@ if (!element.hasStereotype(publishMessageStereotypeId)) {
         </option>
       </creationOptions>
       <scriptOptions />
+      <mappingOptions />
       <typeOrder>
         <type>SignalR Hub</type>
       </typeOrder>
@@ -136,4 +139,6 @@ if (!element.hasStereotype(publishMessageStereotypeId)) {
   <associationSettings />
   <associationExtensions />
   <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
 </settings>

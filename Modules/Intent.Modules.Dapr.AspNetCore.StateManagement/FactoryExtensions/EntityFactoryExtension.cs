@@ -1,4 +1,5 @@
 using Intent.Engine;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates;
 using Intent.Modules.DocumentDB.Shared;

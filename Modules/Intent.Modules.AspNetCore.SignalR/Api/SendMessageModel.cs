@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.AspNetCore.SignalR.Api
 {
     [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-    public class SendMessageModel : IMetadataModel, IHasStereotypes, IHasName, IHasTypeReference
+    public class SendMessageModel : IMetadataModel, IHasStereotypes, IHasName, IElementWrapper, IHasTypeReference
     {
         public const string SpecializationType = "Send Message";
         public const string SpecializationTypeId = "eff4de68-2ecb-4f61-a240-638c500693e2";

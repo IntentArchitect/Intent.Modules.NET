@@ -74,6 +74,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>558f5562-d714-4264-a02d-350300a2c956</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NugetPackages.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>558f5562-d714-4264-a02d-350300a2c956</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

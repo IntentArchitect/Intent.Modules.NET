@@ -28,8 +28,8 @@ namespace Intent.Modules.WindowsServiceHost.Templates.WindowsBackgroundService
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Microsoft.Extensions.Hosting")
                 .AddUsing("Microsoft.Extensions.Logging")
-				.AddUsing("Microsoft.Extensions.DependencyInjection")				
-				.AddClass($"WindowsBackgroundService", @class =>
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddClass($"WindowsBackgroundService", @class =>
                 {
                     @class.WithBaseType("BackgroundService");
                     @class.AddConstructor(ctor =>
@@ -86,7 +86,7 @@ namespace Intent.Modules.WindowsServiceHost.Templates.WindowsBackgroundService
                 });
         }
 
-		[IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]

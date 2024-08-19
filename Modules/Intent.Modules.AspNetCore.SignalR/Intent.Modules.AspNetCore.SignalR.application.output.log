@@ -3,7 +3,7 @@
   <ApplicationId>3c870573-3449-4986-82f0-1bf3299ab1d1</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#744804c4-84d8-4b21-bde0-63128ae91f78</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#744804c4-84d8-4b21-bde0-63128ae91f78</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -86,14 +86,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>modelers/SignalR Designer Settings.designer.settings</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SignalR Designer Settings.designer.settings</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>dceedf9c-f645-408b-8e3c-8e3f214bb797</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

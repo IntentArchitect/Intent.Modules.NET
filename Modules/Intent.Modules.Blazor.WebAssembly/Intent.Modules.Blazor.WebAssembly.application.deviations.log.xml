@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#84464de4-ae65-4ebd-898b-875b7b4ac0cb</correlationId>
+      <path>Intent.Modules.Blazor.WebAssembly/Templates/StaticContentTemplateRegistrations/StaticStaticContentTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:33:46.9258238Z</updatedAt>
+      <deviationsHash>DB7C6CA3B84E1E820CA929532C4AF0E61B2F8651A10EB1E7C5CD1BC2CBF58248</deviationsHash>
+      <fileHash>31404BB0CD2F4E1B321565DA5DB0D27A8F713032B018DBC465B8FFEC09EC994E</fileHash>
+    </file>
+  </files>
+</deviationsLog>

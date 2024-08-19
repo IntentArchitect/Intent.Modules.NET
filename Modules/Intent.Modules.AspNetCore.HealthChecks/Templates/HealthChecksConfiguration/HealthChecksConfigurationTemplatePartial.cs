@@ -313,12 +313,12 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
                 if (@event.Properties.TryGetValue(propName, out var propValue))
                 {
                     return propValue;
-                }    
+                }
             }
 
             return null;
         }
-        
+
         private static string? GetConfigurationRetrievalExpression(
             InfrastructureRegisteredEvent @event,
             string path)
@@ -330,7 +330,7 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
 
             return null;
         }
-        
+
         private static string GetConnectionStringRetrievalExpression(
             InfrastructureRegisteredEvent @event,
             string connectionStringNameVar,
@@ -371,7 +371,8 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
             });
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

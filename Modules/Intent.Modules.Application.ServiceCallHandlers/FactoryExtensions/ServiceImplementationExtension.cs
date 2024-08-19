@@ -39,7 +39,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.FactoryExtensions
                 template.CSharpFile.OnBuild(file =>
                 {
                     file.AddUsing("Microsoft.Extensions.DependencyInjection");
-                    
+
                     var @class = file.Classes.First();
                     var ctor = @class.Constructors.First();
                     ctor.AddParameter("IServiceProvider", "serviceProvider", param => param.IntroduceReadonlyField());
@@ -61,7 +61,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.FactoryExtensions
 
                         var resultPart = (model.ReturnType is not null ? "var result = " : string.Empty);
                         var asyncPart = (model.IsAsync() ? "await " : string.Empty);
-                        
+
                         var handlerInvoke = new CSharpInvocationStatement(
                             $"{resultPart}{asyncPart}sch.Handle");
                         foreach (var parameter in method.Parameters)

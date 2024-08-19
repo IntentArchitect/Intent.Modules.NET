@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.Cors.Templates.CorsConfiguration
     {
         public override string TemplateId => CorsConfigurationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new CorsConfigurationTemplate(outputTarget);

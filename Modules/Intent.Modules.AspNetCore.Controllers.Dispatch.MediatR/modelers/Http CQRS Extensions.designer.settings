@@ -101,4 +101,7 @@ services.forEach(service =&gt; {
   <elementExtensions />
   <associationSettings />
   <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
 </settings>

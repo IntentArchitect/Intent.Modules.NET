@@ -43,6 +43,22 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="2bc7e478-1e47-4553-91c7-827a842e55ad" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a5014cab-e575-4d90-afd3-ba92d8e3bec5</parentFolderId>
+      <packageId>bcce5b02-db20-4e46-ad4d-112a36fb2f34</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="2d6116b2-835e-4810-bd9f-28cb6a1af9b3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.IModSpecFile</name>
       <display>Intent.ModuleBuilder.IModSpecFile</display>
@@ -207,20 +223,6 @@
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="2bc7e478-1e47-4553-91c7-827a842e55ad" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</name>
-      <display>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</display>
-      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>a5014cab-e575-4d90-afd3-ba92d8e3bec5</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
       <childElements />
     </childElement>
   </childElements>

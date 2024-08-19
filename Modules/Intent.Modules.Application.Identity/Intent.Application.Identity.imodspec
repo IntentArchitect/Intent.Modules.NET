@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Identity</id>
   <version>3.5.2</version>
@@ -92,10 +92,10 @@
           <hint>Which Type is used to represent authenticated user's identity.</hint>
           <defaultValue>string</defaultValue>
           <options>
-            <option value="string" description="string" />
             <option value="guid" description="guid" />
-            <option value="long" description="long" />
             <option value="int" description="int" />
+            <option value="long" description="long" />
+            <option value="string" description="string" />
           </options>
         </setting>
       </settings>

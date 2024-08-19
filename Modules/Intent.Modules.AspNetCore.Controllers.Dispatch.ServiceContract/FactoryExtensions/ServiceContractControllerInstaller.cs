@@ -14,6 +14,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Modules.UnitOfWork.Persistence.Shared;
+using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Build.Evaluation;
 
@@ -32,7 +33,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            
+
             var templates = application.FindTemplateInstances<IControllerTemplate<IControllerModel>>(TemplateDependency.OnTemplate(TemplateRoles.Distribution.Custom.Dispatcher));
             if (!templates.Any())
             {
@@ -109,7 +110,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                             FileTransferHelper.AddControllerStreamLogic(template, method, operationModel);
 
 
-                            arguments = string.Join(", ", operationModel.Parameters.Select((x) => FileTransferHelper.IsStreamType(x.TypeReference) ? $"stream" :  x.Name ?? ""));
+                            arguments = string.Join(", ", operationModel.Parameters.Select((x) => FileTransferHelper.IsStreamType(x.TypeReference) ? $"stream" : x.Name ?? ""));
                         }
 
                         if (!operationModel.InternalElement.HasStereotype("Synchronous"))
@@ -133,7 +134,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                         }
 
                         var returnStatement = template.GetReturnStatement(operationModel);
-                        if (returnStatement != null) 
+                        if (returnStatement != null)
                         {
                             method.AddStatement(returnStatement);
                         }
@@ -177,7 +178,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                         returnType: null,
                         resultVariableName: "result",
                         fieldSuffix: "unitOfWork",
-                        includeComments:false);
+                        includeComments: false);
 
                     //Move return statement to the end
                     var returnStatement = method.Statements.LastOrDefault(x => x.ToString()!.Trim().StartsWith("return "));

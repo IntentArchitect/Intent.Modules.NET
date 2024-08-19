@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.TokenSe
     {
         public override string TemplateId => TokenServiceConcreteTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new TokenServiceConcreteTemplate(outputTarget);

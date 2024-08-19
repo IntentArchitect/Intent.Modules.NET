@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreGenericRepository;
 using Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStoreGenericRepositoryInterface;
@@ -27,12 +28,12 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates
             return template.GetTypeName(DaprStateStoreGenericRepositoryInterfaceTemplate.TemplateId);
         }
 
-        public static string GetDaprStateStoreRepositoryName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
+        public static string GetDaprStateStoreRepositoryName<T>(this IIntentTemplate<T> template) where T : ClassModel
         {
             return template.GetTypeName(DaprStateStoreRepositoryTemplate.TemplateId, template.Model);
         }
 
-        public static string GetDaprStateStoreRepositoryName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
+        public static string GetDaprStateStoreRepositoryName(this IIntentTemplate template, ClassModel model)
         {
             return template.GetTypeName(DaprStateStoreRepositoryTemplate.TemplateId, model);
         }

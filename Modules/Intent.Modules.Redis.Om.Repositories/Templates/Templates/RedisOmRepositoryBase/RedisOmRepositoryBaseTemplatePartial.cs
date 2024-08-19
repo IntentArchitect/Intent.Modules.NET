@@ -360,7 +360,7 @@ namespace Intent.Modules.Redis.Om.Repositories.Templates.Templates.RedisOmReposi
         {
             base.AfterTemplateRegistration();
             this.ApplyConnectionString(Constants.RedisConnectionStringName, "localhost:6379");
-            
+
             ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.Redis.Name)
                 .WithProperty(Infrastructure.Redis.Property.ConnectionStringName, Constants.RedisConnectionStringName));
         }

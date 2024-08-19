@@ -54,7 +54,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Fac
                 template.CSharpFile.OnBuild(file =>
                 {
                     var serviceModel = file.Classes.First().GetMetadata<ServiceModel>("model");
-                
+
                     foreach (var operation in serviceModel.Operations)
                     {
                         var matchedStrategies = strategies.Where(strategy => strategy.IsMatch(operation)).ToArray();
@@ -67,7 +67,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Fac
                             Logging.Log.Warning($@"Multiple CRUD implementation strategies were found that can implement this service operation [{serviceModel.Name}, {operation.Name}]");
                             Logging.Log.Debug($@"Strategies: {string.Join(", ", matchedStrategies.Select(s => s.GetType().Name))}");
                         }
-                    } 
+                    }
                 });
             }
         }

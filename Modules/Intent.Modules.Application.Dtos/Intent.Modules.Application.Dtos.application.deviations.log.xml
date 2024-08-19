@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecorator#128d2122-ed2d-459e-b933-c5ce487320f0</correlationId>
+      <path>Intent.Modules.Application.Dtos/Decorators/DataContractDTOAttributeDecorator.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T10:02:38.9811717Z</updatedAt>
+      <deviationsHash>0122796ECDD8ED7ABA990CD493A3134C9062527563E91CC25B1F546AAE8623CA</deviationsHash>
+      <fileHash>AA02B79A4BD80682249AEA184206E7E69CEA927D019FA315562F60FCED6E20D0</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#b0eb283a-13f0-4d72-8000-917fa9550574</correlationId>
+      <path>Intent.Modules.Application.Dtos/Templates/DtoModel/DtoModelDecorator.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T10:02:38.9813217Z</updatedAt>
+      <deviationsHash>DC04CC53308D518168054A47AEE0C044188A042E72E88654720BD8201579C4FB</deviationsHash>
+      <fileHash>363B55480CFBE195323719FCEFFB7EED75B447FE3B3E117611861840C7F41CA8</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#8229e960-3d06-4e61-952e-b08570edca67</correlationId>
+      <path>Intent.Modules.Application.Dtos/Templates/DtoModel/DtoModelTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T10:02:38.9813139Z</updatedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>5D6A1D574A6B05E8C56A6471CA0CD2FAB9F78A76D3653FDB7C52EF253BD56167</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
+      <path>Intent.Modules.Application.Dtos/Templates/TemplateExtensions.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T10:02:38.9813294Z</updatedAt>
+      <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
+      <fileHash>6DAD3E353ACEE4D6B2B732D7677BC992BE7E2499275543F5F669B56E10262C54</fileHash>
+    </file>
+  </files>
+</deviationsLog>

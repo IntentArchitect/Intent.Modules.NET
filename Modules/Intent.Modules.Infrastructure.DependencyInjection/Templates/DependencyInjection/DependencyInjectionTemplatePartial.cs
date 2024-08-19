@@ -91,7 +91,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
 
             @event.MarkAsHandled();
             _containerRegistrationRequests.Add(@event);
-            
+
             foreach (var templateDependency in @event.TemplateDependencies)
             {
                 var template = GetTemplate<IClassProvider>(templateDependency);
@@ -99,7 +99,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
                 {
                     AddUsing(template.Namespace);
                 }
-                
+
                 AddTemplateDependency(templateDependency);
             }
 
@@ -118,7 +118,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
 
             @event.MarkAsHandled();
             _serviceConfigurationRequests.Add(@event);
-            
+
             foreach (var templateDependency in @event.TemplateDependencies)
             {
                 var template = GetTemplate<IClassProvider>(templateDependency);
@@ -129,7 +129,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
 
                 AddTemplateDependency(templateDependency);
             }
-            
+
             foreach (var ns in @event.RequiredNamespaces)
             {
                 AddUsing(ns);

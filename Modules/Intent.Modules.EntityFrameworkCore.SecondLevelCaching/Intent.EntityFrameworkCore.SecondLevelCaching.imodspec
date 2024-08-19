@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.SecondLevelCaching</id>
   <version>1.0.0-beta.1</version>
@@ -24,9 +24,9 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.AspNetCore.DistributedCaching" version="1.0.0-beta.0" />
-    <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.5.5" />
-    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common.CSharp" version="3.7.3-pre.0" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>

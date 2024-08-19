@@ -3,7 +3,7 @@
   <ApplicationId>6e53e156-5533-4def-95e4-e4cd8bb4f992</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#2bd8111e-1186-416b-bc2f-36add0e28b45</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#2bd8111e-1186-416b-bc2f-36add0e28b45</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -38,6 +38,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Azure.TableStorage.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Azure.TableStorage.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cb1a4b18-443d-4196-8a7e-d3318a2f1fa8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NugetPackages.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

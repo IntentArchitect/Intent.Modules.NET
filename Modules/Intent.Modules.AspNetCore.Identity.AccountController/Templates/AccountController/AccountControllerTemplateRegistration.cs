@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
     {
         public override string TemplateId => AccountControllerTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new AccountControllerTemplate(outputTarget);

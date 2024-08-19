@@ -565,7 +565,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     string enumType = this.GetTypeName(enumAttribute.TypeReference);
                     if (ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings())
                     {
-                        constraint.AppendLine( @$"var enumValues =  Enum.GetNames<{enumType}>()
+                        constraint.AppendLine(@$"var enumValues =  Enum.GetNames<{enumType}>()
                 .Select(e => $""'{{e}}'"");");
                     }
                     else

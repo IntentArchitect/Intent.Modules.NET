@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -17,7 +18,7 @@ using Intent.Templates;
 namespace Intent.Modules.MongoDb.Repositories.Templates.PagedList
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class PagedListTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class PagedListTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.MongoDb.Repositories.PagedList";
 

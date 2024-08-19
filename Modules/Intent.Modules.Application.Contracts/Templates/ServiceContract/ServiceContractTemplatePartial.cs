@@ -20,17 +20,15 @@ using Intent.Templates;
 namespace Intent.Modules.Application.Contracts.Templates.ServiceContract;
 
 [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, ServiceContractDecorator>,
-    ICSharpFileBuilderTemplate
+public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, ServiceContractDecorator>, ICSharpFileBuilderTemplate
 {
     public const string TemplateId = "Intent.Application.Contracts.ServiceContract";
 
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-    public ServiceContractTemplate(IOutputTarget outputTarget, ServiceModel model) : base(TemplateId, outputTarget,
-        model)
+    public ServiceContractTemplate(IOutputTarget outputTarget, ServiceModel model) : base(TemplateId, outputTarget, model)
     {
         SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-        
+
         AddTypeSource(TemplateRoles.Application.Contracts.Enum);
         AddTypeSource(DtoModelTemplate.TemplateId).WithCollectionFormatter(CSharpCollectionFormatter.CreateList());
         AddTypeSource(TemplateRoles.Domain.Enum);
@@ -51,7 +49,7 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
                         {
                             @method.AddGenericParameter(genericType);
                         }
-                        
+
                         method.TryAddXmlDocComments(operation.InternalElement);
 
                         foreach (var parameterModel in operation.Parameters)
@@ -74,7 +72,7 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
             })
             .AfterBuild(WorkaroundForGetTypeNameIssue, 1000);
     }
-    
+
     // Due to the nature of how GetTypeName resolves namespaces
     // there are cases where ambiguous references still exist
     // and causes compilation errors, this forces to re-evaluate
@@ -104,7 +102,8 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
         }
     }
 
-    [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+    [IntentManaged(Mode.Fully)]
+    public CSharpFile CSharpFile { get; }
 
     [IntentManaged(Mode.Fully)]
     protected override CSharpFileConfig DefineFileConfig()

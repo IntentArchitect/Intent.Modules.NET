@@ -132,7 +132,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
                 foreach (var p in _object.Properties())
                 {
                     JObject value = p.Value as JObject;
-                    if (toRemoveName.Contains( value["Name"]?.ToString()))
+                    if (toRemoveName.Contains(value["Name"]?.ToString()))
                     {
                         toRemove.Add(p.Name);
                     }
@@ -150,7 +150,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
 
             private void ObjectAddSink(JObject sink)
             {
-                _object.Add(_object.Properties().Count().ToString() , sink);
+                _object.Add(_object.Properties().Count().ToString(), sink);
             }
 
 
@@ -203,7 +203,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Decorators
                     case SerilogSettings.SinksOptionsEnum.ApplicationInsights:
                         if (_template.Model.RuntimeEnvironment is not null && _template.Model.RuntimeEnvironment.Name != "Development")
                         {
-                            args["connectionString"] = "[your connection string here]";   
+                            args["connectionString"] = "[your connection string here]";
                         }
                         else
                         {

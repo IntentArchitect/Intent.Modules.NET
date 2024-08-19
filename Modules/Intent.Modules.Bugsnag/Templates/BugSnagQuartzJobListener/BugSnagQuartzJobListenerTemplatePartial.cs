@@ -64,7 +64,8 @@ namespace Intent.Modules.Bugsnag.Templates.BugSnagQuartzJobListener
             return TryGetTemplate<ICSharpFileBuilderTemplate>("Distribution.DependencyInjection.Quartz", out _);
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

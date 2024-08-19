@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Interop.DomainEvents</id>
   <version>4.1.0</version>
@@ -17,9 +17,9 @@
     <factoryExtension id="Intent.EntityFrameworkCore.Interop.DomainEvents.DomainEventsDbContextExtension" externalReference="f653fdec-357c-4143-bf9e-acf2229f4c60" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.3.42" />
-    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common.CSharp" version="3.7.3-pre.0" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.DomainEvents" version="4.1.1" />
     <dependency id="Intent.EntityFrameworkCore" version="4.4.0" />
   </dependencies>

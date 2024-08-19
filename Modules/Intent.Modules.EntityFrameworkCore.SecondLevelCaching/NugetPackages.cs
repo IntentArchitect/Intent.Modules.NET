@@ -1,28 +1,42 @@
 using System;
 using Intent.Engine;
+using Intent.Modules.Common.CSharp.Nuget;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.NugetPackages", Version = "1.0")]
 
 namespace Intent.Modules.EntityFrameworkCore.SecondLevelCaching
 {
-    public static class NugetPackages
+    public class NugetPackages
     {
+        public const string EFCoreSecondLevelCacheInterceptorPackageName = "EFCoreSecondLevelCacheInterceptor";
+        public const string MessagePackPackageName = "MessagePack";
 
-        public static NugetPackageInfo EFCoreSecondLevelCacheInterceptor(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "EFCoreSecondLevelCacheInterceptor",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 8, 0) => "4.6.0",
-                (>= 7, 0) => "4.6.0",
-                (>= 6, 0) => "4.6.0",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'EFCoreSecondLevelCacheInterceptor'")
-            });
+        static NugetPackages()
+        {
+            NugetRegistry.Register(EFCoreSecondLevelCacheInterceptorPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 8, 0) => new PackageVersion("4.6.0"),
+                        ( >= 7, 0) => new PackageVersion("4.6.0"),
+                        ( >= 6, 0) => new PackageVersion("4.6.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{EFCoreSecondLevelCacheInterceptorPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MessagePackPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 6, 0) => new PackageVersion("2.5.172"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MessagePackPackageName}'"),
+                    }
+                );
+        }
 
-        public static NugetPackageInfo MessagePack(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "MessagePack",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 6, 0) => "2.5.172",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'MessagePack'")
-            });
+        public static NugetPackageInfo EFCoreSecondLevelCacheInterceptor(IOutputTarget outputTarget) => NugetRegistry.GetVersion(EFCoreSecondLevelCacheInterceptorPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MessagePack(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MessagePackPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

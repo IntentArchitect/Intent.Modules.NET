@@ -3,7 +3,7 @@
   <ApplicationId>55fab815-1172-48e8-b36a-c34d6468f928</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#4be273e9-cf57-4c71-80a3-711d6cf1f8f5</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#4be273e9-cf57-4c71-80a3-711d6cf1f8f5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -114,10 +114,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NugetPackages.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

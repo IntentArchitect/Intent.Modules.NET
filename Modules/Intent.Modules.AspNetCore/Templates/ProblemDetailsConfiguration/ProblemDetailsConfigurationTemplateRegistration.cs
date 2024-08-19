@@ -25,6 +25,7 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
         }
         public override string TemplateId => ProblemDetailsConfigurationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ProblemDetailsConfigurationTemplate(outputTarget);

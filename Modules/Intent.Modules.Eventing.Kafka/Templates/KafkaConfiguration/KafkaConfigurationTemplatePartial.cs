@@ -179,7 +179,7 @@ namespace Intent.Modules.Eventing.Kafka.Templates.KafkaConfiguration
                     Url = "http://localhost:8081",
                     BasicAuthUserInfo = "key:secret"
                 }));
-            
+
             ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.Kafka.Name, new Dictionary<string, string>
             {
                 { Infrastructure.Kafka.Property.KafkaSchemaRegistryUrl, "Kafka:SchemaRegistryConfig:Url" }

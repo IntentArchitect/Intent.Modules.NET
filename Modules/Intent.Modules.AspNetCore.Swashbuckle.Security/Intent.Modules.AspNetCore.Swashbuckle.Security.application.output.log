@@ -3,7 +3,7 @@
   <ApplicationId>6c374adc-05a4-4f95-875d-35de36a52689</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#bd2d5394-12b1-4c5c-9dc4-1d45052aeb8f</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#bd2d5394-12b1-4c5c-9dc4-1d45052aeb8f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -30,14 +30,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Swashbuckle.Security.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Swashbuckle.Security.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>09c2dee1-c9c4-4798-bcfd-dcc9836e6823</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

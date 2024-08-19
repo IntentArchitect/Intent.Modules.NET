@@ -3,7 +3,7 @@
   <name>Extensions</name>
   <display>Extensions</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>bd5d4609-393f-4ea3-85ce-82e7585c8d9a</parentFolderId>

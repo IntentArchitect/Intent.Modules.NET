@@ -24,12 +24,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fd12be89-437b-49b9-ba8f-6dba11f39d90</correlationId>
       <path>Intent.Modules.Application.Identity/Templates/CurrentUserServiceInterface/CurrentUserServiceInterfaceTemplatePartial.cs</path>
-      <count>4</count>
+      <count>3</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-06T09:38:10.5441833Z</updatedAt>
-      <deviationsHash>8408B87818D4B17A0C7436F3C906917ECC24BA1D94E7440D3A17892F1A3C81A9</deviationsHash>
-      <fileHash>9E55DB19AE158C0A75BBB72F83652379E670A1FA12C3535DA046F300A0663B4F</fileHash>
+      <updatedAt>2024-08-16T11:14:10.2656931Z</updatedAt>
+      <deviationsHash>43369101332694BBAE3621C4682A2D3E70B7CF50F147A7784F800D4863A7E83F</deviationsHash>
+      <fileHash>A106DC83D2506C3C1635647FE7D940A3E01CB7829B2B47F159AE7CC0D86024CD</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#fd12be89-437b-49b9-ba8f-6dba11f39d90</correlationId>

@@ -15,13 +15,13 @@ namespace Intent.Modules.Application.Contracts.Api
     {
         public static Asynchronous GetAsynchronous(this OperationModel model)
         {
-            var stereotype = model.GetStereotype("Asynchronous");
+            var stereotype = model.GetStereotype("A225C795-33E9-417D-8D58-E22826A08224");
             return stereotype != null ? new Asynchronous(stereotype) : null;
         }
 
         public static bool HasAsynchronous(this OperationModel model)
         {
-            return model.HasStereotype("Asynchronous");
+            return model.HasStereotype("A225C795-33E9-417D-8D58-E22826A08224");
         }
 
         public static bool TryGetAsynchronous(this OperationModel model, out Asynchronous stereotype)
@@ -32,19 +32,19 @@ namespace Intent.Modules.Application.Contracts.Api
                 return false;
             }
 
-            stereotype = new Asynchronous(model.GetStereotype("Asynchronous"));
+            stereotype = new Asynchronous(model.GetStereotype("A225C795-33E9-417D-8D58-E22826A08224"));
             return true;
         }
 
         public static Synchronous GetSynchronous(this OperationModel model)
         {
-            var stereotype = model.GetStereotype("Synchronous");
+            var stereotype = model.GetStereotype("2db1104b-ca3c-47a6-ad82-a0d2ee915c06");
             return stereotype != null ? new Synchronous(stereotype) : null;
         }
 
         public static bool HasSynchronous(this OperationModel model)
         {
-            return model.HasStereotype("Synchronous");
+            return model.HasStereotype("2db1104b-ca3c-47a6-ad82-a0d2ee915c06");
         }
 
         public static bool TryGetSynchronous(this OperationModel model, out Synchronous stereotype)
@@ -55,7 +55,7 @@ namespace Intent.Modules.Application.Contracts.Api
                 return false;
             }
 
-            stereotype = new Synchronous(model.GetStereotype("Synchronous"));
+            stereotype = new Synchronous(model.GetStereotype("2db1104b-ca3c-47a6-ad82-a0d2ee915c06"));
             return true;
         }
 

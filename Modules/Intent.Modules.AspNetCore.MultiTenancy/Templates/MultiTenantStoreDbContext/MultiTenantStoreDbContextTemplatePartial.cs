@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
@@ -14,7 +15,7 @@ using Intent.Templates;
 namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenantStoreDbContext
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class MultiTenantStoreDbContextTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class MultiTenantStoreDbContextTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Modules.AspNetCore.MultiTenancy.MultiTenantStoreDbContext";

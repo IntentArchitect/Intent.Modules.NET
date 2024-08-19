@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantExtendedInfo
     {
         public override string TemplateId => TenantExtendedInfoTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new TenantExtendedInfoTemplate(outputTarget);

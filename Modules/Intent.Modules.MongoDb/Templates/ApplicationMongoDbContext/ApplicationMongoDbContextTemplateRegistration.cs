@@ -26,6 +26,7 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
         }
         public override string TemplateId => ApplicationMongoDbContextTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<ClassModel> model)
         {
             return new ApplicationMongoDbContextTemplate(outputTarget, model);

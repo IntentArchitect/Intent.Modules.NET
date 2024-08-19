@@ -1,15 +1,15 @@
-using Intent.Engine;
-using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common;
-using Intent.Modules.Common.Plugins;
-using Intent.Plugins.FactoryExtensions;
-using Intent.RoslynWeaver.Attributes;
-using System.Reflection;
 using System;
 using System.Linq;
-using Intent.Modules.Common.CSharp.VisualStudio;
+using System.Reflection;
 using System.Reflection.Metadata;
+using Intent.Engine;
+using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
+using Intent.Modules.Common.Plugins;
 using Intent.Modules.Constants;
+using Intent.Plugins.FactoryExtensions;
+using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -45,14 +45,14 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
 
         private void AppendEFRepositoryInterface(IApplication application, ICSharpFileBuilderTemplate template)
         {
-            template.CSharpFile.OnBuild(file => 
+            template.CSharpFile.OnBuild(file =>
             {
                 string nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
                 var @interface = file.Interfaces.First();
                 var pagedListInterface = template.TryGetTypeName(TemplateRoles.Repository.Interface.PagedList, out var name)
                     ? name
                     : template.GetTypeName(TemplateRoles.Repository.Interface.PagedResult); // for backward compatibility
-                @interface.AddMethod("Task<List<TProjection>>", "FindAllProjectToAsync", method => 
+                @interface.AddMethod("Task<List<TProjection>>", "FindAllProjectToAsync", method =>
                 {
                     method
                         .AddGenericParameter("TProjection")
@@ -110,7 +110,7 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
             var entityRepositories = application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.EntityFrameworkCore.Repositories.Repository");
             foreach (var entityRepositoryTemplate in entityRepositories)
             {
-                entityRepositoryTemplate.CSharpFile.OnBuild(file => 
+                entityRepositoryTemplate.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.First();
                     var constructor = @class.Constructors.First();
@@ -143,7 +143,7 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
 
                 if (!constructor.Parameters.Any(p => p.Type.EndsWith("IMapper")))
                 {
-                    constructor.AddParameter("IMapper", "mapper", p => p.IntroduceReadonlyField() );
+                    constructor.AddParameter("IMapper", "mapper", p => p.IntroduceReadonlyField());
                 }
 
                 @class.AddMethod("Task<List<TProjection>>", "FindAllProjectToAsync", method =>

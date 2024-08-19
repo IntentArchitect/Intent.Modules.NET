@@ -30,6 +30,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.EnumContract
 
         public override string TemplateId => EnumContractTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, EnumModel model)
         {
             return new EnumContractTemplate(outputTarget, model);

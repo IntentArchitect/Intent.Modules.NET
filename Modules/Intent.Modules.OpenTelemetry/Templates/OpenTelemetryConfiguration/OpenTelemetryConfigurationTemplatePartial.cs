@@ -207,7 +207,7 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        
+
         this.ApplyAppSetting("OpenTelemetry:ServiceName", Project.ApplicationName());
     }
 

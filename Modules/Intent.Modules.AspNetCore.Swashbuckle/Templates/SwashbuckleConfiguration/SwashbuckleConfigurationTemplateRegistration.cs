@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfigurati
     {
         public override string TemplateId => SwashbuckleConfigurationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new SwashbuckleConfigurationTemplate(outputTarget);

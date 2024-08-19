@@ -3,7 +3,7 @@
   <ApplicationId>989555da-0ffa-4ade-bacf-69f9cd261300</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#e81d54f0-ff24-4498-a785-6e62b510302a</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#e81d54f0-ff24-4498-a785-6e62b510302a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -35,17 +35,9 @@
     <FileLog>
       <ProjectId>fcded867-b898-4d55-a440-63a20017c6d4</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#fcded867-b898-4d55-a440-63a20017c6d4</CorrelationId>
-      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.DependencyInjection.AutoMapper.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.DependencyInjection.AutoMapper.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fcded867-b898-4d55-a440-63a20017c6d4</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

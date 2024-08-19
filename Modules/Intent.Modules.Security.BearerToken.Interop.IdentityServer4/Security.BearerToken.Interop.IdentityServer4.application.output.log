@@ -3,7 +3,7 @@
   <ApplicationId>6cb69650-5f1b-432a-af9d-09ad2c0569e9</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#1c908d16-e0d4-4593-8ef0-850d5481a767</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#1c908d16-e0d4-4593-8ef0-850d5481a767</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -30,14 +30,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Security.BearerToken.Interop.IdentityServer4.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Security.BearerToken.Interop.IdentityServer4.imodspec</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c3b25078-a955-4a12-a7a9-a7fa29fdad1a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

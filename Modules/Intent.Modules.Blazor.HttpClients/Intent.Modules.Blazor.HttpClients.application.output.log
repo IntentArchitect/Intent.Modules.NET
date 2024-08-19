@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>cf3d5129-6c5f-4d97-8bd3-b6f0c5f2d29c</ProjectId>
+      <ProjectId>f9445c42-cadb-4936-b862-88e050ac5488</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Blazor.HttpClients.imodspec</ApplicationRelativeFilePath>
@@ -25,8 +25,8 @@
       <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>cf3d5129-6c5f-4d97-8bd3-b6f0c5f2d29c</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#cf3d5129-6c5f-4d97-8bd3-b6f0c5f2d29c</CorrelationId>
+      <ProjectId>f9445c42-cadb-4936-b862-88e050ac5488</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#f9445c42-cadb-4936-b862-88e050ac5488</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Blazor.HttpClients.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Blazor.HttpClients.csproj</ProjectRelativeFilePath>

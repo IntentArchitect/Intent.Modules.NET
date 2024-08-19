@@ -11,8 +11,8 @@ using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.AspNetCore.Templates.Program
 {
@@ -27,7 +27,7 @@ namespace Intent.Modules.AspNetCore.Templates.Program
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ProgramTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-			var useTopLevelStatements = OutputTarget.GetProject().InternalElement.AsCSharpProjectNETModel()?.GetNETSettings()?.UseTopLevelStatements() == true;
+            var useTopLevelStatements = OutputTarget.GetProject().InternalElement.AsCSharpProjectNETModel()?.GetNETSettings()?.UseTopLevelStatements() == true;
 
             CSharpFile = useTopLevelStatements
                 ? new CSharpFile(string.Empty, this.GetFolderPath()).AddUsing(this.GetNamespace())
@@ -49,7 +49,7 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                             .AddUsing("Microsoft.Extensions.Hosting")
                             .AddClass("Program", @class =>
                             {
-								@class.AddMethod("void", "Main", method =>
+                                @class.AddMethod("void", "Main", method =>
                                 {
                                     method.Static();
                                     method.AddParameter("string[]", "args");
@@ -72,7 +72,7 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                             .AddUsing("Microsoft.Extensions.Hosting")
                             .AddTopLevelStatements(tls =>
                             {
-								AddGenericModelMainStatements(tls);
+                                AddGenericModelMainStatements(tls);
                                 tls.AddLocalMethod("IHostBuilder", "CreateHostBuilder", method =>
                                 {
                                     method.Static();
@@ -91,7 +91,7 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                             .AddUsing("Microsoft.Extensions.Hosting")
                             .AddClass("Program", @class =>
                             {
-								@class.AddMethod("void", "Main", method =>
+                                @class.AddMethod("void", "Main", method =>
                                 {
                                     method.Static();
                                     method.AddParameter("string[]", "args");
@@ -113,7 +113,7 @@ namespace Intent.Modules.AspNetCore.Templates.Program
             }
         }
 
-		public IAppStartupFile StartupFile =>
+        public IAppStartupFile StartupFile =>
             _startupFile ?? throw new InvalidOperationException(
                 $"Based on options chosen in the Visual Studio designer, \"{TemplateId}\" " +
                 $"is not responsible for app startup, ensure that you resolve the template with " +

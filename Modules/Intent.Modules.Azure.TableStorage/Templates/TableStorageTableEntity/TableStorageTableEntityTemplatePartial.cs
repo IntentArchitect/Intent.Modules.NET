@@ -213,7 +213,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageTableEntity
                 _ => type
             };
         }
-        
+
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

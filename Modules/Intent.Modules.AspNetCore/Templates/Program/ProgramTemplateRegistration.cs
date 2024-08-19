@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.Templates.Program
     {
         public override string TemplateId => ProgramTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ProgramTemplate(outputTarget);

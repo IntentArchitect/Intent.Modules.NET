@@ -1,18 +1,30 @@
 using System;
 using Intent.Engine;
+using Intent.Modules.Common.CSharp.Nuget;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.NugetPackages", Version = "1.0")]
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid
 {
-    public static class NugetPackages
+    public class NugetPackages
     {
+        public const string DapperPackageName = "Dapper";
 
-        public static NugetPackageInfo Dapper(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Dapper",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 7, 0) => "2.1.35",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Dapper'")
-            });
+        static NugetPackages()
+        {
+            NugetRegistry.Register(DapperPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 7, 0) => new PackageVersion("2.1.35"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{DapperPackageName}'"),
+                    }
+                );
+        }
+
+        public static NugetPackageInfo Dapper(IOutputTarget outputTarget) => NugetRegistry.GetVersion(DapperPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

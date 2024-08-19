@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.HotChocolate.GraphQL.AzureFunctions</id>
   <version>1.0.1</version>
-  <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.1.0,5.0.0)</supportedClientVersions>
   <summary>HotChoclate integration with Azure Functions.</summary>
   <description>HotChoclate integration with Azure Functions.</description>
   <authors>Intent Architect</authors>
@@ -31,12 +31,12 @@
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.4.0" />
-    <dependency id="Intent.Common.Types" version="3.3.7" />
-    <dependency id="Intent.HotChocolate.GraphQL" version="4.0.1" />
     <dependency id="Intent.AzureFunctions" version="4.0.3" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="3.3.9" />
+    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common.CSharp" version="3.7.3-pre.0" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.HotChocolate.GraphQL" version="4.0.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

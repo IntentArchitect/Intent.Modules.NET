@@ -3,6 +3,7 @@
   <name>FactoryExtensions</name>
   <display>FactoryExtensions</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e484d3da-e357-43a3-b37b-a43c33a639d1</parentFolderId>

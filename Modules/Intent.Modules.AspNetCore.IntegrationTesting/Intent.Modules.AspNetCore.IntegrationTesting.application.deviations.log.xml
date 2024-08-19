@@ -1,4 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#54832b8a-b8c8-415b-912e-8d6d37874ce4</correlationId>
+      <path>Intent.Modules.AspNetCore.IntegrationTesting/Templates/DtoContract/DtoContractTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:22:00.2456788Z</updatedAt>
+      <deviationsHash>6098E80131097BFC2196961422F7C64BD9B912F5822A75EF54461203A0242FE2</deviationsHash>
+      <fileHash>18DD3AD4F1BCF97A0E7740DC6BDEB4FC56E451511CE8CC29C1D0953F7F0296CE</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0c17e058-e10e-4916-9120-71fb34c4e19c</correlationId>
+      <path>Intent.Modules.AspNetCore.IntegrationTesting/Templates/EnumContract/EnumContractTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:22:00.2456933Z</updatedAt>
+      <deviationsHash>44C4BCC396A779CCE8B726B09FA7499A614C6632151E95110A0B69AE16EFACEE</deviationsHash>
+      <fileHash>C4A7474EB9A0F7837572FCD8F46049D055A1F4683F3E3C154B1D5010D7FE95B3</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#50c75db6-a519-4595-8a49-423205c79ab9</correlationId>
+      <path>Intent.Modules.AspNetCore.IntegrationTesting/Templates/HttpClient/HttpClientTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:22:00.245699Z</updatedAt>
+      <deviationsHash>A85ADA0DEC6232AD9C2E016A73BB29FEE1B8873B9A1722F5A99E75BB9121966B</deviationsHash>
+      <fileHash>B11D55727E849FDE5CA690EB7A5F947C60AB4C8513B11692F972DEAEF48E1F7F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#50c75db6-a519-4595-8a49-423205c79ab9</correlationId>
+      <path>Intent.Modules.AspNetCore.IntegrationTesting/Templates/HttpClient/HttpClientTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:22:00.245774Z</updatedAt>
+      <deviationsHash>D9C2FD2A71D6339DFEF2068474FA6474054089252394B87F289716943C351FE2</deviationsHash>
+      <fileHash>4AE93CB9171982DF015102CF6F9FDB0E3DED4914ED03AF5DCF85098F72B4C873</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a4302909-1646-4550-96ae-ae2028a5b82b</correlationId>
+      <path>Intent.Modules.AspNetCore.IntegrationTesting/Templates/HttpClientRequestException/HttpClientRequestExceptionTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:22:00.245706Z</updatedAt>
+      <deviationsHash>BEBE0444BBE96177D3F1F0412CD3A21CDBA22B27C443BF96C04EA5727A2BD98E</deviationsHash>
+      <fileHash>053AF29531590636DF889BB4DFADDD8C56129CCCE2B5294FFD84C87AE632F045</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b6cd8740-54cb-4d7f-a99a-0d31c33cccaa</correlationId>
+      <path>Intent.Modules.AspNetCore.IntegrationTesting/Templates/JsonResponse/JsonResponseTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:22:00.2457196Z</updatedAt>
+      <deviationsHash>35D6560531918FB58E603B4A22D1F9F90A83AC1449726F018BAA6F43A070385A</deviationsHash>
+      <fileHash>9663628A1A220AB22C6E9E31A9CFAB412AE1E72900E144595C97F5AD295574A3</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d4aff178-7a0d-417c-99fc-315657b140f5</correlationId>
+      <path>Intent.Modules.AspNetCore.IntegrationTesting/Templates/PagedResult/PagedResultTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:22:00.2457347Z</updatedAt>
+      <deviationsHash>CCAE9044D49FC7C8A4BAAEE4DBE9F3D51BDACF58F98813B2A71F0E1BF40EF5B5</deviationsHash>
+      <fileHash>A9944BE798491F6A78AC09B4F908BB7E3451E9DA4B979919A208CEEAD8117A3E</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#82910940-c88d-4d88-810c-4d059eea25a5</correlationId>
+      <path>Intent.Modules.AspNetCore.IntegrationTesting/Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:22:00.2457405Z</updatedAt>
+      <deviationsHash>1AC426D9F27BE05804E039194154F6ED42E76CEF7259EA9298B1CC8A55F1BBFB</deviationsHash>
+      <fileHash>66E9ADD651C2D5AB1F7F81D1D9B6689032006801438852B4550FF79D56E76B14</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7d445f76-f30e-4651-8d9b-df3a51c23390</correlationId>
+      <path>Intent.Modules.AspNetCore.IntegrationTesting/Templates/ProxyServiceContract/ProxyServiceContractTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:22:00.2457471Z</updatedAt>
+      <deviationsHash>3B5F41E5B87A09CC07C6A21D154452B1D1695372A561A28D9F19A758992E1E67</deviationsHash>
+      <fileHash>8774F25E7C072ED6138D5D86E342FBCFE800C5484CC8F53FAA60D4439A070548</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#7d445f76-f30e-4651-8d9b-df3a51c23390</correlationId>
+      <path>Intent.Modules.AspNetCore.IntegrationTesting/Templates/ProxyServiceContract/ProxyServiceContractTemplateRegistration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:22:00.2457789Z</updatedAt>
+      <deviationsHash>88853A6AEB487AA6BFDF7B2A9C84C1C6DB81722F9EB7E213863F4A057D4F0066</deviationsHash>
+      <fileHash>FFF468586B2655D3F1D1E2795E3E8C7DE00DFE4705E68FCB1C20768DCA1502D9</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e0586df8-b1e3-4f5d-b2f1-3632fdd9fcd3</correlationId>
+      <path>Intent.Modules.AspNetCore.IntegrationTesting/Templates/ServiceEndpointTest/ServiceEndpointTestTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:22:00.245754Z</updatedAt>
+      <deviationsHash>759645E2C00BBD30803FC611836F4BE40EB922D2B143945A7C1DBE3A21CE190F</deviationsHash>
+      <fileHash>3DD7A96B1F1AD366DCD9D300F3214ED871CC17EC82B33EC957CD49DB205D3799</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#e0586df8-b1e3-4f5d-b2f1-3632fdd9fcd3</correlationId>
+      <path>Intent.Modules.AspNetCore.IntegrationTesting/Templates/ServiceEndpointTest/ServiceEndpointTestTemplateRegistration.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:22:00.2457839Z</updatedAt>
+      <deviationsHash>4DD25FBD39EB360FFA2EDA116CC86A413488469DE5953D87753DD57C0B12D464</deviationsHash>
+      <fileHash>F4741E69541FA38EF206562F96FB3D343B9794302D3635903BE8D899CD5384FD</fileHash>
+    </file>
+  </files>
 </deviationsLog>

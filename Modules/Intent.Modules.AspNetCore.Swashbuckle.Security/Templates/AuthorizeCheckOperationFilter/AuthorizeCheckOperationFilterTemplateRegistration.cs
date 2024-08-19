@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeChec
     {
         public override string TemplateId => AuthorizeCheckOperationFilterTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new AuthorizeCheckOperationFilterTemplate(outputTarget);

@@ -28,7 +28,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.FactoryExtensions
         {
             var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
 
-            template.CSharpFile.AfterBuild(_ => 
+            template.CSharpFile.AfterBuild(_ =>
             {
                 var startup = template.StartupFile;
 
@@ -36,7 +36,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.FactoryExtensions
                     context => new CSharpInvocationStatement($"{context.Services}.ConfigureGraphQL"),
                     (statement, _) => statement.AddMetadata("configure-services-graphql", true));
 
-            }, 100); 
+            }, 100);
 
             template.CSharpFile.AfterBuild(_ =>
             {
