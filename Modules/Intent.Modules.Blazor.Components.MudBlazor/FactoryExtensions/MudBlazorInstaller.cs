@@ -67,7 +67,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
 
         private void RegisterInClientProgram(IApplication application)
         {
-            var program = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(ProgramTemplate.TemplateId);
+            var program = application.FindTemplateInstance<IBlazorProgramTemplate>(ProgramTemplate.TemplateId);
 
             if (program == null)
             {
@@ -79,10 +79,13 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
 
             program.AddUsing("MudBlazor.Services");
 
-            program.CSharpFile.AfterBuild(file =>
+            program.CSharpFile.AfterBuild(_ =>
             {
-                file.Classes.First().FindMethod("Main").FindStatement(x => x.HasMetadata("run-builder"))
-                    ?.InsertAbove(new CSharpMethodChainStatement("builder.Services.AddMudServices()").SeparatedFromNext());
+                program.ProgramFile.ConfigureMainStatementsBlock(main =>
+                {
+                    main.FindStatement(x => x.HasMetadata("run-builder"))
+                        ?.InsertAbove(new CSharpMethodChainStatement("builder.Services.AddMudServices()").SeparatedFromNext());
+                });
             });
         }
 

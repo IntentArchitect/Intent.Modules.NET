@@ -344,7 +344,7 @@ public static class RazorFileExtensions
         }
     }
 
-    public static string AddProcessingFieldName(this ICSharpClassMethod method)
+    public static string AddProcessingFieldName(this ICSharpClassMethodDeclaration method)
     {
         var parent = ((IBuildsCSharpMembers)method.Parent);
         var processingFieldName = $"{method.Name}Processing".ToPrivateMemberName();

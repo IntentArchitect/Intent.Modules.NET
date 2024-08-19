@@ -49,7 +49,7 @@
       <defaultValue>false</defaultValue>
       <valueOptions />
       <lookupTypes />
-      <isActiveFunction>return properties["SDK"].value === "Microsoft.NET.Sdk.Web";</isActiveFunction>
+      <isActiveFunction />
     </property>
     <property id="8f218e6c-9115-42d1-ad23-9b0403bfbcb4">
       <hint>Available for [ASP.NET Core 6.0+](https://learn.microsoft.com/aspnet/core/migration/50-to-60#use-startup-with-the-new-minimal-hosting-model) applications.</hint>
@@ -61,7 +61,12 @@
       <defaultValue>false</defaultValue>
       <valueOptions />
       <lookupTypes />
-      <isActiveFunction>return properties["SDK"].value === "Microsoft.NET.Sdk.Web";</isActiveFunction>
+      <isActiveFunction>const applicableSdks = [
+    "Microsoft.NET.Sdk.BlazorWebAssembly",
+    "Microsoft.NET.Sdk.Web",
+];
+
+return applicableSdks.indexOf(properties["SDK"].value) &gt;= 0;</isActiveFunction>
     </property>
     <property id="6a7d81d7-351e-4cdf-a596-142a74507455">
       <name>Output Type</name>

@@ -52,7 +52,7 @@ namespace Intent.Modules.Blazor.HttpClients.FactoryExtensions
             else
             {
                 // FOR BACKWARD COMPATIBILITY WITH OLD WEBASSEMBLY MODULES:
-                template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Blazor.WebAssembly.Program);
+                template = application.FindTemplateInstance<IProgramTemplate>(TemplateRoles.Blazor.WebAssembly.Program);
                 if (template is null)
                 {
                     return;
