@@ -126,7 +126,15 @@ for (let jClass of outClasses) {
             assos = createAssociation("Association", sourceClass.id, targetClass.id);
             assosIdLookup[jAssos.id] = assos;
         }
-        console.log(`association id:${assos.id}, name:${assos.name}, children:${assos.getChildren().length}`);
+        if (jAssos.associationEndType === "Target End") {
+            assos.typeReference.setIsCollection(jAssos.isCollection);
+            assos.typeReference.setIsNullable(jAssos.isNullable);
+        }
+        if (jAssos.associationEndType === "Source End") {
+            assos.getOtherEnd().typeReference.setIsCollection(jAssos.isCollection);
+            assos.getOtherEnd().typeReference.setIsNullable(jAssos.isNullable);
+        }
+        console.log(`association id:${assos.id}, name:${assos.name}`);
     }
 }</script>
         </option>
