@@ -1,3 +1,7 @@
+### Version 2.0.8
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 2.0.7
 
 - Improvement: Updated NuGet packages to latest stables.

@@ -1,3 +1,7 @@
+### Version 5.1.6
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 5.1.5
 
 - Fixed: Program.cs generation more robust for Top-level statements and Minimal Hosting model configuration.

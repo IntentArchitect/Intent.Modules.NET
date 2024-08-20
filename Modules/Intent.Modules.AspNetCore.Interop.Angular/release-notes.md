@@ -1,3 +1,7 @@
+### Version 4.0.3
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 4.0.2
 
 - Improvement: Updated Interoperable dependency versions.

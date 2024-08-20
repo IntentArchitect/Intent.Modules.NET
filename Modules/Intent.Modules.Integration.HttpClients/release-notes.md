@@ -1,3 +1,7 @@
+### Version 5.1.11
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 5.1.10
 
 - Improvement: Updated NuGet packages to latest stables.

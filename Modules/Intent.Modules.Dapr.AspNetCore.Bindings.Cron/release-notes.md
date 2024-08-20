@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 1.0.2
 
 - Fixed: Superfluous Solution Folders were being generated for .yml files.

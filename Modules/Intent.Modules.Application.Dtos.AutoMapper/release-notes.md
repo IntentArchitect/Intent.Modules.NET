@@ -1,3 +1,7 @@
+### Version 4.0.10
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 4.0.9
 
 - Improvement: Improved internal NuGet package management.

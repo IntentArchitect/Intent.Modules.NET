@@ -1,4 +1,8 @@
-﻿### Version 3.1.5
+### Version 3.1.6
+
+- Improvement: Updated module NuGet packages infrastructure.
+
+### Version 3.1.5
 
 - Improvement: Proxies now respecting Applications Services `Serialize Enums as Strings` setting.
 

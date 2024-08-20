@@ -1,3 +1,7 @@
+### Version 4.3.2
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 4.3.1
 
 - Improvement: Application Client Dto type using directives also to be resolved now in Service implementations.

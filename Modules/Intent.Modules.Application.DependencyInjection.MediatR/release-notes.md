@@ -1,5 +1,6 @@
 ### Version 3.5.14
 
+- Improvement: Updated module NuGet packages infrastructure.
 - Improvement: Updated templates to use new NuGet package system.
 
 ### Version 3.5.13

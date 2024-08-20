@@ -1,5 +1,6 @@
 ### Version 1.1.1
 
+- Improvement: Updated module NuGet packages infrastructure.
 - Improvement: `InstanceName` configuration setting will by default take on the Application name.
 - Improvement: Updated NuGet packages modeling.
 

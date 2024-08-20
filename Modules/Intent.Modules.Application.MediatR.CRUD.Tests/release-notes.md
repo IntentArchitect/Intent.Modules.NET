@@ -1,3 +1,7 @@
+### Version 1.3.7
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 1.3.6
 
 - Improvement: Bumped `Microsoft.NET.Tests.Sdk` to 17.6.0

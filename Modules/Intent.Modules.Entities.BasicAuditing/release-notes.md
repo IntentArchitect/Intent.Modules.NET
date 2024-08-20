@@ -1,4 +1,8 @@
-﻿### Version 1.0.3
+### Version 1.0.4
+
+- Improvement: Updated module NuGet packages infrastructure.
+
+### Version 1.0.3
 
 - Improvement: Updated Designer script to not modify attributes if they already exist.
 - Improvement: Added support for different UserId Types (guid, long, int).

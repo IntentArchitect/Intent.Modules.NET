@@ -1,3 +1,7 @@
+### Version 1.2.6
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 1.2.5
 
 - Improvement: Updated NuGet packages to latest stables.

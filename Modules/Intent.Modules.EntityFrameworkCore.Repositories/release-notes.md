@@ -1,3 +1,7 @@
+### Version 4.6.3
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 4.6.2
 
 - Improvement: Using the new `CSharpTypeTuple` to represent an Operation returning out parameters which can then be used to declare `var (param1, param2)` expressions.

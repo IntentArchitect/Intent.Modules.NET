@@ -1,4 +1,8 @@
-﻿### Version 4.2.14
+### Version 4.2.15
+
+- Improvement: Updated module NuGet packages infrastructure.
+
+### Version 4.2.14
 
 - Improvement: Updated NuGet packages to latest stables.
 - Improvement: Added support for different UserId Types (guid, long, int).

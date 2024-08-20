@@ -1,3 +1,7 @@
+### Version 5.0.8
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 5.0.7
 
 - Fixed: Due to the nature of how GetTypeName resolves namespaces there are cases where ambiguous references still exist and causes compilation errors, this fix forces to re-evaluate a lot of types in this module.

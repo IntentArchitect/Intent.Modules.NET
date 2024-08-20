@@ -1,3 +1,7 @@
+### Version 3.3.12
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 3.3.11
 
 - Changed module name from `Intent.Modules.AspNetCore.Cors` to `Intent.AspNetCore.Cors`.

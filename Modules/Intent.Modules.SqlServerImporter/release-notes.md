@@ -1,3 +1,7 @@
+### Version 1.0.5
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 1.0.4
 
 - Fixed: An issue around exceptions not propagating correctly in some scenarios.

@@ -1,3 +1,7 @@
+### Version 3.9.3
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 3.9.2
 
 - Improvement: Updated NuGet packages to latest stables.

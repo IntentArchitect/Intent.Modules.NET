@@ -1,3 +1,7 @@
+### Version 3.5.1
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 3.5.0
 
 - Improvement: Updated to be align with current Visual Studio out the box experience.

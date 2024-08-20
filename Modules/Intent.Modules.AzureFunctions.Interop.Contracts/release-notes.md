@@ -1,3 +1,7 @@
+### Version 4.2.1
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 4.2.0
 
 - Improvement: Module project updated to .NET 8.

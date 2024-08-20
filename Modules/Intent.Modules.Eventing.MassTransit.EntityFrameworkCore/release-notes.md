@@ -1,3 +1,7 @@
+### Version 5.2.3
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 5.2.2
 
 - Improvement: Updated NuGet packages to latest stables.
