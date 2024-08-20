@@ -1,5 +1,6 @@
 ﻿using Intent.Blazor.Components.MudBlazor.Api;
 using Intent.Metadata.Models;
+using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 

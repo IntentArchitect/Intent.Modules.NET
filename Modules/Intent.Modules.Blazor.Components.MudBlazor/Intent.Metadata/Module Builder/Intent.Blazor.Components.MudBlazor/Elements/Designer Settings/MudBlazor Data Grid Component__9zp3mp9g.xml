@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="30eb8a90-664b-483b-9dfd-794c8e85f9eb" type="Designer Settings" typeId="7a6411a8-ffef-4209-91c6-8d12755a806a">
-  <name>MudBlazor Components</name>
-  <display>MudBlazor Components</display>
+  <name>MudBlazor Data Grid Component</name>
+  <display>MudBlazor Data Grid Component</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
