@@ -40,6 +40,8 @@ public abstract class RazorComponentTemplateBase<TModel> : RazorTemplateBase<TMo
         return mappingManager;
     }
 
+    public override ICSharpCodeContext RootCodeContext => GetCodeBehind();
+
     public BindingManager BindingManager { get; }
     public abstract IRazorFile RazorFile { get; }
     public IRazorComponentBuilderProvider ComponentBuilderProvider { get; }

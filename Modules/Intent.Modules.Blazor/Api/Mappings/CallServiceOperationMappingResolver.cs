@@ -15,7 +15,7 @@ public class CallServiceOperationMappingResolver : IMappingTypeResolver
 
     public ICSharpMapping ResolveMappings(MappingModel mappingModel)
     {
-        if (mappingModel.Model.SpecializationType == "Operation")
+        if (mappingModel.Model.SpecializationType is "Operation" or "Component Operation")
         {
             return new MethodInvocationMapping(mappingModel, _template);
         }

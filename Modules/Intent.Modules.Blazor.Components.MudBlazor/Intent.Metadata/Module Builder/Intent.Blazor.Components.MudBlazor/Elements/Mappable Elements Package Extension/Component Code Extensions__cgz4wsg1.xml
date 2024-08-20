@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="652c26a6-ddc8-436f-ad9c-315fb8d227e7" type="Mappable Elements Package Extension" typeId="bddb69f0-e2c8-4373-b5cb-d701f311f935">
   <name>Component Code Extensions</name>
-  <display>Component Code Extensions: Component Code Mappables</display>
+  <display>Component Code Extensions: Component Code Source Mappables</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />

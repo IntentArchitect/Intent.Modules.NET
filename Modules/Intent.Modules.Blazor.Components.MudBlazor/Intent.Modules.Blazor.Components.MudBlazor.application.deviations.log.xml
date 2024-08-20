@@ -72,6 +72,26 @@
       <fileHash>173EABF4B3C3382A1704A2A4933480763032155382D7B98B967B07BBAED721C5</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiAssociationModel#2a309fb2-c487-4c00-9462-16dac9824731</correlationId>
+      <path>Intent.Modules.Blazor.Components.MudBlazor/Api/ShowDialogModel.cs</path>
+      <count>4</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-08-16T10:37:25.7959344Z</updatedAt>
+      <deviationsHash>B0DD130D11003B5DF14008229D4A5E897741F2C105F7BF55A8687DE7B6CDAE75</deviationsHash>
+      <fileHash>787971007FD22804681310DA2D5396E22528421005FBB4C5D6F44157F7F035AA</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions#2a309fb2-c487-4c00-9462-16dac9824731</correlationId>
+      <path>Intent.Modules.Blazor.Components.MudBlazor/Api/ShowDialogModelAssociationExtensions.cs</path>
+      <count>1</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-08-16T10:37:25.796062Z</updatedAt>
+      <deviationsHash>2C712E7C3E4A61C64BA340DB4257BBF1C36B64B2956562A0685DBA2416493D77</deviationsHash>
+      <fileHash>0C65BB4896EDC33F6BFF97A231A538956D007B689BD2651D9371830BB0CD69D2</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a051e5c4-0715-4917-8cca-aa4f65cb93ed</correlationId>
       <path>Intent.Modules.Blazor.Components.MudBlazor/Templates/FluentValidationProviderExtensions/FluentValidationProviderExtensionsTemplatePartial.cs</path>
       <count>3</count>

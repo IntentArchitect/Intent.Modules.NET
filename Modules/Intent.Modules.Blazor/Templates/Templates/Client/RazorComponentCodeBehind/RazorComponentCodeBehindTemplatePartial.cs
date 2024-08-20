@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Common;
@@ -22,6 +24,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBeh
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public RazorComponentCodeBehindTemplate(IOutputTarget outputTarget, ComponentModel model) : base(TemplateId, outputTarget, model)
         {
+            AddTypeSource(TemplateId);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .WithFileExtension("razor.cs")
                 .AddClass($"{Model.Name}", @class =>
@@ -29,6 +32,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBeh
                     @class.Partial();
                 });
         }
+
+        public override ICSharpCodeContext RootCodeContext => CSharpFile.Classes.Single();
+
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

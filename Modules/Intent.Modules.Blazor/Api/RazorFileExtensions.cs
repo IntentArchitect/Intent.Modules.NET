@@ -105,7 +105,7 @@ public static class RazorFileExtensions
                 block.AddMethod(block.Template.GetTypeName(operation.TypeReference), methodName, method =>
                 {
                     method.Private();
-                    method.RepresentsModel(child); // throws exception because parent Class not set. Refactor CSharp builder to accomodate
+                    method.RepresentsModel(child);
                     if (methodName.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase)/* && operation.CallServiceOperationActionTargets().Any()*/)
                     {
                         method.Async();
@@ -130,82 +130,113 @@ public static class RazorFileExtensions
                     {
                         var mappingManager = template.CreateMappingManager();
                         mappingManager.SetFromReplacement(operation, null);
-                        var operationImplementationBlock = (IHasCSharpStatements)method;
                         var mappings = template.BindingManager.ViewBinding.MappedEnds.Where(x => x.SourceElement?.Id == operation.Id).ToList() ?? new();
                         var mappedButton = mappings.FirstOrDefault(x => x.TargetPath.Any(p => p.Element.SpecializationType == "Button"));
 
-                        var operationMapping = operation.InternalElement.Mappings.SingleOrDefault();
-                        if (operationMapping is not null)
+                        foreach (var action in operation.GetProcessingActions())
                         {
-                            foreach (var childElement in operation.InternalElement.ChildElements.Where(x => x.IsInvocationModel()))
+                            if (action.IsInvocationModel() && action.Mappings.Count() == 1)
                             {
-                                var mappedEnd = operationMapping.MappedEnds.FirstOrDefault(x => x.SourceElement.Id == childElement.Id);
-                                var t = mappingManager.GenerateSourceStatementForMapping(operationMapping, mappedEnd);
-                                method.AddStatement(t);
-                            }
-                        }
-                        if (operation.CallServiceOperationActionTargets().Any())
-                        {
-                            var isLoadingProperty = template.BindingManager.GetElementBinding(componentElement.AsComponentModel().View, "2cfd43b2-2a18-4ac0-8cf3-d1aec9d7e699", isTargetNullable: false);
-                            var errorMessageProperty = template.BindingManager.GetElementBinding(componentElement.AsComponentModel().View, "2e482e27-b176-43cf-b80a-33123036142a", isTargetNullable: false);
-                            method.Async();
-                            method.AddTryBlock(tryBlock =>
-                            {
-                                operationImplementationBlock = tryBlock;
-                                if (errorMessageProperty != null)
+                                var operationMapping = action.Mappings.Single();
+                                var mappedEnd = operationMapping.MappedEnds.FirstOrDefault(x => x.SourceElement.Id == action.Id);
+                                var invocation = mappingManager.GenerateSourceStatementForMapping(operationMapping, mappedEnd);
+
+                                var invStatement = invocation as CSharpInvocationStatement;
+                                if (invStatement?.IsAsyncInvocation() == true)
                                 {
-                                    tryBlock.AddStatement(new CSharpAssignmentStatement(errorMessageProperty, "null"), s => s.WithSemicolon());
+                                    invocation = new CSharpAwaitExpression(invocation);
                                 }
+                                method.AddStatement(invocation);
+                                continue;
+                            }
 
-                                //if (mappedButton != null)
-                                //{
-                                //    var processingFieldName = $"{operation.Name}Processing".ToPrivateMemberName();
-                                //    block.AddField("bool", processingFieldName, f => f.WithAssignment("false"));
-                                //    tryBlock.AddStatement(new CSharpAssignmentStatement(processingFieldName, "true"));
-                                //}
-
-
-                                foreach (var serviceCall in operation.CallServiceOperationActionTargets())
+                            if (action.IsCallServiceOperationActionTargetEndModel())
+                            {
+                                var serviceCall = action.AsCallServiceOperationActionTargetEndModel();
+                                var serviceName = ((IElement)serviceCall.Element).ParentElement.Name.ToPropertyName();
+                                block.InjectServiceProperty(block.Template.GetTypeName(((IElement)serviceCall.Element).ParentElement), serviceName);
+                                var invocation = mappingManager.GenerateUpdateStatements(serviceCall.GetMapInvocationMapping()).First();
+                                if (serviceCall.GetMapResponseMapping() != null)
                                 {
-                                    var serviceName = ((IElement)serviceCall.Element).ParentElement.Name.ToPropertyName();
-                                    block.InjectServiceProperty(block.Template.GetTypeName(((IElement)serviceCall.Element).ParentElement), serviceName);
-                                    var invocation = mappingManager.GenerateUpdateStatements(serviceCall.GetMapInvocationMapping()).First();
-                                    if (serviceCall.GetMapResponseMapping() != null)
+                                    var responseStaticElementId = "adb0ba54-aceb-4168-aaf7-d20d2f6af74c";
+                                    if (serviceCall.GetMapResponseMapping().MappedEnds.Count == 1 && serviceCall.GetMapResponseMapping().MappedEnds.Single().SourceElement.Id == responseStaticElementId)
                                     {
-                                        var responseStaticElementId = "28165dfb-a6a6-4c2b-9d64-421f1da81bc9";
-                                        if (serviceCall.GetMapResponseMapping().MappedEnds.Count == 1 && serviceCall.GetMapResponseMapping().MappedEnds.Single().SourceElement.Id == responseStaticElementId)
-                                        {
-                                            tryBlock.AddStatement(new CSharpAssignmentStatement(
-                                                lhs: mappingManager.GenerateTargetStatementForMapping(serviceCall.GetMapResponseMapping(), serviceCall.GetMapResponseMapping().MappedEnds.Single()),
-                                                rhs: new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
-                                        }
-                                        else
-                                        {
-                                            tryBlock.AddStatement(new CSharpAssignmentStatement($"var {serviceCall.Name.ToLocalVariableName()}", new CSharpAccessMemberStatement($"await {serviceName}", invocation)));
-                                            mappingManager.SetFromReplacement(new StaticMetadata(responseStaticElementId), serviceCall.Name.ToLocalVariableName());
-                                            var response = mappingManager.GenerateUpdateStatements(serviceCall.GetMapResponseMapping());
-                                            foreach (var statement in response)
-                                            {
-                                                statement.WithSemicolon();
-                                            }
-
-                                            tryBlock.AddStatements(response);
-                                        }
+                                        method.AddStatement(new CSharpAssignmentStatement(
+                                            lhs: mappingManager.GenerateTargetStatementForMapping(serviceCall.GetMapResponseMapping(), serviceCall.GetMapResponseMapping().MappedEnds.Single()),
+                                            rhs: new CSharpAwaitExpression(new CSharpAccessMemberStatement($"{serviceName}", invocation))));
                                     }
                                     else
                                     {
-                                        tryBlock.AddStatement(new CSharpAccessMemberStatement($"await {serviceName}", invocation));
+                                        method.AddStatement(new CSharpAssignmentStatement($"var {serviceCall.Name.ToLocalVariableName()}", new CSharpAwaitExpression(new CSharpAccessMemberStatement($"{serviceName}", invocation))));
+                                        mappingManager.SetFromReplacement(new StaticMetadata(responseStaticElementId), serviceCall.Name.ToLocalVariableName());
+                                        var response = mappingManager.GenerateUpdateStatements(serviceCall.GetMapResponseMapping());
+                                        foreach (var statement in response)
+                                        {
+                                            statement.WithSemicolon();
+                                        }
+
+                                        method.AddStatements(response);
                                     }
                                 }
+                                else
+                                {
+                                    method.AddStatement(new CSharpAwaitExpression(new CSharpAccessMemberStatement($"{serviceName}", invocation)));
+                                }
+                                continue;
+                            }
+
+                            if (action.IsNavigationTargetEndModel())
+                            {
+                                var navigationModel = action.AsNavigationTargetEndModel();
+                                var route = new RouteManager($"\"{navigationModel.Element.AsComponentModel().GetPage().Route()}\"");
+
+                                var mapping = navigationModel.InternalElement.Mappings.FirstOrDefault();
+                                if (mapping != null)
+                                {
+                                    foreach (var mappedEnd in mapping.MappedEnds)
+                                    {
+                                        var routeParameter = mappedEnd.TargetElement;
+
+                                        if (route.HasParameterExpression(routeParameter.Name))
+                                        {
+                                            route.ReplaceParameterExpression(routeParameter.Name, $"{{{mappingManager.GenerateSourceStatementForMapping(mapping, mappedEnd)}}}");
+                                        }
+                                    }
+                                }
+
+                                block.InjectServiceProperty("Microsoft.AspNetCore.Components.NavigationManager");
+                                method.AddStatement($"NavigationManager.NavigateTo({(route.Route.Contains("{") ? $"${route.Route}" : route.Route)});");
+                                continue;
+                            }
+                        }
+
+                        var hasImplicitEventEmitter = componentElement.ChildElements.SingleOrDefault(x => method.Name == $"On{x.Name.ToPropertyName()}");
+                        if (hasImplicitEventEmitter != null)
+                        {
+                            method.Async();
+                            method.AddStatement(new CSharpAwaitExpression(new CSharpStatement($"{hasImplicitEventEmitter.Name.ToPropertyName()}.InvokeAsync();")));
+                        }
+
+                        if (method.Statements.Any(x => x.ToString().Contains("await ")))
+                        {
+                            method.Async();
+                            method.AddTryBlock(tryBlock =>
+                            {
+                                foreach (var statement in method.Statements.Where(x => x != tryBlock).ToList())
+                                {
+                                    statement.Remove();
+                                    tryBlock.AddStatement(statement);
+                                }
                             });
+
 
                             method.AddCatchBlock(catchBlock =>
                             {
                                 catchBlock.WithExceptionType("Exception").WithParameterName("e");
-                                if (errorMessageProperty != null)
-                                {
-                                    catchBlock.AddStatement(new CSharpAssignmentStatement(errorMessageProperty, "e.Message"), s => s.WithSemicolon());
-                                }
+                                //if (errorMessageProperty != null)
+                                //{
+                                //    catchBlock.AddStatement(new CSharpAssignmentStatement(errorMessageProperty, "e.Message"), s => s.WithSemicolon());
+                                //}
 
                                 block.InjectServiceProperty("MudBlazor.ISnackbar", "Snackbar");
                                 catchBlock.AddStatement($"Snackbar.Add(e.Message, {block.Template.UseType("MudBlazor.Severity")}.Error);");
@@ -215,36 +246,6 @@ public static class RazorFileExtensions
                             {
                                 method.AddStatement("StateHasChanged();");
                             }
-
-                        }
-
-                        var hasImplicitEventEmitter = componentElement.ChildElements.SingleOrDefault(x => method.Name == $"On{x.Name.ToPropertyName()}");
-                        if (hasImplicitEventEmitter != null)
-                        {
-                            method.Async();
-                            method.AddStatement($"await {hasImplicitEventEmitter.Name.ToPropertyName()}.InvokeAsync();");
-                        }
-
-                        foreach (var navigationModel in operation.NavigateToComponents())
-                        {
-                            var route = new RouteManager($"\"{navigationModel.Element.AsComponentModel().GetPage().Route()}\"");
-
-                            var mapping = navigationModel.InternalElement.Mappings.FirstOrDefault();
-                            if (mapping != null)
-                            {
-                                foreach (var mappedEnd in mapping.MappedEnds)
-                                {
-                                    var routeParameter = mappedEnd.TargetElement;
-
-                                    if (route.HasParameterExpression(routeParameter.Name))
-                                    {
-                                        route.ReplaceParameterExpression(routeParameter.Name, $"{{{mappingManager.GenerateSourceStatementForMapping(mapping, mappedEnd)}}}");
-                                    }
-                                }
-                            }
-
-                            block.InjectServiceProperty("Microsoft.AspNetCore.Components.NavigationManager");
-                            operationImplementationBlock.AddStatement($"NavigationManager.NavigateTo({(route.Route.Contains("{") ? $"${route.Route}" : route.Route)});");
                         }
                     });
                 });
@@ -302,6 +303,17 @@ public static class RazorFileExtensions
         //        });
         //    }
         //}
+    }
+
+    private static List<IElement> GetProcessingActions(this ComponentOperationModel operation)
+    {
+        var processingActions = operation.InternalElement.ChildElements.ToList();
+        foreach (var associationEnd in operation.InternalElement.AssociatedElements.OrderBy(x => x.Order))
+        {
+            processingActions.Insert(associationEnd.Order, associationEnd);
+        }
+
+        return processingActions;
     }
 
     public static void AddMappingReplacement(this IRazorFileNode node, IMetadataModel model, string replacementString)

@@ -10,6 +10,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e69aa4a1-a873-4e5a-9149-10e02b18f8dc</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#1dc3fbea-c3f7-47ee-842e-80cf45ae2714</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/ComponentOperationExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ComponentOperationExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e69aa4a1-a873-4e5a-9149-10e02b18f8dc</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#7cea32c5-1218-4bf2-bbab-52ddb2cb1532</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/DataGridColumnModel.cs</ApplicationRelativeFilePath>
@@ -70,6 +78,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/DialogTitleModel.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DialogTitleModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e69aa4a1-a873-4e5a-9149-10e02b18f8dc</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiAssociationModel#2a309fb2-c487-4c00-9462-16dac9824731</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/ShowDialogModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ShowDialogModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e69aa4a1-a873-4e5a-9149-10e02b18f8dc</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions#2a309fb2-c487-4c00-9462-16dac9824731</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/ShowDialogModelAssociationExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ShowDialogModelAssociationExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
