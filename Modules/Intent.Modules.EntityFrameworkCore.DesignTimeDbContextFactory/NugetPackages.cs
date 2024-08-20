@@ -24,7 +24,7 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory
                     {
                         ( >= 8, 0) => new PackageVersion("8.0.0"),
                         ( >= 7, 0) => new PackageVersion("8.0.0"),
-                        ( >= 6, 0) => new PackageVersion("6.0.1", locked: true),
+                        ( >= 6, 0) => new PackageVersion("8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsConfigurationEnvironmentVariablesPackageName}'"),
                     }
                 );
@@ -33,7 +33,7 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory
                     {
                         ( >= 8, 0) => new PackageVersion("8.0.1"),
                         ( >= 7, 0) => new PackageVersion("8.0.1"),
-                        ( >= 6, 0) => new PackageVersion("6.0.0", locked: true),
+                        ( >= 6, 0) => new PackageVersion("8.0.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsConfigurationFileExtensionsPackageName}'"),
                     }
                 );
@@ -42,7 +42,7 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory
                     {
                         ( >= 8, 0) => new PackageVersion("8.0.0"),
                         ( >= 7, 0) => new PackageVersion("8.0.0"),
-                        ( >= 6, 0) => new PackageVersion("6.0.0", locked: true),
+                        ( >= 6, 0) => new PackageVersion("6.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsConfigurationJsonPackageName}'"),
                     }
                 );
@@ -51,7 +51,7 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory
                     {
                         ( >= 8, 0) => new PackageVersion("8.0.0"),
                         ( >= 7, 0) => new PackageVersion("8.0.0"),
-                        ( >= 6, 0) => new PackageVersion("6.0.1", locked: true),
+                        ( >= 6, 0) => new PackageVersion("8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsConfigurationUserSecretsPackageName}'"),
                     }
                 );

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="aa8ffe14-7b04-43dc-9e1a-d243297b30d2" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
-  <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-  <display>Microsoft.Extensions.Configuration.FileExtensions</display>
+<class id="a6e1fdf5-477a-4fbf-b8df-b803447b3015" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>Microsoft.Extensions.Configuration.Json</name>
+  <display>Microsoft.Extensions.Configuration.Json</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>9c64d408-5bbd-4c1d-a9ab-2259f87b53e5</parentFolderId>
-  <packageId>5d8b794d-4032-489f-ac2b-8a73a23a6bf3</packageId>
-  <packageName>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</packageName>
+  <parentFolderId>60f380ef-80e4-41fa-a1e6-1a9a98c77656</parentFolderId>
+  <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+  <packageName>Intent.AzureFunctions</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
       <addedByDefault>false</addedByDefault>
@@ -22,15 +22,15 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="bbc7ee70-35ce-4c42-81e1-942e1e3754cd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.1</name>
-      <display>8.0.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+    <childElement id="cb392ec2-7ecd-4b03-89b9-284977ed34d9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>6.0.0</name>
+      <display>6.0.0 ( &gt;= .NETCoreApp,Version=v6.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>aa8ffe14-7b04-43dc-9e1a-d243297b30d2</parentFolderId>
-      <packageId>5d8b794d-4032-489f-ac2b-8a73a23a6bf3</packageId>
-      <packageName>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</packageName>
+      <parentFolderId>a6e1fdf5-477a-4fbf-b8df-b803447b3015</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>true</addedByDefault>
@@ -38,45 +38,22 @@
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
             <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="true" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="33782cdb-ac32-4394-bfbc-0b7c169a7595" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.1</name>
-      <display>8.0.1 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+    <childElement id="a04077ab-6e69-48c9-80d9-f1dd8e1bc287" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.0.0</name>
+      <display>8.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>aa8ffe14-7b04-43dc-9e1a-d243297b30d2</parentFolderId>
-      <packageId>5d8b794d-4032-489f-ac2b-8a73a23a6bf3</packageId>
-      <packageName>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="68014538-bb04-4de2-af38-c4fe3f2c6d73" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.1</name>
-      <display>8.0.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>aa8ffe14-7b04-43dc-9e1a-d243297b30d2</parentFolderId>
-      <packageId>5d8b794d-4032-489f-ac2b-8a73a23a6bf3</packageId>
-      <packageName>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</packageName>
+      <parentFolderId>a6e1fdf5-477a-4fbf-b8df-b803447b3015</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>true</addedByDefault>
@@ -84,6 +61,29 @@
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
             <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="de0a3274-7015-42c2-a33a-1a8fac476cbe" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.0.0</name>
+      <display>8.0.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a6e1fdf5-477a-4fbf-b8df-b803447b3015</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
             <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
           </properties>
         </stereotype>
