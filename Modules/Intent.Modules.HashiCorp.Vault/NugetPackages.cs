@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.HashiCorp.Vault
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string VaultSharpPackageName = "VaultSharp";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(VaultSharpPackageName,
                 (framework) => framework switch

@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.AspNetCore.HealthChecks
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string AspNetCoreHealthChecksCosmosDbPackageName = "AspNetCore.HealthChecks.CosmosDb";
         public const string AspNetCoreHealthChecksKafkaPackageName = "AspNetCore.HealthChecks.Kafka";
@@ -26,7 +26,7 @@ namespace Intent.Modules.AspNetCore.HealthChecks
         public const string AspNetCoreHealthChecksUIInMemoryStoragePackageName = "AspNetCore.HealthChecks.UI.InMemory.Storage";
         public const string AspNetCoreHealthChecksUrisPackageName = "AspNetCore.HealthChecks.Uris";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(AspNetCoreHealthChecksCosmosDbPackageName,
                 (framework) => framework switch

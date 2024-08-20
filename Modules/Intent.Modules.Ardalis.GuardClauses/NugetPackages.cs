@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Ardalis.GuardClauses
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string ArdalisGuardClausesPackageName = "Ardalis.GuardClauses";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(ArdalisGuardClausesPackageName,
                 (framework) => framework switch

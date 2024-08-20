@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.OpenApi.Importer</id>
-  <version>1.1.1</version>
+  <version>1.1.2-pre.0</version>
   <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <summary>Module for importing Service Models based on OpenApi documents</summary>
   <description>This module adds the functionality to import Service Models based on OpenApi documents.</description>

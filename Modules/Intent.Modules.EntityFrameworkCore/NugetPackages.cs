@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.EntityFrameworkCore
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string ErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnlyPackageName = "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly";
         public const string MicrosoftEntityFrameworkCorePackageName = "Microsoft.EntityFrameworkCore";
@@ -27,7 +27,7 @@ namespace Intent.Modules.EntityFrameworkCore
         public const string PomeloEntityFrameworkCoreMySqlPackageName = "Pomelo.EntityFrameworkCore.MySql";
         public const string PomeloEntityFrameworkCoreMySqlNetTopologySuitePackageName = "Pomelo.EntityFrameworkCore.MySql.NetTopologySuite";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(ErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnlyPackageName,
                 (framework) => framework switch
@@ -39,7 +39,7 @@ namespace Intent.Modules.EntityFrameworkCore
             NugetRegistry.Register(MicrosoftEntityFrameworkCorePackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.8"),
+                        ( >= 8, 0) => new PackageVersion("8.0.7"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("7.0.20"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCorePackageName}'"),
@@ -48,7 +48,7 @@ namespace Intent.Modules.EntityFrameworkCore
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreCosmosPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.8"),
+                        ( >= 8, 0) => new PackageVersion("8.0.7"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("7.0.20"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreCosmosPackageName}'"),
@@ -57,7 +57,7 @@ namespace Intent.Modules.EntityFrameworkCore
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreDesignPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.8"),
+                        ( >= 8, 0) => new PackageVersion("8.0.7"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("7.0.20"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreDesignPackageName}'"),
@@ -66,7 +66,7 @@ namespace Intent.Modules.EntityFrameworkCore
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreInMemoryPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.8"),
+                        ( >= 8, 0) => new PackageVersion("8.0.7"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("7.0.20"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreInMemoryPackageName}'"),
@@ -75,7 +75,7 @@ namespace Intent.Modules.EntityFrameworkCore
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreProxiesPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.8"),
+                        ( >= 8, 0) => new PackageVersion("8.0.7"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("7.0.20"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreProxiesPackageName}'"),
@@ -84,7 +84,7 @@ namespace Intent.Modules.EntityFrameworkCore
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreSqlServerPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.8"),
+                        ( >= 8, 0) => new PackageVersion("8.0.7"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("7.0.20"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreSqlServerPackageName}'"),
@@ -93,7 +93,7 @@ namespace Intent.Modules.EntityFrameworkCore
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreSqlServerNetTopologySuitePackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.8"),
+                        ( >= 8, 0) => new PackageVersion("8.0.7"),
                         ( >= 6, 0) => new PackageVersion("7.0.20"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreSqlServerNetTopologySuitePackageName}'"),
                     }
@@ -101,7 +101,7 @@ namespace Intent.Modules.EntityFrameworkCore
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreToolsPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.8"),
+                        ( >= 8, 0) => new PackageVersion("8.0.7"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("7.0.20"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreToolsPackageName}'"),

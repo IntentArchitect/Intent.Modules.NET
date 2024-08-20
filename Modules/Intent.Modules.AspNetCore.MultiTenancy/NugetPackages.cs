@@ -10,14 +10,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.AspNetCore.MultiTenancy
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string FinbuckleMultiTenantPackageName = "Finbuckle.MultiTenant";
         public const string FinbuckleMultiTenantAspNetCorePackageName = "Finbuckle.MultiTenant.AspNetCore";
         public const string FinbuckleMultiTenantEntityFrameworkCorePackageName = "Finbuckle.MultiTenant.EntityFrameworkCore";
         public const string MicrosoftEntityFrameworkCoreInMemoryPackageName = "Microsoft.EntityFrameworkCore.InMemory";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(FinbuckleMultiTenantPackageName,
                 (framework) => framework switch

@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string DapperPackageName = "Dapper";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(DapperPackageName,
                 (framework) => framework switch

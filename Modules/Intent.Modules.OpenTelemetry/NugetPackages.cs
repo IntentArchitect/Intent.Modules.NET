@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.OpenTelemetry
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string AzureMonitorOpenTelemetryExporterPackageName = "Azure.Monitor.OpenTelemetry.Exporter";
         public const string OpenTelemetryPackageName = "OpenTelemetry";
@@ -21,7 +21,7 @@ namespace Intent.Modules.OpenTelemetry
         public const string OpenTelemetryInstrumentationHttpPackageName = "OpenTelemetry.Instrumentation.Http";
         public const string OpenTelemetryInstrumentationSqlClientPackageName = "OpenTelemetry.Instrumentation.SqlClient";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(AzureMonitorOpenTelemetryExporterPackageName,
                 (framework) => framework switch

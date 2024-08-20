@@ -10,12 +10,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Dapper
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string DapperPackageName = "Dapper";
         public const string SystemDataSqlClientPackageName = "System.Data.SqlClient";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(DapperPackageName,
                 (framework) => framework switch

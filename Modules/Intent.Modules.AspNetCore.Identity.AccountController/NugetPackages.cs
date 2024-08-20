@@ -10,12 +10,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.AspNetCore.Identity.AccountController
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string IdentityModelPackageName = "IdentityModel";
         public const string MicrosoftAspNetCoreAuthenticationJwtBearerPackageName = "Microsoft.AspNetCore.Authentication.JwtBearer";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(IdentityModelPackageName,
                 (framework) => framework switch

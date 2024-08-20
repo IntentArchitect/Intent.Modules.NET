@@ -10,12 +10,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.AspNetCore.Versioning
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string AspVersioningMvcPackageName = "Asp.Versioning.Mvc";
         public const string AspVersioningMvcApiExplorerPackageName = "Asp.Versioning.Mvc.ApiExplorer";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(AspVersioningMvcPackageName,
                 (framework) => framework switch

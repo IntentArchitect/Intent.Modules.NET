@@ -10,12 +10,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.QuartzScheduler
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string QuartzAspNetCorePackageName = "Quartz.AspNetCore";
         public const string QuartzExtensionsHostingPackageName = "Quartz.Extensions.Hosting";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(QuartzAspNetCorePackageName,
                 (framework) => framework switch

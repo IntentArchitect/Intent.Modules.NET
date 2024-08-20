@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.EntityFrameworkCore.BulkOperations
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string ZEntityFrameworkExtensionsEFCorePackageName = "Z.EntityFramework.Extensions.EFCore";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(ZEntityFrameworkExtensionsEFCorePackageName,
                 (framework) => framework switch

@@ -10,12 +10,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.AspNetCore.DistributedCaching
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string MicrosoftExtensionsCachingAbstractionsPackageName = "Microsoft.Extensions.Caching.Abstractions";
         public const string MicrosoftExtensionsCachingStackExchangeRedisPackageName = "Microsoft.Extensions.Caching.StackExchangeRedis";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(MicrosoftExtensionsCachingAbstractionsPackageName,
                 (framework) => framework switch

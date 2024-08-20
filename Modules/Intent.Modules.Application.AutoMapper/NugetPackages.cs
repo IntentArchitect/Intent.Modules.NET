@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Application.AutoMapper
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string AutoMapperPackageName = "AutoMapper";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(AutoMapperPackageName,
                 (framework) => framework switch

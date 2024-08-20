@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Application.DependencyInjection.MediatR
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string MediatRPackageName = "MediatR";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(MediatRPackageName,
                 (framework) => framework switch

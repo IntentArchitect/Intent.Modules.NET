@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Azure.BlobStorage
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string AzureStorageBlobsPackageName = "Azure.Storage.Blobs";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(AzureStorageBlobsPackageName,
                 (framework) => framework switch

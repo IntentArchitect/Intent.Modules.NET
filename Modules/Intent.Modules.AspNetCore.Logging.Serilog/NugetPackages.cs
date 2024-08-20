@@ -10,14 +10,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.AspNetCore.Logging.Serilog
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string SerilogAspNetCorePackageName = "Serilog.AspNetCore";
         public const string SerilogEnrichersSpanPackageName = "Serilog.Enrichers.Span";
         public const string SerilogSinksApplicationInsightsPackageName = "Serilog.Sinks.ApplicationInsights";
         public const string SerilogSinksGraylogPackageName = "serilog.sinks.graylog";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(SerilogAspNetCorePackageName,
                 (framework) => framework switch

@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Security.MSAL
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string IdentityModelPackageName = "IdentityModel";
         public const string MicrosoftAspNetCoreAuthenticationJwtBearerPackageName = "Microsoft.AspNetCore.Authentication.JwtBearer";
@@ -19,7 +19,7 @@ namespace Intent.Modules.Security.MSAL
         public const string MicrosoftIdentityWebMicrosoftGraphPackageName = "Microsoft.Identity.Web.MicrosoftGraph";
         public const string MicrosoftIdentityWebUIPackageName = "Microsoft.Identity.Web.UI";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(IdentityModelPackageName,
                 (framework) => framework switch

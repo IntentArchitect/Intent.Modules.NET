@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.AzureFunctions.FluentValidation
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string FluentValidationPackageName = "FluentValidation";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(FluentValidationPackageName,
                 (framework) => framework switch

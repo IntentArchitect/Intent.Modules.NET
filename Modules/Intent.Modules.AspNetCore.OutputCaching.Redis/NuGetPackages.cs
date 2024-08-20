@@ -13,11 +13,11 @@ using NuGet.Versioning;
 
 namespace Intent.Modules.AspNetCore.OutputCaching.Redis
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string StackExchangeRedisPackageName = "Microsoft.AspNetCore.OutputCaching.StackExchangeRedis";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(StackExchangeRedisPackageName,
                 (framework) => framework switch

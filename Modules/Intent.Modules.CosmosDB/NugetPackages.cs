@@ -10,13 +10,13 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.CosmosDB
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string FinbuckleMultiTenantPackageName = "Finbuckle.MultiTenant";
         public const string IEvangelistAzureCosmosRepositoryPackageName = "IEvangelist.Azure.CosmosRepository";
         public const string NewtonsoftJsonPackageName = "Newtonsoft.Json";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(FinbuckleMultiTenantPackageName,
                 (framework) => framework switch

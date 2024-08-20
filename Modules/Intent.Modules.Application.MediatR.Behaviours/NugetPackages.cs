@@ -10,12 +10,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Application.MediatR.Behaviours
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string MediatRPackageName = "MediatR";
         public const string MicrosoftExtensionsLoggingPackageName = "Microsoft.Extensions.Logging";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(MediatRPackageName,
                 (framework) => framework switch

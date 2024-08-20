@@ -10,12 +10,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string HotChocolateAspNetCorePackageName = "HotChocolate.AspNetCore";
         public const string HotChocolateAspNetCoreAuthorizationPackageName = "HotChocolate.AspNetCore.Authorization";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(HotChocolateAspNetCorePackageName,
                 (framework) => framework switch

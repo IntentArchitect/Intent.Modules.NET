@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Application.FluentValidation
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string FluentValidationDependencyInjectionExtensionsPackageName = "FluentValidation.DependencyInjectionExtensions";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(FluentValidationDependencyInjectionExtensionsPackageName,
                 (framework) => framework switch

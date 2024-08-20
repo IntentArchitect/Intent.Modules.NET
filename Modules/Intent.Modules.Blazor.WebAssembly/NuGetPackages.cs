@@ -10,12 +10,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Blazor.WebAssembly
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string MicrosoftAspNetCoreComponentsWebAssemblyPackageName = "Microsoft.AspNetCore.Components.WebAssembly";
         public const string MicrosoftAspNetCoreComponentsWebAssemblyDevServerPackageName = "Microsoft.AspNetCore.Components.WebAssembly.DevServer";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(MicrosoftAspNetCoreComponentsWebAssemblyPackageName,
                 (framework) => framework switch

@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.AzureFunctions.OpenApi
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string MicrosoftAzureWebJobsExtensionsOpenApiPackageName = "Microsoft.Azure.WebJobs.Extensions.OpenApi";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(MicrosoftAzureWebJobsExtensionsOpenApiPackageName,
                 (framework) => framework switch

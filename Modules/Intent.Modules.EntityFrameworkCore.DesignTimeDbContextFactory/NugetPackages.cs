@@ -10,14 +10,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string MicrosoftExtensionsConfigurationEnvironmentVariablesPackageName = "Microsoft.Extensions.Configuration.EnvironmentVariables";
         public const string MicrosoftExtensionsConfigurationFileExtensionsPackageName = "Microsoft.Extensions.Configuration.FileExtensions";
         public const string MicrosoftExtensionsConfigurationJsonPackageName = "Microsoft.Extensions.Configuration.Json";
         public const string MicrosoftExtensionsConfigurationUserSecretsPackageName = "Microsoft.Extensions.Configuration.UserSecrets";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(MicrosoftExtensionsConfigurationEnvironmentVariablesPackageName,
                 (framework) => framework switch

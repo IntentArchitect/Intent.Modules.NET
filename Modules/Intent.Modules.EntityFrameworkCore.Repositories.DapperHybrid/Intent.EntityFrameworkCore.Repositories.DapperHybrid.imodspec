@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Repositories.DapperHybrid</id>
-  <version>1.0.1</version>
+  <version>1.0.2-pre.0</version>
   <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
   <summary>Extends the Entity Framework Core Repository module to support Dapper queries</summary>
   <description>Extends the Entity Framework Core Repository module to support Dapper queries</description>

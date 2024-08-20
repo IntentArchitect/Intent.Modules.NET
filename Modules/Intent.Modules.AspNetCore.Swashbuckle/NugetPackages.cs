@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.AspNetCore.Swashbuckle
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string SwashbuckleAspNetCorePackageName = "Swashbuckle.AspNetCore";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(SwashbuckleAspNetCorePackageName,
                 (framework) => framework switch

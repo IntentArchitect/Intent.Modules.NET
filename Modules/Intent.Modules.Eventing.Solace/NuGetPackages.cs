@@ -10,12 +10,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Eventing.Solace
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string MicrosoftExtensionsHostingPackageName = "Microsoft.Extensions.Hosting";
         public const string SolaceSystemsSolclientMessagingPackageName = "SolaceSystems.Solclient.Messaging";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(MicrosoftExtensionsHostingPackageName,
                 (framework) => framework switch

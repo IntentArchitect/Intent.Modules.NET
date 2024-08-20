@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Eventing.MassTransit
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string MassTransitPackageName = "MassTransit";
         public const string MassTransitAbstractionsPackageName = "MassTransit.Abstractions";
@@ -19,7 +19,7 @@ namespace Intent.Modules.Eventing.MassTransit
         public const string MassTransitEntityFrameworkCorePackageName = "MassTransit.EntityFrameworkCore";
         public const string MassTransitRabbitMQPackageName = "MassTransit.RabbitMQ";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(MassTransitPackageName,
                 (framework) => framework switch

@@ -10,12 +10,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.EntityFrameworkCore.SecondLevelCaching
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string EFCoreSecondLevelCacheInterceptorPackageName = "EFCoreSecondLevelCacheInterceptor";
         public const string MessagePackPackageName = "MessagePack";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(EFCoreSecondLevelCacheInterceptorPackageName,
                 (framework) => framework switch

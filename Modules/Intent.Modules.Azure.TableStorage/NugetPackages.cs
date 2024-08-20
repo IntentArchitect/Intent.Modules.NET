@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Azure.TableStorage
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string AzureDataTablesPackageName = "Azure.Data.Tables";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(AzureDataTablesPackageName,
                 (framework) => framework switch

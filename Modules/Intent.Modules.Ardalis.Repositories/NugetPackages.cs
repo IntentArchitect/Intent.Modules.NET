@@ -10,12 +10,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Ardalis.Repositories
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string ArdalisSpecificationPackageName = "Ardalis.Specification";
         public const string ArdalisSpecificationEntityFrameworkCorePackageName = "Ardalis.Specification.EntityFrameworkCore";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(ArdalisSpecificationPackageName,
                 (framework) => framework switch

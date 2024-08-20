@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>5d8b794d-4032-489f-ac2b-8a73a23a6bf3</parentFolderId>
+  <packageId>5d8b794d-4032-489f-ac2b-8a73a23a6bf3</packageId>
+  <packageName>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</packageName>
   <stereotypes />
   <metadata />
   <childElements />

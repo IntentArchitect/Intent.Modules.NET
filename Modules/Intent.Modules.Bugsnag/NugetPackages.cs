@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Bugsnag
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string BugsnagAspNetCorePackageName = "Bugsnag.AspNet.Core";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(BugsnagAspNetCorePackageName,
                 (framework) => framework switch

@@ -46,8 +46,8 @@
       <childElements />
     </childElement>
     <childElement id="668e64bc-7941-447f-8142-f3c1398680d5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.8</name>
-      <display>8.0.8 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>8.0.7</name>
+      <display>8.0.7 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

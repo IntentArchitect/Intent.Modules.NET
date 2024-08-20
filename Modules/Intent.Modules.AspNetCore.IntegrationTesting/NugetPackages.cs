@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.AspNetCore.IntegrationTesting
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string AutoFixturePackageName = "AutoFixture";
         public const string IEvangelistAzureCosmosRepositoryPackageName = "IEvangelist.Azure.CosmosRepository";
@@ -23,7 +23,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
         public const string XunitPackageName = "xunit";
         public const string XunitRunnerVisualstudioPackageName = "xunit.runner.visualstudio";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(AutoFixturePackageName,
                 (framework) => framework switch

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Redis.Om.Repositories</id>
-  <version>1.0.2</version>
+  <version>1.0.3-pre.0</version>
   <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
   <summary>Implements the Repository pattern using Redis OM .NET for handling documents in the Redis Stack.</summary>
   <description>Implements the Repository pattern using Redis OM .NET for handling documents in the Redis Stack.</description>

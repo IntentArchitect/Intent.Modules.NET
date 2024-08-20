@@ -10,12 +10,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.AmazonS3.ObjectStorage
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string AWSSDKExtensionsNETCoreSetupPackageName = "AWSSDK.Extensions.NETCore.Setup";
         public const string AWSSDKS3PackageName = "AWSSDK.S3";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(AWSSDKExtensionsNETCoreSetupPackageName,
                 (framework) => framework switch

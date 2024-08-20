@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.MongoDb
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string MongoFrameworkPackageName = "MongoFramework";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(MongoFrameworkPackageName,
                 (framework) => framework switch

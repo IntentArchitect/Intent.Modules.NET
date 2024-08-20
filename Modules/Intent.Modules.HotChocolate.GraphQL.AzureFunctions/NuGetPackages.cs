@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.HotChocolate.GraphQL.AzureFunctions
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string HotChocolateAzureFunctionsPackageName = "HotChocolate.AzureFunctions";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(HotChocolateAzureFunctionsPackageName,
                 (framework) => framework switch

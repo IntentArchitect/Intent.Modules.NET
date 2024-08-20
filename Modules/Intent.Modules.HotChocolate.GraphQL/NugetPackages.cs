@@ -10,11 +10,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.HotChocolate.GraphQL
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string HotChocolatePackageName = "HotChocolate";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(HotChocolatePackageName,
                 (framework) => framework switch

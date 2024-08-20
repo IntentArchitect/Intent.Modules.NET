@@ -47,7 +47,7 @@ namespace Intent.Modules.Application.ServiceCallHandlers.FactoryExtensions
                     foreach (var method in @class.Methods.Where(p => p.HasMetadata("model")))
                     {
                         var model = method.GetMetadata<OperationModel>("model");
-                        var schTemplate = application.FindTemplateInstance<ServiceCallHandlerImplementationTemplate>("Application.Services.ServiceCallHandler", model);
+                        var schTemplate = application.FindTemplateInstance<ServiceCallHandlerImplementationTemplate>("Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation", model);
                         if (schTemplate is null)
                         {
                             continue;

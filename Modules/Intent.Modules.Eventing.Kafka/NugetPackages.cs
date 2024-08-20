@@ -10,14 +10,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Eventing.Kafka
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string ConfluentKafkaPackageName = "Confluent.Kafka";
         public const string ConfluentSchemaRegistrySerdesJsonPackageName = "Confluent.SchemaRegistry.Serdes.Json";
         public const string MicrosoftExtensionsDependencyInjectionPackageName = "Microsoft.Extensions.DependencyInjection";
         public const string MicrosoftExtensionsHostingPackageName = "Microsoft.Extensions.Hosting";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(ConfluentKafkaPackageName,
                 (framework) => framework switch

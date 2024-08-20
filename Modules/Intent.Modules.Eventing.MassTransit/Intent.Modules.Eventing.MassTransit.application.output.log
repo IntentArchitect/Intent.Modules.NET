@@ -81,7 +81,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a5014cab-e575-4d90-afd3-ba92d8e3bec5</ProjectId>
+      <ProjectId>d84c6ada-4081-4d11-8766-d8fd2dab08dc</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Eventing.MassTransit.imodspec</ApplicationRelativeFilePath>
@@ -89,15 +89,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a5014cab-e575-4d90-afd3-ba92d8e3bec5</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a5014cab-e575-4d90-afd3-ba92d8e3bec5</CorrelationId>
+      <ProjectId>d84c6ada-4081-4d11-8766-d8fd2dab08dc</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#d84c6ada-4081-4d11-8766-d8fd2dab08dc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Eventing.MassTransit.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a5014cab-e575-4d90-afd3-ba92d8e3bec5</ProjectId>
+      <ProjectId>d84c6ada-4081-4d11-8766-d8fd2dab08dc</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
@@ -105,7 +105,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a5014cab-e575-4d90-afd3-ba92d8e3bec5</ProjectId>
+      <ProjectId>d84c6ada-4081-4d11-8766-d8fd2dab08dc</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

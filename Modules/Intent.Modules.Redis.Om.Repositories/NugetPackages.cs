@@ -10,12 +10,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Redis.Om.Repositories
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string MicrosoftExtensionsHostingAbstractionsPackageName = "Microsoft.Extensions.Hosting.Abstractions";
         public const string RedisOMPackageName = "Redis.OM";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(MicrosoftExtensionsHostingAbstractionsPackageName,
                 (framework) => framework switch

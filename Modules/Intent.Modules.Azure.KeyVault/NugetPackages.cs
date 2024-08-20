@@ -10,13 +10,13 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Azure.KeyVault
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string AzureExtensionsAspNetCoreConfigurationSecretsPackageName = "Azure.Extensions.AspNetCore.Configuration.Secrets";
         public const string AzureIdentityPackageName = "Azure.Identity";
         public const string AzureSecurityKeyVaultSecretsPackageName = "Azure.Security.KeyVault.Secrets";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(AzureExtensionsAspNetCoreConfigurationSecretsPackageName,
                 (framework) => framework switch

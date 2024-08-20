@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Dapr.AspNetCore
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string DaprAspNetCorePackageName = "Dapr.AspNetCore";
         public const string DaprClientPackageName = "Dapr.Client";
@@ -18,7 +18,7 @@ namespace Intent.Modules.Dapr.AspNetCore
         public const string ManDaprSidekickAspNetCorePackageName = "Man.Dapr.Sidekick.AspNetCore";
         public const string MediatRPackageName = "MediatR";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(DaprAspNetCorePackageName,
                 (framework) => framework switch

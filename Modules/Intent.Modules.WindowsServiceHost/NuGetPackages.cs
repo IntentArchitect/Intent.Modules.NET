@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.WindowsServiceHost
 {
-    public class NugetPackages
+    public class NugetPackages : INugetPackages
     {
         public const string MicrosoftExtensionsConfigurationAbstractionsPackageName = "Microsoft.Extensions.Configuration.Abstractions";
         public const string MicrosoftExtensionsConfigurationBinderPackageName = "Microsoft.Extensions.Configuration.Binder";
@@ -18,7 +18,7 @@ namespace Intent.Modules.WindowsServiceHost
         public const string MicrosoftExtensionsHostingPackageName = "Microsoft.Extensions.Hosting";
         public const string MicrosoftExtensionsHostingWindowsServicesPackageName = "Microsoft.Extensions.Hosting.WindowsServices";
 
-        static NugetPackages()
+        public void RegisterPackages()
         {
             NugetRegistry.Register(MicrosoftExtensionsConfigurationAbstractionsPackageName,
                 (framework) => framework switch
