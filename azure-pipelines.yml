@@ -30,6 +30,8 @@ variables:
   value: '**/*.sln'
 - name: 'intent-solution'
   value: 'Tests/Intent.Modules.NET.Tests.isln'
+- name: 'intent-module-solution'
+  value: 'Modules/Intent.Modules.NET.isln'
 - name: 'warning-logging-command'
   value: '##vso[task.logissue type=warning;]{@m} {@x}\n'
 - name: 'error-logging-command'
@@ -163,11 +165,13 @@ steps:
     INTENT_USER: $(intent-architect-user)
     INTENT_PASS: $(intent-architect-password)
     INTENT_SOLUTION_PATH: $(intent-solution)
+    INTENT_MODULE_SOLUTION_PATH: $(intent-module-solution)
   inputs:
     targetType: 'inline'
     pwsh: true
     script: |
       ./PipelineScripts/prepare-intent-testing.ps1 "$(Build.ArtifactStagingDirectory)" "$(intent-solution)"
+      intent-cli ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_MODULE_SOLUTION_PATH" --check-deviations
       intent-cli ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_SOLUTION_PATH" --check-deviations
 
 - task: PowerShell@2
