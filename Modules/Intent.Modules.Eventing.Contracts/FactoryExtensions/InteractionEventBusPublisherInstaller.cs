@@ -221,20 +221,20 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
             {
                 throw new ArgumentNullException(nameof(method));
             }
-            
+
             AddEventBusDependency(template, method);
-            
+
             if (!method.TryGetMetadata<CSharpClassMappingManager>("mapping-manager", out var csharpMapping))
             {
                 csharpMapping = new CSharpClassMappingManager(template);
             }
 
             csharpMapping.AddMappingResolver(new MessageCreationMappingTypeResolver(template));
-            
+
             template.AddTypeSource(IntegrationCommandTemplate.TemplateId);
             template.AddTypeSource(IntegrationEventDtoTemplate.TemplateId);
             template.AddTypeSource(IntegrationEventEnumTemplate.TemplateId);
-            
+
             foreach (var commandToSend in commandsToSend)
             {
                 CSharpStatement newMessageStatement;
@@ -246,14 +246,14 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                 }
                 else
                 {
-                    var commandName = template.GetTypeName(IntegrationCommandTemplate.TemplateId, commandToSend.Element.Id);                    
+                    var commandName = template.GetTypeName(IntegrationCommandTemplate.TemplateId, commandToSend.Element.Id);
                     newMessageStatement = new CSharpObjectInitializerBlock($"new {commandName}");
                 }
                 AddIntegrationDispatchStatement(method, new CSharpInvocationStatement("_eventBus.Send")
                     .AddArgument(newMessageStatement));
             }
         }
-        
+
         private static void AddIntegrationDispatchStatement(CSharpClassMethod method, CSharpStatement publishStatement)
         {
             var notImplementedStatement = method.Statements.FirstOrDefault(p => p.GetText("").Contains("throw new NotImplementedException"));

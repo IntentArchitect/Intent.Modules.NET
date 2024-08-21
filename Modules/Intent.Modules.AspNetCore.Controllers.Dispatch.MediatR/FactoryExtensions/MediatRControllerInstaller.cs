@@ -21,6 +21,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
+using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Build.Evaluation;
 
@@ -66,7 +67,7 @@ public class MediatRControllerInstaller : FactoryExtensionBase
                     if (!actionMethod.TryGetMetadata<IControllerOperationModel>("model", out var operationModel))
                     {
                         continue;
-                    
+
                     }
                     if (FileTransferHelper.IsFileUploadOperation(operationModel))
                     {
@@ -108,8 +109,8 @@ public class MediatRControllerInstaller : FactoryExtensionBase
     }
 
     private static void AddCqrsParameterToFieldAssignments(
-        IApplication application, 
-        CSharpClassMethod actionMethod, 
+        IApplication application,
+        CSharpClassMethod actionMethod,
         IControllerOperationModel operationModel)
     {
         var payloadParameter = GetPayloadParameter(operationModel);
@@ -137,7 +138,7 @@ public class MediatRControllerInstaller : FactoryExtensionBase
                 }
             }, 10);
         }
-        
+
         var queryModelTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(QueryModelsTemplate.TemplateId, operationModel.InternalElement.Id);
         if (queryModelTemplate is not null)
         {
@@ -155,13 +156,13 @@ public class MediatRControllerInstaller : FactoryExtensionBase
     }
 
     private static IReadOnlyCollection<CSharpStatement> GetGenericParameterToFieldStatements(
-        CSharpClassMethod actionMethod, 
-        ICSharpFileBuilderTemplate cqrsModelTemplate, 
+        CSharpClassMethod actionMethod,
+        ICSharpFileBuilderTemplate cqrsModelTemplate,
         IControllerParameterModel payloadParameter)
     {
         var statements = new List<CSharpStatement>();
         var commandClass = cqrsModelTemplate.CSharpFile.Classes.First();
-        
+
         foreach (var methodParameter in actionMethod.Parameters)
         {
             if (!methodParameter.TryGetMetadata<string>("modelId", out var paramModelId))

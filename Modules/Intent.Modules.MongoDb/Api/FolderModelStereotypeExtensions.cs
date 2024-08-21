@@ -15,14 +15,14 @@ namespace Intent.MongoDb.Api
     {
         public static Collection GetCollection(this FolderModel model)
         {
-            var stereotype = model.GetStereotype("Collection");
+            var stereotype = model.GetStereotype("4638b965-dd58-4734-87e3-edd263f3910c");
             return stereotype != null ? new Collection(stereotype) : null;
         }
 
 
         public static bool HasCollection(this FolderModel model)
         {
-            return model.HasStereotype("Collection");
+            return model.HasStereotype("4638b965-dd58-4734-87e3-edd263f3910c");
         }
 
         public static bool TryGetCollection(this FolderModel model, out Collection stereotype)
@@ -33,7 +33,7 @@ namespace Intent.MongoDb.Api
                 return false;
             }
 
-            stereotype = new Collection(model.GetStereotype("Collection"));
+            stereotype = new Collection(model.GetStereotype("4638b965-dd58-4734-87e3-edd263f3910c"));
             return true;
         }
 

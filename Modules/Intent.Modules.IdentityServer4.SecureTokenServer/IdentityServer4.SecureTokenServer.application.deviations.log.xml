@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecorator#0d7e806a-7048-454f-aba3-33cfff1582c3</correlationId>
+      <path>Intent.Modules.IdentityServer4.SecureTokenServer/Decorators/PrepopulatedTestUserIdentityConfigurationDecorator.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:28:02.2588004Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:55:01.5244944Z</approvedAt>
+      <deviationsHash>E7E5CD9C474A780B929F1DE763D1A9592CA83AFF34EAF637D9C730962D04B06E</deviationsHash>
+      <fileHash>0A50117B5BCBADE806C46E07E1E68CFC24730722C56BBB693F8BD7361645AC71</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#7ab8228e-f35b-4587-a807-4ce75bf09375</correlationId>
+      <path>Intent.Modules.IdentityServer4.SecureTokenServer/Templates/IdentityServerConfiguration/IdentityConfigurationDecorator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:28:02.2589357Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:55:01.5337951Z</approvedAt>
+      <deviationsHash>95AB2835E13F632CAA2E426C797ABB59F62D265E38246CAF7B13296304CDABAE</deviationsHash>
+      <fileHash>F698012A0A7BF0AD9934566608C44B96ACE24B55FE93505ED9CAB4D14B5C91CE</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4cffcf4c-6398-4915-94ed-7f2a449219a7</correlationId>
+      <path>Intent.Modules.IdentityServer4.SecureTokenServer/Templates/IdentityServerConfiguration/IdentityServerConfigurationTemplatePartial.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:28:02.2589182Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:55:01.5288923Z</approvedAt>
+      <deviationsHash>71ED77301DD50606FB5C826252A65429CDEDB8996BB85F533F817CC858BC7853</deviationsHash>
+      <fileHash>768F43F10A1E6FDC84C85E21E1A9DF4235D7D56DC69A84F31DF368FABD1A0F49</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#4cffcf4c-6398-4915-94ed-7f2a449219a7</correlationId>
+      <path>Intent.Modules.IdentityServer4.SecureTokenServer/Templates/IdentityServerConfiguration/IdentityServerConfigurationTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:28:02.2589272Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:55:01.5323748Z</approvedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>8C6CFB570FCD9D09008F91365D4FFB385E6C84C7F182AC633FB84C2123A0F6DD</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
+      <path>Intent.Modules.IdentityServer4.SecureTokenServer/Templates/TemplateExtensions.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:28:02.2589437Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:55:01.5308548Z</approvedAt>
+      <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
+      <fileHash>9A8BDE1968D1F5D1D17BB35077B4BC13129DC1FBABBB854CEBF9B59D6285E432</fileHash>
+    </file>
+  </files>
+</deviationsLog>

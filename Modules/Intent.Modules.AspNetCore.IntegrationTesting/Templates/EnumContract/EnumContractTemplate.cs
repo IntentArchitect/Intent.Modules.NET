@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using Intent.Modules.Enums.Shared;
 using Intent.RoslynWeaver.Attributes;
 

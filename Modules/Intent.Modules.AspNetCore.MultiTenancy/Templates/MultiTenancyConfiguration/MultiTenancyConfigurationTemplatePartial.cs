@@ -17,7 +17,7 @@ using Intent.Templates;
 namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfiguration
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class MultiTenancyConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class MultiTenancyConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration";

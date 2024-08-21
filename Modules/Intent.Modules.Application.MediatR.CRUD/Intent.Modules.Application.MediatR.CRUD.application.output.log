@@ -3,7 +3,7 @@
   <ApplicationId>e3a56af9-4953-4fde-a283-50674146b91e</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#c7d63772-5802-40a6-bc1b-cae31b8faec2</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#c7d63772-5802-40a6-bc1b-cae31b8faec2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -86,14 +86,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>modelers/MediatR CRUD Extensions.designer.settings</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MediatR CRUD Extensions.designer.settings</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3f0ab5fe-e9ef-4069-b690-195694fc1ce5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

@@ -26,6 +26,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
 
         public override string TemplateId => DaprStateStoreRepositoryTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ClassModel model)
         {
             return new DaprStateStoreRepositoryTemplate(outputTarget, model);

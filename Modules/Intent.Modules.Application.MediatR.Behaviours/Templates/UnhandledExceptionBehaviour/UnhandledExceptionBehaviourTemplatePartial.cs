@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
@@ -21,7 +22,12 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public UnhandledExceptionBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.MicrosoftExtensionsLogging(outputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsLogging(OutputTarget));
+        }
+
+        public override void AfterTemplateRegistration()
+        {
+            base.AfterTemplateRegistration();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

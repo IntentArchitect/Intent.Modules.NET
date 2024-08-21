@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecorator#b02246a4-53da-41e2-be7a-afe40ccb87ba</correlationId>
+      <path>Intent.Modules.Application.DependencyInjection.AutoMapper/Decorators/AutoMapperDependencyInjectionDecorator.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:46:50.4211597Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:57:11.71506Z</approvedAt>
+      <deviationsHash>B274DAE62F4E5D92352CD6D6E972CB6E7976BF8AE9A84CA288D4D2B6C0D7A631</deviationsHash>
+      <fileHash>3971226B6C4F0CB764BCC85EBC2DDD9FF3858A6EAEE27B1C2565DF7C1400A567</fileHash>
+    </file>
+  </files>
+</deviationsLog>

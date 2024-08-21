@@ -97,7 +97,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a1131531-4494-4841-85fa-1e3f07268ca9</ProjectId>
+      <ProjectId>a5803c32-0454-4111-9e1d-168e5bf6cb10</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.EntityFrameworkCore.imodspec</ApplicationRelativeFilePath>
@@ -105,8 +105,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a1131531-4494-4841-85fa-1e3f07268ca9</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a1131531-4494-4841-85fa-1e3f07268ca9</CorrelationId>
+      <ProjectId>a5803c32-0454-4111-9e1d-168e5bf6cb10</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#a5803c32-0454-4111-9e1d-168e5bf6cb10</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.EntityFrameworkCore.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.EntityFrameworkCore.csproj</ProjectRelativeFilePath>
@@ -118,6 +118,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>modelers/EF Core Settings.designer.settings</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EF Core Settings.designer.settings</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a5803c32-0454-4111-9e1d-168e5bf6cb10</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NugetPackages.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

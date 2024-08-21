@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3ec6a70f-791a-4714-a0a9-3039ea1fe55a" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>Microsoft.Azure.WebJobs.Extensions.ServiceBus</name>
+  <display>Microsoft.Azure.WebJobs.Extensions.ServiceBus [locked]</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>60f380ef-80e4-41fa-a1e6-1a9a98c77656</parentFolderId>
+  <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+  <packageName>Intent.AzureFunctions</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="3b38d59e-e316-459f-8cd4-07dfb0df9e9e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>5.5.1</name>
+      <display>5.5.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3ec6a70f-791a-4714-a0a9-3039ea1fe55a</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

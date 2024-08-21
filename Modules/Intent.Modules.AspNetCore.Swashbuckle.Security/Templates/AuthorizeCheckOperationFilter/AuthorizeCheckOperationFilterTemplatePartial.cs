@@ -33,11 +33,13 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeChec
                 {
                     @class.ImplementsInterface(UseType("Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter"));
 
-                    @class.AddMethod("void", "Apply", method => {
+                    @class.AddMethod("void", "Apply", method =>
+                    {
                         method.AddParameter(UseType("Microsoft.OpenApi.Models.OpenApiOperation"), "operation")
                             .AddParameter(UseType("Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext"), "context");
 
-                        method.AddIfStatement("!HasAuthorize(context)", block => {
+                        method.AddIfStatement("!HasAuthorize(context)", block =>
+                        {
                             block.AddStatement("return;");
                         });
 
@@ -55,11 +57,13 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeChec
 
                     });
 
-                    @class.AddMethod("bool", "HasAuthorize", method => {
+                    @class.AddMethod("bool", "HasAuthorize", method =>
+                    {
                         method.Private();
                         method.AddParameter(UseType("Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext"), "context");
 
-                        method.AddIfStatement("context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any()", block => {
+                        method.AddIfStatement("context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any()", block =>
+                        {
                             block.AddStatement("return true;");
                         });
 

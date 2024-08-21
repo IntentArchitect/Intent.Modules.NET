@@ -14,7 +14,7 @@ using Intent.Templates;
 namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.AccountController
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class AccountControllerTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class AccountControllerTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.AspNetCore.Identity.AccountController.AccountController";
 

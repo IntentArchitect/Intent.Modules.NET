@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#1ff06ef6-6838-40ec-9ffe-8e69965781a2</correlationId>
+      <path>Intent.Modules.MongoDb/FactoryExtensions/DtoAutoMapperFactoryExtension.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T10:34:59.0067033Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:25:41.4338432Z</approvedAt>
+      <deviationsHash>9AE8A3899129F7340519BB57645B66DF1A676CA02F9E4253793C1468C9157D98</deviationsHash>
+      <fileHash>6BD01F7AB4C938D15BD28523CEBA26AA6E480E65E878F4D7CE9A925C74AAC931</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#06cc8b50-827a-4336-97f6-cebf3bac43a8</correlationId>
+      <path>Intent.Modules.MongoDb/Templates/ApplicationMongoDbContext/ApplicationMongoDbContextTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T10:34:59.0067247Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:25:41.438307Z</approvedAt>
+      <deviationsHash>6A3E7F9C99DDB0667D12512796412A16BFC40393DEF803C199F6A7A19CCD4659</deviationsHash>
+      <fileHash>DE70F597A3BCADA8FD2D2A8591B5B747C52BC013F19C5B5ECD7EFDD49AB73F82</fileHash>
+    </file>
+  </files>
+</deviationsLog>

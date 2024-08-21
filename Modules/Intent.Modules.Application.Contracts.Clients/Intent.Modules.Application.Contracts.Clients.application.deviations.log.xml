@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7edfd978-2b9f-42be-b0a1-e5fd2a8120dd</correlationId>
+      <path>Intent.Modules.Application.Contracts.Clients/Templates/DtoContract/DtoContractTemplatePartial.cs</path>
+      <count>6</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T10:02:04.0253803Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:56:20.736949Z</approvedAt>
+      <deviationsHash>2F5435E312A75FAF20858F51BB560A8B6B520B849898C654C87F0E756A7E1EF5</deviationsHash>
+      <fileHash>FB312B044E2E3AC971C10AC451BFBB914C28AA72A23F5F08102FEB72CBBD74EF</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#661bc738-bd12-4e0c-9c7e-2c1ecc281ead</correlationId>
+      <path>Intent.Modules.Application.Contracts.Clients/Templates/PagedResult/PagedResultTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T10:02:04.0253961Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:56:20.7410504Z</approvedAt>
+      <deviationsHash>CCAE9044D49FC7C8A4BAAEE4DBE9F3D51BDACF58F98813B2A71F0E1BF40EF5B5</deviationsHash>
+      <fileHash>82947189A63D759E86F244CE14221F9358846F7A998D2F5887772DD2DFCBDA16</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#698aee1a-f01b-434f-8cf7-6acf45153f4e</correlationId>
+      <path>Intent.Modules.Application.Contracts.Clients/Templates/ServiceContract/ServiceContractTemplatePartial.cs</path>
+      <count>6</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T10:02:04.0254054Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:56:20.7424788Z</approvedAt>
+      <deviationsHash>1C317554F883886E54A6F240D3275383CFDBB99453B69899B5E0E2FFAE8FD77A</deviationsHash>
+      <fileHash>CE33356BA86EE2AE261B8C7E77ACE0A906F3334EDC6A084C0A2D6848CE4C388E</fileHash>
+    </file>
+  </files>
+</deviationsLog>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="119a2df2-6212-4246-8183-b1e03a82507d" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>Microsoft.Extensions.Configuration.Abstractions</name>
+  <display>Microsoft.Extensions.Configuration.Abstractions</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>51dc626f-5593-462c-984a-6e9c0c9228db</parentFolderId>
+  <packageId>33084118-5d41-4965-a200-54aa73ba9021</packageId>
+  <packageName>Intent.Application.DependencyInjection</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="645ca015-a435-4a68-b586-0b28a4d08880" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>6.0.0</name>
+      <display>6.0.0 ( &gt;= .NETCoreApp,Version=v6.0 ) [locked]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>119a2df2-6212-4246-8183-b1e03a82507d</parentFolderId>
+      <packageId>33084118-5d41-4965-a200-54aa73ba9021</packageId>
+      <packageName>Intent.Application.DependencyInjection</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="true" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="dbdc8344-0177-434e-b71c-8b752355226d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.0.0</name>
+      <display>8.0.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>119a2df2-6212-4246-8183-b1e03a82507d</parentFolderId>
+      <packageId>33084118-5d41-4965-a200-54aa73ba9021</packageId>
+      <packageName>Intent.Application.DependencyInjection</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="09c303aa-5473-45f6-9b19-959e63da4ee7" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.0.0</name>
+      <display>8.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>119a2df2-6212-4246-8183-b1e03a82507d</parentFolderId>
+      <packageId>33084118-5d41-4965-a200-54aa73ba9021</packageId>
+      <packageName>Intent.Application.DependencyInjection</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

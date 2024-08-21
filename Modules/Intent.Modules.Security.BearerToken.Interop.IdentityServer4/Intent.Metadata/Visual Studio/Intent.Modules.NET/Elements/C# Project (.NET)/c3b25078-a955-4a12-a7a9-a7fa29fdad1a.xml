@@ -3,7 +3,7 @@
   <name>Intent.Modules.Security.BearerToken.Interop.IdentityServer4</name>
   <display>Intent.Modules.Security.BearerToken.Interop.IdentityServer4</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-manually</sort-children>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d6eb6e9f-6c0d-47f1-bc6c-e5bcf82c8931</parentFolderId>
@@ -16,10 +16,12 @@
       <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
       <properties>
         <property name="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf" display="SDK" value="Microsoft.NET.Sdk" isActive="true" />
+        <property name="252d4572-8255-4e87-9bd9-ede6220f44c1" display="Use top-level statements" value="false" isActive="false" />
+        <property name="8f218e6c-9115-42d1-ad23-9b0403bfbcb4" display="Use minimal hosting model" value="false" isActive="false" />
         <property name="6a7d81d7-351e-4cdf-a596-142a74507455" display="Output Type" isActive="true" />
         <property name="9da51e12-529a-4592-9119-491d7bc9d5d5" display="Azure Functions Version" isActive="true" />
         <property name="e1cab7e9-28f1-4e82-8c02-bfb9e460d9e0" display="Target Multiple Frameworks" value="false" isActive="true" />
-        <property name="d53ab03c-90cf-4b6a-b733-73b6983ab603" display="Target Framework" value="16d99e3e-7b91-42f8-ae3b-2686edde94b7" isActive="true" />
+        <property name="d53ab03c-90cf-4b6a-b733-73b6983ab603" display="Target Framework" value="f8b1618d-1e64-4c2c-9787-e0725c3633a1" isActive="true" />
         <property name="b9685057-b337-42d8-9536-d0185ea69b73" display="Target Frameworks" value="" isActive="false" />
         <property name="8ee6e435-e556-439c-9712-a3f287972813" display="Runtime Identifiers" isActive="true" />
         <property name="c9fc7052-9557-4485-a759-fa33363472b3" display="Configurations" isActive="true" />
@@ -29,6 +31,8 @@
         <property name="94e630db-ee2b-4d4f-a423-19d3469178fa" display="Generate Documentation File" isActive="true" />
         <property name="d6c50001-ac9d-4819-94a9-8b6aa7f02e47" display="Assembly Name" isActive="true" />
         <property name="7cc174e3-ca2f-4f79-bb52-c7a3a4a7e5eb" display="Implicit Usings" isActive="true" />
+        <property name="575dbd4e-f038-4c92-a411-63c1e3e0d8d7" display="Suppress Warnings" value="$(NoWarn)" isActive="true" />
+        <property name="6de4cc6f-2476-461c-9be9-b6ac0592a827" display="Manage Package Versions Centrally" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="d9b43864-0370-401b-9e71-b1d286919500" name="C# Project Options">
@@ -45,10 +49,10 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="2f2e96fb-86b6-47c4-bdc3-e54a7dea04ae" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.IModSpecFile</name>
-      <display>Intent.ModuleBuilder.IModSpecFile</display>
-      <externalReference>Intent.ModuleBuilder</externalReference>
+    <childElement id="becc29cf-df8e-44cf-be3b-c06cf96c6c0a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -61,9 +65,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="158178be-0759-4abf-a006-d927dedadfd4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.ModuleBuilder.ReadMe</name>
-      <display>Intent.ModuleBuilder.ReadMe</display>
+    <childElement id="2f2e96fb-86b6-47c4-bdc3-e54a7dea04ae" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.IModSpecFile</name>
+      <display>Intent.ModuleBuilder.IModSpecFile</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -128,6 +132,22 @@
     <childElement id="b2851726-0fea-4581-bed8-17d7e59b6518" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel</name>
       <display>Intent.ModuleBuilder.Templates.Api.ApiPackageExtensionModel</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c3b25078-a955-4a12-a7a9-a7fa29fdad1a</parentFolderId>
+      <packageId>1c908d16-e0d4-4593-8ef0-850d5481a767</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="9b96c419-1392-4ba2-a8d6-c6cce3fc7b7b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.Templates.ReleaseNotes</name>
+      <display>Intent.ModuleBuilder.Templates.ReleaseNotes</display>
       <externalReference>Intent.ModuleBuilder</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

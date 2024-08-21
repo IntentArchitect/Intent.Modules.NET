@@ -32,7 +32,7 @@ namespace Intent.Modules.AmazonS3.ObjectStorage.Templates.ObjectStorageExtension
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }
-        
+
         private string GetReadToEndMethodCall()
         {
             return OutputTarget switch
@@ -41,7 +41,7 @@ namespace Intent.Modules.AmazonS3.ObjectStorage.Templates.ObjectStorageExtension
                 _ when OutputTarget.GetProject().IsNetApp(6) => "ReadToEndAsync()",
                 _ when OutputTarget.GetProject().TargetFramework().StartsWith("netstandard") => "ReadToEndAsync()",
                 _ => "ReadToEndAsync(cancellationToken)"
-            }; 
+            };
         }
     }
 }

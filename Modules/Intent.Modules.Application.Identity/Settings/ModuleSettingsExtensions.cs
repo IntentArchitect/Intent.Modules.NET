@@ -53,10 +53,10 @@ namespace Intent.Modules.Application.Identity.Settings
             {
                 return Value switch
                 {
-                    "string" => UserIdTypeOptionsEnum.String,
                     "guid" => UserIdTypeOptionsEnum.Guid,
-                    "long" => UserIdTypeOptionsEnum.Long,
                     "int" => UserIdTypeOptionsEnum.Int,
+                    "long" => UserIdTypeOptionsEnum.Long,
+                    "string" => UserIdTypeOptionsEnum.String,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }

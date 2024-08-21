@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>b6d3a029-7d53-4ce7-b2a7-720b2601c2c0</ProjectId>
+      <ProjectId>5dc7b676-cbcc-43df-ae9d-8961f7f75ed9</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AzureFunctions.Interop.EntityFrameworkCore.imodspec</ApplicationRelativeFilePath>
@@ -25,8 +25,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>b6d3a029-7d53-4ce7-b2a7-720b2601c2c0</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#b6d3a029-7d53-4ce7-b2a7-720b2601c2c0</CorrelationId>
+      <ProjectId>5dc7b676-cbcc-43df-ae9d-8961f7f75ed9</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#5dc7b676-cbcc-43df-ae9d-8961f7f75ed9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.csproj</ProjectRelativeFilePath>

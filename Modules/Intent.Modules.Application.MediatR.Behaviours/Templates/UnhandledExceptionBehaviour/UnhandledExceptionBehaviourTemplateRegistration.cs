@@ -18,9 +18,10 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
     {
         public override string TemplateId => UnhandledExceptionBehaviourTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new UnhandledExceptionBehaviourTemplate(outputTarget, null);
+            return new UnhandledExceptionBehaviourTemplate(outputTarget);
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿### Version 4.0.1
+### Version 4.0.2
+
+- Improvement: Updated module NuGet packages infrastructure.
+
+### Version 4.0.1
 
 - Improvement: Removed the `AutoMapper.Extensions.Microsoft.DependencyInjection` NuGet package and replaced it with `AutoMapper` version 13.0.1 which encapsulates the same functionality.
 

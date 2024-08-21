@@ -144,7 +144,7 @@ Retrieve `Domain`, `Instance`, `ClientId`, and `SignUpSignInPolicyId` from the A
 
 #### Obtain an Access Token for Testing
 
-For Authorization Code flow testing, use tools like [Postman](https://www.postman.com/downloads/), [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/downloads) (they will have an `Auth` section) with the following configurations:
+For Authorization Code flow testing, use tools like [Postman](https://www.postman.com/downloads), [Insomnia](https://insomnia.rest/download) or [Bruno](https://www.usebruno.com/downloads) (they will have an `Auth` section) with the following configurations:
 
 - **Callback URL**: `Redirect URI` of the `ConsumerFacingAPI` application.
 - **Authorization URL**: `OAuth 2.0 authorization endpoint (v2)` URL from `Endpoints`, replacing `<policy-name>` with `B2C_1_Consumer`.

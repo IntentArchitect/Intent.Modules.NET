@@ -9,8 +9,8 @@ using Intent.Modules.Common.Types.Api;
 using Intent.RoslynWeaver.Attributes;
 using DtoModelTemplate = Intent.Modules.Application.Dtos.Templates.DtoModel.DtoModelTemplate;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
 
 namespace Intent.Modules.Application.Dtos.Decorators
 {

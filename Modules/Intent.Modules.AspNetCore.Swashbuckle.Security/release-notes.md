@@ -1,3 +1,7 @@
+### Version 4.0.7
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 4.0.6
 
 - Improvement: Upgraded module to support new 4.1 SDK features.

@@ -18,6 +18,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.AspNetCore.Templates.GraphQLConfig
     {
         public override string TemplateId => GraphQLConfigurationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new GraphQLConfigurationTemplate(outputTarget);

@@ -28,6 +28,7 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
 
         public override string TemplateId => DomainServiceImplementationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, DomainServiceModel model)
         {
             return new DomainServiceImplementationTemplate(outputTarget, model);

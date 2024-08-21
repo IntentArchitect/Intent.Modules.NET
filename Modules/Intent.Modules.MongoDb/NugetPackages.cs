@@ -1,18 +1,30 @@
 using System;
 using Intent.Engine;
+using Intent.Modules.Common.CSharp.Nuget;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.NugetPackages", Version = "1.0")]
 
 namespace Intent.Modules.MongoDb
 {
-    public static class NugetPackages
+    public class NugetPackages : INugetPackages
     {
+        public const string MongoFrameworkPackageName = "MongoFramework";
 
-        public static NugetPackageInfo MongoFramework(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "MongoFramework",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 6, 0) => "0.29.0",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'MongoFramework'")
-            });
+        public void RegisterPackages()
+        {
+            NugetRegistry.Register(MongoFrameworkPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 6, 0) => new PackageVersion("0.29.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MongoFrameworkPackageName}'"),
+                    }
+                );
+        }
+
+        public static NugetPackageInfo MongoFramework(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MongoFrameworkPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

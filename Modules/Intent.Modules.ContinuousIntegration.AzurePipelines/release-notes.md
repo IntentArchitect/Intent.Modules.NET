@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 1.0.2
 
 - Improvement: Switched templating method to `Data File Builder`.

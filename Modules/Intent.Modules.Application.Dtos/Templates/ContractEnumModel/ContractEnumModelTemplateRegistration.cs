@@ -27,6 +27,7 @@ namespace Intent.Modules.Application.Dtos.Templates.ContractEnumModel
 
         public override string TemplateId => ContractEnumModelTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, EnumModel model)
         {
             return new ContractEnumModelTemplate(outputTarget, model);

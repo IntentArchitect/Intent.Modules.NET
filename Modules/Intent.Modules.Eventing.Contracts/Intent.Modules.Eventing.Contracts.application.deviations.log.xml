@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#5d6830aa-cfbb-4127-adfa-dccfb1207fe5</correlationId>
+      <path>Intent.Modules.Eventing.Contracts/FactoryExtensions/ApplicationServiceInteractionInstaller.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:06:42.4552495Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:22:19.5312136Z</approvedAt>
+      <deviationsHash>FA459B5FF891F696AE6F4A705B33E63122D105D6519718247054260960F2C49B</deviationsHash>
+      <fileHash>49E3C89E05B92A7B6ADA5324E158A56C02B67FDB690C0CE44CC8CEEB1EDF9AFE</fileHash>
+    </file>
+  </files>
+</deviationsLog>

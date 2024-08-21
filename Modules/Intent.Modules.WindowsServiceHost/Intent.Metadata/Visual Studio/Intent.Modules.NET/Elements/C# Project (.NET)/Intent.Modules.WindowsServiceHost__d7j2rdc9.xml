@@ -22,7 +22,7 @@
         <property name="6a7d81d7-351e-4cdf-a596-142a74507455" display="Output Type" value="Class Library" isActive="true" />
         <property name="9da51e12-529a-4592-9119-491d7bc9d5d5" display="Azure Functions Version" isActive="true" />
         <property name="e1cab7e9-28f1-4e82-8c02-bfb9e460d9e0" display="Target Multiple Frameworks" value="false" isActive="true" />
-        <property name="d53ab03c-90cf-4b6a-b733-73b6983ab603" display="Target Framework" value="0cd4e056-3bc1-4f8c-9cba-7d362d42c33c" isActive="true" />
+        <property name="d53ab03c-90cf-4b6a-b733-73b6983ab603" display="Target Framework" value="f8b1618d-1e64-4c2c-9787-e0725c3633a1" isActive="true" />
         <property name="b9685057-b337-42d8-9536-d0185ea69b73" display="Target Frameworks" value="null" isActive="false" />
         <property name="8ee6e435-e556-439c-9712-a3f287972813" display="Runtime Identifiers" isActive="true" />
         <property name="c9fc7052-9557-4485-a759-fa33363472b3" display="Configurations" isActive="true" />
@@ -50,6 +50,22 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="5020b8b9-9e55-4f93-a372-58447994c5b4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>eaa223b1-de69-45ba-8877-516c26e65c2b</parentFolderId>
+      <packageId>4c3bd7ec-3b90-4df9-aec7-68756f566161</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="04dd9aba-1962-43b3-9681-405765988ca7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.IModSpecFile</name>
       <display>Intent.ModuleBuilder.IModSpecFile</display>

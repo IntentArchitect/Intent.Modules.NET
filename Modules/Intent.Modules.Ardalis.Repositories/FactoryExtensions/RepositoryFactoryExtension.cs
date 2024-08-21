@@ -273,10 +273,10 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                 });
             }
         }
-        
+
         public static string PagedListInterfaceName(CSharpTemplateBase<object> template) => template.TryGetTypeName(TemplateRoles.Repository.Interface.PagedList, out var name)
             ? name : template.GetTypeName(TemplateRoles.Repository.Interface.PagedResult); // for backward compatibility
-        
+
         public static string PagedListClassName(CSharpTemplateBase<object> template) => template.GetTypeName(TemplateRoles.Application.Common.PagedList);
 
         private string GetEntityStateName(CSharpTemplateBase<ClassModel> template) => template.GetTypeName("Domain.Entity", template.Model);

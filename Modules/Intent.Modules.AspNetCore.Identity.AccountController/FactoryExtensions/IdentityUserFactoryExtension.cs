@@ -28,7 +28,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
             {
                 return;
             }
-            
+
             UpdateDbContext(application, userIdentityEntity);
             UpdateEntityTemplate(application, userIdentityEntity);
         }
@@ -49,7 +49,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
                 configMethod.AddStatement($"builder.Property(x => x.RefreshTokenExpired);");
             });
         }
-        
+
         private void UpdateEntityTemplate(IApplication application, ClassModel userIdentityEntity)
         {
             var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Domain.Entity", userIdentityEntity.Id);

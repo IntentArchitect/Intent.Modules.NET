@@ -3,10 +3,10 @@
   <ApplicationId>889131be-3f2c-4eb9-8a3a-a10260093907</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#ae194c25-aa42-4a2e-86f6-07b0fe83ef58</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#ae194c25-aa42-4a2e-86f6-07b0fe83ef58</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>cd4e31f7-9f5f-4120-b5b1-501c40f3ae1b</ProjectId>
@@ -22,14 +22,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.ObsoleteModule.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.ObsoleteModule.imodspec</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>cd4e31f7-9f5f-4120-b5b1-501c40f3ae1b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>true</IsIgnored>
     </FileLog>
   </FileLogs>

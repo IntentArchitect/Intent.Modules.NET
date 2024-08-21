@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2d6318c4-3bb9-4025-9135-11bd35b52209" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d99a3c92-ab23-404c-922d-e7c06a68bc9c</parentFolderId>
+  <packageId>d99a3c92-ab23-404c-922d-e7c06a68bc9c</packageId>
+  <packageName>Intent.Application.MediatR.Behaviours</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

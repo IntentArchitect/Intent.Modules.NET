@@ -1,3 +1,7 @@
+### Version 1.0.13
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 1.0.12
 
 - Improvement: Updated dependency versions.

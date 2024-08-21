@@ -1,28 +1,42 @@
 using System;
 using Intent.Engine;
+using Intent.Modules.Common.CSharp.Nuget;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.NugetPackages", Version = "1.0")]
 
 namespace Intent.Modules.Redis.Om.Repositories
 {
-    public static class NugetPackages
+    public class NugetPackages : INugetPackages
     {
+        public const string MicrosoftExtensionsHostingAbstractionsPackageName = "Microsoft.Extensions.Hosting.Abstractions";
+        public const string RedisOMPackageName = "Redis.OM";
 
-        public static NugetPackageInfo RedisOM(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Redis.OM",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 2, 0) => "0.7.4",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Redis.OM'")
-            });
+        public void RegisterPackages()
+        {
+            NugetRegistry.Register(MicrosoftExtensionsHostingAbstractionsPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 8, 0) => new PackageVersion("8.0.0"),
+                        ( >= 7, 0) => new PackageVersion("8.0.0"),
+                        ( >= 6, 0) => new PackageVersion("8.0.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsHostingAbstractionsPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(RedisOMPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("0.7.4"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{RedisOMPackageName}'"),
+                    }
+                );
+        }
 
-        public static NugetPackageInfo MicrosoftExtensionsHostingAbstractions(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "Microsoft.Extensions.Hosting.Abstractions",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 8, 0) => "8.0.0",
-                (>= 7, 0) => "8.0.0",
-                (>= 6, 0) => "8.0.0",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'Microsoft.Extensions.Hosting.Abstractions'")
-            });
+        public static NugetPackageInfo RedisOM(IOutputTarget outputTarget) => NugetRegistry.GetVersion(RedisOMPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftExtensionsHostingAbstractions(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftExtensionsHostingAbstractionsPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

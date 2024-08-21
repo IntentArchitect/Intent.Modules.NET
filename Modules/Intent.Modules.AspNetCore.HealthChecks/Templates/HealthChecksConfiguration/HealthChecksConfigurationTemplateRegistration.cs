@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
     {
         public override string TemplateId => HealthChecksConfigurationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new HealthChecksConfigurationTemplate(outputTarget);

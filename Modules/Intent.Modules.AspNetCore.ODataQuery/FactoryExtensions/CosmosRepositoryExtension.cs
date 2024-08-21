@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.ODataQuery.Settings;
@@ -11,9 +14,6 @@ using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
-using System;
-using System.Linq;
-using System.Threading;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]

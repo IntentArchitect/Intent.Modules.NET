@@ -43,6 +43,22 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="761ee751-1e52-4b58-bd28-8e5c3cca5ebf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e8fc2c42-6fc9-4a68-8f84-79cea0ea9cab</parentFolderId>
+      <packageId>37ff6cdc-aa9b-4e12-8db8-2929e73d9770</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="e289b292-9221-41e2-af6c-e999fa9282a3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.ModuleBuilder.IModSpecFile</name>
       <display>Intent.ModuleBuilder.IModSpecFile</display>

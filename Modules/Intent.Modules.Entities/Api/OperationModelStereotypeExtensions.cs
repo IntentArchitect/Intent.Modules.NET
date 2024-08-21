@@ -15,14 +15,14 @@ namespace Intent.Entities.Api
     {
         public static Asynchronous GetAsynchronous(this OperationModel model)
         {
-            var stereotype = model.GetStereotype("Asynchronous");
+            var stereotype = model.GetStereotype("F8E749E2-426F-4E0A-AD03-86BFFE122740");
             return stereotype != null ? new Asynchronous(stereotype) : null;
         }
 
 
         public static bool HasAsynchronous(this OperationModel model)
         {
-            return model.HasStereotype("Asynchronous");
+            return model.HasStereotype("F8E749E2-426F-4E0A-AD03-86BFFE122740");
         }
 
         public static bool TryGetAsynchronous(this OperationModel model, out Asynchronous stereotype)
@@ -33,7 +33,7 @@ namespace Intent.Entities.Api
                 return false;
             }
 
-            stereotype = new Asynchronous(model.GetStereotype("Asynchronous"));
+            stereotype = new Asynchronous(model.GetStereotype("F8E749E2-426F-4E0A-AD03-86BFFE122740"));
             return true;
         }
 

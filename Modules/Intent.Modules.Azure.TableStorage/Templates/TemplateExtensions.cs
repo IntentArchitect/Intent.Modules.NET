@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Azure.TableStorage.Templates.TableStorageRepository;
 using Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase;
 using Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryInterface;
@@ -18,12 +19,12 @@ namespace Intent.Modules.Azure.TableStorage.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetTableStorageRepositoryName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
+        public static string GetTableStorageRepositoryName<T>(this IIntentTemplate<T> template) where T : ClassModel
         {
             return template.GetTypeName(TableStorageRepositoryTemplate.TemplateId, template.Model);
         }
 
-        public static string GetTableStorageRepositoryName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
+        public static string GetTableStorageRepositoryName(this IIntentTemplate template, ClassModel model)
         {
             return template.GetTypeName(TableStorageRepositoryTemplate.TemplateId, model);
         }
@@ -43,22 +44,22 @@ namespace Intent.Modules.Azure.TableStorage.Templates
             return template.GetTypeName(TableStorageTableAdapterInterfaceTemplate.TemplateId);
         }
 
-        public static string GetTableStorageTableEntityName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
+        public static string GetTableStorageTableEntityName<T>(this IIntentTemplate<T> template) where T : ClassModel
         {
             return template.GetTypeName(TableStorageTableEntityTemplate.TemplateId, template.Model);
         }
 
-        public static string GetTableStorageTableEntityName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
+        public static string GetTableStorageTableEntityName(this IIntentTemplate template, ClassModel model)
         {
             return template.GetTypeName(TableStorageTableEntityTemplate.TemplateId, model);
         }
 
-        public static string GetTableStorageTableEntityInterfaceName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Domain.Api.ClassModel
+        public static string GetTableStorageTableEntityInterfaceName<T>(this IIntentTemplate<T> template) where T : ClassModel
         {
             return template.GetTypeName(TableStorageTableEntityInterfaceTemplate.TemplateId, template.Model);
         }
 
-        public static string GetTableStorageTableEntityInterfaceName(this IIntentTemplate template, Intent.Modelers.Domain.Api.ClassModel model)
+        public static string GetTableStorageTableEntityInterfaceName(this IIntentTemplate template, ClassModel model)
         {
             return template.GetTypeName(TableStorageTableEntityInterfaceTemplate.TemplateId, model);
         }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#78babbf0-6214-4f6b-a1a5-d3382afe42a3</correlationId>
+      <path>Intent.Modules.MongoDb.Repositories/Templates/MongoRepositoryBase/MongoRepositoryBaseTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T10:35:49.4899518Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:26:00.0231967Z</approvedAt>
+      <deviationsHash>A9BB802F651D2AC1D03DDD9D9254B81B4C6CE6A2407A513DACC66D8DCBC8E369</deviationsHash>
+      <fileHash>85F54A61AB1DAB42D36DE5309E9D6EA4D93FB1FF4C83E41E8815A9669BE3D9A0</fileHash>
+    </file>
+  </files>
+</deviationsLog>

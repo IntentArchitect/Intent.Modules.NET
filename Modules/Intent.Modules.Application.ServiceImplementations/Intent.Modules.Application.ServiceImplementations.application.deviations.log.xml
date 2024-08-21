@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#18e4bf9f-2cff-41f4-a98a-333dc4c1178a</correlationId>
+      <path>Intent.Modules.Application.ServiceImplementations/Templates/ServiceImplementation/ServiceImplementationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T06:39:52.1700444Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:00:41.1090559Z</approvedAt>
+      <deviationsHash>D7C52521FEEF1A215C079BA96DE2545DB31EE0DFAE336D8C915006E7FADE8A9D</deviationsHash>
+      <fileHash>3741D34E451F14ED6A71409C988B9A9ED7E72CF2DE8EF858D33DD64BD785FBCB</fileHash>
+    </file>
+  </files>
+</deviationsLog>

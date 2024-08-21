@@ -1,19 +1,30 @@
 using System;
 using Intent.Engine;
+using Intent.Modules.Common.CSharp.Nuget;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.NugetPackages", Version = "1.0")]
 
 namespace Intent.Modules.Application.DependencyInjection.MediatR
 {
-    public static class NugetPackages
+    public class NugetPackages : INugetPackages
     {
+        public const string MediatRPackageName = "MediatR";
 
-        public static NugetPackageInfo MediatR(IOutputTarget outputTarget) => new NugetPackageInfo(
-            name: "MediatR",
-            version: outputTarget.GetMaxNetAppVersion() switch
-            {
-                (>= 7, 0) => "12.4.0",
-                (>= 6, 0) => "12.1.1",
-                _ => throw new Exception($"Unsupported Framework `{outputTarget.GetMaxNetAppVersion().Major}` for NuGet package 'MediatR'")
-            });
+        public void RegisterPackages()
+        {
+            NugetRegistry.Register(MediatRPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 6, 0) => new PackageVersion("12.4.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MediatRPackageName}'"),
+                    }
+                );
+        }
+
+        public static NugetPackageInfo MediatR(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MediatRPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

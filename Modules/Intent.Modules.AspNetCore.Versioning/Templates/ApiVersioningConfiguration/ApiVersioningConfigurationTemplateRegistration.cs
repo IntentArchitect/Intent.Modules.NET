@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.Versioning.Templates.ApiVersioningConfigurat
     {
         public override string TemplateId => ApiVersioningConfigurationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ApiVersioningConfigurationTemplate(outputTarget);

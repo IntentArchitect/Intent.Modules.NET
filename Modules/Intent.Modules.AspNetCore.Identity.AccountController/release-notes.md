@@ -1,3 +1,7 @@
+### Version 3.1.4
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 3.1.3
 
 - Fixed: updated module dependencies.

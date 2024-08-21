@@ -28,6 +28,7 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.DtoExtension
 
         public override string TemplateId => DtoExtensionsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, EventingDTOModel model)
         {
             return new DtoExtensionsTemplate(outputTarget, model);

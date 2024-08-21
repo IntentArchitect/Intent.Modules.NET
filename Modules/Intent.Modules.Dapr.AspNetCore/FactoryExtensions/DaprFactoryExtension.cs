@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Constants;
+using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -46,7 +47,7 @@ namespace Intent.Modules.Dapr.AspNetCore.FactoryExtensions
                 startupTemplate.StartupFile.ConfigureServices((statements, context) =>
                 {
                     statements.Statements.Add(new CSharpInvocationStatement($"{context.Services}.AddDaprSidekick").AddArgument(context.Configuration));
-                    
+
                     // Until we can make the "AddController" statement in the Intent.AspNetCore.Controllers be
                     // a CSharpInvocationStatement that supports method chaining, this will have to do.
                     // It's our original hack approach anyway and turning this into a CSharpMethodChainStatement will

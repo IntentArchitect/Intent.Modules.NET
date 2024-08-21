@@ -54,4 +54,7 @@ await execute(element);
   </elementExtensions>
   <associationSettings />
   <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
 </settings>

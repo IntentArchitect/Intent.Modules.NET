@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
@@ -25,7 +26,7 @@ namespace Intent.Modules.Entities.Templates.DataContract
                 .AddRecord($"{Model.Name}", record =>
                 {
                     record.RepresentsModel(Model);
-                    
+
                     if (Model.BaseDataContract is not null)
                     {
                         record.WithBaseType(GetTypeName(TemplateId, Model.BaseDataContract));
@@ -44,7 +45,7 @@ namespace Intent.Modules.Entities.Templates.DataContract
                                 });
                             }
                         }
-                        
+
                         foreach (var attribute in Model.Attributes)
                         {
                             ctor.AddParameter(GetTypeName(attribute), attribute.Name.ToCamelCase(), param =>

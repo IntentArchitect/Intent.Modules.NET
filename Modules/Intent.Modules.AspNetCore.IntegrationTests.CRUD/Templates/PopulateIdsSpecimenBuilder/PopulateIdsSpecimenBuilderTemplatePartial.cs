@@ -23,7 +23,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.Templates.PopulateIdsS
         public PopulateIdsSpecimenBuilderTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.AutoFixture(outputTarget));
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("AutoFixture.Kernel")
                 .AddUsing("System.Reflection")
@@ -38,13 +38,13 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.Templates.PopulateIdsS
                         });
                     });
 
-                    @class.AddMethod("object", "Create", method => 
+                    @class.AddMethod("object", "Create", method =>
                     {
                         method
                             .AddParameter("object", "request")
                             .AddParameter("ISpecimenContext", "context")
                             .AddStatement("var propertyInfo = request as PropertyInfo;")
-                            .AddIfStatement("propertyInfo != null", stmt => 
+                            .AddIfStatement("propertyInfo != null", stmt =>
                             {
                                 stmt.AddIfStatement("_idsToReplace.TryGetValue(propertyInfo.Name, out object? value)", ifs => ifs.AddStatement("return value;"));
                                 stmt.AddIfStatement("propertyInfo.Name.EndsWith(\"Id\")", ifs => ifs.AddStatement("return new OmitSpecimen();"));

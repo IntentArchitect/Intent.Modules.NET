@@ -20,8 +20,8 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using static Intent.Modules.Constants.TemplateRoles.Repository;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.Entities.Templates.DomainEntityState
 {

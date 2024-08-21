@@ -101,7 +101,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
 
         internal static string GetGroupName(ServiceProxyModel proxy)
         {
-            var result =  proxy.InternalElement.MappedElement?.Element?.Package?.Name;
+            var result = proxy.InternalElement.MappedElement?.Element?.Package?.Name;
             result ??= proxy.InternalElement.Package.Name;
             return result;
         }
@@ -130,6 +130,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
         }
     }
 
+    [IntentIgnore]
     public enum KeyType
     {
         Group,

@@ -18,6 +18,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface
     {
         public override string TemplateId => MongoDbUnitOfWorkInterfaceTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new MongoDbUnitOfWorkInterfaceTemplate(outputTarget);

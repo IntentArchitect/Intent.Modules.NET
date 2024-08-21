@@ -3,10 +3,18 @@
   <ApplicationId>6d534c85-5115-43f3-83ae-39a819807a2d</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#b74a2b6c-55eb-4437-9773-c8eee789a735</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#b74a2b6c-55eb-4437-9773-c8eee789a735</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ddd2ff2f-cd4e-4d5e-8d8a-a62d572541db</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentOutputReadme#6b155e43-5943-4cc7-ace6-d07217de2fcd</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>content/IdentityUiFiles/readme.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>content/IdentityUiFiles/readme.txt</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>469b61df-2417-4bb0-bdd0-e2f8e0f59091</ProjectId>
@@ -30,14 +38,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Identity.UI.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Identity.UI.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ddd2ff2f-cd4e-4d5e-8d8a-a62d572541db</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#a44b31ac-f4db-4460-9625-04ff21395ba0</correlationId>
+      <path>Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory/Templates/ApplicationSettingsJson/ApplicationSettingsJsonTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:03:38.7123992Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:20:53.9598327Z</approvedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>5D1423C8F4C6ECDC24FA94FA5C9B57E9A9E679847F8C7565FD6D16A00CD6DF0F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6b4ade70-7c1d-43ee-ada6-1651cbc9d8fa</correlationId>
+      <path>Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory/Templates/DesignTimeDbContextFactory/DesignTimeDbContextFactoryTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:03:38.7123912Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:20:53.964715Z</approvedAt>
+      <deviationsHash>606D2456394B7DEA1483A14703B2E47E7E903CC2BB2F4A8DB5F7E375E1F0664F</deviationsHash>
+      <fileHash>E9F192C2927840D2E225E8C8C8276E80814E11E9451DD1EAFCFAE06108FFCADE</fileHash>
+    </file>
+  </files>
+</deviationsLog>

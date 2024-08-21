@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#94b7bbc1-1590-4480-8545-955310b729a5</correlationId>
+      <path>Intent.Modules.DomainEvents/Templates/DomainEvent/DomainEventTemplatePartial.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:47:32.4045448Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:19:08.5988706Z</approvedAt>
+      <deviationsHash>CE50D29AA0A0B013AE4069CEF26F01CF88D450FD38EA562F2E4A4251C4104A01</deviationsHash>
+      <fileHash>E51302263D255A9521EFFA7FC3CB2FD1A4EF5E16E80BC489050894BCB8C5DAAC</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#94b7bbc1-1590-4480-8545-955310b729a5</correlationId>
+      <path>Intent.Modules.DomainEvents/Templates/DomainEvent/DomainEventTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:47:32.4045795Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:19:08.6039252Z</approvedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>1BE07DB0625687D39CB0D6037A3DF67C3E5F7DA40D9B8EC7F6B8B2E075AEFBDA</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4668477c-4627-465d-8a21-d68540ce00db</correlationId>
+      <path>Intent.Modules.DomainEvents/Templates/DomainEventBase/DomainEventBaseTemplatePartial.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:47:32.4045536Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:19:08.6056373Z</approvedAt>
+      <deviationsHash>F82C2E8705084F57B44D744F3381A648178FFFFA2C2D6D509BE153E080381DC2</deviationsHash>
+      <fileHash>13E6D6FED0B27741A88412747F6534A4019380AA6F5586FAA8A03EAA6BFA6F8D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#4668477c-4627-465d-8a21-d68540ce00db</correlationId>
+      <path>Intent.Modules.DomainEvents/Templates/DomainEventBase/DomainEventBaseTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:47:32.4045869Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:19:08.6071262Z</approvedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>3C52005955D6C9C9405C2C7E2E01D5C5412606EC304495A7339A2A11DA1B6F38</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#13c96091-dafd-4ae7-ba4d-b31396b19956</correlationId>
+      <path>Intent.Modules.DomainEvents/Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplatePartial.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:47:32.4045628Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:19:08.6087029Z</approvedAt>
+      <deviationsHash>F5FA6DA5CE43EDD660CD8F10C463AAA98DBBC721B71663EB761AFC3524D609E7</deviationsHash>
+      <fileHash>18963E215D64D4B0E8410C465617DE2BAB1D0379027916CA1FD10D4571E3F7EC</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#13c96091-dafd-4ae7-ba4d-b31396b19956</correlationId>
+      <path>Intent.Modules.DomainEvents/Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:47:32.4045945Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:19:08.6106613Z</approvedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>4D26CB90BF9CF66C04A7C8561ADE470CC9EC0781D73E08F42D1B3E93943704C1</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7633ea57-224c-4f93-a512-32243d21d216</correlationId>
+      <path>Intent.Modules.DomainEvents/Templates/HasDomainEventInterface/HasDomainEventInterfaceTemplatePartial.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:47:32.4045714Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:19:08.6123702Z</approvedAt>
+      <deviationsHash>B3BEE437286CA67AFC87E647D6B2B47AAFFAFB022D080F631FAFD1142C5CC7AD</deviationsHash>
+      <fileHash>1FD55419184D59C9CA37827823F5D47621D1208DF6A7965D03E4DD27AD5886FF</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#7633ea57-224c-4f93-a512-32243d21d216</correlationId>
+      <path>Intent.Modules.DomainEvents/Templates/HasDomainEventInterface/HasDomainEventInterfaceTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:47:32.4046021Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:19:08.6139706Z</approvedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>068AA694F110E386A0255E1C985F48D1C9A1DBF7B5A6C140745CC41633A3A083</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
+      <path>Intent.Modules.DomainEvents/Templates/TemplateExtensions.cs</path>
+      <count>6</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:47:32.4046111Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:19:08.6159006Z</approvedAt>
+      <deviationsHash>EEE211BA87709F0B18F8BF7CB5245A99BCB238314E749BFC275BD767FE290456</deviationsHash>
+      <fileHash>36770106F4BADCD53C49AA755D0A32F2F5CC5E5FB9663054B87ACCE1892236B2</fileHash>
+    </file>
+  </files>
+</deviationsLog>

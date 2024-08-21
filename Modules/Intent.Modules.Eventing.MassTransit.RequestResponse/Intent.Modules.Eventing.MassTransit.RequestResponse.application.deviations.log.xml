@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7d93afbc-b8d2-4384-b1ab-8b0ea5b102f8</correlationId>
+      <path>Intent.Modules.Eventing.MassTransit.RequestResponse/Templates/ClientContracts/DtoContract/DtoContractTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:25:51.8880123Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:23:18.2008202Z</approvedAt>
+      <deviationsHash>6098E80131097BFC2196961422F7C64BD9B912F5822A75EF54461203A0242FE2</deviationsHash>
+      <fileHash>9B1CCE1F74E0A39267DB0A3E517DB48790C02A24C6380D6212AFACA4028C2612</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6ee451d3-4e59-44da-9acc-21fca4dcad16</correlationId>
+      <path>Intent.Modules.Eventing.MassTransit.RequestResponse/Templates/ClientContracts/PagedResult/PagedResultTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:25:51.8880816Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:23:18.2066932Z</approvedAt>
+      <deviationsHash>CCAE9044D49FC7C8A4BAAEE4DBE9F3D51BDACF58F98813B2A71F0E1BF40EF5B5</deviationsHash>
+      <fileHash>60EA0119E613320A277E6830ADB1CA6CD46104DEF61CF58A3CC1B29AA378334B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f5038c52-537f-465f-b10d-2fc0b73da5c3</correlationId>
+      <path>Intent.Modules.Eventing.MassTransit.RequestResponse/Templates/ClientContracts/ServiceContract/ServiceContractTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:25:51.8881175Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:23:18.2049676Z</approvedAt>
+      <deviationsHash>8ED792B7FD90E75A9DCCD68AEEA2045D7B2C62D45ABEB4216B7ECDB0DED62D67</deviationsHash>
+      <fileHash>78CA02DC69A6F2628B8D9B23732A6E1519A260BF2A9DECB057E623FBB8435D5B</fileHash>
+    </file>
+  </files>
+</deviationsLog>

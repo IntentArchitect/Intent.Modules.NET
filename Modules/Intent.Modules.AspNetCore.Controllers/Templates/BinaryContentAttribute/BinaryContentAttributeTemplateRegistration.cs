@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentAttribute
     {
         public override string TemplateId => BinaryContentAttributeTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new BinaryContentAttributeTemplate(outputTarget);

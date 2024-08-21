@@ -1,4 +1,8 @@
-﻿### Version 5.1.0
+### Version 5.1.1
+
+- Improvement: Updated module NuGet packages infrastructure.
+
+### Version 5.1.0
 
 - Fixed: An issue where `Event` based enums generated multiple files. 
 > ⚠️ **NOTE**

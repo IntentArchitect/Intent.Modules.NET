@@ -14,6 +14,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using GeneralizationModel = Intent.Modelers.Domain.Api.GeneralizationModel;
@@ -61,9 +62,9 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtensions
                         {
                             ImplementMapping(statement, template, templateModel);
                         });
-                        
+
                         if (RequiresPersistenceMappings(application, template, templateModel.Mapping?.Element as IElement, out var persistenceContractName))
-                        {                            
+                        {
                             method.AddMethodChainStatement($"profile.CreateMap<{persistenceContractName}, {template.ClassName}>()", statement =>
                             {
                                 ImplementMapping(statement, template, templateModel);

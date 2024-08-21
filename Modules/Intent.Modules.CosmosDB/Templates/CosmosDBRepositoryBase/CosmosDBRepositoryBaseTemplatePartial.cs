@@ -34,7 +34,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
             var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrency();
             AddNugetDependency(NugetPackages.IEvangelistAzureCosmosRepository(outputTarget));
-			AddNugetDependency(NugetPackages.NewtonsoftJson(outputTarget));
+            AddNugetDependency(NugetPackages.NewtonsoftJson(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -287,7 +287,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .AddIfStatement("!documents.Any()", ifs => ifs.AddStatement("return default;"))
                         .AddStatement("var entity = LoadAndTrackDocument(documents.First());")
                         .AddStatement("return entity;", s => s.SeparatedFromPrevious())
-                    ); 
+                    );
                     @class.AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
                         .Async()
                         .AddParameter($"Func<IQueryable<{tDocumentInterface}>, IQueryable<{tDocumentInterface}>>", "queryOptions")
@@ -365,7 +365,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
                         .AddStatement("var queryable = (IQueryable<TDocumentInterface>)container.GetItemLinqQueryable<TDocumentInterface>(requestOptions: requestOptions, linqSerializerOptions: _optionsMonitor.CurrentValue.SerializationOptions);")
                         .AddStatement("queryable = queryOptions == null ? queryable : queryOptions(queryable);")
                         .AddStatement("//Filter by document type")
-                        .AddStatement("queryable = queryable.Where(d => ((IItem)d!).Type == _documentType);")            
+                        .AddStatement("queryable = queryable.Where(d => ((IItem)d!).Type == _documentType);")
                         .AddStatement("return queryable;", stmt => stmt.SeparatedFromPrevious())
                     );
 
@@ -464,34 +464,34 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
         {
             base.AfterTemplateRegistration();
 
-			this.ApplyAppSetting("RepositoryOptions", GetRepositoryOptions());
+            this.ApplyAppSetting("RepositoryOptions", GetRepositoryOptions());
 
-			ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.CosmosDb.Name)
+            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.CosmosDb.Name)
                 .WithProperty(Infrastructure.CosmosDb.Property.ConnectionStringSettingPath, "RepositoryOptions:CosmosConnectionString"));
         }
 
         private object GetRepositoryOptions()
         {
-			if (DocumentTemplateHelpers.IsSeparateDatabaseMultiTenancy(ExecutionContext.Settings))
-			{
-				return new
-				{
-					DatabaseId = ExecutionContext.GetApplicationConfig().Name,
-					ContainerId = "Container"
-				};
-			}
-			else
-			{
-				return  new
-				{
-					CosmosConnectionString = "AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
-					DatabaseId = ExecutionContext.GetApplicationConfig().Name,
-					ContainerId = "Container"
-				};
-			}
-		}
+            if (DocumentTemplateHelpers.IsSeparateDatabaseMultiTenancy(ExecutionContext.Settings))
+            {
+                return new
+                {
+                    DatabaseId = ExecutionContext.GetApplicationConfig().Name,
+                    ContainerId = "Container"
+                };
+            }
+            else
+            {
+                return new
+                {
+                    CosmosConnectionString = "AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
+                    DatabaseId = ExecutionContext.GetApplicationConfig().Name,
+                    ContainerId = "Container"
+                };
+            }
+        }
 
-		[IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]

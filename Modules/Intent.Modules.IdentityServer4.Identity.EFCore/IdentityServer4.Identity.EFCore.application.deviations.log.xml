@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecorator#02c9e515-9bea-4d09-a4ee-104006a6133d</correlationId>
+      <path>Intent.Modules.IdentityServer4.Identity.EFCore/Decorators/AspNetIdentityUserDecorator.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:27:36.8413179Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:54:48.4453178Z</approvedAt>
+      <deviationsHash>7927E272998DBE9306727A4B46CB4F852FEE864B057CAF72FAA62FB633C9C3D7</deviationsHash>
+      <fileHash>1DFA2F4DA1E2C292EBAA85F2822312E6BAB30B77F63B817BA7FAB37C41C6E508</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecorator#6e4ab589-36f5-42ff-b02f-814441137fc8</correlationId>
+      <path>Intent.Modules.IdentityServer4.Identity.EFCore/Decorators/IdentityUserDecorator.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:27:36.8413277Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:54:48.4391021Z</approvedAt>
+      <deviationsHash>BE7650EC019EF7877745B32FBA8E9B5D37B0A55A31992D599F37F11DA5C26EB9</deviationsHash>
+      <fileHash>BF93EA90296D71854B9A2382862D72080EA5840535479E23BC4D3C179B0EE1A6</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#566fa121-2bd7-4899-b24d-fbaeed4dbe41</correlationId>
+      <path>Intent.Modules.IdentityServer4.Identity.EFCore/FactoryExtensions/IdentityDbContextExtension.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:27:36.8413591Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:54:48.4435385Z</approvedAt>
+      <deviationsHash>31E06F80AAB7FC1D38F08000498D06EC499486CBC50BEA9015B0C5481798B6D6</deviationsHash>
+      <fileHash>173B8A407A9297935D269B3007C241E0CACCD300F5A89621CA48E7951A19BE5E</fileHash>
+    </file>
+  </files>
+</deviationsLog>

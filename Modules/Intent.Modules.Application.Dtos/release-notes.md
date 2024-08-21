@@ -1,4 +1,8 @@
-﻿### Version 4.3.0
+### Version 4.3.1
+
+- Improvement: Updated module NuGet packages infrastructure.
+
+### Version 4.3.0
 
 - Fixed: An issue where `Event` package enums generated multiple files. 
 > ⚠️ **NOTE**

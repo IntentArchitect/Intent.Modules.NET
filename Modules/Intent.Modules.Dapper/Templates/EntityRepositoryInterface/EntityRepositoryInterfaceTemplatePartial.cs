@@ -44,23 +44,23 @@ namespace Intent.Modules.Dapper.Templates.EntityRepositoryInterface
 
                     @interface.RepresentsModel(model);
 
-					@interface.AddMethod($"Task<{EntityName}?>", "FindByIdAsync", method =>
-					{
-						var pks = model.GetPks();
+                    @interface.AddMethod($"Task<{EntityName}?>", "FindByIdAsync", method =>
+                    {
+                        var pks = model.GetPks();
 
-						if (pks.Count == 1)
-						{
+                        if (pks.Count == 1)
+                        {
                             var pk = pks[0];
-							method.AddParameter(GetTypeName(pk.TypeReference), pk.Name.ToCamelCase());
-						}
-						else
-						{
-							method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{GetTypeName(pk)} {pk.Name.ToPascalCase()}"))})", "id");
-						}
-						method
-							.AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"));
-					});
-				});
+                            method.AddParameter(GetTypeName(pk.TypeReference), pk.Name.ToCamelCase());
+                        }
+                        else
+                        {
+                            method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{GetTypeName(pk)} {pk.Name.ToPascalCase()}"))})", "id");
+                        }
+                        method
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"));
+                    });
+                });
         }
         public string EntityName => GetTypeName("Domain.Entity", Model);
 

@@ -26,6 +26,7 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.SignalRConfiguration
         }
         public override string TemplateId => SignalRConfigurationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<SignalRHubModel> model)
         {
             return new SignalRConfigurationTemplate(outputTarget, model);

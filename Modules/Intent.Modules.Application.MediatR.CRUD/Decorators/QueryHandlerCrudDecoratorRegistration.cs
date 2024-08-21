@@ -12,6 +12,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
     [Description(QueryHandlerCrudDecorator.DecoratorId)]
     public class QueryHandlerCrudDecoratorRegistration : DecoratorRegistration<QueryHandlerTemplate, QueryHandlerDecorator>
     {
+        [IntentManaged(Mode.Fully)]
         public override QueryHandlerDecorator CreateDecoratorInstance(QueryHandlerTemplate template, IApplication application)
         {
             return new QueryHandlerCrudDecorator(template, application);

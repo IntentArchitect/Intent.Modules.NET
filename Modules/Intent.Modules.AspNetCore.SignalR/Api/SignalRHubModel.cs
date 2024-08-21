@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.AspNetCore.SignalR.Api
 {
     [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-    public class SignalRHubModel : IMetadataModel, IHasStereotypes, IHasName, IHasFolder
+    public class SignalRHubModel : IMetadataModel, IHasStereotypes, IHasName, IElementWrapper, IHasFolder
     {
         public const string SpecializationType = "SignalR Hub";
         public const string SpecializationTypeId = "5ceb7e81-e2c6-4421-aa53-f74a81b0e312";

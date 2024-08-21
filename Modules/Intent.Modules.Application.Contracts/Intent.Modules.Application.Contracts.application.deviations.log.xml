@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#3bc9bb9d-48af-4ba6-b94a-4d0ceb64e6c7</correlationId>
+      <path>Intent.Modules.Application.Contracts/Templates/ServiceContract/ServiceContractDecorator.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T10:01:38.8785783Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:56:13.308032Z</approvedAt>
+      <deviationsHash>B05CB1E0ED0E993088E195C3E93578845346361EAA5DE0B3C8D15B34340C82C6</deviationsHash>
+      <fileHash>F0882120A4672BCAAAC8CB51E8750F48EDB37F31B2A81B5D32075AEE60394183</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
+      <path>Intent.Modules.Application.Contracts/Templates/TemplateExtensions.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T10:01:38.8785869Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:56:13.3126271Z</approvedAt>
+      <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
+      <fileHash>17526C6CAC2099ED4355EAA01CE4560A80B59F88005E04B2D8ED7746EC7770EC</fileHash>
+    </file>
+  </files>
+</deviationsLog>

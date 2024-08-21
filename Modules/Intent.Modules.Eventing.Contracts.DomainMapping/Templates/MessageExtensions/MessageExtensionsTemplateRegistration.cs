@@ -28,6 +28,7 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.MessageExten
 
         public override string TemplateId => MessageExtensionsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, MessageModel model)
         {
             return new MessageExtensionsTemplate(outputTarget, model);

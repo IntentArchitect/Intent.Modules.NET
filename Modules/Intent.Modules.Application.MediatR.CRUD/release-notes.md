@@ -1,3 +1,7 @@
+### Version 6.0.16
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 6.0.15
 
 - Improvement: Support for nullable `OrderBy` on Paging.

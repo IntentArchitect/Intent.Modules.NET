@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.ExceptionFilter
     {
         public override string TemplateId => ExceptionFilterTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ExceptionFilterTemplate(outputTarget);

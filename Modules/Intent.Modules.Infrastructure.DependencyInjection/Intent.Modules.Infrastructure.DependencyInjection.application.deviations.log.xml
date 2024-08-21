@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#08c8b8d6-b827-4ac8-b201-e6ae7614743d</correlationId>
+      <path>Intent.Modules.Infrastructure.DependencyInjection/Templates/DependencyInjection/DependencyInjectionDecorator.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:29:46.8072443Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:24:33.489916Z</approvedAt>
+      <deviationsHash>C27FFBE2CF3D7052E4BA0E0AB1C3C94DCA062A79E5056B02AD579D06A7A57604</deviationsHash>
+      <fileHash>5485EEA88FE9C81F97B8ED2D5CD029FBB8F63884C4132B6B86655F139F324393</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#17a069d6-8dd9-4274-9a04-958f99ec486c</correlationId>
+      <path>Intent.Modules.Infrastructure.DependencyInjection/Templates/DependencyInjection/DependencyInjectionTemplatePartial.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:29:46.8072255Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:24:33.4939449Z</approvedAt>
+      <deviationsHash>0B2B9297AA0D8EDCDB5053132B4F62C533F5F890D9E8BA63436D4D299708EC53</deviationsHash>
+      <fileHash>BBF8D0FA91D6E858BFD23BFAE91E93ADA2E5960DC1C387ACD32236DF2CC267F8</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#17a069d6-8dd9-4274-9a04-958f99ec486c</correlationId>
+      <path>Intent.Modules.Infrastructure.DependencyInjection/Templates/DependencyInjection/DependencyInjectionTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:29:46.8072347Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:24:33.4964817Z</approvedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>A87AC9AE2E6891B0CA0B8D83DF208437DC6B1B70C3B0C9AFBC9BA2470E8ABAD4</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
+      <path>Intent.Modules.Infrastructure.DependencyInjection/Templates/TemplateExtensions.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:29:46.8072543Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:24:33.4979174Z</approvedAt>
+      <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
+      <fileHash>1EE3AB50AA3AA9356E0B86EDD4A11F7345243C2A50A689C0C67D96BF4C4A3A97</fileHash>
+    </file>
+  </files>
+</deviationsLog>

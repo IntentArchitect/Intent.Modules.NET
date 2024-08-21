@@ -3,7 +3,7 @@
   <ApplicationId>9682f956-8c35-4ae7-a720-cfef96c1ca57</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#20e9c15a-312c-4d73-94c9-a697672f5f2c</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#20e9c15a-312c-4d73-94c9-a697672f5f2c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -30,6 +30,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.EntityFrameworkCore.BulkOperations.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.EntityFrameworkCore.BulkOperations.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6930cd87-e815-4614-b05e-7f10aa1b5f15</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NugetPackages.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

@@ -1,4 +1,8 @@
-﻿### Version 1.1.5
+### Version 1.1.6
+
+- Improvement: Updated module NuGet packages infrastructure.
+
+### Version 1.1.5
 
 - Fixed: Modeling Generics on these resulted in code which did not compile.
 

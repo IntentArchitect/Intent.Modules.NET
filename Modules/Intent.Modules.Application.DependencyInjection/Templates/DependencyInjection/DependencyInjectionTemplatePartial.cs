@@ -76,7 +76,7 @@ public partial class DependencyInjectionTemplate : CSharpTemplateBase<object, De
         ExecutionContext.EventDispatcher.Publish(
             ServiceConfigurationRequest
                 .ToRegister(
-                    extensionMethodName: "AddApplication", 
+                    extensionMethodName: "AddApplication",
                     extensionMethodParameterList: ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
     }

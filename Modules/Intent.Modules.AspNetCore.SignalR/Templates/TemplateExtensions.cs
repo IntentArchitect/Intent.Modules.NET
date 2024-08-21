@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.AspNetCore.SignalR.Api;
 using Intent.Modules.AspNetCore.SignalR.Templates.Hub;
 using Intent.Modules.AspNetCore.SignalR.Templates.HubService;
 using Intent.Modules.AspNetCore.SignalR.Templates.HubServiceInterface;
@@ -14,32 +15,32 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetHubName<T>(this IIntentTemplate<T> template) where T : Intent.AspNetCore.SignalR.Api.SignalRHubModel
+        public static string GetHubName<T>(this IIntentTemplate<T> template) where T : SignalRHubModel
         {
             return template.GetTypeName(HubTemplate.TemplateId, template.Model);
         }
 
-        public static string GetHubName(this IIntentTemplate template, Intent.AspNetCore.SignalR.Api.SignalRHubModel model)
+        public static string GetHubName(this IIntentTemplate template, SignalRHubModel model)
         {
             return template.GetTypeName(HubTemplate.TemplateId, model);
         }
 
-        public static string GetHubServiceName<T>(this IIntentTemplate<T> template) where T : Intent.AspNetCore.SignalR.Api.SignalRHubModel
+        public static string GetHubServiceName<T>(this IIntentTemplate<T> template) where T : SignalRHubModel
         {
             return template.GetTypeName(HubServiceTemplate.TemplateId, template.Model);
         }
 
-        public static string GetHubServiceName(this IIntentTemplate template, Intent.AspNetCore.SignalR.Api.SignalRHubModel model)
+        public static string GetHubServiceName(this IIntentTemplate template, SignalRHubModel model)
         {
             return template.GetTypeName(HubServiceTemplate.TemplateId, model);
         }
 
-        public static string GetHubServiceInterfaceName<T>(this IIntentTemplate<T> template) where T : Intent.AspNetCore.SignalR.Api.SignalRHubModel
+        public static string GetHubServiceInterfaceName<T>(this IIntentTemplate<T> template) where T : SignalRHubModel
         {
             return template.GetTypeName(HubServiceInterfaceTemplate.TemplateId, template.Model);
         }
 
-        public static string GetHubServiceInterfaceName(this IIntentTemplate template, Intent.AspNetCore.SignalR.Api.SignalRHubModel model)
+        public static string GetHubServiceInterfaceName(this IIntentTemplate template, SignalRHubModel model)
         {
             return template.GetTypeName(HubServiceInterfaceTemplate.TemplateId, model);
         }

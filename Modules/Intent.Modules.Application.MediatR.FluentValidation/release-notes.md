@@ -1,3 +1,7 @@
+### Version 4.6.3
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 4.6.2
 
 - Improvement: Updated NuGet packages to latest stables.

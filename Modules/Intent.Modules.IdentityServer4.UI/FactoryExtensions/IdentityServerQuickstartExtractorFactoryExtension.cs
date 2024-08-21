@@ -4,6 +4,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.IdentityServer4.UI.Resources;
 using Intent.Plugins.FactoryExtensions;

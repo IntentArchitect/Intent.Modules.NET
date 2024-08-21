@@ -3,7 +3,7 @@
   <ApplicationId>70ce79dc-5921-4872-8959-d1cb6f635a8c</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#20a40b4a-8785-4e1c-b52c-c1d49a8059a6</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#20a40b4a-8785-4e1c-b52c-c1d49a8059a6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -62,14 +62,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>modelers/Eventing Designer Settings.designer.settings</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Eventing Designer Settings.designer.settings</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>749ac6d1-cc82-407c-b973-ae5de1178fcf</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ReadMe</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>README.txt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>README.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

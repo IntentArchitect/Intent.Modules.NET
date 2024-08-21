@@ -70,7 +70,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
             // We are conducting this in a two-phased approach:
             // 1. We are first registering up what serilog needs for the host builder.
             RegisterSerilogConfiguration(application);
-            
+
             // 2. Now we can alter the Program file based on the configured settings and layout.
             ConfigureProgramStructure(application);
         }
@@ -89,65 +89,65 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
                     });
             }, 10);
         }
-        
+
         private static void ConfigureProgramStructure(IApplication application)
         {
-             var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("App.Program");
-            
-             var usesMinimalHostingModel = template.OutputTarget.GetProject()?.InternalElement?.AsCSharpProjectNETModel()?.GetNETSettings()?.UseMinimalHostingModel() == true;
-             if (usesMinimalHostingModel)
-             {
-                 var usesTopLevelStatements = template.OutputTarget.GetProject()?.InternalElement?.AsCSharpProjectNETModel()?.GetNETSettings()?.UseTopLevelStatements() == true;
-                 template.CSharpFile.AfterBuild(file => MinimalHostingSerilogSetup(file, usesTopLevelStatements, template));
-                 return;
-             }
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("App.Program");
 
-             template.CSharpFile.OnBuild(file => ClassicProgramSerilogSetup(file, template), 10);
+            var usesMinimalHostingModel = template.OutputTarget.GetProject()?.InternalElement?.AsCSharpProjectNETModel()?.GetNETSettings()?.UseMinimalHostingModel() == true;
+            if (usesMinimalHostingModel)
+            {
+                var usesTopLevelStatements = template.OutputTarget.GetProject()?.InternalElement?.AsCSharpProjectNETModel()?.GetNETSettings()?.UseTopLevelStatements() == true;
+                template.CSharpFile.AfterBuild(file => MinimalHostingSerilogSetup(file, usesTopLevelStatements, template));
+                return;
+            }
+
+            template.CSharpFile.OnBuild(file => ClassicProgramSerilogSetup(file, template), 10);
         }
 
         private static void ClassicProgramSerilogSetup(CSharpFile file, ICSharpFileBuilderTemplate template)
         {
             file.AddUsing("Serilog");
             file.AddUsing("Serilog.Events");
-        
+
             var main = (IHasCSharpStatements)file.TopLevelStatements ?? file.Classes.First().FindMethod("Main");
             var hostBuilder = (IHasCSharpStatements)file.TopLevelStatements?.FindMethod("CreateHostBuilder") ?? file.Classes.First().FindMethod("CreateHostBuilder");
-        
+
             var hostRunStmt = main.FindStatement(stmt => stmt.HasMetadata("host-run"));
             hostRunStmt.Remove();
-        
+
             AddBootstrapLoggerStatement(main);
-        
+
             main.AddTryBlock(block =>
                 block.AddStatement(@"Log.Information(""Starting web host"");")
                     .AddStatement(hostRunStmt));
-        
+
             main.AddCatchBlock(template.UseType("System.Exception"), "ex",
                 block => block.AddStatement(@"Log.Fatal(ex, ""Host terminated unexpectedly"");"));
             main.AddFinallyBlock(block => block.AddStatement("Log.CloseAndFlush();"));
         }
-        
+
         private static void MinimalHostingSerilogSetup(CSharpFile file, bool usesTopLevelStatements, ICSharpFileBuilderTemplate template)
         {
             file.AddUsing("Serilog");
             file.AddUsing("Serilog.Events");
-        
+
             var targetBlock = usesTopLevelStatements
                 ? (IHasCSharpStatements)file.TopLevelStatements
                 : file.Classes.First().Methods.First(x => x.Name == "Main");
-        
+
             var existingStatements = targetBlock.Statements.ToList();
             targetBlock.Statements.Clear();
-        
+
             AddBootstrapLoggerStatement(targetBlock);
-        
+
             targetBlock.AddTryBlock(tryBlock =>
             {
                 tryBlock.AddStatements(existingStatements);
                 existingStatements.FirstOrDefault()?.SeparatedFromPrevious();
-        
+
                 var hostBuilderStatement = tryBlock.FindStatement(x => x.HasMetadata("is-builder-statement"));
-        
+
                 // Add a line above the next statement:
                 var nextStatementIndex = tryBlock.Statements.IndexOf(hostBuilderStatement) + 1;
                 if (tryBlock.Statements.Count > nextStatementIndex)
@@ -155,12 +155,12 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
                     tryBlock.Statements[nextStatementIndex].SeparatedFromPrevious();
                 }
             });
-        
+
             targetBlock.AddCatchBlock(@catch => @catch
                 .WithExceptionType(template.UseType("System.Exception"))
                 .WithParameterName("ex")
                 .AddStatement("Log.Fatal(ex, \"Application terminated unexpectedly\");"));
-        
+
             targetBlock.AddFinallyBlock(@finally => @finally
                 .AddStatement("Log.CloseAndFlush();"));
         }

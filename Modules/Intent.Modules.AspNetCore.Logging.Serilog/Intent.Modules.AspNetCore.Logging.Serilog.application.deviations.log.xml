@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecorator#4d920a6b-8adf-4ea1-a9f4-2131f8316ce3</correlationId>
+      <path>Intent.Modules.AspNetCore.Logging.Serilog/Decorators/ConfigurationSettingsSerilogLoggingDecorator.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T12:45:24.6323877Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:03:56.9438925Z</approvedAt>
+      <deviationsHash>70F10B95867BBFEBD442394830F2E214DB86F36F66616C9EBB891B74B2BA43F6</deviationsHash>
+      <fileHash>66B03D8CF802A8A5A3E28B1C5057D6A368BD123DFE75344D1EA88ED2C834A35D</fileHash>
+    </file>
+  </files>
+</deviationsLog>

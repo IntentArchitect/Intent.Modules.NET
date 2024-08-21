@@ -26,6 +26,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
 
         public override string TemplateId => DtoModelTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, DTOModel model)
         {
             return new DtoModelTemplate(outputTarget, model);

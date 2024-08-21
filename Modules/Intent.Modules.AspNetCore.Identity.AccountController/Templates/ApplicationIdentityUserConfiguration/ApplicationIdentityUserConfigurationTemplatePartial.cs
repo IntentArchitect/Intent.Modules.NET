@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
@@ -13,7 +14,7 @@ using Intent.Templates;
 namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.ApplicationIdentityUserConfiguration
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class ApplicationIdentityUserConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class ApplicationIdentityUserConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.AspNetCore.Identity.AccountController.ApplicationIdentityUserConfiguration";
 

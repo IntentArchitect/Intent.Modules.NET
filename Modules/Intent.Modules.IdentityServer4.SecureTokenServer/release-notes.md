@@ -1,3 +1,7 @@
+### Version 4.1.1
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 4.1.0
 
 - Improvement: Updated to be compatible with latest Intent Architect Modules.

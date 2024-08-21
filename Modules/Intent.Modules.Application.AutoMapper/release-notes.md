@@ -1,3 +1,7 @@
+### Version 5.1.3
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 5.1.2
 
 - Improvement: Dependency bump.

@@ -1,3 +1,7 @@
+### Version 1.1.2
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 1.1.1
 
 - Improvement: Added support for `x-enumNames` Enum names extension. 

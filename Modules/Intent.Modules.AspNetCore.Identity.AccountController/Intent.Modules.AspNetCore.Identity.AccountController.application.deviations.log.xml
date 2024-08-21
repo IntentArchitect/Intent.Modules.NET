@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1408390e-ee98-4b4c-94ad-18ceddcc17d0</correlationId>
+      <path>Intent.Modules.AspNetCore.Identity.AccountController/Templates/AccountController/AccountControllerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T11:29:14.4381714Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:53:30.4179978Z</approvedAt>
+      <deviationsHash>77C94E2DD5E41C56AC9FC8179A5447A4F347F3C82EA113CF7992A9ACA2B3F74C</deviationsHash>
+      <fileHash>D0E74D346D7CFF24714D2643C65C313685CF69B792E7BCAA4A1F857DF46F658E</fileHash>
+    </file>
+  </files>
+</deviationsLog>

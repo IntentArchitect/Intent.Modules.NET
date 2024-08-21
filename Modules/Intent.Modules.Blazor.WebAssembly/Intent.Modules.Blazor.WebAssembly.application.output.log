@@ -3,7 +3,7 @@
   <ApplicationId>1778123f-6740-4552-9120-d21452253f32</ApplicationId>
   <FileLogs>
     <FileLog>
-      <CorrelationId>Intent.VisualStudio.Projects.VisualStudio2015Solution#8a3a1cbc-3db3-4e95-8fae-b962314e116a</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#8a3a1cbc-3db3-4e95-8fae-b962314e116a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
@@ -30,6 +30,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Blazor.WebAssembly.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Blazor.WebAssembly.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0400e2eb-dd1c-4f52-85c2-9ef8fc23956b</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NugetPackages.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -1,5 +1,6 @@
 ### Version 4.2.2
 
+- Improvement: Updated module NuGet packages infrastructure.
 - Improvement: Internal updates to module project.
 
 ### Version 4.2.1

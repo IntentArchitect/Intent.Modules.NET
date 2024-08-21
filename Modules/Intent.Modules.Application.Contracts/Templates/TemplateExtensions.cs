@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -10,12 +11,12 @@ namespace Intent.Modules.Application.Contracts.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetServiceContractName<T>(this IIntentTemplate<T> template) where T : Intent.Modelers.Services.Api.ServiceModel
+        public static string GetServiceContractName<T>(this IIntentTemplate<T> template) where T : ServiceModel
         {
             return template.GetTypeName(ServiceContractTemplate.TemplateId, template.Model);
         }
 
-        public static string GetServiceContractName(this IIntentTemplate template, Intent.Modelers.Services.Api.ServiceModel model)
+        public static string GetServiceContractName(this IIntentTemplate template, ServiceModel model)
         {
             return template.GetTypeName(ServiceContractTemplate.TemplateId, model);
         }

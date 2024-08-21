@@ -18,9 +18,10 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
     {
         public override string TemplateId => PerformanceBehaviourTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new PerformanceBehaviourTemplate(outputTarget, null);
+            return new PerformanceBehaviourTemplate(outputTarget);
         }
     }
 }

@@ -1,3 +1,7 @@
+### Version 4.1.6
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 4.1.5
 
 - New Feature: Added support for `Integration Command` domain mapping.

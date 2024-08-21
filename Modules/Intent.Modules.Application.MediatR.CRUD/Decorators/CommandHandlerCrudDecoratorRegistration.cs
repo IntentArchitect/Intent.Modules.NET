@@ -12,6 +12,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
     [Description(CommandHandlerCrudDecorator.DecoratorId)]
     public class CommandHandlerCrudDecoratorRegistration : DecoratorRegistration<CommandHandlerTemplate, CommandHandlerDecorator>
     {
+        [IntentManaged(Mode.Fully)]
         public override CommandHandlerDecorator CreateDecoratorInstance(CommandHandlerTemplate template, IApplication application)
         {
             return new CommandHandlerCrudDecorator(template, application);

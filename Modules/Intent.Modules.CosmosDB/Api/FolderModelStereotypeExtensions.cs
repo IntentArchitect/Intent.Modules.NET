@@ -15,14 +15,14 @@ namespace Intent.CosmosDB.Api
     {
         public static Container GetContainer(this FolderModel model)
         {
-            var stereotype = model.GetStereotype("Container");
+            var stereotype = model.GetStereotype("ef9b1772-18e1-44ad-b606-66406221c805");
             return stereotype != null ? new Container(stereotype) : null;
         }
 
 
         public static bool HasContainer(this FolderModel model)
         {
-            return model.HasStereotype("Container");
+            return model.HasStereotype("ef9b1772-18e1-44ad-b606-66406221c805");
         }
 
         public static bool TryGetContainer(this FolderModel model, out Container stereotype)
@@ -33,7 +33,7 @@ namespace Intent.CosmosDB.Api
                 return false;
             }
 
-            stereotype = new Container(model.GetStereotype("Container"));
+            stereotype = new Container(model.GetStereotype("ef9b1772-18e1-44ad-b606-66406221c805"));
             return true;
         }
 

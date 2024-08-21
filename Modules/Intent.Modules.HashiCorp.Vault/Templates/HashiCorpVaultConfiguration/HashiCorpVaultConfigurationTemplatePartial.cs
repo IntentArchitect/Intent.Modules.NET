@@ -23,7 +23,7 @@ namespace Intent.Modules.HashiCorp.Vault.Templates.HashiCorpVaultConfiguration
         public HashiCorpVaultConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.VaultSharp(OutputTarget));
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("System.Linq")

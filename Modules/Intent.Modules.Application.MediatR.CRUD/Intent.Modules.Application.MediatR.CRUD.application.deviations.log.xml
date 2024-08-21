@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecorator#2fa5d716-3bc4-4a74-828d-d9b7c966ae17</correlationId>
+      <path>Intent.Modules.Application.MediatR.CRUD/Decorators/CommandHandlerCrudDecorator.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:42:47.8112835Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:27:12.9149023Z</approvedAt>
+      <deviationsHash>BA1F2B59547169BD8BD9CDC09FC24A41974C1CA805D159AA2C59387817FA3847</deviationsHash>
+      <fileHash>78721DCED9F233A0F51A45A0362294664B95F315B3C50B71AC1F8CB816D55403</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecorator#c09b329c-dd0a-4d7f-858c-a012ae180b32</correlationId>
+      <path>Intent.Modules.Application.MediatR.CRUD/Decorators/QueryHandlerCrudDecorator.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:42:47.8112946Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:27:12.919046Z</approvedAt>
+      <deviationsHash>698E7714404D5D2877F0A945AC75FB40939BFB6D9AEE64C1BA9E174D73E112D1</deviationsHash>
+      <fileHash>C6D915C31C25E2F68E59010BB7E3606B0071797F7E315F209043DF6AA575BB41</fileHash>
+    </file>
+  </files>
+</deviationsLog>

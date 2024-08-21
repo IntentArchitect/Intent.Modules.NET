@@ -1,3 +1,7 @@
+### Version 1.2.2
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 1.2.1
 
 - Improvement: Updated NuGet packages to latest stables.

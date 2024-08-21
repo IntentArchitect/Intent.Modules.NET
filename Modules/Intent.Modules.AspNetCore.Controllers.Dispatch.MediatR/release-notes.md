@@ -1,3 +1,7 @@
+### Version 5.5.3
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 5.5.2
 
 - Improvement: Support for modeled security `Role`s and `Policy`s

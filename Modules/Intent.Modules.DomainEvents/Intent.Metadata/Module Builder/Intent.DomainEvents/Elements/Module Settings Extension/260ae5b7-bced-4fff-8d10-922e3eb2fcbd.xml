@@ -50,7 +50,7 @@
       <childElements>
         <childElement id="ff379a8d-337b-4de4-91ea-00821340aca1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>All Aggregates</name>
-          <display>All Aggregates = all</display>
+          <display>All Aggregates</display>
           <isAbstract>false</isAbstract>
           <value>all</value>
           <genericTypes />
@@ -64,7 +64,7 @@
         </childElement>
         <childElement id="fc42b3d3-e864-4cac-998b-d78411cc1493" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Aggregates with Modelled Domain Events</name>
-          <display>Aggregates with Modelled Domain Events = modelled-events</display>
+          <display>Aggregates with Modelled Domain Events</display>
           <isAbstract>false</isAbstract>
           <value>modelled-events</value>
           <genericTypes />

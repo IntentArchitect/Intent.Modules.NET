@@ -27,6 +27,7 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.HubServiceInterface
 
         public override string TemplateId => HubServiceInterfaceTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, SignalRHubModel model)
         {
             return new HubServiceInterfaceTemplate(outputTarget, model);

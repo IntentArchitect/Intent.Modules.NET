@@ -49,7 +49,7 @@ namespace Intent.Modules.MongoDb.Repositories.FactoryExtensions
                     var @interface = file.Interfaces.First();
                     var model = @interface.GetMetadata<ClassModel>("model");
 
-                    if (MongoDbProvider.FilterDbProvider( model) == false)
+                    if (MongoDbProvider.FilterDbProvider(model) == false)
                     {
                         return;
                     }

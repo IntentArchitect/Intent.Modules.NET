@@ -1,3 +1,7 @@
+### Version 6.0.11
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 6.0.10
 
 - Improvement: The code responsible for generating the AddControllers line in the Startup routine has been enhanced to better identify that statement at runtime.

@@ -1,4 +1,8 @@
-﻿### Version 5.0.7
+### Version 5.0.8
+
+- Improvement: Updated module NuGet packages infrastructure.
+
+### Version 5.0.7
 
 - Improvement: Added support for gathering Service Proxy information from the Services designer too.
 

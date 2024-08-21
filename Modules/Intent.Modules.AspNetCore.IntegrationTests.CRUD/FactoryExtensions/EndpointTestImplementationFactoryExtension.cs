@@ -33,7 +33,7 @@ using static Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.E
 namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class EndpointTestImplementationFactoryExtension : FactoryExtensionBase
+    public class EndpointTestImplementationFactoryExtension : FactoryExtensionBase
     {
         private const string CommandSpecializationType = "ccf14eb6-3a55-4d81-b5b9-d27311c70cb9";
         private const string DtoSpecializationType = "fee0edca-4aa0-4f77-a524-6bbd84e78734";
@@ -108,7 +108,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement("// Arrange", s => s.SeparatedFromPrevious())
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
                         .AddStatement("// Act", s => s.SeparatedFromPrevious())
-                        .AddStatement($"// Unable to generate test: Can't determine how to mock data for ({ string.Join(",",  crudTest.Dependencies.Where(d => d.CrudMap is null).Select( d => d.EntityName)) })", s => s.SeparatedFromPrevious())
+                        .AddStatement($"// Unable to generate test: Can't determine how to mock data for ({string.Join(",", crudTest.Dependencies.Where(d => d.CrudMap is null).Select(d => d.EntityName))})", s => s.SeparatedFromPrevious())
                         .AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality")
                         .AddStatement($@"throw new NotImplementedException(""Your implementation here..."");")
                         ;
@@ -172,7 +172,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
                     if (crudTest.Dependencies.Any())
                     {
-                        if (crudTest.OwningAggregate is null) 
+                        if (crudTest.OwningAggregate is null)
                         {
                             method.AddStatement($"await dataFactory.Create{crudTest.Entity.Name}Dependencies();");
                         }
@@ -262,7 +262,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
 
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
-                        .AddStatement($"{(crudTest.OwningAggregate is not null ? "var ids = ":"")}await dataFactory.Create{crudTest.Entity.Name}();")
+                        .AddStatement($"{(crudTest.OwningAggregate is not null ? "var ids = " : "")}await dataFactory.Create{crudTest.Entity.Name}();")
                         .AddStatement("// Act", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {crudTest.Entity.Name.ToParameterName().Pluralize()} = await client.{crudTest.GetAll!.Name}Async({(crudTest.OwningAggregate is not null ? $"{owningAggregateId}" : "")});")
 
@@ -381,10 +381,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
         {
             if (test.Entity.InternalElement.RequiresCosmosDb((IntentTemplateBase)template))
             {
-                AddRequirementTrait(method, "CosmosDB" );
-                method.WithComments("/// The Cosmos DB Linux Emulator Docker image does not run on Microsoft's CI environment (GitHub, Azure DevOps).\")] // https://github.com/Azure/azure-cosmos-db-emulator-docker/issues/45.");				
-			}
-		}
+                AddRequirementTrait(method, "CosmosDB");
+                method.WithComments("/// The Cosmos DB Linux Emulator Docker image does not run on Microsoft's CI environment (GitHub, Azure DevOps).\")] // https://github.com/Azure/azure-cosmos-db-emulator-docker/issues/45.");
+            }
+        }
 
         private static void AddRequirementTrait(CSharpClassMethod method, string requirement)
         {

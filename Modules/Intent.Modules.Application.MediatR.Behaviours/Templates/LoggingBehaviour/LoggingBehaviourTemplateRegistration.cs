@@ -18,9 +18,10 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehavio
     {
         public override string TemplateId => LoggingBehaviourTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new LoggingBehaviourTemplate(outputTarget, null);
+            return new LoggingBehaviourTemplate(outputTarget);
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.GraphQL.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
-using Intent.Modelers.Services.GraphQL.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -27,6 +27,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.SubscriptionType
 
         public override string TemplateId => SubscriptionTypeTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, GraphQLSubscriptionTypeModel model)
         {
             return new SubscriptionTypeTemplate(outputTarget, model);

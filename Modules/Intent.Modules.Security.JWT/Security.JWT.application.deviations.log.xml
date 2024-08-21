@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecorator#e695d66c-d375-42a5-9b24-636b6ef61e6b</correlationId>
+      <path>Intent.Modules.Security.JWT/Decorators/ConfigurationSettingsJWTDecorator.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T11:24:33.313335Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:27:30.2979518Z</approvedAt>
+      <deviationsHash>450F703ED4C96F40D3EB2C18B5965C528B540EAE257ACEF11BDCFA5921A0E2B1</deviationsHash>
+      <fileHash>D005330DA11448BA8F46A4B01FBA2C30CC7E109A693FFC15CF5A06D81EB1D2DC</fileHash>
+    </file>
+  </files>
 </deviationsLog>

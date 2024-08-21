@@ -96,4 +96,7 @@ await execute();
   </elementExtensions>
   <associationSettings />
   <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
 </settings>

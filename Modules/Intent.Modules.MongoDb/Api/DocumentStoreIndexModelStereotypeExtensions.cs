@@ -14,14 +14,14 @@ namespace Intent.MongoDb.Api
     {
         public static Settings GetSettings(this DocumentStoreIndexModel model)
         {
-            var stereotype = model.GetStereotype("Settings");
+            var stereotype = model.GetStereotype("a482271c-a3f0-4391-9c9f-98d06d71e85a");
             return stereotype != null ? new Settings(stereotype) : null;
         }
 
 
         public static bool HasSettings(this DocumentStoreIndexModel model)
         {
-            return model.HasStereotype("Settings");
+            return model.HasStereotype("a482271c-a3f0-4391-9c9f-98d06d71e85a");
         }
 
         public static bool TryGetSettings(this DocumentStoreIndexModel model, out Settings stereotype)
@@ -32,7 +32,7 @@ namespace Intent.MongoDb.Api
                 return false;
             }
 
-            stereotype = new Settings(model.GetStereotype("Settings"));
+            stereotype = new Settings(model.GetStereotype("a482271c-a3f0-4391-9c9f-98d06d71e85a"));
             return true;
         }
 

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a7d8872f-eb1d-4835-84cb-377b8953bb6a</correlationId>
+      <path>Intent.Modules.Dapr.AspNetCore.ServiceInvocation/Templates/HttpClient/HttpClientTemplatePartial.cs</path>
+      <count>6</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:43:26.2181867Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:18:48.234254Z</approvedAt>
+      <deviationsHash>DA72D32B293E3AEFAA4F26AC956C164D9CF05FFE78CB8A782BC90F7F2E33438D</deviationsHash>
+      <fileHash>09CBD0EB5AC91F11109601F5834596EBFF017947F8CEDAEE867B6A745B12AAAD</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#a7d8872f-eb1d-4835-84cb-377b8953bb6a</correlationId>
+      <path>Intent.Modules.Dapr.AspNetCore.ServiceInvocation/Templates/HttpClient/HttpClientTemplateRegistration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:43:26.2182418Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:18:48.2422344Z</approvedAt>
+      <deviationsHash>3C61B780C0CE1D415622C2E91942D3BA16A91AC2F83A743A66E7A7E51C84688A</deviationsHash>
+      <fileHash>8FB3FBA7638E82AAAE9573DDB3CB9BFC98F71D8605BFF8440B8B3A18C6953F59</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b6798909-da9f-4fa1-a22a-cfbcdcd93267</correlationId>
+      <path>Intent.Modules.Dapr.AspNetCore.ServiceInvocation/Templates/HttpClientConfiguration/HttpClientConfigurationTemplatePartial.cs</path>
+      <count>4</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:43:26.2181963Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:18:48.2391246Z</approvedAt>
+      <deviationsHash>7005909DE53D955ABFA5DF326C4D3718463190691902FCBA6F5614C4747111C0</deviationsHash>
+      <fileHash>FC3DECE4DF3B3D7D346D58910BAEEBCA251C971A601F5D32D89D4D4F56B8443F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0fb7f3b6-76e9-436a-944a-dca583450289</correlationId>
+      <path>Intent.Modules.Dapr.AspNetCore.ServiceInvocation/Templates/HttpClientDaprHandler/HttpClientDaprHandlerTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:43:26.2182037Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:18:48.2448922Z</approvedAt>
+      <deviationsHash>6761C444F39F20FF95E33F69B06F71CD97A6926D416D5250F1E5FD4112E4745F</deviationsHash>
+      <fileHash>E9E2DAB6A448BAE8454B3AC70775551FDE7BF63753BF3BAE86BF522A4E8902B0</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f7f99de2-5edf-4356-a7c0-11235f1a50bd</correlationId>
+      <path>Intent.Modules.Dapr.AspNetCore.ServiceInvocation/Templates/HttpClientHeaderHandler/HttpClientHeaderHandlerTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:43:26.2182109Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:18:48.2435739Z</approvedAt>
+      <deviationsHash>78F285567F7B7A6CAD883DAA93BE8A7E687EE41CFEC25AD908B515D2456A2BBA</deviationsHash>
+      <fileHash>831112DA38D9BFD262C116470F0FC103E8D861305CBE30AF5CB40D160D61878D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#281f8a00-effc-457b-a954-a1b1c3923f5f</correlationId>
+      <path>Intent.Modules.Dapr.AspNetCore.ServiceInvocation/Templates/HttpClientRequestException/HttpClientRequestExceptionTemplatePartial.cs</path>
+      <count>6</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:43:26.2182172Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:18:48.2409263Z</approvedAt>
+      <deviationsHash>269D4F26A693BAD0A760AD7A2F965E3ABDF3A4D1D9E81DDF42C07EECFDDE1E72</deviationsHash>
+      <fileHash>DE0EDC18A7C980922FCBEE6958CE8D0D13D9F5FAC62D85D6F35A62447E9EDF0F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0dcb66fd-a844-4368-8896-4c76d70f3d8b</correlationId>
+      <path>Intent.Modules.Dapr.AspNetCore.ServiceInvocation/Templates/JsonResponse/JsonResponseTemplatePartial.cs</path>
+      <count>6</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:43:26.2182239Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:18:48.2466015Z</approvedAt>
+      <deviationsHash>7006D9736D005686150AD054641C318B787455AB229D2347F6B2C7E78D58BF05</deviationsHash>
+      <fileHash>F68BB558DAF81B3761D5C7C4D932AFAE537249B65BFC39E0567B71DD32CFA623</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#884749d9-fa3d-43e7-8d81-e945cc07f349</correlationId>
+      <path>Intent.Modules.Dapr.AspNetCore.ServiceInvocation/Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:43:26.2182346Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:18:48.2481131Z</approvedAt>
+      <deviationsHash>1AC426D9F27BE05804E039194154F6ED42E76CEF7259EA9298B1CC8A55F1BBFB</deviationsHash>
+      <fileHash>E48040BE820ED69FD8429DCA05BB6E53BB201327F2D1191F4A43BDB145F362D6</fileHash>
+    </file>
+  </files>
+</deviationsLog>

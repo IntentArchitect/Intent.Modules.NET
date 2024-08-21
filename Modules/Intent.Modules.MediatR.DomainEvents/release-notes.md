@@ -1,3 +1,7 @@
+### Version 5.0.14
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 5.0.13
 
 - Improvement: Support for nullable `OrderBy` on Paging.

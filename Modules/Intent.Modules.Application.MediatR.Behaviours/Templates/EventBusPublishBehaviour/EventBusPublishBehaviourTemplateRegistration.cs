@@ -18,6 +18,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.EventBusPublis
     {
         public override string TemplateId => EventBusPublishBehaviourTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new EventBusPublishBehaviourTemplate(outputTarget);

@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
     {
         public override string TemplateId => MultiTenancyConfigurationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new MultiTenancyConfigurationTemplate(outputTarget);

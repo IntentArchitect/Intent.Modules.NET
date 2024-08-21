@@ -109,7 +109,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                     }
                     else if (Model.GetAuthorize().SecurityRoles().Any())
                     {
-                        rolesPolicies.Add($"Roles = \"{string.Join("," , Model.GetAuthorize().SecurityRoles().Select(e => e.Name))}\"");
+                        rolesPolicies.Add($"Roles = \"{string.Join(",", Model.GetAuthorize().SecurityRoles().Select(e => e.Name))}\"");
                     }
                     if (!string.IsNullOrWhiteSpace(Model.GetAuthorize().Policy()))
                     {

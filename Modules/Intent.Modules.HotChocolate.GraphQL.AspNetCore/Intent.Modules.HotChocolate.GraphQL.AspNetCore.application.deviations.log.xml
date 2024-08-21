@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#79f528ec-7567-4f78-a651-2665b71d942c</correlationId>
+      <path>Intent.Modules.HotChocolate.GraphQL.AspNetCore/Templates/GraphQLConfiguration/GraphQLConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T06:55:09.2342025Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:24:01.933598Z</approvedAt>
+      <deviationsHash>69CE7F38B586C8C71830738AAC2D5301B34155B35F7EDADF3ADBFCE429E4F39F</deviationsHash>
+      <fileHash>1D316A9A5373299E577560E86E1FE5E6777E9EA8125CE631292A520C8810E2CE</fileHash>
+    </file>
+  </files>
+</deviationsLog>

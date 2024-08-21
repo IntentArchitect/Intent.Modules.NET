@@ -30,6 +30,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenantStoreDbCon
             base.DoRegistration(registry, application);
         }
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new MultiTenantStoreDbContextTemplate(outputTarget);

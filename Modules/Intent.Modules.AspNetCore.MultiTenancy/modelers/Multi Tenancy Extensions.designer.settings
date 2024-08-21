@@ -37,4 +37,7 @@ if (element.getStereotype(multiTenantId) == null) {
   </elementExtensions>
   <associationSettings />
   <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
 </settings>

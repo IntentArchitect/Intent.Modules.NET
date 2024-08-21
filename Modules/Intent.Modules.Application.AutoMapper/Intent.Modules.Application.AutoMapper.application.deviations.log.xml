@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b377226a-7824-4941-a648-cf7f14dbe267</correlationId>
+      <path>Intent.Modules.Application.AutoMapper/Templates/MapFromInterface/MapFromInterfaceTemplatePartial.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T09:33:28.9414358Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:55:45.7483435Z</approvedAt>
+      <deviationsHash>F1C2D14C07CE66949ECAAA19F30F4AA0494E1FF5C02AD277E9CC6C2B8D5B957E</deviationsHash>
+      <fileHash>D336F4E66A44F47B0F02E8D5867435DE173C2141D4772C9FD954E0009C49C3E3</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#b377226a-7824-4941-a648-cf7f14dbe267</correlationId>
+      <path>Intent.Modules.Application.AutoMapper/Templates/MapFromInterface/MapFromInterfaceTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T09:33:28.9414532Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:55:45.7408691Z</approvedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>E08D5171009C3EB67CA71EA74D352A7416430D869EEFC1D947CC9040D0CB2E2D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a4bcb24d-d6b7-4955-9997-efb5a0d99aee</correlationId>
+      <path>Intent.Modules.Application.AutoMapper/Templates/MappingProfile/MappingProfileTemplatePartial.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T09:33:28.9414443Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:55:45.746638Z</approvedAt>
+      <deviationsHash>8153314012147149CABD442E86FAD75FB9E034C8DF065B0523294D57590C2BE8</deviationsHash>
+      <fileHash>2C4D4400764FE9CED1BCB51266CCE4F0F7286FD703AB499D9A200679FCCFF30B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#a4bcb24d-d6b7-4955-9997-efb5a0d99aee</correlationId>
+      <path>Intent.Modules.Application.AutoMapper/Templates/MappingProfile/MappingProfileTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T09:33:28.9414606Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:55:45.7448345Z</approvedAt>
+      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
+      <fileHash>E01DFCB9249209DA45176BF2170C6FD5210BD6D031A4D215D531DC5666517396</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
+      <path>Intent.Modules.Application.AutoMapper/Templates/TemplateExtensions.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T09:33:28.9414701Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:55:49.5386337Z</approvedAt>
+      <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
+      <fileHash>1B33838B2D56E0C2D28706D4EBA5F036E400C02E219B71202067214715C0383E</fileHash>
+    </file>
+  </files>
+</deviationsLog>

@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter
     {
         public override string TemplateId => BinaryContentFilterTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new BinaryContentFilterTemplate(outputTarget);

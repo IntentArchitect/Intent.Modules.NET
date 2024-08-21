@@ -1,3 +1,7 @@
+### Version 4.0.12
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 4.0.11
 
 - Improvement: Support for nullable `OrderBy` on Paging.

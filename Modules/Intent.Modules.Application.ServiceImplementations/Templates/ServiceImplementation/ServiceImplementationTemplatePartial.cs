@@ -18,8 +18,8 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using ModelHasFolderTemplateExtensions = Intent.Modules.Common.CSharp.Templates.ModelHasFolderTemplateExtensions;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation
 {
@@ -33,7 +33,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             : base(TemplateId, outputTarget, model)
         {
             SetDefaultTypeCollectionFormat("List<{0}>");
-            
+
             AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
             AddTypeSource(TemplateRoles.Application.Command);
             AddTypeSource(TemplateRoles.Application.Query);
@@ -42,7 +42,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
             AddTypeSource(TemplateRoles.Application.Contracts.Enum);
             AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
             AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), ModelHasFolderTemplateExtensions.GetFolderPath(this))
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
@@ -66,7 +66,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                             {
                                 @method.AddGenericParameter(genericType);
                             }
-                            
+
                             method.TryAddXmlDocComments(operation.InternalElement);
                             method.AddMetadata("model", operation);
                             method.RepresentsModel(operation);

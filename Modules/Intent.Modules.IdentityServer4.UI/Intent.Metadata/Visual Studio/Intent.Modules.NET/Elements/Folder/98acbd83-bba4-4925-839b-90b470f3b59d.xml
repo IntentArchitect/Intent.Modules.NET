@@ -3,7 +3,7 @@
   <name>Api</name>
   <display>Api</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ba65ea8f-9c7c-4acc-bb47-4e80763dc120</parentFolderId>

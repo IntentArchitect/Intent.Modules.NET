@@ -1,3 +1,8 @@
+### Version 1.0.2
+
+- Improvement: Updated module NuGet packages infrastructure.
+- Improvement: Updated templates to use new NuGet package system.
+
 ### Version 1.0.1
 
 - Improvement: Updated NuGet packages to latest stables.

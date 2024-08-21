@@ -42,9 +42,9 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
             }
 
 
-			if (DocumentTemplateHelpers.IsSeparateDatabaseMultiTenancy(application.Settings))
+            if (DocumentTemplateHelpers.IsSeparateDatabaseMultiTenancy(application.Settings))
             {
-				ConfigureSeperateDatabaseMultiTenancy(application);
+                ConfigureSeperateDatabaseMultiTenancy(application);
                 return;
             }
 
@@ -85,25 +85,25 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
         }
 
-	    private void ConfigureStartUpForSeperateDatabaseMultiTenancy(IApplication application)
-	    {
-		    var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-		    template?.CSharpFile.AfterBuild(_ =>
-		    {
-			    template.StartupFile.ConfigureApp((statements, ctx) =>
-			    {
-				    var useUseMultiTenancyStatement = statements.FindStatement(x => x.ToString()!.Contains(".UseMultiTenancy()"));
-				    if (useUseMultiTenancyStatement == null)
-				    {
-					    throw new("app.UseMultiTenancy() was not configured");
-				    }
+        private void ConfigureStartUpForSeperateDatabaseMultiTenancy(IApplication application)
+        {
+            var template = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            template?.CSharpFile.AfterBuild(_ =>
+            {
+                template.StartupFile.ConfigureApp((statements, ctx) =>
+                {
+                    var useUseMultiTenancyStatement = statements.FindStatement(x => x.ToString()!.Contains(".UseMultiTenancy()"));
+                    if (useUseMultiTenancyStatement == null)
+                    {
+                        throw new("app.UseMultiTenancy() was not configured");
+                    }
                     template.GetCosmosDBMultiTenantMiddlewareName();
-				    useUseMultiTenancyStatement.InsertBelow($"{ctx.App}.UseCosmosMultiTenantMiddleware();");
-			    });
-		    }, 15);
-	    }
+                    useUseMultiTenancyStatement.InsertBelow($"{ctx.App}.UseCosmosMultiTenantMiddleware();");
+                });
+            }, 15);
+        }
 
-		private static void UpdateRepository(CosmosDBRepositoryTemplate template)
+        private static void UpdateRepository(CosmosDBRepositoryTemplate template)
         {
             template.CSharpFile.OnBuild(file =>
             {
@@ -149,8 +149,8 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
         private static void UpdateRepositoryBase(ICSharpFileBuilderTemplate template)
         {
-			template.AddNugetDependency(NugetPackages.FinbuckleMultiTenant(template.OutputTarget));
-			template.CSharpFile.OnBuild(file =>
+            template.AddNugetDependency(NugetPackages.FinbuckleMultiTenant(template.OutputTarget));
+            template.CSharpFile.OnBuild(file =>
             {
                 string nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
                 file.AddUsing("System");

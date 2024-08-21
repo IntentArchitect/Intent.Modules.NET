@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a78eb6c0-6400-436f-87d7-1b9cf35effa9</correlationId>
+      <path>Intent.Modules.EntityFrameworkCore.Repositories/Templates/Repository/RepositoryTemplatePartial.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:03:47.7302641Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:21:14.5857304Z</approvedAt>
+      <deviationsHash>E22D6D57557B9AB9F2DB547612EC1D4F1B818EA42D2A712A0A2D2AE83E3DDBB7</deviationsHash>
+      <fileHash>69F812871AB9E302C8892A02CF530A2CA034556AB098FE24C5EADB3C9FD292DE</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#a78eb6c0-6400-436f-87d7-1b9cf35effa9</correlationId>
+      <path>Intent.Modules.EntityFrameworkCore.Repositories/Templates/Repository/RepositoryTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:03:47.7303155Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:21:14.5902584Z</approvedAt>
+      <deviationsHash>072F45ED50D1934E0B1E6CDA3B4470FD2BFA410B9B80B0FDCF723EC16DB13FB6</deviationsHash>
+      <fileHash>6DBCDA633EEF1C73A8C16CE81642D4C1FB11995E8BB566133094F09C0E3F4446</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2a48f0f3-d711-4fb4-8e94-b4c0696ba706</correlationId>
+      <path>Intent.Modules.EntityFrameworkCore.Repositories/Templates/RepositoryBase/RepositoryBaseTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:03:47.730292Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:21:14.5916394Z</approvedAt>
+      <deviationsHash>07ECB8B32D962EB82E840D368D86B0866652DC876BB523AB46826AC4815236F8</deviationsHash>
+      <fileHash>D8F2561C859D4B1552AB97ACC6F828FA189ABDA999F2296DBA3D2DB846238456</fileHash>
+    </file>
+  </files>
+</deviationsLog>

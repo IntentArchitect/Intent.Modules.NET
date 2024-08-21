@@ -1,3 +1,7 @@
+### Version 1.0.16
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 1.0.15
 
 - Improvement: Updated NuGet packages to latest stables.

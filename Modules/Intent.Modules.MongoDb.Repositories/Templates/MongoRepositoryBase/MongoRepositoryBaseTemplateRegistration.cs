@@ -18,6 +18,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
     {
         public override string TemplateId => MongoRepositoryBaseTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new MongoRepositoryBaseTemplate(outputTarget);

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6aa62027-603a-45d3-b672-d5a15fa5a31a" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a9d2a398-04e4-4300-9fbb-768568c65f9e</parentFolderId>
+  <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+  <packageName>Intent.EntityFrameworkCore</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

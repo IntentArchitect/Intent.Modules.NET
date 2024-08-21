@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecorator#549d231d-6168-4c8a-bcb2-ff7752ffe263</correlationId>
+      <path>Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore/Decorators/AccountSignInManagerDecorator.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:28:41.8423898Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:55:22.9647975Z</approvedAt>
+      <deviationsHash>E2D361F8366400A95482CDB53A366F665DC097095B97E0AF21C36F95533F95B3</deviationsHash>
+      <fileHash>87556FACA582C09FFA4BE15DEC9DD48C1B5F017C431E329D9EAE15518BDCF040</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateDecorator#6c00f196-4c16-4f06-8203-7baf9198f454</correlationId>
+      <path>Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore/Decorators/ExternalSignInManagerDecorator.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T15:28:41.8424515Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T11:55:22.9691867Z</approvedAt>
+      <deviationsHash>67E08D2E2334F7FCA3A805AA486414470435872589A131CCAB8CD1D4F718868F</deviationsHash>
+      <fileHash>B11D347A2FAB4C4BFC076489C99D76A0DE31568B6815259F1A6E725F01542877</fileHash>
+    </file>
+  </files>
+</deviationsLog>

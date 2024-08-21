@@ -97,7 +97,7 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryBase
                         method.AddStatement($"var queryable = GetSet().SearchText(searchText);");
                         method.AddStatement($"if (filterExpression != null) queryable = queryable.Where(filterExpression);");
                         if (createEntityInterfaces)
-                        {                            
+                        {
                             method.AddStatement($"return queryable.Cast<{tDomain}>().ToList();");
                         }
                         else

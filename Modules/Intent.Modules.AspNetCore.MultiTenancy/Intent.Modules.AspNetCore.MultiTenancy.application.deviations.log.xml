@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#a3891593-98b6-49e4-86ee-98d138f3527e</correlationId>
+      <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/MultiTenancyConfiguration/MultiTenancyConfigurationTemplatePartial.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:26:18.9546442Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:04:30.0895507Z</approvedAt>
+      <deviationsHash>BB7D9A01994B4AC151B724B0DF4854C7206B574B07703AB73E68A643DC7BA438</deviationsHash>
+      <fileHash>E5ABD5F1635BB62FD475F0A5FF33AF72EC3B15DDCA0E2CA9275B10E6B0492A7C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0010a2e5-2a3a-4c32-a2c3-b125afe9f750</correlationId>
+      <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/MultiTenantStoreDbContext/MultiTenantStoreDbContextTemplatePartial.cs</path>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:26:18.9546552Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:04:30.0845215Z</approvedAt>
+      <deviationsHash>3427AA18F8F9414304953030E0D3CA3292CE25A55F9DBEFFAF7C018E2EC6A500</deviationsHash>
+      <fileHash>A46E98A5A4A4A4DA279A2D1236213E39E3703502ED0A4DC740A460C22E70CEEC</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
+      <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/TemplateExtensions.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-19T09:26:18.9547146Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:04:30.0915167Z</approvedAt>
+      <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
+      <fileHash>7070EB74BDEF65D624CD54DFCC149F4820ED004757B6022150403DDEB2B3FA3F</fileHash>
+    </file>
+  </files>
+</deviationsLog>

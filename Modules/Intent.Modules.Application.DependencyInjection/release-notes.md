@@ -1,3 +1,8 @@
+### Version 4.1.2
+
+- Improvement: Updated module NuGet packages infrastructure.
+- Improvement: Updated templates to use new NuGet package system.
+
 ### Version 4.1.1
 
 - Improvement: Updated NuGet packages to latest stables.

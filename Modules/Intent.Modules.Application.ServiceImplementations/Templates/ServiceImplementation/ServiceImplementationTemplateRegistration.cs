@@ -10,8 +10,8 @@ using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
 namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation
 {
@@ -27,6 +27,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
 
         public override string TemplateId => ServiceImplementationTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ServiceModel model)
         {
             return new ServiceImplementationTemplate(outputTarget, model);

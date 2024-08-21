@@ -1,3 +1,7 @@
+### Version 5.1.2
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 5.1.1
 
 - Improvement: Model representation added for advanced mapping purposes.

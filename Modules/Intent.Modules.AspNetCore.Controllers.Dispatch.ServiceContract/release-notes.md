@@ -1,3 +1,7 @@
+### Version 5.2.8
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 5.2.7
 
 - Fixed: Duplicate `IDistributedCacheWithUnitOfWork` would be generated into classes under certain circumstances.

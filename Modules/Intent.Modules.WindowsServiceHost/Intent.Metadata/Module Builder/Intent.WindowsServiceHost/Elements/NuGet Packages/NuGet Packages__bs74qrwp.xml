@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9345009c-858e-47a3-baaa-d4a6cc237b24" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4528a105-7086-4a67-94fb-db4d5f968176</parentFolderId>
+  <packageId>4528a105-7086-4a67-94fb-db4d5f968176</packageId>
+  <packageName>Intent.WindowsServiceHost</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

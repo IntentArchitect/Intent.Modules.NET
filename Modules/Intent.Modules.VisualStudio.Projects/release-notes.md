@@ -1,3 +1,7 @@
+### Version 3.7.6
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 3.7.5
 
 - Fixed: A `Could not load file or assembly 'NuGet.Versioning...` exception would occur when using this module with Intent Architect version 4.3.0-beta.4 or higher.

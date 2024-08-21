@@ -31,6 +31,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
 
         public override string TemplateId => DtoContractTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, DTOModel model)
         {
             return new DtoContractTemplate(outputTarget, model);

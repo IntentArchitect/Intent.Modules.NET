@@ -20,7 +20,7 @@ namespace Intent.Modules.Application.Identity.Templates.CurrentUserServiceInterf
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.Identity.CurrentUserServiceInterface";
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public CurrentUserServiceInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -30,9 +30,9 @@ namespace Intent.Modules.Application.Identity.Templates.CurrentUserServiceInterf
                     string userIdType = ExecutionContext.Settings.GetIdentitySettings().UserIdType().ToCSharpType();
                     @interface.AddProperty($"{this.UseType(userIdType)}?", "UserId", p => p.ReadOnly());
                     @interface.AddProperty("string?", "UserName", p => p.ReadOnly());
-                    @interface.AddMethod("Task<bool>", "IsInRoleAsync", method => 
+                    @interface.AddMethod("Task<bool>", "IsInRoleAsync", method =>
                     {
-                        method.AddParameter("string" ,"role");
+                        method.AddParameter("string", "role");
                     });
                     @interface.AddMethod("Task<bool>", "AuthorizeAsync", method =>
                     {

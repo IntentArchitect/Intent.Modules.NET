@@ -8,6 +8,9 @@
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
       <updatedAt>2024-07-09T13:59:11.1668449Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:05:12.6907347Z</approvedAt>
       <deviationsHash>444C34B85E40920DF6E8D04406FF7B8B2594B1EFAF9C0B4A0B92C972ADDB3930</deviationsHash>
       <fileHash>385327827FBD404AE0894B18B484324D013F45BB310BD875887F2EE73CF5CC56</fileHash>
     </file>
@@ -18,6 +21,9 @@
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
       <updatedAt>2024-07-09T13:59:11.1668551Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:05:12.6868969Z</approvedAt>
       <deviationsHash>B36893528C3532764359C463C41FE9815E89A6683CA07F30313EC16F2A6F66C6</deviationsHash>
       <fileHash>7093DF898165777255494B9250A5A35E563840C722D9318470EE343EAA9E99B2</fileHash>
     </file>
@@ -28,8 +34,11 @@
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
       <updatedAt>2024-07-09T13:59:11.1669934Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:05:12.7010844Z</approvedAt>
       <deviationsHash>4D1CFBFF96BCB3DD54C3DD6A274D6BAAB605ACFE0AA2D40393D1914585EC64D7</deviationsHash>
-      <fileHash>95C3DBB4B3DC92585D645D47017249598CFD04A37A4AE0D7A52F990CA5C01164</fileHash>
+      <fileHash>709CC89D33DD4DC5512DEB3AF2CF5414FECB870AE467A0F9307E6282D908F2BA</fileHash>
     </file>
   </files>
 </deviationsLog>

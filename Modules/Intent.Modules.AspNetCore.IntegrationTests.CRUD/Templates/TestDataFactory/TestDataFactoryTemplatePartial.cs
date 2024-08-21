@@ -26,7 +26,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.Templates.TestDataFact
         public TestDataFactoryTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.AutoFixture(outputTarget));
-            
+
             AddTypeSource(ProxyServiceContractTemplate.TemplateId);
             AddTypeSource(DtoContractTemplate.TemplateId);
 

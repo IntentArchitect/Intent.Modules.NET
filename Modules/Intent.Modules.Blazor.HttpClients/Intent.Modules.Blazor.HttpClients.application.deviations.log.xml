@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1914f670-b1fc-49c1-9821-3bd4038d128c</correlationId>
+      <path>Intent.Modules.Blazor.HttpClients/Templates/DtoContract/DtoContractTemplatePartial.cs</path>
+      <count>7</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:33:40.2458598Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:08:43.1428056Z</approvedAt>
+      <deviationsHash>1B68C46E894DB95B2F5D414E42C75E5DB5E6F0C47CDC196A27CD010B94B83655</deviationsHash>
+      <fileHash>1D4B0ECE337E4391B34D0CE14EEC587B55ACBF4BBD3613D1CD709EA9906FF153</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f9eac68b-92fa-42be-b77f-d86812e42d83</correlationId>
+      <path>Intent.Modules.Blazor.HttpClients/Templates/HttpClient/HttpClientTemplatePartial.cs</path>
+      <count>6</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:33:40.2458749Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:08:43.1494862Z</approvedAt>
+      <deviationsHash>9463CDAD3935D48F53865713B29F5B1F8E9D83D79B8D5130B8D1B1951BEFE306</deviationsHash>
+      <fileHash>3C50CFB64AB75AEFC20E22B483A01B62C301624531730487116A295D4443E365</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#f9eac68b-92fa-42be-b77f-d86812e42d83</correlationId>
+      <path>Intent.Modules.Blazor.HttpClients/Templates/HttpClient/HttpClientTemplateRegistration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:33:40.245944Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:08:43.1473349Z</approvedAt>
+      <deviationsHash>3C61B780C0CE1D415622C2E91942D3BA16A91AC2F83A743A66E7A7E51C84688A</deviationsHash>
+      <fileHash>467A0C664A5BBC0E9A4CECC6193EA45FF2A8F27D20E2069ACDA8F9F2712F9CCC</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3986d9ae-05f9-4329-98b6-c8a0e67f7c4b</correlationId>
+      <path>Intent.Modules.Blazor.HttpClients/Templates/HttpClientRequestException/HttpClientRequestExceptionTemplatePartial.cs</path>
+      <count>6</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:33:40.2458924Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:08:43.1588493Z</approvedAt>
+      <deviationsHash>AFEB2F62A746809817515C149F48477F287FD8679BF43B685B130A64A65C807F</deviationsHash>
+      <fileHash>58104B4556ECD74119928CC59C02564D552FB28C6DB15F50DD6AEBC16405F002</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#026e4511-da6e-495a-91b8-5fc30e46db22</correlationId>
+      <path>Intent.Modules.Blazor.HttpClients/Templates/JsonResponse/JsonResponseTemplatePartial.cs</path>
+      <count>6</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:33:40.2458998Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:08:43.1603643Z</approvedAt>
+      <deviationsHash>690951CECD0FF887BE2377E914838CCF6C6F41B7CAEB2B14A98884BFB5A8910E</deviationsHash>
+      <fileHash>34D7485AED5D7EA0783DDA44FDE984724EED433317CA50D0250C6A0FA9865AA4</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2b0da9ce-a23d-4c7b-8d80-40957e6378cc</correlationId>
+      <path>Intent.Modules.Blazor.HttpClients/Templates/PagedResult/PagedResultTemplatePartial.cs</path>
+      <count>5</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:33:40.245907Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:08:43.1620476Z</approvedAt>
+      <deviationsHash>CCAE9044D49FC7C8A4BAAEE4DBE9F3D51BDACF58F98813B2A71F0E1BF40EF5B5</deviationsHash>
+      <fileHash>7711F781387E155E08427FE4F6B8E452C8F31BB5A7651C6C2506B93D970E2B33</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9c33352d-d0c8-414d-8335-6b5c28318ae5</correlationId>
+      <path>Intent.Modules.Blazor.HttpClients/Templates/ProblemDetailsWithErrors/ProblemDetailsWithErrorsTemplatePartial.cs</path>
+      <count>6</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:33:40.2459143Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:08:43.1637627Z</approvedAt>
+      <deviationsHash>1B60A783CB7B6ACBFA9036FF2A9A848FFE5EA29A245B26F2A512BE7A65CC11D5</deviationsHash>
+      <fileHash>D46D2DCAE54E07C0B7C992F7D8ADD95F327598547AC144CCB9A2EFC56AFA5A13</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#25beaf48-777a-4ccd-bd1c-7c64df00b41d</correlationId>
+      <path>Intent.Modules.Blazor.HttpClients/Templates/ServiceContract/ServiceContractTemplatePartial.cs</path>
+      <count>6</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-16T13:33:40.2459217Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:08:43.1657178Z</approvedAt>
+      <deviationsHash>7F5F57899EDB4DDA9050FC365E5F11A932465A264928A3E3733ECD35E26C00E8</deviationsHash>
+      <fileHash>6CD1FB567BC96D80BB32070A6CC7BF2F9CCFE0C58F897C3D226121E433663882</fileHash>
+    </file>
+  </files>
+</deviationsLog>

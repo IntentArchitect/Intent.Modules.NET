@@ -18,6 +18,7 @@ namespace Intent.Modules.AspNetCore.Versioning.Templates.ApiVersionSwaggerGenOpt
     {
         public override string TemplateId => ApiVersionSwaggerGenOptionsTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new ApiVersionSwaggerGenOptionsTemplate(outputTarget);

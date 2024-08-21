@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#2b7880a4-d400-404b-b02b-04ed6a199767</correlationId>
+      <path>Intent.Modules.Dapr.AspNetCore/Templates/StaticContentTemplateRegistrations/DaprComponentFilesStaticContentTemplateRegistration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-20T12:12:05.7947773Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:12:05.7947775Z</approvedAt>
+      <deviationsHash>3C84AF11D208FAD8C3E45012B919C847C6A449A8062076DADC163C20BFE95E0E</deviationsHash>
+      <fileHash>7F4AA7A26730D2C0DE92AF1CA136697E5297376C43720E8BB77ACCC26D8E447A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#7f8f1a8e-b5a8-4d62-9f0e-f2a8aed6e913</correlationId>
+      <path>Intent.Modules.Dapr.AspNetCore/Templates/StaticContentTemplateRegistrations/DaprFilesStaticContentTemplateRegistration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-08-20T12:12:05.7990171Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-08-20T12:12:05.7990173Z</approvedAt>
+      <deviationsHash>30055FA3A46ADFC059EE83C046EE7590EC5050BA48595223A6421D80A717B7AD</deviationsHash>
+      <fileHash>5F10A13768A25DB6F4CF61105F9B9D33BCAD9C2A69615C680C0DE95A38136ADF</fileHash>
+    </file>
+  </files>
+</deviationsLog>

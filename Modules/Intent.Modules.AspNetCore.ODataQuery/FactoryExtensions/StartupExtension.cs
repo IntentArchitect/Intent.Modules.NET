@@ -46,10 +46,10 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                     file.AfterBuild(nestedFile =>
                     {
                         nestedFile.AddUsing("Microsoft.AspNetCore.OData");
-                        
+
                         var statementsToCheck = new List<CSharpStatement>();
                         ExtractPossibleStatements(statements, statementsToCheck);
-                        
+
                         var lastConfigStatement = (CSharpInvocationStatement)statementsToCheck.Last(p => p.HasMetadata("configure-services-controllers"));
                         var addODataStatement = statements.FindStatement(s => s.TryGetMetadata<string>("configure-services-controllers", out var v) && v == "odata")
                             as CSharpInvocationStatement;
@@ -94,12 +94,12 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                                 odataConfig.Append($".SetMaxTop({settings.MaxTop()})");
                             }
                         }
-                        lambda.AddStatement($"options{odataConfig};"); 
+                        lambda.AddStatement($"options{odataConfig};");
                     });
                 });
             }, 15);
         }
-        
+
         private static void ExtractPossibleStatements(IHasCSharpStatements targetBlock, List<CSharpStatement> statementsToCheck)
         {
             foreach (var statement in targetBlock.Statements)

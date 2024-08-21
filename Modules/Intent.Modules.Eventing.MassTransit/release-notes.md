@@ -1,3 +1,7 @@
+### Version 6.2.5
+
+- Improvement: Updated module NuGet packages infrastructure.
+
 ### Version 6.2.4
 
 - Improvement: Updated NuGet packages to latest stables.

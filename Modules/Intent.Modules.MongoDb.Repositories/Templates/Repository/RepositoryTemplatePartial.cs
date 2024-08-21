@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -20,7 +21,7 @@ using Intent.Utils;
 namespace Intent.Modules.MongoDb.Repositories.Templates.Repository
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class RepositoryTemplate : CSharpTemplateBase<ClassModel>, ICSharpFileBuilderTemplate
+    public partial class RepositoryTemplate : CSharpTemplateBase<ClassModel>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.MongoDb.Repositories.Repository";
 
