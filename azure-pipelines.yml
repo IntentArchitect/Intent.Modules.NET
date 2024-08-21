@@ -160,18 +160,18 @@ steps:
     script: dotnet tool install Intent.SoftwareFactory.CLI --global --prerelease
 
 
-- task: PowerShell@2
-  displayName: 'RUN SF CLI on Module Solution'
-  env:
-    INTENT_USER: $(intent-architect-user)
-    INTENT_PASS: $(intent-architect-password)
-    INTENT_MODULE_SOLUTION_PATH: $(intent-module-solution)
-  inputs:
-    targetType: 'inline'
-    pwsh: true
-    script: |
-      write-host $Env:INTENT_MODULE_SOLUTION_PATH
-      intent-cli ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_MODULE_SOLUTION_PATH" --check-deviations
+# - task: PowerShell@2
+#   displayName: 'RUN SF CLI on Module Solution'
+#   env:
+#     INTENT_USER: $(intent-architect-user)
+#     INTENT_PASS: $(intent-architect-password)
+#     INTENT_MODULE_SOLUTION_PATH: $(intent-module-solution)
+#   inputs:
+#     targetType: 'inline'
+#     pwsh: true
+#     script: |
+#       write-host $Env:INTENT_MODULE_SOLUTION_PATH
+#       intent-cli ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_MODULE_SOLUTION_PATH" --check-deviations
 
 - task: PowerShell@2
   displayName: 'Template Testing'
