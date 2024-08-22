@@ -117,6 +117,8 @@ public static class ConsumerHelper
                     case OutboxPatternType.EntityFramework when EfIsPresent(template):
                         method.AddStatement($"endpointConfigurator.UseEntityFrameworkOutbox<{template.GetTypeName(TemplateRoles.Infrastructure.Data.DbContext)}>(context);");
                         break;
+                    case OutboxPatternType.None:
+                    case OutboxPatternType.EntityFramework:
                     default:
                         // Do nothing
                         break;
