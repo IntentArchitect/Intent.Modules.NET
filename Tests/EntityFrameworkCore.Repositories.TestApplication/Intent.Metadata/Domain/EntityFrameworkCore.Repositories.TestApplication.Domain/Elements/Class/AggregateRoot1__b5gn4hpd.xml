@@ -49,6 +49,10 @@
       <childElements />
     </childElement>
     <childElement id="d103475e-8ecb-4c5a-a92e-f4ee3818743e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <comment>Here is a multi
+line comment that
+is supposed to work for "HasComment()"
+and has some quotes included</comment>
       <name>Tag</name>
       <display>Tag: string</display>
       <isAbstract>false</isAbstract>
