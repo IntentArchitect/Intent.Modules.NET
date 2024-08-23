@@ -17,7 +17,7 @@ The `Intent.Security.JWT` module facilitates the integration of an Open ID Conne
 
 >[!NOTE]
 > 
-> If you were looking to make use of Azure EntraID or Azure AD B2C, you will need to look at the `Intent.Security.MSAL` module instead.
+> If you were looking to make use of an Azure EntraID or Azure AD B2C solution, you will need to look at the `Intent.Security.MSAL` module instead.
 
 ## Getting Started
 
