@@ -55,7 +55,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
                 razorComponentClass.AddField(razorComponentClass.Template.UseType("MudBlazor.MudForm"), formField);
                 form.AddAttribute("@ref", $"@{formField}");
                 form.AddAttributeIfNotEmpty("Model", modelBinding.ToString());
-                
+
 
                 var validator = _componentTemplate.ExecutionContext.FindTemplateInstance("Blazor.HttpClient.Contracts.Dto.Validation", modelMapping.SourceElement.TypeReference.Element.Id);
                 if (validator != null)
@@ -64,52 +64,14 @@ public class FormComponentBuilder : IRazorComponentBuilder
                     form.AddAttribute("Validation", $"@(ValidatorProvider.GetValidationFunc<{_componentTemplate.GetTypeName((IElement)modelMapping.SourceElement.TypeReference.Element)}>())");
                 }
 
+                foreach (var child in formModel.InternalElement.ChildElements)
+                {
+                    _componentResolver.ResolveFor(child).BuildComponent(child, form);
+                }
+
                 //form.AddAttributeIfNotEmpty("OnValidSubmit", $"{_bindingManager.GetBinding(formModel, "On Valid Submit")?.ToLambda()}");
                 //form.AddAttributeIfNotEmpty("OnInvalidSubmit", $"{_bindingManager.GetBinding(formModel, "On Invalid Submit")?.ToLambda()}");
-                form.AddHtmlElement("MudCard", card =>
-                {
-                    var headerModel = formModel.Containers.SingleOrDefault(x => x.Name == "Header");
-                    if (headerModel != null)
-                    {
-                        card.AddHtmlElement("MudCardHeader", cardHeader =>
-                        {
-                            cardHeader.AddHtmlElement("CardHeaderContent", cardTitle =>
-                            {
-                                foreach (var child in headerModel.InternalElement.ChildElements)
-                                {
-                                    _componentResolver.ResolveFor(child).BuildComponent(child, cardTitle);
-                                }
-                            });
-                        });
-                    }
-
-                    var bodyModel = formModel.Containers.SingleOrDefault(x => x.Name == "Body");
-                    if (bodyModel != null)
-                    {
-                        card.AddHtmlElement("MudCardContent", cardBody =>
-                        {
-                            foreach (var child in bodyModel.InternalElement.ChildElements)
-                            {
-                                _componentResolver.ResolveFor(child).BuildComponent(child, cardBody);
-                            }
-                        });
-                    }
-
-                    var footerModel = formModel.Containers.SingleOrDefault(x => x.Name == "Footer");
-                    if (footerModel != null)
-                    {
-                        card.AddHtmlElement("MudCardActions", cardFooter =>
-                        {
-                            foreach (var child in footerModel.InternalElement.ChildElements)
-                            {
-                                _componentResolver.ResolveFor(child).BuildComponent(child, cardFooter);
-                            }
-                        });
-                    }
-                });
             });
         }));
     }
-
-
 }
