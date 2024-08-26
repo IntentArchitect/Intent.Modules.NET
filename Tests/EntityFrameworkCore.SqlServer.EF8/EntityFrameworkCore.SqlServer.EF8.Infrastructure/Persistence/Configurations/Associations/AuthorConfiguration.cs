@@ -16,6 +16,13 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configura
 
             builder.Property(x => x.Name)
                 .IsRequired();
+
+            builder.Property(x => x.Surname)
+                .IsRequired();
+
+            builder.Property(x => x.DisplayName)
+                .IsRequired()
+                .HasComputedColumnSql(@"[Name], [Surname]");
         }
     }
 }

@@ -207,7 +207,7 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
         {
 
             statements.Add(
-                $".HasComputedColumnSql(\"{EscapeComputed(computedValueSql)}\"{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
+                $".HasComputedColumnSql({SanitizeUserInputString(computedValueSql)}{(attribute.GetComputedValue().Stored() ? ", stored: true" : string.Empty)})");
         }
 
         if (attribute.HasRowVersion())
@@ -217,15 +217,16 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
 
         if (!string.IsNullOrEmpty(attribute.InternalElement?.Comment))
         {
-            statements.Add($".HasComment(\"{EscapeComputed(attribute.InternalElement?.Comment)}\")");
+            statements.Add($".HasComment({SanitizeUserInputString(attribute.InternalElement?.Comment)})");
         }
 
         return statements;
     }
 
-    private static string EscapeComputed(string computedValueSql)
+    private static string SanitizeUserInputString(string computedValueSql)
     {
-        var result = computedValueSql.Trim('"');
-        return result.Replace("\"", "\\\"");
+        var result = computedValueSql.Trim().Trim('"').Trim();
+        result = result.Replace("\"", "\"\"");
+        return "@\"" + result + "\"";
     }
 }

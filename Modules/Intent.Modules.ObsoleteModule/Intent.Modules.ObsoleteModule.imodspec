@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.ObsoleteModule</id>
-  <version>1.0.1-pre.0</version>
+  <version>1.0.1</version>
   <supportedClientVersions>[3.4.0,5.0.0)</supportedClientVersions>
   <summary>Obsolete. The functionality of this module [explanation here] and has been deprecated. It can safely be uninstalled. NOTE: This module only serves as a sample and shouldn't be used for anything else. Please just copy the description beforehand.</summary>
   <description>Obsolete. The functionality of this module [explanation here] and has been deprecated. It can safely be uninstalled. NOTE: This module only serves as a sample and shouldn't be used for anything else. Please just copy the description beforehand.</description>

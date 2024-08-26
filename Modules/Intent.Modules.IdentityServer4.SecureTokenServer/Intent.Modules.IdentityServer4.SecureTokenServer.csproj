@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>4.1.0</Version>
+    <Version>4.1.1</Version>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -14,7 +14,7 @@
   <ItemGroup>
     <PackageReference Include="Intent.Modules.AspNetCore" Version="4.0.2" />
     <PackageReference Include="Intent.Modules.Common" Version="3.6.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.7.3-pre.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.7.3" />
     <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.3.22" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">
       <PrivateAssets>all</PrivateAssets>

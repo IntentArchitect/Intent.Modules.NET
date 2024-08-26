@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1aaccaf4-8fa4-4743-ab73-c841e15bd8d4" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
+  <name>Secrets Management</name>
+  <display>Secrets Management (2)</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <order>10</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3d474ae5-467a-493b-add4-e223d61b188a</parentFolderId>
+  <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="08b4c68f-3654-44cc-b3a1-87de79c23936" name="Component Group Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+      <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+      <properties>
+        <property name="54b29a03-082b-407a-b42e-cbacbcfa7fd7" display="Selection Mode" value="Allow Multiple" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="087ac53d-a4ab-4665-bbc3-e5181481c898" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>Azure Key Vault</name>
+      <display>Azure Key Vault (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1aaccaf4-8fa4-4743-ab73-c841e15bd8d4</parentFolderId>
+      <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/png;base64,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&quot;}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Extend .NET Configuration with Secrets stored in Azure Key Vault." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[&quot;a7088fba-3f8b-4e6b-823f-2f931fc275d9&quot;]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="6cd36924-61a5-460b-89b7-bfe02ffda31a" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Azure.KeyVault</name>
+          <display>Intent.Azure.KeyVault</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>087ac53d-a4ab-4665-bbc3-e5181481c898</parentFolderId>
+          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="2.0.5" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="ae385208-597f-48ae-b33d-48f1e37b9720" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>HashiCorp Vault</name>
+      <display>HashiCorp Vault (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1aaccaf4-8fa4-4743-ab73-c841e15bd8d4</parentFolderId>
+      <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjZmZkODE0IiBkPSJtMCAxLjk1MyA2My43NiAxMjQuMDk0TDEyOCAxLjk1M1ptNTMuODQxIDQ5LjI1NEg0My42ODRWNDEuMDZINTMuODR6bTAtMTUuMjI3SDQzLjY4NFYyNS44MjJINTMuODRaTTY5LjA4IDY2LjQ0NEg1OC45N1Y1Ni4yODZoMTAuMTA4em0wLTE1LjIzN0g1OC45N1Y0MS4wNmgxMC4xMDh6bTAtMTUuMjI3SDU4Ljk3VjI1LjgyMmgxMC4xMDhabTE1LjE0NyAxNS4yMjdINzQuMDI3VjQxLjA2aDEwLjE1OVpNNzQuMDI3IDM1Ljk4VjI1LjgyMmgxMC4xNTlWMzUuOTh6Ii8+PC9zdmc+Cg==&quot;}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Extend .NET Configuration with Secrets stored in HashiCorp Vault." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[&quot;a7088fba-3f8b-4e6b-823f-2f931fc275d9&quot;]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="0ba4a504-20e9-45a7-b13c-02e3133722fd" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.HashiCorp.Vault</name>
+          <display>Intent.HashiCorp.Vault</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ae385208-597f-48ae-b33d-48f1e37b9720</parentFolderId>
+          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.2" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

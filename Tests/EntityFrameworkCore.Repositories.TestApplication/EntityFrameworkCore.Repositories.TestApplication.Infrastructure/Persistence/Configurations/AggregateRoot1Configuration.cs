@@ -16,7 +16,11 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
 
             builder.Property(x => x.Tag)
                 .IsRequired()
-                .HasMaxLength(125);
+                .HasMaxLength(125)
+                .HasComment(@"Here is a multi
+line comment that
+is supposed to work for ""HasComment()""
+and has some quotes included");
 
             builder.Ignore(e => e.DomainEvents);
         }

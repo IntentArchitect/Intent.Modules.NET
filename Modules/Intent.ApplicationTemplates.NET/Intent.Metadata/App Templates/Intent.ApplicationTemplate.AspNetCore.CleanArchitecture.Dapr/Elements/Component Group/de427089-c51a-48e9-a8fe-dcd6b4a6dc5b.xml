@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="de427089-c51a-48e9-a8fe-dcd6b4a6dc5b" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
   <name>Api</name>
-  <display>Api (5)</display>
+  <display>Api (4)</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <order>2</order>
@@ -24,7 +24,7 @@
   <childElements>
     <childElement id="a7088fba-3f8b-4e6b-823f-2f931fc275d9" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>ASP.NET Core RESTful Api</name>
-      <display>ASP.NET Core RESTful Api (4)</display>
+      <display>ASP.NET Core RESTful Api (6)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -63,7 +63,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.1.1" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.1.2" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -88,7 +88,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.3.0" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.3.1" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -113,9 +113,59 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.0.10" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.0.11" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d4e23be6-9295-4333-a479-3292a5ef7d67" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.AspNetCore.Cors</name>
+          <display>Intent.AspNetCore.Cors</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a7088fba-3f8b-4e6b-823f-2f931fc275d9</parentFolderId>
+          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.3.12" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="false" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="false" isActive="true" />
+                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a23a8fdc-5477-4523-b82c-9d4a69f7d6fd" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.AspNetCore.OutputCaching.Redis</name>
+          <display>Intent.AspNetCore.OutputCaching.Redis</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a7088fba-3f8b-4e6b-823f-2f931fc275d9</parentFolderId>
+          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.1.1" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="false" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="false" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
               </properties>
             </stereotype>
@@ -138,60 +188,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.1.1" isActive="true" />
-                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
-                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
-                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="2fa5bac8-44af-4a51-9683-1f2ea0f493d1" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
-      <name>Api Authorisation</name>
-      <display>Api Authorisation (1)</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-manually</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>de427089-c51a-48e9-a8fe-dcd6b4a6dc5b</parentFolderId>
-      <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
-      <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-          <properties>
-            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
-            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Apply JWT bearer token authorisation to your API services" isActive="true" />
-            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="true" isActive="true" />
-            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
-            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[&quot;a7088fba-3f8b-4e6b-823f-2f931fc275d9&quot;]" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="b8bc6feb-1f19-4dbe-a285-962f73c6222b" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.Security.JWT</name>
-          <display>Intent.Security.JWT</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2fa5bac8-44af-4a51-9683-1f2ea0f493d1</parentFolderId>
-          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-              <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.2.1" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.1.2" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -244,7 +241,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.0.3" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.0.4" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -269,7 +266,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.1.2" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.1.3" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="false" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -322,7 +319,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.2" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.3" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -375,7 +372,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="2.0.7" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="2.0.8" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />

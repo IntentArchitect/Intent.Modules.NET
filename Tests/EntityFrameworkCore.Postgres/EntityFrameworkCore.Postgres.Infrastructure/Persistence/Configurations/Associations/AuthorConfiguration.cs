@@ -16,6 +16,13 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.Name)
                 .IsRequired();
+
+            builder.Property(x => x.Surname)
+                .IsRequired();
+
+            builder.Property(x => x.DisplayName)
+                .IsRequired()
+                .HasComputedColumnSql(@"[Name], [Surname]");
         }
     }
 }

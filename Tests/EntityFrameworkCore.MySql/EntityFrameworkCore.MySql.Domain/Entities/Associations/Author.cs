@@ -10,5 +10,9 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.Associations
         public Guid Id { get; set; }
 
         public string Name { get; set; }
+
+        public string Surname { get; set; }
+
+        public string DisplayName { get; set; }
     }
 }

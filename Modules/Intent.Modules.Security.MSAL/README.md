@@ -6,6 +6,10 @@ The `Intent.Security.MSAL` module facilitates the integration of Azure Active Di
 
 - **Azure subscription**: You need an Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/).
 
+>[!NOTE]
+> 
+> If you were looking to make use of a different Open ID Connect Identity Provider solution, you will need to look at the `Intent.Security.JWT` module instead.
+
 ## Azure Entra ID / AD B2C Setup
 
 ### Client Credential Setup

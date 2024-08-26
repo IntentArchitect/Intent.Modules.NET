@@ -12,6 +12,12 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
     {
         public Guid Id { get; set; }
 
+        /// <summary>
+        /// Here is a multi
+        /// line comment that
+        /// is supposed to work for "HasComment()"
+        /// and has some quotes included
+        /// </summary>
         public string Tag { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();

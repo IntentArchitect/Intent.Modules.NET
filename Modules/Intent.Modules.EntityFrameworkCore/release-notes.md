@@ -1,7 +1,8 @@
 ### Version 5.0.10
 
-- Improvement: Updated module NuGet packages infrastructure.
 - New Feature: [NetTopologySuite](https://nettopologysuite.github.io/NetTopologySuite/) introduced to store geospatial coordinates in [PostgreSQL](https://www.npgsql.org/efcore/mapping/nts.html?tabs=with-datasource), [MySQL](https://www.nuget.org/packages/Pomelo.EntityFrameworkCore.MySql.NetTopologySuite) and [SQL Server](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite).
+- Improvement: Updated module NuGet packages infrastructure.
+- Fixed: `HasComment()` will support multi-line strings.
 
 ### Version 5.0.9
 
