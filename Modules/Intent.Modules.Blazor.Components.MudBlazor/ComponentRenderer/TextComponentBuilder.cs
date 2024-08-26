@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
@@ -18,7 +19,7 @@ public class TextComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var textInput = new TextModel(component);
         var textValue = _bindingManager.GetElementBinding(textInput, parentNode)?.ToString() ?? (string.IsNullOrWhiteSpace(textInput.Value) ? textInput.Name : textInput.Value);
@@ -34,12 +35,14 @@ public class TextComponentBuilder : IRazorComponentBuilder
                 .WithText(textValue)
                 .AddAttribute("Typo", $"Typo.h{size}");
             parentNode.AddChildNode(htmlElement);
+            return [htmlElement];
         }
         else
         {
             var htmlElement = new HtmlElement("MudText", _componentTemplate.RazorFile)
                 .WithText(textValue);
             parentNode.AddChildNode(htmlElement);
+            return [htmlElement];
         }
     }
 }

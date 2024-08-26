@@ -1,4 +1,5 @@
-﻿using Intent.Metadata.Models;
+﻿using System.Collections.Generic;
+using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.RazorBuilder;
@@ -16,7 +17,7 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
         _componentTemplate = template;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var textInput = new TextInputModel(component);
         var htmlElement = new HtmlElement("label", _componentTemplate.RazorFile)

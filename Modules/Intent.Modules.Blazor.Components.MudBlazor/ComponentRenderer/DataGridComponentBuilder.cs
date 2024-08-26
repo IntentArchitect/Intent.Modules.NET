@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Linq;
+using System.Threading.Tasks;
 using Intent.Blazor.Components.MudBlazor.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
@@ -27,7 +28,7 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var model = new DataGridModel(component);
         var mudDataGrid = new HtmlElement("MudDataGrid", _componentTemplate.RazorFile);
@@ -50,6 +51,12 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
             }
 
             mudDataGrid.AddAttribute("T", _componentTemplate.GetTypeName(mappedSourceType.AsTypeReference()));
+            var refBinding = _bindingManager.GetBinding(model, "28fb9d1a-cd73-4a5e-ac21-6340ec2e90d0", mudDataGrid);
+            if (refBinding != null)
+            {
+                mudDataGrid.AddAttribute("@ref", refBinding.ToString());
+            }
+
             //mudDataGrid.AddAttribute("Items", $"@{_bindingManager.GetElementBinding(model)}");
             mudDataGrid.AddAttribute("ServerData", $"Load{model.Name.ToCSharpIdentifier()}Data");
             mudDataGrid.AddAttribute("Hover", "true");
@@ -60,13 +67,15 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
                 mudDataGrid.AddAttributeIfNotEmpty("RowClick", $"{_bindingManager.GetBinding(model, "On Row Click", mudDataGrid).ToLambda("e")}");
             }
 
+
+
             if (model.Toolbar != null)
             {
                 mudDataGrid.AddHtmlElement("ToolBarContent", toolbar =>
                 {
                     foreach (var child in model.Toolbar.InternalElement.ChildElements)
                     {
-                        _componentResolver.ResolveFor(child).BuildComponent(child, toolbar);
+                        _componentResolver.BuildComponent(child, toolbar);
                     }
                 });
             }
@@ -103,7 +112,7 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
 
                                     foreach (var child in column.InternalElement.ChildElements)
                                     {
-                                        _componentResolver.ResolveFor(child).BuildComponent(child, ms);
+                                        _componentResolver.BuildComponent(child, ms);
                                     }
                                 })));
 
@@ -147,5 +156,6 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
         };
 
         parentNode.AddChildNode(mudDataGrid);
+        return [mudDataGrid];
     }
 }

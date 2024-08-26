@@ -1,4 +1,5 @@
-﻿using Intent.Metadata.Models;
+﻿using System.Collections.Generic;
+using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.RazorBuilder;
@@ -19,7 +20,7 @@ public class SelectComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var selectModel = new SelectModel(component);
         var htmlElement = new HtmlElement("MudSelect", _componentTemplate.RazorFile);
@@ -31,7 +32,7 @@ public class SelectComponentBuilder : IRazorComponentBuilder
         var mappedEnd = _bindingManager.GetMappedEndFor(selectModel, "Options");
         if (mappedEnd == null)
         {
-            return;
+            return [htmlElement];
         }
         htmlElement.AddCodeBlock($"@foreach (var item in {_bindingManager.GetBinding(selectModel, "Options")})", code =>
         {
@@ -55,5 +56,6 @@ public class SelectComponentBuilder : IRazorComponentBuilder
                 htmlElement.AddAttribute("For", $"@(() => {valueBinding})");
             }
         }
+        return [htmlElement];
     }
 }

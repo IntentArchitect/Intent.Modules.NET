@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
@@ -19,7 +20,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var button = new ButtonModel(component);
         var htmlElement = new HtmlElement("button", _componentTemplate.RazorFile)

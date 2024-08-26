@@ -48,7 +48,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.DependencyInjection", "Intent.Modules.Application.DependencyInjection\Intent.Modules.Application.DependencyInjection.csproj", "{1D15D8BA-269B-4A31-8855-602CDDAA651B}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.Identity", "Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj", "{DEDDB78D-352E-4FE1-B7AF-5F1AC59E4F55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Identity", "Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj", "{DEDDB78D-352E-4FE1-B7AF-5F1AC59E4F55}"
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.MediatR.Behaviours", "Intent.Modules.Application.MediatR.Behaviours\Intent.Modules.Application.MediatR.Behaviours.csproj", "{8DE7DB33-7D69-403F-AD45-3B3D753705F2}"
 EndProject
@@ -130,7 +130,7 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.Mas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Integration.HttpClients", "Intent.Modules.Integration.HttpClients\Intent.Modules.Integration.HttpClients.csproj", "{46AD781B-04FC-4D8D-9A46-4DBFFE73628D}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Security.MSAL", "Intent.Modules.Security.MSAL\Intent.Modules.Security.MSAL.csproj", "{8F477F9F-0ED7-4768-B2F5-2E473D83C041}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Security.MSAL", "Intent.Modules.Security.MSAL\Intent.Modules.Security.MSAL.csproj", "{8F477F9F-0ED7-4768-B2F5-2E473D83C041}"
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory", "Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory\Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.csproj", "{660CB137-92BC-425B-8ADB-B29CF80291B3}"
 EndProject
@@ -240,7 +240,7 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Blazor.Serve
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Application.Shared", "Intent.Modules.Application.Shared\Intent.Modules.Application.Shared.shproj", "{D2273A64-721E-4A48-AFF5-2058000D55BA}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Entities.BasicAuditing", "Intent.Modules.Entities.BasicAuditing\Intent.Modules.Entities.BasicAuditing.csproj", "{E8FC2C42-6FC9-4A68-8F84-79CEA0EA9CAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Entities.BasicAuditing", "Intent.Modules.Entities.BasicAuditing\Intent.Modules.Entities.BasicAuditing.csproj", "{E8FC2C42-6FC9-4A68-8F84-79CEA0EA9CAB}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.UnitOfWork.Persistence.Shared", "Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.shproj", "{AD3459E5-44CE-4C5F-9BF8-8FD2BA15FC05}"
 EndProject
@@ -295,8 +295,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.HashiCorp.Vault", "Intent.Modules.HashiCorp.Vault\Intent.Modules.HashiCorp.Vault.csproj", "{E9B00204-9260-4D47-A1BF-CE927FAB036E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.NetTopologySuite", "Intent.Modules.NetTopologySuite\Intent.Modules.NetTopologySuite.csproj", "{2C59D9E4-799A-4B53-AC6E-EF51198AE68A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.Components.Core", "Intent.Modules.Blazor.Components.Core\Intent.Modules.Blazor.Components.Core.csproj", "{7FD68940-2B43-492D-BFB0-E37982918D79}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor", "Intent.Modules.Blazor\Intent.Modules.Blazor.csproj", "{DAB870D2-16E4-46EE-82D9-E78558ED569D}"
 EndProject
@@ -820,10 +818,6 @@ Global
 		{2C59D9E4-799A-4B53-AC6E-EF51198AE68A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C59D9E4-799A-4B53-AC6E-EF51198AE68A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C59D9E4-799A-4B53-AC6E-EF51198AE68A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7FD68940-2B43-492D-BFB0-E37982918D79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7FD68940-2B43-492D-BFB0-E37982918D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7FD68940-2B43-492D-BFB0-E37982918D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7FD68940-2B43-492D-BFB0-E37982918D79}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DAB870D2-16E4-46EE-82D9-E78558ED569D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DAB870D2-16E4-46EE-82D9-E78558ED569D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAB870D2-16E4-46EE-82D9-E78558ED569D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -977,7 +971,6 @@ Global
 		{D299844E-CEE3-4CCD-87E7-CC188B4D93F7} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{E9B00204-9260-4D47-A1BF-CE927FAB036E} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{2C59D9E4-799A-4B53-AC6E-EF51198AE68A} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
-		{7FD68940-2B43-492D-BFB0-E37982918D79} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{DAB870D2-16E4-46EE-82D9-E78558ED569D} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{B3844F12-304A-475A-99D2-B54E8D202E97} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection

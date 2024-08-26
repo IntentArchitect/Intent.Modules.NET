@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Data.Common;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
@@ -16,17 +18,22 @@ public class ContainerComponentBuilder : IRazorComponentBuilder
         _componentTemplate = template;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
-        var button = new ContainerModel(component);
-        var htmlElement = new HtmlElement("Row", _componentTemplate.RazorFile)
-            .AddHtmlElement("Column", column =>
+        var results = new List<IRazorFileNode>();
+        foreach (var child in component.ChildElements)
+        {
+            results.AddRange(_componentResolver.BuildComponent(child, parentNode));
+        }
+
+        return results;
+        var htmlElement = parentNode.AddHtmlElement("MudContainer", htmlElement =>
+        {
+            foreach (var child in component.ChildElements)
             {
-                foreach (var child in component.ChildElements)
-                {
-                    _componentResolver.ResolveFor(child).BuildComponent(child, column);
-                }
-            });
-        parentNode.AddChildNode(htmlElement);
+                _componentResolver.BuildComponent(child, htmlElement);
+            }
+        });
+        return [htmlElement];
     }
 }

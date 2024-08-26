@@ -1,4 +1,5 @@
-﻿using Intent.Blazor.Components.MudBlazor.Api;
+﻿using System.Collections.Generic;
+using Intent.Blazor.Components.MudBlazor.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
@@ -19,7 +20,7 @@ public class DialogComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var dialogModel = new DialogModel(component);
         var htmlElement = new HtmlElement("MudDialog", _componentTemplate.RazorFile);
@@ -30,7 +31,7 @@ public class DialogComponentBuilder : IRazorComponentBuilder
             {
                 foreach (var child in dialogModel.ContentContainer.InternalElement.ChildElements)
                 {
-                    _componentResolver.ResolveFor(child).BuildComponent(child, content);
+                    _componentResolver.BuildComponent(child, content);
                 }
             });
         }
@@ -41,7 +42,7 @@ public class DialogComponentBuilder : IRazorComponentBuilder
             {
                 foreach (var child in dialogModel.ActionsContainer.InternalElement.ChildElements)
                 {
-                    _componentResolver.ResolveFor(child).BuildComponent(child, actions);
+                    _componentResolver.BuildComponent(child, actions);
                 }
             });
         }
@@ -52,5 +53,6 @@ public class DialogComponentBuilder : IRazorComponentBuilder
 
             codeBehind.AddProperty("MudDialogInstance", "Dialog", p => p.AddAttribute("[CascadingParameter]"));
         });
+        return [htmlElement];
     }
 }

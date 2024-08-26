@@ -36,8 +36,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout
                 {
                     file.AddInheritsDirective("LayoutComponentBase");
 
-                    ComponentBuilderProvider.ResolveFor(Model.InternalElement)
-                        .BuildComponent(Model.InternalElement, file);
+                    ComponentBuilderProvider.BuildComponent(Model.InternalElement, file);
 
                     if (file.ChildNodes.All(x => x is not IHtmlElement))
                     {

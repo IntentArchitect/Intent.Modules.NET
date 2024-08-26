@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="b218f7cb-d150-401d-a17a-9e22fadf863f" version="3.1.0">
+  <name>Appearance</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="4474d808-f6fd-405f-a9c7-6998cd000ede">Button</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</parentFolderId>
+  <order>0</order>
+  <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+  <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+  <properties />
+</stereotypeDefinition>

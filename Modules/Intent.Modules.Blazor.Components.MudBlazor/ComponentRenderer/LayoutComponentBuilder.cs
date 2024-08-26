@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
@@ -21,7 +22,7 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var layoutModel = new LayoutModel(component);
         parentNode.AddChildNode(new HtmlElement("MudThemingProvider", _componentTemplate.RazorFile));
@@ -80,13 +81,13 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
 
                                 foreach (var innerChild in navigationItemModel.InternalElement.ChildElements)
                                 {
-                                    _componentResolver.ResolveFor(innerChild).BuildComponent(innerChild, navLink);
+                                    _componentResolver.BuildComponent(innerChild, navLink);
                                 }
                             });
                         }
                         continue;
                     }
-                    _componentResolver.ResolveFor(child).BuildComponent(child, appBar);
+                    _componentResolver.BuildComponent(child, appBar);
                 }
                 appBar.AddHtmlElement("MudSpacer");
                 appBar.AddHtmlElement("MudIconButton", icon =>
@@ -114,7 +115,7 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
 
                 foreach (var child in layoutModel.Sider.InternalElement.ChildElements)
                 {
-                    _componentResolver.ResolveFor(child).BuildComponent(child, mudDrawer);
+                    _componentResolver.BuildComponent(child, mudDrawer);
                 }
             });
         }
@@ -124,11 +125,12 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
 
             foreach (var child in layoutModel.Body.InternalElement.ChildElements)
             {
-                _componentResolver.ResolveFor(child).BuildComponent(child, layoutContent);
+                _componentResolver.BuildComponent(child, layoutContent);
             }
             layoutContent.WithText("@Body");
         });
         //});
+        return [layoutHtml];
 
     }
 }

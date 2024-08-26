@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
@@ -16,7 +17,7 @@ public class ContainerComponentBuilder : IRazorComponentBuilder
         _componentTemplate = template;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var button = new ContainerModel(component);
         var htmlElement = new HtmlElement("div", _componentTemplate.RazorFile);

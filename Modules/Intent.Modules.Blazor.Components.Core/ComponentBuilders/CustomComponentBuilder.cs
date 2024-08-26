@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
@@ -20,7 +21,7 @@ public class CustomComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var model = new ComponentModel((IElement)component.TypeReference.Element);
         var htmlElement = new HtmlElement(_componentTemplate.GetTypeName(component.TypeReference), _componentTemplate.RazorFile);

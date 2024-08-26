@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
@@ -20,7 +21,7 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var navigationModel = new NavigationMenuModel(component);
         var htmlElement = new HtmlElement("MudNavMenu", _componentTemplate.RazorFile);
@@ -35,7 +36,7 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
                     {
                         foreach (var child in navigationItemModel.InternalElement.ChildElements)
                         {
-                            _componentResolver.ResolveFor(child).BuildComponent(child, navLink);
+                            _componentResolver.BuildComponent(child, navLink);
                         }
 
                         if (!navigationItemModel.InternalElement.ChildElements.Any())
@@ -82,5 +83,6 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
             }
         }
         parentNode.AddChildNode(htmlElement);
+        return [htmlElement];
     }
 }

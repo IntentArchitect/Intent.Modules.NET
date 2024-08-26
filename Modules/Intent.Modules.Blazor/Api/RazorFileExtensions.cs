@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
+using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -76,7 +78,7 @@ public static class RazorFileExtensions
                     {
                         property.WithInitialValue(child.Value);
                     }
-                    if (child.AsPropertyModel().HasBindable())
+                    if (child.AsPropertyModel().HasBindable() || child.AsPropertyModel().HasRouteParameter())
                     {
                         property.AddAttribute(block.Template.UseType("Microsoft.AspNetCore.Components.Parameter"));
                     }
@@ -142,7 +144,7 @@ public static class RazorFileExtensions
                                 var invocation = mappingManager.GenerateSourceStatementForMapping(operationMapping, mappedEnd);
 
                                 var invStatement = invocation as CSharpInvocationStatement;
-                                if (invStatement?.IsAsyncInvocation() == true)
+                                if (invStatement?.IsAsyncInvocation() == true || mappedEnd?.TargetElement.TypeReference?.Element?.Name == "Task")
                                 {
                                     invocation = new CSharpAwaitExpression(invocation);
                                 }
@@ -188,6 +190,10 @@ public static class RazorFileExtensions
                             if (action.IsNavigationTargetEndModel())
                             {
                                 var navigationModel = action.AsNavigationTargetEndModel();
+                                if (!navigationModel.Element.AsComponentModel().HasPage())
+                                {
+                                    throw new ElementException(navigationModel.Element, "Navigation is targeting a Component that isn't a page. Please add the Page stereotype to the targeted Component.");
+                                }
                                 var route = new RouteManager($"\"{navigationModel.Element.AsComponentModel().GetPage().Route()}\"");
 
                                 var mapping = navigationModel.InternalElement.Mappings.FirstOrDefault();
@@ -206,6 +212,39 @@ public static class RazorFileExtensions
 
                                 block.InjectServiceProperty("Microsoft.AspNetCore.Components.NavigationManager");
                                 method.AddStatement($"NavigationManager.NavigateTo({(route.Route.Contains("{") ? $"${route.Route}" : route.Route)});");
+                                continue;
+                            }
+
+                            // TODO: This code needs to be in the MudBlazor module. Make this an injectable strategy:
+                            if (action.IsShowDialogTargetEndModel())
+                            {
+                                var navigationModel = action.AsShowDialogTargetEndModel();
+
+                                block.InjectServiceProperty("MudBlazor.IDialogService", "DialogService");
+
+                                var mapping = navigationModel.InternalElement.Mappings.FirstOrDefault();
+
+                                var dialogParameters = new CSharpStatementBlock($"new DialogParameters<{block.Template.GetTypeName(navigationModel)}>");
+                                if (mapping != null && mapping.MappedEnds.Count > 0)
+                                {
+                                    mappingManager.SetToReplacement(navigationModel.Element, null);
+                                    foreach (var mappedEnd in mapping.MappedEnds)
+                                    {
+                                        dialogParameters.AddStatement($"{{ x => x.{mappingManager.GenerateTargetStatementForMapping(mapping, mappedEnd)}, {mappingManager.GenerateSourceStatementForMapping(mapping, mappedEnd)} }},");
+                                    }
+                                    method.AddStatement(new CSharpAssignmentStatement("var parameters", dialogParameters.WithSemicolon()));
+                                }
+
+                                method.AddStatement(new CSharpAssignmentStatement("var dialog", new CSharpAwaitExpression(new CSharpInvocationStatement($"DialogService.ShowAsync<{block.Template.GetTypeName(navigationModel)}>")
+                                    .AddArgument($"\"{navigationModel.Name}\"")
+                                    .AddArgument("parameters", a =>
+                                    {
+                                        if (mapping == null || mapping.MappedEnds.Count == 0)
+                                            a.Remove();
+                                    })
+                                    .AddArgument("new DialogOptions() { FullWidth = true }"))));
+                                method.AddStatement(new CSharpAssignmentStatement("var result", new CSharpAwaitExpression(new CSharpStatement($"dialog.Result;"))));
+                                method.AddStatement(new CSharpIfStatement("result.Canceled").AddStatement("return;"));
                                 continue;
                             }
                         }

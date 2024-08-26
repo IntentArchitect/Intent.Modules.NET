@@ -22,7 +22,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var table = new TableModel(component);
         var tableCode = IRazorCodeDirective.Create(new CSharpStatement($"@if ({_bindingManager.GetElementBinding(table, isTargetNullable: true)} is not null)"), _componentTemplate.RazorFile);
@@ -87,7 +87,7 @@ public class TableComponentBuilder : IRazorComponentBuilder
                         {
                             foreach (var child in column.InternalElement.ChildElements)
                             {
-                                _componentResolver.ResolveFor(child).BuildComponent(child, td);
+                                _componentResolver.BuildComponent(child, td);
                             }
                         }
                     });
@@ -127,5 +127,6 @@ public class TableComponentBuilder : IRazorComponentBuilder
         });
 
         parentNode.AddChildNode(tableCode);
+        return [tableCode];
     }
 }

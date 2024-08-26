@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
@@ -24,7 +25,7 @@ public class IconComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var iconModel = new IconModel(component);
         var htmlElement = new HtmlElement("MudIcon ", _componentTemplate.RazorFile)
@@ -32,7 +33,7 @@ public class IconComponentBuilder : IRazorComponentBuilder
         ;
         foreach (var child in component.ChildElements)
         {
-            _componentResolver.ResolveFor(child).BuildComponent(child, htmlElement);
+            _componentResolver.BuildComponent(child, htmlElement);
         }
 
         var onClickMapping = _bindingManager.GetMappedEndFor(iconModel, "On Click");
@@ -54,5 +55,6 @@ public class IconComponentBuilder : IRazorComponentBuilder
         //    htmlElement.Nodes.Add(_componentResolver.ResolveFor(child).Render(child));
         //}
         parentNode.AddChildNode(htmlElement);
+        return [htmlElement];
     }
 }

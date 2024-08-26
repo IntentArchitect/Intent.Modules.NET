@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
@@ -20,7 +21,7 @@ public class ComponentViewBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var view = new ComponentViewModel(component);
         if (view.HasLoaderSettings())
@@ -52,7 +53,8 @@ public class ComponentViewBuilder : IRazorComponentBuilder
         //parentNode.AddChildNode(mudGrid);
         foreach (var child in component.ChildElements)
         {
-            _componentResolver.ResolveFor(child).BuildComponent(child, parentNode);
+            _componentResolver.BuildComponent(child, parentNode);
         }
+        return [];
     }
 }

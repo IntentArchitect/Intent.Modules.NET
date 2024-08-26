@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
@@ -19,7 +20,7 @@ public class DatePickerComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var datePicker = new DatePickerModel(component);
         var htmlElement = new HtmlElement("MudDatePicker", _componentTemplate.RazorFile);
@@ -35,5 +36,6 @@ public class DatePickerComponentBuilder : IRazorComponentBuilder
                 htmlElement.AddAttribute("For", $"@(() => {valueBinding})");
             }
         }
+        return [htmlElement];
     }
 }

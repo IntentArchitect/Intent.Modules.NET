@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
@@ -19,7 +20,7 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var textInput = new TextInputModel(component);
         var htmlElement = new HtmlElement("MudTextField", _componentTemplate.RazorFile);
@@ -40,5 +41,6 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
                 //}
             }
         }
+        return [htmlElement];
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
@@ -18,7 +19,7 @@ public class CardComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var formModel = new CardModel(component);
         var card = new HtmlElement("MudCard", _componentTemplate.RazorFile);
@@ -32,7 +33,7 @@ public class CardComponentBuilder : IRazorComponentBuilder
                 {
                     foreach (var child in headerModel.InternalElement.ChildElements)
                     {
-                        _componentResolver.ResolveFor(child).BuildComponent(child, cardTitle);
+                        _componentResolver.BuildComponent(child, cardTitle);
                     }
                 });
             });
@@ -45,7 +46,7 @@ public class CardComponentBuilder : IRazorComponentBuilder
             {
                 foreach (var child in bodyModel.InternalElement.ChildElements)
                 {
-                    _componentResolver.ResolveFor(child).BuildComponent(child, cardBody);
+                    _componentResolver.BuildComponent(child, cardBody);
                 }
             });
         }
@@ -57,9 +58,11 @@ public class CardComponentBuilder : IRazorComponentBuilder
             {
                 foreach (var child in footerModel.InternalElement.ChildElements)
                 {
-                    _componentResolver.ResolveFor(child).BuildComponent(child, cardFooter);
+                    _componentResolver.BuildComponent(child, cardFooter);
                 }
             });
         }
+
+        return [card];
     }
 }

@@ -1,4 +1,5 @@
-﻿using Intent.Metadata.Models;
+﻿using System.Collections.Generic;
+using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 
 namespace Intent.Modules.Blazor.Api;
@@ -14,13 +15,15 @@ public class EmptyElementRenderer : IRazorComponentBuilder
         _componentTemplate = template;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         //var htmlElement = new HtmlElement(component.Name, _template.BlazorFile);
         foreach (var child in component.ChildElements)
         {
-            _componentResolver.ResolveFor(child).BuildComponent(child, parentNode);
+            _componentResolver.BuildComponent(child, parentNode);
         }
+
+        return [];
         //node.AddNode(htmlElement);
     }
 }

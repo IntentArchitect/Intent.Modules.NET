@@ -10,18 +10,20 @@ namespace Intent.Modules.Blazor.Api;
 public interface IRazorComponentBuilderProvider
 {
     void Register(string elementSpecializationId, IRazorComponentBuilder componentBuilder);
-    IRazorComponentBuilder ResolveFor(IElement component);
+    //void BuildComponents(IEnumerable<IElement> components, IRazorFileNode node);
+    IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode node);
 }
 
 public interface IRazorComponentBuilder
 {
-    void BuildComponent(IElement component, IRazorFileNode parentNode);
+    IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode);
 }
 
 public class RazorComponentBuilderProvider : IRazorComponentBuilderProvider
 {
     public IRazorComponentTemplate ComponentTemplate { get; }
-    private Dictionary<string, IRazorComponentBuilder> _componentRenderers = new();
+    private readonly Dictionary<string, IRazorComponentBuilder> _componentRenderers = new();
+    private List<IRazorComponentInterceptor> _interceptors = [];
 
     public RazorComponentBuilderProvider(IRazorComponentTemplate template)
     {
@@ -34,6 +36,11 @@ public class RazorComponentBuilderProvider : IRazorComponentBuilderProvider
         _componentRenderers[elementSpecializationId] = componentBuilder;
     }
 
+    public void AddInterceptor(IRazorComponentInterceptor interceptor)
+    {
+        _interceptors.Add(interceptor);
+    }
+
     public IRazorComponentBuilder ResolveFor(IElement component)
     {
         if (!_componentRenderers.ContainsKey(component.SpecializationTypeId))
@@ -41,6 +48,26 @@ public class RazorComponentBuilderProvider : IRazorComponentBuilderProvider
             return new EmptyElementRenderer(this, ComponentTemplate);
         }
         return _componentRenderers[component.SpecializationTypeId];
+    }
+
+    public void BuildComponents(IEnumerable<IElement> components, IRazorFileNode node)
+    {
+        foreach (var component in components)
+        {
+            BuildComponent(component, node);
+        }
+    }
+
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode node)
+    {
+        var builtComponent = ResolveFor(component).BuildComponent(component, node);
+
+        foreach (var interceptor in _interceptors)
+        {
+            interceptor.Handle(component, builtComponent, node);
+        }
+
+        return builtComponent;
     }
 }
 
@@ -57,7 +84,7 @@ public class DisplayCommonComponentBuilder : IRazorComponentBuilder
         _bindingManager = template.BindingManager;
     }
 
-    public void BuildComponent(IElement component, IRazorFileNode parentNode)
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var model = new DisplayComponentModel(component).TypeReference.Element.AsComponentModel();
 
@@ -71,6 +98,7 @@ public class DisplayCommonComponentBuilder : IRazorComponentBuilder
             htmlElement.AddAttributeIfNotEmpty(property.Name, _bindingManager.GetElementBinding(property, parentNode)?.ToLambda());
         }
         parentNode.AddChildNode(htmlElement);
+        return [htmlElement];
     }
 }
 

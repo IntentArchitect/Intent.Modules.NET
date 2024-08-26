@@ -52,7 +52,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
                         }
                     }
 
-                    ComponentBuilderProvider.ResolveFor(Model.View.InternalElement).BuildComponent(Model.View.InternalElement, file);
+                    ComponentBuilderProvider.BuildComponent(Model.View.InternalElement, file);
 
                     var block = GetCodeBehind();
                     block.AddCodeBlockMembers(this, Model.InternalElement);
