@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Text.Json;
 using Intent.Modules.ChatDrivenDomain.Tasks.Models;
 using Intent.Plugins;
@@ -7,15 +8,15 @@ using Microsoft.SemanticKernel;
 
 namespace Intent.Modules.ChatDrivenDomain.Tasks;
 
-public class ChatDrivenDomainTask : IModuleTask
+public class ChatCompletionTask : IModuleTask
 {
     private static readonly JsonSerializerOptions SerializerOptions = new()
     {
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase
     };
     
-    public string TaskTypeId => "Intent.Modules.ChatDrivenDomain.Tasks.ChatDrivenDomain";
-    public string TaskTypeName => "Chat Driven Domain Processing";
+    public string TaskTypeId => "Intent.Modules.ChatDrivenDomain.Tasks.ChatCompletionTask";
+    public string TaskTypeName => "Consulting the great LLAMA...";
     public int Order => 0;
 
     public string Execute(params string[] args)
@@ -26,8 +27,16 @@ public class ChatDrivenDomainTask : IModuleTask
         {
             var inputModel = JsonSerializer.Deserialize<InputModel>(args[0], SerializerOptions);
             
+            var settingsFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Intent Architect", "chatdrivendomain-settings.json");
+            if (!Path.Exists(settingsFilePath))
+            {
+                throw new Exception("Settings file does not exist");
+            }
+
+            var settingsData = JsonSerializer.Deserialize<SettingsData>(File.ReadAllText(settingsFilePath), SerializerOptions);
+            
             var builder = Kernel.CreateBuilder();
-            builder.Services.AddOpenAIChatCompletion("gpt-4o", Environment.GetEnvironmentVariable("OPENAI_API_KEY")!);
+            builder.Services.AddOpenAIChatCompletion("gpt-4o", settingsData!.ApiToken);
             var kernel = builder.Build();
 
             var requestFunction = kernel.CreateFunctionFromPrompt(
