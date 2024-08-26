@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore</id>
-  <version>6.0.4-pre.0</version>
+  <version>6.0.4</version>
   <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <summary>Generates base code for hosting Web services on the ASP.NET Core infrastructure</summary>
   <description>Generates base code for hosting Web services on the ASP.NET Core infrastructure</description>
@@ -123,7 +123,7 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.3-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.7.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
     <dependency id="Intent.VisualStudio.Projects" version="3.5.0" />

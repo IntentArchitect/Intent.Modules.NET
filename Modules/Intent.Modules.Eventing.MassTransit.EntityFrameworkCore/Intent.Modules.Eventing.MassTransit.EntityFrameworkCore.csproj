@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.6.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.7.3-pre.0" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.7.3" />
     <PackageReference Include="Intent.Modules.EntityFrameworkCore" Version="4.5.0" />
     <PackageReference Include="Intent.Modules.Eventing.MassTransit" Version="6.2.4" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">

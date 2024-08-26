@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.BearerToken.Interop.IdentityServer4</id>
-  <version>4.1.3-pre.0</version>
+  <version>4.1.3</version>
   <supportedClientVersions>[4.0.0-beta.4, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Configures API Services and Identity Server 4 to be co-hosted</summary>

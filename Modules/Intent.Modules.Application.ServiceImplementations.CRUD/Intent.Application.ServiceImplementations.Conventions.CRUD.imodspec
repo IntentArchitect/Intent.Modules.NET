@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations.Conventions.CRUD</id>
-  <version>5.0.13-pre.0</version>
+  <version>5.0.13</version>
   <supportedClientVersions>[4.1.3-pre.2, 5.0.0-a)</supportedClientVersions>
   <summary>CRUD conventions for standard Services</summary>
   <description>CRUD conventions for standard Services</description>
