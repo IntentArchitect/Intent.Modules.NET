@@ -12,16 +12,16 @@
       <ProjectId>99cfb6d5-18c2-4220-ab71-ade0cc6baf7b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.ChatDrivenDomain.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.ChatDrivenDomain.imodspec</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.AI.ChatDrivenDomain.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AI.ChatDrivenDomain.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>99cfb6d5-18c2-4220-ab71-ade0cc6baf7b</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#99cfb6d5-18c2-4220-ab71-ade0cc6baf7b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.ChatDrivenDomain.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.ChatDrivenDomain.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Modules.AI.ChatDrivenDomain.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AI.ChatDrivenDomain.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>8c72f5fb-48f6-4a9a-83d0-16c1826ac9e5</parentFolderId>
   <packageId>65b68a93-9d50-4c16-a613-f37104dbe59f</packageId>
-  <packageName>Intent.ChatDrivenDomain</packageName>
+  <packageName>Intent.AI.ChatDrivenDomain</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="81e5637b-05d7-43a4-9619-6ef873be9f47" name="Designer Settings">
       <addedByDefault>true</addedByDefault>

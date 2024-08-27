@@ -19,7 +19,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>cb8171ea-c4e4-4118-8534-6d74b8dfa900</parentFolderId>
   <packageId>65b68a93-9d50-4c16-a613-f37104dbe59f</packageId>
-  <packageName>Intent.ChatDrivenDomain</packageName>
+  <packageName>Intent.AI.ChatDrivenDomain</packageName>
   <stereotypes />
   <metadata />
   <childElements>
@@ -32,7 +32,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>8885c053-5192-48e1-ace3-d87f79aea85c</parentFolderId>
       <packageId>65b68a93-9d50-4c16-a613-f37104dbe59f</packageId>
-      <packageName>Intent.ChatDrivenDomain</packageName>
+      <packageName>Intent.AI.ChatDrivenDomain</packageName>
       <stereotypes />
       <metadata />
       <childElements>
@@ -55,7 +55,7 @@
           <isMapped>false</isMapped>
           <parentFolderId>49a5cf50-30df-4a93-8fde-11ed246136e8</parentFolderId>
           <packageId>65b68a93-9d50-4c16-a613-f37104dbe59f</packageId>
-          <packageName>Intent.ChatDrivenDomain</packageName>
+          <packageName>Intent.AI.ChatDrivenDomain</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
               <addedByDefault>true</addedByDefault>
@@ -101,7 +101,7 @@
           <isMapped>false</isMapped>
           <parentFolderId>49a5cf50-30df-4a93-8fde-11ed246136e8</parentFolderId>
           <packageId>65b68a93-9d50-4c16-a613-f37104dbe59f</packageId>
-          <packageName>Intent.ChatDrivenDomain</packageName>
+          <packageName>Intent.AI.ChatDrivenDomain</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
               <addedByDefault>true</addedByDefault>

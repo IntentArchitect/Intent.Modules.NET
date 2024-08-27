@@ -296,7 +296,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.HashiCorp.Va
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.NetTopologySuite", "Intent.Modules.NetTopologySuite\Intent.Modules.NetTopologySuite.csproj", "{2C59D9E4-799A-4B53-AC6E-EF51198AE68A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ChatDrivenDomain", "Intent.Modules.ChatDrivenDomain\Intent.Modules.ChatDrivenDomain.csproj", "{99CFB6D5-18C2-4220-AB71-ADE0CC6BAF7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AI.ChatDrivenDomain", "Intent.Modules.AI.ChatDrivenDomain\Intent.Modules.AI.ChatDrivenDomain.csproj", "{99CFB6D5-18C2-4220-AB71-ADE0CC6BAF7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
