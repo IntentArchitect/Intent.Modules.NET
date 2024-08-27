@@ -18,7 +18,7 @@
         {
             id: "prompt",
             fieldType: "textarea",
-            label: "Enter AI prompt (ALPHA)"
+            label: "Enter AI prompt"
         }
     ]
 });
@@ -81,11 +81,12 @@ let input = { prompt: promptResult.prompt, classes: inClasses };
 
 let outputStr = await executeModuleTask("Intent.Modules.ChatDrivenDomain.Tasks.ChatCompletionTask", JSON.stringify(input));
 
-outputStr = outputStr.replace("```json", "").replace("```", "");
-
 let outClasses = JSON.parse(outputStr);
 
-console.log(outClasses);
+if (outClasses.errorMessage) {
+    dialogService.error(outClasses.errorMessage);
+    return;
+}
 
 let types = lookupTypesOf("Type-Definition", true);
 let typesLookup = {};
@@ -145,20 +146,49 @@ for (let jClass of outClasses) {
 
 let settings = JSON.parse(checkResult);
 
+if (settings.errorMessage) {
+    dialogService.error(settings.errorMessage);
+    return;
+}
+
 let settingsResult = await dialogService.openForm({
     fields: [
         {
-            id: "Token",
+            id: "token",
             fieldType: "text",
-            label: "Open AI API Token",
+            label: "API Token",
             value: settings.data?.apiToken
+        },
+        {
+            id: "model",
+            fieldType: "text",
+            label: "LLM Model",
+            placeholder: "(gpt-4o)",
+            value: settings.data?.model
+        },
+        {
+            id: "url",
+            fieldType: "text",
+            label: "API URL",
+            placeholder: "(Open AI API)",
+            value: settings.data?.apiUrl,
+            hint: "Only specify if custom / non-Open AI LLM is used."
         }
     ]
 });
 
 let updateResult = await executeModuleTask("Intent.Modules.ChatDrivenDomain.Tasks.UpdateSettingsTask", JSON.stringify({
-    apiToken: settingsResult.Token
-}));</script>
+    apiToken: settingsResult.token,
+    model: settingsResult.model,
+    apiUrl: settingsResult.url
+}));
+
+let updateResultObj = JSON.parse(checkResult);
+
+if (updateResultObj.errorMessage) {
+    dialogService.error(updateResultObj.errorMessage);
+    return;
+}</script>
         </option>
       </scriptOptions>
       <typeOrder />

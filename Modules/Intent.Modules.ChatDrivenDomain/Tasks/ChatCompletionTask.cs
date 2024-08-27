@@ -30,13 +30,29 @@ public class ChatCompletionTask : IModuleTask
             var settingsFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Intent Architect", "chatdrivendomain-settings.json");
             if (!Path.Exists(settingsFilePath))
             {
-                throw new Exception("Settings file does not exist");
+                throw new Exception("No AI settings configured. Please open AI Settings first.");
             }
 
             var settingsData = JsonSerializer.Deserialize<SettingsData>(File.ReadAllText(settingsFilePath), SerializerOptions);
+            var model = string.IsNullOrWhiteSpace(settingsData?.Model) ? "gpt-4o" : settingsData.Model; 
             
             var builder = Kernel.CreateBuilder();
-            builder.Services.AddOpenAIChatCompletion("gpt-4o", settingsData!.ApiToken);
+
+            if (!string.IsNullOrWhiteSpace(settingsData?.ApiUrl))
+            {
+#pragma warning disable SKEXP0010
+                builder.Services.AddOpenAIChatCompletion(model, new Uri(settingsData.ApiUrl));
+#pragma warning enable SKEXP0010
+            }
+            else if (!string.IsNullOrWhiteSpace(settingsData?.ApiToken))
+            {
+                builder.Services.AddOpenAIChatCompletion(model, settingsData.ApiToken);
+            }
+            else
+            {
+                throw new Exception($"Invalid API Settings. Please review AI Settings.");
+            }
+            
             var kernel = builder.Build();
 
             var requestFunction = kernel.CreateFunctionFromPrompt(
@@ -168,7 +184,7 @@ public class ChatCompletionTask : IModuleTask
             
             Logging.Log.Info($"GPT Result: {result}");
 
-            return result.GetValue<string>();
+            return result.GetValue<string>()!.Replace("```json", "").Replace("```", "");
         }
         catch (Exception e)
         {
