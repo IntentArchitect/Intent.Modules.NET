@@ -35,10 +35,10 @@ if (!settings.settingsFileExists) {
     let settingsResult = await dialogService.openForm({
         fields: [
             {
-                id: "token",
+                id: "apiKey",
                 fieldType: "text",
-                label: "API Token",
-                value: settings.data?.apiToken
+                label: "API Key",
+                value: settings.data?.apiKey
             },
             {
                 id: "model",
@@ -59,7 +59,7 @@ if (!settings.settingsFileExists) {
     });
 
     let updateResult = await executeModuleTask("Intent.Modules.ChatDrivenDomain.Tasks.UpdateSettingsTask", JSON.stringify({
-        apiToken: settingsResult.token,
+        apiKey: settingsResult.apiKey,
         model: settingsResult.model,
         apiUrl: settingsResult.url
     }));
@@ -215,10 +215,10 @@ if (settings.errorMessage) {
 let settingsResult = await dialogService.openForm({
     fields: [
         {
-            id: "token",
+            id: "apiKey",
             fieldType: "text",
-            label: "API Token",
-            value: settings.data?.apiToken
+            label: "API Key",
+            value: settings.data?.apiKey
         },
         {
             id: "model",
@@ -239,7 +239,7 @@ let settingsResult = await dialogService.openForm({
 });
 
 let updateResult = await executeModuleTask("Intent.Modules.ChatDrivenDomain.Tasks.UpdateSettingsTask", JSON.stringify({
-    apiToken: settingsResult.token,
+    apiKey: settingsResult.apiKey,
     model: settingsResult.model,
     apiUrl: settingsResult.url
 }));

@@ -10,7 +10,7 @@ public class SettingsResult
 
 public class SettingsData
 {
-    public string ApiToken { get; set; }
+    public string ApiKey { get; set; }
     public string? Model { get; set; }
     public string? ApiUrl { get; set; }
 }

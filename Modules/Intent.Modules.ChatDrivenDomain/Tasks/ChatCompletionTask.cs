@@ -44,9 +44,9 @@ public class ChatCompletionTask : IModuleTask
                 builder.Services.AddOpenAIChatCompletion(model, new Uri(settingsData.ApiUrl));
 #pragma warning enable SKEXP0010
             }
-            else if (!string.IsNullOrWhiteSpace(settingsData?.ApiToken))
+            else if (!string.IsNullOrWhiteSpace(settingsData?.ApiKey))
             {
-                builder.Services.AddOpenAIChatCompletion(model, settingsData.ApiToken);
+                builder.Services.AddOpenAIChatCompletion(model, settingsData.ApiKey);
             }
             else
             {
