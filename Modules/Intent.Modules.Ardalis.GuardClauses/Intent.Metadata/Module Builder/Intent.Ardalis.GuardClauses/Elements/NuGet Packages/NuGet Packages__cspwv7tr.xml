@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>63bde54a-85dd-4f0c-b241-7df3ae1029b7</parentFolderId>
+  <packageId>63bde54a-85dd-4f0c-b241-7df3ae1029b7</packageId>
+  <packageName>Intent.Ardalis.GuardClauses</packageName>
   <stereotypes />
   <metadata />
   <childElements />

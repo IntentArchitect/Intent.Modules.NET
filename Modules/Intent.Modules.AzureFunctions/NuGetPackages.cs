@@ -115,7 +115,7 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftEntityFrameworkCorePackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.7"),
+                        ( >= 8, 0) => new PackageVersion("8.0.8"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("6.0.32", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCorePackageName}'"),
@@ -124,7 +124,7 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreCosmosPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.7"),
+                        ( >= 8, 0) => new PackageVersion("8.0.8"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("6.0.32", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreCosmosPackageName}'"),
@@ -133,7 +133,7 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreDesignPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.7"),
+                        ( >= 8, 0) => new PackageVersion("8.0.8"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("6.0.32", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreDesignPackageName}'"),
@@ -142,7 +142,7 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreInMemoryPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.7"),
+                        ( >= 8, 0) => new PackageVersion("8.0.8"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("6.0.32", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreInMemoryPackageName}'"),
@@ -151,7 +151,7 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreProxiesPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.7"),
+                        ( >= 8, 0) => new PackageVersion("8.0.8"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("6.0.32", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreProxiesPackageName}'"),
@@ -160,7 +160,7 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreSqlServerPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.7"),
+                        ( >= 8, 0) => new PackageVersion("8.0.8"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("6.0.32", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreSqlServerPackageName}'"),
@@ -169,7 +169,7 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreToolsPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.7"),
+                        ( >= 8, 0) => new PackageVersion("8.0.8"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("6.0.32", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreToolsPackageName}'"),

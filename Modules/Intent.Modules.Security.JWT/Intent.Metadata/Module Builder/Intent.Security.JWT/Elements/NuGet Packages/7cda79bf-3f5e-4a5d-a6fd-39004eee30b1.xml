@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7cda79bf-3f5e-4a5d-a6fd-39004eee30b1" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>dc5bde69-a694-4347-9683-d746710568e7</parentFolderId>
+  <packageId>dc5bde69-a694-4347-9683-d746710568e7</packageId>
+  <packageName>Intent.Security.JWT</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

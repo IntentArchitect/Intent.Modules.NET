@@ -3,9 +3,12 @@
   <name>HotChocolate.AzureFunctions</name>
   <display>HotChocolate.AzureFunctions</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3e685caf-2ae7-4c7c-b17a-7d106ef78e59</parentFolderId>
+  <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+  <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
       <addedByDefault>false</addedByDefault>
@@ -18,5 +21,52 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements />
+  <childElements>
+    <childElement id="870c9b37-723a-4c92-af0c-85fdafc513f6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>13.9.9</name>
+      <display>13.9.9 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f3c1234e-631f-4a7d-85ab-19763974e15c</parentFolderId>
+      <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+      <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="607e1fcb-6cf9-46e4-99f4-758a8bfb8bda" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>13.9.9</name>
+      <display>13.9.9 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f3c1234e-631f-4a7d-85ab-19763974e15c</parentFolderId>
+      <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+      <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

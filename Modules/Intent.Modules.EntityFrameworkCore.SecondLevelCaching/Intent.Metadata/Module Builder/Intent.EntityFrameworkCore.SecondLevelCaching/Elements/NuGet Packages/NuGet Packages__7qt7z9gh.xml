@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4bbeac35-5569-4e91-b014-04909a31b23f</parentFolderId>
+  <packageId>4bbeac35-5569-4e91-b014-04909a31b23f</packageId>
+  <packageName>Intent.EntityFrameworkCore.SecondLevelCaching</packageName>
   <stereotypes />
   <metadata />
   <childElements />

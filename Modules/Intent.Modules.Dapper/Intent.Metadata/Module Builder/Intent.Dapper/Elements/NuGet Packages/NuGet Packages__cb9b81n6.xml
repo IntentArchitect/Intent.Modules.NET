@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</parentFolderId>
+  <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+  <packageName>Intent.Dapper</packageName>
   <stereotypes />
   <metadata />
   <childElements />

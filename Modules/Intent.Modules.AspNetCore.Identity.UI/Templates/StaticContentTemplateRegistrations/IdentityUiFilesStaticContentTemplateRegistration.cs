@@ -19,6 +19,9 @@ namespace Intent.Modules.AspNetCore.Identity.UI.Templates.StaticContentTemplateR
 
         public override string ContentSubFolder => "IdentityUiFiles";
 
+
+        public override string[] BinaryFileGlobbingPatterns => new string[] { "*.jpg", "*.png", "*.xlsx", "*.ico", "*.pdf" };
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget) => new Dictionary<string, string>
         {

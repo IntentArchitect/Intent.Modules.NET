@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</parentFolderId>
+  <packageId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</packageId>
+  <packageName>Intent.EntityFrameworkCore.BulkOperations</packageName>
   <stereotypes />
   <metadata />
   <childElements />

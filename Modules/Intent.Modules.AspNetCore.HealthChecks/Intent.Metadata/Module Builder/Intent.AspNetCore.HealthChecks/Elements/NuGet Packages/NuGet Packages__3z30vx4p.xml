@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</parentFolderId>
+  <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+  <packageName>Intent.AspNetCore.HealthChecks</packageName>
   <stereotypes />
   <metadata />
   <childElements />

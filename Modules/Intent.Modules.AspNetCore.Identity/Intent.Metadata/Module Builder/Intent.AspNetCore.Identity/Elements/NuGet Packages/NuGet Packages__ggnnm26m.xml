@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>7061eb5a-c934-46e4-8c73-e3df67edf43a</parentFolderId>
+  <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
+  <packageName>Intent.AspNetCore.Identity</packageName>
   <stereotypes />
   <metadata />
   <childElements />

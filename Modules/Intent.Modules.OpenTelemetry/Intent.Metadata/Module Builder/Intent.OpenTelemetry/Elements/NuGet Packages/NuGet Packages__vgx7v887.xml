@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>652bd831-c437-4fba-8857-6387959bb71d</parentFolderId>
+  <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+  <packageName>Intent.OpenTelemetry</packageName>
   <stereotypes />
   <metadata />
   <childElements />

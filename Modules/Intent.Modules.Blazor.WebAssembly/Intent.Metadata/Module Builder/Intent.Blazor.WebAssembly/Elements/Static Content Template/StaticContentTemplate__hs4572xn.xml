@@ -15,6 +15,7 @@
       <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
       <properties>
         <property name="a9b100cb-f133-4061-a7be-63fec8159369" display="Content Subfolder" value="static-content" isActive="true" />
+        <property name="52e01775-62a6-4b04-86ee-9d36efe20f70" display="Binary File Globbing Patterns" value="*.jpg&#xA;*.png&#xA;*.xlsx&#xA;*.ico&#xA;*.pdf" isActive="true" />
         <property name="db0f79b6-2905-4771-9400-ed2bc024d1e1" display="Role" value="Blazor" isActive="true" />
         <property name="1b9fff50-1498-482a-a64d-11c5b92d0856" display="Default Location" isActive="true" />
       </properties>

@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>be226310-af67-41e2-b5e8-d89498428519</parentFolderId>
+  <packageId>be226310-af67-41e2-b5e8-d89498428519</packageId>
+  <packageName>Intent.HashiCorp.Vault</packageName>
   <stereotypes />
   <metadata />
   <childElements />

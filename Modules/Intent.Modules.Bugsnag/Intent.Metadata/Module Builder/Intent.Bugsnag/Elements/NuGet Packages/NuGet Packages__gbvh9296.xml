@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>519716a0-7fda-470a-b8f2-28248a51130e</parentFolderId>
+  <packageId>519716a0-7fda-470a-b8f2-28248a51130e</packageId>
+  <packageName>Intent.Bugsnag</packageName>
   <stereotypes />
   <metadata />
   <childElements />

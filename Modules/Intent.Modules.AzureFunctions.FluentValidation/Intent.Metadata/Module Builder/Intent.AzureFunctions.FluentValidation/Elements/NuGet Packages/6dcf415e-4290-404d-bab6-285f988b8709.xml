@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6dcf415e-4290-404d-bab6-285f988b8709" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f11bcf8c-0844-4ba4-bdae-79934c94a588</parentFolderId>
+  <packageId>f11bcf8c-0844-4ba4-bdae-79934c94a588</packageId>
+  <packageName>Intent.AzureFunctions.FluentValidation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
