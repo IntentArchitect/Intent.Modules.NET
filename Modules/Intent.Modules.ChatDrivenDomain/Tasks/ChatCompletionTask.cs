@@ -168,14 +168,6 @@ public class ChatCompletionTask : IModuleTask
                   ONLY output the structure in JSON format. 
                   """);
             
-            /*
-             you will record each action in the following manner.
-             Keep the structure above except that you will add a "action" field that can hold 3 modes: "Create", "Modify", "Delete".
-                  When you create a new Class, set the "action" on the Class, Attributes and Associations to "Create".
-                  When you mutate Attributes or Associations in any way, you will need to set the Class's "action" to "Modify".
-                  When you delete an existing Class you will need to set it and its children to "Delete".
-             */
-            
             var result = requestFunction.InvokeAsync(kernel, new KernelArguments
             {
                 ["domain"] = JsonSerializer.Serialize(inputModel.Classes),
