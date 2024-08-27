@@ -39,7 +39,7 @@
       <childElements>
         <childElement id="7b1cd76c-3922-418a-810f-2cfad870ac7a" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Header Strategy</name>
-          <display>Header Strategy = header</display>
+          <display>Header Strategy</display>
           <isAbstract>false</isAbstract>
           <value>header</value>
           <genericTypes />
@@ -53,7 +53,7 @@
         </childElement>
         <childElement id="b2a6a3f1-0c4e-4ea7-8088-b4999c98d9f8" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Claim Strategy</name>
-          <display>Claim Strategy = claim</display>
+          <display>Claim Strategy</display>
           <isAbstract>false</isAbstract>
           <value>claim</value>
           <genericTypes />
@@ -67,7 +67,7 @@
         </childElement>
         <childElement id="06aa040a-ac95-46ab-966f-dd4015abfa9c" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Host Strategy</name>
-          <display>Host Strategy = host</display>
+          <display>Host Strategy</display>
           <isAbstract>false</isAbstract>
           <value>host</value>
           <genericTypes />
@@ -108,7 +108,7 @@
       <childElements>
         <childElement id="bb464b86-aaa7-471f-a048-ec33966ce7b2" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Configuration</name>
-          <display>Configuration = configuration</display>
+          <display>Configuration</display>
           <isAbstract>false</isAbstract>
           <value>configuration</value>
           <genericTypes />
@@ -122,7 +122,7 @@
         </childElement>
         <childElement id="95b1c642-b8f4-47f1-8a83-69653c335fb5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Entity Framework Core</name>
-          <display>Entity Framework Core = efcore</display>
+          <display>Entity Framework Core</display>
           <isAbstract>false</isAbstract>
           <value>efcore</value>
           <genericTypes />
@@ -136,7 +136,7 @@
         </childElement>
         <childElement id="697b7c80-6e38-44b5-96bf-bbf4c7cc50b9" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>HTTP Remote</name>
-          <display>HTTP Remote = http-remote</display>
+          <display>HTTP Remote</display>
           <isAbstract>false</isAbstract>
           <value>http-remote</value>
           <genericTypes />
@@ -150,7 +150,7 @@
         </childElement>
         <childElement id="81d428a8-e606-4707-8998-c76baa5a26a1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>In-Memory</name>
-          <display>In-Memory = in-memory</display>
+          <display>In-Memory</display>
           <isAbstract>false</isAbstract>
           <value>in-memory</value>
           <genericTypes />
@@ -192,7 +192,7 @@
       <childElements>
         <childElement id="f92037d9-3aea-4f9c-afca-848b0c71c4f5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Separate Databases</name>
-          <display>Separate Databases = separate-database</display>
+          <display>Separate Databases</display>
           <isAbstract>false</isAbstract>
           <value>separate-database</value>
           <genericTypes />
@@ -206,7 +206,7 @@
         </childElement>
         <childElement id="acbfd22c-a9fc-4055-99a7-447012feba00" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Shared Database</name>
-          <display>Shared Database = shared-database</display>
+          <display>Shared Database</display>
           <isAbstract>false</isAbstract>
           <value>shared-database</value>
           <genericTypes />
@@ -247,7 +247,7 @@
       <childElements>
         <childElement id="6c5155b4-881f-409d-840f-1af25db14c25" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Automatically</name>
-          <display>Automatically = automatically</display>
+          <display>Automatically</display>
           <isAbstract>false</isAbstract>
           <value>automatically</value>
           <genericTypes />
@@ -261,7 +261,7 @@
         </childElement>
         <childElement id="4e526f89-c350-449c-b03a-256bfb8a76e1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Manually</name>
-          <display>Manually = manually</display>
+          <display>Manually</display>
           <isAbstract>false</isAbstract>
           <value>manually</value>
           <genericTypes />
