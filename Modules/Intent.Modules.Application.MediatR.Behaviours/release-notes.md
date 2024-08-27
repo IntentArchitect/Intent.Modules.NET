@@ -1,3 +1,7 @@
+﻿### Version 4.2.16
+
+- Improvement: Transformed the `UnhandledExceptionBehaviour` template from T4 to File Builder for easier extensibility.
+
 ### Version 4.2.15
 
 - Improvement: Updated module NuGet packages infrastructure.
@@ -6,7 +10,9 @@
 
 - Improvement: Updated NuGet packages to latest stables.
 - Improvement: Added support for different UserId Types (guid, long, int).
+
 > ⚠️ **NOTE**
+> 
 > `LoggingBehaviour`, `PerformanceBehaviour` - simplified the code removing unnecessary null coalescing to empty strings.
 
 ### Version 4.2.13

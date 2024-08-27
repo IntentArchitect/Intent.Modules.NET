@@ -170,22 +170,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#d94dff30-bffc-4c3a-b535-87bb6c3046b7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#d94dff30-bffc-4c3a-b535-87bb6c3046b7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f1fa0158-54c0-49ef-9c07-0cf949d3c259</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d94dff30-bffc-4c3a-b535-87bb6c3046b7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>

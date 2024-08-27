@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.FluentValidation</id>
-  <version>4.6.3</version>
+  <version>4.6.4-pre.0</version>
   <supportedClientVersions>[4.1.0-beta.21, 5.0.0-a)</supportedClientVersions>
   <summary>Provides support for specifying fluent validation on Commands and Queries</summary>
   <description>Provides support for specifying fluent validation on Commands and Queries</description>
@@ -38,6 +38,7 @@
   <decorators />
   <factoryExtensions>
     <factoryExtension id="Intent.Application.MediatR.FluentValidation.CombineWithModelsTemplateFactoryExtension" externalReference="e259f7b4-2fe3-4a54-ab1d-419981c73524" />
+    <factoryExtension id="Intent.Application.MediatR.FluentValidation.UnhandledExceptionBahaviorExtension" externalReference="20d51a9e-95cd-4345-ae85-1d90fbdac190" />
   </factoryExtensions>
   <interoperability>
     <!-- Minimum Compatible Versions -->

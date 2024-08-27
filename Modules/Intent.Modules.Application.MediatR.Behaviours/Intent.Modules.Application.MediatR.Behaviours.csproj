@@ -34,10 +34,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>PerformanceBehaviourTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>UnhandledExceptionBehaviourTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ValidationBehaviourTemplate.cs</LastGenOutput>
@@ -72,11 +68,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>PerformanceBehaviourTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UnhandledExceptionBehaviourTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\ValidationBehaviour\ValidationBehaviourTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -101,6 +92,10 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Templates\UnhandledExceptionBehaviour\" />
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems" Label="Shared" />

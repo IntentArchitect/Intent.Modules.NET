@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="20d51a9e-95cd-4345-ae85-1d90fbdac190" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>UnhandledExceptionBahaviorExtension</name>
+  <display>UnhandledExceptionBahaviorExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>19ac3196-c353-44e0-ba44-2e1930175b1f</parentFolderId>
+  <packageId>19ac3196-c353-44e0-ba44-2e1930175b1f</packageId>
+  <packageName>Intent.Application.MediatR.FluentValidation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
