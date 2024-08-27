@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>8b0c1ac1-fec4-498c-8f04-76519c498003</parentFolderId>
+  <packageId>8b0c1ac1-fec4-498c-8f04-76519c498003</packageId>
+  <packageName>Intent.Modules.AspNetCore.Logging.Serilog</packageName>
   <stereotypes />
   <metadata />
   <childElements />
