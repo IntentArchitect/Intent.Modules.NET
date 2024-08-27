@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</parentFolderId>
+  <packageId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</packageId>
+  <packageName>Intent.HotChocolate.GraphQL.AspNetCore</packageName>
   <stereotypes />
   <metadata />
   <childElements />
