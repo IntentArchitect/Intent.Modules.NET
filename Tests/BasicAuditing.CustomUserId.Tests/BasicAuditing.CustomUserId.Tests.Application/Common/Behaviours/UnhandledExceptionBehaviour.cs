@@ -32,7 +32,7 @@ namespace BasicAuditing.CustomUserId.Tests.Application.Common.Behaviours
             }
             catch (ValidationException ex)
             {
-                // Do not log FluentValidationExceptions
+                // Do not log Fluent Validation Exceptions
                 throw;
             }
             catch (Exception ex)
