@@ -57,7 +57,7 @@
           <isRequired>false</isRequired>
           <hint>Include Process instrumentation (Metrics).</hint>
         </setting>
-        <setting id="93367ae8-466f-4e0e-a84c-19eae4b80daa" title="NET Runtime Instrumentation" type="checkbox">
+        <setting id="93367ae8-466f-4e0e-a84c-19eae4b80daa" title=".NET Runtime Instrumentation" type="checkbox">
           <isRequired>false</isRequired>
           <hint>Include .NET Runtime instrumentation (Metrics).</hint>
         </setting>
@@ -69,6 +69,7 @@
             <option value="console" description="Console" />
             <option value="open-telemetry-protocol" description="OpenTelemetry Protocol" />
             <option value="azure-application-insights" description="Azure Application Insights" />
+            <option value="azure-monitor-opentelemetry-distro" description="Azure Monitor OpenTelemetry Distro" />
           </options>
         </setting>
       </settings>
@@ -85,7 +86,7 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.3" />
+    <dependency id="Intent.Common.CSharp" version="3.7.4-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>

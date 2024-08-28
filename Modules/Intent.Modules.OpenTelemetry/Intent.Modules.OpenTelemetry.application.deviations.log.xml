@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9ee62e7e-be4a-45e9-925a-92f7653bde12</correlationId>
+      <path>Intent.Modules.OpenTelemetry/Templates/OpenTelemetryConfiguration/OpenTelemetryConfigurationTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2024-08-28T09:03:53.9098417Z</updatedAt>
+      <deviationsHash>31E06F80AAB7FC1D38F08000498D06EC499486CBC50BEA9015B0C5481798B6D6</deviationsHash>
+      <fileHash>1D1A2D0718CE238B74BF003B9E78618BF2BB17EFCA76A07FD59C61265C1AF7E2</fileHash>
+    </file>
+  </files>
 </deviationsLog>

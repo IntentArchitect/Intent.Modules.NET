@@ -188,8 +188,8 @@
       <childElements />
     </childElement>
     <childElement id="93367ae8-466f-4e0e-a84c-19eae4b80daa" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <name>NET Runtime Instrumentation</name>
-      <display>NET Runtime Instrumentation</display>
+      <name>.NET Runtime Instrumentation</name>
+      <display>.NET Runtime Instrumentation</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -270,6 +270,20 @@
           <display>Azure Application Insights</display>
           <isAbstract>false</isAbstract>
           <value>azure-application-insights</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ccbdc18f-b1c3-4f4b-a1a7-fa29c626ce0e</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cf20ea08-6945-44e1-9af5-3db3651ea669" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Azure Monitor OpenTelemetry Distro</name>
+          <display>Azure Monitor OpenTelemetry Distro</display>
+          <isAbstract>false</isAbstract>
+          <value>azure-monitor-opentelemetry-distro</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ccbdc18f-b1c3-4f4b-a1a7-fa29c626ce0e</parentFolderId>

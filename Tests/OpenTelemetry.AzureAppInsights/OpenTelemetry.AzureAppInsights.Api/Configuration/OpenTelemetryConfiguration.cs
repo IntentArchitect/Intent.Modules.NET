@@ -1,3 +1,4 @@
+using Azure.Monitor.OpenTelemetry.AspNetCore;
 using Azure.Monitor.OpenTelemetry.Exporter;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
@@ -20,42 +21,52 @@ namespace OpenTelemetry.AzureAppInsights.Api.Configuration
             IConfiguration configuration)
         {
             services.AddOpenTelemetry()
-                .ConfigureResource(res => res
-                    .AddService(configuration["OpenTelemetry:ServiceName"]!)
-                    .AddTelemetrySdk()
-                    .AddEnvironmentVariableDetector())
-                .WithTracing(trace => trace
-                    .AddAspNetCoreInstrumentation()
-                    .AddAzureMonitorTraceExporter(opt =>
-                    {
-                        opt.ConnectionString = configuration["ApplicationInsights:ConnectionString"];
-                    }))
-                .WithMetrics(metrics => metrics
-                    .AddAspNetCoreInstrumentation()
-                    .AddAzureMonitorMetricExporter(opt =>
-                    {
-                        opt.ConnectionString = configuration["ApplicationInsights:ConnectionString"];
-                    }));
+                .UseAzureMonitor(opt =>
+                {
+                    opt.ConnectionString = configuration["ApplicationInsights:ConnectionString"];
+                })
+                // .ConfigureResource(res => res
+                //     .AddService(configuration["OpenTelemetry:ServiceName"]!)
+                //     .AddTelemetrySdk()
+                //     .AddEnvironmentVariableDetector())
+                // .WithTracing(trace => trace
+                //     .AddAspNetCoreInstrumentation()
+                //     .AddHttpClientInstrumentation()
+                //     .AddSqlClientInstrumentation()
+                //     .AddAzureMonitorTraceExporter(opt =>
+                //     {
+                //         opt.ConnectionString = configuration["ApplicationInsights:ConnectionString"];
+                //     }))
+                // .WithMetrics(metrics => metrics
+                //     .AddAspNetCoreInstrumentation()
+                //     .AddHttpClientInstrumentation()
+                //     .AddProcessInstrumentation()
+                //     .AddRuntimeInstrumentation()
+                //     .AddAzureMonitorMetricExporter(opt =>
+                //     {
+                //         opt.ConnectionString = configuration["ApplicationInsights:ConnectionString"];
+                //     }))
+                ;
             return services;
         }
 
-        public static ILoggingBuilder AddTelemetryConfiguration(
-            this ILoggingBuilder logBuilder,
-            HostBuilderContext context)
-        {
-            return logBuilder.AddOpenTelemetry(options =>
-            {
-                options.SetResourceBuilder(ResourceBuilder
-                    .CreateDefault()
-                    .AddService(context.Configuration["OpenTelemetry:ServiceName"]!));
-                options.AddAzureMonitorLogExporter(opt =>
-                {
-                    opt.ConnectionString = context.Configuration["ApplicationInsights:ConnectionString"];
-                });
-                options.IncludeFormattedMessage = true;
-                options.IncludeScopes = true;
-                options.ParseStateValues = true;
-            });
-        }
+        // public static ILoggingBuilder AddTelemetryConfiguration(
+        //     this ILoggingBuilder logBuilder,
+        //     HostBuilderContext context)
+        // {
+        //     return logBuilder.AddOpenTelemetry(options =>
+        //     {
+        //         options.SetResourceBuilder(ResourceBuilder
+        //             .CreateDefault()
+        //             .AddService(context.Configuration["OpenTelemetry:ServiceName"]!));
+        //         options.AddAzureMonitorLogExporter(opt =>
+        //         {
+        //             opt.ConnectionString = context.Configuration["ApplicationInsights:ConnectionString"];
+        //         });
+        //         options.IncludeFormattedMessage = true;
+        //         options.IncludeScopes = true;
+        //         options.ParseStateValues = true;
+        //     });
+        // }
     }
 }

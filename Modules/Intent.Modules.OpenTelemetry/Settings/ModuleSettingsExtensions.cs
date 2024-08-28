@@ -74,6 +74,7 @@ namespace Intent.Modules.OpenTelemetry.Settings
                     "console" => ExportOptionsEnum.Console,
                     "open-telemetry-protocol" => ExportOptionsEnum.OpenTelemetryProtocol,
                     "azure-application-insights" => ExportOptionsEnum.AzureApplicationInsights,
+                    "azure-monitor-opentelemetry-distro" => ExportOptionsEnum.AzureMonitorOpentelemetryDistro,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -92,6 +93,11 @@ namespace Intent.Modules.OpenTelemetry.Settings
             {
                 return Value == "azure-application-insights";
             }
+
+            public bool IsAzureMonitorOpentelemetryDistro()
+            {
+                return Value == "azure-monitor-opentelemetry-distro";
+            }
         }
 
         public enum ExportOptionsEnum
@@ -99,6 +105,7 @@ namespace Intent.Modules.OpenTelemetry.Settings
             Console,
             OpenTelemetryProtocol,
             AzureApplicationInsights,
+            AzureMonitorOpentelemetryDistro,
         }
     }
 }

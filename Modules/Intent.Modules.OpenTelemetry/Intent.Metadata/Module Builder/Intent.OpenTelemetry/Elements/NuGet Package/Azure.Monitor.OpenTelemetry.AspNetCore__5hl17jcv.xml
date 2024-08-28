@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="78592fec-c0fc-40b5-bac5-e3f51837c08b" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
-  <name>OpenTelemetry.Instrumentation.SqlClient</name>
-  <display>OpenTelemetry.Instrumentation.SqlClient</display>
+<class id="bc589e4f-0765-417a-b0f2-d6987c08be1e" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>Azure.Monitor.OpenTelemetry.AspNetCore</name>
+  <display>Azure.Monitor.OpenTelemetry.AspNetCore</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
@@ -11,7 +11,7 @@
   <packageName>Intent.OpenTelemetry</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
-      <addedByDefault>false</addedByDefault>
+      <addedByDefault>true</addedByDefault>
       <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
       <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
       <properties>
@@ -22,13 +22,13 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="d26dd723-a1ca-42e9-b5f4-d3414f796cf7" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.9.0-beta.1</name>
-      <display>1.9.0-beta.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+    <childElement id="527bfd85-5c5f-4676-8e69-be7ed377038a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>1.2.0</name>
+      <display>1.2.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>78592fec-c0fc-40b5-bac5-e3f51837c08b</parentFolderId>
+      <parentFolderId>bc589e4f-0765-417a-b0f2-d6987c08be1e</parentFolderId>
       <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
       <packageName>Intent.OpenTelemetry</packageName>
       <stereotypes>

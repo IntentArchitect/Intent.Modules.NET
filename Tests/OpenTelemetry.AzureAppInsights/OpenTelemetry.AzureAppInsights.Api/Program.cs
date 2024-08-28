@@ -46,7 +46,7 @@ namespace OpenTelemetry.AzureAppInsights.Api
                 .ConfigureLogging((context, logBuilder) =>
                 {
                     logBuilder.ClearProviders();
-                    logBuilder.AddTelemetryConfiguration(context);
+                    //logBuilder.AddTelemetryConfiguration(context);
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

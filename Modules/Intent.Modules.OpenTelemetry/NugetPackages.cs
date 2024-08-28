@@ -11,6 +11,7 @@ namespace Intent.Modules.OpenTelemetry
 {
     public class NugetPackages : INugetPackages
     {
+        public const string AzureMonitorOpenTelemetryAspNetCorePackageName = "Azure.Monitor.OpenTelemetry.AspNetCore";
         public const string AzureMonitorOpenTelemetryExporterPackageName = "Azure.Monitor.OpenTelemetry.Exporter";
         public const string OpenTelemetryPackageName = "OpenTelemetry";
         public const string OpenTelemetryExporterConsolePackageName = "OpenTelemetry.Exporter.Console";
@@ -24,6 +25,13 @@ namespace Intent.Modules.OpenTelemetry
 
         public void RegisterPackages()
         {
+            NugetRegistry.Register(AzureMonitorOpenTelemetryAspNetCorePackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 6, 0) => new PackageVersion("1.2.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureMonitorOpenTelemetryAspNetCorePackageName}'"),
+                    }
+                );
             NugetRegistry.Register(AzureMonitorOpenTelemetryExporterPackageName,
                 (framework) => framework switch
                     {
@@ -97,10 +105,13 @@ namespace Intent.Modules.OpenTelemetry
             NugetRegistry.Register(OpenTelemetryInstrumentationSqlClientPackageName,
                 (framework) => framework switch
                     {
+                        ( >= 6, 0) => new PackageVersion("1.9.0-beta.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{OpenTelemetryInstrumentationSqlClientPackageName}'"),
                     }
                 );
         }
+
+        public static NugetPackageInfo AzureMonitorOpenTelemetryAspNetCore(IOutputTarget outputTarget) => NugetRegistry.GetVersion(AzureMonitorOpenTelemetryAspNetCorePackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo OpenTelemetry(IOutputTarget outputTarget) => NugetRegistry.GetVersion(OpenTelemetryPackageName, outputTarget.GetMaxNetAppVersion());
 
