@@ -5,6 +5,7 @@ using Intent.Modules.ChatDrivenDomain.Tasks.Models;
 using Intent.Plugins;
 using Intent.Utils;
 using Microsoft.SemanticKernel;
+using Microsoft.SemanticKernel.Connectors.OpenAI;
 
 namespace Intent.Modules.ChatDrivenDomain.Tasks;
 
@@ -58,7 +59,7 @@ public class ChatCompletionTask : IModuleTask
             var requestFunction = kernel.CreateFunctionFromPrompt(
                   """
                   You are an agent that is working alongside a product referred to as Intent Architect. You are an expert in designing business domains
-                  for software development and know how Domain Driven Design works.
+                  for software development and know how Domain Driven Design works. YOU WILL NOT BE LAZY! GO the EXTRA MILE for the user!
 
                   There will be an input model supplied that will have the following structure:
                   
@@ -165,8 +166,11 @@ public class ChatCompletionTask : IModuleTask
                   Any new IDs that are assigned should be in the form "Element-number".
                   Additionally the Associations should have "isNullable" and "isCollection" fields that reflect
                   the "relationship" field. * = collection, 0..1 = nullable.
-                  ONLY output the structure in JSON format. 
-                  """);
+                  ONLY output the structure in JSON format WITHOUT WHITESPACE! 
+                  """, new OpenAIPromptExecutionSettings()
+                  {
+                      MaxTokens = 4096
+                  });
             
             var result = requestFunction.InvokeAsync(kernel, new KernelArguments
             {
