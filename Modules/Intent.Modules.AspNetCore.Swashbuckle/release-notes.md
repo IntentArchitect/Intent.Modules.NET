@@ -1,3 +1,7 @@
+### Version 5.1.0
+
+- Improvement: Default Model Rendering now uses the `Example` setting, offering a friendlier representation the payload structure.
+
 ### Version 5.0.4
 
 - Improvement: Updated module NuGet packages infrastructure.
