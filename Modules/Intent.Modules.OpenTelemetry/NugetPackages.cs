@@ -105,6 +105,7 @@ namespace Intent.Modules.OpenTelemetry
             NugetRegistry.Register(OpenTelemetryInstrumentationSqlClientPackageName,
                 (framework) => framework switch
                     {
+                        ( >= 8, 0) => new PackageVersion("1.9.0-beta.1"),
                         ( >= 6, 0) => new PackageVersion("1.9.0-beta.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{OpenTelemetryInstrumentationSqlClientPackageName}'"),
                     }

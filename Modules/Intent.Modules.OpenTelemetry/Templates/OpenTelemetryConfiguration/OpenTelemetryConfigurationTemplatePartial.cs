@@ -125,6 +125,8 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
 
     private CSharpStatement GetTracingInstrumentationStatements()
     {
+        AddUsing("OpenTelemetry.Trace");
+        
         var traceChain = new CSharpStatement("trace");
 
         if (ExecutionContext.Settings.GetOpenTelemetry().ASPNETCoreInstrumentation())
@@ -152,6 +154,8 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
 
     private CSharpStatement GetMetricsInstrumentationStatements()
     {
+        AddUsing("OpenTelemetry.Metrics");
+        
         var traceChain = new CSharpStatement("metrics");
 
         if (ExecutionContext.Settings.GetOpenTelemetry().ASPNETCoreInstrumentation())
@@ -196,18 +200,16 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             case Settings.OpenTelemetry.ExportOptionsEnum.Console:
                 {
                     AddNugetDependency(NugetPackages.OpenTelemetryExporterConsole(OutputTarget));
-                    AddUsing("OpenTelemetry.Trace");
 
                     return configChain.AddInvocation("AddConsoleExporter", inv => inv.OnNewLine());
                 }
             case Settings.OpenTelemetry.ExportOptionsEnum.OpenTelemetryProtocol:
                 {
                     AddNugetDependency(NugetPackages.OpenTelemetryExporterOpenTelemetryProtocol(OutputTarget));
-                    AddUsing("OpenTelemetry.Trace");
 
                     return configChain.AddInvocation("AddOtlpExporter", inv => inv.OnNewLine()
                         .AddArgument(new CSharpLambdaBlock("opt")
-                            .AddStatement($@"opt.Endpoint = configuration.GetValue<{UseType("System.Uri")}>(""open-telemetry-protocol:endpoint"");")
+                            .AddStatement($@"opt.Endpoint = configuration.GetValue<{UseType("System.Uri")}>(""open-telemetry-protocol:endpoint"")!;")
                             .AddStatement($@"opt.Protocol = configuration.GetValue<{UseType("OpenTelemetry.Exporter.OtlpExportProtocol")}>(""open-telemetry-protocol:protocol"");")));
                 }
             case Settings.OpenTelemetry.ExportOptionsEnum.AzureApplicationInsights:
@@ -225,17 +227,17 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
 
     private IEnumerable<CSharpStatement> GetLoggingExporterStatements()
     {
+        AddUsing("OpenTelemetry.Logs");
+        
         switch (ExecutionContext.Settings.GetOpenTelemetry().Export().AsEnum())
         {
             case Settings.OpenTelemetry.ExportOptionsEnum.Console:
-                AddUsing("OpenTelemetry.Logs");
                 yield return new CSharpInvocationStatement("options.AddConsoleExporter");
                 break;
             case Settings.OpenTelemetry.ExportOptionsEnum.OpenTelemetryProtocol:
-                AddUsing("OpenTelemetry.Logs");
                 yield return new CSharpInvocationStatement("options.AddOtlpExporter")
                     .AddArgument(new CSharpLambdaBlock("opt")
-                        .AddStatement($@"opt.Endpoint = context.Configuration.GetValue<{UseType("System.Uri")}>(""open-telemetry-protocol:endpoint"");")
+                        .AddStatement($@"opt.Endpoint = context.Configuration.GetValue<{UseType("System.Uri")}>(""open-telemetry-protocol:endpoint"")!;")
                         .AddStatement($@"opt.Protocol = context.Configuration.GetValue<{UseType("OpenTelemetry.Exporter.OtlpExportProtocol")}>(""open-telemetry-protocol:protocol"");"));
                 break;
             case Settings.OpenTelemetry.ExportOptionsEnum.AzureApplicationInsights:
@@ -243,7 +245,7 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
                     .AddArgument(new CSharpLambdaBlock("opt").AddStatement($@"opt.ConnectionString = context.Configuration[""ApplicationInsights:ConnectionString""];"));
                 break;
             case Settings.OpenTelemetry.ExportOptionsEnum.AzureMonitorOpentelemetryDistro:
-                
+
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
