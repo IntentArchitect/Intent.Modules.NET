@@ -51,14 +51,15 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             method.Static();
             method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
             method.AddParameter("IConfiguration", "configuration");
-            method.AddMethodChainStatement("services.AddOpenTelemetry()", main => main
-                .AddChainStatement(new CSharpInvocationStatement("ConfigureResource")
+            
+            method.AddInvocationStatement("services.AddOpenTelemetry", main => main
+                .AddInvocation("ConfigureResource", inv => inv
                     .AddArgument(GetResourceConfigurationStatement())
-                    .WithoutSemicolon()
+                    .OnNewLine()
                     .AddMetadata("telemetry-resource", true))
-                .AddChainStatement(new CSharpInvocationStatement("WithTracing")
+                .AddInvocation("WithTracing", inv => inv
                     .AddArgument(GetTracingInstrumentationStatements())
-                    .WithoutSemicolon()
+                    .OnNewLine()
                     .AddMetadata("telemetry-tracing", true))
                 .AddMetadata("telemetry-config", true));
             method.AddStatement("return services;");
@@ -79,67 +80,69 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             method.Static();
             method.AddParameter("ILoggingBuilder", "logBuilder", param => param.WithThisModifier());
             method.AddParameter("HostBuilderContext", "context");
+            
             method.AddInvocationStatement($"return logBuilder.AddOpenTelemetry", addOpenTel => addOpenTel
                 .AddArgument(new CSharpLambdaBlock("options")
                     .AddInvocationStatement("options.SetResourceBuilder", setBuilder => setBuilder
-                        .AddArgument(new CSharpMethodChainStatement("ResourceBuilder")
-                            .WithoutSemicolon()
-                            .AddChainStatement("CreateDefault()")
-                            .AddChainStatement($@"AddService(context.Configuration[""OpenTelemetry:ServiceName""]!)")))
+                        .AddArgument(new CSharpStatement("ResourceBuilder")
+                            .AddInvocation("CreateDefault", inv => inv.OnNewLine())
+                            .AddInvocation($@"AddService", inv => inv.AddArgument(@"context.Configuration[""OpenTelemetry:ServiceName""]!").OnNewLine().WithoutSemicolon()))
+                    )
                     .AddStatements(GetLoggingExporterStatements())
-                    .AddStatements($@"
-                                    options.IncludeFormattedMessage = true;
-                                    options.IncludeScopes = true;
-                                    options.ParseStateValues = true;")));
+                    .AddStatements("""
+                                   options.IncludeFormattedMessage = true;
+                                   options.IncludeScopes = true;
+                                   options.ParseStateValues = true;
+                                   """)
+                ));
         });
     }
 
     private CSharpStatement GetResourceConfigurationStatement()
     {
         return new CSharpLambdaBlock("res")
-            .WithExpressionBody(new CSharpMethodChainStatement("res")
-                .AddChainStatement($@"AddService(configuration[""OpenTelemetry:ServiceName""]!)")
-                .AddChainStatement("AddTelemetrySdk()")
-                .AddChainStatement("AddEnvironmentVariableDetector()"));
+            .WithExpressionBody(new CSharpStatement("res")
+                .AddInvocation("AddService", inv => inv.AddArgument(@"configuration[""OpenTelemetry:ServiceName""]!").OnNewLine())
+                .AddInvocation("AddTelemetrySdk", inv => inv.OnNewLine())
+                .AddInvocation("AddEnvironmentVariableDetector", inv => inv.OnNewLine()).WithoutSemicolon()
+            );
     }
 
     private CSharpStatement GetTracingInstrumentationStatements()
     {
-        var traceChain = new CSharpMethodChainStatement("trace")
-            .WithoutSemicolon()
-            .AddChainStatement("AddAspNetCoreInstrumentation()");
+        var traceChain = new CSharpStatement("trace")
+            .AddInvocation("AddAspNetCoreInstrumentation", inv => inv.OnNewLine());
 
         if (ExecutionContext.Settings.GetOpenTelemetry().HTTPInstrumentation())
         {
             AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationHttp(OutputTarget));
-            traceChain.AddChainStatement("AddHttpClientInstrumentation()");
+            traceChain.AddInvocation("AddHttpClientInstrumentation", inv => inv.OnNewLine());
         }
 
         if (ExecutionContext.Settings.GetOpenTelemetry().SQLInstrumentation())
         {
             AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationSqlClient(OutputTarget));
-            traceChain.AddChainStatement("AddSqlClientInstrumentation()");
+            traceChain.AddInvocation("AddSqlClientInstrumentation", inv => inv.OnNewLine());
         }
 
-        AddExporterConfiguration(traceChain);
+        traceChain = AddExporterConfiguration(traceChain);
 
-        return new CSharpLambdaBlock("trace").WithExpressionBody(traceChain);
+        return new CSharpLambdaBlock("trace").WithExpressionBody(traceChain.WithoutSemicolon());
     }
 
-    private void AddExporterConfiguration(CSharpMethodChainStatement configChain)
+    private CSharpInvocationStatement AddExporterConfiguration(CSharpInvocationStatement configChain)
     {
         switch (ExecutionContext.Settings.GetOpenTelemetry().Export().AsEnum())
         {
             case Settings.OpenTelemetry.ExportOptionsEnum.Console:
                 AddNugetDependency(NugetPackages.OpenTelemetryExporterConsole(OutputTarget));
                 AddUsing("OpenTelemetry.Trace");
-                configChain.AddChainStatement(new CSharpInvocationStatement("AddConsoleExporter").WithoutSemicolon());
+                configChain = configChain.AddInvocation("AddConsoleExporter", inv => inv.OnNewLine());
                 break;
             case Settings.OpenTelemetry.ExportOptionsEnum.OpenTelemetryProtocol:
                 AddNugetDependency(NugetPackages.OpenTelemetryExporterOpenTelemetryProtocol(OutputTarget));
                 AddUsing("OpenTelemetry.Trace");
-                configChain.AddChainStatement(new CSharpInvocationStatement("AddOtlpExporter")
-                    .WithoutSemicolon()
+                configChain = configChain.AddInvocation("AddOtlpExporter", inv => inv.OnNewLine()
                     .AddArgument(new CSharpLambdaBlock("opt")
                         .AddStatement($@"opt.Endpoint = configuration.GetValue<{UseType("System.Uri")}>(""open-telemetry-protocol:endpoint"");")
                         .AddStatement($@"opt.Protocol = configuration.GetValue<{UseType("OpenTelemetry.Exporter.OtlpExportProtocol")}>(""open-telemetry-protocol:protocol"");")));
@@ -147,14 +150,16 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             case Settings.OpenTelemetry.ExportOptionsEnum.AzureApplicationInsights:
                 AddNugetDependency(NugetPackages.AzureMonitorOpenTelemetryExporter(OutputTarget));
                 AddUsing("Azure.Monitor.OpenTelemetry.Exporter");
-                configChain.AddChainStatement(new CSharpInvocationStatement("AddAzureMonitorTraceExporter")
-                    .WithoutSemicolon()
+                configChain = configChain.AddInvocation("AddAzureMonitorTraceExporter", inv => inv.OnNewLine()
                     .AddArgument(new CSharpLambdaBlock("opt")
-                        .AddStatement(@"opt.ConnectionString = configuration[""ApplicationInsights:ConnectionString""];")));
+                        .AddStatement(@"opt.ConnectionString = configuration[""ApplicationInsights:ConnectionString""];"))
+                );
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
+
+        return configChain;
     }
 
     private IEnumerable<CSharpStatement> GetLoggingExporterStatements()

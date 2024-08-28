@@ -18,6 +18,8 @@ namespace Intent.Modules.OpenTelemetry
         public const string OpenTelemetryExtensionsHostingPackageName = "OpenTelemetry.Extensions.Hosting";
         public const string OpenTelemetryInstrumentationAspNetCorePackageName = "OpenTelemetry.Instrumentation.AspNetCore";
         public const string OpenTelemetryInstrumentationHttpPackageName = "OpenTelemetry.Instrumentation.Http";
+        public const string OpenTelemetryInstrumentationProcessPackageName = "OpenTelemetry.Instrumentation.Process";
+        public const string OpenTelemetryInstrumentationRuntimePackageName = "OpenTelemetry.Instrumentation.Runtime";
         public const string OpenTelemetryInstrumentationSqlClientPackageName = "OpenTelemetry.Instrumentation.SqlClient";
 
         public void RegisterPackages()
@@ -78,6 +80,20 @@ namespace Intent.Modules.OpenTelemetry
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{OpenTelemetryInstrumentationHttpPackageName}'"),
                     }
                 );
+            NugetRegistry.Register(OpenTelemetryInstrumentationProcessPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 0, 0) => new PackageVersion("0.5.0-beta.6"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{OpenTelemetryInstrumentationProcessPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(OpenTelemetryInstrumentationRuntimePackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 6, 0) => new PackageVersion("1.9.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{OpenTelemetryInstrumentationRuntimePackageName}'"),
+                    }
+                );
             NugetRegistry.Register(OpenTelemetryInstrumentationSqlClientPackageName,
                 (framework) => framework switch
                     {
@@ -93,6 +109,10 @@ namespace Intent.Modules.OpenTelemetry
         public static NugetPackageInfo OpenTelemetryInstrumentationAspNetCore(IOutputTarget outputTarget) => NugetRegistry.GetVersion(OpenTelemetryInstrumentationAspNetCorePackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo OpenTelemetryInstrumentationHttp(IOutputTarget outputTarget) => NugetRegistry.GetVersion(OpenTelemetryInstrumentationHttpPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo OpenTelemetryInstrumentationProcess(IOutputTarget outputTarget) => NugetRegistry.GetVersion(OpenTelemetryInstrumentationProcessPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo OpenTelemetryInstrumentationRuntime(IOutputTarget outputTarget) => NugetRegistry.GetVersion(OpenTelemetryInstrumentationRuntimePackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo OpenTelemetryInstrumentationSqlClient(IOutputTarget outputTarget) => NugetRegistry.GetVersion(OpenTelemetryInstrumentationSqlClientPackageName, outputTarget.GetMaxNetAppVersion());
 

@@ -41,11 +41,21 @@ namespace Intent.Modules.OpenTelemetry.Settings
             return _groupSettings.GetSetting(settingId);
         }
 
+        public bool CaptureTraces() => bool.TryParse(_groupSettings.GetSetting("93dbe976-bebb-47e9-a59e-0367271f3dbb")?.Value.ToPascalCase(), out var result) && result;
+
         public bool CaptureLogs() => bool.TryParse(_groupSettings.GetSetting("7cbb4a05-7dac-4b06-b2da-635ab82dd125")?.Value.ToPascalCase(), out var result) && result;
+
+        public bool ASPNETCoreInstrumentation() => bool.TryParse(_groupSettings.GetSetting("11352624-4a31-4ec9-8768-0dfef81cf3b1")?.Value.ToPascalCase(), out var result) && result;
+
+        public bool CaptureMetrics() => bool.TryParse(_groupSettings.GetSetting("b919cb80-15dc-4f1e-820c-faaddf4c0063")?.Value.ToPascalCase(), out var result) && result;
 
         public bool HTTPInstrumentation() => bool.TryParse(_groupSettings.GetSetting("d41bdd38-bfc0-4c96-8cb2-0bd4b6f01f01")?.Value.ToPascalCase(), out var result) && result;
 
         public bool SQLInstrumentation() => bool.TryParse(_groupSettings.GetSetting("14d18546-83cd-46b6-8d0e-c9d098ece8e0")?.Value.ToPascalCase(), out var result) && result;
+
+        public bool ProcessInstrumentation() => bool.TryParse(_groupSettings.GetSetting("dd698842-3b42-4ddd-8a90-cb67a12ed375")?.Value.ToPascalCase(), out var result) && result;
+
+        public bool NETRuntimeInstrumentation() => bool.TryParse(_groupSettings.GetSetting("93367ae8-466f-4e0e-a84c-19eae4b80daa")?.Value.ToPascalCase(), out var result) && result;
         public ExportOptions Export() => new ExportOptions(_groupSettings.GetSetting("ccbdc18f-b1c3-4f4b-a1a7-fa29c626ce0e")?.Value);
 
         public class ExportOptions
