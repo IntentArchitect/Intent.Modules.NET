@@ -8,6 +8,7 @@ using Intent.Eventing;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet;
@@ -19,6 +20,7 @@ using Intent.Modules.VisualStudio.Projects.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.Templates;
 using Intent.Utils;
+using Microsoft.Build.Evaluation;
 using NuGet.Versioning;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
@@ -180,6 +182,8 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 ConsolidatePackageVersions(projectPackages, highestVersions);
             }
 
+            RemoveNugerPackagesDependantsAdd(projectPackages);
+
             foreach (var projectPackage in projectPackages)
             {
                 if (!_projectPackageRemoveRequests.TryGetValue(projectPackage.ProjectId, out var packagesToRemove))
@@ -220,6 +224,53 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                            $"{report}");
             }
 
+        }
+
+        private void RemoveNugerPackagesDependantsAdd(IReadOnlyCollection<NuGetProject> projectPackages)
+        {
+            var projectToNugetPackageMap = new Dictionary<string, HashSet<string>>();
+            foreach (var projectPackage in projectPackages)
+            {
+                if (!projectToNugetPackageMap.ContainsKey(projectPackage.OutputTarget.Id))
+                {
+                    projectToNugetPackageMap[projectPackage.OutputTarget.Id] = new HashSet<string>(projectPackage.RequestedPackages.Keys);
+                }
+            }
+
+            foreach (var projectPackage in projectPackages)
+            {
+                var dependantPackages = GetDependantPackages(projectPackage.OutputTarget, projectToNugetPackageMap);
+                foreach (var dependantPackage in dependantPackages)
+                {
+                    if (projectPackage.RequestedPackages.ContainsKey(dependantPackage))
+                    {
+                        projectPackage.RequestedPackages.Remove(dependantPackage);
+                    }
+                }
+            }
+        }
+
+        private HashSet<string> GetDependantPackages(IOutputTarget project, Dictionary<string, HashSet<string>> projectToNugetPackageMap)
+        {
+            var collectedPackages = new HashSet<string>();
+
+            if (!project.Dependencies().Any())
+            {
+                return collectedPackages;
+            }
+
+            foreach (var dependentProject in project.Dependencies())
+            {
+                if (projectToNugetPackageMap.TryGetValue(dependentProject.Id, out var packages))
+                {
+                    collectedPackages.UnionWith(packages);
+                }
+
+                // Recursively collect packages from the dependent projects of this dependent project
+                collectedPackages.UnionWith(GetDependantPackages(dependentProject, projectToNugetPackageMap));
+            }
+
+            return collectedPackages;
         }
 
         /// <summary>
@@ -315,7 +366,8 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 HighestVersions = highestVersionsInProject,
                 Name = template.Name,
                 FilePath = template.FilePath,
-                Processor = processor
+                Processor = processor,
+                OutputTarget = template.OutputTarget,
             };
         }
 

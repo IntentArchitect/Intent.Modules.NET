@@ -298,6 +298,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.NetTopologyS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AI.ChatDrivenDomain", "Intent.Modules.AI.ChatDrivenDomain\Intent.Modules.AI.ChatDrivenDomain.csproj", "{99CFB6D5-18C2-4220-AB71-ADE0CC6BAF7B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.NServiceBus", "Intent.Modules.Eventing.NServiceBus\Intent.Modules.Eventing.NServiceBus.csproj", "{BA3A7617-8892-439B-B480-C18D90777587}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -824,6 +826,10 @@ Global
 		{99CFB6D5-18C2-4220-AB71-ADE0CC6BAF7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99CFB6D5-18C2-4220-AB71-ADE0CC6BAF7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99CFB6D5-18C2-4220-AB71-ADE0CC6BAF7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA3A7617-8892-439B-B480-C18D90777587}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA3A7617-8892-439B-B480-C18D90777587}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA3A7617-8892-439B-B480-C18D90777587}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA3A7617-8892-439B-B480-C18D90777587}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -970,6 +976,7 @@ Global
 		{E9B00204-9260-4D47-A1BF-CE927FAB036E} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{2C59D9E4-799A-4B53-AC6E-EF51198AE68A} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{99CFB6D5-18C2-4220-AB71-ADE0CC6BAF7B} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{BA3A7617-8892-439B-B480-C18D90777587} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
