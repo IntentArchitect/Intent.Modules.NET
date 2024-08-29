@@ -1,3 +1,7 @@
+### Version 6.0.12
+
+- Fixed: Snag found in the code responsible for generating the AddControllers line in the Startup routine especially when `AddJsonOptions` were introduced.
+
 ### Version 6.0.11
 
 - Improvement: Updated module NuGet packages infrastructure.

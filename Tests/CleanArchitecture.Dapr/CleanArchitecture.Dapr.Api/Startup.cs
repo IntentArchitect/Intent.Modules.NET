@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using CleanArchitecture.Dapr.Api.Configuration;
 using CleanArchitecture.Dapr.Api.Filters;
@@ -38,6 +39,10 @@ namespace CleanArchitecture.Dapr.Api
                 {
                     opt.Filters.Add<ExceptionFilter>();
                 })
+            .AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            })
             .AddDapr();
             services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
