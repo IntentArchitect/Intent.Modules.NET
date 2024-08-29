@@ -49,6 +49,84 @@ namespace Intent.Blazor.Components.MudBlazor.Api
 
             public string Name => _stereotype.Name;
 
+            public IElement Color()
+            {
+                return _stereotype.GetProperty<IElement>("Color");
+            }
+
+            public class ColorOptions
+            {
+                public readonly string Value;
+
+                public ColorOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public ColorOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "Default":
+                            return ColorOptionsEnum.Default;
+                        case "Primary":
+                            return ColorOptionsEnum.Primary;
+                        case "Secondary":
+                            return ColorOptionsEnum.Secondary;
+                        case "Tertiary":
+                            return ColorOptionsEnum.Tertiary;
+                        case "Info":
+                            return ColorOptionsEnum.Info;
+                        case "Success":
+                            return ColorOptionsEnum.Success;
+                        case "Warning":
+                            return ColorOptionsEnum.Warning;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsDefault()
+                {
+                    return Value == "Default";
+                }
+                public bool IsPrimary()
+                {
+                    return Value == "Primary";
+                }
+                public bool IsSecondary()
+                {
+                    return Value == "Secondary";
+                }
+                public bool IsTertiary()
+                {
+                    return Value == "Tertiary";
+                }
+                public bool IsInfo()
+                {
+                    return Value == "Info";
+                }
+                public bool IsSuccess()
+                {
+                    return Value == "Success";
+                }
+                public bool IsWarning()
+                {
+                    return Value == "Warning";
+                }
+            }
+
+            public enum ColorOptionsEnum
+            {
+                Default,
+                Primary,
+                Secondary,
+                Tertiary,
+                Info,
+                Success,
+                Warning
+            }
+
         }
 
     }

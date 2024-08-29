@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Blazor.Components.MudBlazor.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
@@ -68,7 +69,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
         var htmlElement = new HtmlElement("MudButton", _componentTemplate.RazorFile)
             .AddAttribute("Variant", "Variant.Filled")
             .AddAttribute("Class", "my-2 mr-2")
-            .AddAttribute("Color", button.GetInteraction().Type().IsSubmit() ? "Color.Primary" : "Color.Default");
+            .AddAttribute("Color", "Color." + (button.GetAppearance()?.Color().Name ?? (button.GetInteraction().Type().IsSubmit() ? "Primary" : "Default")));
 
         foreach (var child in component.ChildElements)
         {
@@ -125,16 +126,8 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
                             spinner.AddAttribute("Size", "Size.Small");
                             spinner.AddAttribute("Indeterminate", "true");
                         });
-                        code.AddHtmlElement("MudText", text =>
-                        {
-                            text.AddAttribute("Class", "ms-2");
-                            text.WithText("Processing");
-                        });
                     });
-                    htmlElement.AddCodeBlock("else", code =>
-                    {
-                        code.AddHtmlElement("MudText", text => text.WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name));
-                    });
+                    htmlElement.AddHtmlElement("MudText", text => text.WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name));
                 }
 
 

@@ -141,6 +141,10 @@ public static class RazorFileExtensions
                             {
                                 var operationMapping = action.Mappings.Single();
                                 var mappedEnd = operationMapping.MappedEnds.FirstOrDefault(x => x.SourceElement.Id == action.Id);
+                                if (mappedEnd == null)
+                                {
+                                    throw new ElementException(action, "Mapping required for this invocation");
+                                }
                                 var invocation = mappingManager.GenerateSourceStatementForMapping(operationMapping, mappedEnd);
 
                                 var invStatement = invocation as CSharpInvocationStatement;

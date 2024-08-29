@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="e57aa24c-eed9-4301-96f3-a34610cef546" type="Type-Definition" typeId="d4e577cd-ad05-4180-9a2e-fff4ddea0e1e">
   <name>MudDataGrid</name>
-  <display>MudDataGrid</display>
+  <display>MudDataGrid&lt;T&gt;</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes>

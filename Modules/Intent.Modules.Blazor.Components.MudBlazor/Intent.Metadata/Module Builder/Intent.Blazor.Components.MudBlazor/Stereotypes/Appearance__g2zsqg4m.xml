@@ -7,7 +7,7 @@
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>manually</applyMode>
-  <icon type="UrlImagePath" source="./img/icons/common/StereotypeDef_256x.png" />
+  <icon type="UrlImagePath" source="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9IjRkNGQ3ZjJhLWQ1Y2EtNDAzNC05NGEyLTgxYmQ5YWMyNWQ2YmxpbmVhci1ncmFkaWVudCIgeDE9Ii01NzAuNCIgeTE9IjQ4Ny4xIiB4Mj0iLTU4Ny4zIiB5Mj0iNDg3LjEiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ1Mi45IC01NTMuMikgcm90YXRlKC05MCkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNWNjN2Q2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzQxNzNiNiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iNGQ0ZDdmMmEtZDVjYS00MDM0LTk0YTItODFiZDlhYzI1ZDZibGluZWFyLWdyYWRpZW50LTIiIHgxPSItMjAxLjYiIHkxPSItMzIwLjYiIHgyPSItMTg0LjciIHkyPSItMzIwLjYiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMwNC44IDIxOC41KSByb3RhdGUoOTApIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzVjYzdkNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MTczYjYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9IjRkNGQ3ZjJhLWQ1Y2EtNDAzNC05NGEyLTgxYmQ5YWMyNWQ2YmxpbmVhci1ncmFkaWVudC0zIiB4MT0iMjQuOSIgeTE9Ii0xMDYuMyIgeDI9IjI0LjkiIHkyPSItMTEzLjUiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtODQpIHNjYWxlKDEgLTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzVjYzdkNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MTczYjYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC42LjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCA3MDkpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJMYXllcl8xIj4KICAgICAgPGcgaWQ9IlF1ZXJ5Ij4KICAgICAgICA8ZyBpZD0idXVpZC01YjI2ZTMxMC0xYmVkLTQ0ZjItOTE2Mi1iZjVhZjc0ZGI1ZTMiPgogICAgICAgICAgPHBhdGggZD0iTTMwLjEsMTEuN2wxMi4xLDExLjljLjQuNC41LjkuNSwxLjRzMCwxLS41LDEuNGwtMTIuMSwxMi4xYy0uOC44LTIsLjgtMi43LDBsLTEuMS0xLjFjLS44LS44LS44LTIsMC0yLjdsOS42LTkuNi05LjYtOS42Yy0uOC0uOC0uOC0yLDAtMi43bDEuMS0xLjFjLjgtLjgsMi0uOCwyLjcsMGgwWiIgZmlsbD0idXJsKCM0ZDRkN2YyYS1kNWNhLTQwMzQtOTRhMi04MWJkOWFjMjVkNmJsaW5lYXItZ3JhZGllbnQpIi8+CiAgICAgICAgICA8cGF0aCBkPSJNMTkuOSwzOC40bC0xMi4xLTExLjljLS40LS40LS41LS45LS41LTEuNHMwLTEsLjUtMS40bDEyLjEtMTIuMWMuOC0uOCwyLS44LDIuNywwbDEuMSwxLjFjLjguOC44LDIsMCwyLjdsLTkuNiw5LjYsOS42LDkuNmMuOC44LjgsMiwwLDIuN2wtMS4xLDEuMWMtLjguOC0yLC44LTIuNywwaDBaIiBmaWxsPSJ1cmwoIzRkNGQ3ZjJhLWQ1Y2EtNDAzNC05NGEyLTgxYmQ5YWMyNWQ2YmxpbmVhci1ncmFkaWVudC0yKSIvPgogICAgICAgICAgPGNpcmNsZSBjeD0iMjQuOSIgY3k9IjI1LjEiIHI9IjMuNiIgZmlsbD0idXJsKCM0ZDRkN2YyYS1kNWNhLTQwMzQtOTRhMi04MWJkOWFjMjVkNmJsaW5lYXItZ3JhZGllbnQtMykiLz4KICAgICAgICA8L2c+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>
   <displayFunction />
@@ -16,8 +16,29 @@
   <autoAdd>false</autoAdd>
   <allowMultipleApplies>false</allowMultipleApplies>
   <parentFolderId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</parentFolderId>
-  <order>0</order>
+  <order>1</order>
   <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
   <packageName>Intent.Blazor.Components.MudBlazor</packageName>
-  <properties />
+  <properties>
+    <property id="d527d5a7-fd00-4486-a204-5c6fc93099a5">
+      <name>Color</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>lookup-children</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions>
+        <option>Default</option>
+        <option>Primary</option>
+        <option>Secondary</option>
+        <option>Tertiary</option>
+        <option>Info</option>
+        <option>Success</option>
+        <option>Warning</option>
+      </valueOptions>
+      <lookupTypes>
+        <type>0090fb93-483e-41af-a11d-5ad2dc796adf</type>
+      </lookupTypes>
+      <lookupInternalTargetPropertyId>return "f357cbb8-2a8f-4765-93ec-3a5c15ca8313" // Color (Enum);</lookupInternalTargetPropertyId>
+    </property>
+  </properties>
 </stereotypeDefinition>
