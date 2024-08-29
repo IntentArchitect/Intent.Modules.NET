@@ -173,11 +173,12 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
             }
         }
 
-        private static bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
+        private bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
         {
             return !(typeInfo.IsPrimitive
-                || typeInfo.IsNullable == true
-                || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel()));
+                     || typeInfo.IsNullable == true
+                     || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel())
+                     || (Model.GenericTypes.Any(x => typeInfo.Name == x)));
         }
 
         private void SetAccessLevel(CSharpPropertyAccessor setter)

@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>739f3162-d1f8-4609-86df-756c6ff6b7e3</parentFolderId>
+  <packageId>739f3162-d1f8-4609-86df-756c6ff6b7e3</packageId>
+  <packageName>Intent.Redis.Om.Repositories</packageName>
   <stereotypes />
   <metadata />
   <childElements />

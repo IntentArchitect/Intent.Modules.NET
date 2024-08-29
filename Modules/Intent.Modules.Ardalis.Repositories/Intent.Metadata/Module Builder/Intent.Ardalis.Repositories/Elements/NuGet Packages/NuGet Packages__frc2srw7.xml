@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d975a64b-f9ee-4581-903e-ebc035209c39</parentFolderId>
+  <packageId>d975a64b-f9ee-4581-903e-ebc035209c39</packageId>
+  <packageName>Intent.Ardalis.Repositories</packageName>
   <stereotypes />
   <metadata />
   <childElements />

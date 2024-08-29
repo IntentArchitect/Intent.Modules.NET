@@ -163,14 +163,14 @@ internal static class TestFixtureHelper
                 throw new NotImplementedException();
             }
 
-            public string Id { get; }
+            public string Id { get; } = Guid.NewGuid().ToString();
             public string Name { get; }
             public string Location { get; }
             public string RelativeLocation { get; }
             public string Type { get; }
             public IOutputTarget Parent { get; }
             public IEnumerable<ITemplate> TemplateInstances { get; }
-            public IDictionary<string, object> Metadata { get; } = new Dictionary<string, object>();
+            public IDictionary<string, object> Metadata { get; } = new Dictionary<string, object>() { ["VS.Dependencies"] = new List<IOutputTarget>() };
             public IApplication Application { get; }
             public ISoftwareFactoryExecutionContext ExecutionContext { get; }
         }

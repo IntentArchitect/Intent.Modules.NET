@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>fc85592b-ee1e-4416-aeda-4bf7c425b47d</parentFolderId>
+  <packageId>fc85592b-ee1e-4416-aeda-4bf7c425b47d</packageId>
+  <packageName>Intent.Azure.KeyVault</packageName>
   <stereotypes />
   <metadata />
   <childElements />

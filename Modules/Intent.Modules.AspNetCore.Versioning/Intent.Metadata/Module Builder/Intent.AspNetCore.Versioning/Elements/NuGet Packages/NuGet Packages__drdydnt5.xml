@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d031e72d-205a-4cd5-9d65-3b7580961199</parentFolderId>
+  <packageId>d031e72d-205a-4cd5-9d65-3b7580961199</packageId>
+  <packageName>Intent.AspNetCore.Versioning</packageName>
   <stereotypes />
   <metadata />
   <childElements />

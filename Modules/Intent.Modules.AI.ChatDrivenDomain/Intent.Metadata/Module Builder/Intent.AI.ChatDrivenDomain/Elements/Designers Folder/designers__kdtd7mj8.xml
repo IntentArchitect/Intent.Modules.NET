@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8c72f5fb-48f6-4a9a-83d0-16c1826ac9e5" type="Designers Folder" typeId="dbb71aa5-0db2-4a2a-97a9-501950f36f99">
+  <name>designers</name>
+  <display>designers</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>65b68a93-9d50-4c16-a613-f37104dbe59f</parentFolderId>
+  <packageId>65b68a93-9d50-4c16-a613-f37104dbe59f</packageId>
+  <packageName>Intent.AI.ChatDrivenDomain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -6,6 +6,8 @@
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>e7235c0c-7cd3-43aa-8414-0b31f914a675</parentFolderId>
+  <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+  <packageName>Intent.OpenTelemetry</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
       <addedByDefault>false</addedByDefault>

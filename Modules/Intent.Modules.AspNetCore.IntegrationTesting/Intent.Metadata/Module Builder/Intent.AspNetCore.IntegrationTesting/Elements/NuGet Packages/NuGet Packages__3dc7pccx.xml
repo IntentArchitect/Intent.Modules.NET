@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4ece5953-d069-4257-9f0e-6c14afb2bb67</parentFolderId>
+  <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+  <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
   <stereotypes />
   <metadata />
   <childElements />

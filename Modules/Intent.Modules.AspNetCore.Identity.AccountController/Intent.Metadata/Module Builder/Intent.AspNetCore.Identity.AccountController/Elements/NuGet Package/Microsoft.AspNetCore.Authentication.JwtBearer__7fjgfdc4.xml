@@ -3,9 +3,12 @@
   <name>Microsoft.AspNetCore.Authentication.JwtBearer</name>
   <display>Microsoft.AspNetCore.Authentication.JwtBearer</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a1aed0be-6fd7-40d1-a36a-4da8621b6668</parentFolderId>
+  <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+  <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
       <addedByDefault>false</addedByDefault>
@@ -18,5 +21,75 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements />
+  <childElements>
+    <childElement id="d8691964-8556-43d1-87d1-6e92764f2592" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>6.0.32</name>
+      <display>6.0.32 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7081996b-2a81-4358-b0c1-0f1de53b3fa4</parentFolderId>
+      <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+      <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="76d7fb21-0bae-4679-b852-d1ec7370e502" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>7.0.20</name>
+      <display>7.0.20 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7081996b-2a81-4358-b0c1-0f1de53b3fa4</parentFolderId>
+      <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+      <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a036ba62-e96b-414d-983a-04e0ae96212e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.0.7</name>
+      <display>8.0.7 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7081996b-2a81-4358-b0c1-0f1de53b3fa4</parentFolderId>
+      <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+      <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

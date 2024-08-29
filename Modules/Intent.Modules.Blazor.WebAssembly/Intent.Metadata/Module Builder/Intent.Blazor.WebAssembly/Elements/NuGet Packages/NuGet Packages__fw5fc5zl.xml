@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>f0bafe6f-f0a9-4513-8d60-08a30a1ff34e</parentFolderId>
+  <packageId>f0bafe6f-f0a9-4513-8d60-08a30a1ff34e</packageId>
+  <packageName>Intent.Blazor.WebAssembly</packageName>
   <stereotypes />
   <metadata />
   <childElements />

@@ -3,9 +3,12 @@
   <name>Ardalis.Specification</name>
   <display>Ardalis.Specification</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>d54300c7-a2f5-4e2e-aaa8-c258857d32aa</parentFolderId>
+  <packageId>d975a64b-f9ee-4581-903e-ebc035209c39</packageId>
+  <packageName>Intent.Ardalis.Repositories</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
       <addedByDefault>false</addedByDefault>
@@ -18,5 +21,75 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements />
+  <childElements>
+    <childElement id="25d36a53-c26a-491f-813b-e45eafdd819e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.0.0</name>
+      <display>8.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cc21e637-8af3-4ef5-9066-deb60bee4eda</parentFolderId>
+      <packageId>d975a64b-f9ee-4581-903e-ebc035209c39</packageId>
+      <packageName>Intent.Ardalis.Repositories</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="865b75f0-6ccb-411a-8da8-97ca8db54d33" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.0.0</name>
+      <display>8.0.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cc21e637-8af3-4ef5-9066-deb60bee4eda</parentFolderId>
+      <packageId>d975a64b-f9ee-4581-903e-ebc035209c39</packageId>
+      <packageName>Intent.Ardalis.Repositories</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="c0c4f0fa-5b4e-40d1-bc37-5c5bd923b3c8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.0.0</name>
+      <display>8.0.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cc21e637-8af3-4ef5-9066-deb60bee4eda</parentFolderId>
+      <packageId>d975a64b-f9ee-4581-903e-ebc035209c39</packageId>
+      <packageName>Intent.Ardalis.Repositories</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

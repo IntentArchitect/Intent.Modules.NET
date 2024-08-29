@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>dee361a4-e40c-4dc8-9799-32e59cb7831d</parentFolderId>
+  <packageId>dee361a4-e40c-4dc8-9799-32e59cb7831d</packageId>
+  <packageName>Intent.EntityFrameworkCore.Repositories.DapperHybrid</packageName>
   <stereotypes />
   <metadata />
   <childElements />

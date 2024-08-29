@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</parentFolderId>
+  <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+  <packageName>Intent.CosmosDB</packageName>
   <stereotypes />
   <metadata />
   <childElements />

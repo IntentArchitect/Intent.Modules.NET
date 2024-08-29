@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a586f55c-9eca-44ef-8409-e110d1644c0b</parentFolderId>
+  <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
+  <packageName>Intent.Eventing.Kafka</packageName>
   <stereotypes />
   <metadata />
   <childElements />

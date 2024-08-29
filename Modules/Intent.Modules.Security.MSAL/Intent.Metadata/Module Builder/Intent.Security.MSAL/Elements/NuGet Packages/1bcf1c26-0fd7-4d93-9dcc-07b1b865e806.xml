@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1bcf1c26-0fd7-4d93-9dcc-07b1b865e806" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>70332e9d-3459-4c78-a43c-11642f89fca2</parentFolderId>
+  <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+  <packageName>Intent.Security.MSAL</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

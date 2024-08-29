@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f9eb2a0c-312c-4c00-abf1-40cb96d81fa9" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8b0c1ac1-fec4-498c-8f04-76519c498003</parentFolderId>
+  <packageId>8b0c1ac1-fec4-498c-8f04-76519c498003</packageId>
+  <packageName>Intent.Modules.AspNetCore.Logging.Serilog</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

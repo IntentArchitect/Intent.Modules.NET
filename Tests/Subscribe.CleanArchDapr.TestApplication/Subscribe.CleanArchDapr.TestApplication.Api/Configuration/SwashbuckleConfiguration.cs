@@ -88,7 +88,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Api.Configuration
                     options.EnableDeepLinking();
                     options.DisplayOperationId();
                     options.DefaultModelsExpandDepth(2);
-                    options.DefaultModelRendering(ModelRendering.Model);
+                    options.DefaultModelRendering(ModelRendering.Example);
                     options.DocExpansion(DocExpansion.List);
                     options.ShowExtensions();
                     options.EnableFilter(string.Empty);

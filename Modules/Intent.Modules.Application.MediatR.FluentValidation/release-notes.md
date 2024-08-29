@@ -1,3 +1,7 @@
+### Version 4.6.4
+
+- Fixed: Update the `UnhandledExceptionBehaviour` in `Intent.Application.MediatR.Behaviours` to not allow logging of `ValidationExceptions` as part of unhandled exceptions.
+
 ### Version 4.6.3
 
 - Improvement: Updated module NuGet packages infrastructure.

@@ -17,6 +17,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>91b1d222-ecf9-40b0-ae7d-399e6f72567a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#20d51a9e-95cd-4345-ae85-1d90fbdac190</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtentions/UnhandledExceptionBahaviorExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnhandledExceptionBahaviorExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f70df819-b1a1-460c-ad99-567cf48a1a99</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

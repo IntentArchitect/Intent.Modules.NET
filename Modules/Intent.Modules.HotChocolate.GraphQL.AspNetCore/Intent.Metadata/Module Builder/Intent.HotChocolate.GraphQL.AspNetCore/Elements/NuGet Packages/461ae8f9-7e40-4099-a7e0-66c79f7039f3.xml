@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="461ae8f9-7e40-4099-a7e0-66c79f7039f3" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</parentFolderId>
+  <packageId>82fd8ca8-6520-4054-90c5-dee34bd6ff4f</packageId>
+  <packageName>Intent.HotChocolate.GraphQL.AspNetCore</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

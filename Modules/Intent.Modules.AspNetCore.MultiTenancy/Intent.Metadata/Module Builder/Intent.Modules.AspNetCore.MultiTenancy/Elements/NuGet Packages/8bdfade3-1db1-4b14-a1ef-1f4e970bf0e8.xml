@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8bdfade3-1db1-4b14-a1ef-1f4e970bf0e8" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</parentFolderId>
+  <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+  <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

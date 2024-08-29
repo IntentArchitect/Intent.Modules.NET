@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>36a39451-3046-420c-a011-4faf35a3358a</parentFolderId>
+  <packageId>36a39451-3046-420c-a011-4faf35a3358a</packageId>
+  <packageName>Intent.Azure.BlobStorage</packageName>
   <stereotypes />
   <metadata />
   <childElements />

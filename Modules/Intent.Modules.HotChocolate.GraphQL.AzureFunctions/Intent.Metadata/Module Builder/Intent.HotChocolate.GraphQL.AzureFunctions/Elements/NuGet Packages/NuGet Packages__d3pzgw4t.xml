@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</parentFolderId>
+  <packageId>b63e9840-7af1-4957-a6ea-d6cfd9e33ba7</packageId>
+  <packageName>Intent.HotChocolate.GraphQL.AzureFunctions</packageName>
   <stereotypes />
   <metadata />
   <childElements />

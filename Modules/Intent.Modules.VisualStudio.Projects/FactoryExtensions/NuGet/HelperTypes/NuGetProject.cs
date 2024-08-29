@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Metadata.Models;
 using NuGet.Versioning;
 
@@ -18,6 +19,7 @@ internal class NuGetProject
     public Dictionary<string, VersionRange> HighestVersions { get; set; } = new(StringComparer.OrdinalIgnoreCase);
     public string FilePath { get; set; }
     public INuGetSchemeProcessor Processor { get; set; }
+    public IOutputTarget OutputTarget { get; set; }
 
     public Dictionary<string, NuGetPackage> GetConsolidatedPackages()
     {

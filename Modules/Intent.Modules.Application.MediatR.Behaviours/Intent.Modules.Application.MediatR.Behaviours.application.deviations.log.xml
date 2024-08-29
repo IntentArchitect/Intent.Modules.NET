@@ -92,31 +92,5 @@
       <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
       <fileHash>B8575D4E3090875C165DD045DD9F73B1A813CA7AD4AA737FE53F669684D7995F</fileHash>
     </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d94dff30-bffc-4c3a-b535-87bb6c3046b7</correlationId>
-      <path>Intent.Modules.Application.MediatR.Behaviours/Templates/UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplatePartial.cs</path>
-      <count>3</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T09:42:11.4940045Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:59:18.8912923Z</approvedAt>
-      <deviationsHash>81DF129647700118983EE4060FCBDF9558E09D14513343015A81326BB86EB0BD</deviationsHash>
-      <fileHash>AAC6C7616CD28C8BD14AAE10203E8C21E3F73E9EBA7E59CC926944AEBEF25607</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#d94dff30-bffc-4c3a-b535-87bb6c3046b7</correlationId>
-      <path>Intent.Modules.Application.MediatR.Behaviours/Templates/UnhandledExceptionBehaviour/UnhandledExceptionBehaviourTemplateRegistration.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T09:42:11.4940514Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:59:18.8961259Z</approvedAt>
-      <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
-      <fileHash>284FFB4B65E36BCDB085C8D3395D325C7D11ADFBD6870D46D2C7AFE8659B2101</fileHash>
-    </file>
   </files>
 </deviationsLog>

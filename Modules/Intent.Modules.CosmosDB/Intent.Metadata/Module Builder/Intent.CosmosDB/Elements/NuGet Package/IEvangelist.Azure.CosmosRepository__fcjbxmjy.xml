@@ -3,9 +3,12 @@
   <name>IEvangelist.Azure.CosmosRepository</name>
   <display>IEvangelist.Azure.CosmosRepository</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>23696abe-2c65-431e-b7f2-63c6c5d82a69</parentFolderId>
+  <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+  <packageName>Intent.CosmosDB</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
       <addedByDefault>false</addedByDefault>
@@ -18,5 +21,52 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements />
+  <childElements>
+    <childElement id="d8c2471e-e4fd-4b2c-8e7e-97f4edcc22d8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.1.7</name>
+      <display>8.1.7 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a1b37ac1-12dd-44c5-aabf-4d8f49245662</parentFolderId>
+      <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+      <packageName>Intent.CosmosDB</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="ab91a976-d27c-41a4-a990-d62ea7d6b6d2" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.1.7</name>
+      <display>8.1.7 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a1b37ac1-12dd-44c5-aabf-4d8f49245662</parentFolderId>
+      <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+      <packageName>Intent.CosmosDB</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

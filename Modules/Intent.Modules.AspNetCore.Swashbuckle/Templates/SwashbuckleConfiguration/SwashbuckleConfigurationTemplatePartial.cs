@@ -120,7 +120,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                             .AddStatement($@"options.EnableDeepLinking();")
                             .AddStatement($@"options.DisplayOperationId();")
                             .AddStatement($@"options.DefaultModelsExpandDepth(2);")
-                            .AddStatement($@"options.DefaultModelRendering(ModelRendering.Model);")
+                            .AddStatement($@"options.DefaultModelRendering(ModelRendering.Example);")
                             .AddStatement($@"options.DocExpansion(DocExpansion.List);")
                             .AddStatement($@"options.ShowExtensions();")
                             .AddStatement($@"options.EnableFilter(string.Empty);"))

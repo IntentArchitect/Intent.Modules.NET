@@ -3,9 +3,12 @@
   <name>NuGet Packages</name>
   <display>NuGet Packages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>c3808b69-f250-4ea9-b9c6-5636d3d52860</parentFolderId>
+  <packageId>c3808b69-f250-4ea9-b9c6-5636d3d52860</packageId>
+  <packageName>Intent.AzureFunctions.OpenApi</packageName>
   <stereotypes />
   <metadata />
   <childElements />

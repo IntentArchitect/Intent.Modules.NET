@@ -3,9 +3,12 @@
   <name>Testcontainers.CosmosDb</name>
   <display>Testcontainers.CosmosDb</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>eb802d31-015d-4768-9d37-c36182368e33</parentFolderId>
+  <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+  <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
       <addedByDefault>false</addedByDefault>
@@ -18,5 +21,52 @@
     </stereotype>
   </stereotypes>
   <metadata />
-  <childElements />
+  <childElements>
+    <childElement id="509dfe1a-33e5-4a50-989a-d06cc9f0692f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.9.0</name>
+      <display>3.9.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>400f956e-df07-4636-9719-6d841c48c5fd</parentFolderId>
+      <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+      <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="296cf0ca-cc77-47ae-b371-ede9d2d1e821" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.9.0</name>
+      <display>3.9.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>400f956e-df07-4636-9719-6d841c48c5fd</parentFolderId>
+      <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+      <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

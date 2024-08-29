@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common.CSharp.Nuget;
-using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using NuGet.Versioning;
