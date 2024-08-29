@@ -1,3 +1,7 @@
+### Version 4.3.2
+
+- Fixed: Constructor nullability assignment omitted for generic type properties.
+
 ### Version 4.3.1
 
 - Improvement: Updated module NuGet packages infrastructure.
