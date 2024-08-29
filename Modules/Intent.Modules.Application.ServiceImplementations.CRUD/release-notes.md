@@ -1,3 +1,7 @@
+### Version 5.0.14
+
+- Improvement: Improved error when creating illegal queries.
+
 ### Version 5.0.13
 
 - Improvement: Updated module NuGet packages infrastructure.

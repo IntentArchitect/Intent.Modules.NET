@@ -1,3 +1,7 @@
+### Version 6.0.17
+
+- Improvement: Improved error when creating illegal queries.
+
 ### Version 6.0.16
 
 - Improvement: Updated module NuGet packages infrastructure.
