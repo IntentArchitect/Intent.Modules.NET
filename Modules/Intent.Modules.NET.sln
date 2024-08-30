@@ -216,7 +216,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Contracts.Cl
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.EntityFrameworkCore.Shared", "Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.shproj", "{C0775E42-5F7D-46BC-AEAE-AF4CC9ACCE0C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.HealthChecks", "Intent.Modules.AspNetCore.HealthChecks\Intent.Modules.AspNetCore.HealthChecks.csproj", "{A81DFFDC-912E-42DA-980D-E386D8EDB684}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.HealthChecks", "Intent.Modules.AspNetCore.HealthChecks\Intent.Modules.AspNetCore.HealthChecks.csproj", "{A81DFFDC-912E-42DA-980D-E386D8EDB684}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.Secrets", "Intent.Modules.Dapr.AspNetCore.Secrets\Intent.Modules.Dapr.AspNetCore.Secrets.csproj", "{6280010A-9C5C-4110-A7C2-B03B15D3E18F}"
 EndProject

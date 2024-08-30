@@ -95,7 +95,7 @@ namespace Intent.Modules.AspNetCore.HealthChecks
             NugetRegistry.Register(AspNetCoreHealthChecksUIPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.1"),
+                        ( >= 8, 0) => new PackageVersion("8.0.2"),
                         ( >= 6, 0) => new PackageVersion("7.0.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspNetCoreHealthChecksUIPackageName}'"),
                     }

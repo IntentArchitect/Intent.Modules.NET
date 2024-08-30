@@ -1,3 +1,7 @@
+### Version 2.0.9
+
+- Fixed: Updated nuget `AspNetCore.HealthChecks.UI` to `8.0.2` which fixes various HealthChecks UI issues for .NET 8.
+
 ### Version 2.0.8
 
 - Improvement: Updated module NuGet packages infrastructure.
