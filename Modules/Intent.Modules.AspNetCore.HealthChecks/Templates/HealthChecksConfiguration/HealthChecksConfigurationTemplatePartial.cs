@@ -41,6 +41,11 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
 
             if (ExecutionContext.Settings.GetHealthChecks().HealthChecksUI())
             {
+                Logging.Log.Warning("""
+                                    Please be aware of the following issues when using Health Checks UI with Docker.
+                                    - [[UI] Relative Address for HealthCheckEndpoint with Kestrel at http://0.0.0.0:0](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks/issues/410).
+                                    """);
+                
                 AddNugetDependency(NugetPackages.AspNetCoreHealthChecksUI(outputTarget));
                 AddNugetDependency(NugetPackages.AspNetCoreHealthChecksUIInMemoryStorage(outputTarget));
             }
