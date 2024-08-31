@@ -128,10 +128,8 @@
     <application id="86b08c05-fea8-40cb-b37e-122ad0491b3a" name="Intent.OpenApi.Importer" relativePath="Intent.OpenApi.Importer/Intent.OpenApi.Importer.application.config" />
     <application id="672867be-508c-4d6f-955a-d59b79ad1470" name="Intent.Modules.AspNetCore.OutputCaching.Redis" relativePath="Intent.Modules.AspNetCore.OutputCaching.Redis/Intent.Modules.AspNetCore.OutputCaching.Redis.application.config" />
     <application id="902ec392-3140-4eb3-b2f4-3127866b8423" name="Intent.Modules.AmazonS3.ObjectStorage" relativePath="Intent.Modules.AmazonS3.ObjectStorage/Intent.Modules.AmazonS3.ObjectStorage.application.config" />
-    <application id="04bdf667-67c6-44b6-abd6-11cc0d134e4a" name="Intent.Modules.Blazor.Components.Core" relativePath="Intent.Modules.Blazor.Components.Core/Intent.Modules.Blazor.Components.Core.application.config" />
     <application id="35c4a2b4-99d9-4ac0-bfa2-8aa8d3a00040" name="Intent.Modules.Blazor" relativePath="Intent.Modules.Blazor/Intent.Modules.Blazor.application.config" />
     <application id="9a7240ce-a75e-4913-8630-d06afa4e7cae" name="Intent.Modules.Blazor.Components.MudBlazor" relativePath="Intent.Modules.Blazor.Components.MudBlazor/Intent.Modules.Blazor.Components.MudBlazor.application.config" />
-    <application id="cf9b952f-44f4-4ce0-b734-eb4ea2ea9087" name="Intent.Modules.Blazor.Components.Blazorise" relativePath="Intent.Modules.Blazor.Components.Blazorise/Intent.Modules.Blazor.Components.Blazorise.application.config" />
     <application id="a415efe1-7ccb-4e9c-bbb1-4381684a918a" name="Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid" relativePath="Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid/Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid.application.config" />
     <application id="5bca5abc-7b7a-40d4-9fec-220705ed94ed" name="Intent.Modules.Eventing.Solace" relativePath="Intent.Modules.Eventing.Solace/Intent.Modules.Eventing.Solace.application.config" />
     <application id="4a709c8e-37f0-40ba-94d3-fb0fb1e00b18" name="Intent.Modules.Dapper" relativePath="Intent.Modules.Dapper/Intent.Modules.Dapper.application.config" />

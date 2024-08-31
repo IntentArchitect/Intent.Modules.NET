@@ -25,6 +25,18 @@ public class DialogComponentBuilder : IRazorComponentBuilder
         var dialogModel = new DialogModel(component);
         var htmlElement = new HtmlElement("MudDialog", _componentTemplate.RazorFile);
         parentNode.AddChildNode(htmlElement);
+        if (dialogModel.TitleContainer != null)
+        {
+            htmlElement.AddHtmlElement("TitleContent", content =>
+            {
+                foreach (var child in dialogModel.TitleContainer.InternalElement.ChildElements)
+                {
+                    _componentResolver.BuildComponent(child, content);
+                }
+            });
+        }
+
+
         if (dialogModel.ContentContainer != null)
         {
             htmlElement.AddHtmlElement("DialogContent", content =>

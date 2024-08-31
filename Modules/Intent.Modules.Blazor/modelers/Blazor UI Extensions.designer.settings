@@ -11,14 +11,7 @@
       <mappingSettings />
       <macros>
         <macro trigger="on-created">
-          <script>createElement("Component Operation", "OnInitializedAsync", element.id);
-const folders = element.getParents("Folder");
-if (folders[0].getName() == "Pages") {
-    const pageId = "ea4adc09-8978-4ede-ba5f-265debb2b60c";
-    const routeId = "9dff9df1-a993-4bf6-9aa7-c16811142228";
-    const stereotype = element.addStereotype(pageId)
-    stereotype.getProperty(routeId).setValue("/" + folders.slice(1).map(x =&gt; toKebabCase(x.getName()) + "/") + toKebabCase(element.getName()))
-}</script>
+          <script>createElement("Component Operation", "OnInitializedAsync", element.id);</script>
         </macro>
         <macro trigger="on-name-changed">
           <script>const pageId = "ea4adc09-8978-4ede-ba5f-265debb2b60c";

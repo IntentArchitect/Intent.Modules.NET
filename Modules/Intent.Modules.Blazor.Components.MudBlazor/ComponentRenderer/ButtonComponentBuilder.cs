@@ -44,7 +44,7 @@ public class MudBlazorLayoutInterceptor(IRazorComponentBuilderProvider component
                     mudItem.AddChildNode(razorFileNode);
                 }
             });
-            
+
         }
     }
 }
@@ -68,8 +68,10 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
         var onClickMapping = _bindingManager.GetMappedEndFor(button, "On Click");
         var htmlElement = new HtmlElement("MudButton", _componentTemplate.RazorFile)
             .AddAttribute("Variant", "Variant.Filled")
-            .AddAttribute("Class", "my-2 mr-2")
-            .AddAttribute("Color", "Color." + (button.GetAppearance()?.Color().Name ?? (button.GetInteraction().Type().IsSubmit() ? "Primary" : "Default")));
+            .AddAttribute("Class", "my-2 mr-2");
+
+        htmlElement.AddAttribute("Color", _bindingManager.GetBinding(button, "3a04c387-3b5b-4a3d-b03a-4ecd0dcc301a", parentNode)?.ToString()
+            ?? "Color." + (button.GetAppearance()?.Color().Name ?? (button.GetInteraction().Type().IsSubmit() ? "Primary" : "Default")));
 
         foreach (var child in component.ChildElements)
         {
