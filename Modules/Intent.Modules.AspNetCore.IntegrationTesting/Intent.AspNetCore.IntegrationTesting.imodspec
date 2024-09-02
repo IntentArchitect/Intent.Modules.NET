@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.IntegrationTesting</id>
-  <version>1.0.6-Pre.3</version>
+  <version>1.0.6</version>
   <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
   <summary>The module adds support for Integration Testing Asp.Net Core applications.</summary>
   <description>The module adds support for Integration Testing Asp.Net Core applications.</description>
@@ -160,6 +160,13 @@
       </settings>
     </group>
   </moduleSettings>
+  <interoperability>
+    <detect id="Intent.AspNetCore.IntegrationTests.CRUD">
+      <install>
+        <package id="Intent.AspNetCore.IntegrationTests.CRUD" version="1.0.8" />
+      </install>
+    </detect>
+  </interoperability>  
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
     <dependency id="Intent.Common.CSharp" version="3.7.3" />

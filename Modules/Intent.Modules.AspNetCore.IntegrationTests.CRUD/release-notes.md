@@ -1,3 +1,7 @@
+### Version 1.0.8
+
+- Fix: Updating this module force version update of IntegrationTesting module.
+
 ### Version 1.0.7
 
 - Improvement: Updated module NuGet packages infrastructure.
