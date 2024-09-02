@@ -1627,6 +1627,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5c7bf02b-05fb-47bf-bd03-86d78b8329b2</ProjectId>
+      <CorrelationId>Intent.DomainServices.DomainServiceInterface#b7702185-6edf-4b9d-a006-8634a5e98986</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Services/ISecondService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ISecondService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5c7bf02b-05fb-47bf-bd03-86d78b8329b2</ProjectId>
+      <CorrelationId>Intent.DomainServices.DomainServiceImplementation#b7702185-6edf-4b9d-a006-8634a5e98986</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Services/SecondService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecondService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7e01d887-22b6-44f7-90b0-75a8d89238c0</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObjectBase</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

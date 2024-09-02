@@ -74,6 +74,20 @@
               </source>
             </sources>
           </mappedEnd>
+          <mappedEnd>
+            <expression>{DoManualCommand}</expression>
+            <path>
+              <target id="fbac3fc1-8439-4d8a-835b-b57ecd8bf6de" name="Product" type="element" specialization="Class" />
+              <target id="7334f784-0973-4f5d-ac7e-66078577f349" name="Another" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="DoManualCommand" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                <path>
+                  <target id="e50b35d3-d35b-4a7b-9903-d055936b89a9" name="DoManualCommand" type="element" specialization="Command" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
         </mappedEnds>
       </mapping>
     </mappings>

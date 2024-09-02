@@ -34,6 +34,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<ICategoriesService, CategoriesService>();
+            services.AddTransient<ISecondService, SecondService>();
             services.AddTransient<ICompaniesService, CompaniesService>();
             services.AddTransient<ICustomersService, CustomersService>();
             services.AddTransient<IPeopleService, PeopleService>();

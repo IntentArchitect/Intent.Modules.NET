@@ -17,12 +17,14 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Products.DoManual
     {
         private readonly IProductRepository _productRepository;
         private readonly ICategoriesService _categoriesService;
+        private readonly ISecondService _secondService;
 
         [IntentManaged(Mode.Merge)]
-        public DoManualCommandHandler(IProductRepository productRepository, ICategoriesService categoriesService)
+        public DoManualCommandHandler(IProductRepository productRepository, ICategoriesService categoriesService, ISecondService secondService)
         {
             _productRepository = productRepository;
             _categoriesService = categoriesService;
+            _secondService = secondService;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -34,7 +36,8 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Products.DoManual
                 throw new NotFoundException($"Could not find Product '{request.Id}'");
             }
 
-            entity.DoManual(_categoriesService);
+            await entity.DoManualAsync(_categoriesService, cancellationToken);
+            entity.Another(_secondService);
         }
     }
 }

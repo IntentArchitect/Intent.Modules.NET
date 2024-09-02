@@ -54,10 +54,17 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
             throw new NotImplementedException("Replace with your implementation...");
         }
 
-        public void DoManual(ICategoriesService catService)
+        public async Task DoManualAsync(ICategoriesService catService, CancellationToken cancellationToken = default)
         {
             // [IntentFully]
-            // TODO: Implement DoManual (Product) functionality
+            // TODO: Implement DoManualAsync (Product) functionality
+            throw new NotImplementedException("Replace with your implementation...");
+        }
+
+        public void Another(ISecondService secondSevice)
+        {
+            // [IntentFully]
+            // TODO: Implement Another (Product) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }
     }
