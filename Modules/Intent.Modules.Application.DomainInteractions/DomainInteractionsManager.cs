@@ -748,22 +748,53 @@ public class DomainInteractionsManager
 
 	private void WireupDomainServicesForOperations(CSharpClass handlerClass, UpdateEntityActionTargetEndModel updateAction, IList<CSharpStatement> updateStatements)
     {
-        var operation = OperationModelExtensions.AsOperationModel(updateAction.Element);
-        if (operation == null)
+        Func<CSharpInvocationStatement, Intent.Modelers.Domain.Api.OperationModel> getOperation;
+        if (OperationModelExtensions.IsOperationModel(updateAction.Element))
         {
-            return;
+            var operation = OperationModelExtensions.AsOperationModel(updateAction.Element);
+            if (operation == null)
+            {
+                return;
+            }
+            if (operation.Parameters.All(p => p.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId))
+            {
+                return;
+            }
+            getOperation = (x) =>  operation;
         }
-        if (operation.Parameters.All(p => p.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId))
+        else
         {
-            return; 
+            var updateMappings = updateAction.Mappings.GetUpdateEntityMapping();
+            var mappedOperations = updateMappings.MappedEnds.Where(me => OperationModelExtensions.IsOperationModel(me.TargetElement)).Select(me => OperationModelExtensions.AsOperationModel(me.TargetElement)).ToList();
+
+            if (!mappedOperations.Any())
+            {
+                return;
+            }
+            if (!mappedOperations.Any(o => o.Parameters.Any(p => p.TypeReference.Element.SpecializationTypeId == DomainServiceSpecializationId)))
+            {
+                return;
+            }
+
+            getOperation = (invocation) => 
+            {
+                string operationName = invocation.Expression.Reference is ICSharpMethodDeclaration iCSharpMethodDeclaration ? iCSharpMethodDeclaration.Name.ToCSharpIdentifier() : null;
+                return mappedOperations.FirstOrDefault(operation => operation.Name == operationName);
+            };
         }
-        
+
         foreach (var updateStatement in updateStatements)
         {
             if (updateStatement is not CSharpInvocationStatement invocation)
             {
                 continue;
             }
+            var operation = getOperation(invocation);
+
+            if (operation == null)
+            {
+                continue;
+            }    
             for (var i = 0; i < operation.Parameters.Count; i++)
             {
                 var arg = operation.Parameters[i];

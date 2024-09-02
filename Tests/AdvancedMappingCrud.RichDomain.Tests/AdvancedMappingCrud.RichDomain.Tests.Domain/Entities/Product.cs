@@ -57,5 +57,12 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
             var categories = categoryService.GetOrCreateCategoriesAsync(categoryNames).GetAwaiter().GetResult();
             Categories = categories.ToList();
         }
+
+        public void DoManual(ICategoriesService catService)
+        {
+            // [IntentFully]
+            // TODO: Implement DoManual (Product) functionality
+            throw new NotImplementedException("Replace with your implementation...");
+        }
     }
 }

@@ -13,5 +13,6 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Services
     {
         Task<IEnumerable<Category>> GetOrCreateCategoriesAsync(IEnumerable<string> names, CancellationToken cancellationToken = default);
         void DoIt<T>(T it);
+        Task ManualAsync(CancellationToken cancellationToken = default);
     }
 }

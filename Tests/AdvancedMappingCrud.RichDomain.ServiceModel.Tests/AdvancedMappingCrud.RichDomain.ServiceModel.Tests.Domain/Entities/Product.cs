@@ -53,5 +53,12 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
             // [IntentFully]
             throw new NotImplementedException("Replace with your implementation...");
         }
+
+        public void DoManual(ICategoriesService catService)
+        {
+            // [IntentFully]
+            // TODO: Implement DoManual (Product) functionality
+            throw new NotImplementedException("Replace with your implementation...");
+        }
     }
 }

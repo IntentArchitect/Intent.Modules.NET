@@ -328,5 +328,52 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="96f9e178-bfa3-428d-8a59-abfde5abd1ad" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>DoManual</name>
+      <display>DoManual(catService: CategoriesService): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="e6121c81-2bd1-4258-8043-1481dafecc34">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>fbac3fc1-8439-4d8a-835b-b57ecd8bf6de</parentFolderId>
+      <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="d9db50a6-34f6-47d5-abf1-df4917ac23b6" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>catService</name>
+          <display>in : catService: CategoriesService</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="06e95002-64b0-4ea9-9bff-a66c24e2c0c4">
+            <typeId>0b4fda89-35c9-4175-9009-f0150e36b42e</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+            <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>96f9e178-bfa3-428d-8a59-abfde5abd1ad</parentFolderId>
+          <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

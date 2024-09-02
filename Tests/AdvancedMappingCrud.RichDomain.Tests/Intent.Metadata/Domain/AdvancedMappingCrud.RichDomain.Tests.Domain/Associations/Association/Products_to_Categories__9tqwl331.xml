@@ -22,7 +22,7 @@
   <targetEnd id="af503c8e-b21b-4bd1-b41e-92d49b571611" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Categories</name>
     <display>Categories: Category[*]</display>
-    <order>5</order>
+    <order>6</order>
     <typeReference id="b9eab6d7-f346-472b-be71-725bb0378c33">
       <typeId>d53bb23e-4305-43ac-a0cf-7480a156fff6</typeId>
       <isNavigable>true</isNavigable>

@@ -1,3 +1,7 @@
+### Version 6.0.17
+
+- Fixed: Issue where `CRUD Update Action` was not generating correct code if Domain Services were injected.
+
 ### Version 6.0.16
 
 - Improvement: Updated module NuGet packages infrastructure.

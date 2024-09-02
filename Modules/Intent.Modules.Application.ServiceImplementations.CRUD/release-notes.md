@@ -1,3 +1,7 @@
+### Version 5.0.14
+
+- Fixed: Issue where `CRUD Update Action` was not generating correct code if Domain Services were injected.
+
 ### Version 5.0.13
 
 - Improvement: Updated module NuGet packages infrastructure.

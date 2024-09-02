@@ -111,5 +111,26 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="3e2d0df8-9746-4110-9d76-e09d627c96c3" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>ManualAsync</name>
+      <display>ManualAsync(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7f0167b8-4295-4faa-b266-436fbd80caa2">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0b4fda89-35c9-4175-9009-f0150e36b42e</parentFolderId>
+      <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

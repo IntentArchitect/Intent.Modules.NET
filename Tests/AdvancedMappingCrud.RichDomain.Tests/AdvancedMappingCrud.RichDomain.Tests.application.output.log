@@ -988,6 +988,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#e50b35d3-d35b-4a7b-9903-d055936b89a9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Products/DoManual/DoManualCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/DoManual/DoManualCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#e50b35d3-d35b-4a7b-9903-d055936b89a9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Products/DoManual/DoManualCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/DoManual/DoManualCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#e50b35d3-d35b-4a7b-9903-d055936b89a9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Products/DoManual/DoManualCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/DoManual/DoManualCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#408a619d-7a1f-4337-8a89-f3bbbb7ca05d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Products/GetProductById/GetProductByIdQuery.cs</ApplicationRelativeFilePath>

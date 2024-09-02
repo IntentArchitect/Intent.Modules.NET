@@ -47,5 +47,12 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Services
             // TODO: Implement DoIt (CategoriesService) functionality
             throw new NotImplementedException("Implement your domain service logic here...");
         }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public async Task ManualAsync(CancellationToken cancellationToken = default)
+        {
+            // TODO: Implement ManualAsync (CategoriesService) functionality
+            throw new NotImplementedException("Implement your domain service logic here...");
+        }
     }
 }
