@@ -95,6 +95,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence
         public DbSet<OpAndCtorMapping3> OpAndCtorMapping3s { get; set; }
         public DbSet<OperationsClass> OperationsClasses { get; set; }
         public DbSet<LogEntry> LogEntries { get; set; }
+        public DbSet<PersonEntry> PersonEntries { get; set; }
         public DbSet<AggregateWithUniqueConstraintIndexElement> AggregateWithUniqueConstraintIndexElements { get; set; }
         public DbSet<AggregateWithUniqueConstraintIndexStereotype> AggregateWithUniqueConstraintIndexStereotypes { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
@@ -153,6 +154,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new OpAndCtorMapping3Configuration());
             modelBuilder.ApplyConfiguration(new OperationsClassConfiguration());
             modelBuilder.ApplyConfiguration(new LogEntryConfiguration());
+            modelBuilder.ApplyConfiguration(new PersonEntryConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateWithUniqueConstraintIndexElementConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateWithUniqueConstraintIndexStereotypeConfiguration());
         }

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a8d77444-3a7c-4309-88f1-520bcf48ddc6">
+  <sourceEnd id="f5c9af0a-01ae-4dac-8396-1d9b880e1256" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetPeopleByNullableFirstNamePaginatedQuery</display>
+    <order>0</order>
+    <typeReference id="e2ddc7df-73df-4ad9-99be-20af6ad1af05">
+      <typeId>57e2b85a-27cb-4c26-9646-d03f97efde72</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a8d77444-3a7c-4309-88f1-520bcf48ddc6" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>entity</name>
+    <display>[query] entity: PersonEntry</display>
+    <order>5</order>
+    <typeReference id="ba7ad9f5-f129-4dc2-aed0-f62e893f370f">
+      <typeId>22baeeb4-ed00-4fe8-af44-996402a68655</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="bffb272c-1292-4d7d-b8c1-fd5a23060724" location="[CleanArchitecture.Comprehensive].[Services].[GetPeopleByFirstNamePaginatedQuery]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="22baeeb4-ed00-4fe8-af44-996402a68655" location="[CleanArchitecture.Comprehensive].[Services].[PersonEntry]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{FirstName}</expression>
+            <path>
+              <target id="22baeeb4-ed00-4fe8-af44-996402a68655" name="PersonEntry" type="element" specialization="Class" />
+              <target id="efab62a9-14a5-4a97-a947-c4a7cfdf599c" name="FirstName" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="FirstName" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="57e2b85a-27cb-4c26-9646-d03f97efde72" name="GetPeopleByFirstNamePaginatedQuery" type="element" specialization="Query" />
+                  <target id="4e539122-01eb-45c1-9a7c-c0749f03ef88" name="FirstName" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>
