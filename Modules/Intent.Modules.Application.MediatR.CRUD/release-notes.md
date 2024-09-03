@@ -2,6 +2,7 @@
 
 - Fixed: Issue where `CRUD Update Action` was not generating correct code if Domain Services were injected.
 - Fixed: Query with nullable mapped property, which is paginated generates uncompilable code.
+- Fixed: Advanced mapped DTO fields will now conform to Pascal Case.
 
 ### Version 6.0.16
 

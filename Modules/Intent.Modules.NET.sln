@@ -86,7 +86,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Security.JWT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Security.BearerToken.Interop.IdentityServer4", "Intent.Modules.Security.BearerToken.Interop.IdentityServer4\Intent.Modules.Security.BearerToken.Interop.IdentityServer4.csproj", "{996404D7-407C-498A-9939-352E801A574F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.CRUD", "Intent.Modules.Application.MediatR.CRUD\Intent.Modules.Application.MediatR.CRUD.csproj", "{3F0AB5FE-E9EF-4069-B690-195694FC1CE5}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.MediatR.CRUD", "Intent.Modules.Application.MediatR.CRUD\Intent.Modules.Application.MediatR.CRUD.csproj", "{3F0AB5FE-E9EF-4069-B690-195694FC1CE5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Cors", "Intent.Modules.AspNetCore.Cors\Intent.Modules.AspNetCore.Cors.csproj", "{3D3183A9-5F38-4F01-A525-46D1C4AFD2C9}"
 EndProject
