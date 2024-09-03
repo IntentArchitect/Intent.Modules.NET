@@ -1,5 +1,9 @@
 ### Version 3.1.6
 
+- Improvement: improved content type filter int the `HttpClientRequestException`.
+
+### Version 3.1.6
+
 - Improvement: Updated module NuGet packages infrastructure.
 
 ### Version 3.1.5

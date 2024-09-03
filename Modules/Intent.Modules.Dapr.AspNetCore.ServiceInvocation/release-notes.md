@@ -1,3 +1,7 @@
+### Version 2.2.10
+
+- Improvement: improved content type filter int the `HttpClientRequestException`.
+
 ### Version 2.2.9
 
 - Improvement: Updated module NuGet packages infrastructure.
