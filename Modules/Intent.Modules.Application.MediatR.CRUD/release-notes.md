@@ -1,6 +1,9 @@
-### Version 6.0.17
+### Version 6.0.18
 
 - Improvement: Improved error when creating illegal queries.
+
+### Version 6.0.17
+
 - Fixed: Issue where `CRUD Update Action` was not generating correct code if Domain Services were injected.
 - Fixed: Query with nullable mapped property, which is paginated generates uncompilable code.
 - Fixed: Advanced mapped DTO fields will now conform to Pascal Case.
