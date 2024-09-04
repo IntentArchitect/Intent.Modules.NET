@@ -988,6 +988,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#e50b35d3-d35b-4a7b-9903-d055936b89a9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Products/DoManual/DoManualCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/DoManual/DoManualCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#e50b35d3-d35b-4a7b-9903-d055936b89a9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Products/DoManual/DoManualCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/DoManual/DoManualCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#e50b35d3-d35b-4a7b-9903-d055936b89a9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Products/DoManual/DoManualCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/DoManual/DoManualCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
       <CorrelationId>Intent.Application.MediatR.QueryModels#408a619d-7a1f-4337-8a89-f3bbbb7ca05d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Products/GetProductById/GetProductByIdQuery.cs</ApplicationRelativeFilePath>
@@ -1600,6 +1624,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Services/ICategoriesService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICategoriesService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5c7bf02b-05fb-47bf-bd03-86d78b8329b2</ProjectId>
+      <CorrelationId>Intent.DomainServices.DomainServiceInterface#b7702185-6edf-4b9d-a006-8634a5e98986</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Services/ISecondService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ISecondService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5c7bf02b-05fb-47bf-bd03-86d78b8329b2</ProjectId>
+      <CorrelationId>Intent.DomainServices.DomainServiceImplementation#b7702185-6edf-4b9d-a006-8634a5e98986</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Services/SecondService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecondService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

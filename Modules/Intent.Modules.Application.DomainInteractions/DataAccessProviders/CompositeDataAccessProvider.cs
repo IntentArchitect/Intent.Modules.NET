@@ -151,44 +151,44 @@ public class CompositeDataAccessProvider : IDataAccessProvider
         //throw new Exception("Not Implemented");
     }
 
-    private CSharpStatement CreateQueryFilterExpression(IElementToElementMapping queryMapping, out IList<CSharpStatement> requiredStatements)
-    {
-        requiredStatements = new List<CSharpStatement>();
-
-        var queryFields = queryMapping.MappedEnds.Where(x => !x.SourceElement.TypeReference.IsNullable)
-            .Select(x => x.IsOneToOne()
-                ? $"x.{x.TargetElement.Name} == {_mappingManager.GenerateSourceStatementForMapping(queryMapping, x)}"
-                : $"x.{x.TargetElement.Name}.{_mappingManager.GenerateSourceStatementForMapping(queryMapping, x)}")
-            .ToList();
-
-        var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}" : null;
-
-        if (queryMapping.MappedEnds.All(x => !x.SourceElement.TypeReference.IsNullable))
-        {
-            return expression;
-        }
-
-        var typeName = _template.GetTypeName((IElement)queryMapping.TargetElement);
-        var filterName = $"Filter{typeName.Pluralize()}";
-        var block = new CSharpLocalMethod($"{_template.UseType("System.Linq.IQueryable")}<{typeName}>", filterName, _template.CSharpFile);
-        block.AddParameter($"{_template.UseType("System.Linq.IQueryable")}<{typeName}>", "queryable");
-        if (!string.IsNullOrWhiteSpace(expression))
-        {
-            block.AddStatement($"queryable = queryable.Where({expression})", x => x.WithSemicolon());
-        }
-
-        foreach (var mappedEnd in queryMapping.MappedEnds.Where(x => x.SourceElement.TypeReference.IsNullable))
-        {
-            block.AddIfStatement(_mappingManager.GenerateSourceStatementForMapping(queryMapping, mappedEnd) + " != null", inside =>
-            {
-                inside.AddStatement($"queryable = queryable.Where(x => x.{mappedEnd.TargetElement.Name} == {_mappingManager.GenerateSourceStatementForMapping(queryMapping, mappedEnd)})", x => x.WithSemicolon());
-            });
-        }
-
-        block.AddStatement("return await queryable;");
-        block.SeparatedFromNext();
-        requiredStatements.Add(block);
-
-        return filterName;
-    }
+    // private CSharpStatement CreateQueryFilterExpression(IElementToElementMapping queryMapping, out IList<CSharpStatement> requiredStatements)
+    // {
+    //     requiredStatements = new List<CSharpStatement>();
+    //
+    //     var queryFields = queryMapping.MappedEnds.Where(x => !x.SourceElement.TypeReference.IsNullable)
+    //         .Select(x => x.IsOneToOne()
+    //             ? $"x.{x.TargetElement.Name} == {_mappingManager.GenerateSourceStatementForMapping(queryMapping, x)}"
+    //             : $"x.{x.TargetElement.Name}.{_mappingManager.GenerateSourceStatementForMapping(queryMapping, x)}")
+    //         .ToList();
+    //
+    //     var expression = queryFields.Any() ? $"x => {string.Join(" && ", queryFields)}" : null;
+    //
+    //     if (queryMapping.MappedEnds.All(x => !x.SourceElement.TypeReference.IsNullable))
+    //     {
+    //         return expression;
+    //     }
+    //
+    //     var typeName = _template.GetTypeName((IElement)queryMapping.TargetElement);
+    //     var filterName = $"Filter{typeName.Pluralize()}";
+    //     var block = new CSharpLocalMethod($"{_template.UseType("System.Linq.IQueryable")}<{typeName}>", filterName, _template.CSharpFile);
+    //     block.AddParameter($"{_template.UseType("System.Linq.IQueryable")}<{typeName}>", "queryable");
+    //     if (!string.IsNullOrWhiteSpace(expression))
+    //     {
+    //         block.AddStatement($"queryable = queryable.Where({expression})", x => x.WithSemicolon());
+    //     }
+    //
+    //     foreach (var mappedEnd in queryMapping.MappedEnds.Where(x => x.SourceElement.TypeReference.IsNullable))
+    //     {
+    //         block.AddIfStatement(_mappingManager.GenerateSourceStatementForMapping(queryMapping, mappedEnd) + " != null", inside =>
+    //         {
+    //             inside.AddStatement($"queryable = queryable.Where(x => x.{mappedEnd.TargetElement.Name} == {_mappingManager.GenerateSourceStatementForMapping(queryMapping, mappedEnd)})", x => x.WithSemicolon());
+    //         });
+    //     }
+    //
+    //     block.AddStatement("return await queryable;");
+    //     block.SeparatedFromNext();
+    //     requiredStatements.Add(block);
+    //
+    //     return filterName;
+    // }
 }

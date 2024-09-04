@@ -91,6 +91,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure
             services.AddTransient<IOpAndCtorMapping3Repository, OpAndCtorMapping3Repository>();
             services.AddTransient<IOperationsClassRepository, OperationsClassRepository>();
             services.AddTransient<ILogEntryRepository, LogEntryRepository>();
+            services.AddTransient<IPersonEntryRepository, PersonEntryRepository>();
             services.AddTransient<IAggregateWithUniqueConstraintIndexElementRepository, AggregateWithUniqueConstraintIndexElementRepository>();
             services.AddTransient<IAggregateWithUniqueConstraintIndexStereotypeRepository, AggregateWithUniqueConstraintIndexStereotypeRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();

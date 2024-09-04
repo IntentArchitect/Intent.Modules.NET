@@ -1076,6 +1076,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Assertions.AssertionClass#22baeeb4-ed00-4fe8-af44-996402a68655</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application.Tests/Pagination/PersonEntries/PersonEntryAssertions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/PersonEntries/PersonEntryAssertions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#37b85ae9-87ed-400d-b416-3b7bbdc5193e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application.Tests/TestNullablities/DeleteTestNullablityCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -4244,6 +4252,78 @@
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#bffb272c-1292-4d7d-b8c1-fd5a23060724</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Pagination/GetPeopleByFirstNamePaginated/GetPeopleByFirstNamePaginatedQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetPeopleByFirstNamePaginated/GetPeopleByFirstNamePaginatedQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#bffb272c-1292-4d7d-b8c1-fd5a23060724</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Pagination/GetPeopleByFirstNamePaginated/GetPeopleByFirstNamePaginatedQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetPeopleByFirstNamePaginated/GetPeopleByFirstNamePaginatedQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#bffb272c-1292-4d7d-b8c1-fd5a23060724</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Pagination/GetPeopleByFirstNamePaginated/GetPeopleByFirstNamePaginatedQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetPeopleByFirstNamePaginated/GetPeopleByFirstNamePaginatedQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#57e2b85a-27cb-4c26-9646-d03f97efde72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Pagination/GetPeopleByNullableFirstNamePaginated/GetPeopleByNullableFirstNamePaginatedQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetPeopleByNullableFirstNamePaginated/GetPeopleByNullableFirstNamePaginatedQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#57e2b85a-27cb-4c26-9646-d03f97efde72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Pagination/GetPeopleByNullableFirstNamePaginated/GetPeopleByNullableFirstNamePaginatedQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetPeopleByNullableFirstNamePaginated/GetPeopleByNullableFirstNamePaginatedQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#57e2b85a-27cb-4c26-9646-d03f97efde72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Pagination/GetPeopleByNullableFirstNamePaginated/GetPeopleByNullableFirstNamePaginatedQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetPeopleByNullableFirstNamePaginated/GetPeopleByNullableFirstNamePaginatedQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#a2bef711-d214-4ffa-9469-ae085ccd3687</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Pagination/GetPeoplePaginated/GetPeoplePaginatedQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetPeoplePaginated/GetPeoplePaginatedQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#a2bef711-d214-4ffa-9469-ae085ccd3687</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Pagination/GetPeoplePaginated/GetPeoplePaginatedQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetPeoplePaginated/GetPeoplePaginatedQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#a2bef711-d214-4ffa-9469-ae085ccd3687</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Pagination/GetPeoplePaginated/GetPeoplePaginatedQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/GetPeoplePaginated/GetPeoplePaginatedQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#6c326be1-1ab4-4002-8a45-69d16ae4971f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Pagination/LogEntryDto.cs</ApplicationRelativeFilePath>
@@ -4256,6 +4336,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Pagination/LogEntryDtoMappingExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pagination/LogEntryDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#35052c38-8c53-4f43-b87b-672a07e41873</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Pagination/PersonEntryDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/PersonEntryDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#35052c38-8c53-4f43-b87b-672a07e41873</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Pagination/PersonEntryDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/PersonEntryDtoMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6964,6 +7060,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#22baeeb4-ed00-4fe8-af44-996402a68655</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Entities/Pagination/PersonEntry.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/PersonEntry.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#864aa549-6d79-4a29-bd0a-6d78fd7e99da</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Entities/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexElement.cs</ApplicationRelativeFilePath>
@@ -7296,6 +7400,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Repositories/Pagination/ILogEntryRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pagination/ILogEntryRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#22baeeb4-ed00-4fe8-af44-996402a68655</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Repositories/Pagination/IPersonEntryRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/IPersonEntryRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -7804,6 +7916,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#22baeeb4-ed00-4fe8-af44-996402a68655</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Persistence/Configurations/Pagination/PersonEntryConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/PersonEntryConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#864aa549-6d79-4a29-bd0a-6d78fd7e99da</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Persistence/Configurations/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexElementConfiguration.cs</ApplicationRelativeFilePath>
@@ -8064,6 +8184,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Repositories/Pagination/LogEntryRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pagination/LogEntryRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#22baeeb4-ed00-4fe8-af44-996402a68655</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Repositories/Pagination/PersonEntryRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pagination/PersonEntryRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

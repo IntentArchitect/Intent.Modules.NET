@@ -14,6 +14,8 @@ using static Intent.Modules.Constants.TemplateRoles.Domain;
 
 namespace Intent.Modules.Application.DomainInteractions;
 
+#nullable enable
+
 public class RepositoryDataAccessProvider : IDataAccessProvider
 {
     private readonly string _repositoryFieldName;
@@ -105,16 +107,16 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
     {
         var expression = CreateQueryFilterExpression(queryMapping, out prerequisiteStatements);
         var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAsync");
-        if (expression != null)
+        if (expression.Statement is not null)
         {
-            invocation.AddArgument(expression);
+            invocation.AddArgument(expression.Statement);
         }
 
         invocation.AddArgument("cancellationToken");
         return invocation;
     }
 
-    public CSharpStatement FindAsync(CSharpStatement expression)
+    public CSharpStatement FindAsync(CSharpStatement? expression)
     {
         var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAsync");
         if (expression != null)
@@ -130,16 +132,16 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
     {
         var expression = CreateQueryFilterExpression(queryMapping, out prerequisiteStatements);
         var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAllAsync");
-        if (expression != null)
+        if (expression.Statement is not null)
         {
-            invocation.AddArgument(expression);
+            invocation.AddArgument(expression.Statement);
         }
 
         invocation.AddArgument("cancellationToken");
         return invocation;
     }
 
-    public CSharpStatement FindAllAsync(CSharpStatement expression)
+    public CSharpStatement FindAllAsync(CSharpStatement? expression)
     {
         var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAllAsync");
         if (expression != null)
@@ -153,22 +155,23 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
 
     public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, string? orderBy, bool orderByIsNullable, out IList<CSharpStatement> prerequisiteStatements)
     {
-        var expression = CreateQueryFilterExpression(queryMapping, out prerequisiteStatements);
+        var expressionResult = CreateQueryFilterExpression(queryMapping, out prerequisiteStatements);
+        var expression = expressionResult.Statement;
         var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAllAsync");
-        if (expression?.ToString().StartsWith("x =>") == true) // a bit rudimentary
+        if (expression is not null && !expressionResult.UsesFilterMethod)
         {
             // When passing in Expression<Func<TDomain, boolean>> (predicate):
-            invocation.AddArgument(expression);
+            invocation.AddArgument(expressionResult.Statement);
         }
 
         invocation.AddArgument($"{pageNo}");
         invocation.AddArgument($"{pageSize}");
 
-        if (expression?.ToString().StartsWith("x =>") == false) // a bit rudimentary
+        if (expression is not null && expressionResult.UsesFilterMethod)
         {
             if (orderBy != null)
             {
-                expression = new CSharpStatement(expression.GetText("") + $".OrderBy({GetOrderByValue(orderByIsNullable, orderBy)})");
+                expression = new CSharpStatement($"q => {expression.GetText("")}(q).OrderBy({GetOrderByValue(orderByIsNullable, orderBy)})");
             }
             // When passing in Func<IQueryable, IQueryable> (query option):
             invocation.AddArgument(expression);
@@ -181,7 +184,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         return invocation;
     }
 
-    public CSharpStatement FindAllAsync(CSharpStatement expression, string pageNo, string pageSize, string? orderBy, bool orderByIsNullable, out IList<CSharpStatement> prerequisiteStatements)
+    public CSharpStatement FindAllAsync(CSharpStatement? expression, string pageNo, string pageSize, string? orderBy, bool orderByIsNullable, out IList<CSharpStatement> prerequisiteStatements)
     {
         prerequisiteStatements = new List<CSharpStatement>();
         var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAllAsync");
@@ -212,7 +215,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         return invocation;
     }
 
-    private CSharpStatement CreateQueryFilterExpression(IElementToElementMapping queryMapping, out IList<CSharpStatement> requiredStatements)
+    private FilterExpressionResult CreateQueryFilterExpression(IElementToElementMapping queryMapping, out IList<CSharpStatement> requiredStatements)
     {
         requiredStatements = new List<CSharpStatement>();
 
@@ -220,7 +223,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
 
         if (queryMapping.MappedEnds.All(x => x.SourceElement == null || !x.SourceElement.TypeReference.IsNullable))
         {
-            return expression;
+            return new FilterExpressionResult(false, expression);
         }
 
         var typeName = _template.GetTypeName((IElement)queryMapping.TargetElement);
@@ -244,10 +247,12 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         block.SeparatedFromNext();
         requiredStatements.Add(block);
 
-        return filterName;
+        return new FilterExpressionResult(true, filterName);
     }
 
-    private string GetOrderByValue(bool orderByIsNullable, string? orderByField)
+    private record FilterExpressionResult(bool UsesFilterMethod, CSharpStatement? Statement);
+
+    private string? GetOrderByValue(bool orderByIsNullable, string? orderByField)
     {
         return orderByIsNullable ? $"{orderByField} ?? \"{_pks[0].Name}\"" : orderByField;
     }

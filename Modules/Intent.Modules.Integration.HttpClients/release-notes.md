@@ -1,3 +1,7 @@
+### Version 5.1.12
+
+- Improvement: improved content type filter int the `HttpClientRequestException`.
+
 ### Version 5.1.11
 
 - Improvement: Updated module NuGet packages infrastructure.

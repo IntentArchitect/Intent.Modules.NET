@@ -18,6 +18,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#a24ddeaf-6f56-4242-8db2-52ad718b8045</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/DTOFieldExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DTOFieldExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>030a37f9-7a93-4b1c-bb9c-b7d411b9aad0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#3e83b75d-9dff-4393-85fb-80801d1b6e22</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/QueryExtensionModel.cs</ApplicationRelativeFilePath>

@@ -27,9 +27,14 @@ namespace Subscribe.CleanArchDapr.TestApplication.Application.Common.Exceptions
             ReasonPhrase = reasonPhrase;
             ResponseContent = responseContent;
 
-            if (!string.IsNullOrWhiteSpace(responseContent) && responseHeaders.TryGetValue("Content-Type", out var contentTypeValues) && contentTypeValues.FirstOrDefault() == "application/problem+json; charset=utf-8")
+            if (responseHeaders?.TryGetValue("Content-Type", out var contentTypeValues) == true)
             {
-                ProblemDetails = JsonSerializer.Deserialize<ProblemDetailsWithErrors>(responseContent);
+                var contentType = contentTypeValues?.FirstOrDefault();
+
+                if (!string.IsNullOrEmpty(contentType) && contentType.StartsWith("application/problem+json", StringComparison.OrdinalIgnoreCase))
+                {
+                    ProblemDetails = JsonSerializer.Deserialize<ProblemDetailsWithErrors>(responseContent);
+                }
             }
         }
 

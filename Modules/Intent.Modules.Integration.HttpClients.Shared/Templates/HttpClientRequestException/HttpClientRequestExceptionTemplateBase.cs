@@ -4,7 +4,9 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
+using System;
 using System.Reflection.PortableExecutable;
+using System.Text.Json;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequestException
 {
@@ -36,11 +38,13 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                         .CallsBase(b => b
                             .AddArgument("GetMessage(requestUri, statusCode, reasonPhrase, responseContent)")
                         )
-                        .AddIfStatement(
-                            "!string.IsNullOrWhiteSpace(responseContent) && responseHeaders.TryGetValue(\"Content-Type\", out var contentTypeValues) && contentTypeValues.FirstOrDefault() == \"application/problem+json; charset=utf-8\"", 
-                            s => s
-                                .AddStatement($"ProblemDetails = {UseType("System.Text.Json.JsonSerializer")}.Deserialize<ProblemDetailsWithErrors>(responseContent);")
-                                .SeparatedFromPrevious()
+                    .AddIfStatement("responseHeaders?.TryGetValue(\"Content-Type\", out var contentTypeValues) == true",
+                        s => s
+                            .AddStatement($"var contentType = contentTypeValues?.FirstOrDefault();")
+                            .AddIfStatement("!string.IsNullOrEmpty(contentType) && contentType.StartsWith(\"application/problem+json\", StringComparison.OrdinalIgnoreCase)",
+                                s => s
+                                    .AddStatement($"ProblemDetails = {UseType("System.Text.Json.JsonSerializer")}.Deserialize<ProblemDetailsWithErrors>(responseContent);")
+                                )
                         )
                     )
                     .AddMethod($"Task<{@class.Name}>", "Create", m => m
