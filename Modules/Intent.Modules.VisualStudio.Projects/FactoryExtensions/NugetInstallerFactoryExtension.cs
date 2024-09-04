@@ -182,7 +182,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 ConsolidatePackageVersions(projectPackages, highestVersions);
             }
 
-            RemoveNugerPackagesDependantsAdd(projectPackages);
+            RemoveNugetPackagesDependantsAdd(projectPackages);
 
             foreach (var projectPackage in projectPackages)
             {
@@ -223,10 +223,9 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                            $"{Environment.NewLine}" +
                            $"{report}");
             }
-
         }
 
-        private void RemoveNugerPackagesDependantsAdd(IReadOnlyCollection<NuGetProject> projectPackages)
+        private void RemoveNugetPackagesDependantsAdd(IReadOnlyCollection<NuGetProject> projectPackages)
         {
             var projectToNugetPackageMap = new Dictionary<string, HashSet<string>>();
             foreach (var projectPackage in projectPackages)
@@ -242,7 +241,8 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 var dependantPackages = GetDependantPackages(projectPackage.OutputTarget, projectToNugetPackageMap);
                 foreach (var dependantPackage in dependantPackages)
                 {
-                    if (projectPackage.RequestedPackages.ContainsKey(dependantPackage))
+                    //If the package is already installed we want to update the version, to the determined consolidated version
+                    if (projectPackage.RequestedPackages.ContainsKey(dependantPackage) && !projectPackage.InstalledPackages.ContainsKey(dependantPackage))
                     {
                         projectPackage.RequestedPackages.Remove(dependantPackage);
                     }
