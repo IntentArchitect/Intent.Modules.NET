@@ -20,15 +20,15 @@ public static class Utils
     private static readonly Dictionary<string, ResponseCodeLookup> _responseCodeLookup = new() 
         { 
             { "200 (Ok)", new ResponseCodeLookup("200", "Status200OK", resultExpression => $"Ok({resultExpression})") },
-            { "201 (Created)", new ResponseCodeLookup("201", "Status201Created", resultExpression => $"Created(string.Empty, {resultExpression})") },
+            { "201 (Created)", new ResponseCodeLookup("201", "Status201Created", resultExpression => string.IsNullOrEmpty(resultExpression) ? $"Created(string.Empty, null)" : $"Created(string.Empty, {resultExpression})") },
             { "202 (Accepted)", new ResponseCodeLookup("202", "Status202Accepted", resultExpression => $"Accepted({resultExpression})") },
-            { "203 (Non-Authoritative Information)", new ResponseCodeLookup("203", "Status203NonAuthoritative", resultExpression => $"Status(203{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") },
-            { "204 (No Content)", new ResponseCodeLookup("204", "Status204NoContent", resultExpression => $"NoContent({resultExpression})") },
-            { "205 (Reset Content)", new ResponseCodeLookup("205", "Status205ResetContent", resultExpression => $"Status(205{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") },
-            { "206 (Partial Content)", new ResponseCodeLookup("206", "Status206PartialContent", resultExpression => $"Status(206{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") },
-            { "207 (Multi-Status)", new ResponseCodeLookup("207", "Status207MultiStatus", resultExpression => $"Status(207{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") },
-            { "208 (Already Reported)", new ResponseCodeLookup("208", "Status208AlreadyReported", resultExpression => $"Status(208{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") },
-            { "226 (IM Used)", new ResponseCodeLookup("226", "Status226IMUsed", resultExpression => $"Status(226{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") }
+            { "203 (Non-Authoritative Information)", new ResponseCodeLookup("203", "Status203NonAuthoritative", resultExpression => $"StatusCode(203{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") },
+            { "204 (No Content)", new ResponseCodeLookup("204", "Status204NoContent", resultExpression => $"NoContent()") },
+            { "205 (Reset Content)", new ResponseCodeLookup("205", "Status205ResetContent", resultExpression => $"StatusCode(205{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") },
+            { "206 (Partial Content)", new ResponseCodeLookup("206", "Status206PartialContent", resultExpression => $"StatusCode(206{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") },
+            { "207 (Multi-Status)", new ResponseCodeLookup("207", "Status207MultiStatus", resultExpression => $"StatusCode(207{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") },
+            { "208 (Already Reported)", new ResponseCodeLookup("208", "Status208AlreadyReported", resultExpression => $"StatusCode(208{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") },
+            { "226 (IM Used)", new ResponseCodeLookup("226", "Status226IMUsed", resultExpression => $"StatusCode(226{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") }
         };
 
     internal record ResponseCodeLookup(string Code, string StatusCodesEnumValue, Func<string?, string> ReturnOperation);
@@ -66,6 +66,17 @@ public static class Utils
         }
         return result;
     }
+
+    internal static string GetSuccessResponseCode(this IControllerOperationModel operation, string defaultValue)
+    {
+        var lookup = operation.GetResponseCodeLookup();
+        if (lookup == null)
+        {
+            return defaultValue;
+        }
+        return lookup.Code;
+    }
+
 
     internal static string GetSuccessResponseCodeEnumValue(this IControllerOperationModel operation, string defaultValue)
     {

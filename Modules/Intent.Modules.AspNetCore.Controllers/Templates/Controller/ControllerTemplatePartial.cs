@@ -209,17 +209,17 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             switch (operation.Verb)
             {
                 case HttpVerb.Get:
-                    lines.Add($"/// <response code=\"200\">Returns the specified {returnType.Replace("<", "&lt;").Replace(">", "&gt;")}.</response>");
+                    lines.Add($"/// <response code=\"{operation.GetSuccessResponseCode("200")}\">Returns the specified {returnType.Replace("<", "&lt;").Replace(">", "&gt;")}.</response>");
                     break;
                 case HttpVerb.Post:
-                    lines.Add("/// <response code=\"201\">Successfully created.</response>");
+                    lines.Add($"/// <response code=\"{operation.GetSuccessResponseCode("201")}\">Successfully created.</response>");
                     break;
                 case HttpVerb.Patch:
                 case HttpVerb.Put:
-                    lines.Add($"/// <response code=\"{(operation.ReturnType != null ? "200" : "204")}\">Successfully updated.</response>");
+                    lines.Add($"/// <response code=\"{(operation.GetSuccessResponseCode(operation.ReturnType != null ? "200" : "204"))}\">Successfully updated.</response>");
                     break;
                 case HttpVerb.Delete:
-                    lines.Add("/// <response code=\"200\">Successfully deleted.</response>");
+                    lines.Add($"/// <response code=\"{operation.GetSuccessResponseCode("200")}\">Successfully deleted.</response>");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
