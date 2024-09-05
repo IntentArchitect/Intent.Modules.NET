@@ -293,23 +293,22 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     apiResponse = $"typeof({this.GetJsonResponseName()}<{GetTypeName(operation)}>), ";
                 }
             }
-
+            
             switch (operation.Verb)
             {
                 case HttpVerb.Get:
-                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"));
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{Utils.GetSuccessResponseCodeEnumValue(operation, "Status200OK")})]"));
                     break;
                 case HttpVerb.Post:
-                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.Status201Created)]"));
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{Utils.GetSuccessResponseCodeEnumValue(operation, "Status201Created")})]"));
                     break;
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
-                    attributes.Add(new CSharpAttribute(operation.ReturnType != null
-                        ? $"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"
-                        : "[ProducesResponseType(StatusCodes.Status204NoContent)]"));
+                    var defaultValue = operation.ReturnType != null ? "Status200OK" : "Status204NoContent";
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{Utils.GetSuccessResponseCodeEnumValue(operation, defaultValue)})]"));
                     break;
                 case HttpVerb.Delete:
-                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.Status200OK)]"));
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{Utils.GetSuccessResponseCodeEnumValue(operation, "Status200OK")})]"));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
