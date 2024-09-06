@@ -75,10 +75,10 @@ namespace TrainingModel.Tests.Infrastructure.Persistence.Configurations
             builder.Property(x => x.CustomersId)
                 .IsRequired();
 
-            var enumValues = Enum.GetNames<AddressType>()
+            var addressTypeEnumValues = Enum.GetNames<AddressType>()
                 .Select(e => $"'{e}'");
 
-            builder.ToTable(tb => tb.HasCheckConstraint("address_address_type_check", $"\"AddressType\" IN ({string.Join(",", enumValues)})"));
+            builder.ToTable(tb => tb.HasCheckConstraint("address_address_type_check", $"\"AddressType\" IN ({string.Join(",", addressTypeEnumValues)})"));
         }
     }
 }

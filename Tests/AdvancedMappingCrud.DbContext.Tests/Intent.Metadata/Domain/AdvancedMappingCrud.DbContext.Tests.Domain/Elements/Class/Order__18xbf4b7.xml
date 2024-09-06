@@ -168,5 +168,29 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="739c560a-40d6-4d9a-850b-fe22b1328f12" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>EntityStatus</name>
+      <display>EntityStatus: EntityStatus</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="986f9575-29eb-4a3a-965a-d205197a450e">
+        <typeId>6e24d900-4e8d-4bf4-ba74-c7273ca45ee0</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.DbContext.Tests.Domain</typePackageName>
+        <typePackageId>e9a90d1a-2d6c-4860-967f-32435319b518</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d437a112-210e-4fdf-b8e5-147f14868319</parentFolderId>
+      <packageId>e9a90d1a-2d6c-4860-967f-32435319b518</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

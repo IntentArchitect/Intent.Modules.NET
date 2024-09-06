@@ -1116,6 +1116,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>333ebc43-e65e-482f-9772-db8f55cacfa2</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEnum#6e24d900-4e8d-4bf4-ba74-c7273ca45ee0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Domain/EntityStatus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityStatus.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>333ebc43-e65e-482f-9772-db8f55cacfa2</ProjectId>
       <CorrelationId>Intent.Entities.DomainEnum#34302a78-e6c1-4834-b38a-d6b1598cd0d6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Domain/OrderStatus.cs</ApplicationRelativeFilePath>

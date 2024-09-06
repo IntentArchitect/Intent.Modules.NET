@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6e24d900-4e8d-4bf4-ba74-c7273ca45ee0" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>EntityStatus</name>
+  <display>EntityStatus</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e9a90d1a-2d6c-4860-967f-32435319b518</parentFolderId>
+  <packageId>e9a90d1a-2d6c-4860-967f-32435319b518</packageId>
+  <packageName>AdvancedMappingCrud.DbContext.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="68aa4452-7296-408c-98f2-f1df86045df6" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Active</name>
+      <display>Active = 1</display>
+      <isAbstract>false</isAbstract>
+      <value>1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6e24d900-4e8d-4bf4-ba74-c7273ca45ee0</parentFolderId>
+      <packageId>e9a90d1a-2d6c-4860-967f-32435319b518</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="56643215-ef13-42fb-81b6-3edaf0f93ec5" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Deleted</name>
+      <display>Deleted = 2</display>
+      <isAbstract>false</isAbstract>
+      <value>2</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6e24d900-4e8d-4bf4-ba74-c7273ca45ee0</parentFolderId>
+      <packageId>e9a90d1a-2d6c-4860-967f-32435319b518</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
