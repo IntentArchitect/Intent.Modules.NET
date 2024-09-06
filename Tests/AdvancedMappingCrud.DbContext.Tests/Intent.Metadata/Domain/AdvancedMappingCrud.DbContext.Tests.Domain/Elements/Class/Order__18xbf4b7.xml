@@ -172,6 +172,7 @@
       <name>EntityStatus</name>
       <display>EntityStatus: EntityStatus</display>
       <isAbstract>false</isAbstract>
+      <value>EntityStatus.Active</value>
       <genericTypes />
       <typeReference id="986f9575-29eb-4a3a-965a-d205197a450e">
         <typeId>6e24d900-4e8d-4bf4-ba74-c7273ca45ee0</typeId>

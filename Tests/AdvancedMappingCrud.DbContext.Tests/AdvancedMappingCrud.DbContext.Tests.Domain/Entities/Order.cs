@@ -19,7 +19,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.Domain.Entities
 
         public Guid CustomerId { get; set; }
 
-        public EntityStatus EntityStatus { get; set; }
+        public EntityStatus EntityStatus { get; set; } = EntityStatus.Active;
 
         public virtual Customer Customer { get; set; }
 
