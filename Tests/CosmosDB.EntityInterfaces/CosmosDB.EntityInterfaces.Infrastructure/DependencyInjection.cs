@@ -73,6 +73,8 @@ namespace CosmosDB.EntityInterfaces.Infrastructure
                         .WithContainer(defaultContainerId))
                     .Configure<RegionDocument>(c => c
                         .WithContainer(defaultContainerId))
+                    .Configure<WithGuidIdDocument>(c => c
+                        .WithContainer(defaultContainerId))
                     .Configure<WithoutPartitionKeyDocument>(c => c
                         .WithContainer("WithoutPartitionKey"));
             });
@@ -92,6 +94,7 @@ namespace CosmosDB.EntityInterfaces.Infrastructure
             services.AddScoped<IPackageContainerRepository, PackageContainerCosmosDBRepository>();
             services.AddScoped<IProductRepository, ProductCosmosDBRepository>();
             services.AddScoped<IRegionRepository, RegionCosmosDBRepository>();
+            services.AddScoped<IWithGuidIdRepository, WithGuidIdCosmosDBRepository>();
             services.AddScoped<IWithoutPartitionKeyRepository, WithoutPartitionKeyCosmosDBRepository>();
             services.AddScoped<IFolderContainerRepository, FolderContainerCosmosDBRepository>();
             services.AddScoped<CosmosDBUnitOfWork>();
