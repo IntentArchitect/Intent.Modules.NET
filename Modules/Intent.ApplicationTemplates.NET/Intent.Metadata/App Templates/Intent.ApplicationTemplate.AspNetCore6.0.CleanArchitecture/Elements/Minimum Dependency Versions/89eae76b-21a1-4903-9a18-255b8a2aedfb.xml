@@ -129,7 +129,7 @@
       <name>Intent.Application.MediatR.FluentValidation</name>
       <display>Intent.Application.MediatR.FluentValidation 4.6.3</display>
       <isAbstract>false</isAbstract>
-      <value>4.6.3</value>
+      <value>4.6.4</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -255,7 +255,7 @@
       <name>Intent.Common.CSharp</name>
       <display>Intent.Common.CSharp 3.7.3</display>
       <isAbstract>false</isAbstract>
-      <value>3.7.3</value>
+      <value>3.7.5</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -395,7 +395,7 @@
       <name>Intent.Metadata.WebApi</name>
       <display>Intent.Metadata.WebApi 4.5.5</display>
       <isAbstract>false</isAbstract>
-      <value>4.5.5</value>
+      <value>4.5.6</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -549,7 +549,7 @@
       <name>Intent.Modelers.Services.EventInteractions</name>
       <display>Intent.Modelers.Services.EventInteractions 1.1.1</display>
       <isAbstract>false</isAbstract>
-      <value>1.1.1</value>
+      <value>1.1.2</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -591,7 +591,7 @@
       <name>Intent.OutputManager.RoslynWeaver</name>
       <display>Intent.OutputManager.RoslynWeaver 4.7.6</display>
       <isAbstract>false</isAbstract>
-      <value>4.7.6</value>
+      <value>4.7.7</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>

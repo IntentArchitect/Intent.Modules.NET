@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="a8c0300d-5cac-4eb7-9134-94ad43f24faa" name="Product" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+      <target id="a8c0300d-5cac-4eb7-9134-94ad43f24faa" name="Product" type="element" specialization="Class" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>473b0804-5620-494f-ba81-0cbbe57de140</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="f8030d85-6a23-4828-97dc-402e5fcd67de" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+          <target id="f8030d85-6a23-4828-97dc-402e5fcd67de" name="Id" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>a4f21031-4638-4186-bff0-3ac8d7040664</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="6fd40892-6663-4270-9f9b-a5e0bc414aa1" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+          <target id="6fd40892-6663-4270-9f9b-a5e0bc414aa1" name="Name" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>a4f21031-4638-4186-bff0-3ac8d7040664</parentFolderId>
@@ -152,7 +152,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="4734dc77-b5ec-4f1f-b5da-ed520da4e027" name="BrandId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+          <target id="4734dc77-b5ec-4f1f-b5da-ed520da4e027" name="BrandId" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>a4f21031-4638-4186-bff0-3ac8d7040664</parentFolderId>
@@ -206,7 +206,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="cf1fd11c-492a-4d88-9a97-d3dc129bc350" name="Description" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+          <target id="cf1fd11c-492a-4d88-9a97-d3dc129bc350" name="Description" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>a4f21031-4638-4186-bff0-3ac8d7040664</parentFolderId>
@@ -260,7 +260,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="45bf04b9-4a43-49e8-bc37-bfea98163f48" name="IsActive" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+          <target id="45bf04b9-4a43-49e8-bc37-bfea98163f48" name="IsActive" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>a4f21031-4638-4186-bff0-3ac8d7040664</parentFolderId>
@@ -314,7 +314,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="50da9e8a-b15a-4014-993e-4989d278e1d5" name="GetCurrentPrice" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+          <target id="50da9e8a-b15a-4014-993e-4989d278e1d5" name="GetCurrentPrice" type="element" specialization="Operation" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>a4f21031-4638-4186-bff0-3ac8d7040664</parentFolderId>

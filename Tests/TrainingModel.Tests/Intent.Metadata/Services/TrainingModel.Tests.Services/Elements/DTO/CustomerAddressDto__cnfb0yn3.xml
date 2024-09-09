@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="3d89bd68-42d0-444d-b064-f8cf9a9526ec" name="Address" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+      <target id="3d89bd68-42d0-444d-b064-f8cf9a9526ec" name="Address" type="element" specialization="Class" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>200ed056-4c02-4f19-a7bd-dcfc0b325582</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="7bab821a-a9c4-4532-b89a-81c7e8c121b6" name="Line1" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+          <target id="7bab821a-a9c4-4532-b89a-81c7e8c121b6" name="Line1" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>9c35b2a8-9750-40f7-a287-01517d7282ee</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="2e15a434-2424-460a-aa0c-46ec78fd636e" name="Line2" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+          <target id="2e15a434-2424-460a-aa0c-46ec78fd636e" name="Line2" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>9c35b2a8-9750-40f7-a287-01517d7282ee</parentFolderId>
@@ -152,7 +152,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="ddb48c39-b7f9-497e-9551-9f9f729b15fd" name="City" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+          <target id="ddb48c39-b7f9-497e-9551-9f9f729b15fd" name="City" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>9c35b2a8-9750-40f7-a287-01517d7282ee</parentFolderId>
@@ -206,7 +206,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="4b82ebb1-2c62-4fd3-a102-726e4941aa1e" name="Postal" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+          <target id="4b82ebb1-2c62-4fd3-a102-726e4941aa1e" name="Postal" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>9c35b2a8-9750-40f7-a287-01517d7282ee</parentFolderId>
@@ -260,7 +260,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="0a978239-7546-4c3a-9225-7eae39c599d0" name="AddressType" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+          <target id="0a978239-7546-4c3a-9225-7eae39c599d0" name="AddressType" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>9c35b2a8-9750-40f7-a287-01517d7282ee</parentFolderId>
@@ -314,7 +314,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="7b75d6c4-1fd7-403c-a820-59d1dea11cd3" name="CustomersId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+          <target id="7b75d6c4-1fd7-403c-a820-59d1dea11cd3" name="CustomersId" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>9c35b2a8-9750-40f7-a287-01517d7282ee</parentFolderId>
@@ -368,7 +368,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="b7e2442f-3f82-40f8-8986-2e21f3d4ff5c" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+          <target id="b7e2442f-3f82-40f8-8986-2e21f3d4ff5c" name="Id" type="element" specialization="Attribute" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>9c35b2a8-9750-40f7-a287-01517d7282ee</parentFolderId>

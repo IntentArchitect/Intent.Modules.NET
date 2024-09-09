@@ -31,7 +31,7 @@
       <name>Intent.Common.CSharp</name>
       <display>Intent.Common.CSharp 3.7.3</display>
       <isAbstract>false</isAbstract>
-      <value>3.7.3</value>
+      <value>3.7.5</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>99d65be4-cb0d-4530-a0a8-a508b0c4065c</parentFolderId>
@@ -45,7 +45,7 @@
       <name>Intent.OutputManager.RoslynWeaver</name>
       <display>Intent.OutputManager.RoslynWeaver 4.7.6</display>
       <isAbstract>false</isAbstract>
-      <value>4.7.6</value>
+      <value>4.7.7</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>99d65be4-cb0d-4530-a0a8-a508b0c4065c</parentFolderId>

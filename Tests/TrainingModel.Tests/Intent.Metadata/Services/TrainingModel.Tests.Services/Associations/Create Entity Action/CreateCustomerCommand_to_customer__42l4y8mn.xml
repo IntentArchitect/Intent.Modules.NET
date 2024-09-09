@@ -42,12 +42,12 @@
           <mappedEnd>
             <expression>{CreateCustomerCommand}</expression>
             <path>
-              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" />
             </path>
             <sources>
               <source identifier="CreateCustomerCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
                 <path>
-                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" />
                 </path>
               </source>
             </sources>
@@ -55,14 +55,14 @@
           <mappedEnd>
             <expression>{Name}</expression>
             <path>
-              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-              <target id="44ae976c-d4c5-441f-b4eb-7e1d558874b2" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" />
+              <target id="44ae976c-d4c5-441f-b4eb-7e1d558874b2" name="Name" type="element" specialization="Attribute" />
             </path>
             <sources>
               <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                  <target id="9057bb75-5134-4846-9a60-c6dbed234b80" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="9057bb75-5134-4846-9a60-c6dbed234b80" name="Name" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>
@@ -70,14 +70,14 @@
           <mappedEnd>
             <expression>{Surname}</expression>
             <path>
-              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-              <target id="3ddcf966-5228-458c-92bd-0b710197405d" name="Surname" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" />
+              <target id="3ddcf966-5228-458c-92bd-0b710197405d" name="Surname" type="element" specialization="Attribute" />
             </path>
             <sources>
               <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                  <target id="a8314955-f109-411d-be71-67b15cdb0852" name="Surname" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="a8314955-f109-411d-be71-67b15cdb0852" name="Surname" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>
@@ -85,14 +85,14 @@
           <mappedEnd>
             <expression>{Email}</expression>
             <path>
-              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-              <target id="4344e1a8-0418-42ae-9c20-401b921ff43b" name="Email" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" />
+              <target id="4344e1a8-0418-42ae-9c20-401b921ff43b" name="Email" type="element" specialization="Attribute" />
             </path>
             <sources>
               <source identifier="Email" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                  <target id="3b9458ca-cc97-4f24-9540-4305a3fcc42e" name="Email" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="3b9458ca-cc97-4f24-9540-4305a3fcc42e" name="Email" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>
@@ -100,14 +100,14 @@
           <mappedEnd>
             <expression>{IsActive}</expression>
             <path>
-              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-              <target id="30f74126-b711-4714-a721-e2439f105670" name="IsActive" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" />
+              <target id="30f74126-b711-4714-a721-e2439f105670" name="IsActive" type="element" specialization="Attribute" />
             </path>
             <sources>
               <source identifier="IsActive" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                  <target id="a54ab7d0-a809-463c-9cac-7301d4bc847d" name="IsActive" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="a54ab7d0-a809-463c-9cac-7301d4bc847d" name="IsActive" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>
@@ -115,14 +115,14 @@
           <mappedEnd>
             <expression>{Address}</expression>
             <path>
-              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-              <target id="47ee88c4-3ca4-489b-b2af-b789197c8213" name="Address" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" />
+              <target id="47ee88c4-3ca4-489b-b2af-b789197c8213" name="Address" type="association" specialization="Association Target End" />
             </path>
             <sources>
               <source identifier="Address" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                  <target id="90ab7224-0f2f-48cf-86fe-097ffe0b409e" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="90ab7224-0f2f-48cf-86fe-097ffe0b409e" name="Address" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>
@@ -130,16 +130,16 @@
           <mappedEnd>
             <expression>{Address.Line1}</expression>
             <path>
-              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-              <target id="47ee88c4-3ca4-489b-b2af-b789197c8213" name="Address" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
-              <target id="7bab821a-a9c4-4532-b89a-81c7e8c121b6" name="Line1" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" />
+              <target id="47ee88c4-3ca4-489b-b2af-b789197c8213" name="Address" type="association" specialization="Association Target End" />
+              <target id="7bab821a-a9c4-4532-b89a-81c7e8c121b6" name="Line1" type="element" specialization="Attribute" />
             </path>
             <sources>
               <source identifier="Address.Line1" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                  <target id="90ab7224-0f2f-48cf-86fe-097ffe0b409e" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
-                  <target id="be5e5171-79a1-4e70-bc7e-07e108c747c4" name="Line1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="90ab7224-0f2f-48cf-86fe-097ffe0b409e" name="Address" type="element" specialization="DTO-Field" />
+                  <target id="be5e5171-79a1-4e70-bc7e-07e108c747c4" name="Line1" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>
@@ -147,16 +147,16 @@
           <mappedEnd>
             <expression>{Address.Line2}</expression>
             <path>
-              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-              <target id="47ee88c4-3ca4-489b-b2af-b789197c8213" name="Address" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
-              <target id="2e15a434-2424-460a-aa0c-46ec78fd636e" name="Line2" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" />
+              <target id="47ee88c4-3ca4-489b-b2af-b789197c8213" name="Address" type="association" specialization="Association Target End" />
+              <target id="2e15a434-2424-460a-aa0c-46ec78fd636e" name="Line2" type="element" specialization="Attribute" />
             </path>
             <sources>
               <source identifier="Address.Line2" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                  <target id="90ab7224-0f2f-48cf-86fe-097ffe0b409e" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
-                  <target id="53916eff-fc12-4683-9808-188ab78f835e" name="Line2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="90ab7224-0f2f-48cf-86fe-097ffe0b409e" name="Address" type="element" specialization="DTO-Field" />
+                  <target id="53916eff-fc12-4683-9808-188ab78f835e" name="Line2" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>
@@ -164,16 +164,16 @@
           <mappedEnd>
             <expression>{Address.City}</expression>
             <path>
-              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-              <target id="47ee88c4-3ca4-489b-b2af-b789197c8213" name="Address" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
-              <target id="ddb48c39-b7f9-497e-9551-9f9f729b15fd" name="City" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" />
+              <target id="47ee88c4-3ca4-489b-b2af-b789197c8213" name="Address" type="association" specialization="Association Target End" />
+              <target id="ddb48c39-b7f9-497e-9551-9f9f729b15fd" name="City" type="element" specialization="Attribute" />
             </path>
             <sources>
               <source identifier="Address.City" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                  <target id="90ab7224-0f2f-48cf-86fe-097ffe0b409e" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
-                  <target id="200a25e2-5e39-4ec1-a539-da6a11004030" name="City" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="90ab7224-0f2f-48cf-86fe-097ffe0b409e" name="Address" type="element" specialization="DTO-Field" />
+                  <target id="200a25e2-5e39-4ec1-a539-da6a11004030" name="City" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>
@@ -181,16 +181,16 @@
           <mappedEnd>
             <expression>{Address.Postal}</expression>
             <path>
-              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-              <target id="47ee88c4-3ca4-489b-b2af-b789197c8213" name="Address" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
-              <target id="4b82ebb1-2c62-4fd3-a102-726e4941aa1e" name="Postal" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" />
+              <target id="47ee88c4-3ca4-489b-b2af-b789197c8213" name="Address" type="association" specialization="Association Target End" />
+              <target id="4b82ebb1-2c62-4fd3-a102-726e4941aa1e" name="Postal" type="element" specialization="Attribute" />
             </path>
             <sources>
               <source identifier="Address.Postal" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                  <target id="90ab7224-0f2f-48cf-86fe-097ffe0b409e" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
-                  <target id="2ca5b226-2774-4992-ae77-bf37b9889a10" name="Postal" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="90ab7224-0f2f-48cf-86fe-097ffe0b409e" name="Address" type="element" specialization="DTO-Field" />
+                  <target id="2ca5b226-2774-4992-ae77-bf37b9889a10" name="Postal" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>
@@ -198,16 +198,16 @@
           <mappedEnd>
             <expression>{Address.AddressType}</expression>
             <path>
-              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-              <target id="47ee88c4-3ca4-489b-b2af-b789197c8213" name="Address" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
-              <target id="0a978239-7546-4c3a-9225-7eae39c599d0" name="AddressType" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" />
+              <target id="47ee88c4-3ca4-489b-b2af-b789197c8213" name="Address" type="association" specialization="Association Target End" />
+              <target id="0a978239-7546-4c3a-9225-7eae39c599d0" name="AddressType" type="element" specialization="Attribute" />
             </path>
             <sources>
               <source identifier="Address.AddressType" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                  <target id="90ab7224-0f2f-48cf-86fe-097ffe0b409e" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
-                  <target id="50149735-24b6-4949-8223-489401e87930" name="AddressType" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="90ab7224-0f2f-48cf-86fe-097ffe0b409e" name="Address" type="element" specialization="DTO-Field" />
+                  <target id="50149735-24b6-4949-8223-489401e87930" name="AddressType" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>
@@ -215,15 +215,15 @@
           <mappedEnd>
             <expression>{Specials}</expression>
             <path>
-              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-              <target id="cbf15a15-5bfc-4cba-8884-5b7911e163e5" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
-              <target id="77a78bb1-92e1-48f0-a8a8-615e8db66a00" name="Specials" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" />
+              <target id="cbf15a15-5bfc-4cba-8884-5b7911e163e5" name="Preferences" type="association" specialization="Association Target End" />
+              <target id="77a78bb1-92e1-48f0-a8a8-615e8db66a00" name="Specials" type="element" specialization="Attribute" />
             </path>
             <sources>
               <source identifier="Specials" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                  <target id="d5bc31a0-d36f-468a-92cc-6903ac2043b8" name="Specials" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="d5bc31a0-d36f-468a-92cc-6903ac2043b8" name="Specials" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>
@@ -231,15 +231,15 @@
           <mappedEnd>
             <expression>{News}</expression>
             <path>
-              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-              <target id="cbf15a15-5bfc-4cba-8884-5b7911e163e5" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
-              <target id="0856c2ff-cec1-448a-8d7a-8f5bd1f93c7a" name="News" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="8c629227-e45a-42e7-afd9-e784fbf2b462" name="Customer" type="element" specialization="Class" />
+              <target id="cbf15a15-5bfc-4cba-8884-5b7911e163e5" name="Preferences" type="association" specialization="Association Target End" />
+              <target id="0856c2ff-cec1-448a-8d7a-8f5bd1f93c7a" name="News" type="element" specialization="Attribute" />
             </path>
             <sources>
               <source identifier="News" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
-                  <target id="319682a0-2928-4e35-8e7b-20f465783225" name="News" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="9409b535-ffd2-4679-ba77-ab8aa507c1a2" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="319682a0-2928-4e35-8e7b-20f465783225" name="News" type="element" specialization="DTO-Field" />
                 </path>
               </source>
             </sources>
