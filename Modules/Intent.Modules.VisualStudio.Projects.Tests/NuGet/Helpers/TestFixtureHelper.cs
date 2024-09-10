@@ -188,12 +188,72 @@ internal static class TestFixtureHelper
             public string[] PrivateAssets => new string[0];
             public string[] IncludeAssets => new string[0];
 
+            public IList<INugetPackageDependency> Dependencies => new List<INugetPackageDependency>();
+
             #region throw new NotImplementedException() implementations
             public string TargetFramework => throw new NotImplementedException();
             public bool CanAddFile(string file) => throw new NotImplementedException();
             public IList<AssemblyRedirectInfo> AssemblyRedirects => throw new NotImplementedException();
+
             #endregion
         }
+    }
+
+    internal static ProjectNugetSetupTestData GetCleanArchitectureProjectSetup()
+    {
+        var apiProjectOutputTarget = Substitute.For<IOutputTarget>();
+        var applicationProjectOutputTarget = Substitute.For<IOutputTarget>();
+        var domainProjectOutputTarget = Substitute.For<IOutputTarget>();
+        var infrastructureProjectOutputTarget = Substitute.For<IOutputTarget>();
+        var testProjectOutputTarget = Substitute.For<IOutputTarget>();
+
+        apiProjectOutputTarget.Id.Returns("API");
+        applicationProjectOutputTarget.Id.Returns("APPLICATION");
+        domainProjectOutputTarget.Id.Returns("DOMAIN");
+        infrastructureProjectOutputTarget.Id.Returns("INFRASTRUCTURE");
+        testProjectOutputTarget.Id.Returns("TEST");
+
+        apiProjectOutputTarget.Dependencies().Returns(new List<IOutputTarget> { applicationProjectOutputTarget, infrastructureProjectOutputTarget, domainProjectOutputTarget });
+        applicationProjectOutputTarget.Dependencies().Returns(new List<IOutputTarget> { domainProjectOutputTarget });
+        domainProjectOutputTarget.Dependencies().Returns(new List<IOutputTarget>());
+        infrastructureProjectOutputTarget.Dependencies().Returns(new List<IOutputTarget> { applicationProjectOutputTarget, domainProjectOutputTarget });
+        testProjectOutputTarget.Dependencies().Returns(new List<IOutputTarget> { apiProjectOutputTarget });
+
+        var projectPackages = new List<NuGetProject>();
+
+        var projectApi = new NuGetProject();
+        projectApi.OutputTarget = apiProjectOutputTarget;
+        projectPackages.Add(projectApi);
+
+        var projectApplication = new NuGetProject();
+        projectApplication.OutputTarget = applicationProjectOutputTarget;
+        projectPackages.Add(projectApplication);
+
+        var projectDomain = new NuGetProject();
+        projectDomain.OutputTarget = domainProjectOutputTarget;
+        projectPackages.Add(projectDomain);
+
+        var projectInfrastructure = new NuGetProject();
+        projectInfrastructure.OutputTarget = infrastructureProjectOutputTarget;
+        projectPackages.Add(projectInfrastructure);
+
+        var projectTest = new NuGetProject();
+        projectTest.OutputTarget = testProjectOutputTarget;
+        projectPackages.Add(projectTest);
+
+
+        return new ProjectNugetSetupTestData { Api = projectApi, Application = projectApplication, Domain = projectDomain, Infrastructure = projectInfrastructure, Test = projectTest };
+    }
+
+    internal class ProjectNugetSetupTestData
+    {
+        internal NuGetProject Api { get; set; }
+        internal NuGetProject Application { get; set; }
+        internal NuGetProject Domain { get; set; }
+        internal NuGetProject Infrastructure { get; set; }
+        internal NuGetProject Test { get; set; }
+
+        public IEnumerable<NuGetProject> Projects() => new List<NuGetProject> { Api, Application, Domain, Infrastructure, Test};
     }
 
     public static string GetPath(VisualStudioProjectScheme? scheme, TestVersion testVersion, int number)
