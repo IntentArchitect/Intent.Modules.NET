@@ -1,3 +1,7 @@
+### Version 4.6.4
+
+- Fixed: When domain types (such as a Classes, DataContract and Enums) were used on repository operations, usings would not always be added.
+
 ### Version 4.6.3
 
 - Improvement: Updated module NuGet packages infrastructure.
