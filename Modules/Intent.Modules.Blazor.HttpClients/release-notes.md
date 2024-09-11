@@ -1,3 +1,7 @@
+### Version 4.0.0
+
+TODO
+
 ### Version 3.1.7
 
 - Improvement: improved content type filter int the `HttpClientRequestException`.

@@ -1,3 +1,7 @@
+### Version 3.8.0
+
+TODO
+
 ### Version 3.7.7
 
 - Improvement: When generating CSProj file, the template now not install direct NuGet package dependencies if there is a transitive dependency on the package through a dependent CSProj file.
