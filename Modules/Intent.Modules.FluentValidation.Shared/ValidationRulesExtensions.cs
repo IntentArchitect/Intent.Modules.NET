@@ -693,28 +693,12 @@ public static class ValidationRulesExtensions
     
     private static bool TryGetAdvancedMappedAttribute(IEnumerable<IAssociationEnd> associationedElements, DTOFieldModel field, out AttributeModel attribute)
     {
-        if (associationedElements is null)
+        var mappedEnd = field.InternalElement.MappedToElements.FirstOrDefault(p => p.MappingType == "Data Mapping"
+                            && p.TargetElement?.IsAttributeModel() == true);
+        if (mappedEnd != null)
         {
-            attribute = null;
-            return false;
-        }
-
-        foreach (var associationEnd in associationedElements)
-        {
-            foreach (var mapping in associationEnd.Mappings)
-            {
-                var mappedEnd = mapping.MappedEnds.FirstOrDefault(p => p.MappingType == "Data Mapping" && p.SourceElement.Id == field.Id);
-                if (mappedEnd is null)
-                {
-                    continue;
-                }
-
-                attribute = mappedEnd.TargetElement?.AsAttributeModel();
-                if (attribute is not null)
-                {
-                    return true;
-                }
-            }
+            attribute = mappedEnd.TargetElement.AsAttributeModel();
+            return true;
         }
 
         attribute = null;

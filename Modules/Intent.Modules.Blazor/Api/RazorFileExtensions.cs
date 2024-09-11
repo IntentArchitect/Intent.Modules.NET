@@ -164,7 +164,7 @@ public static class RazorFileExtensions
                                 var invocation = mappingManager.GenerateUpdateStatements(serviceCall.GetMapInvocationMapping()).First();
                                 if (serviceCall.GetMapResponseMapping() != null)
                                 {
-                                    var responseStaticElementId = "adb0ba54-aceb-4168-aaf7-d20d2f6af74c";
+                                    var responseStaticElementId = "2f68b1a4-a523-4987-b3da-f35e6e8e146b";
                                     if (serviceCall.GetMapResponseMapping().MappedEnds.Count == 1 && serviceCall.GetMapResponseMapping().MappedEnds.Single().SourceElement.Id == responseStaticElementId)
                                     {
                                         method.AddStatement(new CSharpAssignmentStatement(
@@ -173,8 +173,13 @@ public static class RazorFileExtensions
                                     }
                                     else
                                     {
-                                        method.AddStatement(new CSharpAssignmentStatement($"var {serviceCall.Name.ToLocalVariableName()}", new CSharpAwaitExpression(new CSharpAccessMemberStatement($"{serviceName}", invocation))));
-                                        mappingManager.SetFromReplacement(new StaticMetadata(responseStaticElementId), serviceCall.Name.ToLocalVariableName());
+                                        var variableName = serviceCall.TypeReference.Element.TypeReference.Element.Name.ToLocalVariableName();
+                                        method.AddStatement(new CSharpAssignmentStatement($"var {variableName}", new CSharpAwaitExpression(new CSharpAccessMemberStatement($"{serviceName}", invocation))));
+                                        mappingManager.SetFromReplacement(new StaticMetadata(responseStaticElementId), variableName);
+                                        if (method.Name == "OnInitializedAsync")
+                                        {
+                                            Console.Write("laskdfj");
+                                        }
                                         var response = mappingManager.GenerateUpdateStatements(serviceCall.GetMapResponseMapping());
                                         foreach (var statement in response)
                                         {

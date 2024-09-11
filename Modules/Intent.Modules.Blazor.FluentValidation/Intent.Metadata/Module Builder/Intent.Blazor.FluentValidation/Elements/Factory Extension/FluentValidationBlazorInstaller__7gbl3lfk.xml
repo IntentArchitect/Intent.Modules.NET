@@ -5,9 +5,9 @@
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>61a0a56c-98ab-4bed-9c93-f94d425d831a</parentFolderId>
-  <packageId>61a0a56c-98ab-4bed-9c93-f94d425d831a</packageId>
-  <packageName>Intent.Blazor.HttpClients.Dtos.FluentValidation</packageName>
+  <parentFolderId>90eb0073-c577-4253-9e76-0039622affa9</parentFolderId>
+  <packageId>90eb0073-c577-4253-9e76-0039622affa9</packageId>
+  <packageName>Intent.Blazor.FluentValidation</packageName>
   <stereotypes />
   <metadata />
   <childElements />

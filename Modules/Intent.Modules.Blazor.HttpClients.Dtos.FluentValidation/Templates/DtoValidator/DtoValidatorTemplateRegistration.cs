@@ -54,18 +54,10 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
 
             foreach (var model in models)
             {
-                var advancedMappingSource = model.InternalElement.AssociatedElements.Count() switch
-                {
-                    0 => null,
-                    1 => model.InternalElement,
-                    _ => null,
-                };
-
                 registry.RegisterTemplate(TemplateId,
                     project => new DtoValidatorTemplate(
                         project,
-                        model,
-                        advancedMappingSource?.AssociatedElements));
+                        model));
             }
         }
     }

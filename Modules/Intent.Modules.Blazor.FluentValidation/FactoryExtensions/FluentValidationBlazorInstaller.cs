@@ -1,7 +1,5 @@
 using System.Linq;
 using Intent.Engine;
-using Intent.Modules.Application.FluentValidation;
-using Intent.Modules.Blazor.HttpClients.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -13,12 +11,12 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.FactoryExtensions
+namespace Intent.Modules.Blazor.FluentValidation.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class FluentValidationBlazorInstaller : FactoryExtensionBase
     {
-        public override string Id => "Intent.Blazor.HttpClients.Dtos.FluentValidation.FluentValidationBlazorInstaller";
+        public override string Id => "Intent.Blazor.FluentValidation.FluentValidationBlazorInstaller";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;

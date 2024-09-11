@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor</id>
-  <version>1.0.0-alpha.7</version>
+  <version>1.0.0-alpha.8</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Automates the bootstrapping of a Blazor web application.</summary>
   <description>Automates the bootstrapping of a Blazor web application.</description>
@@ -119,10 +119,17 @@
     <dependency id="Intent.Common" version="3.7.0-pre.3" />
     <dependency id="Intent.Common.CSharp" version="3.8.0-pre.7" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Modelers.UI" version="1.0.0-alpha.5" />
-    <dependency id="Intent.Modelers.UI.Core" version="1.0.0-alpha.5" />
+    <dependency id="Intent.Modelers.UI" version="1.0.0-alpha.6" />
+    <dependency id="Intent.Modelers.UI.Core" version="1.0.0-alpha.6" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.8.0-alpha.1" />
   </dependencies>
+  <interoperability>
+    <detect id="Intent.VisualStudio.Projects">
+      <install>
+        <package id="Intent.VisualStudio.Projects" version="3.8.0-pre.2" />
+      </install>
+    </detect>
+  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
