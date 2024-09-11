@@ -235,9 +235,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         internal void ConsolidateRequestedPackages(IEnumerable<NuGetProject> projectPackages)
         {
             ConsolidateVersionsUpfront(projectPackages);
-            //var highestRequestedVersions = DetermineHighestRequestedVersions(projectPackages);
             RemoveTransativeDependencies(projectPackages);
-            //ConsolidateVersion(projectPackages, highestRequestedVersions);
         }
 
         private void ConsolidateVersionsUpfront(IEnumerable<NuGetProject> projectPackages)
@@ -287,59 +285,6 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 }
             }
         }
-
-        private void ConsolidateVersion(IEnumerable<NuGetProject> projectPackages, Dictionary<string, VersionRange> highestRequestedVersions)
-        {
-            foreach (var projectPackage in projectPackages)
-            {
-                foreach (var kvp in projectPackage.RequestedPackages)
-                {
-                    var highestRequested = highestRequestedVersions[kvp.Key];
-                    if (kvp.Value.Version.MinVersion < highestRequested.MinVersion)
-                    {
-                        kvp.Value.Update(highestRequested, null);
-                    }
-                }
-            }
-        }
-
-        private Dictionary<string, VersionRange> DetermineHighestRequestedVersions(IEnumerable<NuGetProject> projectPackages)
-        {
-            var highestRequestedVersions = new Dictionary<string, VersionRange>();
-            foreach (var projectPackage in projectPackages)
-            {
-                foreach (var kvp in projectPackage.RequestedPackages)
-                {
-                    DetermineHighest(highestRequestedVersions, kvp.Key, kvp.Value.Version);
-                    if (kvp.Value.RequestedPackage?.Dependencies?.Any() == true)
-                    {
-                        foreach (var dependant in kvp.Value.RequestedPackage?.Dependencies)
-                        {
-                            var dependantVersion = VersionRange.Parse(dependant.Version);
-                            DetermineHighest(highestRequestedVersions, dependant.Name, dependantVersion);
-                        }
-                    }
-                }
-            }
-
-            return highestRequestedVersions;
-
-            static void DetermineHighest(Dictionary<string, VersionRange> highestRequestedVersions, string packageName, VersionRange version)
-            {
-                if (!highestRequestedVersions.TryGetValue(packageName, out var current))
-                {
-                    highestRequestedVersions.Add(packageName, version);
-                }
-                else
-                {
-                    if (version.MinVersion > current.MinVersion)
-                    {
-                        highestRequestedVersions[packageName] = version;
-                    }
-                }
-            }
-        }
-
 
         private void RemoveTransativeDependencies(IEnumerable<NuGetProject> projectPackages)
         {
