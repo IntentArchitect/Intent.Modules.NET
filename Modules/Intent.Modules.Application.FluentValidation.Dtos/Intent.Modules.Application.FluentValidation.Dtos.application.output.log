@@ -9,7 +9,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>cc69b565-1089-41e7-b364-3e017912be94</ProjectId>
+      <ProjectId>0f89b0c4-82ba-493a-bdd1-6ca15362610a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.FluentValidation.Dtos.imodspec</ApplicationRelativeFilePath>
@@ -17,8 +17,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>cc69b565-1089-41e7-b364-3e017912be94</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#cc69b565-1089-41e7-b364-3e017912be94</CorrelationId>
+      <ProjectId>0f89b0c4-82ba-493a-bdd1-6ca15362610a</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#0f89b0c4-82ba-493a-bdd1-6ca15362610a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.FluentValidation.Dtos.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.FluentValidation.Dtos.csproj</ProjectRelativeFilePath>

@@ -1,13 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.6.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.7.3" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.7.6-pre.0" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.3.2" />
     <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="5.2.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.7.0" />
