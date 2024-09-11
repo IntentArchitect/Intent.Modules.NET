@@ -772,14 +772,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>4e4304b1-24a9-42f5-93f5-3d22d1ce2a6d</ProjectId>
-      <CorrelationId>Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SecurityConfig.Tests.Infrastructure/HttpClients/HttpClientHeaderHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HttpClientHeaderHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>4e4304b1-24a9-42f5-93f5-3d22d1ce2a6d</ProjectId>
       <CorrelationId>Intent.Integration.HttpClients.JsonResponse</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SecurityConfig.Tests.Infrastructure/HttpClients/JsonResponse.cs</ApplicationRelativeFilePath>

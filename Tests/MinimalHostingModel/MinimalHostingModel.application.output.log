@@ -971,14 +971,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>33e877f2-e688-4af6-b60f-5d0bd9532805</ProjectId>
-      <CorrelationId>Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MinimalHostingModel.Infrastructure/HttpClients/HttpClientHeaderHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HttpClientHeaderHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>ab446e12-3ba4-46b6-9a71-b649eefab17e</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#ab446e12-3ba4-46b6-9a71-b649eefab17e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

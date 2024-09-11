@@ -812,14 +812,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>ee382ca5-df43-4dfa-a614-b4bf6762b37b</ProjectId>
-      <CorrelationId>Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Infrastructure/HttpClients/HttpClientHeaderHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HttpClientHeaderHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ee382ca5-df43-4dfa-a614-b4bf6762b37b</ProjectId>
       <CorrelationId>Intent.Integration.HttpClients.JsonResponse</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.TMS.Infrastructure/HttpClients/JsonResponse.cs</ApplicationRelativeFilePath>

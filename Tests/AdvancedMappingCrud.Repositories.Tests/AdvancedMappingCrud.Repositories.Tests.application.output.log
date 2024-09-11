@@ -3540,14 +3540,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f5311d4-d100-4d58-ab2e-e49c8f072c2f</ProjectId>
-      <CorrelationId>Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/HttpClients/HttpClientHeaderHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HttpClientHeaderHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9f5311d4-d100-4d58-ab2e-e49c8f072c2f</ProjectId>
       <CorrelationId>Intent.Integration.HttpClients.JsonResponse</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/HttpClients/JsonResponse.cs</ApplicationRelativeFilePath>
