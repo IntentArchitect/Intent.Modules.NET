@@ -104,6 +104,8 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
                     else
                     {
                         rowTemplate.AddHtmlElement("TemplateColumn", tc =>
+                        {
+                            tc.AddAttribute("Title", column.Name);
                             tc.AddHtmlElement("CellTemplate", ct =>
                                 ct.AddHtmlElement("MudStack", ms =>
                                 {
@@ -114,7 +116,8 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
                                     {
                                         _componentResolver.BuildComponent(child, ms);
                                     }
-                                })));
+                                }));
+                        });
 
                     }
                 }

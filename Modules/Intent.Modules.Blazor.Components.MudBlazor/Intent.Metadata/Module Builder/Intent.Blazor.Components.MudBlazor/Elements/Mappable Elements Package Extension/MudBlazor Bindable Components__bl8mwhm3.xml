@@ -65,6 +65,7 @@
             <property name="73a079b1-5720-4b70-ada3-7af8a98b7510" display="Sync Stereotype" isActive="false" />
             <property name="c6d38f6b-83f0-466d-9b89-3aa3b8c58d6f" display="Sync Stereotype Property" isActive="false" />
             <property name="5bd73806-e43e-402e-a8ab-ed63cbc1ef98" display="On Mapping Changed Script" value="if (element.getMappedToElements().length &gt; 0) {&#xD;&#xA;    console.warn(element.getChildren()[0].getName());&#xD;&#xA;    element.getChildren()[0].setType({&#xD;&#xA;        typeId: &quot;e57aa24c-eed9-4301-96f3-a34610cef546&quot;,&#xD;&#xA;        genericTypeParameters: [{&#xD;&#xA;            typeId: element.getMappedToElements()[0].typeReference.typeId&#xD;&#xA;        }]&#xD;&#xA;    });&#xD;&#xA;    console.warn(element.getChildren()[0].typeReference.display);&#xD;&#xA;&#xD;&#xA;}" isActive="true" />
+            <property name="55e6149c-91a6-4381-b324-7eab4395fa59" display="Validate Function" isActive="true" />
             <property name="c2f9befb-4ce0-4f0b-afb1-22bbfd58f0a3" display="Can Be Modified" value="false" isActive="true" />
             <property name="2782bc72-02b8-4e25-9fd7-b625bf8a11d2" display="Create Name Function" isActive="false" />
             <property name="51aec36f-cc2d-489e-ba6b-816aca340502" display="Use Child Mappings From" isActive="true" />
@@ -104,6 +105,7 @@
                 <property name="73a079b1-5720-4b70-ada3-7af8a98b7510" display="Sync Stereotype" value="0f3fc9f6-d11b-4e78-b28d-3c818e32d510" isActive="false" />
                 <property name="c6d38f6b-83f0-466d-9b89-3aa3b8c58d6f" display="Sync Stereotype Property" value="0e69d7ce-a9aa-4c8f-8940-6b9964dfa894" isActive="false" />
                 <property name="5bd73806-e43e-402e-a8ab-ed63cbc1ef98" display="On Mapping Changed Script" isActive="true" />
+                <property name="55e6149c-91a6-4381-b324-7eab4395fa59" display="Validate Function" isActive="true" />
                 <property name="c2f9befb-4ce0-4f0b-afb1-22bbfd58f0a3" display="Can Be Modified" value="false" isActive="true" />
                 <property name="2782bc72-02b8-4e25-9fd7-b625bf8a11d2" display="Create Name Function" isActive="false" />
                 <property name="51aec36f-cc2d-489e-ba6b-816aca340502" display="Use Child Mappings From" isActive="true" />
@@ -138,9 +140,7 @@
                   <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
                   <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
                   <properties>
-                    <property name="bbb5c684-e1a5-42e3-b253-f9d16c4d7eb7" display="Type" value="Inline Script" isActive="true" />
                     <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const dataMappingTypeId = &quot;ee19a932-0cea-4b90-bd3c-857d7942d390&quot;;&#xD;&#xA;const parentElement = mapping.getSourceElement();&#xD;&#xA;const newProperty = createElement(&quot;Property&quot;, toPascalCase(element.getParent().getName()), parentElement.id);&#xD;&#xA;newProperty.typeReference.setType(element.typeReference.toModel());&#xD;&#xA;mapping.addMappedEnd(dataMappingTypeId, newProperty.getMappingPath(), element.getMappingPath());" isActive="true" />
-                    <property name="29e4580d-7b8c-41a1-b1d0-2e8153ecfb5f" display="File Path" isActive="false" />
                     <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
                   </properties>
                 </stereotype>
@@ -193,6 +193,7 @@
                 <property name="73a079b1-5720-4b70-ada3-7af8a98b7510" display="Sync Stereotype" isActive="false" />
                 <property name="c6d38f6b-83f0-466d-9b89-3aa3b8c58d6f" display="Sync Stereotype Property" isActive="false" />
                 <property name="5bd73806-e43e-402e-a8ab-ed63cbc1ef98" display="On Mapping Changed Script" isActive="true" />
+                <property name="55e6149c-91a6-4381-b324-7eab4395fa59" display="Validate Function" isActive="true" />
                 <property name="c2f9befb-4ce0-4f0b-afb1-22bbfd58f0a3" display="Can Be Modified" value="false" isActive="true" />
                 <property name="2782bc72-02b8-4e25-9fd7-b625bf8a11d2" display="Create Name Function" isActive="false" />
                 <property name="51aec36f-cc2d-489e-ba6b-816aca340502" display="Use Child Mappings From" isActive="true" />
@@ -232,6 +233,7 @@
                 <property name="73a079b1-5720-4b70-ada3-7af8a98b7510" display="Sync Stereotype" value="0f3fc9f6-d11b-4e78-b28d-3c818e32d510" isActive="true" />
                 <property name="c6d38f6b-83f0-466d-9b89-3aa3b8c58d6f" display="Sync Stereotype Property" value="0e69d7ce-a9aa-4c8f-8940-6b9964dfa894" isActive="true" />
                 <property name="5bd73806-e43e-402e-a8ab-ed63cbc1ef98" display="On Mapping Changed Script" isActive="true" />
+                <property name="55e6149c-91a6-4381-b324-7eab4395fa59" display="Validate Function" isActive="true" />
                 <property name="c2f9befb-4ce0-4f0b-afb1-22bbfd58f0a3" display="Can Be Modified" value="false" isActive="true" />
                 <property name="2782bc72-02b8-4e25-9fd7-b625bf8a11d2" display="Create Name Function" isActive="false" />
                 <property name="51aec36f-cc2d-489e-ba6b-816aca340502" display="Use Child Mappings From" isActive="true" />
@@ -271,6 +273,7 @@
                 <property name="73a079b1-5720-4b70-ada3-7af8a98b7510" display="Sync Stereotype" isActive="false" />
                 <property name="c6d38f6b-83f0-466d-9b89-3aa3b8c58d6f" display="Sync Stereotype Property" isActive="false" />
                 <property name="5bd73806-e43e-402e-a8ab-ed63cbc1ef98" display="On Mapping Changed Script" isActive="true" />
+                <property name="55e6149c-91a6-4381-b324-7eab4395fa59" display="Validate Function" isActive="true" />
                 <property name="c2f9befb-4ce0-4f0b-afb1-22bbfd58f0a3" display="Can Be Modified" value="false" isActive="true" />
                 <property name="2782bc72-02b8-4e25-9fd7-b625bf8a11d2" display="Create Name Function" isActive="false" />
                 <property name="51aec36f-cc2d-489e-ba6b-816aca340502" display="Use Child Mappings From" isActive="true" />
@@ -321,6 +324,7 @@
                 <property name="73a079b1-5720-4b70-ada3-7af8a98b7510" display="Sync Stereotype" isActive="false" />
                 <property name="c6d38f6b-83f0-466d-9b89-3aa3b8c58d6f" display="Sync Stereotype Property" isActive="false" />
                 <property name="5bd73806-e43e-402e-a8ab-ed63cbc1ef98" display="On Mapping Changed Script" isActive="true" />
+                <property name="55e6149c-91a6-4381-b324-7eab4395fa59" display="Validate Function" isActive="true" />
                 <property name="c2f9befb-4ce0-4f0b-afb1-22bbfd58f0a3" display="Can Be Modified" value="false" isActive="true" />
                 <property name="2782bc72-02b8-4e25-9fd7-b625bf8a11d2" display="Create Name Function" isActive="false" />
                 <property name="51aec36f-cc2d-489e-ba6b-816aca340502" display="Use Child Mappings From" isActive="true" />
@@ -371,6 +375,7 @@
                 <property name="73a079b1-5720-4b70-ada3-7af8a98b7510" display="Sync Stereotype" isActive="false" />
                 <property name="c6d38f6b-83f0-466d-9b89-3aa3b8c58d6f" display="Sync Stereotype Property" isActive="false" />
                 <property name="5bd73806-e43e-402e-a8ab-ed63cbc1ef98" display="On Mapping Changed Script" isActive="true" />
+                <property name="55e6149c-91a6-4381-b324-7eab4395fa59" display="Validate Function" isActive="true" />
                 <property name="c2f9befb-4ce0-4f0b-afb1-22bbfd58f0a3" display="Can Be Modified" value="false" isActive="true" />
                 <property name="2782bc72-02b8-4e25-9fd7-b625bf8a11d2" display="Create Name Function" isActive="false" />
                 <property name="51aec36f-cc2d-489e-ba6b-816aca340502" display="Use Child Mappings From" isActive="true" />
@@ -399,6 +404,7 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="bd502960-a08e-4138-b3e0-d3dad4439410" display="Extend Target Settings" value="[&quot;4beb5cac-39dc-48db-854a-f1fd99b39fe0&quot;]" isActive="true" />
+            <property name="92b5cff8-04da-47e2-bd8a-7f639e7f8716" display="Validate Function" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -434,6 +440,7 @@
                 <property name="73a079b1-5720-4b70-ada3-7af8a98b7510" display="Sync Stereotype" isActive="false" />
                 <property name="c6d38f6b-83f0-466d-9b89-3aa3b8c58d6f" display="Sync Stereotype Property" isActive="false" />
                 <property name="5bd73806-e43e-402e-a8ab-ed63cbc1ef98" display="On Mapping Changed Script" isActive="true" />
+                <property name="55e6149c-91a6-4381-b324-7eab4395fa59" display="Validate Function" isActive="true" />
                 <property name="c2f9befb-4ce0-4f0b-afb1-22bbfd58f0a3" display="Can Be Modified" value="false" isActive="true" />
                 <property name="2782bc72-02b8-4e25-9fd7-b625bf8a11d2" display="Create Name Function" isActive="false" />
                 <property name="51aec36f-cc2d-489e-ba6b-816aca340502" display="Use Child Mappings From" isActive="true" />
@@ -444,6 +451,29 @@
           <childElements />
         </childElement>
       </childElements>
+    </childElement>
+    <childElement id="7c36e673-8c30-42a9-bf8c-268ea64ddb84" type="Mappable Element Extension" typeId="f9449923-9173-4347-a3a2-38d1eb66f6b5">
+      <name>Date Picker Extension</name>
+      <display>Date Picker Extension extends Date Picker</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>62163999-a97e-46fc-b744-ad35684ff9f1</parentFolderId>
+      <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+      <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="dfd7cc0c-7c7a-47dc-b16d-d3d9f0b7a9b2" name="Mappable Extension Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="bd502960-a08e-4138-b3e0-d3dad4439410" display="Extend Target Settings" value="[&quot;c2990e0d-c506-46b9-800e-0cd7610d1809&quot;]" isActive="true" />
+            <property name="92b5cff8-04da-47e2-bd8a-7f639e7f8716" display="Validate Function" value="if (element.getMappedToElements()[0] &amp;&amp; !element.getMappedToElements()[0].typeReference.getIsNullable()) {&#xD;&#xA;    return {&#xD;&#xA;        text: &quot;Mappings to Date Picker must be nullable&quot;, &#xD;&#xA;        type: &quot;warning&quot;&#xD;&#xA;    }&#xD;&#xA;}" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
     </childElement>
     <childElement id="8f3357d1-4076-435e-8518-d488eb496b34" type="Mappable Element Extension" typeId="f9449923-9173-4347-a3a2-38d1eb66f6b5">
       <name>On Click Extensions</name>
@@ -462,6 +492,7 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="bd502960-a08e-4138-b3e0-d3dad4439410" display="Extend Target Settings" value="[&quot;5e17d25c-5d06-4db6-9961-51910f21b41f&quot;]" isActive="true" />
+            <property name="92b5cff8-04da-47e2-bd8a-7f639e7f8716" display="Validate Function" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -493,10 +524,8 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="bbb5c684-e1a5-42e3-b253-f9d16c4d7eb7" display="Type" value="Inline Script" isActive="true" />
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const invocationMappingTYpeId = &quot;e4f0c63b-0f00-42bd-a703-00adf44f3364&quot;;&#xD;&#xA;const parentElement = mapping.getSourceElement();&#xD;&#xA;const newOperation = createElement(&quot;Component Operation&quot;, (element.getParent().getName() + element.getName().replace(&quot;On &quot;, &quot;&quot;)).replace(&quot; &quot;, &quot;&quot;), parentElement.id);&#xD;&#xA;const param = createElement(&quot;Parameter&quot;, &quot;rowId&quot;, newOperation.id);&#xD;&#xA;mapping.addMappedEnd(invocationMappingTYpeId, newOperation.getMappingPath(), element.getMappingPath());" isActive="true" />
-                <property name="29e4580d-7b8c-41a1-b1d0-2e8153ecfb5f" display="File Path" isActive="false" />
-                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const newOperation = addOperation(`On${element.getParent().getName().replace(&quot; &quot;, &quot;&quot;)}RowClicked`)&#xD;&#xA;const param = createElement(&quot;Parameter&quot;, &quot;rowId&quot;, newOperation.id);" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" value="[&quot;0396d15f-fe9f-4710-ab9c-78eda14ad15a&quot;]" isActive="true" />
               </properties>
             </stereotype>
             <stereotype stereotypeDefinitionId="cbe77364-d1d0-400b-a8c4-646a4c869612" name="Option Settings">

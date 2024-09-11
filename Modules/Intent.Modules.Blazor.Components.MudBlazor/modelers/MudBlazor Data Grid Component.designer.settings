@@ -168,6 +168,8 @@ mapping.addMappingExpression(table.getMappingPath().concat(["53a618ca-e5aa-49ca-
 dataCollection.getChildren().filter(x =&gt; x.specialization == "Property" || x.specialization == "DTO-Field").forEach(p =&gt; {
     if (p.typeReference.getTypeId() == "d384db9c-a279-45e1-801e-e4e8099625f2" || // string
         p.typeReference.getTypeId() == "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74" || // int
+        p.typeReference.getTypeId() == "1fbaa056-b666-4f25-b8fd-76fe3165acc8" || // date
+        p.typeReference.getTypeId() == "a4107c29-7851-4121-9416-cf1236908f1e" || // datetime
         p.typeReference.getTypeId() == "675c7b84-997a-44e0-82b9-cd724c07c9e6") { // decimal
         const newColumn = createElement("Data Grid Column", toTitleCase(p.getName()), table.id);
         mapping.addMappedEnd(dataBindingMappingTypeId, p.getMappingPath(), newColumn.getMappingPath())
@@ -319,6 +321,20 @@ mapping.addMappedEnd(dataMappingTypeId, newProperty.getMappingPath(), element.ge
           <childSettings />
         </mappableElementExtension>
         <mappableElementExtension>
+          <validateFunction>if (element.getMappedToElements()[0] &amp;&amp; !element.getMappedToElements()[0].typeReference.getIsNullable()) {
+    return {
+        text: "Mappings to Date Picker must be nullable", 
+        type: "warning"
+    }
+}</validateFunction>
+          <targetSettings>
+            <type type="Date Picker: Date Picker" typeId="c2990e0d-c506-46b9-800e-0cd7610d1809" />
+          </targetSettings>
+          <scriptOptions />
+          <staticMappableSettings />
+          <childSettings />
+        </mappableElementExtension>
+        <mappableElementExtension>
           <targetSettings>
             <type type="On Row Click" typeId="5e17d25c-5d06-4db6-9961-51910f21b41f" />
           </targetSettings>
@@ -327,11 +343,11 @@ mapping.addMappedEnd(dataMappingTypeId, newProperty.getMappingPath(), element.ge
               <text>Auto-map to Operation</text>
               <shortcut>space</shortcut>
               <icon type="FontAwesome" source="code" />
-              <script>const invocationMappingTYpeId = "e4f0c63b-0f00-42bd-a703-00adf44f3364";
-const parentElement = mapping.getSourceElement();
-const newOperation = createElement("Component Operation", (element.getParent().getName() + element.getName().replace("On ", "")).replace(" ", ""), parentElement.id);
-const param = createElement("Parameter", "rowId", newOperation.id);
-mapping.addMappedEnd(invocationMappingTYpeId, newOperation.getMappingPath(), element.getMappingPath());</script>
+              <dependencies>
+                <dependency name="Add Operation Function" id="0396d15f-fe9f-4710-ab9c-78eda14ad15a" />
+              </dependencies>
+              <script>const newOperation = addOperation(`On${element.getParent().getName().replace(" ", "")}RowClicked`)
+const param = createElement("Parameter", "rowId", newOperation.id);</script>
             </option>
           </scriptOptions>
           <staticMappableSettings />

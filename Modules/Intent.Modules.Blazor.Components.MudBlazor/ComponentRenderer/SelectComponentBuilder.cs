@@ -40,9 +40,7 @@ public class SelectComponentBuilder : IRazorComponentBuilder
             code.AddHtmlElement("MudSelectItem", selectItem =>
             {
                 var selectItemMapping = _bindingManager.GetMappedEndFor(selectModel, "Value");
-                selectItem.AddAttributeIfNotEmpty("T", !selectItemMapping.SourceElement.TypeReference.Equals(valueMapping.SourceElement.TypeReference)
-                    ? _componentTemplate.GetTypeName(valueMapping.SourceElement.TypeReference)
-                    : null);
+                selectItem.AddAttribute("T", _componentTemplate.GetTypeName(valueMapping.SourceElement.TypeReference));
                 // TODO: Use bindings:
                 selectItem.AddAttribute("Value", _bindingManager.GetBinding(selectModel, "Value", htmlElement)?.ToString())
                     .WithText(_bindingManager.GetBinding(selectModel, "Text", htmlElement)?.ToString());
