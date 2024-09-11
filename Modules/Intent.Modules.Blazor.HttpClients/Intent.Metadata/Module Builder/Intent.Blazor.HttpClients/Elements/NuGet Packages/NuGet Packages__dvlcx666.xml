@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="31bd0aba-eb1c-4e59-b5f6-d7429b81db0e" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>88700928-697c-4905-9f55-7aeec936b295</parentFolderId>
+  <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+  <packageName>Intent.Blazor.HttpClients</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

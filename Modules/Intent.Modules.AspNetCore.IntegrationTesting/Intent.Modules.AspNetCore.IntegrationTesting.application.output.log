@@ -9,7 +9,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>677abc38-c23b-4ca4-9117-f470dd3ea997</ProjectId>
+      <ProjectId>267f152f-1993-4a37-b010-ae5772ae6f52</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentOutputReadme#e52a995f-2a26-431a-902a-de6d29e8c071</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>content/static-content/readme.txt</ApplicationRelativeFilePath>
@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>677abc38-c23b-4ca4-9117-f470dd3ea997</ProjectId>
+      <ProjectId>267f152f-1993-4a37-b010-ae5772ae6f52</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AspNetCore.IntegrationTesting.imodspec</ApplicationRelativeFilePath>
@@ -25,15 +25,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>677abc38-c23b-4ca4-9117-f470dd3ea997</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#677abc38-c23b-4ca4-9117-f470dd3ea997</CorrelationId>
+      <ProjectId>267f152f-1993-4a37-b010-ae5772ae6f52</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#267f152f-1993-4a37-b010-ae5772ae6f52</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.IntegrationTesting.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.IntegrationTesting.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>677abc38-c23b-4ca4-9117-f470dd3ea997</ProjectId>
+      <ProjectId>267f152f-1993-4a37-b010-ae5772ae6f52</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
