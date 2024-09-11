@@ -2,6 +2,8 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Repositories.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates;
 
@@ -39,6 +41,8 @@ public static class RepositoryOperationHelper
 
     public static void ApplyMethods(ICSharpFileBuilderTemplate template, CSharpInterface @interface, RepositoryModel repositoryModel)
     {
+        template.AddDomainTypeSources();
+
         foreach (var operationModel in repositoryModel.Operations)
         {
             var isAsync = operationModel.Name.EndsWith("Async");
@@ -63,7 +67,14 @@ public static class RepositoryOperationHelper
             });
         }
     }
-    
+
+    public static void AddDomainTypeSources(this IIntentTemplate template)
+    {
+        template.AddTypeSource(TemplateRoles.Domain.Enum);
+        template.AddTypeSource(TemplateRoles.Domain.Entity.Interface);
+        template.AddTypeSource(TemplateRoles.Domain.DataContract);
+    }
+
     private static string GetReturnType(ICSharpFileBuilderTemplate template, ITypeReference? returnType)
     {
         if (returnType is null)

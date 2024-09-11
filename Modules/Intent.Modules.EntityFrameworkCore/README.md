@@ -80,20 +80,20 @@ The ordering is achieved using EF Core's `HasColumnOrder` functionality.
 When enabled, the EF configuration will set up a SQL table check constraints to ensure the data stored in the underlying column adheres to the `Enum`.
 
 ```csharp
-    var enumValues = Enum.GetValuesAsUnderlyingType<CustomerType>()
+    var customerTypeEnumValues = Enum.GetValuesAsUnderlyingType<CustomerType>()
         .Cast<object>()
         .Select(value => value.ToString());
 
-    builder.ToTable(tb => tb.HasCheckConstraint("customer_customer_type_check", $"\"CustomerType\" IN ({string.Join(",", enumValues)})"));
+    builder.ToTable(tb => tb.HasCheckConstraint("customer_customer_type_check", $"\"CustomerType\" IN ({string.Join(",", customerTypeEnumValues)})"));
 ```
 
 If you are using the `Store enums as strings` setting you will get the following
 
 ```csharp
-    var enumValues = Enum.GetNames<CustomerType>()
+    var customerTypeEnumValues = Enum.GetNames<CustomerType>()
         .Select(e => $"'{e}'");
 
-    builder.ToTable(tb => tb.HasCheckConstraint("customer_customer_type_check", $"\"CustomerType\" IN ({string.Join(",", enumValues)})"));
+    builder.ToTable(tb => tb.HasCheckConstraint("customer_customer_type_check", $"\"CustomerType\" IN ({string.Join(",", customerTypeEnumValues)})"));
 ```
 
 Intent will automatically do the Column ordering but if you want to get very specific you can use the `DataColumn` stereotype to explicitly set the ordering. 

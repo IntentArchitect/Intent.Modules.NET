@@ -29,6 +29,9 @@ namespace AdvancedMappingCrud.DbContext.Tests.Infrastructure.Persistence.Configu
             builder.Property(x => x.CustomerId)
                 .IsRequired();
 
+            builder.Property(x => x.EntityStatus)
+                .IsRequired();
+
             builder.HasOne(x => x.Customer)
                 .WithMany()
                 .HasForeignKey(x => x.CustomerId)
@@ -36,11 +39,17 @@ namespace AdvancedMappingCrud.DbContext.Tests.Infrastructure.Persistence.Configu
 
             builder.OwnsMany(x => x.OrderItems, ConfigureOrderItems);
 
-            var enumValues = Enum.GetValuesAsUnderlyingType<OrderStatus>()
+            var orderStatusEnumValues = Enum.GetValuesAsUnderlyingType<OrderStatus>()
                 .Cast<object>()
                 .Select(value => value.ToString());
 
-            builder.ToTable(tb => tb.HasCheckConstraint("order_order_status_check", $"\"OrderStatus\" IN ({string.Join(",", enumValues)})"));
+            builder.ToTable(tb => tb.HasCheckConstraint("order_order_status_check", $"\"OrderStatus\" IN ({string.Join(",", orderStatusEnumValues)})"));
+
+            var entityStatusEnumValues = Enum.GetValuesAsUnderlyingType<EntityStatus>()
+                .Cast<object>()
+                .Select(value => value.ToString());
+
+            builder.ToTable(tb => tb.HasCheckConstraint("order_entity_status_check", $"\"EntityStatus\" IN ({string.Join(",", entityStatusEnumValues)})"));
 
             builder.Ignore(e => e.DomainEvents);
         }

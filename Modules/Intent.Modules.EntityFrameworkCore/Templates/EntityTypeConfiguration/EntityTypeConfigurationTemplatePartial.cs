@@ -555,7 +555,6 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             if (ExecutionContext.Settings.GetDatabaseSettings().EnumCheckConstraints() && model.Attributes.Any(a => a.TypeReference.Element.IsEnumModel()))
             {
-                var enumsStoredAsStrings = ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings();
                 var attributesToAdd = model.Attributes.Where(a => a.TypeReference.Element.IsEnumModel());
                 foreach (var enumAttribute in attributesToAdd)
                 {
@@ -563,19 +562,20 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     AddUsing("System.Linq");
                     var constraint = new StringBuilder();
                     string enumType = this.GetTypeName(enumAttribute.TypeReference);
+                    var tempVarName = $"{enumAttribute.Name}EnumValues".ToLocalVariableName();
                     if (ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings())
                     {
-                        constraint.AppendLine(@$"var enumValues =  Enum.GetNames<{enumType}>()
+                        constraint.AppendLine(@$"var {tempVarName} =  Enum.GetNames<{enumType}>()
                 .Select(e => $""'{{e}}'"");");
                     }
                     else
                     {
-                        constraint.AppendLine(@$"var enumValues = Enum.GetValuesAsUnderlyingType<{enumType}>()
+                        constraint.AppendLine(@$"var {tempVarName} = Enum.GetValuesAsUnderlyingType<{enumType}>()
                 .Cast<object>()
                 .Select(value => value.ToString());");
                     }
                     constraint.AppendLine();
-                    constraint.AppendLine(@$"builder.ToTable(tb => tb.HasCheckConstraint(""{GetContraintName(enumAttribute)}"", $""\""{enumAttribute.Name}\"" IN ({{string.Join("","", enumValues)}})""));");
+                    constraint.AppendLine(@$"builder.ToTable(tb => tb.HasCheckConstraint(""{GetContraintName(enumAttribute)}"", $""\""{enumAttribute.Name}\"" IN ({{string.Join("","", {tempVarName})}})""));");
                     yield return constraint.ToString();
                 }
             }

@@ -1,5 +1,6 @@
 ### Version 6.0.12
 
+- Improvement: Added support for customizing `Success Response Code`.
 - Fixed: Snag found in the code responsible for generating the AddControllers line in the Startup routine especially when `AddJsonOptions` were introduced.
 
 ### Version 6.0.11

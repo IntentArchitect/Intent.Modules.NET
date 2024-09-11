@@ -22,7 +22,7 @@
   <targetEnd id="e82fb36f-641c-4832-84fe-5b99af5b9b54" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Customer</name>
     <display>Customer: Customer</display>
-    <order>5</order>
+    <order>6</order>
     <typeReference id="baa0adc9-2ac9-49fa-821b-5c97cdf8d8eb">
       <typeId>efc7e5ea-e31d-496b-b6a9-5c6bd8f455b3</typeId>
       <isNavigable>true</isNavigable>

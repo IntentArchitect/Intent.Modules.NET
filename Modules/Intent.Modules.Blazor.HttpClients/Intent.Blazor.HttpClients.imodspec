@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.HttpClients</id>
-  <version>4.0.0-pre.5</version>
+  <version>4.0.0-pre.6</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces an HTTP Client implementation for Blazor applications that can make service calls against a referenced service Restful API.</summary>
   <description>Introduces an HTTP Client implementation for Blazor applications that can make service calls against a referenced service Restful API.</description>
