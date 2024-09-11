@@ -144,7 +144,7 @@ public static class ValidationRulesExtensions
 
                     if (indexFields.Any(p => p.FieldName == field.Name && p.GroupCount == 1))
                     {
-                        if (!TryGetMappedAttribute(field, out var mappedAttribute) && !TryGetAdvancedMappedAttribute(associationedElements, field, out mappedAttribute))
+                        if (!TryGetMappedAttribute(field, out var mappedAttribute) && !TryGetAdvancedMappedAttribute(field, out mappedAttribute))
                         { 
                             continue; 
                         }
@@ -230,7 +230,7 @@ public static class ValidationRulesExtensions
 
         foreach (var field in dtoModel.Fields)
         {
-            if ((!TryGetMappedAttribute(field, out var mappedAttribute) && !TryGetAdvancedMappedAttribute(associationedElements, field, out mappedAttribute)) || 
+            if ((!TryGetMappedAttribute(field, out var mappedAttribute) && !TryGetAdvancedMappedAttribute(field, out mappedAttribute)) || 
                 constraintFields.All(p => p.FieldName != mappedAttribute.Name))
             {
                 continue;
@@ -395,7 +395,7 @@ public static class ValidationRulesExtensions
         IReadOnlyCollection<ConstraintField> indexFields,
         IEnumerable<IAssociationEnd> associationedElements)
     {
-        var hasMappedAttribute = TryGetMappedAttribute(field, out var mappedAttribute) || TryGetAdvancedMappedAttribute(associationedElements, field, out mappedAttribute);
+        var hasMappedAttribute = TryGetMappedAttribute(field, out var mappedAttribute) || TryGetAdvancedMappedAttribute(field, out mappedAttribute);
         if (!validationRuleChain.Statements.Any(x => x.HasMetadata("max-length")) && hasMappedAttribute)
         {
             try
@@ -691,7 +691,7 @@ public static class ValidationRulesExtensions
         return false;
     }
     
-    private static bool TryGetAdvancedMappedAttribute(IEnumerable<IAssociationEnd> associationedElements, DTOFieldModel field, out AttributeModel attribute)
+    private static bool TryGetAdvancedMappedAttribute(DTOFieldModel field, out AttributeModel attribute)
     {
         var mappedEnd = field.InternalElement.MappedToElements.FirstOrDefault(p => p.MappingType == "Data Mapping"
                             && p.TargetElement?.IsAttributeModel() == true);
