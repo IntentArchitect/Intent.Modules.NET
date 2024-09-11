@@ -12,7 +12,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Utils;
 
@@ -424,7 +423,7 @@ public static class ValidationRulesExtensions
     private static void AddValidatorsBasedOnTypeReference<TModel>(CSharpTemplateBase<TModel> template, string dtoTemplateId, string dtoValidatorTemplateId, DTOFieldModel property,
         CSharpMethodChainStatement validationRuleChain)
     {
-        if (property.TypeReference.Element.IsEnumModel())
+        if (Common.Types.Api.EnumModelExtensions.IsEnumModel(property.TypeReference.Element))
         {
             validationRuleChain.AddChainStatement(property.TypeReference.IsCollection
                 ? "ForEach(x => x.IsInEnum())"
