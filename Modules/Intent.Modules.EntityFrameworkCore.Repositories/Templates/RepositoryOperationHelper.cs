@@ -15,12 +15,12 @@ public static class RepositoryOperationHelper
     {
         foreach (var operationModel in repositoryModel.Operations)
         {
-            var isAsync = operationModel.Name.EndsWith("Async");
+            var isAsync = operationModel.Name.EndsWith("Async") || operationModel.HasStereotype("Asynchronous");
             @class.AddMethod(GetReturnType(template, operationModel.ReturnType), operationModel.Name, method =>
             {
                 method.AddMetadata("model", operationModel);
                 method.RepresentsModel(operationModel);
-                if (isAsync || operationModel.HasStereotype("Asynchronous"))
+                if (isAsync)
                 {
                     method.Async();
                 }
@@ -46,12 +46,12 @@ public static class RepositoryOperationHelper
 
         foreach (var operationModel in repositoryModel.Operations)
         {
-            var isAsync = operationModel.Name.EndsWith("Async");
+            var isAsync = operationModel.Name.EndsWith("Async") || operationModel.HasStereotype("Asynchronous");
             @interface.AddMethod(GetReturnType(template, operationModel.ReturnType), operationModel.Name, method =>
             {
                 method.AddMetadata("model", operationModel);
                 method.RepresentsModel(operationModel);
-                if (isAsync || operationModel.HasStereotype("Asynchronous"))
+                if (isAsync)
                 {
                     method.Async();
                 }

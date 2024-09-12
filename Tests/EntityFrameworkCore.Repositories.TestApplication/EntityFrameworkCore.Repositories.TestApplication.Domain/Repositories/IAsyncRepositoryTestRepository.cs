@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 
@@ -8,6 +9,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories
 {
     public interface IAsyncRepositoryTestRepository
     {
-        Task Operation();
+        Task Operation(CancellationToken cancellationToken = default);
     }
 }

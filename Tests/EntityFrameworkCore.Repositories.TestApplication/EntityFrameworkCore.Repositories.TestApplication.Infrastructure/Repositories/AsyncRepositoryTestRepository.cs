@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persistence;
@@ -19,7 +20,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task Operation()
+        public async Task Operation(CancellationToken cancellationToken = default)
         {
             // TODO: Implement Operation (AsyncRepositoryTestRepository) functionality
             throw new NotImplementedException("Your implementation here...");
