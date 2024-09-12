@@ -1,5 +1,6 @@
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Repositories.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -19,7 +20,7 @@ public static class RepositoryOperationHelper
             {
                 method.AddMetadata("model", operationModel);
                 method.RepresentsModel(operationModel);
-                if (isAsync)
+                if (isAsync || operationModel.HasStereotype("Asynchronous"))
                 {
                     method.Async();
                 }
@@ -50,7 +51,7 @@ public static class RepositoryOperationHelper
             {
                 method.AddMetadata("model", operationModel);
                 method.RepresentsModel(operationModel);
-                if (isAsync)
+                if (isAsync || operationModel.HasStereotype("Asynchronous"))
                 {
                     method.Async();
                 }
