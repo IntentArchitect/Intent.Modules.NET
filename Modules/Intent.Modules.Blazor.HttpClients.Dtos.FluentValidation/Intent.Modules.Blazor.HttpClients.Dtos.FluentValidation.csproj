@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.6.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.7.3" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.7.0-pre.3" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.0-pre.7" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.7.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">
       <PrivateAssets>all</PrivateAssets>
@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Blazor.FluentValidation\Intent.Modules.Blazor.FluentValidation.csproj" />
     <ProjectReference Include="..\Intent.Modules.Blazor.HttpClients\Intent.Modules.Blazor.HttpClients.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>

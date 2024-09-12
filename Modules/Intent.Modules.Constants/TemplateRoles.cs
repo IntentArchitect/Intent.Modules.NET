@@ -1,4 +1,5 @@
 ﻿using System;
+using static Intent.Modules.Constants.TemplateRoles.Application;
 
 namespace Intent.Modules.Constants
 {
@@ -145,8 +146,21 @@ namespace Intent.Modules.Constants
             {
                 public const string Program = "Blazor.Client.Program";
                 public const string DependencyInjection = "Blazor.Client.DependencyInjection";
+
+                public static class Model
+                {
+                    public const string Definition = "Blazor.Client.Model.Definition";
+                    public const string Validator = "Blazor.Client.Model.Validator";
+                }
             }
 
+            public static class HttpClient
+            {
+                public static class Contracts
+                {
+                    public const string Dto = "Blazor.HttpClient.Contracts.Dto";
+                }
+            }
         }
     }
 }

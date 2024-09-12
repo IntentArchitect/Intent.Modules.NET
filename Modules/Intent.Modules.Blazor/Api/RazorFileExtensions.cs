@@ -176,10 +176,6 @@ public static class RazorFileExtensions
                                         var variableName = serviceCall.TypeReference.Element.TypeReference.Element.Name.ToLocalVariableName();
                                         method.AddStatement(new CSharpAssignmentStatement($"var {variableName}", new CSharpAwaitExpression(new CSharpAccessMemberStatement($"{serviceName}", invocation))));
                                         mappingManager.SetFromReplacement(new StaticMetadata(responseStaticElementId), variableName);
-                                        if (method.Name == "OnInitializedAsync")
-                                        {
-                                            Console.Write("laskdfj");
-                                        }
                                         var response = mappingManager.GenerateUpdateStatements(serviceCall.GetMapResponseMapping());
                                         foreach (var statement in response)
                                         {

@@ -31,7 +31,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Blazor.Client.Component</role>
+      <role>Blazor.Client.Model.Definition</role>
       <location></location>
     </template>
     <template id="Intent.Blazor.Templates.Client.ProgramTemplate" externalReference="2d5ee2ba-5a78-4ac9-9905-ccd9f68247f9">

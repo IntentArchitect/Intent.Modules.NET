@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>86e80c9c-2a8b-441c-88bf-3ea46f2ab107</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#356fbe17-bc63-4e16-b915-feefbc063cbe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/PropertyModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PropertyModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>ae77e012-c200-497a-a400-f2d1da23da66</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#0153fa6b-0e26-4295-b51f-6285701486fb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -38,6 +46,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NugetPackages.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05aa2853-0d69-4f55-b779-0718a715cc1f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8a34e1a2-e62f-422a-b393-6cfcfe186871</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ModelDefinitionValidator/ModelDefinitionValidatorTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModelDefinitionValidator/ModelDefinitionValidatorTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>05aa2853-0d69-4f55-b779-0718a715cc1f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#8a34e1a2-e62f-422a-b393-6cfcfe186871</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ModelDefinitionValidator/ModelDefinitionValidatorTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModelDefinitionValidator/ModelDefinitionValidatorTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

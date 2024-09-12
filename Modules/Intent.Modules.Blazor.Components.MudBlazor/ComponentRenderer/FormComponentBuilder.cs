@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
@@ -58,7 +59,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
             form.AddAttributeIfNotEmpty("Model", modelBinding.ToString());
 
 
-            var validator = _componentTemplate.ExecutionContext.FindTemplateInstance("Blazor.HttpClient.Contracts.Dto.Validation", modelMapping.SourceElement.TypeReference.Element.Id);
+            var validator = _componentTemplate.ExecutionContext.FindTemplateInstance(TemplateRoles.Blazor.Client.Model.Definition, modelMapping.SourceElement.TypeReference.Element.Id);
             if (validator != null)
             {
                 _componentTemplate.RazorFile.AddInjectDirective(_componentTemplate.GetTypeName("Blazor.Client.Validation.ValidatorProviderInterface"), "ValidatorProvider");

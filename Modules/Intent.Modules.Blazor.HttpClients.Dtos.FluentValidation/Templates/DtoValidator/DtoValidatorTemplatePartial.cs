@@ -10,7 +10,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.FluentValidation.Shared;
 using Intent.RoslynWeaver.Attributes;
-using static Intent.Modules.FluentValidation.Shared.SimpleValidationRulesExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Ignore, Targets = Targets.Usings)]
@@ -31,10 +30,10 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
                 relativeLocation: ExtensionMethods.GetPackageBasedRelativeLocation(model, outputTarget));
 
             this.ConfigureForValidation(
-                dtoModel: model,
+                dtoModel: model.InternalElement,
                 configureValidations: [
                     //(methodChain, field) => methodChain.AddCustomValidations(this, field, DtoContractTemplate.TemplateId),
-                    (methodChain, field) => methodChain.AddValidatorsFromMappedDomain(Model, field)
+                    (methodChain, field) => methodChain.AddValidatorsFromMappedDomain(Model.InternalElement, field)
                 ]);
         }
 

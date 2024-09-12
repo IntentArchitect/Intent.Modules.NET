@@ -112,7 +112,7 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract
 
                     foreach (var field in Model.Fields)
                     {
-                        @class.AddProperty(GetTypeName(field.TypeReference), field.Name.ToPascalCase(), property =>
+                        @class.AddProperty(field, property =>
                         {
                             property.AddMetadata("model", field);
 
