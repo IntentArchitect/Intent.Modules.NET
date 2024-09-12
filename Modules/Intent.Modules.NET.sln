@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application Templates", "Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.Repositories", "Intent.Modules.EntityFrameworkCore.Repositories\Intent.Modules.EntityFrameworkCore.Repositories.csproj", "{3695D671-4A21-4586-86F9-434602EA241C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Entities.Repositories.Api", "Intent.Modules.Entities.Repositories.Api\Intent.Modules.Entities.Repositories.Api.csproj", "{DC43DD5D-0776-4345-853D-DEF3A95F0CDF}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Entities.Repositories.Api", "Intent.Modules.Entities.Repositories.Api\Intent.Modules.Entities.Repositories.Api.csproj", "{DC43DD5D-0776-4345-853D-DEF3A95F0CDF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET Core", "NET Core", "{F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}"
 EndProject
@@ -28,7 +28,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Swashbuckle", "Intent.Modules.AspNetCore.Swashbuckle\Intent.Modules.AspNetCore.Swashbuckle.csproj", "{0A2DEC4C-A2FC-4290-85FA-2F64F6FAC4C2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore", "Intent.Modules.AspNetCore\Intent.Modules.AspNetCore.csproj", "{5CD69B39-BFF1-4713-86C7-D5D7D7F397EA}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore", "Intent.Modules.AspNetCore\Intent.Modules.AspNetCore.csproj", "{5CD69B39-BFF1-4713-86C7-D5D7D7F397EA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.ServiceImplementations", "Intent.Modules.Application.ServiceImplementations\Intent.Modules.Application.ServiceImplementations.csproj", "{925156ED-76E0-44B3-9FC4-4CD14AB7312C}"
 EndProject
@@ -36,23 +36,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.VisualStudio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore", "Intent.Modules.EntityFrameworkCore\Intent.Modules.EntityFrameworkCore.csproj", "{E3054741-163B-4DF0-8AE0-EAB74A57341D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.IdentityServer4.X509CertSigning", "Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.csproj", "{FFF1A74E-FF1B-40C7-ACB7-BDC8BF1C302D}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.IdentityServer4.X509CertSigning", "Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.csproj", "{FFF1A74E-FF1B-40C7-ACB7-BDC8BF1C302D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Contracts.Clients", "Intent.Modules.Application.Contracts.Clients\Intent.Modules.Application.Contracts.Clients.csproj", "{96929B04-8386-4F55-B348-15A592FA7C0C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Interop.Angular", "Intent.Modules.AspNetCore.Interop.Angular\Intent.Modules.AspNetCore.Interop.Angular.csproj", "{96AC5884-36A9-4B6D-8E91-3C8D7BA75BB6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Controllers", "Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj", "{863DEDBB-B0A4-467E-96EA-F1EE97D7BD10}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Controllers", "Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj", "{863DEDBB-B0A4-467E-96EA-F1EE97D7BD10}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR", "Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.csproj", "{80081361-CC7D-430C-8861-8B2AC9D6E8A7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.DependencyInjection", "Intent.Modules.Application.DependencyInjection\Intent.Modules.Application.DependencyInjection.csproj", "{1D15D8BA-269B-4A31-8855-602CDDAA651B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Identity", "Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj", "{DEDDB78D-352E-4FE1-B7AF-5F1AC59E4F55}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.Identity", "Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj", "{DEDDB78D-352E-4FE1-B7AF-5F1AC59E4F55}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.Behaviours", "Intent.Modules.Application.MediatR.Behaviours\Intent.Modules.Application.MediatR.Behaviours.csproj", "{8DE7DB33-7D69-403F-AD45-3B3D753705F2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.DependencyInjection.MediatR", "Intent.Modules.Application.DependencyInjection.MediatR\Intent.Modules.Application.DependencyInjection.MediatR.csproj", "{237C143B-3123-4722-BDF6-24A34537C85B}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.DependencyInjection.MediatR", "Intent.Modules.Application.DependencyInjection.MediatR\Intent.Modules.Application.DependencyInjection.MediatR.csproj", "{237C143B-3123-4722-BDF6-24A34537C85B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.ApplicationTemplates.NET", "Intent.ApplicationTemplates.NET\Intent.ApplicationTemplates.NET.csproj", "{54EBD782-E0A1-44F7-9B81-E3F97573F275}"
 EndProject
@@ -64,7 +64,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.DependencyInjection.AutoMapper", "Intent.Modules.Application.DependencyInjection.AutoMapper\Intent.Modules.Application.DependencyInjection.AutoMapper.csproj", "{FCDED867-B898-4D55-A440-63A20017C6D4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Infrastructure.DependencyInjection", "Intent.Modules.Infrastructure.DependencyInjection\Intent.Modules.Infrastructure.DependencyInjection.csproj", "{17A3CB70-A261-43EA-B2B3-6F106AF95A0B}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Infrastructure.DependencyInjection", "Intent.Modules.Infrastructure.DependencyInjection\Intent.Modules.Infrastructure.DependencyInjection.csproj", "{17A3CB70-A261-43EA-B2B3-6F106AF95A0B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.FluentValidation", "Intent.Modules.Application.MediatR.FluentValidation\Intent.Modules.Application.MediatR.FluentValidation.csproj", "{F70DF819-B1A1-460C-AD99-567CF48A1A99}"
 EndProject
@@ -72,11 +72,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.MediatR.Doma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.DomainEvents", "Intent.Modules.DomainEvents\Intent.Modules.DomainEvents.csproj", "{E484D3DA-E357-43A3-B37B-A43C33A639D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.Interop.DomainEvents", "Intent.Modules.EntityFrameworkCore.Interop.DomainEvents\Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.csproj", "{0ECE1FC5-4AC8-4A07-BF27-B756E8809992}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.EntityFrameworkCore.Interop.DomainEvents", "Intent.Modules.EntityFrameworkCore.Interop.DomainEvents\Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.csproj", "{0ECE1FC5-4AC8-4A07-BF27-B756E8809992}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.IdentityServer4.SecureTokenServer", "Intent.Modules.IdentityServer4.SecureTokenServer\Intent.Modules.IdentityServer4.SecureTokenServer.csproj", "{7E2CDD36-D086-4401-9CE5-B83F61A6FCE9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.IdentityServer4.UI", "Intent.Modules.IdentityServer4.UI\Intent.Modules.IdentityServer4.UI.csproj", "{BA65EA8F-9C7C-4ACC-BB47-4E80763DC120}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.IdentityServer4.UI", "Intent.Modules.IdentityServer4.UI\Intent.Modules.IdentityServer4.UI.csproj", "{BA65EA8F-9C7C-4ACC-BB47-4E80763DC120}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.IdentityServer4.Identity.EFCore", "Intent.Modules.IdentityServer4.Identity.EFCore\Intent.Modules.IdentityServer4.Identity.EFCore.csproj", "{EC01FF01-3A4A-41B8-93E1-4E56356B71E2}"
 EndProject
@@ -98,7 +98,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.HotChocolate
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.HotChocolate.GraphQL.AspNetCore", "Intent.Modules.HotChocolate.GraphQL.AspNetCore\Intent.Modules.HotChocolate.GraphQL.AspNetCore.csproj", "{77BDC12B-E2D3-481D-BBE6-FEA16B5BF39E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Logging.Serilog", "Intent.Modules.AspNetCore.Logging.Serilog\Intent.Modules.AspNetCore.Logging.Serilog.csproj", "{A58A2FC1-5444-4388-8BE7-0231516CE1D2}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Logging.Serilog", "Intent.Modules.AspNetCore.Logging.Serilog\Intent.Modules.AspNetCore.Logging.Serilog.csproj", "{A58A2FC1-5444-4388-8BE7-0231516CE1D2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions", "Intent.Modules.AzureFunctions\Intent.Modules.AzureFunctions.csproj", "{82458406-7D23-41F5-81A0-2083C0B7668D}"
 EndProject
@@ -110,7 +110,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.FluentValidation.Dtos", "Intent.Modules.Application.FluentValidation.Dtos\Intent.Modules.Application.FluentValidation.Dtos.csproj", "{C1BDB0B4-E820-4E8A-B486-6CDBD76D3960}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.FluentValidation", "Intent.Modules.AzureFunctions.FluentValidation\Intent.Modules.AzureFunctions.FluentValidation.csproj", "{A61FACD5-0E8E-48EE-9260-D14E229DE430}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.FluentValidation", "Intent.Modules.AzureFunctions.FluentValidation\Intent.Modules.AzureFunctions.FluentValidation.csproj", "{A61FACD5-0E8E-48EE-9260-D14E229DE430}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Dtos.Pagination", "Intent.Modules.Application.Dtos.Pagination\Intent.Modules.Application.Dtos.Pagination.csproj", "{2F154FBE-BD9A-47D5-B1DF-287729FB872B}"
 EndProject
@@ -126,37 +126,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - S
 		..\Directory.Build.props = ..\Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.MassTransit.EntityFrameworkCore", "Intent.Modules.Eventing.MassTransit.EntityFrameworkCore\Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.csproj", "{C66B22D9-D49E-4639-B8DE-661E59F23D9A}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.MassTransit.EntityFrameworkCore", "Intent.Modules.Eventing.MassTransit.EntityFrameworkCore\Intent.Modules.Eventing.MassTransit.EntityFrameworkCore.csproj", "{C66B22D9-D49E-4639-B8DE-661E59F23D9A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Integration.HttpClients", "Intent.Modules.Integration.HttpClients\Intent.Modules.Integration.HttpClients.csproj", "{46AD781B-04FC-4D8D-9A46-4DBFFE73628D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Security.MSAL", "Intent.Modules.Security.MSAL\Intent.Modules.Security.MSAL.csproj", "{8F477F9F-0ED7-4768-B2F5-2E473D83C041}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Security.MSAL", "Intent.Modules.Security.MSAL\Intent.Modules.Security.MSAL.csproj", "{8F477F9F-0ED7-4768-B2F5-2E473D83C041}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory", "Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory\Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.csproj", "{660CB137-92BC-425B-8ADB-B29CF80291B3}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory", "Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory\Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.csproj", "{660CB137-92BC-425B-8ADB-B29CF80291B3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.Contracts", "Intent.Modules.Eventing.Contracts\Intent.Modules.Eventing.Contracts.csproj", "{9814251B-AD1B-4598-8ED6-D825633D77D9}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.Contracts", "Intent.Modules.Eventing.Contracts\Intent.Modules.Eventing.Contracts.csproj", "{9814251B-AD1B-4598-8ED6-D825633D77D9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.CRUD.Eventing", "Intent.Modules.Application.MediatR.CRUD.Eventing\Intent.Modules.Application.MediatR.CRUD.Eventing.csproj", "{AF1800F1-2AFC-4804-84D3-E0E8E2BB51D3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.Contracts.DomainMapping", "Intent.Modules.Eventing.Contracts.DomainMapping\Intent.Modules.Eventing.Contracts.DomainMapping.csproj", "{749AC6D1-CC82-407C-B973-AE5DE1178FCF}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.Contracts.DomainMapping", "Intent.Modules.Eventing.Contracts.DomainMapping\Intent.Modules.Eventing.Contracts.DomainMapping.csproj", "{749AC6D1-CC82-407C-B973-AE5DE1178FCF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Identity", "Intent.Modules.AspNetCore.Identity\Intent.Modules.AspNetCore.Identity.csproj", "{09C76035-03BE-4060-BBBC-A5E332F0E3F1}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Identity", "Intent.Modules.AspNetCore.Identity\Intent.Modules.AspNetCore.Identity.csproj", "{09C76035-03BE-4060-BBBC-A5E332F0E3F1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Ardalis.Repositories", "Intent.Modules.Ardalis.Repositories\Intent.Modules.Ardalis.Repositories.csproj", "{06EC06D8-3910-40D1-AA25-D2680EE39C4D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Ardalis.GuardClauses", "Intent.Modules.Ardalis.GuardClauses\Intent.Modules.Ardalis.GuardClauses.csproj", "{C5472CE5-B273-46D6-8072-34ADFC531CF1}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Ardalis.GuardClauses", "Intent.Modules.Ardalis.GuardClauses\Intent.Modules.Ardalis.GuardClauses.csproj", "{C5472CE5-B273-46D6-8072-34ADFC531CF1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Swashbuckle.Security", "Intent.Modules.AspNetCore.Swashbuckle.Security\Intent.Modules.AspNetCore.Swashbuckle.Security.csproj", "{09C2DEE1-C9C4-4798-BCFD-DCC9836E6823}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Identity.UI", "Intent.Modules.AspNetCore.Identity.UI\Intent.Modules.AspNetCore.Identity.UI.csproj", "{DDD2FF2F-CD4E-4D5E-8D8A-A62D572541DB}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Identity.UI", "Intent.Modules.AspNetCore.Identity.UI\Intent.Modules.AspNetCore.Identity.UI.csproj", "{DDD2FF2F-CD4E-4D5E-8D8A-A62D572541DB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Identity.AccountController", "Intent.Modules.AspNetCore.Identity.AccountController\Intent.Modules.AspNetCore.Identity.AccountController.csproj", "{E989D79E-D842-4E1F-8CDB-CADC324296DB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.MongoDb", "Intent.Modules.MongoDb\Intent.Modules.MongoDb.csproj", "{3B8EAB4D-55BA-4AD0-9EC0-3E379ECE02CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.MongoDb.Repositories", "Intent.Modules.MongoDb.Repositories\Intent.Modules.MongoDb.Repositories.csproj", "{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.MongoDb.Repositories", "Intent.Modules.MongoDb.Repositories\Intent.Modules.MongoDb.Repositories.csproj", "{BF01F56C-FC9F-424A-8BF5-38CA6F65E2BC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.ServiceImplementations.CRUD.Eventing", "Intent.Modules.Application.ServiceImplementations.CRUD.Eventing\Intent.Modules.Application.ServiceImplementations.CRUD.Eventing.csproj", "{4B8347B4-3AC3-49B2-8E72-2C7B10476943}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.ServiceImplementations.CRUD.Eventing", "Intent.Modules.Application.ServiceImplementations.CRUD.Eventing\Intent.Modules.Application.ServiceImplementations.CRUD.Eventing.csproj", "{4B8347B4-3AC3-49B2-8E72-2C7B10476943}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.HttpClients.Shared", "Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.shproj", "{0ADB36A1-6E3E-4F12-A296-6CB695ACCE17}"
 EndProject
@@ -164,11 +164,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.Pubsub", "Intent.Modules.Dapr.AspNetCore.Pubsub\Intent.Modules.Dapr.AspNetCore.Pubsub.csproj", "{8857D329-9CB0-449A-9C01-94EB3DFB73E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore", "Intent.Modules.Dapr.AspNetCore\Intent.Modules.Dapr.AspNetCore.csproj", "{66E8A974-5617-4DD2-8D46-A35BF0587A20}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Dapr.AspNetCore", "Intent.Modules.Dapr.AspNetCore\Intent.Modules.Dapr.AspNetCore.csproj", "{66E8A974-5617-4DD2-8D46-A35BF0587A20}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.StateManagement", "Intent.Modules.Dapr.AspNetCore.StateManagement\Intent.Modules.Dapr.AspNetCore.StateManagement.csproj", "{99BACB3D-E9BD-4F8E-8646-59F298895049}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Dapr.AspNetCore.StateManagement", "Intent.Modules.Dapr.AspNetCore.StateManagement\Intent.Modules.Dapr.AspNetCore.StateManagement.csproj", "{99BACB3D-E9BD-4F8E-8646-59F298895049}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.CRUD.Tests", "Intent.Modules.Application.MediatR.CRUD.Tests\Intent.Modules.Application.MediatR.CRUD.Tests.csproj", "{7CEB4296-5077-4311-AB2A-59C12839EAB3}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.MediatR.CRUD.Tests", "Intent.Modules.Application.MediatR.CRUD.Tests\Intent.Modules.Application.MediatR.CRUD.Tests.csproj", "{7CEB4296-5077-4311-AB2A-59C12839EAB3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR", "Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR\Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.csproj", "{482C7EA6-B975-4CEA-A0A0-7D915685568E}"
 EndProject
@@ -182,7 +182,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Obsolete", "Obsolete", "{1595E08E-BAD2-4F90-8BD9-65F6A846526B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.DomainServices", "Intent.Modules.DomainServices\Intent.Modules.DomainServices.csproj", "{4911971C-C2F8-4458-B847-82CB1280259F}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.DomainServices", "Intent.Modules.DomainServices\Intent.Modules.DomainServices.csproj", "{4911971C-C2F8-4458-B847-82CB1280259F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR", "Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR\Intent.Modules.HotChocolate.GraphQL.Dispatch.MediatR.csproj", "{1D7C5084-A09E-47E2-812E-474532076426}"
 EndProject
@@ -192,17 +192,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFramew
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Entities.Constants", "Intent.Modules.Entities.Constants\Intent.Modules.Entities.Constants.csproj", "{CC0D8A18-A184-4EF2-872D-60EF5C057DE5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.OpenApi", "Intent.Modules.AzureFunctions.OpenApi\Intent.Modules.AzureFunctions.OpenApi.csproj", "{28F781AD-1CBA-42FE-8FCC-D4F40A1EDF0F}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctions.OpenApi", "Intent.Modules.AzureFunctions.OpenApi\Intent.Modules.AzureFunctions.OpenApi.csproj", "{28F781AD-1CBA-42FE-8FCC-D4F40A1EDF0F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Azure.KeyVault", "Intent.Modules.Azure.KeyVault\Intent.Modules.Azure.KeyVault.csproj", "{31D61C32-3B68-497E-83E6-F30D7A862894}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.HotChocolate.GraphQL.AzureFunctions", "Intent.Modules.HotChocolate.GraphQL.AzureFunctions\Intent.Modules.HotChocolate.GraphQL.AzureFunctions.csproj", "{A0DF4C1E-6ABA-4566-951D-2875055BD4F0}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.HotChocolate.GraphQL.AzureFunctions", "Intent.Modules.HotChocolate.GraphQL.AzureFunctions\Intent.Modules.HotChocolate.GraphQL.AzureFunctions.csproj", "{A0DF4C1E-6ABA-4566-951D-2875055BD4F0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.DocumentDB.Dtos.AutoMapper", "Intent.Modules.DocumentDB.Dtos.AutoMapper\Intent.Modules.DocumentDB.Dtos.AutoMapper.csproj", "{F13DF4DA-A77B-40C6-BC27-DB55BDD3FF17}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.DocumentDB.Shared", "Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.shproj", "{B5867BA4-E8AB-4E4A-986E-B7938D12795E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Versioning", "Intent.Modules.AspNetCore.Versioning\Intent.Modules.AspNetCore.Versioning.csproj", "{3CB282CE-95EA-454A-8531-423391B2DE6D}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Versioning", "Intent.Modules.AspNetCore.Versioning\Intent.Modules.AspNetCore.Versioning.csproj", "{3CB282CE-95EA-454A-8531-423391B2DE6D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.CosmosDB", "Intent.Modules.CosmosDB\Intent.Modules.CosmosDB.csproj", "{A25BE506-F63A-4638-8A59-4069FC088824}"
 EndProject
@@ -224,13 +224,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ContinuousIntegration.AzurePipelines", "Intent.Modules.ContinuousIntegration.AzurePipelines\Intent.Modules.ContinuousIntegration.AzurePipelines.csproj", "{2D938CA8-3FED-4E2C-BD3C-642E8F996396}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetCore.Bindings.Cron", "Intent.Modules.Dapr.AspNetCore.Bindings.Cron\Intent.Modules.Dapr.AspNetCore.Bindings.Cron.csproj", "{160C8BDF-CE41-4C1B-B1A4-354E6B7D701E}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Dapr.AspNetCore.Bindings.Cron", "Intent.Modules.Dapr.AspNetCore.Bindings.Cron\Intent.Modules.Dapr.AspNetCore.Bindings.Cron.csproj", "{160C8BDF-CE41-4C1B-B1A4-354E6B7D701E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.MassTransit.Scheduling", "Intent.Modules.Eventing.MassTransit.Scheduling\Intent.Modules.Eventing.MassTransit.Scheduling.csproj", "{C29DF89B-FF3A-4A6D-AFDE-FC83C459B1E0}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.MassTransit.Scheduling", "Intent.Modules.Eventing.MassTransit.Scheduling\Intent.Modules.Eventing.MassTransit.Scheduling.csproj", "{C29DF89B-FF3A-4A6D-AFDE-FC83C459B1E0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation", "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation\Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.csproj", "{98A21C3B-18C5-4D9C-8E22-94A186541490}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations", "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations\Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj", "{153F48C5-96FA-437D-AC88-F17033966D4C}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations", "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations\Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj", "{153F48C5-96FA-437D-AC88-F17033966D4C}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.FluentValidation.Shared", "Intent.Modules.FluentValidation.Shared\Intent.Modules.FluentValidation.Shared.shproj", "{573B0AB5-858F-482B-A8B0-E9C2305EAC67}"
 EndProject
@@ -244,9 +244,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Entities.Bas
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.UnitOfWork.Persistence.Shared", "Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.shproj", "{AD3459E5-44CE-4C5F-9BF8-8FD2BA15FC05}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Azure.TableStorage", "Intent.Modules.Azure.TableStorage\Intent.Modules.Azure.TableStorage.csproj", "{CB1A4B18-443D-4196-8A7E-D3318A2F1FA8}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Azure.TableStorage", "Intent.Modules.Azure.TableStorage\Intent.Modules.Azure.TableStorage.csproj", "{CB1A4B18-443D-4196-8A7E-D3318A2F1FA8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.ODataQuery", "Intent.Modules.AspNetCore.ODataQuery\Intent.Modules.AspNetCore.ODataQuery.csproj", "{B0225CCE-0742-4D48-86FB-4A39405A280D}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.ODataQuery", "Intent.Modules.AspNetCore.ODataQuery\Intent.Modules.AspNetCore.ODataQuery.csproj", "{B0225CCE-0742-4D48-86FB-4A39405A280D}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Application.DomainInteractions", "Intent.Modules.Application.DomainInteractions\Intent.Modules.Application.DomainInteractions.shproj", "{6EEC0527-206C-4437-B8D7-8E1D6EDE530F}"
 EndProject
@@ -256,7 +256,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.IntegrationTests.CRUD", "Intent.Modules.AspNetCore.IntegrationTests.CRUD\Intent.Modules.AspNetCore.IntegrationTests.CRUD.csproj", "{D70C5B2A-54FD-4551-825A-A38515DB04E9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Identity.AccountController.Metadata", "Intent.Modules.AspNetCore.Identity.AccountController.Metadata\Intent.Modules.AspNetCore.Identity.AccountController.Metadata.csproj", "{37DF17B6-66FE-4810-82D0-1A964213E4EC}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Identity.AccountController.Metadata", "Intent.Modules.AspNetCore.Identity.AccountController.Metadata\Intent.Modules.AspNetCore.Identity.AccountController.Metadata.csproj", "{37DF17B6-66FE-4810-82D0-1A964213E4EC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Redis.Om.Repositories", "Intent.Modules.Redis.Om.Repositories\Intent.Modules.Redis.Om.Repositories.csproj", "{558F5562-D714-4264-A02D-350300A2C956}"
 EndProject

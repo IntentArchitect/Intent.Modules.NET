@@ -57,7 +57,7 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
                     {
                         return;
                     }
-                    
+
                     file.AddUsing("System.Text.Json.Serialization");
 
                     // Until we can make the "AddController" statement in the Intent.AspNetCore.Controllers be
@@ -87,13 +87,13 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
                             lambda = new CSharpLambdaBlock("options");
                             addJsonOptionsStatement.AddArgument(lambda);
                         }
-                        
+
                         if (enumsAsStrings)
                         {
                             lambda.AddStatement(
                                 "options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());");
                         }
-                        
+
                         if (ignoreCycles)
                         {
                             lambda.AddStatement(
@@ -103,7 +103,7 @@ namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
                 });
             }, 14);
         }
-        
+
         private static void ExtractPossibleStatements(IHasCSharpStatements targetBlock, List<CSharpStatement> statementsToCheck)
         {
             foreach (var statement in targetBlock.Statements)
