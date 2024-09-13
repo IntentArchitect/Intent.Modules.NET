@@ -4,12 +4,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#cd2b4329-787d-4baf-a062-323636a1b582</correlationId>
       <path>Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation/Templates/DtoValidator/DtoValidatorTemplatePartial.cs</path>
-      <count>3</count>
+      <count>2</count>
       <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2024-09-11T08:15:33.4259206Z</updatedAt>
-      <deviationsHash>E532575548705EB935770E8AF8AF6FEF03AB0DF5ED7A34AB57D80F15691A9BFA</deviationsHash>
-      <fileHash>CD083B5459CC9ABDE962A2E5EBCB0314643C7E5820372966FB1AE3F227D206AC</fileHash>
+      <updatedAt>2024-09-13T11:32:52.3629775Z</updatedAt>
+      <deviationsHash>151590F145B29553097101D8DA1353DFEE6238FE651C252526C3032907C6D8D2</deviationsHash>
+      <fileHash>418CAA55F4EB4F915A3800A26D00F5A237840521123BE76F2668C318C9259133</fileHash>
     </file>
   </files>
 </deviationsLog>

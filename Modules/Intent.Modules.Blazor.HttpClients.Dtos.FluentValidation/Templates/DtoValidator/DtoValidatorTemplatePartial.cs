@@ -17,8 +17,9 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoValidator
 {
-    [IntentManaged(Mode.Fully)]
-    public partial class DtoValidatorTemplate : CSharpTemplateBase<DTOModel>, IFluentValidationTemplate
+    [IntentManaged(Mode.Merge)]
+    public partial class DtoValidatorTemplate : CSharpTemplateBase<DTOModel>, ICSharpFileBuilderTemplate
+, IFluentValidationTemplate
     {
         public const string TemplateId = "Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator";
 
