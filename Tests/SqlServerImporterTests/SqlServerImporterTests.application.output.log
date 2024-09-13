@@ -532,10 +532,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>c10763a2-fd41-4695-8027-abda3fe6cb9b</ProjectId>
-      <CorrelationId>Intent.Entities.DataContract#99e91fd2-890f-4e0c-9b35-6e8d9b1e7928</CorrelationId>
+      <CorrelationId>Intent.Entities.DataContract#a175f419-492e-42a4-b9e1-a3425f72558e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SqlServerImporterTests.Domain/Contracts/Dbo/CustomerOrder.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Dbo/CustomerOrder.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>SqlServerImporterTests.Domain/Contracts/Dbo/BrandType.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Dbo/BrandType.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c10763a2-fd41-4695-8027-abda3fe6cb9b</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#1c8b8fd2-ebf3-4ad3-92da-c13a775d5a33</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlServerImporterTests.Domain/Contracts/Dbo/GetOrderItemDetailsResponse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Dbo/GetOrderItemDetailsResponse.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -812,6 +820,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c412f4e0-426c-48cf-be73-c820d289893c</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#eb2a6581-3bf2-474a-8474-303c0a03610e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlServerImporterTests.Domain/Repositories/Dbo/IOperationRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Dbo/IOperationRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c412f4e0-426c-48cf-be73-c820d289893c</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#82e67933-e8cf-4c26-9198-4138387e1443</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlServerImporterTests.Domain/Repositories/Dbo/IOrderItemRepository.cs</ApplicationRelativeFilePath>
@@ -824,14 +840,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlServerImporterTests.Domain/Repositories/Dbo/IOrderRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Dbo/IOrderRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c412f4e0-426c-48cf-be73-c820d289893c</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#b600255d-ccaf-4116-b2d3-5fc489527683</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SqlServerImporterTests.Domain/Repositories/Dbo/IOrderRepository2Repository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Dbo/IOrderRepository2Repository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -856,6 +864,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlServerImporterTests.Domain/Repositories/Dbo/IProductRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Dbo/IProductRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c412f4e0-426c-48cf-be73-c820d289893c</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#6c5c1a9f-f4a2-40fe-8bd8-13ee7e3c11bf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlServerImporterTests.Domain/Repositories/Dbo/IStoredProcedureRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Dbo/IStoredProcedureRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1228,6 +1244,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7eb46063-2368-4d9b-b30d-95971eb730b0</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#eb2a6581-3bf2-474a-8474-303c0a03610e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlServerImporterTests.Infrastructure/Repositories/Dbo/OperationRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Dbo/OperationRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7eb46063-2368-4d9b-b30d-95971eb730b0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#82e67933-e8cf-4c26-9198-4138387e1443</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlServerImporterTests.Infrastructure/Repositories/Dbo/OrderItemRepository.cs</ApplicationRelativeFilePath>
@@ -1240,14 +1264,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlServerImporterTests.Infrastructure/Repositories/Dbo/OrderRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Dbo/OrderRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7eb46063-2368-4d9b-b30d-95971eb730b0</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#b600255d-ccaf-4116-b2d3-5fc489527683</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SqlServerImporterTests.Infrastructure/Repositories/Dbo/OrderRepository2Repository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Dbo/OrderRepository2Repository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1272,6 +1288,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlServerImporterTests.Infrastructure/Repositories/Dbo/ProductRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Dbo/ProductRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7eb46063-2368-4d9b-b30d-95971eb730b0</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#6c5c1a9f-f4a2-40fe-8bd8-13ee7e3c11bf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlServerImporterTests.Infrastructure/Repositories/Dbo/StoredProcedureRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Dbo/StoredProcedureRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6008d092-0529-4082-bc8d-2cf577aeb216</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods#a175f419-492e-42a4-b9e1-a3425f72558e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlServerImporterTests.Infrastructure/Repositories/ExtensionMethods/Dbo/BrandTypeExtensionMethods.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Dbo/BrandTypeExtensionMethods.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

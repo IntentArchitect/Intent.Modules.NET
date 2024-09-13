@@ -180,7 +180,7 @@
         <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="9b2be00b-d465-4c0a-ab3b-c026755e4afc" name="AspNetRole" type="element" specialization="Class" />
+          <target id="9b2be00b-d465-4c0a-ab3b-c026755e4afc" name="AspNetRole" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>9b2be00b-d465-4c0a-ab3b-c026755e4afc</parentFolderId>
@@ -202,7 +202,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e1fa3a4f-34a0-41ba-ba8b-ddbd1960d8d8" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+        <childElement id="f910e314-e5e7-4704-89ac-7aa508b006a7" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
           <name>NormalizedName</name>
           <display>NormalizedName</display>
           <isAbstract>false</isAbstract>
@@ -213,7 +213,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="bf1d71b6-9bc2-45c5-a8b5-92ef66c8147b" name="NormalizedName" type="element" specialization="Attribute" />
+              <target id="bf1d71b6-9bc2-45c5-a8b5-92ef66c8147b" name="NormalizedName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>b9b47a85-ebc8-49e0-8ab9-f6a36bd23b6b</parentFolderId>

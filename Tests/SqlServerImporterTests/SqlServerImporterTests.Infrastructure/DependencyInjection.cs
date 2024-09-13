@@ -30,7 +30,8 @@ namespace SqlServerImporterTests.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
-            services.AddTransient<IOrderRepository2Repository, OrderRepository2Repository>();
+            services.AddTransient<IOperationRepository, OperationRepository>();
+            services.AddTransient<IStoredProcedureRepository, StoredProcedureRepository>();
             services.AddTransient<IAddressRepository, AddressRepository>();
             services.AddTransient<IAspNetRoleRepository, AspNetRoleRepository>();
             services.AddTransient<IAspNetRoleClaimRepository, AspNetRoleClaimRepository>();

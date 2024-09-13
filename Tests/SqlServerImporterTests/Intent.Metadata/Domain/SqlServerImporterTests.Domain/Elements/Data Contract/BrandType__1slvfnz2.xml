@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="99e91fd2-890f-4e0c-9b35-6e8d9b1e7928" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
-  <name>CustomerOrder</name>
-  <display>CustomerOrder</display>
+<class id="a175f419-492e-42a4-b9e1-a3425f72558e" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+  <name>BrandType</name>
+  <display>BrandType</display>
+  <externalReference>dbo.BrandType</externalReference>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
@@ -12,36 +13,13 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="d8a22ec7-cbcf-4114-a53e-214977d8b224" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>OrderDate</name>
-      <display>OrderDate: datetime</display>
+    <childElement id="e4f9aefc-8ff0-4b1a-b28a-b9a38ed9a00c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <externalReference>[dbo].[brandtype].[name</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="3fa6c17e-217f-480d-9b28-3796753df6a6">
-        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
-        <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
-        <isCollection>false</isCollection>
-        <isRequired>true</isRequired>
-        <typePackageName>Intent.Common.Types</typePackageName>
-        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
-        <stereotypes />
-        <genericTypeParameters />
-      </typeReference>
-      <isMapped>false</isMapped>
-      <parentFolderId>99e91fd2-890f-4e0c-9b35-6e8d9b1e7928</parentFolderId>
-      <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
-      <packageName>SqlServerImporterTests</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="f61ed718-6a64-49f3-9df4-e56bfcdd7ef8" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>RefNo</name>
-      <display>RefNo: string</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <typeReference id="a0545991-dbed-4cfd-91fe-e4fd4a83ec91">
+      <typeReference id="c8f6ae96-fce0-49f5-aacb-c9262054c602">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -53,7 +31,32 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>99e91fd2-890f-4e0c-9b35-6e8d9b1e7928</parentFolderId>
+      <parentFolderId>a175f419-492e-42a4-b9e1-a3425f72558e</parentFolderId>
+      <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
+      <packageName>SqlServerImporterTests</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d2f59b97-631f-4934-98d4-abc9e770973e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>IsActive</name>
+      <display>IsActive: bool</display>
+      <externalReference>[dbo].[brandtype].[isactive</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="970af4d3-01dd-444e-a740-2c6026f0e4f2">
+        <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a175f419-492e-42a4-b9e1-a3425f72558e</parentFolderId>
       <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
       <packageName>SqlServerImporterTests</packageName>
       <stereotypes />

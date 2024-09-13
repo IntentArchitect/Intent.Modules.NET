@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="db54401b-3d65-48d0-9186-31d3c997f2b4" name="Order" type="element" specialization="Class" />
+      <target id="db54401b-3d65-48d0-9186-31d3c997f2b4" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>7184d16b-6af2-4c10-abf9-5f8f66b4fc72</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="18c884eb-e79d-4c82-b5e5-17faacbd3796" name="Id" type="element" specialization="Attribute" />
+          <target id="18c884eb-e79d-4c82-b5e5-17faacbd3796" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>c718cbc3-0cb5-4783-8ac4-931545160b2d</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="03119a20-48d4-4792-bc48-df4ed838e5c1" name="CustomerId" type="element" specialization="Attribute" />
+          <target id="03119a20-48d4-4792-bc48-df4ed838e5c1" name="CustomerId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>c718cbc3-0cb5-4783-8ac4-931545160b2d</parentFolderId>
@@ -152,7 +152,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="96b9081b-0e71-4c3e-ac07-08c4e093341e" name="OrderDate" type="element" specialization="Attribute" />
+          <target id="96b9081b-0e71-4c3e-ac07-08c4e093341e" name="OrderDate" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>c718cbc3-0cb5-4783-8ac4-931545160b2d</parentFolderId>
@@ -206,7 +206,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="608875e4-62d0-46a7-9249-d0371e1c0261" name="RefNo" type="element" specialization="Attribute" />
+          <target id="608875e4-62d0-46a7-9249-d0371e1c0261" name="RefNo" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>c718cbc3-0cb5-4783-8ac4-931545160b2d</parentFolderId>

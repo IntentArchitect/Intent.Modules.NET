@@ -650,6 +650,37 @@ BEGIN
 	WHERE CustomerId = @customerId
 END
 GO
+
+CREATE PROCEDURE [dbo].[GetOrderItemDetails]
+	@orderId uniqueidentifier
+AS
+BEGIN
+	SELECT OI.*, O.RefNo, C.[Name], C.Surname, C.Email, P.[Name]
+	FROM dbo.OrderItems OI
+	INNER JOIN dbo.Orders O ON O.Id = OI.OrderId
+	INNER JOIN dbo.Customers C ON C.Id = O.CustomerId
+	INNER JOIN dbo.Products P ON P.Id = OI.ProductId
+	WHERE O.Id = @orderId
+END
+GO
+
+CREATE TYPE [dbo].[BrandType] AS TABLE(
+	[Name] [nvarchar](max) NOT NULL,
+	[IsActive] [bit] NOT NULL
+)
+GO
+
+CREATE PROCEDURE [dbo].[InsertBrand]
+	@brand BrandType READONLY
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	INSERT INTO dbo.Brands ([Id], [Name], [IsActive])
+	SELECT NEWID() AS [Id], [Name], [IsActive] FROM @brand
+END
+GO
+
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 
    Begin PaneConfigurations = 
