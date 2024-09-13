@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="1c8b8fd2-ebf3-4ad3-92da-c13a775d5a33" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+<class id="1a24dfe1-2760-406f-ae81-fe3d10be4918" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
   <name>GetOrderItemDetailsResponse</name>
   <display>GetOrderItemDetailsResponse</display>
   <externalReference>[dbo].[getorderitemdetails].Response</externalReference>
@@ -13,13 +13,13 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="95de2394-819b-4032-a0a7-7d6d56e4ff2f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="24bc965f-e012-4b88-945b-e50e1ecfbf1c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Id</name>
       <display>Id: guid</display>
       <externalReference>[[dbo].[getorderitemdetails].response].[id]</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="c9885cc9-13b4-4cc0-b5cd-981f8ef11d40">
+      <typeReference id="4ca3d0b9-23f4-46e5-ad98-73c68c8bed71">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -31,20 +31,20 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>1c8b8fd2-ebf3-4ad3-92da-c13a775d5a33</parentFolderId>
+      <parentFolderId>1a24dfe1-2760-406f-ae81-fe3d10be4918</parentFolderId>
       <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
       <packageName>SqlServerImporterTests</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="0e1abe6b-1893-4a35-adc9-6ae1272df99c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="b71c0898-924a-4c61-8f98-fd88baf1fc19" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>OrderId</name>
       <display>OrderId: guid</display>
       <externalReference>[[dbo].[getorderitemdetails].response].[orderid]</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="aea25515-0281-480a-88b2-b9ff368d94df">
+      <typeReference id="aedb57b9-22b2-4585-bd12-75f2cdd99730">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -56,20 +56,20 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>1c8b8fd2-ebf3-4ad3-92da-c13a775d5a33</parentFolderId>
+      <parentFolderId>1a24dfe1-2760-406f-ae81-fe3d10be4918</parentFolderId>
       <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
       <packageName>SqlServerImporterTests</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="0d91f023-0ef5-46af-8900-830e50dd7f0f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="cbab425b-9130-4115-ac55-d510aa36f9b6" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Quantity</name>
       <display>Quantity: int</display>
       <externalReference>[[dbo].[getorderitemdetails].response].[quantity]</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="d5fe87ba-e01d-4886-97e3-f81008561c93">
+      <typeReference id="77415b50-e5eb-4d69-be9f-1b06351bf694">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -81,20 +81,20 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>1c8b8fd2-ebf3-4ad3-92da-c13a775d5a33</parentFolderId>
+      <parentFolderId>1a24dfe1-2760-406f-ae81-fe3d10be4918</parentFolderId>
       <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
       <packageName>SqlServerImporterTests</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="66da7b38-cd35-462c-9ab0-0370faa73d26" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="a24f680c-1d18-4f4f-b244-5c340502b7ca" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Amount</name>
       <display>Amount: decimal</display>
       <externalReference>[[dbo].[getorderitemdetails].response].[amount]</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="fc20ac03-545f-48b1-a21b-72999211c607">
+      <typeReference id="efe9f6cc-cff4-412e-8880-6bcf6c9aa8bd">
         <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -106,20 +106,20 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>1c8b8fd2-ebf3-4ad3-92da-c13a775d5a33</parentFolderId>
+      <parentFolderId>1a24dfe1-2760-406f-ae81-fe3d10be4918</parentFolderId>
       <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
       <packageName>SqlServerImporterTests</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="f9d46efb-6b1b-4d1e-b548-e53241945c7d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="8e7c0b1a-d36f-47d7-a08d-2106aade8bf9" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>ProductId</name>
       <display>ProductId: guid</display>
       <externalReference>[[dbo].[getorderitemdetails].response].[productid]</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="be662b37-5c81-449a-aa45-040e1b3d1dda">
+      <typeReference id="2541a74f-b1e7-471a-a625-c0b50a03d80b">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -131,20 +131,20 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>1c8b8fd2-ebf3-4ad3-92da-c13a775d5a33</parentFolderId>
+      <parentFolderId>1a24dfe1-2760-406f-ae81-fe3d10be4918</parentFolderId>
       <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
       <packageName>SqlServerImporterTests</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="6289f3f0-53f9-45de-8049-c1d729ffcafb" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="218bd64b-bf39-4b8a-966b-d9fbedea4b60" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>RefNo</name>
       <display>RefNo: string</display>
       <externalReference>[[dbo].[getorderitemdetails].response].[refno]</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="32e9af00-9caf-402d-affe-a8127f17eee8">
+      <typeReference id="b3a09bdf-cdd5-4abf-8c50-19d6507bae52">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -156,20 +156,20 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>1c8b8fd2-ebf3-4ad3-92da-c13a775d5a33</parentFolderId>
+      <parentFolderId>1a24dfe1-2760-406f-ae81-fe3d10be4918</parentFolderId>
       <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
       <packageName>SqlServerImporterTests</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="4089f372-736a-44e5-ad63-024d83371847" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="05d78157-428f-4ea2-83be-26dd246f837d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Name</name>
       <display>Name: string</display>
       <externalReference>[[dbo].[getorderitemdetails].response].[name]</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="bd4be7be-1d5a-4273-a5be-ac654e9f3f35">
+      <typeReference id="a08ca609-3a29-4077-85ad-c5d2e07a9781">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -181,20 +181,20 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>1c8b8fd2-ebf3-4ad3-92da-c13a775d5a33</parentFolderId>
+      <parentFolderId>1a24dfe1-2760-406f-ae81-fe3d10be4918</parentFolderId>
       <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
       <packageName>SqlServerImporterTests</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="dc4d4b53-a646-48c6-b2b7-c9fbac11bc46" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="6d30c6e6-cbf8-4412-b9ed-27d6105bc592" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Surname</name>
       <display>Surname: string</display>
       <externalReference>[[dbo].[getorderitemdetails].response].[surname]</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="f6e9b470-9f70-4373-8db9-0d52d18bccb3">
+      <typeReference id="9a911c90-a3bb-40c1-a1c6-1ad5cf561bc7">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -206,20 +206,20 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>1c8b8fd2-ebf3-4ad3-92da-c13a775d5a33</parentFolderId>
+      <parentFolderId>1a24dfe1-2760-406f-ae81-fe3d10be4918</parentFolderId>
       <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
       <packageName>SqlServerImporterTests</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="7f89d5b7-d91e-49b0-96c7-8d55b7fea05a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="af020312-b204-4af8-a6c4-7f6aca0e83bc" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Email</name>
       <display>Email: string</display>
       <externalReference>[[dbo].[getorderitemdetails].response].[email]</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="ecd01026-33c5-41f6-8eb9-5590b3f6e4d1">
+      <typeReference id="9eee39cf-4ab2-4190-93ec-5230e763e0af">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -231,7 +231,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>1c8b8fd2-ebf3-4ad3-92da-c13a775d5a33</parentFolderId>
+      <parentFolderId>1a24dfe1-2760-406f-ae81-fe3d10be4918</parentFolderId>
       <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
       <packageName>SqlServerImporterTests</packageName>
       <stereotypes />

@@ -2,14 +2,14 @@ using System;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using SqlServerImporterTests.Application.Common.Mappings;
-using SqlServerImporterTests.Domain.Entities.Dbo;
+using SqlServerImporterTests.Domain.Contracts.Dbo;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.DtoModel", Version = "1.0")]
 
 namespace SqlServerImporterTests.Application.Orders
 {
-    public class CustomerOrderDto : IMapFrom<Order>
+    public class CustomerOrderDto : IMapFrom<GetCustomerOrdersResponse>
     {
         public CustomerOrderDto()
         {
@@ -30,7 +30,7 @@ namespace SqlServerImporterTests.Application.Orders
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Order, CustomerOrderDto>();
+            profile.CreateMap<GetCustomerOrdersResponse, CustomerOrderDto>();
         }
     }
 }

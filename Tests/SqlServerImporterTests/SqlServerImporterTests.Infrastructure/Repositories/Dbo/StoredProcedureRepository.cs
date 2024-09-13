@@ -7,7 +7,6 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using SqlServerImporterTests.Domain.Contracts.Dbo;
-using SqlServerImporterTests.Domain.Entities.Dbo;
 using SqlServerImporterTests.Domain.Repositories.Dbo;
 using SqlServerImporterTests.Infrastructure.Persistence;
 using SqlServerImporterTests.Infrastructure.Repositories.ExtensionMethods.Dbo;
@@ -26,11 +25,11 @@ namespace SqlServerImporterTests.Infrastructure.Repositories.Dbo
             _dbContext = dbContext;
         }
 
-        public async Task<IReadOnlyCollection<Order>> GetCustomerOrders(
+        public async Task<IReadOnlyCollection<GetCustomerOrdersResponse>> GetCustomerOrders(
             Guid customerId,
             CancellationToken cancellationToken = default)
         {
-            var results = await _dbContext.Orders
+            var results = await _dbContext.GetCustomerOrdersResponses
                 .FromSqlInterpolated($"EXECUTE GetCustomerOrders {customerId}")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken);

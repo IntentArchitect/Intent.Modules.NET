@@ -13,6 +13,8 @@ public static class RepositoryOperationHelper
 {
     public static void ApplyMethods(ICSharpFileBuilderTemplate template, CSharpClass @class, RepositoryModel repositoryModel)
     {
+        template.AddDomainTypeSources();
+        
         foreach (var operationModel in repositoryModel.Operations)
         {
             var isAsync = operationModel.Name.EndsWith("Async") || operationModel.HasStereotype("Asynchronous");

@@ -532,7 +532,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c10763a2-fd41-4695-8027-abda3fe6cb9b</ProjectId>
-      <CorrelationId>Intent.Entities.DataContract#a175f419-492e-42a4-b9e1-a3425f72558e</CorrelationId>
+      <CorrelationId>Intent.Entities.DataContract#a7488f8b-653a-41fc-b9ab-8611d6cc08a9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlServerImporterTests.Domain/Contracts/Dbo/BrandType.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Dbo/BrandType.cs</ProjectRelativeFilePath>
@@ -540,7 +540,15 @@
     </FileLog>
     <FileLog>
       <ProjectId>c10763a2-fd41-4695-8027-abda3fe6cb9b</ProjectId>
-      <CorrelationId>Intent.Entities.DataContract#1c8b8fd2-ebf3-4ad3-92da-c13a775d5a33</CorrelationId>
+      <CorrelationId>Intent.Entities.DataContract#fbcb1b73-7a16-47d5-9512-481ac622fed3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlServerImporterTests.Domain/Contracts/Dbo/GetCustomerOrdersResponse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Dbo/GetCustomerOrdersResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c10763a2-fd41-4695-8027-abda3fe6cb9b</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#1a24dfe1-2760-406f-ae81-fe3d10be4918</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlServerImporterTests.Domain/Contracts/Dbo/GetOrderItemDetailsResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Dbo/GetOrderItemDetailsResponse.cs</ProjectRelativeFilePath>
@@ -1300,7 +1308,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>6008d092-0529-4082-bc8d-2cf577aeb216</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods#a175f419-492e-42a4-b9e1-a3425f72558e</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods#a7488f8b-653a-41fc-b9ab-8611d6cc08a9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlServerImporterTests.Infrastructure/Repositories/ExtensionMethods/Dbo/BrandTypeExtensionMethods.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Dbo/BrandTypeExtensionMethods.cs</ProjectRelativeFilePath>

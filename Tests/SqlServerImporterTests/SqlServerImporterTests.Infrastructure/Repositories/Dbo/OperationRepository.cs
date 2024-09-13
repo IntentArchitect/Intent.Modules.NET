@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
+using SqlServerImporterTests.Domain.Contracts.Dbo;
 using SqlServerImporterTests.Domain.Repositories.Dbo;
 using SqlServerImporterTests.Infrastructure.Persistence;
 
@@ -19,7 +20,7 @@ namespace SqlServerImporterTests.Infrastructure.Repositories.Dbo
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public List<Order> GetCustomerOrders(Guid customerId)
+        public List<GetCustomerOrdersResponse> GetCustomerOrders(Guid customerId)
         {
             // TODO: Implement GetCustomerOrders (OperationRepository) functionality
             throw new NotImplementedException("Your implementation here...");

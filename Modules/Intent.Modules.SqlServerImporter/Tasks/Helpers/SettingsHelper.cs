@@ -77,13 +77,7 @@ public static class SettingsHelper
         Logging.Log.Info($"PackageFileName: {importModel.PackageFileName}");
         var package = LoadPackage(importModel.PackageFileName!);
 
-        if (importModel.SettingPersistence == RepositorySettingPersistence.InheritDb)
-        {
-            package.RemoveMetadata("sql-import-repository:storedProcedureType");
-            package.RemoveMetadata("sql-import-repository:connectionString");
-            package.AddMetadata("sql-import-repository:settingPersistence", importModel.SettingPersistence.ToString());
-        }
-        else if (importModel.SettingPersistence == RepositorySettingPersistence.None)
+        if (importModel.SettingPersistence == RepositorySettingPersistence.None)
         {
             package.RemoveMetadata("sql-import-repository:storedProcedureType");
             package.RemoveMetadata("sql-import-repository:connectionString");
@@ -133,8 +127,12 @@ public static class SettingsHelper
     public static void HydrateDbSettings(RepositoryImportModel importModel)
     {
         var package = LoadPackage(importModel.PackageFileName!);
-        
-        importModel.StoredProcedureType = package.GetMetadataValue("sql-import:storedProcedureType");
+
+        if (string.IsNullOrWhiteSpace(importModel.StoredProcedureType))
+        {
+            importModel.StoredProcedureType = package.GetMetadataValue("sql-import:storedProcedureType");
+        }
+
         importModel.ConnectionString = package.GetMetadataValue("sql-import:connectionString")!;
     }
     

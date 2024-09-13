@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="a175f419-492e-42a4-b9e1-a3425f72558e" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+<class id="a7488f8b-653a-41fc-b9ab-8611d6cc08a9" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
   <name>BrandType</name>
   <display>BrandType</display>
   <externalReference>dbo.BrandType</externalReference>
@@ -13,13 +13,13 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="e4f9aefc-8ff0-4b1a-b28a-b9a38ed9a00c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="db1ad68d-c9fa-4631-910a-b550ec43ed88" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Name</name>
       <display>Name: string</display>
       <externalReference>[dbo].[brandtype].[name</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="c8f6ae96-fce0-49f5-aacb-c9262054c602">
+      <typeReference id="14c93975-fb5e-4c62-a876-2eb512caf354">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -31,20 +31,20 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>a175f419-492e-42a4-b9e1-a3425f72558e</parentFolderId>
+      <parentFolderId>a7488f8b-653a-41fc-b9ab-8611d6cc08a9</parentFolderId>
       <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
       <packageName>SqlServerImporterTests</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="d2f59b97-631f-4934-98d4-abc9e770973e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="60946102-c1b4-4f2f-9d1e-37bf3f429700" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>IsActive</name>
       <display>IsActive: bool</display>
       <externalReference>[dbo].[brandtype].[isactive</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="970af4d3-01dd-444e-a740-2c6026f0e4f2">
+      <typeReference id="dd8eea71-16cb-41e6-8c15-93f7dadbf68c">
         <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -56,7 +56,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>a175f419-492e-42a4-b9e1-a3425f72558e</parentFolderId>
+      <parentFolderId>a7488f8b-653a-41fc-b9ab-8611d6cc08a9</parentFolderId>
       <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
       <packageName>SqlServerImporterTests</packageName>
       <stereotypes />
