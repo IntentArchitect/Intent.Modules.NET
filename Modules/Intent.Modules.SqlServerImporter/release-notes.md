@@ -1,3 +1,7 @@
+### Version 1.0.6
+
+- Improvement: Import Stored Procedures from your SQL Server by name directly on a given Repository in your Domain Designer.
+
 ### Version 1.0.5
 
 - Improvement: Updated module NuGet packages infrastructure.
