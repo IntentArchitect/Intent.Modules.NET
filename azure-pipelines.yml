@@ -157,7 +157,7 @@ steps:
   inputs:
     targetType: 'inline'
     pwsh: true
-    script: dotnet tool install Intent.SoftwareFactory.CLI --global --prerelease --version $(DEVELOPMENT-SOFTWAREFACTORY-CLI-VERSION)
+    script: dotnet tool install Intent.SoftwareFactory.CLI --global --prerelease --version 4.2.9
 
 
 # - task: PowerShell@2
