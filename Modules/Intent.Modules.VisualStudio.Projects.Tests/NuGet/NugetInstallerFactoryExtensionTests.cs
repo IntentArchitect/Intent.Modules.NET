@@ -417,6 +417,36 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
             Assert.False(testCase.Api.RequestedPackages.ContainsKey("Common"));
         }
 
+        [Fact]
+        public void NuGetPackageConsolidationTest_SameProjectDependant()
+        {
+            // Arrange
+            var tracing = new TestTracing();
+            var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
+
+            var testCase = TestFixtureHelper.GetCleanArchitectureProjectSetup();
+
+
+            testCase.Domain.RequestedPackages.AddNuGet("Common", "1.0.0");
+            //Will fall back on the below request for "guessing" dependencies
+            testCase.Domain.RequestedPackages.AddNuGet("Common.CSharp", "2.0.0", c =>
+            {
+                c.Dependencies.Add(new NugetPackageDependency("Common", "1.0.0"));
+                c.Dependencies.Add(new NugetPackageDependency("Common2", "1.0.0"));
+            });
+            testCase.Domain.RequestedPackages.AddNuGet("Common2", "1.5.0");
+
+            // Act
+            sut.ConsolidateRequestedPackages(testCase.Projects());
+
+            // Assert
+
+            Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common.CSharp"));
+            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].Version.MinVersion.ToString());
+            Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common2"));
+            Assert.Equal("1.5.0", testCase.Domain.RequestedPackages["Common2"].Version.MinVersion.ToString());
+            Assert.False(testCase.Domain.RequestedPackages.ContainsKey("Common"));
+        }
 
     }
 

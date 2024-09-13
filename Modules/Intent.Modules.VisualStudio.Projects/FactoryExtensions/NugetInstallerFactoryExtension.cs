@@ -294,7 +294,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 var requestedPackages = new Dictionary<string, VersionRange>();
                 foreach (var kvp in projectPackage.RequestedPackages)
                 {
-                    requestedPackages.Add(kvp.Key, kvp.Value.Version);
+                    AddUpdatePackageVersion(requestedPackages, kvp.Key, kvp.Value.Version);
                     if (kvp.Value.RequestedPackage?.Dependencies?.Any() == true)
                     {
                         foreach (var dependant in kvp.Value.RequestedPackage?.Dependencies)
@@ -328,6 +328,29 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
                         projectPackage.RequestedPackages.Remove(dependantPackage.Key);
                     }
+                }
+
+                List<string> toRemove = new List<string>();
+                foreach (var requestedPackage in projectPackage.RequestedPackages)
+                {
+                    if (requestedPackage.Value.RequestedPackage?.Dependencies?.Any() == true)
+                    {
+                        foreach (var dependant in requestedPackage.Value.RequestedPackage?.Dependencies)
+                        {
+                            if (projectPackage.RequestedPackages.ContainsKey(dependant.Name))
+                            {
+                                var dependentVersion = VersionRange.Parse(dependant.Version);
+                                if (projectPackage.RequestedPackages[dependant.Name].Version.MinVersion <= dependentVersion.MinVersion)
+                                {
+                                    toRemove.Add(dependant.Name);
+                                }
+                            }
+                        }
+                    }
+                }
+                foreach (var name in toRemove)
+                {
+                    projectPackage.RequestedPackages.Remove(name);
                 }
             }
         }
