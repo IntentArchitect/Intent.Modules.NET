@@ -7,6 +7,7 @@ using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
 using Intent.Modules.Modelers.Types.ServiceProxies;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -38,6 +39,7 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientCo
         public override IEnumerable<DTOModel> GetModels(IApplication application)
         {
             return _metadataManager.ServiceProxies(application).GetMappedServiceProxyDTOModels(Constants.MessageTriggered)
+                .Where(x => x.Id != PagedResultTemplateBase.TypeDefinitionElementId)
                 .ToList();
         }
     }

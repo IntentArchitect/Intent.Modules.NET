@@ -9,6 +9,7 @@ using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Modules.Modelers.Types.ServiceProxies;
 using Intent.RoslynWeaver.Attributes;
@@ -48,6 +49,11 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
                     {
                         // Only generates DTOs that are used by services
                         return HttpEndpointModelFactory.GetEndpoint(x.InternalElement)?.Inputs.Any(i => i.Id == x.Id) == true;
+                    }
+
+                    if (x.Id == PagedResultTemplateBase.TypeDefinitionElementId)
+                    {
+                        return false;
                     }
 
                     return true;

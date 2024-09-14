@@ -1,3 +1,7 @@
+### Version 1.1.2
+
+- Fixed: `Intent.Modelers.Services` now having `PagedResult<T>` in it was causing generation of a duplicate DTO.
+
 ### Version 1.1.1
 
 - Improvement: Updated module NuGet packages infrastructure.

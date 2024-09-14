@@ -8,6 +8,7 @@ using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -38,8 +39,11 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.DtoContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DTOModel> GetModels(IApplication application)
         {
-            return _metadataManager.GetServicesAsProxyModels(application).SelectMany(p => RegistrationHelper.GetReferencedDTOModels(p, true)).Distinct()
-            .ToList();
+            return _metadataManager.GetServicesAsProxyModels(application)
+                .SelectMany(p => RegistrationHelper.GetReferencedDTOModels(p, true))
+                .Where(x => x.Id != PagedResultTemplateBase.TypeDefinitionElementId)
+                .Distinct()
+                .ToList();
         }
 
 
