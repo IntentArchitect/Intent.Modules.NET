@@ -17,6 +17,6 @@ namespace CleanArchitecture.Comprehensive.Application.IntegrationServices.Contra
         public int PageCount { get; set; }
         public int PageSize { get; set; }
         public int PageNumber { get; set; }
-        public IEnumerable<TData> Data { get; set; }
+        public List<TData> Data { get; set; }
     }
 }

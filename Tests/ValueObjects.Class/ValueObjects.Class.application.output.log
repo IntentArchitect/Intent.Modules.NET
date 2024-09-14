@@ -852,7 +852,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7a8e2111-0b46-4789-8117-0117d57e0213</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.PagedResult</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.PagedResult#9204e067-bdc8-45e7-8970-8a833fdc5253</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ValueObjects.Class.IntegrationTests/Services/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>

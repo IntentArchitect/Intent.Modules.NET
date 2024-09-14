@@ -2,9 +2,9 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Blazor.HttpClients.Dtos.FluentValidation.ValidatorProvider", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Blazor.FluentValidation.ValidatorProvider", Version = "1.0")]
 
-namespace MinimalHostingModel.BlazorClient.HttpClients.Common.Validation
+namespace CleanArchitecture.Comprehensive.BlazorClient.Client.Common.Validation
 {
     public class ValidatorProvider : IValidatorProvider
     {

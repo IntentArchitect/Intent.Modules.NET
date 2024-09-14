@@ -1632,12 +1632,12 @@
       <count>2</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.1872801Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7052254Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.1872824Z</approvedAt>
-      <deviationsHash>E5EC718CA3A8F630B162BDEEE02291DE93DDDAF7F23DCCD07CAEF73E8B64205C</deviationsHash>
-      <fileHash>D5ECA01444F1C90D2BB928954E73B0342D2BC318D74F0A400D68970D92D8C8BC</fileHash>
+      <approvedAt>2024-09-14T20:00:23.4523297Z</approvedAt>
+      <deviationsHash>D2010A9DDF2EA74038CA7CCA9A4B91851A2ABF7B2311546BCEF1D2517DFEF6E4</deviationsHash>
+      <fileHash>88E32DE90508D9D46C7922605BEC432F6118F789F269574785453B729F1C862C</fileHash>
     </file>
     <file>
       <correlationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#b3ccbe02-de93-4834-84f5-d2e349dd17da</correlationId>
@@ -1663,7 +1663,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2024-06-20T19:35:37.1926635Z</approvedAt>
       <deviationsHash>9F233BB4F7E0C040DA2C796353AC0D879C371FD34A45282696DED244A9C27CD0</deviationsHash>
-      <fileHash>BF46202EB3E123BC288660076A809994D786E5597542D7DBAB53AB394D738294</fileHash>
+      <fileHash>FD5E33D7603CE4D799BCEED35EC97D29792B52E997B11FDFDE565F5AFF2DC1A4</fileHash>
     </file>
     <file>
       <correlationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#7e32c772-8408-4429-8af2-820f832d584f</correlationId>
@@ -1676,7 +1676,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2024-06-20T19:35:37.2072953Z</approvedAt>
       <deviationsHash>8E3B8E54A9CC4D87746E46437BBD1CC7FFCFA0492E44924D7BD9AA8AD74FC13F</deviationsHash>
-      <fileHash>0D9035EA6C5882EF514A5635EA8A5E928E86E9F11F39702B48DAEE5C80F58843</fileHash>
+      <fileHash>096CF1CEAD0A2E244D31F42D295D617DD82A2E9FE7A914D6556B0D65F52093B5</fileHash>
     </file>
     <file>
       <correlationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#6fb403ca-5147-47bd-b8e5-d9d034361096</correlationId>
@@ -1715,7 +1715,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2024-06-20T19:35:37.2129629Z</approvedAt>
       <deviationsHash>2BA06450054840769C2C54ABB284896304E816CDDC3DDFD557853FA7CC1349F8</deviationsHash>
-      <fileHash>3977ADADC19B27EEA127B385DB03672E837D1458D89B1C19F5A5B0FA3931815D</fileHash>
+      <fileHash>0D049D7A15C378B11FA4D80EA7F171213B26F4D2222E6B1455BA3CCC2B66606E</fileHash>
     </file>
     <file>
       <correlationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#8dd143db-99b4-4f77-bb66-52efd58e871e</correlationId>
@@ -1754,7 +1754,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2024-06-20T19:35:37.2245485Z</approvedAt>
       <deviationsHash>5003334CEA7DF1A06A2F8B985B7C72C7970071502C7C3021732E066C26073F76</deviationsHash>
-      <fileHash>81C6C31C8AAB15F6F605C2078FA2FAB321D732CD1998A678F51386970D7F34B2</fileHash>
+      <fileHash>CF744D897B8BE4D138AB3926D7121BC4AE7B7204CC0AB50EC15FAB3FABDFE1D4</fileHash>
     </file>
     <file>
       <correlationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#a654d5ee-08a9-4f71-918b-610623fd3575</correlationId>
@@ -1780,7 +1780,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2024-06-20T19:35:37.227664Z</approvedAt>
       <deviationsHash>A65026CEB2086691D19DCC5CDDF307B4E770F8FD8AB83CEFCD66A510A148BE0C</deviationsHash>
-      <fileHash>77F3C9683144F493E2374CF724EC4A7CF65B0A099F72CBB77E45AF06A9D5BEB2</fileHash>
+      <fileHash>A9825E37EA779D68428E4963A76CE8080822F7F698C9654FEC646E0B620B8350</fileHash>
     </file>
     <file>
       <correlationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#095c5ed0-1106-4475-9a90-33f5eaf115bb</correlationId>
@@ -1793,7 +1793,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2024-06-20T19:35:37.2685252Z</approvedAt>
       <deviationsHash>3EB84D2E9D767476F52CAF068C28F61E1EBAC1D26FBF8D12522798679ABDECFF</deviationsHash>
-      <fileHash>58CED0E851C86242143A06F0ADFA29B098B6964DB5E8FB25C3B5FA248D4A2F54</fileHash>
+      <fileHash>4F5B31D3991E5DDA063DF6C98D89C4F79657FD1631AF09A09CFF8CE093F27D2C</fileHash>
     </file>
     <file>
       <correlationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#5e79f290-4090-46d2-b024-705058178c6a</correlationId>
@@ -1832,7 +1832,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2024-06-20T19:35:37.281093Z</approvedAt>
       <deviationsHash>B5E2E399F38A7764A4174E6082B80CFC90B763DC9C393D31DB1AF5CE341A2272</deviationsHash>
-      <fileHash>9161448480D7D8FF0B2B43021D40F728D15EC09B47FF599A15500A06B717E056</fileHash>
+      <fileHash>A197BE609EB83E1A255DCAE80EC89BB720FF4AEF746B3F1FCCB35F911B99B019</fileHash>
     </file>
     <file>
       <correlationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#e99b16ff-0910-436e-93e4-f2cff2790287</correlationId>
@@ -1871,19 +1871,19 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2024-06-20T19:35:37.2910703Z</approvedAt>
       <deviationsHash>7DD560365D58589586AF572528322D8D603AD9800FEFB16911403E974D2B0627</deviationsHash>
-      <fileHash>3E60F2F3719D1D627D6FE93053A404F95AA4005D4E39A730A7B988F2BA57D6C7</fileHash>
+      <fileHash>1C0176F45111F94F8474CFA1A9FBF9CDF3676F2035041A965423930909BAA51F</fileHash>
     </file>
     <file>
       <correlationId>Intent.Entities.DomainEntity#c06e6d4c-b59d-45cc-9321-1a887e9a8f15</correlationId>
       <path>CleanArchitecture.Comprehensive.Domain/Entities/Async/AsyncOperationsClass.cs</path>
-      <count>1</count>
+      <count>6</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.2869773Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7056741Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.2869799Z</approvedAt>
-      <deviationsHash>2C0D0589610DFA5005B8DC9FB7F775579C00C74D1AA7036EFF86F648348AB0C2</deviationsHash>
+      <approvedAt>2024-09-14T20:00:20.9918414Z</approvedAt>
+      <deviationsHash>C6C0F006E832503A8AF77BBBD4715F81B22823932912B2216E79F79A7E2A1FEB</deviationsHash>
       <fileHash>9C3D89BD8426B16DAB4AB3F5D554B8B978AB8AA687B1816E207245151C6D10D9</fileHash>
     </file>
     <file>
@@ -1892,11 +1892,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.2937624Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7056564Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.2937644Z</approvedAt>
-      <deviationsHash>B9CEF27E289F48CDBF2642F51AF05D4D15710F6EFBC51880032D2BA30F409EB9</deviationsHash>
+      <approvedAt>2024-09-14T20:00:20.9976001Z</approvedAt>
+      <deviationsHash>559FD636D210C1A8FFDBAA0F7FEDA7AABC2169C670E43EDDC52622B81D4CD849</deviationsHash>
       <fileHash>6C8A7D0B7D9F156CDFF0FD21E120289D6D06CC25E9BDF6C9A1F0E86C2B4B3722</fileHash>
     </file>
     <file>
@@ -1905,11 +1905,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.2961089Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7056592Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.2961131Z</approvedAt>
-      <deviationsHash>EEAD3E54E3CAB45098E30145B8CBBA80DC6F8FF5B5E72584460295FF6CE715FF</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0013077Z</approvedAt>
+      <deviationsHash>C26FD98617CC085EC12F46B8ACC0F1181B70293E7DA3CC4F9D8A40DE76895B94</deviationsHash>
       <fileHash>115076689F4FFBE0AEFA2E3B90D8971487EDD1B5936C1DBC365482D6FA064CDD</fileHash>
     </file>
     <file>
@@ -1918,11 +1918,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.2989776Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7056619Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.2989795Z</approvedAt>
-      <deviationsHash>EC77C78D705BA7E7CEF1988CC018FFD80D03893D4ACD93A788A9A7E898F6F10F</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0060927Z</approvedAt>
+      <deviationsHash>97298C9BEC115D0B44AEC37035FF4643CDC2D632166EC19C7383C976F9C874C8</deviationsHash>
       <fileHash>2E6C4453709A78C56AC5F7E9CACD9F2589ED0FE13789B7B51046788B0DEF2E36</fileHash>
     </file>
     <file>
@@ -1931,11 +1931,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3018277Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7056647Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.3018296Z</approvedAt>
-      <deviationsHash>3A675BD1F5EEAFDA055319045C03A98C6764E651D0860BD737E8D6BBB63A169F</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0088067Z</approvedAt>
+      <deviationsHash>A23F575C1F9C67E0DFD1E115541A067DE8FA429DD0C12A6C181CB5A1D65DC2E5</deviationsHash>
       <fileHash>180E0EBDF32280EDEE9657B4A3B30CB68498BAF363CBAC5C95E0D4FB82197047</fileHash>
     </file>
     <file>
@@ -1944,11 +1944,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3050363Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7056949Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.3050382Z</approvedAt>
-      <deviationsHash>4017650F4C10CE0AC5BABB810C36831F0D5BC22BAE747AE8FC4C659863835C44</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0120771Z</approvedAt>
+      <deviationsHash>E47CF5FD89C20AB0A36EA35058563B3BE58924085EF44C6B5532EA10E55B8304</deviationsHash>
       <fileHash>A0E7CC3F2B00893C809C3F7BC08DE3C5E0AEF84D89F6CBF3DF3037F95E01C43C</fileHash>
     </file>
     <file>
@@ -1957,11 +1957,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3081846Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7056978Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.3081873Z</approvedAt>
-      <deviationsHash>6F20FE4AAA9702FF64AFDB9A3990C0EF5E4CD55CF4D1AA10A126C7687FC87173</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0151256Z</approvedAt>
+      <deviationsHash>E53A5FCE6026102E7415D98FD127CDC47E8353561C3D055DEB20AC7ADD39A8C2</deviationsHash>
       <fileHash>AF6AA98E23E784DEF91D787B18BB1BC2D50A40402BE052E58E93DE1D04C3EDDE</fileHash>
     </file>
     <file>
@@ -1970,11 +1970,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3114133Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7057001Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.3114171Z</approvedAt>
-      <deviationsHash>D2C7A271B342A14366853C43AB93C41D5A8EF9A0F8A0A059C14334675C96192D</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.018249Z</approvedAt>
+      <deviationsHash>EBDBFF230A2556438330916B5A7BFB0E883D51DCD3D8E5256D6EB0F147AC3F71</deviationsHash>
       <fileHash>664DA94A6EF5F7E70354FB9DDABE2E30A4E9CF32CC9AADC0C934704B2A32F0B2</fileHash>
     </file>
     <file>
@@ -1983,11 +1983,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3140454Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7057028Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.3140466Z</approvedAt>
-      <deviationsHash>CA5CB6CCD7BF15A1146360EFB175C45925546F8C960934E42CC947E8E3E18B5D</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0215526Z</approvedAt>
+      <deviationsHash>8FA920CA301FA200273EF71A22302C83DDA916D2E7D407B3B92040C073BB6DA4</deviationsHash>
       <fileHash>A768AD90E2F646D423C323D6C7F43A9F3219C2083C1C9A8661DA0E496E60C442</fileHash>
     </file>
     <file>
@@ -1996,11 +1996,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3165702Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7057052Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.3165717Z</approvedAt>
-      <deviationsHash>87D7FAB9AFD7074CE283D3C1447AA7BEDDC46D627F5D2E6DCC68956480D5D33A</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0246956Z</approvedAt>
+      <deviationsHash>5779C7A3C99E27A2BAB6DB644084C1CE0FAE8C02BC83AFD2594A5313FCCB80C0</deviationsHash>
       <fileHash>EDF9431CCB6D38427EB4841B7490650F01955C1ED7A7682FE076F2A2A5AAFD83</fileHash>
     </file>
     <file>
@@ -2009,11 +2009,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3201023Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7057081Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.3201037Z</approvedAt>
-      <deviationsHash>D14A4B416B5010C784D9437C1780FF1E16000B3B08EEB1B2A2CFE467AA14691C</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0276213Z</approvedAt>
+      <deviationsHash>1A8A0DA50A8DAFB5DAF37A09D0DFBF35997AB0370FF69B2CFBE004F7589C34E6</deviationsHash>
       <fileHash>9846B9DDC49EB77B7F3D0758812D809E94FDA4E75F56314C876A0AA729F454CB</fileHash>
     </file>
     <file>
@@ -2022,11 +2022,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3226574Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7057101Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.3226586Z</approvedAt>
-      <deviationsHash>3E4A9DD5A93C871DD7E9E03C536D3854C6DBED10FD657F579443209C375F0083</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0315806Z</approvedAt>
+      <deviationsHash>139D602ABA6741EDFA4FB04467AECD13C7814F79379B6DA57DD024BDE4D429CE</deviationsHash>
       <fileHash>A286F1A14E1A0FB9C478C5B8322ACC669EE90632AF1305978E2DE4B61E44463E</fileHash>
     </file>
     <file>
@@ -2035,37 +2035,37 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3256416Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7056497Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.3256432Z</approvedAt>
-      <deviationsHash>D381AFF7A3FC4D6ABD406F0CB58AF984AC63DE22F39897A17ED8C5E9F5994BD6</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0348453Z</approvedAt>
+      <deviationsHash>6BA96D9976BCEC4F0FECC79698AA6F58CA0DDC6B1B78502E6D22EBA89C351AD2</deviationsHash>
       <fileHash>FCB340B19136D4404DABCC6C15608A4785ABDEAA22140CA7259D18B650BBC78A</fileHash>
     </file>
     <file>
       <correlationId>Intent.Entities.DomainEntity#ef229a2c-3961-4466-ab21-99aae3e3bf58</correlationId>
       <path>CleanArchitecture.Comprehensive.Domain/Entities/DDD/AccountHolder.cs</path>
-      <count>1</count>
+      <count>2</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3315421Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.705653Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.3315446Z</approvedAt>
-      <deviationsHash>030BD3AE9D70EC61E72803EC48F1939B5039329C80343DB9C938521EEF591664</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0377301Z</approvedAt>
+      <deviationsHash>177D6825DE96AC45F0EAB68AAFC279ECB26D8D9BB141EA6C350AF227EA76BED1</deviationsHash>
       <fileHash>E86C2B4C584E96F736DFA6023F7D2A2735A936BE0B5955CE1CEF999B0D327293</fileHash>
     </file>
     <file>
       <correlationId>Intent.Entities.DomainEntity#ae4cf81c-ec49-4c7a-a9d2-e137453430d7</correlationId>
       <path>CleanArchitecture.Comprehensive.Domain/Entities/DDD/DataContractClass.cs</path>
-      <count>1</count>
+      <count>2</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3283812Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.705721Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.3283827Z</approvedAt>
-      <deviationsHash>4BEB073CD6F4E881E8E344A266FAC98A9240FB09D6F581232F5E3F1E57E5122F</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0407606Z</approvedAt>
+      <deviationsHash>E9FFCD1BA6DD6B20973E6B37E1F24607EB806FC2BE79A26AB23BDBE9FA0E7514</deviationsHash>
       <fileHash>1E631EF55365EA4E839EB0D7299E07014E86B4C192BA00F134C283D1F986EF38</fileHash>
     </file>
     <file>
@@ -2074,24 +2074,24 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3354659Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7057779Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.335468Z</approvedAt>
-      <deviationsHash>B0F50A4360AC34E9BE9696BCE876A5712AB9C8093F551E6DFA0F75C32854E42D</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0441481Z</approvedAt>
+      <deviationsHash>F9D9781939F0E1BD4C2B108A7B29DEA45A8366B0A84BD8CA77A44B661A7B1EB4</deviationsHash>
       <fileHash>9B7AAE71C20226C3A9A7C878DC4EE724F2466FABBF3D4574B34FF288FCD490C2</fileHash>
     </file>
     <file>
       <correlationId>Intent.Entities.DomainEntity#b857a0c2-4032-40ad-b2e6-9556c6fec677</correlationId>
       <path>CleanArchitecture.Comprehensive.Domain/Entities/DefaultDiagram/ClassWithDefault.cs</path>
-      <count>1</count>
+      <count>2</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3482937Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7056896Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.348297Z</approvedAt>
-      <deviationsHash>5523BEF3DE229DB8374ACB8F0B7DFC65F1A29AE3B02E1A3BCBE3C491F741D244</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0477603Z</approvedAt>
+      <deviationsHash>78DBEFC54DBC41FC1F3891B64A2579A29DD83070CA7B90C1A644B2ECECCEB699</deviationsHash>
       <fileHash>3F3942473ED7C3947B3EF7DFF99E4A8BB3B5D4ACE990021F923FC68B6EDC57F7</fileHash>
     </file>
     <file>
@@ -2100,11 +2100,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3443717Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7056924Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.3443749Z</approvedAt>
-      <deviationsHash>AADB0AC284474E1999074EE2CE8A7DD3CCA145210C4B337431BB800FAD592E4E</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0512829Z</approvedAt>
+      <deviationsHash>49A8242E36E47E0E61E953FB8C495C0272639869B4BF180BD023B7878D0D1557</deviationsHash>
       <fileHash>B8A5C7DBC469B8EA5BCDAEF96A0996887D45B6F916335D639AA7AE5F27C62AD6</fileHash>
     </file>
     <file>
@@ -2113,11 +2113,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.356249Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7057321Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.3562523Z</approvedAt>
-      <deviationsHash>3FA4C09C688A7752B7E690E7B00D1D8F0EEF24CCF2E08E2915471D1C95F690DD</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.054727Z</approvedAt>
+      <deviationsHash>159473355173669191E0D43FEEC16C93EEF7056DC1F4E0863C9ACDA19A90556B</deviationsHash>
       <fileHash>D25BCAABE08D7C82372BFC606B885A4BC45553C608D9EC461C06793CC36EA1E4</fileHash>
     </file>
     <file>
@@ -2126,11 +2126,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3518852Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7057721Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.351888Z</approvedAt>
-      <deviationsHash>7D0D5BD6B941B341D27317BD82DCC6FEECAACF89D0CFB7841E32D779D24E8677</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0588501Z</approvedAt>
+      <deviationsHash>83F0D89159229D92238C55507E1BA71D3410A030B2073E60DF81E070297962B9</deviationsHash>
       <fileHash>3510261587A1AAB9ACFB545BC0323C565E31EB3849F4C39C05488D92B6E15603</fileHash>
     </file>
     <file>
@@ -2139,11 +2139,11 @@
       <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:35:37.3595887Z</updatedAt>
+      <updatedAt>2024-09-14T19:27:25.7057752Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:35:37.3595907Z</approvedAt>
-      <deviationsHash>023ED23B3226E69277579E75FA9AF5D27F157CFFA2BAD6BA24F9DF255C668F42</deviationsHash>
+      <approvedAt>2024-09-14T20:00:21.0635724Z</approvedAt>
+      <deviationsHash>950E32ABE584CF8B5D27501A0C30C2334541A417BCFA66194D34FE11D442C52A</deviationsHash>
       <fileHash>276833F324F21A1B3BEA190B760F8B9A304930A65A1C1DAFFB0740FDD94C712B</fileHash>
     </file>
     <file>

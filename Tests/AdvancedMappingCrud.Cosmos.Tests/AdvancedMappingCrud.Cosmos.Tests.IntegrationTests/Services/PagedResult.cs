@@ -16,6 +16,6 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services
         public int PageCount { get; set; }
         public int PageSize { get; set; }
         public int PageNumber { get; set; }
-        public IEnumerable<TData> Data { get; set; }
+        public List<TData> Data { get; set; }
     }
 }

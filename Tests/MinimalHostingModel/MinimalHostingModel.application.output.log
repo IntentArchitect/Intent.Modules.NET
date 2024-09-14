@@ -379,6 +379,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>8db1a54d-9903-4bc8-950f-baa50a937a08</ProjectId>
+      <CorrelationId>Intent.Blazor.FluentValidation.ValidatorProviderInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MinimalHostingModel.BlazorClient/Client/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8db1a54d-9903-4bc8-950f-baa50a937a08</ProjectId>
+      <CorrelationId>Intent.Blazor.FluentValidation.ValidatorProvider</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MinimalHostingModel.BlazorClient/Client/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>76b794d3-4350-458f-aa25-ef4fb223a588</ProjectId>
       <CorrelationId>Intent.Blazor.WebAssembly.ProgramTemplate</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -400,22 +416,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MinimalHostingModel.BlazorClient/HttpClients/Common/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6cfea9e8-00fa-4b97-817e-9738a69a4d7f</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.ValidatorProviderInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MinimalHostingModel.BlazorClient/HttpClients/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6cfea9e8-00fa-4b97-817e-9738a69a4d7f</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.ValidatorProvider</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MinimalHostingModel.BlazorClient/HttpClients/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

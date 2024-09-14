@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly" Version="7.0.10" />
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.4" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.5-alpha.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.20" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.20" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="7.0.20" />

@@ -12,7 +12,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Contracts.Ser
         public UpdateAggregateRootCompositeManyBCommand()
         {
             CompositeAttr = null!;
-            Composites = null!;
+            Composites = [];
         }
 
         public Guid AggregateRootId { get; set; }

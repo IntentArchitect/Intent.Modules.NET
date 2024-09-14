@@ -1,5 +1,4 @@
-using CleanArchitecture.Comprehensive.BlazorClient.HttpClients;
-using CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Common.Validation;
+using CleanArchitecture.Comprehensive.BlazorClient.Client.Common.Validation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
@@ -21,7 +20,6 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.Client
             //IntentIgnore
             CustomRegistrations(builder);
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            builder.Services.AddHttpClients(builder.Configuration);
             builder.Services.AddScoped<IValidatorProvider, ValidatorProvider>();
             await builder.Build().RunAsync();
         }
