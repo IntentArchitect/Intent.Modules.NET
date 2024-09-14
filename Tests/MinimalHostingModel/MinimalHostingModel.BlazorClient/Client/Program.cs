@@ -1,8 +1,8 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using MinimalHostingModel.BlazorClient.Client.Common.Validation;
 using MinimalHostingModel.BlazorClient.HttpClients;
-using MinimalHostingModel.BlazorClient.HttpClients.Common.Validation;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Blazor.WebAssembly.ProgramTemplate", Version = "1.0")]
