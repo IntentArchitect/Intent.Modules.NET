@@ -18,12 +18,15 @@ internal class NuGetPackage
 
     public List<string> IncludeAssets { get; private set; }
 
+    public INugetPackageInfo RequestedPackage { get; private set; }
+
     public static NuGetPackage Create(string projectPath, [NotNull] INugetPackageInfo nugetPackageInfo, VersionRange version = null)
     {
         ValidatePackageInformation(projectPath, nugetPackageInfo.Name, nugetPackageInfo.Version);
 
         return new NuGetPackage
         {
+            RequestedPackage = nugetPackageInfo,
             Version = version ?? VersionRange.Parse(nugetPackageInfo.Version),
             IncludeAssets = new List<string>(nugetPackageInfo.IncludeAssets ?? Array.Empty<string>()),
             PrivateAssets = new List<string>(nugetPackageInfo.PrivateAssets ?? Array.Empty<string>())
@@ -48,6 +51,10 @@ internal class NuGetPackage
     {
         if (Version.MinVersion < highestVersion.MinVersion) Version = highestVersion;
 
+        if (nugetPackageInfo == null)
+        {
+            return;
+        }
         if (nugetPackageInfo.IncludeAssets != null)
         {
             foreach (var item in nugetPackageInfo.IncludeAssets)

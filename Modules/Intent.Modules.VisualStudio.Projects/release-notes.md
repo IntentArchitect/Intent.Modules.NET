@@ -2,6 +2,10 @@
 
 TODO
 
+### Version 3.7.8
+
+- Improvement: Added support for modeled Implicit NuGet package dependencies.
+
 ### Version 3.7.7
 
 - Improvement: When generating CSProj file, the template now not install direct NuGet package dependencies if there is a transitive dependency on the package through a dependent CSProj file.

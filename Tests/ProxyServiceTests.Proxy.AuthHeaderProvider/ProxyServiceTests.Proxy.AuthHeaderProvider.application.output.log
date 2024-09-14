@@ -756,14 +756,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>9de8259c-30ef-4862-9545-6046e2ef31d2</ProjectId>
-      <CorrelationId>Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure/HttpClients/HttpClientHeaderHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HttpClientHeaderHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9de8259c-30ef-4862-9545-6046e2ef31d2</ProjectId>
       <CorrelationId>Intent.Integration.HttpClients.AuthorizationHeaderProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure/HttpClients/IAuthorizationHeaderProvider.cs</ApplicationRelativeFilePath>

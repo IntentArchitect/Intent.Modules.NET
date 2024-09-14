@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Redis.Om.Repositories</id>
   <version>1.0.3</version>
@@ -139,7 +139,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.3" />
+    <dependency id="Intent.Common.CSharp" version="3.7.6-pre.1" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Entities.Repositories.Api" version="5.1.0" />
     <dependency id="Intent.Metadata.DocumentDB" version="1.1.9" />

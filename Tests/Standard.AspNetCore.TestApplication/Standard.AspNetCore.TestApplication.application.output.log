@@ -868,14 +868,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>69880d7a-1db3-4fb8-b222-92442bb62907</ProjectId>
-      <CorrelationId>Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Infrastructure/HttpClients/HttpClientHeaderHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HttpClientHeaderHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>69880d7a-1db3-4fb8-b222-92442bb62907</ProjectId>
       <CorrelationId>Intent.Integration.HttpClients.HttpClient#c3ae1723-54f0-4bcc-b0d1-a4507f314f8d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.TestApplication.Infrastructure/HttpClients/IntegrationServiceProxyHttpClient.cs</ApplicationRelativeFilePath>

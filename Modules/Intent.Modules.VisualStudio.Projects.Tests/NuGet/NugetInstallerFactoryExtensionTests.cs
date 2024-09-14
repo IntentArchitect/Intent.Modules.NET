@@ -1,9 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Xml.Linq;
+using Intent.Engine;
+using Intent.Metadata.Models;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.Settings;
 using Intent.Modules.VisualStudio.Projects.Tests.NuGet.Helpers;
+using NSubstitute;
+using NuGet.Versioning;
 using Shouldly;
 using Xunit;
 
@@ -136,6 +142,325 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
 
 </Project>", LoadOptions.PreserveWhitespace).ToString().ReplaceLineEndings());
             });
+
         }
+
+        [Fact]
+        public void NuGetPackageConsolidationTest_RemoveTransativeDependencies()
+        {
+            // Arrange
+            var tracing = new TestTracing();
+            var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
+
+            var testCase = TestFixtureHelper.GetCleanArchitectureProjectSetup();
+
+            testCase.Api.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+            testCase.Application.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+            testCase.Domain.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+            testCase.Infrastructure.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+            testCase.Test.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+
+            // Act
+            sut.ConsolidateRequestedPackages(testCase.Projects());
+
+            // Assert
+            Assert.True(testCase.Domain.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.Equal("2.1.4", testCase.Domain.RequestedPackages["RoslynWeaver"].Version.MinVersion.ToString());
+
+            Assert.False(testCase.Api.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.False(testCase.Application.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.False(testCase.Infrastructure.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.False(testCase.Test.RequestedPackages.ContainsKey("RoslynWeaver"));
+        }
+
+        [Fact]
+        public void NuGetPackageConsolidationTest_ResolveHighestVersion()
+        {
+            // Arrange
+            var tracing = new TestTracing();
+            var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
+
+            var testCase = TestFixtureHelper.GetCleanArchitectureProjectSetup();
+
+            testCase.Api.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.5");
+
+            testCase.Application.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+            testCase.Domain.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+            testCase.Infrastructure.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+            testCase.Test.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+
+            // Act
+            sut.ConsolidateRequestedPackages(testCase.Projects());
+
+            // Assert
+            Assert.True(testCase.Domain.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.Equal("2.1.5", testCase.Domain.RequestedPackages["RoslynWeaver"].Version.MinVersion.ToString());
+            Assert.False(testCase.Api.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.False(testCase.Application.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.False(testCase.Infrastructure.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.False(testCase.Test.RequestedPackages.ContainsKey("RoslynWeaver"));
+        }
+
+        [Fact]
+        public void NuGetPackageConsolidationTest_RequestUpgradeOfAlreadyInstalledTransitivePackages()
+        {
+            // Arrange
+            var tracing = new TestTracing();
+            var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
+
+            var testCase = TestFixtureHelper.GetCleanArchitectureProjectSetup();
+
+            //Older version already installed
+            testCase.Api.InstalledPackages.AddNuGet("RoslynWeaver", "2.1.4");
+            testCase.Api.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+            testCase.Application.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+            testCase.Domain.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.5");
+
+            testCase.Infrastructure.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+            testCase.Test.RequestedPackages.AddNuGet("RoslynWeaver", "2.1.4");
+
+            // Act
+            sut.ConsolidateRequestedPackages(testCase.Projects());
+
+            // Assert
+            Assert.True(testCase.Domain.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.Equal("2.1.5", testCase.Domain.RequestedPackages["RoslynWeaver"].Version.MinVersion.ToString());
+            Assert.True(testCase.Api.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.Equal("2.1.5", testCase.Api.RequestedPackages["RoslynWeaver"].Version.MinVersion.ToString());
+
+            Assert.False(testCase.Application.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.False(testCase.Infrastructure.RequestedPackages.ContainsKey("RoslynWeaver"));
+            Assert.False(testCase.Test.RequestedPackages.ContainsKey("RoslynWeaver"));
+        }
+
+        [Fact]
+        public void NuGetPackageConsolidationTest_RemoveTransitiveImplicitDependencies()
+        {
+            // Arrange
+            var tracing = new TestTracing();
+            var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
+
+            var testCase = TestFixtureHelper.GetCleanArchitectureProjectSetup();
+
+            testCase.Api.RequestedPackages.AddNuGet("Common", "1.0.0");
+
+            testCase.Domain.RequestedPackages.AddNuGet("Common.CSharp", "2.0.0", c => 
+            {
+                c.Dependencies.Add(new NugetPackageDependency("Common", "1.0.0"));
+            });
+
+            // Act
+            sut.ConsolidateRequestedPackages(testCase.Projects());
+
+            // Assert
+            Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common.CSharp"));
+            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].Version.MinVersion.ToString());
+            Assert.False(testCase.Domain.RequestedPackages.ContainsKey("Common"));
+            Assert.False(testCase.Api.RequestedPackages.ContainsKey("Common"));
+        }
+
+        [Fact]
+        public void NuGetPackageConsolidationTest_KeepInstalledTransitiveImplicitDependencyAndUpgrade()
+        {
+            // Arrange
+            var tracing = new TestTracing();
+            var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
+
+            var testCase = TestFixtureHelper.GetCleanArchitectureProjectSetup();
+
+            testCase.Api.RequestedPackages.AddNuGet("Common", "1.0.0");
+            testCase.Api.InstalledPackages.AddNuGet("Common", "1.0.0");
+
+            testCase.Domain.RequestedPackages.AddNuGet("Common.CSharp", "2.0.0", c =>
+            {
+                c.Dependencies.Add(new NugetPackageDependency("Common", "1.5.0"));
+            });
+
+            // Act
+            sut.ConsolidateRequestedPackages(testCase.Projects());
+
+            // Assert
+            Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common.CSharp"));
+            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].Version.MinVersion.ToString());
+            Assert.False(testCase.Domain.RequestedPackages.ContainsKey("Common"));
+            Assert.True(testCase.Api.RequestedPackages.ContainsKey("Common"));
+            Assert.Equal("1.5.0", testCase.Api.RequestedPackages["Common"].Version.MinVersion.ToString());
+        }
+
+        [Fact]
+        public void NuGetPackageConsolidationTest_RequestNewerVersionOfImplicitDependency()
+        {
+            // Arrange
+            var tracing = new TestTracing();
+            var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
+
+            var testCase = TestFixtureHelper.GetCleanArchitectureProjectSetup();
+
+            testCase.Api.RequestedPackages.AddNuGet("Common", "1.5.0");
+
+            testCase.Domain.RequestedPackages.AddNuGet("Common.CSharp", "2.0.0", c =>
+            {
+                c.Dependencies.Add(new NugetPackageDependency("Common", "1.0.0"));
+            });
+
+            // Act
+            sut.ConsolidateRequestedPackages(testCase.Projects());
+
+            // Assert
+            Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common.CSharp"));
+            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].Version.MinVersion.ToString());
+            Assert.False(testCase.Domain.RequestedPackages.ContainsKey("Common"));
+            Assert.True(testCase.Api.RequestedPackages.ContainsKey("Common"));
+            Assert.Equal("1.5.0", testCase.Api.RequestedPackages["Common"].Version.MinVersion.ToString());
+        }
+
+        [Fact]
+        public void NuGetPackageConsolidationTest_RequestNewerVersionOfImplicitDependencyWithTransitive()
+        {
+            // Arrange
+            var tracing = new TestTracing();
+            var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
+
+            var testCase = TestFixtureHelper.GetCleanArchitectureProjectSetup();
+
+            testCase.Api.RequestedPackages.AddNuGet("Common", "1.5.0");
+            testCase.Application.RequestedPackages.AddNuGet("Common", "1.5.0");
+
+            testCase.Domain.RequestedPackages.AddNuGet("Common.CSharp", "2.0.0", c =>
+            {
+                c.Dependencies.Add(new NugetPackageDependency("Common", "1.0.0"));
+            });
+
+            // Act
+            sut.ConsolidateRequestedPackages(testCase.Projects());
+
+            // Assert
+            Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common.CSharp"));
+            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].Version.MinVersion.ToString());
+            Assert.False(testCase.Domain.RequestedPackages.ContainsKey("Common"));
+            Assert.False(testCase.Api.RequestedPackages.ContainsKey("Common"));
+            Assert.True(testCase.Application.RequestedPackages.ContainsKey("Common"));
+            Assert.Equal("1.5.0", testCase.Application.RequestedPackages["Common"].Version.MinVersion.ToString());
+        }
+
+        [Fact]
+        public void NuGetPackageConsolidationTest_RequestNewerVersionOfImplicitDependencyWithTransitiveFallBackOnDependants()
+        {
+            // Arrange
+            var tracing = new TestTracing();
+            var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
+
+            var testCase = TestFixtureHelper.GetCleanArchitectureProjectSetup();
+
+            testCase.Api.RequestedPackages.AddNuGet("Common", "1.0.0");
+            testCase.Application.RequestedPackages.AddNuGet("Common", "1.0.0");
+
+            testCase.Domain.InstalledPackages.AddNuGet("Common.CSharp", "2.0.1");
+            //Will fall back on the below request for "guessing" dependencies
+            testCase.Domain.RequestedPackages.AddNuGet("Common.CSharp", "2.0.0", c =>
+            {
+                c.Dependencies.Add(new NugetPackageDependency("Common", "1.0.0"));
+            });
+
+            // Act
+            sut.ConsolidateRequestedPackages(testCase.Projects());
+
+            // Assert
+            Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common.CSharp"));
+            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].Version.MinVersion.ToString());
+            Assert.False(testCase.Domain.RequestedPackages.ContainsKey("Common"));
+            Assert.False(testCase.Api.RequestedPackages.ContainsKey("Common"));
+            Assert.False(testCase.Application.RequestedPackages.ContainsKey("Common"));
+        }
+
+        [Fact]
+        public void NuGetPackageConsolidationTest_RequestNewerVersionOfImplicitDependencyWithTransitiveFallBackOnDependantsWithUpgrade()
+        {
+            // Arrange
+            var tracing = new TestTracing();
+            var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
+
+            var testCase = TestFixtureHelper.GetCleanArchitectureProjectSetup();
+
+            testCase.Api.RequestedPackages.AddNuGet("Common", "1.5.0");
+            testCase.Application.RequestedPackages.AddNuGet("Common", "1.0.0");
+
+            testCase.Domain.InstalledPackages.AddNuGet("Common.CSharp", "2.0.1");
+            //Will fall back on the below request for "guessing" dependencies
+            testCase.Domain.RequestedPackages.AddNuGet("Common.CSharp", "2.0.0", c =>
+            {
+                c.Dependencies.Add(new NugetPackageDependency("Common", "1.0.0"));
+            });
+
+            // Act
+            sut.ConsolidateRequestedPackages(testCase.Projects());
+
+            // Assert
+
+            Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common.CSharp"));
+            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].Version.MinVersion.ToString());
+            Assert.False(testCase.Domain.RequestedPackages.ContainsKey("Common"));
+            Assert.True(testCase.Application.RequestedPackages.ContainsKey("Common"));
+            Assert.Equal("1.5.0", testCase.Application.RequestedPackages["Common"].Version.MinVersion.ToString());
+            Assert.False(testCase.Api.RequestedPackages.ContainsKey("Common"));
+        }
+
+        [Fact]
+        public void NuGetPackageConsolidationTest_SameProjectDependant()
+        {
+            // Arrange
+            var tracing = new TestTracing();
+            var sut = TestFixtureHelper.GetNuGetInstaller(true, false);
+
+            var testCase = TestFixtureHelper.GetCleanArchitectureProjectSetup();
+
+
+            testCase.Domain.RequestedPackages.AddNuGet("Common", "1.0.0");
+            //Will fall back on the below request for "guessing" dependencies
+            testCase.Domain.RequestedPackages.AddNuGet("Common.CSharp", "2.0.0", c =>
+            {
+                c.Dependencies.Add(new NugetPackageDependency("Common", "1.0.0"));
+                c.Dependencies.Add(new NugetPackageDependency("Common2", "1.0.0"));
+            });
+            testCase.Domain.RequestedPackages.AddNuGet("Common2", "1.5.0");
+
+            // Act
+            sut.ConsolidateRequestedPackages(testCase.Projects());
+
+            // Assert
+
+            Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common.CSharp"));
+            Assert.Equal("2.0.0", testCase.Domain.RequestedPackages["Common.CSharp"].Version.MinVersion.ToString());
+            Assert.True(testCase.Domain.RequestedPackages.ContainsKey("Common2"));
+            Assert.Equal("1.5.0", testCase.Domain.RequestedPackages["Common2"].Version.MinVersion.ToString());
+            Assert.False(testCase.Domain.RequestedPackages.ContainsKey("Common"));
+        }
+
+    }
+
+    internal static class NugetHelperExtensions
+    {
+        internal static void AddNuGet(this Dictionary<string, NuGetPackage> dictionary, string packageName, string version, Action<NugetPackageInfo> configurePackge = null)
+        {
+            var package = new NugetPackageInfo(packageName, version);
+            if (configurePackge != null)
+            {
+                configurePackge(package);
+            }
+            dictionary.Add(packageName, NuGetPackage.Create("", package));
+        }
+
     }
 }

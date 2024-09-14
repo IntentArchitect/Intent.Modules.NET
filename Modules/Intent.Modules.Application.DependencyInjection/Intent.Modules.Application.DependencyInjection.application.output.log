@@ -9,7 +9,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>1d15d8ba-269b-4a31-8855-602cddaa651b</ProjectId>
+      <ProjectId>29e10135-470f-4aca-b10d-235f7b3cf2f2</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.DependencyInjection.imodspec</ApplicationRelativeFilePath>
@@ -17,15 +17,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>1d15d8ba-269b-4a31-8855-602cddaa651b</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#1d15d8ba-269b-4a31-8855-602cddaa651b</CorrelationId>
+      <ProjectId>29e10135-470f-4aca-b10d-235f7b3cf2f2</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#29e10135-470f-4aca-b10d-235f7b3cf2f2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.DependencyInjection.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.DependencyInjection.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>1d15d8ba-269b-4a31-8855-602cddaa651b</ProjectId>
+      <ProjectId>29e10135-470f-4aca-b10d-235f7b3cf2f2</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>

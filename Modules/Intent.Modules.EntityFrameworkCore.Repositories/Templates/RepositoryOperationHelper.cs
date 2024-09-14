@@ -1,5 +1,6 @@
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Repositories.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -12,9 +13,11 @@ public static class RepositoryOperationHelper
 {
     public static void ApplyMethods(ICSharpFileBuilderTemplate template, CSharpClass @class, RepositoryModel repositoryModel)
     {
+        template.AddDomainTypeSources();
+        
         foreach (var operationModel in repositoryModel.Operations)
         {
-            var isAsync = operationModel.Name.EndsWith("Async");
+            var isAsync = operationModel.Name.EndsWith("Async") || operationModel.HasStereotype("Asynchronous");
             @class.AddMethod(GetReturnType(template, operationModel.ReturnType), operationModel.Name, method =>
             {
                 method.AddMetadata("model", operationModel);
@@ -45,7 +48,7 @@ public static class RepositoryOperationHelper
 
         foreach (var operationModel in repositoryModel.Operations)
         {
-            var isAsync = operationModel.Name.EndsWith("Async");
+            var isAsync = operationModel.Name.EndsWith("Async") || operationModel.HasStereotype("Asynchronous");
             @interface.AddMethod(GetReturnType(template, operationModel.ReturnType), operationModel.Name, method =>
             {
                 method.AddMetadata("model", operationModel);

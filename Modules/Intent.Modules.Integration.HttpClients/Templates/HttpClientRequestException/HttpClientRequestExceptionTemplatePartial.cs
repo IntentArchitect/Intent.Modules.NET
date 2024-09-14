@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequestException;
 using Intent.RoslynWeaver.Attributes;

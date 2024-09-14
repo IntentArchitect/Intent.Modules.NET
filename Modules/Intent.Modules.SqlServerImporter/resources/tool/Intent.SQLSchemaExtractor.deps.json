@@ -1,12 +1,12 @@
 {
   "runtimeTarget": {
-    "name": ".NETCoreApp,Version=v6.0",
+    "name": ".NETCoreApp,Version=v8.0",
     "signature": ""
   },
   "compilationOptions": {},
   "targets": {
-    ".NETCoreApp,Version=v6.0": {
-      "Intent.SQLSchemaExtractor/1.1.4": {
+    ".NETCoreApp,Version=v8.0": {
+      "Intent.SQLSchemaExtractor/1.2.0": {
         "dependencies": {
           "Intent.Architect.Persistence": "3.4.0",
           "Intent.Modules.Common": "3.4.2",
@@ -535,12 +535,6 @@
       "System.Diagnostics.DiagnosticSource/6.0.1": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        },
-        "runtime": {
-          "lib/net6.0/System.Diagnostics.DiagnosticSource.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.1523.11507"
-          }
         }
       },
       "System.Diagnostics.PerformanceCounter/6.0.0": {
@@ -742,7 +736,7 @@
     }
   },
   "libraries": {
-    "Intent.SQLSchemaExtractor/1.1.4": {
+    "Intent.SQLSchemaExtractor/1.2.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -52,6 +52,7 @@
           <properties>
             <property name="30044760-ea18-480e-b840-e3cb7e7296d0" display="Name" value="LegacyID" isActive="true" />
             <property name="bc03d4fc-b9cc-4ac0-8869-b3e2cb18f1ef" display="Type" isActive="true" />
+            <property name="94f5a58f-b340-4a8b-b5dd-b618ecd7fc95" display="Order" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -123,6 +124,7 @@
           <properties>
             <property name="30044760-ea18-480e-b840-e3cb7e7296d0" display="Name" isActive="true" />
             <property name="bc03d4fc-b9cc-4ac0-8869-b3e2cb18f1ef" display="Type" value="datetime" isActive="true" />
+            <property name="94f5a58f-b340-4a8b-b5dd-b618ecd7fc95" display="Order" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

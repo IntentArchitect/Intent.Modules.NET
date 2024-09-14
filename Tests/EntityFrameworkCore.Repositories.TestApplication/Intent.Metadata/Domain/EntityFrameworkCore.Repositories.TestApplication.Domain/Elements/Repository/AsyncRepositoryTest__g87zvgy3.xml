@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="32216cce-7ef2-48b2-a8aa-f7d7c29e103b" type="Repository" typeId="96ffceb2-a70a-4b69-869b-0df436c470c3">
+  <name>AsyncRepositoryTest</name>
+  <display>AsyncRepositoryTest</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="6c9fa5f8-4809-4990-92ee-286eed4587eb">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</parentFolderId>
+  <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+  <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="5780a6a0-7738-4a3c-ad80-cd8681687e1f" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation</name>
+      <display>Operation(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="76ee0b87-6b2f-4cfc-8bd0-a496e087ae45">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>32216cce-7ef2-48b2-a8aa-f7d7c29e103b</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="F8E749E2-426F-4E0A-AD03-86BFFE122740" name="Asynchronous">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Entities</definitionPackageName>
+          <definitionPackageId>dcc00891-d339-4864-a22c-24b3ae9fbc67</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

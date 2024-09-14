@@ -182,7 +182,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="d0169aaa-739b-46c6-8045-8e007416dfb6" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+        <childElement id="e252667f-cfe5-4d1d-adc4-005867488341" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
           <name>CustomerId</name>
           <display>CustomerId</display>
           <isAbstract>false</isAbstract>
@@ -213,7 +213,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9e516064-e860-4eda-a068-2f5e203f6938" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+        <childElement id="ea5af588-bcca-45bf-8cea-ef0de44bce62" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
           <name>OrderDate</name>
           <display>OrderDate</display>
           <isAbstract>false</isAbstract>
@@ -282,7 +282,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="eb8aa37c-6da9-44d9-bac8-da4e56801144" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+        <childElement id="45435bdf-bcb6-4fd2-8873-a9f0c89b5ac3" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
           <name>RefNo</name>
           <display>RefNo</display>
           <isAbstract>false</isAbstract>

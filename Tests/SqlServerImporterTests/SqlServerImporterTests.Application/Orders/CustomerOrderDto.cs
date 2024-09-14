@@ -9,7 +9,7 @@ using SqlServerImporterTests.Domain.Contracts.Dbo;
 
 namespace SqlServerImporterTests.Application.Orders
 {
-    public class CustomerOrderDto : IMapFrom<CustomerOrder>
+    public class CustomerOrderDto : IMapFrom<GetCustomerOrdersResponse>
     {
         public CustomerOrderDto()
         {
@@ -30,7 +30,7 @@ namespace SqlServerImporterTests.Application.Orders
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<CustomerOrder, CustomerOrderDto>();
+            profile.CreateMap<GetCustomerOrdersResponse, CustomerOrderDto>();
         }
     }
 }

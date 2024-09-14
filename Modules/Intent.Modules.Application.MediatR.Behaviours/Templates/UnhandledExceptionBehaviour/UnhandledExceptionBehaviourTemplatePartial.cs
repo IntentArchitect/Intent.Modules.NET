@@ -23,7 +23,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
         public UnhandledExceptionBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.MicrosoftExtensionsLogging(OutputTarget));
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("MediatR")
                 .AddUsing("Microsoft.Extensions.Logging")
@@ -32,7 +32,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
                 .AddUsing("System.Threading.Tasks")
                 .AddClass($"UnhandledExceptionBehaviour", @class =>
                 {
-                    @class.AddGenericParameter("TRequest",out var TRequest);
+                    @class.AddGenericParameter("TRequest", out var TRequest);
                     @class.AddGenericParameter("TResponse", out var TResponse);
                     @class.AddGenericTypeConstraint(TRequest, c => c.AddType("notnull"));
                     @class.ImplementsInterface($"IPipelineBehavior<{TRequest}, {TResponse}>");
@@ -59,7 +59,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
                     });
                 });
         }
-        
+
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")

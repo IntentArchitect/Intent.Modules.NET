@@ -2,9 +2,13 @@
 
 TODO
 
+### Version 3.1.8
+
+- Fixed: HttpClients are able to generate into `netstandard2.*` projects.
+
 ### Version 3.1.7
 
-- Improvement: improved content type filter int the `HttpClientRequestException`.
+- Improvement: Improved content type filter int the `HttpClientRequestException`.
 
 ### Version 3.1.6
 

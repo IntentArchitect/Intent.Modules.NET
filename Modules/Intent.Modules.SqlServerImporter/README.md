@@ -4,7 +4,7 @@ This module added to the Domain Designer allowing you to import / reverse engine
 
 ## Domain Designer
 
-In the `Domain Designer`, right click on your domain package and select the `Database Import` context menu option.
+In the `Domain Designer`, right-click on your domain package and select the `Database Import` context menu option.
 
 ![Database Import context menu item](./docs/images/db-import.png)
 
@@ -40,6 +40,20 @@ A `;` separated list of SQL Schemas to export from, allowing you to subset your 
 #### Include Type (s)
 
 Select which SQL Types you would like to export e.g. Tables, Views and / or Stored Procedures.
+
+#### Table/View Filter
+
+Specify a file path that contains the names of Tables and Views that you would like to import and it will stick to those objects only. Each item is line separated.
+
+#### Stored Procedure Representations
+
+Choose between using Repository Elements and Repository Operations to represent your Stored Procedures.
+
+- Stored Procedure Element
+   ![Stored Procedure Element](./docs/images/stored-procedure-element.png)
+
+- Stored Procedure Operation
+  ![Stored Procedure Operation](./docs/images/stored-procedure-operation.png)
 
 #### Persist Settings
 
