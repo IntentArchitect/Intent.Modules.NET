@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.HttpClients</id>
-  <version>4.0.0-pre.8</version>
+  <version>4.0.0-pre.9</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces an HTTP Client implementation for Blazor applications that can make service calls against a referenced service Restful API.</summary>
   <description>Introduces an HTTP Client implementation for Blazor applications that can make service calls against a referenced service Restful API.</description>
@@ -92,10 +92,10 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
     <dependency id="Intent.Common.CSharp" version="3.5.2" />
-    <dependency id="Intent.Common.Types" version="4.0.0-alpha.0" />
+    <dependency id="Intent.Common.Types" version="4.0.0-pre.0" />
     <dependency id="Intent.Modelers.Types.ServiceProxies" version="5.2.3" />
-    <dependency id="Intent.Modelers.UI" version="1.0.0-alpha.3" />
-    <dependency id="Intent.Modelers.UI.ServiceProxies" version="1.0.0-alpha.0" />
+    <dependency id="Intent.Modelers.UI" version="1.0.0-pre.0" />
+    <dependency id="Intent.Modelers.UI.ServiceProxies" version="1.0.0-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
