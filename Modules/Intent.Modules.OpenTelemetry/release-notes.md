@@ -1,3 +1,12 @@
+### Version 2.2.0
+
+- New Feature: New Exporter option available `Azure Monitor OpenTelemetry Distro`. Read more about it [here](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore#why-should-i-use-the-azure-monitor-opentelemetry-distro).
+  > [!NOTE]
+  > 
+  > Both `Azure Monitor OpenTelemetry Distro` and `Azure Application Insights` export to Azure Application Insights but the former uses a hybrid connection as opposed to the latter that ONLY uses the Open Telemetry Protocol.
+- New Feature: Metrics option added along with new Instrumentation options (including for Tracing).
+- Improvement: Service Instance Id can now be (optionally) set.
+
 ### Version 2.1.2
 
 - Improvement: Updated module NuGet packages infrastructure.
