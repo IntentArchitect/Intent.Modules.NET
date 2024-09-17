@@ -22,6 +22,9 @@
     <name>user</name>
     <display>[update] user: TestVO</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="6fa53cca-b831-4ed1-b565-740ff9326072">
       <typeId>8a55c73b-d753-45e0-bca8-032dd258595a</typeId>
       <isNavigable>true</isNavigable>

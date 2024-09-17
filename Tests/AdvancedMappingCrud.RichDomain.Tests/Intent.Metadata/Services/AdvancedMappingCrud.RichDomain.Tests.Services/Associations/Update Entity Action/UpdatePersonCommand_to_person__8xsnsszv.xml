@@ -22,6 +22,9 @@
     <name>person</name>
     <display>[update] person: Update</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="5725111b-0702-48ba-94f2-36ce38da27bf">
       <typeId>9f62ea3e-c49d-43c5-91dc-c42bd5c09524</typeId>
       <isNavigable>true</isNavigable>

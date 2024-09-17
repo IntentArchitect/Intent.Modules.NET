@@ -22,6 +22,9 @@
     <name>person</name>
     <display>[create] person: Constructor</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="85fad79c-46aa-4c60-b837-80a9cc0de32f">
       <typeId>b3ceac1e-d37e-4a84-bd02-968255da157d</typeId>
       <isNavigable>true</isNavigable>

@@ -22,6 +22,9 @@
     <name>person</name>
     <display>[delete] person: Person</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="5abac38e-c7a5-4af5-9105-95a5cea2a871">
       <typeId>64543361-23ff-4f7f-bcbb-0134267aa08d</typeId>
       <isNavigable>true</isNavigable>

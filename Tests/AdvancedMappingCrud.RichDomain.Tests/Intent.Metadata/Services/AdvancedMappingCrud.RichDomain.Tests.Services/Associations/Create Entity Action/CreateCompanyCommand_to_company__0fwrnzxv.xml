@@ -22,6 +22,9 @@
     <name>company</name>
     <display>[create] company: Constructor</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="6bcd7223-4347-4afd-a885-8c8d513492d5">
       <typeId>88334322-63e5-4a87-bd7d-b4b0c64dcac4</typeId>
       <isNavigable>true</isNavigable>

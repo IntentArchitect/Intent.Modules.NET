@@ -17,6 +17,10 @@
   <parentFolderId>5a41c2db-8ce0-48d9-b208-8eb1e117b1ec</parentFolderId>
   <packageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</packageId>
   <packageName>AdvancedMappingCrud.RichDomain.Tests.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="Allow Comment" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>

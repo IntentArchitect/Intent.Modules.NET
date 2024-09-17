@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="f4184aa7-ffdc-4d69-9e44-6af6704fd16c" name="PersonDetails" type="element" specialization="Value Object" />
+      <target id="f4184aa7-ffdc-4d69-9e44-6af6704fd16c" name="PersonDetails" type="element" specialization="Value Object" specializationId="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>ec56f657-5708-4740-ae70-c0092adbcfd2</parentFolderId>
@@ -32,8 +32,6 @@
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
-        <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
@@ -42,7 +40,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="aa9121de-f0f5-4f56-9e7e-306aad90644b" name="Name" type="element" specialization="Attribute" />
+          <target id="aa9121de-f0f5-4f56-9e7e-306aad90644b" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>bc4e8059-d688-4f7c-b7ec-73ed1a922e0a</parentFolderId>

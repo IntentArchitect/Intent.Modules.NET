@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cc543ad8-f9e2-4f6f-bfc6-04d3089a8b3d" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>53aeb18b-72aa-4a9a-aaa8-7f864ffade07</parentFolderId>
+  <packageId>53aeb18b-72aa-4a9a-aaa8-7f864ffade07</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain</packageName>
+  <diagram>
+    <targetPackageId>cc543ad8-f9e2-4f6f-bfc6-04d3089a8b3d</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

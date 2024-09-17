@@ -22,6 +22,9 @@
     <name>entity</name>
     <display>[update] entity: Product</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="32b64b02-887b-4159-b29d-8beef74b5680">
       <typeId>fbac3fc1-8439-4d8a-835b-b57ecd8bf6de</typeId>
       <isNavigable>true</isNavigable>
