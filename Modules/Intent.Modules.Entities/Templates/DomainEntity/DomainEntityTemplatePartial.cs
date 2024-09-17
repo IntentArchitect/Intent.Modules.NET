@@ -39,6 +39,10 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     FulfillsRole(TemplateRoles.Domain.Entity.Interface);
                 }
             }
+            else
+            {
+                FulfillsRole(TemplateRoles.Domain.Entity.Behaviour);
+            }
 
             if (Model.Operations.Any(x => x.IsAsync()))
             {

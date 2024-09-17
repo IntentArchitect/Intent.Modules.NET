@@ -35,6 +35,7 @@ namespace Intent.Modules.Constants
                 public const string Interface = "Domain.Entity.Interface";
                 public const string EntityImplementation = "Domain.Entity.Primary";
                 public const string State = "Domain.Entity.State";
+                public const string Behaviour = "Domain.Entity.Behaviour";
             }
 
             public static class DomainServices
