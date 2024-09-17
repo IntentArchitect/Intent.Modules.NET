@@ -557,21 +557,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     AddUsing("System");
                     AddUsing("System.Linq");
                     var constraint = new StringBuilder();
-                    var enumType = this.GetTypeName(enumAttribute.TypeReference);
-                    var tempVarName = $"{enumAttribute.Name}EnumValues".ToLocalVariableName();
-                    if (ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings())
-                    {
-                        constraint.AppendLine(@$"var {tempVarName} =  Enum.GetNames<{enumType}>()
-                .Select(e => $""'{{e}}'"");");
-                    }
-                    else
-                    {
-                        constraint.AppendLine(@$"var {tempVarName} = Enum.GetValuesAsUnderlyingType<{enumType}>()
-                .Cast<object>()
-                .Select(value => value.ToString());");
-                    }
+                    var enumType = GetTypeName(enumAttribute.TypeReference);
+                    var constraintValuesExpression = ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings()
+                        ? $"Enum.GetValues<{enumType}>().Select(e => $\"'{{e}}'\")"
+                        : $"Enum.GetValues<{enumType}>().Select(e => $\"{{e:D}}\")";
+
                     constraint.AppendLine();
-                    constraint.AppendLine(@$"builder.ToTable(tb => tb.HasCheckConstraint(""{GetConstraintName(enumAttribute)}"", $""\""{enumAttribute.Name}\"" IN ({{string.Join("","", {tempVarName})}})""));");
+                    constraint.AppendLine(@$"builder.ToTable(tb => tb.HasCheckConstraint(""{GetConstraintName(enumAttribute)}"", $""\""{enumAttribute.Name}\"" IN ({{string.Join("","", {constraintValuesExpression})}})""));");
                     yield return constraint.ToString();
                 }
             }

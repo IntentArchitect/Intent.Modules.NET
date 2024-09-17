@@ -1,3 +1,7 @@
+### Version 5.0.12
+
+- Improvement: Generated check constraints in type configurations for enums now use inline expressions to make the generated code neater.
+
 ### Version 5.0.11
 
 - Fixed: SQL Check Constraints on Enums will now have distinct variable names for multiple domain Class attributes that are Enums.
