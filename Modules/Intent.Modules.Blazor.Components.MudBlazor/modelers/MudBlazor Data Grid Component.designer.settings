@@ -202,15 +202,12 @@ dataCollection.getChildren().filter(x =&gt; x.specialization == "Property" || x.
           <represents>data</represents>
           <syncWith>value</syncWith>
           <onMappingsChangedScript>if (element.getMappedToElements().length &gt; 0) {
-    console.warn(element.getChildren()[0].getName());
     element.getChildren()[0].setType({
         typeId: "e57aa24c-eed9-4301-96f3-a34610cef546",
         genericTypeParameters: [{
             typeId: element.getMappedToElements()[0].typeReference.typeId
         }]
     });
-    console.warn(element.getChildren()[0].typeReference.display);
-
 }</onMappingsChangedScript>
           <staticMappableSettings>
             <staticMappableSetting id="28fb9d1a-cd73-4a5e-ac21-6340ec2e90d0" name="Ref" type="Ref" typeId="28fb9d1a-cd73-4a5e-ac21-6340ec2e90d0" version="2.0.0">
