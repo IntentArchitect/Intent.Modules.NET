@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{CAF42592-735E-4BEB-8778-5EFB764619E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTelemetry.AzureMonitorOpentelemetryDistro.Api", "OpenTelemetry.AzureMonitorOpentelemetryDistro.Api\OpenTelemetry.AzureMonitorOpentelemetryDistro.Api.csproj", "{62F5260A-5C14-4CD9-B7D7-460AAF62DD46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{09F29B48-98E3-4090-AC29-BD05F16B731C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTelemetry.AzureMonitorOpentelemetryDistro.Application", "OpenTelemetry.AzureMonitorOpentelemetryDistro.Application\OpenTelemetry.AzureMonitorOpentelemetryDistro.Application.csproj", "{34A85452-A91F-4B09-A512-CB4A941A2CA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{4416C3D6-875D-4FA1-8205-A01BA1B593FD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTelemetry.AzureMonitorOpentelemetryDistro.Domain", "OpenTelemetry.AzureMonitorOpentelemetryDistro.Domain\OpenTelemetry.AzureMonitorOpentelemetryDistro.Domain.csproj", "{2C5AE6DD-3FA0-44FB-B6F7-A2ECD09DA7AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{EF3F05F9-8E67-423B-AF05-0EF14882967C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTelemetry.AzureMonitorOpentelemetryDistro.Infrastructure", "OpenTelemetry.AzureMonitorOpentelemetryDistro.Infrastructure\OpenTelemetry.AzureMonitorOpentelemetryDistro.Infrastructure.csproj", "{A5AAA332-36D4-4065-B5D3-BC357C425413}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{62F5260A-5C14-4CD9-B7D7-460AAF62DD46} = {CAF42592-735E-4BEB-8778-5EFB764619E9}
+		{34A85452-A91F-4B09-A512-CB4A941A2CA7} = {09F29B48-98E3-4090-AC29-BD05F16B731C}
+		{2C5AE6DD-3FA0-44FB-B6F7-A2ECD09DA7AE} = {4416C3D6-875D-4FA1-8205-A01BA1B593FD}
+		{A5AAA332-36D4-4065-B5D3-BC357C425413} = {EF3F05F9-8E67-423B-AF05-0EF14882967C}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62F5260A-5C14-4CD9-B7D7-460AAF62DD46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62F5260A-5C14-4CD9-B7D7-460AAF62DD46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62F5260A-5C14-4CD9-B7D7-460AAF62DD46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62F5260A-5C14-4CD9-B7D7-460AAF62DD46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34A85452-A91F-4B09-A512-CB4A941A2CA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34A85452-A91F-4B09-A512-CB4A941A2CA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34A85452-A91F-4B09-A512-CB4A941A2CA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34A85452-A91F-4B09-A512-CB4A941A2CA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C5AE6DD-3FA0-44FB-B6F7-A2ECD09DA7AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C5AE6DD-3FA0-44FB-B6F7-A2ECD09DA7AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C5AE6DD-3FA0-44FB-B6F7-A2ECD09DA7AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C5AE6DD-3FA0-44FB-B6F7-A2ECD09DA7AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5AAA332-36D4-4065-B5D3-BC357C425413}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5AAA332-36D4-4065-B5D3-BC357C425413}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5AAA332-36D4-4065-B5D3-BC357C425413}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5AAA332-36D4-4065-B5D3-BC357C425413}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

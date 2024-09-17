@@ -1,4 +1,3 @@
-using Azure.Monitor.OpenTelemetry.AspNetCore;
 using Azure.Monitor.OpenTelemetry.Exporter;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
@@ -64,24 +63,5 @@ namespace OpenTelemetry.AzureAppInsights.Api.Configuration
                 options.ParseStateValues = true;
             });
         }
-
-        // public static ILoggingBuilder AddTelemetryConfiguration(
-        //     this ILoggingBuilder logBuilder,
-        //     HostBuilderContext context)
-        // {
-        //     return logBuilder.AddOpenTelemetry(options =>
-        //     {
-        //         options.SetResourceBuilder(ResourceBuilder
-        //             .CreateDefault()
-        //             .AddService(context.Configuration["OpenTelemetry:ServiceName"]!));
-        //         options.AddAzureMonitorLogExporter(opt =>
-        //         {
-        //             opt.ConnectionString = context.Configuration["ApplicationInsights:ConnectionString"];
-        //         });
-        //         options.IncludeFormattedMessage = true;
-        //         options.IncludeScopes = true;
-        //         options.ParseStateValues = true;
-        //     });
-        // }
     }
 }
