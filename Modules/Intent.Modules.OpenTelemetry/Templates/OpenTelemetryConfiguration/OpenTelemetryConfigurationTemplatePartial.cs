@@ -60,7 +60,11 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
                 method.AddInvocationStatement("services.AddOpenTelemetry", main => main
                     .AddInvocation("UseAzureMonitor", inv => inv
                         .AddArgument(new CSharpLambdaBlock("opt")
-                            .AddStatement(@"opt.ConnectionString = configuration[""ApplicationInsights:ConnectionString""];"))));
+                            .AddStatement(@"opt.ConnectionString = configuration[""ApplicationInsights:ConnectionString""];")))
+                    .AddInvocation("ConfigureResource", inv => inv
+                        .AddArgument(GetResourceConfigurationStatement())
+                        .OnNewLine()
+                        .AddMetadata("telemetry-resource", true)));
             }
             else
             {
@@ -88,7 +92,7 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
 
     private void AddLoggingTelemetryConfiguration(CSharpClass priClass)
     {
-        if (!ExecutionContext.Settings.GetOpenTelemetry().CaptureLogs())
+        if (!ExecutionContext.Settings.GetOpenTelemetry().CaptureLogs() || ExecutionContext.Settings.GetOpenTelemetry().Export().IsAzureMonitorOpentelemetryDistro())
         {
             return;
         }
