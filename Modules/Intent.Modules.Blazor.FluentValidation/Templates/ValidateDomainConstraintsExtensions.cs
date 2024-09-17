@@ -71,7 +71,7 @@ public static class ValidateDomainConstraintsExtensions
         IElement model,
         IElement field)
     {
-        var hasMappedAttribute = TryGetMappedAttribute(field, out var mappedAttribute) || TryGetAdvancedMappedAttribute(model, field, out mappedAttribute);
+        var hasMappedAttribute = TryGetMappedAttribute(field, out var mappedAttribute) || TryGetAdvancedMappedAttribute(field, out mappedAttribute);
         if (hasMappedAttribute && !validationRuleChain.Statements.Any(x => x.HasMetadata("max-length")))
         {
             try
@@ -104,6 +104,10 @@ public static class ValidateDomainConstraintsExtensions
                 return true;
             }
 
+            if (mappedElement.MappedElement?.Element is null)
+            {
+                return TryGetAdvancedMappedAttribute(mappedElement, out attribute);
+            }
             mappedElement = mappedElement.MappedElement?.Element as IElement;
         }
 
@@ -111,14 +115,21 @@ public static class ValidateDomainConstraintsExtensions
         return false;
     }
 
-    private static bool TryGetAdvancedMappedAttribute(IElement model, IElement field, out IElement attribute)
+    private static bool TryGetAdvancedMappedAttribute(IElement field, out IElement attribute)
     {
-        var mappedEnd = field.MappedToElements.FirstOrDefault(p => p.MappingType == "Data Mapping"
-            && p.TargetElement?.SpecializationTypeId == "0090fb93-483e-41af-a11d-5ad2dc796adf"); // Domain Class Attribute
+        var mappedEnd = field.MappedToElements.FirstOrDefault(p => p.MappingType == "Data Mapping"); 
         if (mappedEnd != null)
         {
-            attribute = mappedEnd.TargetElement as IElement;
-            return true;
+            if (mappedEnd.TargetElement?.SpecializationTypeId == "0090fb93-483e-41af-a11d-5ad2dc796adf") // Domain Class Attribute
+            {
+                attribute = mappedEnd.TargetElement as IElement;
+                return true;
+            }
+
+            if (TryGetMappedAttribute((IElement)mappedEnd.TargetElement, out attribute))
+            {
+                return true;
+            }
         }
 
         attribute = null;

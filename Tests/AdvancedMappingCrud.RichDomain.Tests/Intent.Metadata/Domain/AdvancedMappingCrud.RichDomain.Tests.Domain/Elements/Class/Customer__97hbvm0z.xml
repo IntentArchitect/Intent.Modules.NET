@@ -75,7 +75,7 @@
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
           <properties>
             <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
-            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" value="50" isActive="true" />
             <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
           </properties>
         </stereotype>
@@ -133,7 +133,7 @@
         <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="7b7cb885-2885-4024-a748-e59f24729938" name="Customer" type="element" specialization="Class" />
+          <target id="7b7cb885-2885-4024-a748-e59f24729938" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>7b7cb885-2885-4024-a748-e59f24729938</parentFolderId>
@@ -187,7 +187,7 @@
             <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="76b4d176-d89c-4f88-9ba7-01486cefb24b" name="Login" type="element" specialization="Attribute" />
+              <target id="76b4d176-d89c-4f88-9ba7-01486cefb24b" name="Login" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>a06b02f2-0113-46da-9501-91a144c0e8de</parentFolderId>
