@@ -39,17 +39,9 @@ namespace AdvancedMappingCrud.DbContext.Tests.Infrastructure.Persistence.Configu
 
             builder.OwnsMany(x => x.OrderItems, ConfigureOrderItems);
 
-            var orderStatusEnumValues = Enum.GetValuesAsUnderlyingType<OrderStatus>()
-                .Cast<object>()
-                .Select(value => value.ToString());
+            builder.ToTable(tb => tb.HasCheckConstraint("order_order_status_check", $"\"OrderStatus\" IN ({string.Join(",", Enum.GetValues<OrderStatus>().Select(e => $"{e:D}"))})"));
 
-            builder.ToTable(tb => tb.HasCheckConstraint("order_order_status_check", $"\"OrderStatus\" IN ({string.Join(",", orderStatusEnumValues)})"));
-
-            var entityStatusEnumValues = Enum.GetValuesAsUnderlyingType<EntityStatus>()
-                .Cast<object>()
-                .Select(value => value.ToString());
-
-            builder.ToTable(tb => tb.HasCheckConstraint("order_entity_status_check", $"\"EntityStatus\" IN ({string.Join(",", entityStatusEnumValues)})"));
+            builder.ToTable(tb => tb.HasCheckConstraint("order_entity_status_check", $"\"EntityStatus\" IN ({string.Join(",", Enum.GetValues<EntityStatus>().Select(e => $"{e:D}"))})"));
 
             builder.Ignore(e => e.DomainEvents);
         }
