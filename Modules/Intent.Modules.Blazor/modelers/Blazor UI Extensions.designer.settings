@@ -29,4 +29,5 @@ stereotype?.getProperty(routeId).setValue("/" + folders.slice(1).map(x =&gt; toK
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
+  <scripts />
 </settings>

@@ -107,7 +107,6 @@
     <group id="489a67db-31b2-4d51-96d7-52637c3795be" title="Blazor" externalReference="489a67db-31b2-4d51-96d7-52637c3795be">
       <settings>
         <setting id="4c4c903b-6fbb-4a6b-b1f7-98a180f010f2" title="Use Code Behind Files for Components" type="switch">
-          <isRequired>false</isRequired>
           <hint>Use [code-behind](https://learn.microsoft.com/aspnet/core/blazor/components#partial-class-support) files for Razor components.</hint>
           <defaultValue>true</defaultValue>
         </setting>
