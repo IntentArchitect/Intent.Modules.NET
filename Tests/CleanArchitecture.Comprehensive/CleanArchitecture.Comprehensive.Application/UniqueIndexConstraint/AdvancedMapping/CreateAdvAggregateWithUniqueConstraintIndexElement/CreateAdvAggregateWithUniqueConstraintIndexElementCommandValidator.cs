@@ -20,13 +20,16 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Adva
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.SingleUniqueField)
-                .NotNull();
+                .NotNull()
+                .MaximumLength(256);
 
             RuleFor(v => v.CompUniqueFieldA)
-                .NotNull();
+                .NotNull()
+                .MaximumLength(256);
 
             RuleFor(v => v.CompUniqueFieldB)
-                .NotNull();
+                .NotNull()
+                .MaximumLength(256);
         }
     }
 }
