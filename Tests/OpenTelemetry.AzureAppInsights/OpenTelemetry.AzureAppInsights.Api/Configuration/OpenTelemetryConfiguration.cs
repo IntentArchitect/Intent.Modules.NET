@@ -23,7 +23,7 @@ namespace OpenTelemetry.AzureAppInsights.Api.Configuration
         {
             services.AddOpenTelemetry()
                 .ConfigureResource(res => res
-                    .AddService(configuration["OpenTelemetry:ServiceName"]!)
+                    .AddService(serviceName: configuration["OpenTelemetry:ServiceName"]!, serviceInstanceId: configuration.GetValue<string?>("OpenTelemetry:ServiceInstanceId"))
                     .AddTelemetrySdk()
                     .AddEnvironmentVariableDetector())
                 .WithTracing(trace => trace
