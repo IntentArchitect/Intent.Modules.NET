@@ -1476,10 +1476,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#3ecc716a-8ede-45fe-a235-d68ce85ded79</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/AddressState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AddressState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#d53bb23e-4305-43ac-a0cf-7480a156fff6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/Category.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Category.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#d53bb23e-4305-43ac-a0cf-7480a156fff6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/CategoryState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CategoryState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1492,10 +1508,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#8251ab6c-2778-45a2-b726-6a11c7334e39</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/CompanyState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CompanyState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#7b7cb885-2885-4024-a748-e59f24729938</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/Customer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#7b7cb885-2885-4024-a748-e59f24729938</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/CustomerState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1508,6 +1540,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#64543361-23ff-4f7f-bcbb-0134267aa08d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/PersonState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PersonState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#fbac3fc1-8439-4d8a-835b-b57ecd8bf6de</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/Product.cs</ApplicationRelativeFilePath>
@@ -1516,10 +1556,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#fbac3fc1-8439-4d8a-835b-b57ecd8bf6de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/ProductState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/User.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>User.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/UserState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UserState.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

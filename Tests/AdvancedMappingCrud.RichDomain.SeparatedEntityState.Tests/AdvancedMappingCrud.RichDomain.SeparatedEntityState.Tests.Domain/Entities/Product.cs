@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Common;
 using AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Services;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,33 +9,17 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entities
 {
-    public class Product : IHasDomainEvent
+    public partial class Product
     {
         public Product(string name, IEnumerable<string> categoryNames, ICategoriesService categoryService)
         {
             Name = name;
         }
 
-        /// <summary>
-        /// Required by Entity Framework.
-        /// </summary>
-        protected Product()
-        {
-            Name = null!;
-        }
-
-        public Guid Id { get; set; }
-
-        public string Name { get; set; }
-
-        public virtual ICollection<Category> Categories { get; set; } = new List<Category>();
-
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
-
         public async Task ChangeCategoriesAsync(
-    IEnumerable<string> categoryNames,
-    ICategoriesService categoryService,
-    CancellationToken cancellationToken = default)
+            IEnumerable<string> categoryNames,
+            ICategoriesService categoryService,
+            CancellationToken cancellationToken = default)
         {
             // [IntentFully]
             // TODO: Implement ChangeCategoriesAsync (Product) functionality

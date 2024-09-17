@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Common;
 using AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Contracts;
 using Intent.RoslynWeaver.Attributes;
 
@@ -8,34 +7,13 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entities
 {
-    public class User : IHasDomainEvent
+    public partial class User
     {
         public User(Guid companyId, ContactDetailsVO contactDetailsVO, IEnumerable<AddressDC> addresses)
         {
             CompanyId = companyId;
             ContactDetails = contactDetailsVO;
         }
-
-        /// <summary>
-        /// Required by Entity Framework.
-        /// </summary>
-        protected User()
-        {
-            Company = null!;
-            ContactDetails = null!;
-        }
-
-        public Guid Id { get; set; }
-
-        public Guid CompanyId { get; set; }
-
-        public virtual Company Company { get; set; }
-
-        public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
-
-        public ContactDetailsVO ContactDetails { get; set; }
-
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 
         public Company TestEntity()
         {
