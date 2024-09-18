@@ -7,6 +7,7 @@ using Intent.Engine;
 using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -46,6 +47,11 @@ namespace Intent.Modules.CosmosDB.Templates
                     {
                         property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonConverter")}(typeof({template.GetEnumJsonConverterName()}))");
                     }
+
+                    if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
+                    {
+                        template.AddDocumentInterfaceAccessor(@class, documentInterfaceTemplateId, attribute.TypeReference, attribute.Name.ToPascalCase());
+                    }
                 });
 
                 if (attribute.TypeReference.IsCollection)
@@ -81,14 +87,26 @@ namespace Intent.Modules.CosmosDB.Templates
                 {
                     continue;
                 }
+                
+                template.AddDocumentInterfaceAccessor(@class, documentInterfaceTemplateId, associationEnd.TypeReference, associationEnd.Name.ToPascalCase());
+            }
+        }
 
-                @class.AddProperty(template.GetDocumentInterfaceName(associationEnd.TypeReference), associationEnd.Name.ToPascalCase(), property =>
+        private static void AddDocumentInterfaceAccessor<TModel>(
+            this CSharpTemplateBase<TModel> template,
+            CSharpClass @class,
+            string documentInterfaceTemplateId,
+            ITypeReference elementReference,
+            string entityPropertyName)
+            where TModel : IMetadataModel
+        {
+            @class.AddProperty(template.GetDocumentInterfaceName(elementReference), entityPropertyName,
+                property =>
                 {
                     property.ExplicitlyImplements(template.GetTypeName(documentInterfaceTemplateId, template.Model));
-                    property.Getter.WithExpressionImplementation(associationEnd.Name.ToPascalCase());
+                    property.Getter.WithExpressionImplementation(entityPropertyName);
                     property.WithoutSetter();
                 });
-            }
         }
 
         public static string GetDocumentInterfaceName<T>(this CSharpTemplateBase<T> template, ITypeReference typeReference)
@@ -192,6 +210,16 @@ namespace Intent.Modules.CosmosDB.Templates
                                 $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
                         };
                     }
+                    else if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
+                    {
+                        var nullable = attribute.TypeReference.IsNullable ? "?" : string.Empty;
+                        assignmentValueExpression = $"{attribute.Name.ToPascalCase()}{nullable}.ToEntity()";
+
+                        if (attribute.TypeReference.IsCollection)
+                        {
+                            assignmentValueExpression = $"{attribute.Name.ToPascalCase()}{nullable}.Select(x => x.ToEntity()).ToList()";
+                        }
+                    }
 
                     if (template.IsNonNullableReferenceType(attribute.TypeReference))
                     {
@@ -247,6 +275,7 @@ namespace Intent.Modules.CosmosDB.Templates
                 foreach (var attribute in attributes)
                 {
                     var suffix = string.Empty;
+                    var accessEntityAttribute = true;
 
                     // If this is the PK which is not a string, we need to convert it:
                     var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
@@ -275,6 +304,21 @@ namespace Intent.Modules.CosmosDB.Templates
                                 $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
                         };
                     }
+                    else if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
+                    {
+                        var documentTypeName = template.GetTypeName((IElement)attribute.TypeReference.Element);
+                        if (attribute.TypeReference.IsCollection)
+                        {
+                            suffix = $".Select(x => {documentTypeName}.FromEntity(x)!)";
+                        }
+                        else
+                        {
+                            var nullableSuppression = attribute.TypeReference.IsNullable ? string.Empty : "!";
+                            suffix = $"{documentTypeName}.FromEntity(entity.{attribute.Name.ToPascalCase()}){nullableSuppression}";
+                        }
+
+                        accessEntityAttribute = false;
+                    }
 
                     if (attribute.TypeReference.IsCollection)
                     {
@@ -282,7 +326,7 @@ namespace Intent.Modules.CosmosDB.Templates
                         suffix = $"{suffix}{(attribute.TypeReference.IsNullable ? "?" : "")}.ToList()";
                     }
 
-                    method.AddStatement($"{attribute.Name.ToPascalCase()} = entity.{attribute.Name.ToPascalCase()}{suffix};");
+                    method.AddStatement($"{attribute.Name.ToPascalCase()} = {(accessEntityAttribute ? $"entity.{attribute.Name.ToPascalCase()}" : "")}{suffix};");
                 }
 
                 foreach (var associationEnd in associationEnds)

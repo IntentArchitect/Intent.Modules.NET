@@ -271,24 +271,27 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                             property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"@type\")");
                         }
                     }
+
+                    if (metadataModel is not AttributeModel classAttribute2)
+                    {
+                        return;
+                    }
                     
-                    if (metadataModel is AttributeModel classAttribute2 &&
-                        classAttribute2.TypeReference?.Element?.IsEnumModel() == true && 
+                    if (classAttribute2.TypeReference?.Element?.IsEnumModel() == true &&
                         ExecutionContext.Settings.GetCosmosDb().StoreEnumsAsStrings())
                     {
                         property.AddAttribute($"{UseType("Newtonsoft.Json.JsonConverter")}(typeof({this.GetEnumJsonConverterName()}))");
                     }
+                    
+                    if (classAttribute2.TypeReference?.Element?.SpecializationType == "Value Object")
+                    {
+                        AddDocumentInterfaceAccessor(@class, classAttribute2.TypeReference, entityProperty.Name);
+                    }
                 });
-
+                
                 if (metadataModel is AssociationTargetEndModel targetEndModel)
                 {
-                    @class.AddProperty(this.GetDocumentInterfaceName(targetEndModel.TypeReference), entityProperty.Name,
-                        property =>
-                        {
-                            property.ExplicitlyImplements(this.GetCosmosDBDocumentInterfaceName());
-                            property.Getter.WithExpressionImplementation(entityProperty.Name);
-                            property.WithoutSetter();
-                        });
+                    AddDocumentInterfaceAccessor(@class, targetEndModel.TypeReference, entityProperty.Name);
                 }
 
                 if (metadataModel is AttributeModel classAttribute3 && classAttribute3.TypeReference.IsCollection)
@@ -311,6 +314,17 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                         });
                 }
             }
+        }
+
+        private void AddDocumentInterfaceAccessor(CSharpClass @class, ITypeReference elementReference, string entityPropertyName)
+        {
+            @class.AddProperty(this.GetDocumentInterfaceName(elementReference), entityPropertyName,
+                property =>
+                {
+                    property.ExplicitlyImplements(this.GetCosmosDBDocumentInterfaceName());
+                    property.Getter.WithExpressionImplementation(entityPropertyName);
+                    property.WithoutSetter();
+                });
         }
 
         public string EntityStateTypeName => GetTypeName(TemplateRoles.Domain.Entity.Primary, Model);
