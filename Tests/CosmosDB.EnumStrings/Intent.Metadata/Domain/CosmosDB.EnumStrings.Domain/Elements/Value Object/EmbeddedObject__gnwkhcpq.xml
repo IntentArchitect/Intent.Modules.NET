@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e855d906-4a42-401d-86d4-323f03e7262d" type="Value Object" typeId="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5">
+  <name>EmbeddedObject</name>
+  <display>EmbeddedObject</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>97c1f224-ed45-4fa7-891e-75280542ac06</parentFolderId>
+  <packageId>97c1f224-ed45-4fa7-891e-75280542ac06</packageId>
+  <packageName>CosmosDB.EnumStrings.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="bc611a83-7ed6-4bab-a5e8-44059872c706" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c6af5a42-46fd-4a63-972c-5da227ff7c34">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e855d906-4a42-401d-86d4-323f03e7262d</parentFolderId>
+      <packageId>97c1f224-ed45-4fa7-891e-75280542ac06</packageId>
+      <packageName>CosmosDB.EnumStrings.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="33d1ddca-0ce7-45f3-9f15-db898fe435c5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>EnumExample</name>
+      <display>EnumExample: EnumExample</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="d57be38a-f619-4081-b3dc-5c9a248c4daf">
+        <typeId>e4724af2-8e9b-40e4-9794-176e08cacc2b</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CosmosDB.EnumStrings.Domain</typePackageName>
+        <typePackageId>97c1f224-ed45-4fa7-891e-75280542ac06</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e855d906-4a42-401d-86d4-323f03e7262d</parentFolderId>
+      <packageId>97c1f224-ed45-4fa7-891e-75280542ac06</packageId>
+      <packageName>CosmosDB.EnumStrings.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="80c3ad2d-8cd1-4f42-a302-5d5e4a453f05" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>NullableEnumExample</name>
+      <display>NullableEnumExample: EnumExample?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="06e72b9e-d78c-49eb-a7f4-659d2c58af86">
+        <typeId>e4724af2-8e9b-40e4-9794-176e08cacc2b</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CosmosDB.EnumStrings.Domain</typePackageName>
+        <typePackageId>97c1f224-ed45-4fa7-891e-75280542ac06</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e855d906-4a42-401d-86d4-323f03e7262d</parentFolderId>
+      <packageId>97c1f224-ed45-4fa7-891e-75280542ac06</packageId>
+      <packageName>CosmosDB.EnumStrings.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

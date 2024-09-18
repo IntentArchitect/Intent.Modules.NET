@@ -15,10 +15,12 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.CosmosDB.Settings;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument;
+using Intent.Modules.Metadata.DocumentDB.Settings;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -80,8 +82,8 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     var @class = file.Classes.First();
                     var entityPropertyIds = EntityStateFileBuilder.CSharpFile.Classes.First().Properties
                         .Select(x => x.TryGetMetadata<IMetadataModel>("model", out var metadataModel) && metadataModel is AttributeModel or AssociationEndModel
-                                ? metadataModel.Id
-                                : null)
+                            ? metadataModel.Id
+                            : null)
                         .Where(x => x != null)
                         .ToHashSet();
 
@@ -103,7 +105,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                             attributes: attributes,
                             associationEnds: associationEnds,
                             documentInterfaceTemplateId: CosmosDBDocumentInterfaceTemplate.TemplateId
-                            );
+                        );
                     }
 
                     var pk = Model.GetPrimaryKeyAttribute();
@@ -120,7 +122,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                         entityRequiresReflectionPropertySetting: ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters(),
                         isAggregate: Model.IsAggregateRoot(),
                         hasBaseType: Model.ParentClass != null
-                        );
+                    );
                 }, 1000);
         }
 
@@ -247,50 +249,62 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                         property.WithInitialValue("default!");
                     }
 
-                    if (metadataModel is AttributeModel attributeModel && attributeModel.HasFieldSetting())
+                    if (metadataModel is AttributeModel classAttribute1 && classAttribute1.HasFieldSetting())
                     {
-                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"{attributeModel.GetFieldSetting().Name()}\")");
+                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"{classAttribute1.GetFieldSetting().Name()}\")");
                     }
                     else if (metadataModel is AssociationTargetEndModel targetEnd && targetEnd.HasFieldSetting())
                     {
                         property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"{targetEnd.GetFieldSetting().Name()}\")");
                     }
-                    // Add "Id" property with JsonProperty attribute if not the PK
-                    else if (string.Equals(entityProperty.Name, "Id", StringComparison.OrdinalIgnoreCase) && metadataModel.Id != pk.IdAttribute.Id)
+                    else
+                        // Add "Id" property with JsonProperty attribute if not the PK
                     {
-                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"@id\")");
+                        if (string.Equals(entityProperty.Name, "Id", StringComparison.OrdinalIgnoreCase) && metadataModel.Id != pk.IdAttribute.Id)
+                        {
+                            property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"@id\")");
+                        }
+
+                        // Add "Type" property with JsonProperty attribute so as to not conflict with the IItem.Type property
+                        else if (string.Equals(entityProperty.Name, "Type", StringComparison.OrdinalIgnoreCase))
+                        {
+                            property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"@type\")");
+                        }
                     }
 
-                    // Add "Type" property with JsonProperty attribute so as to not conflict with the IItem.Type property
-                    else if (string.Equals(entityProperty.Name, "Type", StringComparison.OrdinalIgnoreCase))
+                    if (metadataModel is not AttributeModel classAttribute2)
                     {
-                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"@type\")");
+                        return;
                     }
-
-
+                    
+                    if (classAttribute2.TypeReference?.Element?.IsEnumModel() == true &&
+                        ExecutionContext.Settings.GetCosmosDb().StoreEnumsAsStrings())
+                    {
+                        property.AddAttribute($"{UseType("Newtonsoft.Json.JsonConverter")}(typeof({this.GetEnumJsonConverterName()}))");
+                    }
+                    
+                    if (classAttribute2.TypeReference?.Element?.SpecializationType == "Value Object")
+                    {
+                        AddDocumentInterfaceAccessor(@class, classAttribute2.TypeReference, entityProperty.Name);
+                    }
                 });
-
+                
                 if (metadataModel is AssociationTargetEndModel targetEndModel)
                 {
-                    @class.AddProperty(this.GetDocumentInterfaceName(targetEndModel.TypeReference), entityProperty.Name,
-                        property =>
-                        {
-                            property.ExplicitlyImplements(this.GetCosmosDBDocumentInterfaceName());
-                            property.Getter.WithExpressionImplementation(entityProperty.Name);
-                            property.WithoutSetter();
-                        });
+                    AddDocumentInterfaceAccessor(@class, targetEndModel.TypeReference, entityProperty.Name);
                 }
 
-                if (metadataModel is AttributeModel attributeModel && attributeModel.TypeReference.IsCollection)
+                if (metadataModel is AttributeModel classAttribute3 && classAttribute3.TypeReference.IsCollection)
                 {
-                    string nullablePostFix = "";
-                    bool isNullable = attributeModel.TypeReference.IsNullable;
+                    var nullablePostFix = "";
+                    var isNullable = classAttribute3.TypeReference.IsNullable;
                     if (isNullable)
                     {
                         nullablePostFix = OutputTarget.GetProject().NullableEnabled ? "?" : "";
                     }
+
                     @class.AddProperty(
-                        type: $"{UseType("System.Collections.Generic.IReadOnlyList")}<{GetTypeName((IElement)attributeModel.TypeReference.Element)}>{nullablePostFix}",
+                        type: $"{UseType("System.Collections.Generic.IReadOnlyList")}<{GetTypeName((IElement)classAttribute3.TypeReference.Element)}>{nullablePostFix}",
                         name: entityProperty.Name,
                         configure: property =>
                         {
@@ -302,13 +316,23 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
             }
         }
 
+        private void AddDocumentInterfaceAccessor(CSharpClass @class, ITypeReference elementReference, string entityPropertyName)
+        {
+            @class.AddProperty(this.GetDocumentInterfaceName(elementReference), entityPropertyName,
+                property =>
+                {
+                    property.ExplicitlyImplements(this.GetCosmosDBDocumentInterfaceName());
+                    property.Getter.WithExpressionImplementation(entityPropertyName);
+                    property.WithoutSetter();
+                });
+        }
+
         public string EntityStateTypeName => GetTypeName(TemplateRoles.Domain.Entity.Primary, Model);
         public string EntityTypeName => GetTypeName(TemplateRoles.Domain.Entity.Interface, Model);
 
         public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model);
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

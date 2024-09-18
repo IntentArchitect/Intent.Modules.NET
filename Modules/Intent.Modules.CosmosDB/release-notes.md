@@ -1,3 +1,8 @@
+### Version 1.2.4
+
+- Improvement: Added setting to allow enum values to be serialized to a Document as string.
+- Fixed: Value Objects can also now be set in Attribute return types.
+
 ### Version 1.2.3
 
 - Improvement: Updated module NuGet packages infrastructure.

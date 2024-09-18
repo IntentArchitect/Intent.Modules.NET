@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="352b2c08-7edd-421a-81b0-d90007ac79a9">
+  <sourceEnd id="372be3cd-9683-47e2-a3c7-4b2ded4ab378" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : RootEntities.DeleteRootEntityCommand</display>
+    <order>0</order>
+    <typeReference id="4bf27e19-46ed-4eb8-886a-302af97ab609">
+      <typeId>1d77d6d4-9c1b-43a8-9dc7-7feff9e0b737</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.EnumStrings.Services</typePackageName>
+      <typePackageId>c0177b26-f1f9-402d-a74d-c4ac815e7f93</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="352b2c08-7edd-421a-81b0-d90007ac79a9" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>rootEntity</name>
+    <display>[delete] rootEntity: RootEntity</display>
+    <order>1</order>
+    <typeReference id="ffb29bf2-722c-4160-bda3-01bd0339213e">
+      <typeId>df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.EnumStrings.Domain</typePackageName>
+      <typePackageId>97c1f224-ed45-4fa7-891e-75280542ac06</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="b045eba4-3b96-458d-b12f-62678792b09f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1d77d6d4-9c1b-43a8-9dc7-7feff9e0b737" location="[CosmosDB.EnumStrings].[Services].[DeleteRootEntityCommand]" />
+        <target applicationId="b045eba4-3b96-458d-b12f-62678792b09f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72" location="[CosmosDB.EnumStrings].[Services].[RootEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72" name="RootEntity" type="element" specialization="Class" />
+              <target id="3bed7571-2e73-4939-9859-37170389c3a9" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="1d77d6d4-9c1b-43a8-9dc7-7feff9e0b737" name="DeleteRootEntityCommand" type="element" specialization="Command" />
+                  <target id="1632a720-e7b3-4a09-9f63-e525429ef36c" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

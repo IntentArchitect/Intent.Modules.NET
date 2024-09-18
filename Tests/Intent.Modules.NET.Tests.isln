@@ -132,5 +132,6 @@
     <application id="75cf5e5a-53b1-4fa4-8f66-a81e38fc3356" name="BasicAuditing.CustomUserId.Tests" relativePath="BasicAuditing.CustomUserId.Tests/BasicAuditing.CustomUserId.Tests.application.config" />
     <application id="8004c429-98dc-4b90-beb3-09b8a297c96c" name="OpenTelemetry.AzureMonitorOpentelemetryDistro" relativePath="OpenTelemetry.AzureMonitorOpentelemetryDistro/OpenTelemetry.AzureMonitorOpentelemetryDistro.application.config" />
     <application id="0abfdbe8-eba7-4178-b806-07d9c96991f7" name="AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests" relativePath="AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests/AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.application.config" />
+    <application id="b045eba4-3b96-458d-b12f-62678792b09f" name="CosmosDB.EnumStrings" relativePath="CosmosDB.EnumStrings/CosmosDB.EnumStrings.application.config" />
   </applications>
 </solution>

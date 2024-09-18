@@ -91,5 +91,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="c7f0f65a-85bc-4051-9fbc-f295bd2105f9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.EnumJsonConverter</name>
+      <display>Intent.CosmosDB.EnumJsonConverter</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9c73e7e6-3523-408a-b2e6-e9ea169f1bf2</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>
