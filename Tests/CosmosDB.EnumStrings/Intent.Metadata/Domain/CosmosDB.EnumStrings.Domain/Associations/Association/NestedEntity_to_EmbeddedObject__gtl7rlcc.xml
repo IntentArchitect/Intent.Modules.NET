@@ -22,7 +22,7 @@
   <targetEnd id="32f082d6-8b4c-448c-b974-cccb3f538de9" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>EmbeddedObject</name>
     <display>EmbeddedObject: EmbeddedObject</display>
-    <order>4</order>
+    <order>5</order>
     <typeReference id="f1ef2760-5d21-4506-8503-3b4d701cd964">
       <typeId>e855d906-4a42-401d-86d4-323f03e7262d</typeId>
       <isNavigable>true</isNavigable>

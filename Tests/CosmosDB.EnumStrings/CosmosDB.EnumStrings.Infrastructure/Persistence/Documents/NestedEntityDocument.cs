@@ -18,6 +18,8 @@ namespace CosmosDB.EnumStrings.Infrastructure.Persistence.Documents
         public EnumExample EnumExample { get; set; }
         [JsonConverter(typeof(EnumJsonConverter))]
         public EnumExample? NullableEnumExample { get; set; }
+        public EmbeddedObjectDocument EmbeddedObject2 { get; set; } = default!;
+        IEmbeddedObjectDocument INestedEntityDocument.EmbeddedObject2 => EmbeddedObject2;
         public EmbeddedObjectDocument EmbeddedObject { get; set; } = default!;
         IEmbeddedObjectDocument INestedEntityDocument.EmbeddedObject => EmbeddedObject;
 
@@ -29,6 +31,7 @@ namespace CosmosDB.EnumStrings.Infrastructure.Persistence.Documents
             entity.Name = Name ?? throw new Exception($"{nameof(entity.Name)} is null");
             entity.EnumExample = EnumExample;
             entity.NullableEnumExample = NullableEnumExample;
+            entity.EmbeddedObject2 = EmbeddedObject2.ToEntity() ?? throw new Exception($"{nameof(entity.EmbeddedObject2)} is null");
             entity.EmbeddedObject = EmbeddedObject.ToEntity() ?? throw new Exception($"{nameof(entity.EmbeddedObject)} is null");
 
             return entity;
@@ -40,6 +43,7 @@ namespace CosmosDB.EnumStrings.Infrastructure.Persistence.Documents
             Name = entity.Name;
             EnumExample = entity.EnumExample;
             NullableEnumExample = entity.NullableEnumExample;
+            EmbeddedObject2 = EmbeddedObjectDocument.FromEntity(entity.EmbeddedObject2)!;
             EmbeddedObject = EmbeddedObjectDocument.FromEntity(entity.EmbeddedObject)!;
 
             return this;

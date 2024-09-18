@@ -11,6 +11,7 @@ namespace CosmosDB.EnumStrings.Domain.Repositories.Documents
         string Name { get; }
         EnumExample EnumExample { get; }
         EnumExample? NullableEnumExample { get; }
+        IEmbeddedObjectDocument EmbeddedObject2 { get; }
         IEmbeddedObjectDocument EmbeddedObject { get; }
     }
 }

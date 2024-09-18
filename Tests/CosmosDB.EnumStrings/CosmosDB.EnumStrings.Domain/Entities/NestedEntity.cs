@@ -21,6 +21,8 @@ namespace CosmosDB.EnumStrings.Domain.Entities
 
         public EnumExample? NullableEnumExample { get; set; }
 
+        public EmbeddedObject EmbeddedObject2 { get; set; }
+
         public EmbeddedObject EmbeddedObject { get; set; }
     }
 }

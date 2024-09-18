@@ -121,5 +121,29 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="9986fad0-4988-4fe2-b993-170718d5b262" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>EmbeddedObject2</name>
+      <display>EmbeddedObject2: EmbeddedObject</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e1efc28f-fb35-4cc1-a43f-b1a4443762c8">
+        <typeId>e855d906-4a42-401d-86d4-323f03e7262d</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>CosmosDB.EnumStrings.Domain</typePackageName>
+        <typePackageId>97c1f224-ed45-4fa7-891e-75280542ac06</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a6d9ddeb-375d-4088-94d2-bee2f3dc6029</parentFolderId>
+      <packageId>97c1f224-ed45-4fa7-891e-75280542ac06</packageId>
+      <packageName>CosmosDB.EnumStrings.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>
