@@ -20,13 +20,13 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task GetDtoReturns_ShouldGetDtoReturns()
         {
             // Arrange
-            var client = new DtoReturnsHttpClient(CreateClient());
+            var integrationClient = new DtoReturnsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             await dataFactory.CreateDtoReturn();
 
             // Act
-            var dtoReturns = await client.GetDtoReturnsAsync();
+            var dtoReturns = await integrationClient.GetDtoReturnsAsync();
 
             // Assert
             Assert.True(dtoReturns.Count > 0);

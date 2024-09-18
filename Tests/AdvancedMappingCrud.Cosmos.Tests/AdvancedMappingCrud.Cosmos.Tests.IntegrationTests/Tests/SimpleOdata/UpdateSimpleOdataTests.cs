@@ -25,7 +25,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         public async Task UpdateSimpleOdata_ShouldUpdateSimpleOdata()
         {
             // Arrange
-            var client = new SimpleOdataHttpClient(CreateClient());
+            var integrationClient = new SimpleOdataHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var simpleOdataId = await dataFactory.CreateSimpleOdata();
@@ -34,10 +34,10 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
             command.Id = simpleOdataId;
 
             // Act
-            await client.UpdateSimpleOdataAsync(simpleOdataId, command);
+            await integrationClient.UpdateSimpleOdataAsync(simpleOdataId, command);
 
             // Assert
-            var simpleOdata = await client.GetSimpleOdataByIdAsync(simpleOdataId);
+            var simpleOdata = await integrationClient.GetSimpleOdataByIdAsync(simpleOdataId);
             Assert.NotNull(simpleOdata);
             Assert.Equal(command.Name, simpleOdata.Name);
         }

@@ -21,16 +21,16 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task DeleteOrder_ShouldDeleteOrder()
         {
             // Arrange
-            var client = new OrdersHttpClient(CreateClient());
+            var integrationClient = new OrdersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var orderId = await dataFactory.CreateOrder();
 
             // Act
-            await client.DeleteOrderAsync(orderId);
+            await integrationClient.DeleteOrderAsync(orderId);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetOrderByIdAsync(orderId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => integrationClient.GetOrderByIdAsync(orderId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

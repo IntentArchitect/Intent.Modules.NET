@@ -19,13 +19,13 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests
         public async Task GetExternalDocById_ShouldGetExternalDocById()
         {
             // Arrange
-            var client = new ExternalDocsHttpClient(CreateClient());
+            var integrationClient = new ExternalDocsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var externalDocId = await dataFactory.CreateExternalDoc();
 
             // Act
-            var externalDoc = await client.GetExternalDocByIdAsync(externalDocId);
+            var externalDoc = await integrationClient.GetExternalDocByIdAsync(externalDocId);
 
             // Assert
             Assert.NotNull(externalDoc);

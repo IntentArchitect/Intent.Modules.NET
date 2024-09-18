@@ -20,16 +20,16 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task DeletePagingTS_ShouldDeletePagingTS()
         {
             // Arrange
-            var client = new PagingTSServiceHttpClient(CreateClient());
+            var integrationClient = new PagingTSServiceHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var pagingTSId = await dataFactory.CreatePagingTS();
 
             // Act
-            await client.DeletePagingTSAsync(pagingTSId);
+            await integrationClient.DeletePagingTSAsync(pagingTSId);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.FindPagingTSByIdAsync(pagingTSId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => integrationClient.FindPagingTSByIdAsync(pagingTSId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

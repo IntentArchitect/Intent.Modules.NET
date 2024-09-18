@@ -20,7 +20,7 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests
         public async Task UpdateCustomer_ShouldUpdateCustomer()
         {
             // Arrange
-            var client = new CustomersHttpClient(CreateClient());
+            var integrationClient = new CustomersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var customerId = await dataFactory.CreateCustomer();
@@ -29,10 +29,10 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests
             command.Id = customerId;
 
             // Act
-            await client.UpdateCustomerAsync(customerId, command);
+            await integrationClient.UpdateCustomerAsync(customerId, command);
 
             // Assert
-            var customer = await client.GetCustomerByIdAsync(customerId);
+            var customer = await integrationClient.GetCustomerByIdAsync(customerId);
             Assert.NotNull(customer);
             Assert.Equal(command.Name, customer.Name);
         }

@@ -21,16 +21,16 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task DeleteBasic_ShouldDeleteBasic()
         {
             // Arrange
-            var client = new BasicsHttpClient(CreateClient());
+            var integrationClient = new BasicsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var basicId = await dataFactory.CreateBasic();
 
             // Act
-            await client.DeleteBasicAsync(basicId);
+            await integrationClient.DeleteBasicAsync(basicId);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetBasicByIdAsync(basicId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => integrationClient.GetBasicByIdAsync(basicId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

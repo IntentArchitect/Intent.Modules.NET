@@ -20,17 +20,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task CreatePagingTS_ShouldCreatePagingTS()
         {
             // Arrange
-            var client = new PagingTSServiceHttpClient(CreateClient());
+            var integrationClient = new PagingTSServiceHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<PagingTSCreateDto>();
 
             // Act
-            var pagingTSId = await client.CreatePagingTSAsync(command);
+            var pagingTSId = await integrationClient.CreatePagingTSAsync(command);
 
             // Assert
-            var pagingTS = await client.FindPagingTSByIdAsync(pagingTSId);
+            var pagingTS = await integrationClient.FindPagingTSByIdAsync(pagingTSId);
             Assert.NotNull(pagingTS);
         }
     }

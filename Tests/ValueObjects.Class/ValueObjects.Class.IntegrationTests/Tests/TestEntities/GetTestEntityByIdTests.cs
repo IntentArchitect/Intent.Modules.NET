@@ -19,13 +19,13 @@ namespace ValueObjects.Class.IntegrationTests.Tests
         public async Task GetTestEntityById_ShouldGetTestEntityById()
         {
             // Arrange
-            var client = new TestEntitiesHttpClient(CreateClient());
+            var integrationClient = new TestEntitiesHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var testEntityId = await dataFactory.CreateTestEntity();
 
             // Act
-            var testEntity = await client.GetTestEntityByIdAsync(testEntityId);
+            var testEntity = await integrationClient.GetTestEntityByIdAsync(testEntityId);
 
             // Assert
             Assert.NotNull(testEntity);

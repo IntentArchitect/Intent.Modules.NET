@@ -20,7 +20,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task UpdateRichProduct_ShouldUpdateRichProduct()
         {
             // Arrange
-            var client = new RichProductsHttpClient(CreateClient());
+            var integrationClient = new RichProductsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var richProductId = await dataFactory.CreateRichProduct();
@@ -29,10 +29,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             command.Id = richProductId;
 
             // Act
-            await client.UpdateRichProductAsync(richProductId, command);
+            await integrationClient.UpdateRichProductAsync(richProductId, command);
 
             // Assert
-            var richProduct = await client.GetRichProductByIdAsync(richProductId);
+            var richProduct = await integrationClient.GetRichProductByIdAsync(richProductId);
             Assert.NotNull(richProduct);
             Assert.Equal(command.Name, richProduct.Name);
         }

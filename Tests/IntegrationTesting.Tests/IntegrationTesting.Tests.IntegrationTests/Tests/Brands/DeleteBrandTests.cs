@@ -21,16 +21,16 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task DeleteBrand_ShouldDeleteBrand()
         {
             // Arrange
-            var client = new BrandsHttpClient(CreateClient());
+            var integrationClient = new BrandsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var brandId = await dataFactory.CreateBrand();
 
             // Act
-            await client.DeleteBrandAsync(brandId);
+            await integrationClient.DeleteBrandAsync(brandId);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetBrandByIdAsync(brandId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => integrationClient.GetBrandByIdAsync(brandId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

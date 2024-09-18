@@ -19,13 +19,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task FindProducts_ShouldFindProducts()
         {
             // Arrange
-            var client = new ProductsServiceHttpClient(CreateClient());
+            var integrationClient = new ProductsServiceHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             await dataFactory.CreateProduct();
 
             // Act
-            var products = await client.FindProductsAsync();
+            var products = await integrationClient.FindProductsAsync();
 
             // Assert
             Assert.True(products.Count > 0);

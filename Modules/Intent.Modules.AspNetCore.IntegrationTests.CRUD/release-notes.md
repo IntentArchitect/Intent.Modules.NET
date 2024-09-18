@@ -1,6 +1,10 @@
+### Version 1.0.9
+
+- Fixed: When testing services with a Domain Entity called `Client` it will no longer generate conflicting code.
+
 ### Version 1.0.8
 
-- Fix: Updating this module force version update of IntegrationTesting module.
+- Fixed: Updating this module force version update of IntegrationTesting module.
 
 ### Version 1.0.7
 

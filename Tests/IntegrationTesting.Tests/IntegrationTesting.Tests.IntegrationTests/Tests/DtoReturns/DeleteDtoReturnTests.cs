@@ -21,16 +21,16 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task DeleteDtoReturn_ShouldDeleteDtoReturn()
         {
             // Arrange
-            var client = new DtoReturnsHttpClient(CreateClient());
+            var integrationClient = new DtoReturnsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var dtoReturnId = await dataFactory.CreateDtoReturn();
 
             // Act
-            await client.DeleteDtoReturnAsync(dtoReturnId);
+            await integrationClient.DeleteDtoReturnAsync(dtoReturnId);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetDtoReturnByIdAsync(dtoReturnId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => integrationClient.GetDtoReturnByIdAsync(dtoReturnId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

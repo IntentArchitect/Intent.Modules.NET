@@ -20,7 +20,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task UpdateProduct_ShouldUpdateProduct()
         {
             // Arrange
-            var client = new ProductsServiceHttpClient(CreateClient());
+            var integrationClient = new ProductsServiceHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var productId = await dataFactory.CreateProduct();
@@ -29,10 +29,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             command.Id = productId;
 
             // Act
-            await client.UpdateProductAsync(productId, command);
+            await integrationClient.UpdateProductAsync(productId, command);
 
             // Assert
-            var product = await client.FindProductByIdAsync(productId);
+            var product = await integrationClient.FindProductByIdAsync(productId);
             Assert.NotNull(product);
             Assert.Equal(command.Name, product.Name);
         }

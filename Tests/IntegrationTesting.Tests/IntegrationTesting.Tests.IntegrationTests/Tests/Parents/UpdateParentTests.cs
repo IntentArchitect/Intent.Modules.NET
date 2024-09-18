@@ -21,7 +21,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task UpdateParent_ShouldUpdateParent()
         {
             // Arrange
-            var client = new ParentsHttpClient(CreateClient());
+            var integrationClient = new ParentsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var parentId = await dataFactory.CreateParent();
@@ -30,10 +30,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             command.Id = parentId;
 
             // Act
-            await client.UpdateParentAsync(parentId, command);
+            await integrationClient.UpdateParentAsync(parentId, command);
 
             // Assert
-            var parent = await client.GetParentByIdAsync(parentId);
+            var parent = await integrationClient.GetParentByIdAsync(parentId);
             Assert.NotNull(parent);
             Assert.Equal(command.Name, parent.Name);
         }

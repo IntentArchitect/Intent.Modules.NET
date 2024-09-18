@@ -21,7 +21,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task GetHasMissingDeps_ShouldGetHasMissingDeps()
         {
             // Arrange
-            var client = new HasMissingDepsHttpClient(CreateClient());
+            var integrationClient = new HasMissingDepsHttpClient(CreateClient());
 
             // Act
 

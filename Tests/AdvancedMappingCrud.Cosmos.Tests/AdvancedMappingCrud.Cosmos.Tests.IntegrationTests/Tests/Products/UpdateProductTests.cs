@@ -26,7 +26,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         public async Task UpdateProduct_ShouldUpdateProduct()
         {
             // Arrange
-            var client = new ProductsHttpClient(CreateClient());
+            var integrationClient = new ProductsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var productId = await dataFactory.CreateProduct();
@@ -35,10 +35,10 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
             command.Id = productId;
 
             // Act
-            await client.UpdateProductAsync(productId, command);
+            await integrationClient.UpdateProductAsync(productId, command);
 
             // Assert
-            var product = await client.GetProductByIdAsync(productId);
+            var product = await integrationClient.GetProductByIdAsync(productId);
             Assert.NotNull(product);
             Assert.Equal(command.Name, product.Name);
         }

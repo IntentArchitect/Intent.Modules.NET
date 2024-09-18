@@ -20,13 +20,13 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task GetParents_ShouldGetParents()
         {
             // Arrange
-            var client = new ParentsHttpClient(CreateClient());
+            var integrationClient = new ParentsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             await dataFactory.CreateParent();
 
             // Act
-            var parents = await client.GetParentsAsync();
+            var parents = await integrationClient.GetParentsAsync();
 
             // Assert
             Assert.True(parents.Count > 0);

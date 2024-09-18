@@ -26,16 +26,16 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         public async Task DeleteSimpleOdata_ShouldDeleteSimpleOdata()
         {
             // Arrange
-            var client = new SimpleOdataHttpClient(CreateClient());
+            var integrationClient = new SimpleOdataHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var simpleOdataId = await dataFactory.CreateSimpleOdata();
 
             // Act
-            await client.DeleteSimpleOdataAsync(simpleOdataId);
+            await integrationClient.DeleteSimpleOdataAsync(simpleOdataId);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetSimpleOdataByIdAsync(simpleOdataId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => integrationClient.GetSimpleOdataByIdAsync(simpleOdataId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

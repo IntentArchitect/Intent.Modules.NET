@@ -20,13 +20,13 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests.Tests
         public async Task GetOrders_ShouldGetOrders()
         {
             // Arrange
-            var client = new OrdersHttpClient(CreateClient());
+            var integrationClient = new OrdersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             await dataFactory.CreateOrder();
 
             // Act
-            var orders = await client.GetOrdersAsync();
+            var orders = await integrationClient.GetOrdersAsync();
 
             // Assert
             Assert.True(orders.Count > 0);

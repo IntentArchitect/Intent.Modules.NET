@@ -21,16 +21,16 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task DeleteDiffId_ShouldDeleteDiffId()
         {
             // Arrange
-            var client = new DiffIdsHttpClient(CreateClient());
+            var integrationClient = new DiffIdsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var diffIdId = await dataFactory.CreateDiffId();
 
             // Act
-            await client.DeleteDiffIdAsync(diffIdId);
+            await integrationClient.DeleteDiffIdAsync(diffIdId);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetDiffIdByIdAsync(diffIdId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => integrationClient.GetDiffIdByIdAsync(diffIdId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

@@ -20,13 +20,13 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task GetCustomers_ShouldGetCustomers()
         {
             // Arrange
-            var client = new CustomersHttpClient(CreateClient());
+            var integrationClient = new CustomersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             await dataFactory.CreateCustomer();
 
             // Act
-            var customers = await client.GetCustomersAsync();
+            var customers = await integrationClient.GetCustomersAsync();
 
             // Assert
             Assert.True(customers.Count > 0);

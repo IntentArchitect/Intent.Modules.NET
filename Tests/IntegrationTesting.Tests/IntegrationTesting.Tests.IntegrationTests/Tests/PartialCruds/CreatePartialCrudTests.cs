@@ -21,17 +21,17 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task CreatePartialCrud_ShouldCreatePartialCrud()
         {
             // Arrange
-            var client = new PartialCrudsHttpClient(CreateClient());
+            var integrationClient = new PartialCrudsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<CreatePartialCrudCommand>();
 
             // Act
-            var partialCrudId = await client.CreatePartialCrudAsync(command);
+            var partialCrudId = await integrationClient.CreatePartialCrudAsync(command);
 
             // Assert
-            var partialCrud = await client.GetPartialCrudByIdAsync(partialCrudId);
+            var partialCrud = await integrationClient.GetPartialCrudByIdAsync(partialCrudId);
             Assert.NotNull(partialCrud);
         }
     }

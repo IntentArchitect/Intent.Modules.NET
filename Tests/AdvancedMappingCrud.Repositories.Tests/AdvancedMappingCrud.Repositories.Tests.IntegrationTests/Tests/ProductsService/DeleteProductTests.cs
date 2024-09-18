@@ -20,16 +20,16 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task DeleteProduct_ShouldDeleteProduct()
         {
             // Arrange
-            var client = new ProductsServiceHttpClient(CreateClient());
+            var integrationClient = new ProductsServiceHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var productId = await dataFactory.CreateProduct();
 
             // Act
-            await client.DeleteProductAsync(productId);
+            await integrationClient.DeleteProductAsync(productId);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.FindProductByIdAsync(productId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => integrationClient.FindProductByIdAsync(productId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

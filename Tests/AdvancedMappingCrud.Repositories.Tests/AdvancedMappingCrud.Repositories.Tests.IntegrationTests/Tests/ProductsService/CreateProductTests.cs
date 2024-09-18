@@ -20,17 +20,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task CreateProduct_ShouldCreateProduct()
         {
             // Arrange
-            var client = new ProductsServiceHttpClient(CreateClient());
+            var integrationClient = new ProductsServiceHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<ProductCreateDto>();
 
             // Act
-            var productId = await client.CreateProductAsync(command);
+            var productId = await integrationClient.CreateProductAsync(command);
 
             // Assert
-            var product = await client.FindProductByIdAsync(productId);
+            var product = await integrationClient.FindProductByIdAsync(productId);
             Assert.NotNull(product);
         }
     }
