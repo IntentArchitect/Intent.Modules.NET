@@ -22,6 +22,9 @@
     <name>pagingTS</name>
     <display>[delete] pagingTS: PagingTS</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="06522cb7-f142-4e7e-be9c-b9436ec49da3">
       <typeId>13f910fd-2cb9-4a66-b42e-d95846a50867</typeId>
       <isNavigable>true</isNavigable>

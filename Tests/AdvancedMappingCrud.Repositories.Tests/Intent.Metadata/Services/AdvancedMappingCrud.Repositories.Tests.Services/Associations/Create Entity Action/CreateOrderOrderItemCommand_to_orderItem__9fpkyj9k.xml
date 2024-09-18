@@ -21,7 +21,10 @@
   <targetEnd id="e96a9d88-1ab0-4ee4-952a-2f1da815907b" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
     <name>orderItem</name>
     <display>[create] orderItem: OrderItem</display>
-    <order>4</order>
+    <order>5</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="e353d725-871a-4661-a1bf-16689bdad73b">
       <typeId>770b57a5-197b-48bb-96b4-629807f06401</typeId>
       <isNavigable>true</isNavigable>
@@ -42,12 +45,12 @@
           <mappedEnd>
             <expression>{CreateOrderOrderItemCommand}</expression>
             <path>
-              <target id="770b57a5-197b-48bb-96b4-629807f06401" name="OrderItem" type="element" specialization="Class" />
+              <target id="770b57a5-197b-48bb-96b4-629807f06401" name="OrderItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
             </path>
             <sources>
               <source identifier="CreateOrderOrderItemCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
                 <path>
-                  <target id="5eefe942-39cb-4b9e-89e4-a9984a1c888c" name="CreateOrderOrderItemCommand" type="element" specialization="Command" />
+                  <target id="5eefe942-39cb-4b9e-89e4-a9984a1c888c" name="CreateOrderOrderItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                 </path>
               </source>
             </sources>
@@ -55,14 +58,29 @@
           <mappedEnd>
             <expression>{Quantity}</expression>
             <path>
-              <target id="770b57a5-197b-48bb-96b4-629807f06401" name="OrderItem" type="element" specialization="Class" />
-              <target id="42aebfae-bf00-4fab-904d-df4fd2f5f66f" name="Quantity" type="element" specialization="Attribute" />
+              <target id="770b57a5-197b-48bb-96b4-629807f06401" name="OrderItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="42aebfae-bf00-4fab-904d-df4fd2f5f66f" name="Quantity" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Quantity" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="5eefe942-39cb-4b9e-89e4-a9984a1c888c" name="CreateOrderOrderItemCommand" type="element" specialization="Command" />
-                  <target id="6217dab0-f0a6-40b1-8831-b377ba33fbab" name="Quantity" type="element" specialization="DTO-Field" />
+                  <target id="5eefe942-39cb-4b9e-89e4-a9984a1c888c" name="CreateOrderOrderItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6217dab0-f0a6-40b1-8831-b377ba33fbab" name="Quantity" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Units}</expression>
+            <path>
+              <target id="770b57a5-197b-48bb-96b4-629807f06401" name="OrderItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d928333c-27f6-411c-ac3c-8c40e560e35f" name="Units" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Units" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="5eefe942-39cb-4b9e-89e4-a9984a1c888c" name="CreateOrderOrderItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="cc5192ac-4280-4981-9ccb-269489c1edfc" name="Units" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -70,14 +88,29 @@
           <mappedEnd>
             <expression>{Amount}</expression>
             <path>
-              <target id="770b57a5-197b-48bb-96b4-629807f06401" name="OrderItem" type="element" specialization="Class" />
-              <target id="514a5a22-934e-46cb-8b5d-fc74423c3b90" name="Amount" type="element" specialization="Attribute" />
+              <target id="770b57a5-197b-48bb-96b4-629807f06401" name="OrderItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="514a5a22-934e-46cb-8b5d-fc74423c3b90" name="UnitPrice" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Amount" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="5eefe942-39cb-4b9e-89e4-a9984a1c888c" name="CreateOrderOrderItemCommand" type="element" specialization="Command" />
-                  <target id="f07233b2-35a7-45d7-888a-8bfdd8d73bf5" name="Amount" type="element" specialization="DTO-Field" />
+                  <target id="5eefe942-39cb-4b9e-89e4-a9984a1c888c" name="CreateOrderOrderItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f07233b2-35a7-45d7-888a-8bfdd8d73bf5" name="Amount" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderId}</expression>
+            <path>
+              <target id="770b57a5-197b-48bb-96b4-629807f06401" name="OrderItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="216eb804-a9e2-44b4-a2b8-eccb1f13d07d" name="OrderId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OrderId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="5eefe942-39cb-4b9e-89e4-a9984a1c888c" name="CreateOrderOrderItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="dcb77eb9-cd78-4403-ba7d-e053feeefd0b" name="OrderId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -85,14 +118,14 @@
           <mappedEnd>
             <expression>{ProductId}</expression>
             <path>
-              <target id="770b57a5-197b-48bb-96b4-629807f06401" name="OrderItem" type="element" specialization="Class" />
-              <target id="fb97c74a-e0f6-4c59-9d2a-866a73a2607b" name="ProductId" type="element" specialization="Attribute" />
+              <target id="770b57a5-197b-48bb-96b4-629807f06401" name="OrderItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="fb97c74a-e0f6-4c59-9d2a-866a73a2607b" name="ProductId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="ProductId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="5eefe942-39cb-4b9e-89e4-a9984a1c888c" name="CreateOrderOrderItemCommand" type="element" specialization="Command" />
-                  <target id="6305dac9-3629-4be8-88e5-d330b3a2d2b2" name="ProductId" type="element" specialization="DTO-Field" />
+                  <target id="5eefe942-39cb-4b9e-89e4-a9984a1c888c" name="CreateOrderOrderItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6305dac9-3629-4be8-88e5-d330b3a2d2b2" name="ProductId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

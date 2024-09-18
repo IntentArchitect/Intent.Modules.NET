@@ -24,6 +24,9 @@
     <name>sumPrice</name>
     <display>[call] sumPrice: SumPrices(...): decimal</display>
     <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="7a474975-7289-4035-9292-64a853d3e722">
       <typeId>0397acdf-03c2-4c55-9c2b-9d735c98d755</typeId>
       <isNavigable>true</isNavigable>

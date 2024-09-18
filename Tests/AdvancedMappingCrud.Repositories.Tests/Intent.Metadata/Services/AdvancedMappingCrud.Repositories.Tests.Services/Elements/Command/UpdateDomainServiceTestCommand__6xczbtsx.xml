@@ -20,12 +20,16 @@
     <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="d9469dfe-8970-471c-b63d-b87b5f4d75a6" name="DomainServiceTest" type="element" specialization="Class" />
+      <target id="d9469dfe-8970-471c-b63d-b87b5f4d75a6" name="DomainServiceTest" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>74d968f9-b5ad-4c9d-a632-4fc4bcc54cdf</parentFolderId>
   <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
   <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="Allow Comment" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes />
   <metadata>
     <entry key="baseName" value="DomainServiceTest" />
@@ -52,7 +56,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="8155f2ce-85f4-481d-b640-2a0c39416d2c" name="Id" type="element" specialization="Attribute" />
+          <target id="8155f2ce-85f4-481d-b640-2a0c39416d2c" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>216b1064-9350-43fe-b5a3-97c67fa2e629</parentFolderId>

@@ -46,6 +46,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IQuoteRepository, QuoteRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IWarehouseRepository, WarehouseRepository>();
             services.AddTransient<IClassicDomainServiceTestRepository, ClassicDomainServiceTestRepository>();
             services.AddTransient<IDomainServiceTestRepository, DomainServiceTestRepository>();
             services.AddTransient<IBaseEntityARepository, BaseEntityARepository>();

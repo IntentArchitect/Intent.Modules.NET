@@ -22,6 +22,9 @@
     <name>result</name>
     <display>[call] result: GetPersonById(...): PersonDto</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="af5ec322-e37d-4482-995b-0f3bb5002eb6">
       <typeId>75164753-0cac-446b-b867-a56b434306f1</typeId>
       <isNavigable>true</isNavigable>

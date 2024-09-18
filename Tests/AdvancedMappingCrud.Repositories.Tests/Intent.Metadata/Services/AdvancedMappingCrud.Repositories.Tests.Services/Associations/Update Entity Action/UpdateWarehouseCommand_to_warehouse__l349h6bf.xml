@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f7dd7208-bb9d-40e8-b659-277653fe0147">
+  <sourceEnd id="edad04d4-b957-4fec-aa97-36dd97476d09" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Warehouses.UpdateWarehouseCommand</display>
+    <order>0</order>
+    <typeReference id="21090e87-611b-4f26-9b11-4823a572399a">
+      <typeId>6292800c-4dcf-49a1-a16c-42ba1483ce9f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f7dd7208-bb9d-40e8-b659-277653fe0147" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>warehouse</name>
+    <display>[update] warehouse: Warehouse</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="c2b4e8df-bed1-4e82-a376-2213f6554483">
+      <typeId>a0ccd6f2-6e45-4620-8a30-ff178bb51e7e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6292800c-4dcf-49a1-a16c-42ba1483ce9f" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateWarehouseCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a0ccd6f2-6e45-4620-8a30-ff178bb51e7e" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Warehouse]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="a0ccd6f2-6e45-4620-8a30-ff178bb51e7e" name="Warehouse" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="e44c7c45-3825-4b65-8f22-86bb5dc4df41" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="6292800c-4dcf-49a1-a16c-42ba1483ce9f" name="UpdateWarehouseCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="ba762f0b-df05-4fd8-a9bc-0e15357c057b" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6292800c-4dcf-49a1-a16c-42ba1483ce9f" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateWarehouseCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a0ccd6f2-6e45-4620-8a30-ff178bb51e7e" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Warehouse]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="a0ccd6f2-6e45-4620-8a30-ff178bb51e7e" name="Warehouse" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="854b0f44-82b6-43a7-8fa4-72e388cdcf0c" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="6292800c-4dcf-49a1-a16c-42ba1483ce9f" name="UpdateWarehouseCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5f92b12f-b0a5-40fe-835d-deee9ecdd679" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Size}</expression>
+            <path>
+              <target id="a0ccd6f2-6e45-4620-8a30-ff178bb51e7e" name="Warehouse" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="4df508d4-220c-4eb2-84f0-007528178314" name="Size" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Size" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="6292800c-4dcf-49a1-a16c-42ba1483ce9f" name="UpdateWarehouseCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7d25b094-d675-45e4-a10c-ecb4a1c93c0f" name="Size" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.Line1}</expression>
+            <path>
+              <target id="a0ccd6f2-6e45-4620-8a30-ff178bb51e7e" name="Warehouse" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3251ba77-b4e3-4ff9-9dbb-0fb7b5cdaf31" name="Address" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="7273ff2a-1d03-4745-94f6-9ae19e9b829b" name="Line1" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Address.Line1" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="6292800c-4dcf-49a1-a16c-42ba1483ce9f" name="UpdateWarehouseCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="440bcb0b-448d-41a4-8003-30f75df6d5da" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="e07dabb4-0372-4736-87ff-6f0770839b36" name="Line1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.Line2}</expression>
+            <path>
+              <target id="a0ccd6f2-6e45-4620-8a30-ff178bb51e7e" name="Warehouse" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3251ba77-b4e3-4ff9-9dbb-0fb7b5cdaf31" name="Address" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="c49d4b74-264e-4c5d-a76c-b0c51e660f38" name="Line2" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Address.Line2" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="6292800c-4dcf-49a1-a16c-42ba1483ce9f" name="UpdateWarehouseCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="440bcb0b-448d-41a4-8003-30f75df6d5da" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="7654ed40-4639-4eb2-b3a1-187803ef005a" name="Line2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.City}</expression>
+            <path>
+              <target id="a0ccd6f2-6e45-4620-8a30-ff178bb51e7e" name="Warehouse" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3251ba77-b4e3-4ff9-9dbb-0fb7b5cdaf31" name="Address" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="43a2bef6-f50d-466f-b72b-08e01480e7a0" name="City" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Address.City" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="6292800c-4dcf-49a1-a16c-42ba1483ce9f" name="UpdateWarehouseCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="440bcb0b-448d-41a4-8003-30f75df6d5da" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="efeb35c2-80ca-4cfc-a14a-757f1abdf5d2" name="City" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.Postal}</expression>
+            <path>
+              <target id="a0ccd6f2-6e45-4620-8a30-ff178bb51e7e" name="Warehouse" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3251ba77-b4e3-4ff9-9dbb-0fb7b5cdaf31" name="Address" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="dc7032ab-1aec-4a80-8f0b-4245bed070d1" name="Postal" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Address.Postal" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="6292800c-4dcf-49a1-a16c-42ba1483ce9f" name="UpdateWarehouseCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="440bcb0b-448d-41a4-8003-30f75df6d5da" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="8c0b32dc-fc74-4ee8-aab7-2f198f56cc5c" name="Postal" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

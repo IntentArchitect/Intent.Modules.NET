@@ -21,6 +21,9 @@
   <targetEnd id="07773c5a-50ef-4994-8153-46ded91807ab" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <display>[call] : PerformEntityBAsync(...): null</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="81f0c865-9d09-4477-bd8b-1359fdef1b42">
       <typeId>28cc8d07-2982-473d-a1ce-ff0c122e115c</typeId>
       <isNavigable>true</isNavigable>

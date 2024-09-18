@@ -22,6 +22,9 @@
     <name>basic</name>
     <display>[create] basic: Basic</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="298d0671-11dc-4106-a81f-29e9fbefd71f">
       <typeId>73ba71c6-41c6-41ef-ba80-0d589ea75417</typeId>
       <isNavigable>true</isNavigable>

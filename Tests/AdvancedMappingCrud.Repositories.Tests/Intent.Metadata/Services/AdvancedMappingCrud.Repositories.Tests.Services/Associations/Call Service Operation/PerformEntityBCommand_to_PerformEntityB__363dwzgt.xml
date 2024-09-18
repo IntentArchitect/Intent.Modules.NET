@@ -21,6 +21,9 @@
   <targetEnd id="c464422e-f3ae-4de0-a6b6-c73ce3dcbaba" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <display>[call] : PerformEntityB(...): null</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="3e7e3878-6d29-453e-a422-dd62800ce28e">
       <typeId>dc533b46-ceb3-462a-b3b1-90ca84bc9f5a</typeId>
       <isNavigable>true</isNavigable>

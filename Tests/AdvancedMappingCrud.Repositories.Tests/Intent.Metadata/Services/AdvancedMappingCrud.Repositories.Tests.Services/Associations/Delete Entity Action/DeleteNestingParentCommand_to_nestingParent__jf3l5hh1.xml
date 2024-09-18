@@ -22,6 +22,9 @@
     <name>nestingParent</name>
     <display>[delete] nestingParent: NestingParent</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="ffcb0f74-27d3-4a65-9c26-a89a630eeac8">
       <typeId>f0aa66fd-6e42-44d5-879f-5acdb6b9bd36</typeId>
       <isNavigable>true</isNavigable>

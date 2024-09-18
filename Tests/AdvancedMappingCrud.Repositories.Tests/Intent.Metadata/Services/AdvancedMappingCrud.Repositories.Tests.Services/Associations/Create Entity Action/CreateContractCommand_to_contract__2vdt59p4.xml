@@ -22,6 +22,9 @@
     <name>contract</name>
     <display>[create] contract: Contract</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="11299e22-ef98-409a-9aa2-a23de2094398">
       <typeId>492eec1f-13ec-425c-88ed-04666d2c7a7b</typeId>
       <isNavigable>true</isNavigable>

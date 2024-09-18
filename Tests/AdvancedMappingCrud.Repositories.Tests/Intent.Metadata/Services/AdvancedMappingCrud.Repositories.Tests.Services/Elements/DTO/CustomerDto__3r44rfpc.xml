@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="8ed97c04-fbb0-4712-a969-b9ade95e0fe5" name="Customer" type="element" specialization="Class" />
+      <target id="8ed97c04-fbb0-4712-a969-b9ade95e0fe5" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>0fe46e70-fb75-41d7-afa5-10cb420de4ee</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="0a8a1332-9585-49f6-bc46-4a8dbc34807f" name="Id" type="element" specialization="Attribute" />
+          <target id="0a8a1332-9585-49f6-bc46-4a8dbc34807f" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>32843436-8834-4567-a73a-8efc74602386</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="53f266a2-9972-4a35-8afa-b1d7efe58bed" name="Name" type="element" specialization="Attribute" />
+          <target id="53f266a2-9972-4a35-8afa-b1d7efe58bed" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>32843436-8834-4567-a73a-8efc74602386</parentFolderId>
@@ -152,7 +152,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="4319966f-9b3d-4faf-a27e-96a1062d252b" name="Surname" type="element" specialization="Attribute" />
+          <target id="4319966f-9b3d-4faf-a27e-96a1062d252b" name="Surname" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>32843436-8834-4567-a73a-8efc74602386</parentFolderId>
@@ -206,7 +206,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="fb1ce02c-19f5-41c0-a670-5069ca4335c6" name="IsActive" type="element" specialization="Attribute" />
+          <target id="fb1ce02c-19f5-41c0-a670-5069ca4335c6" name="IsActive" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>32843436-8834-4567-a73a-8efc74602386</parentFolderId>
@@ -260,8 +260,8 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c656ed98-fcd8-40d2-878a-bb418880efce" name="Preferences" type="association" specialization="Association Target End" />
-          <target id="3e49ec15-a213-4425-8344-eea4dcc412e8" name="Newsletter" type="element" specialization="Attribute" />
+          <target id="c656ed98-fcd8-40d2-878a-bb418880efce" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+          <target id="3e49ec15-a213-4425-8344-eea4dcc412e8" name="Newsletter" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>32843436-8834-4567-a73a-8efc74602386</parentFolderId>
@@ -315,8 +315,8 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c656ed98-fcd8-40d2-878a-bb418880efce" name="Preferences" type="association" specialization="Association Target End" />
-          <target id="03b0e0ad-cfa3-4fcd-bc1e-60bb0c870e50" name="Specials" type="element" specialization="Attribute" />
+          <target id="c656ed98-fcd8-40d2-878a-bb418880efce" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+          <target id="03b0e0ad-cfa3-4fcd-bc1e-60bb0c870e50" name="Specials" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>32843436-8834-4567-a73a-8efc74602386</parentFolderId>

@@ -22,6 +22,9 @@
     <name>classicDomainServiceTests</name>
     <display>[query] classicDomainServiceTests: ClassicDomainServiceTest[*]</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="375b1996-b898-4724-9184-bb26534c878c">
       <typeId>513c7a03-e1d4-44e4-939c-f85848f5acdb</typeId>
       <isNavigable>true</isNavigable>

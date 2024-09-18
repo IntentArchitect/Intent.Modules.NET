@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3251ba77-b4e3-4ff9-9dbb-0fb7b5cdaf31">
+  <sourceEnd id="fc1d4b0e-7b96-4bb0-835c-d171d6dc7d42" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Warehouse</name>
+    <display>Warehouse: Warehouse</display>
+    <order>0</order>
+    <typeReference id="e4056234-7790-4d68-bb62-7b867cbd5d3e">
+      <typeId>a0ccd6f2-6e45-4620-8a30-ff178bb51e7e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3251ba77-b4e3-4ff9-9dbb-0fb7b5cdaf31" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Address</name>
+    <display>Address: Address?</display>
+    <order>3</order>
+    <typeReference id="709c7dc2-27b3-42cb-8792-dfea53c44acd">
+      <typeId>050f0248-ba17-49d9-868e-f048970d74f2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

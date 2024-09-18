@@ -22,6 +22,9 @@
     <name>pagingTS</name>
     <display>[update] pagingTS: PagingTS</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="9aab0298-9a75-4ca1-8b80-b032db607fa0">
       <typeId>13f910fd-2cb9-4a66-b42e-d95846a50867</typeId>
       <isNavigable>true</isNavigable>

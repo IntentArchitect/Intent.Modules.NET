@@ -22,6 +22,9 @@
     <name>classicDomainServiceTest</name>
     <display>[create] classicDomainServiceTest: Constructor</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="9570e173-ae8e-48f2-8f58-d88dd40a6bf8">
       <typeId>0f08d994-2f03-4795-b6c8-1f34f820ae61</typeId>
       <isNavigable>true</isNavigable>

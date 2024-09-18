@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="97321be8-d956-4dbf-aee7-2e177c8612d0" name="Product" type="element" specialization="Class" />
+      <target id="97321be8-d956-4dbf-aee7-2e177c8612d0" name="Product" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>084c9d7f-de05-4eac-adcb-cd702dad7f37</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="988ab803-bcb8-4801-b531-2b22a4004368" name="Id" type="element" specialization="Attribute" />
+          <target id="988ab803-bcb8-4801-b531-2b22a4004368" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>49a4c237-46c5-4b2f-9ab4-e6e5a75ad37b</parentFolderId>
@@ -96,7 +96,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="230e01c3-f6e1-4f77-8516-ec722f64f962" name="Name" type="element" specialization="Attribute" />
+          <target id="230e01c3-f6e1-4f77-8516-ec722f64f962" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>49a4c237-46c5-4b2f-9ab4-e6e5a75ad37b</parentFolderId>
@@ -150,7 +150,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="7a19dffa-2826-4bcd-91a1-c1b03ed2c547" name="Tags" type="association" specialization="Association Target End" />
+          <target id="7a19dffa-2826-4bcd-91a1-c1b03ed2c547" name="Tags" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>49a4c237-46c5-4b2f-9ab4-e6e5a75ad37b</parentFolderId>

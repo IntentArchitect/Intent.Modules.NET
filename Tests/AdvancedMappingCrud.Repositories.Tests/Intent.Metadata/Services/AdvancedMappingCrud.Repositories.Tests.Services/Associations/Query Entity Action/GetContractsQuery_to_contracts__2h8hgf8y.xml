@@ -22,6 +22,9 @@
     <name>contracts</name>
     <display>[query] contracts: Contract[*]</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="beaae2ec-c96f-48a5-85de-67848842e17c">
       <typeId>492eec1f-13ec-425c-88ed-04666d2c7a7b</typeId>
       <isNavigable>true</isNavigable>

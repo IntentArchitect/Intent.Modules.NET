@@ -47,6 +47,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
         public DbSet<Product> Products { get; set; }
         public DbSet<Quote> Quotes { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Warehouse> Warehouses { get; set; }
         public DbSet<ClassicDomainServiceTest> ClassicDomainServiceTests { get; set; }
         public DbSet<DomainServiceTest> DomainServiceTests { get; set; }
         public DbSet<BaseEntityA> BaseEntityAs { get; set; }
@@ -88,6 +89,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new QuoteConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new WarehouseConfiguration());
             modelBuilder.ApplyConfiguration(new ClassicDomainServiceTestConfiguration());
             modelBuilder.ApplyConfiguration(new DomainServiceTestConfiguration());
             modelBuilder.ApplyConfiguration(new BaseEntityAConfiguration());

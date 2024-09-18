@@ -22,6 +22,9 @@
     <name>optional</name>
     <display>[query] optional: Optional?</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="201388f1-93b0-437d-ae53-b77031c5ed9a">
       <typeId>25b33f68-88fc-468d-9954-f9d67b53c057</typeId>
       <isNavigable>true</isNavigable>

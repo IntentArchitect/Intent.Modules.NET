@@ -11,15 +11,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Order
         public Guid OrderId { get; set; }
         public int Quantity { get; set; }
         public decimal Amount { get; set; }
+        public int Units { get; set; }
         public Guid ProductId { get; set; }
 
-        public static CreateOrderOrderItemCommand Create(Guid orderId, int quantity, decimal amount, Guid productId)
+        public static CreateOrderOrderItemCommand Create(Guid orderId, int quantity, decimal amount, int units, Guid productId)
         {
             return new CreateOrderOrderItemCommand
             {
                 OrderId = orderId,
                 Quantity = quantity,
                 Amount = amount,
+                Units = units,
                 ProductId = productId
             };
         }

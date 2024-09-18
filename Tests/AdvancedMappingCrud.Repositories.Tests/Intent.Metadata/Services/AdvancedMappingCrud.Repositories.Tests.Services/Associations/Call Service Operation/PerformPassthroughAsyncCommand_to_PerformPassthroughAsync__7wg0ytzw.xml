@@ -21,6 +21,9 @@
   <targetEnd id="1df11872-d681-46bc-9727-12328d1bdd25" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <display>[call] : PerformPassthroughAsync(...): null</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="9928548d-52c4-442f-8799-8ef93c0f9bdb">
       <typeId>ac498aeb-5c12-48a4-838c-2d7ca76292a6</typeId>
       <isNavigable>true</isNavigable>

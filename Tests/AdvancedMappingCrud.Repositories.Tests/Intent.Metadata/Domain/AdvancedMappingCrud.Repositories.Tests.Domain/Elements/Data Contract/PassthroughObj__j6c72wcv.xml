@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="28d279ea-b911-4229-811d-f8d3faf1d107" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
   <name>PassthroughObj</name>
-  <display>PassthroughObj</display>
+  <display>PassthroughObj : PassthroughBaseObj</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

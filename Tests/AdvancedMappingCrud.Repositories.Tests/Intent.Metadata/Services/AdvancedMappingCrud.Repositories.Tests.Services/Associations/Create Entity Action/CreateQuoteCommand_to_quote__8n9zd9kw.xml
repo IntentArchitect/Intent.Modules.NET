@@ -22,6 +22,9 @@
     <name>quote</name>
     <display>[create] quote: Quote</display>
     <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="2b47336d-90c3-4bcb-bcc4-6d35627e31fd">
       <typeId>52aa9e0f-ec4a-4593-8f17-01ab01d64d45</typeId>
       <isNavigable>true</isNavigable>
