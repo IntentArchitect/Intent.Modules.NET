@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{24679DC2-0000-4751-AFED-B443F2E1E50D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDB.EnumStrings.Api", "CosmosDB.EnumStrings.Api\CosmosDB.EnumStrings.Api.csproj", "{4764B9AD-E36C-40F8-9A1A-EBE79486AA2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{1D09D150-0118-440F-8AD0-E4534C7BAB5B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDB.EnumStrings.Application", "CosmosDB.EnumStrings.Application\CosmosDB.EnumStrings.Application.csproj", "{B1A3DD6C-CC86-45ED-BD04-B67E0A654EF5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{077CDB2D-4509-47C2-AFF4-92A28F3CEFD4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDB.EnumStrings.Domain", "CosmosDB.EnumStrings.Domain\CosmosDB.EnumStrings.Domain.csproj", "{715ED393-70C4-4807-A4C8-205B4AA19938}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{5497B658-47F5-429D-BD31-2792B7F7DC84}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosmosDB.EnumStrings.Infrastructure", "CosmosDB.EnumStrings.Infrastructure\CosmosDB.EnumStrings.Infrastructure.csproj", "{FC2A122B-0C24-4D0F-AC3F-243BC85F7566}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4764B9AD-E36C-40F8-9A1A-EBE79486AA2B} = {24679DC2-0000-4751-AFED-B443F2E1E50D}
+		{B1A3DD6C-CC86-45ED-BD04-B67E0A654EF5} = {1D09D150-0118-440F-8AD0-E4534C7BAB5B}
+		{715ED393-70C4-4807-A4C8-205B4AA19938} = {077CDB2D-4509-47C2-AFF4-92A28F3CEFD4}
+		{FC2A122B-0C24-4D0F-AC3F-243BC85F7566} = {5497B658-47F5-429D-BD31-2792B7F7DC84}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4764B9AD-E36C-40F8-9A1A-EBE79486AA2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4764B9AD-E36C-40F8-9A1A-EBE79486AA2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4764B9AD-E36C-40F8-9A1A-EBE79486AA2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4764B9AD-E36C-40F8-9A1A-EBE79486AA2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1A3DD6C-CC86-45ED-BD04-B67E0A654EF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1A3DD6C-CC86-45ED-BD04-B67E0A654EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1A3DD6C-CC86-45ED-BD04-B67E0A654EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1A3DD6C-CC86-45ED-BD04-B67E0A654EF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{715ED393-70C4-4807-A4C8-205B4AA19938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{715ED393-70C4-4807-A4C8-205B4AA19938}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{715ED393-70C4-4807-A4C8-205B4AA19938}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{715ED393-70C4-4807-A4C8-205B4AA19938}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC2A122B-0C24-4D0F-AC3F-243BC85F7566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC2A122B-0C24-4D0F-AC3F-243BC85F7566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC2A122B-0C24-4D0F-AC3F-243BC85F7566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC2A122B-0C24-4D0F-AC3F-243BC85F7566}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

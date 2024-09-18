@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8f6b7dfc-d05b-4c18-b5f1-c30b68ef7abb">
+  <sourceEnd id="116c4dde-49bc-4f34-baeb-9e8b7571e00f" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetRootEntitiesQuery</display>
+    <order>0</order>
+    <typeReference id="6ace242e-23fd-4e67-8c23-1e1b94a6d8b0">
+      <typeId>993ba3ea-55e8-4759-b473-7df52f414336</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.EnumStrings.Services</typePackageName>
+      <typePackageId>c0177b26-f1f9-402d-a74d-c4ac815e7f93</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8f6b7dfc-d05b-4c18-b5f1-c30b68ef7abb" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>rootEntities</name>
+    <display>[query] rootEntities: RootEntity[*]</display>
+    <order>0</order>
+    <typeReference id="bdf9a0f1-a5e5-48db-9596-d6c0135d5f7d">
+      <typeId>df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.EnumStrings.Domain</typePackageName>
+      <typePackageId>97c1f224-ed45-4fa7-891e-75280542ac06</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="b045eba4-3b96-458d-b12f-62678792b09f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="993ba3ea-55e8-4759-b473-7df52f414336" location="[CosmosDB.EnumStrings].[Services].[GetRootEntitiesQuery]" />
+        <target applicationId="b045eba4-3b96-458d-b12f-62678792b09f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72" location="[CosmosDB.EnumStrings].[Services].[RootEntity]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

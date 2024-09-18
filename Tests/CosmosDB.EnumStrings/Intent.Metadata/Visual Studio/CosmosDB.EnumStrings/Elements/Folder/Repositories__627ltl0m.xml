@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="08e7dc57-2914-4003-ad78-cd4deca0e0ee" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Repositories</name>
+  <display>Repositories</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fc2a122b-0c24-4d0f-ac3f-243bc85f7566</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="1c7e918a-c950-4005-a717-b96cb9790d46" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBRepository</name>
+      <display>Intent.CosmosDB.CosmosDBRepository</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>08e7dc57-2914-4003-ad78-cd4deca0e0ee</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="5cd52ee9-d095-4a42-92ff-8bd76f474a61" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBRepositoryBase</name>
+      <display>Intent.CosmosDB.CosmosDBRepositoryBase</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>08e7dc57-2914-4003-ad78-cd4deca0e0ee</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f450e5b9-c212-45cf-a93e-c7ea48dc0108" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosPagedList</name>
+      <display>Intent.CosmosDB.CosmosPagedList</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>08e7dc57-2914-4003-ad78-cd4deca0e0ee</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

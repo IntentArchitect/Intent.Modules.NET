@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e4724af2-8e9b-40e4-9794-176e08cacc2b" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>EnumExample</name>
+  <display>EnumExample</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>97c1f224-ed45-4fa7-891e-75280542ac06</parentFolderId>
+  <packageId>97c1f224-ed45-4fa7-891e-75280542ac06</packageId>
+  <packageName>CosmosDB.EnumStrings.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="3143ff5c-e310-4310-b0cc-3ced440f6a68" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Example1</name>
+      <display>Example1 = 1</display>
+      <isAbstract>false</isAbstract>
+      <value>1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e4724af2-8e9b-40e4-9794-176e08cacc2b</parentFolderId>
+      <packageId>97c1f224-ed45-4fa7-891e-75280542ac06</packageId>
+      <packageName>CosmosDB.EnumStrings.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="00393826-2c1e-4395-891c-19deadd98dff" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Example2</name>
+      <display>Example2 = 2</display>
+      <isAbstract>false</isAbstract>
+      <value>2</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e4724af2-8e9b-40e4-9794-176e08cacc2b</parentFolderId>
+      <packageId>97c1f224-ed45-4fa7-891e-75280542ac06</packageId>
+      <packageName>CosmosDB.EnumStrings.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="3d4fe615-b7a8-493b-9d9a-be4848cfba18" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Example3</name>
+      <display>Example3 = 3</display>
+      <isAbstract>false</isAbstract>
+      <value>3</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e4724af2-8e9b-40e4-9794-176e08cacc2b</parentFolderId>
+      <packageId>97c1f224-ed45-4fa7-891e-75280542ac06</packageId>
+      <packageName>CosmosDB.EnumStrings.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

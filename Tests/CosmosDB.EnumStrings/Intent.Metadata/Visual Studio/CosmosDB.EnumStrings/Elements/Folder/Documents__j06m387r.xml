@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9d1e9be7-4e02-432d-8dda-9fc829627356" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Documents</name>
+  <display>Documents</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6cb34b55-ddff-43ad-a39d-c7a170068409</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ea981376-5ddb-454d-98da-74c8ff4bbbe6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBDocumentInterface</name>
+      <display>Intent.CosmosDB.CosmosDBDocumentInterface</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9d1e9be7-4e02-432d-8dda-9fc829627356</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6a73102c-f54d-4ffe-a06b-b9a175bd41a8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.CosmosDB.CosmosDBValueObjectDocumentInterface</name>
+      <display>Intent.CosmosDB.CosmosDBValueObjectDocumentInterface</display>
+      <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9d1e9be7-4e02-432d-8dda-9fc829627356</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

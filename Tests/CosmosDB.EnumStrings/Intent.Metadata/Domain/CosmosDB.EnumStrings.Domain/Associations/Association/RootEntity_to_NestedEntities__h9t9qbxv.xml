@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4c789edd-2756-4c6e-9c01-11271f45517e">
+  <sourceEnd id="3cd3fc0c-85f0-4d85-bef2-ed79692632c8" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>RootEntity</name>
+    <display>RootEntity: RootEntity</display>
+    <order>0</order>
+    <typeReference id="27a13d22-e8fd-4361-9600-0fcc0fcc5e5d">
+      <typeId>df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.EnumStrings.Domain</typePackageName>
+      <typePackageId>97c1f224-ed45-4fa7-891e-75280542ac06</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4c789edd-2756-4c6e-9c01-11271f45517e" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>NestedEntities</name>
+    <display>NestedEntities: NestedEntity[*]</display>
+    <order>5</order>
+    <typeReference id="bc1f6f32-22c1-4428-8c18-52415ac94d3c">
+      <typeId>a6d9ddeb-375d-4088-94d2-bee2f3dc6029</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.EnumStrings.Domain</typePackageName>
+      <typePackageId>97c1f224-ed45-4fa7-891e-75280542ac06</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
