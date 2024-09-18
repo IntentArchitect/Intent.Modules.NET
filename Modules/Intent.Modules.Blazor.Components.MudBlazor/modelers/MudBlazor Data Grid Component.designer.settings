@@ -208,6 +208,11 @@ dataCollection.getChildren().filter(x =&gt; x.specialization == "Property" || x.
             typeId: element.getMappedToElements()[0].typeReference.typeId
         }]
     });
+} else {
+    element.getChildren()[0].setType({
+        typeId: null,
+        genericTypeParameters: []
+    });
 }</onMappingsChangedScript>
           <staticMappableSettings>
             <staticMappableSetting id="28fb9d1a-cd73-4a5e-ac21-6340ec2e90d0" name="Ref" type="Ref" typeId="28fb9d1a-cd73-4a5e-ac21-6340ec2e90d0" version="2.0.0">
