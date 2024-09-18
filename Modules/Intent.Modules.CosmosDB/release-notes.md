@@ -1,3 +1,7 @@
+### Version 1.2.4
+
+- Improvement: Added setting to allow enum values to be serialized to a Document as string.
+
 ### Version 1.2.3
 
 - Improvement: Updated module NuGet packages infrastructure.

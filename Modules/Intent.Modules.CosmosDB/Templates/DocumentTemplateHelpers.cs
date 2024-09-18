@@ -10,6 +10,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.CosmosDB.Settings;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument;
@@ -25,7 +26,7 @@ namespace Intent.Modules.CosmosDB.Templates
             IEnumerable<AttributeModel> attributes,
             IEnumerable<AssociationEndModel> associationEnds,
             string documentInterfaceTemplateId = null)
-                where TModel : IMetadataModel
+            where TModel : IMetadataModel
         {
             foreach (var attribute in attributes)
             {
@@ -40,9 +41,14 @@ namespace Intent.Modules.CosmosDB.Templates
                     {
                         property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{attribute.GetFieldSetting().Name()}\")");
                     }
+
+                    if (attribute.TypeReference?.Element?.IsEnumModel() == true && template.ExecutionContext.Settings.GetCosmosDb().StoreEnumsAsStrings())
+                    {
+                        property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonConverter")}(typeof({template.GetEnumJsonConverterName()}))");
+                    }
                 });
 
-                if (attribute.TypeReference.IsCollection)   
+                if (attribute.TypeReference.IsCollection)
                 {
                     @class.AddProperty(
                         type: $"{template.UseType("System.Collections.Generic.IReadOnlyList")}<{template.GetTypeName((IElement)attribute.TypeReference.Element)}>",
@@ -94,6 +100,7 @@ namespace Intent.Modules.CosmosDB.Templates
                     throw new Exception($"No Interface template found for {typeReference.Element.Name}.");
                 }
             }
+
             var typeName = template.UseType(classProvider.FullTypeName());
 
             if (typeReference.IsCollection)
@@ -102,18 +109,17 @@ namespace Intent.Modules.CosmosDB.Templates
             }
 
             return typeName;
-
         }
 
-		internal static bool IsSeparateDatabaseMultiTenancy(IApplicationSettingsProvider settings)
-		{
-			const string multiTenancySettings = "41ae5a02-3eb2-42a6-ade2-322b3c1f1115";
-			const string dataIsolationSetting = "be7c671e-bbef-4d75-b42d-a6547de3ae82";
+        internal static bool IsSeparateDatabaseMultiTenancy(IApplicationSettingsProvider settings)
+        {
+            const string multiTenancySettings = "41ae5a02-3eb2-42a6-ade2-322b3c1f1115";
+            const string dataIsolationSetting = "be7c671e-bbef-4d75-b42d-a6547de3ae82";
 
-			return settings.GetGroup(multiTenancySettings)?.GetSetting(dataIsolationSetting)?.Value == "separate-database";
-		}
+            return settings.GetGroup(multiTenancySettings)?.GetSetting(dataIsolationSetting)?.Value == "separate-database";
+        }
 
-		public static void AddCosmosDBMappingMethods<TModel>(
+        public static void AddCosmosDBMappingMethods<TModel>(
             this CSharpTemplateBase<TModel> template,
             CSharpClass @class,
             IReadOnlyList<AttributeModel> attributes,
@@ -151,10 +157,7 @@ namespace Intent.Modules.CosmosDB.Templates
                 }
                 else
                 {
-                    method.AddIfStatement("entity is null", @if =>
-                    {
-                        @if.AddStatement($"throw new {template.UseType("System.ArgumentNullException")}(nameof(entity));");
-                    });
+                    method.AddIfStatement("entity is null", @if => { @if.AddStatement($"throw new {template.UseType("System.ArgumentNullException")}(nameof(entity));"); });
                 }
 
                 for (var index = 0; index < attributes.Count; index++)
@@ -171,10 +174,10 @@ namespace Intent.Modules.CosmosDB.Templates
                             "int" or "long" => $"{attributeTypeName}.Parse({assignmentValueExpression}, {template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
                             "guid" => $"{template.UseType("System.Guid")}.Parse({assignmentValueExpression})",
                             _ => throw new Exception(
-                                $"Unsupported partition key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
+                                $"Unsupported partition key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " +
+                                $"\"{attribute.Name}\" [{attribute.Id}] " +
                                 $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
                         };
-
                     }
                     // If this is the PK which is not a string, we need to convert it:
                     else if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
@@ -184,7 +187,8 @@ namespace Intent.Modules.CosmosDB.Templates
                             "int" or "long" => $"{attributeTypeName}.Parse({assignmentValueExpression}, {template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
                             "guid" => $"{template.UseType("System.Guid")}.Parse({assignmentValueExpression})",
                             _ => throw new Exception(
-                                $"Unsupported primary key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
+                                $"Unsupported primary key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " +
+                                $"\"{attribute.Name}\" [{attribute.Id}] " +
                                 $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
                         };
                     }
@@ -254,7 +258,8 @@ namespace Intent.Modules.CosmosDB.Templates
                             "int" or "long" => $".ToString({template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
                             "guid" => ".ToString()",
                             _ => throw new Exception(
-                                $"Unsupported partition key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
+                                $"Unsupported partition key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " +
+                                $"\"{attribute.Name}\" [{attribute.Id}] " +
                                 $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
                         };
                     }
@@ -265,7 +270,8 @@ namespace Intent.Modules.CosmosDB.Templates
                             "int" or "long" => $".ToString({template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
                             "guid" => ".ToString()",
                             _ => throw new Exception(
-                                $"Unsupported primary key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
+                                $"Unsupported primary key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " +
+                                $"\"{attribute.Name}\" [{attribute.Id}] " +
                                 $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
                         };
                     }
@@ -298,7 +304,8 @@ namespace Intent.Modules.CosmosDB.Templates
 
                 if (useOptimisticConcurrency && template.Id != CosmosDBValueObjectDocumentTemplate.TemplateId && isAggregate)
                 {
-                    method.AddStatement($"_etag = _etag == null ? getEtag((({template.UseType("Microsoft.Azure.CosmosRepository.IItem")})this).Id) : _etag;", s => s.SeparatedFromPrevious());
+                    method.AddStatement($"_etag = _etag == null ? getEtag((({template.UseType("Microsoft.Azure.CosmosRepository.IItem")})this).Id) : _etag;",
+                        s => s.SeparatedFromPrevious());
                 }
 
                 if (hasBaseType)
