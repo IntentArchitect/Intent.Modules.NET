@@ -4,7 +4,6 @@
   <display>Entities</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>4b1fb8ca-10d8-472c-bd43-2036c1b24599</parentFolderId>

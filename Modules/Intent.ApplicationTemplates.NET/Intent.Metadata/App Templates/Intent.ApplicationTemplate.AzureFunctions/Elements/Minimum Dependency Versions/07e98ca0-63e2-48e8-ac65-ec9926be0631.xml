@@ -43,7 +43,7 @@
     </childElement>
     <childElement id="3ec893c6-c8fc-4f4b-9710-8bdcd2866485" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Application.Dtos</name>
-      <display>Intent.Application.Dtos 4.3.1</display>
+      <display>Intent.Application.Dtos 4.3.2</display>
       <isAbstract>false</isAbstract>
       <value>4.3.2</value>
       <genericTypes />
@@ -85,7 +85,7 @@
     </childElement>
     <childElement id="65542414-7d10-4ea4-a6d5-78bc1e31144f" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Application.MediatR.FluentValidation</name>
-      <display>Intent.Application.MediatR.FluentValidation 4.6.3</display>
+      <display>Intent.Application.MediatR.FluentValidation 4.6.4</display>
       <isAbstract>false</isAbstract>
       <value>4.6.4</value>
       <genericTypes />
@@ -141,7 +141,7 @@
     </childElement>
     <childElement id="0aa3bce1-eda1-49fa-b22f-05b12cd40dd6" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.7.3</display>
+      <display>Intent.Common.CSharp 3.7.5</display>
       <isAbstract>false</isAbstract>
       <value>3.7.5</value>
       <genericTypes />
@@ -253,7 +253,7 @@
     </childElement>
     <childElement id="90780246-1742-45e9-8e15-594bec1aae18" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.WebApi</name>
-      <display>Intent.Metadata.WebApi 4.5.5</display>
+      <display>Intent.Metadata.WebApi 4.5.6</display>
       <isAbstract>false</isAbstract>
       <value>4.5.6</value>
       <genericTypes />
@@ -407,7 +407,7 @@
     </childElement>
     <childElement id="d8b4c96d-8a4d-40f9-bb33-7e193e9f34f4" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.OutputManager.RoslynWeaver</name>
-      <display>Intent.OutputManager.RoslynWeaver 4.7.6</display>
+      <display>Intent.OutputManager.RoslynWeaver 4.7.7</display>
       <isAbstract>false</isAbstract>
       <value>4.7.7</value>
       <genericTypes />

@@ -10,6 +10,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7de2afc2-6dcc-4ab6-b002-f40aa963976e</ProjectId>
+      <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#d0cc6657-888c-4820-98c7-0298e893c2b9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone/metadata.iatspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone/metadata.iatspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7de2afc2-6dcc-4ab6-b002-f40aa963976e</ProjectId>
       <CorrelationId>Intent.ApplicationTemplate.Builder.Templates.IatSpecFile#3d474ae5-467a-493b-add4-e223d61b188a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr/metadata.iatspec</ApplicationRelativeFilePath>

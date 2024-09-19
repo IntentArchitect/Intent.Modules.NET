@@ -21,5 +21,6 @@
     <application id="a1f7bab8-79b2-433e-ab02-367fc60ae815" name="Intent.Modules.ContinuousIntegration.AzurePipelines.Metadata" relativePath="Intent.Modules.ContinuousIntegration.AzurePipelines.Metadata/Intent.Modules.ContinuousIntegration.AzurePipelines.Metadata.application.config" />
     <application id="83e4ad01-be0c-40ea-953a-9a1acd26e2cd" name="Intent.Modules.AspNetCore.IntegrationTesting.Metadata" relativePath="Intent.Modules.AspNetCore.IntegrationTesting.Metadata/Intent.Modules.AspNetCore.IntegrationTesting.Metadata.application.config" />
     <application id="6c0933d2-4779-46ed-9096-135f2a0b10fc" name="Intent.ApplicationTemplates.NET.Metadata.WindowsServiceHost" relativePath="Intent.ApplicationTemplates.NET.Metadata.WindowsServiceHost/Intent.ApplicationTemplates.NET.Metadata.WindowsServiceHost.application.config" />
+    <application id="98d63ad2-cfd2-4691-a283-5e479d4219a5" name="Intent.ApplicationTemplates.NET.Metadata.Blazor.Standalone" relativePath="Intent.ApplicationTemplates.NET.Metadata.Blazor.Standalone/Intent.ApplicationTemplates.NET.Metadata.Blazor.Standalone.application.config" />
   </applications>
 </solution>

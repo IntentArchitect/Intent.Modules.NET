@@ -127,7 +127,7 @@
     </childElement>
     <childElement id="6871f02e-39f4-412b-b249-ed262587fc7a" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Application.MediatR.FluentValidation</name>
-      <display>Intent.Application.MediatR.FluentValidation 4.6.3</display>
+      <display>Intent.Application.MediatR.FluentValidation 4.6.4</display>
       <isAbstract>false</isAbstract>
       <value>4.6.4</value>
       <genericTypes />
@@ -253,7 +253,7 @@
     </childElement>
     <childElement id="e12102a4-a113-47b8-ada5-9f676f5d7c46" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.7.3</display>
+      <display>Intent.Common.CSharp 3.7.5</display>
       <isAbstract>false</isAbstract>
       <value>3.7.5</value>
       <genericTypes />
@@ -393,7 +393,7 @@
     </childElement>
     <childElement id="c4481412-fb2b-48ff-8654-a1f23c8b3292" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.WebApi</name>
-      <display>Intent.Metadata.WebApi 4.5.5</display>
+      <display>Intent.Metadata.WebApi 4.5.6</display>
       <isAbstract>false</isAbstract>
       <value>4.5.6</value>
       <genericTypes />
@@ -547,7 +547,7 @@
     </childElement>
     <childElement id="5afa3035-ad6b-4c32-8bd8-addfa4415075" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services.EventInteractions</name>
-      <display>Intent.Modelers.Services.EventInteractions 1.1.1</display>
+      <display>Intent.Modelers.Services.EventInteractions 1.1.2</display>
       <isAbstract>false</isAbstract>
       <value>1.1.2</value>
       <genericTypes />
@@ -589,7 +589,7 @@
     </childElement>
     <childElement id="1237e5cd-bc35-4e10-b6eb-885ddfed48b2" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.OutputManager.RoslynWeaver</name>
-      <display>Intent.OutputManager.RoslynWeaver 4.7.6</display>
+      <display>Intent.OutputManager.RoslynWeaver 4.7.7</display>
       <isAbstract>false</isAbstract>
       <value>4.7.7</value>
       <genericTypes />
