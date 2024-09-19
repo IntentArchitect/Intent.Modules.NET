@@ -32,7 +32,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomReposi
                     RepositoryOperationHelper.ApplyMethods(this, @interface, model);
                 });
 
-            var storedProcedures = Model.GetStoredProcedureModels();
+            var storedProcedures = Model.GetGeneralizedStoredProcedures();
             if (!storedProcedures.Any())
             {
                 return;

@@ -1,5 +1,6 @@
-### Version 4.6.4
+### Version 4.7.0
 
+- Improvement: Updated to respect new Stored Procedure stereotypes introduced in version `1.1.1` of the `Intent.Modelers.Domain.StoredProcedures` module.
 - Fixed: When domain types (such as a Classes, DataContract and Enums) were used on repository operations, usings would not always be added.
 - Fixed: Repository Operations now also recognize the `Asynchronous` stereotype.
 
