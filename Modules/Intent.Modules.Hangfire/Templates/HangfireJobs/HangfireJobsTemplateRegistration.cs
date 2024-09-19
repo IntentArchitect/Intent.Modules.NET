@@ -36,7 +36,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireJobs
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<HangfireJobModel> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetHangfireJobModels().Where(m => m.GetJobOptions().Enabled());
+            return _metadataManager.Services(application).GetHangfireJobModels();
         }
     }
 }
