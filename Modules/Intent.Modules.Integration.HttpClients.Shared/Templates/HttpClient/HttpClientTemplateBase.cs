@@ -123,8 +123,8 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                     @class.AddMethod(GetReturnType(endpoint), $"{endpoint.Name.ToPascalCase().RemoveSuffix("Async")}Async", method =>
                     {
                         method.Async();
-                        // Doing is this way because endpoints don't have any context of the source operation, only the mapped-to elements (i.e. commands/queries/etc).
-                        if (Model.UnderlyingModel is ServiceProxyModel serviceProxyModel)
+                        // Doing it this way because endpoints don't have any context of the source operation, only the mapped-to elements (i.e. commands/queries/etc).
+                        if (Model.UnderlyingModel is ServiceProxyModel serviceProxyModel && serviceProxyModel.Operations.Any())
                         {
                             var operationModel = serviceProxyModel.Operations.Single(x => x.Mapping?.ElementId == endpoint.Id);
                             method.RepresentsModel(operationModel);
