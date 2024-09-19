@@ -93,9 +93,12 @@ public class ServiceControllerModel : IControllerModel
 
     private string GetControllerRoute(string route)
     {
-        var serviceName = _model.Name.RemoveSuffix("Controller", "Service");
+        if (string.IsNullOrWhiteSpace(route))
+        {
+            return null;
+        }
 
-        route ??= "api/[controller]";
+        var serviceName = _model.Name.RemoveSuffix("Controller", "Service");
         var segments = route
             .Split('/')
             .Select(segment => segment.Equals(serviceName, StringComparison.OrdinalIgnoreCase) ? "[controller]" : segment);
