@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>045155f0-a262-425a-a77f-1e080062aeba</id>
+  <name>Hangfire Settings</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions>
+    <packageExtension type="Services Package" typeId="df45eaf6-9202-4c25-8dd5-677e9ba1e906">
+      <requiredPackages />
+      <creationOptions>
+        <option type="element">
+          <text>Add Hangfire</text>
+          <icon type="CharacterBox" source="H|#1565C0" />
+          <specializationType>Hangfire Configuration</specializationType>
+          <specializationTypeId>2debe83d-5a45-431b-ba43-b236894135cc</specializationTypeId>
+          <defaultName>Hangfire Configuration</defaultName>
+          <allowMultiple>false</allowMultiple>
+        </option>
+      </creationOptions>
+      <scriptOptions />
+      <typeOrder>
+        <type>Hangfire Configuration</type>
+      </typeOrder>
+    </packageExtension>
+  </packageExtensions>
+  <elementSettings>
+    <elementSetting type="Hangfire Configuration" typeId="2debe83d-5a45-431b-ba43-b236894135cc">
+      <icon type="CharacterBox" source="H|#1565C0" />
+      <saveAsOwnFile>true</saveAsOwnFile>
+      <allowRename>false</allowRename>
+      <allowAbstract>false</allowAbstract>
+      <allowStatic>false</allowStatic>
+      <allowGenericTypes>false</allowGenericTypes>
+      <allowMapping>false</allowMapping>
+      <allowSorting>true</allowSorting>
+      <sortChildren>manually</sortChildren>
+      <allowFindInView>false</allowFindInView>
+      <allowTypeReference>false</allowTypeReference>
+      <allowConvertToType p4:nil="true" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance" />
+      <allowSetValue>false</allowSetValue>
+      <typeOrder />
+      <creationOptions />
+      <scriptOptions />
+      <mappingOptions />
+      <mappingSettings />
+      <childElementSettings />
+    </elementSetting>
+    <elementSetting type="Hangfire Job" typeId="995f1902-4efb-42ba-b089-a5e856c48943">
+      <icon type="CharacterBox" source="J|#1565C0" />
+      <saveAsOwnFile>true</saveAsOwnFile>
+      <allowRename>true</allowRename>
+      <allowAbstract>false</allowAbstract>
+      <allowStatic>false</allowStatic>
+      <allowGenericTypes>false</allowGenericTypes>
+      <allowMapping>false</allowMapping>
+      <allowSorting>true</allowSorting>
+      <sortChildren>by-type-then-by-name</sortChildren>
+      <allowFindInView>false</allowFindInView>
+      <allowTypeReference>false</allowTypeReference>
+      <allowConvertToType p4:nil="true" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance" />
+      <allowSetValue>false</allowSetValue>
+      <typeOrder />
+      <creationOptions />
+      <scriptOptions />
+      <mappingOptions />
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-created">
+          <script>let schedulingStereoTypeId = "268b1f8f-71ac-4a27-ad87-bdaeffb06022";
+element.addStereotype(schedulingStereoTypeId);</script>
+        </macro>
+      </macros>
+      <childElementSettings />
+    </elementSetting>
+    <elementSetting type="Hangfire Queue" typeId="18b0f37e-43da-4d94-b65a-8cff601339ac">
+      <icon type="CharacterBox" source="Q|#1565C0" />
+      <saveAsOwnFile>true</saveAsOwnFile>
+      <allowRename>true</allowRename>
+      <allowAbstract>false</allowAbstract>
+      <allowStatic>false</allowStatic>
+      <allowGenericTypes>false</allowGenericTypes>
+      <allowMapping>false</allowMapping>
+      <allowSorting>true</allowSorting>
+      <sortChildren>by-type-then-by-name</sortChildren>
+      <allowFindInView>false</allowFindInView>
+      <allowTypeReference>false</allowTypeReference>
+      <allowConvertToType p4:nil="true" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance" />
+      <allowSetValue>false</allowSetValue>
+      <typeOrder />
+      <creationOptions />
+      <scriptOptions />
+      <mappingOptions />
+      <mappingSettings />
+      <childElementSettings />
+    </elementSetting>
+  </elementSettings>
+  <elementExtensions>
+    <elementExtension type="Hangfire Configuration" typeId="2debe83d-5a45-431b-ba43-b236894135cc">
+      <creationOptions>
+        <option type="element">
+          <text>Add Job</text>
+          <icon type="CharacterBox" source="J|#1565C0" />
+          <specializationType>Hangfire Job</specializationType>
+          <specializationTypeId>995f1902-4efb-42ba-b089-a5e856c48943</specializationTypeId>
+          <defaultName>NewHangfireJob</defaultName>
+          <allowMultiple>true</allowMultiple>
+        </option>
+        <option type="element">
+          <text>Add Queue</text>
+          <icon type="CharacterBox" source="Q|#1565C0" />
+          <specializationType>Hangfire Queue</specializationType>
+          <specializationTypeId>18b0f37e-43da-4d94-b65a-8cff601339ac</specializationTypeId>
+          <defaultName>NewHangfireQueue</defaultName>
+          <allowMultiple>true</allowMultiple>
+        </option>
+      </creationOptions>
+      <scriptOptions />
+      <mappingOptions />
+      <typeOrder>
+        <type>Hangfire Job</type>
+        <type>Hangfire Queue</type>
+      </typeOrder>
+      <mappingSettings />
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+</settings>

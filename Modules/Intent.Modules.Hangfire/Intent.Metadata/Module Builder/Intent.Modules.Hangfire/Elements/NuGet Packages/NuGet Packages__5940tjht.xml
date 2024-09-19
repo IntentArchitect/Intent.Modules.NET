@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e7689b4c-661e-451f-b024-a38234a78c2c" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fda30066-088b-48e0-9189-6cad1c70af13</parentFolderId>
+  <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
+  <packageName>Intent.Modules.Hangfire</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

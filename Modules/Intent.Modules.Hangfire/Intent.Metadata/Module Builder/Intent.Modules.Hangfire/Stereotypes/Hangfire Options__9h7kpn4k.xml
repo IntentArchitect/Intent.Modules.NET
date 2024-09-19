@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="fb655689-92b4-49b5-838e-537c3768a2f9" version="3.1.0">
+  <name>Hangfire Options</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="2debe83d-5a45-431b-ba43-b236894135cc">Hangfire Configuration</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>always</applyMode>
+  <icon type="FontAwesome" source="server" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>b30e0f42-dc53-4d5f-bcda-9f5614d0ca71</parentFolderId>
+  <order>0</order>
+  <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
+  <packageName>Intent.Modules.Hangfire</packageName>
+  <properties>
+    <property id="08b1856a-2fc3-4347-9257-d79e251fa212">
+      <hint>Configure application to show the Hangfire dashboard</hint>
+      <name>Show Dashboard</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>true</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="064ab6bc-f20b-4b87-83c6-ad6c3e5b0e16">
+      <hint>Set the Hangfire dashboard URL</hint>
+      <name>Dashboard URL</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>/hangfire</placeholder>
+      <defaultValue>/hangfire</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return ShowDashboard == true;</isActiveFunction>
+    </property>
+    <property id="de33daff-4050-43d2-a180-2f366b295656">
+      <hint>Set the Hangfire dashboard title</hint>
+      <name>Dashboard Title</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return ShowDashboard == true;</isActiveFunction>
+    </property>
+    <property id="0e7bb0de-bb46-4567-b75c-71d834899a91">
+      <hint>Set the Hangfire dashboard to read-only</hint>
+      <name>Read Only Dashboard</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return ShowDashboard == true;</isActiveFunction>
+    </property>
+    <property id="ac8e4db0-5e47-47dd-8038-7981baf39e96">
+      <hint>Configure the application as a Hangfire server (the application will execute jobs)</hint>
+      <name>Configure as Hangfire server</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>true</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="efb398ef-71c0-49b8-8187-067a43eb64df">
+      <hint>Number of Hangfire workers. Recommended leaving blank and letting Hangfire calculate the optimal number of workers</hint>
+      <name>Worker Count</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>
