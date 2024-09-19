@@ -1,5 +1,5 @@
 using AzureFunctions.TestApplication.Application.Common.Interfaces;
-using AzureFunctions.TestApplication.Application.Common.Pagination;
+using AzureFunctions.TestApplication.Application.IntegrationServices.Contracts.Intent.Modelers.Services.Pagination;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -8,7 +8,7 @@ using MediatR;
 
 namespace AzureFunctions.TestApplication.Application.Customers.GetCustomersPaged
 {
-    public class GetCustomersPagedQuery : IRequest<PagedResult<CustomerDto>>, IQuery
+    public class GetCustomersPagedQuery : IRequest<AzureFunctions.TestApplication.Application.Common.Pagination.PagedResult<CustomerDto>>, IQuery
     {
         public GetCustomersPagedQuery(int pageNo, int pageSize)
         {

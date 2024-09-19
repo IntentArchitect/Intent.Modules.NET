@@ -2,8 +2,8 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using AzureFunctions.TestApplication.Application.Common.Pagination;
 using AzureFunctions.TestApplication.Domain.Repositories;
+using AzureFunctions.TestApplication.Application.Common.Pagination;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -13,7 +13,7 @@ using MediatR;
 namespace AzureFunctions.TestApplication.Application.Customers.GetCustomersPaged
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetCustomersPagedQueryHandler : IRequestHandler<GetCustomersPagedQuery, PagedResult<CustomerDto>>
+    public class GetCustomersPagedQueryHandler : IRequestHandler<GetCustomersPagedQuery, AzureFunctions.TestApplication.Application.Common.Pagination.PagedResult<CustomerDto>>
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
@@ -26,7 +26,7 @@ namespace AzureFunctions.TestApplication.Application.Customers.GetCustomersPaged
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<PagedResult<CustomerDto>> Handle(
+        public async Task<AzureFunctions.TestApplication.Application.Common.Pagination.PagedResult<CustomerDto>> Handle(
             GetCustomersPagedQuery request,
             CancellationToken cancellationToken)
         {
