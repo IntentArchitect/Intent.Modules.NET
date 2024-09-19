@@ -39,7 +39,7 @@
       <childElements>
         <childElement id="1dad6f42-a510-453a-bd0b-50e39ea72efd" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>(None)</name>
-          <display>(None)</display>
+          <display>(None) = none</display>
           <isAbstract>false</isAbstract>
           <value>none</value>
           <genericTypes />
@@ -53,7 +53,7 @@
         </childElement>
         <childElement id="7af36538-6128-475b-9d77-56f20ee9048f" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Authorization Header Provider</name>
-          <display>Authorization Header Provider</display>
+          <display>Authorization Header Provider = authorization-header-provider</display>
           <isAbstract>false</isAbstract>
           <value>authorization-header-provider</value>
           <genericTypes />
@@ -67,7 +67,7 @@
         </childElement>
         <childElement id="efa33b06-35b7-4efb-b1cb-7cf5e2f84fae" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Client Access Token Management</name>
-          <display>Client Access Token Management</display>
+          <display>Client Access Token Management = client-access-token-management</display>
           <isAbstract>false</isAbstract>
           <value>client-access-token-management</value>
           <genericTypes />
@@ -81,7 +81,7 @@
         </childElement>
         <childElement id="1276a3f9-cff8-4787-9241-c694b3a556c9" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Transmittable Access Token</name>
-          <display>Transmittable Access Token</display>
+          <display>Transmittable Access Token = transmittable-access-token</display>
           <isAbstract>false</isAbstract>
           <value>transmittable-access-token</value>
           <genericTypes />

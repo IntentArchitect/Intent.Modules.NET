@@ -1,3 +1,7 @@
+### Version 5.2.0
+
+- Fixed: Presents a friendlier error message when an expected Header Name field is missing from the metadata.
+
 ### Version 5.1.13
 
 - Improvement: Only generates `HttpClientHeaderHandler` if your authorization is set `Transmittable Access Token`.

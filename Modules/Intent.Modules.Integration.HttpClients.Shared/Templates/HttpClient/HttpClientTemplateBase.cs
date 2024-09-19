@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
@@ -182,8 +183,16 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                      ? headerParams
                                      : Enumerable.Empty<IHttpEndpointInputModel>())
                         {
-                            if (headerParameter.HeaderName.ToLower() == "content-type")
+                            if (string.IsNullOrWhiteSpace(headerParameter.HeaderName))
+                            {
+                                throw new Exception($"Header parameter '{headerParameter.Name}' is missing a Header Name.");
+                            }
+
+                            if (headerParameter.HeaderName.Equals("content-type", StringComparison.OrdinalIgnoreCase))
+                            {
                                 continue;
+                            }
+
                             if (headerParameter.TypeReference.IsNullable)
                             {
                                 method.AddIfStatement($"{headerParameter.Name.ToParameterName()} != null", stmt => 
