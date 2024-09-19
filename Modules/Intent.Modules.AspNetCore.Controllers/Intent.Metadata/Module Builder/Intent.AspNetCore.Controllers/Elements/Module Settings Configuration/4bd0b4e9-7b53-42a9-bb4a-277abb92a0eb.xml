@@ -39,7 +39,7 @@
       <childElements>
         <childElement id="5138dee8-5f1e-4b81-ae3c-08278a850f33" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Secured by default</name>
-          <display>Secured by default</display>
+          <display>Secured by default = secured</display>
           <isAbstract>false</isAbstract>
           <value>secured</value>
           <genericTypes />
@@ -53,7 +53,7 @@
         </childElement>
         <childElement id="8c7f54b2-aedb-4c1a-8334-f020d185f4c0" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Unsecured by default</name>
-          <display>Unsecured by default</display>
+          <display>Unsecured by default = unsecured</display>
           <isAbstract>false</isAbstract>
           <value>unsecured</value>
           <genericTypes />

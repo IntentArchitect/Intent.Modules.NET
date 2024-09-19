@@ -1,4 +1,4 @@
-### Version 6.0.13
+### Version 6.1.0
 
 - Fixed: Removed Legacy behaviour where `Services` without `Http Service Settings` stereotypes would result in interpreting the Operations with `Http Settings` to have a base route of `api/[controller]`.
 
