@@ -12,6 +12,8 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Hangfire.Api;
+using Intent.Modules.Hangfire.Templates.HangfireDashboardAuthFilter;
+using Intent.Modules.Hangfire.Templates.HangfireJobs;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -34,8 +36,8 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public HangfireConfigurationTemplate(IOutputTarget outputTarget, IList<HangfireConfigurationModel> model) : base(TemplateId, outputTarget, model)
         {
-            // at this stage, this will exactly 1 model
-            _hangFireConfigurationModel = model.First();
+            // at this stage, this will exactly 0 or 1 models
+            _hangFireConfigurationModel = model.FirstOrDefault();
 
             _outputTarget = outputTarget;
 
@@ -64,7 +66,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
                             .AddStatement("cfg.ConfigureHangfireStorage(services, configuration);"))
                         );
 
-                        if (_hangFireConfigurationModel.HasHangfireOptions() && _hangFireConfigurationModel.GetHangfireOptions().ConfigureAsHangfireServer())
+                        if (_hangFireConfigurationModel is not null && _hangFireConfigurationModel.HasHangfireOptions() && _hangFireConfigurationModel.GetHangfireOptions().ConfigureAsHangfireServer())
                         {
                             method.AddInvocationStatement("services.AddHangfireServer", stmt =>
                             {
@@ -77,19 +79,22 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
                         }
 
                         method.AddReturn("services");
-                    })
-                    .AddMethod("IApplicationBuilder", "UseHangfire", method =>
+                    });
+
+
+                    @class.AddMethod("IApplicationBuilder", "UseHangfire", method =>
                     {
                         AddUsing("Microsoft.AspNetCore.Builder");
 
                         method.Static();
                         method.AddParameter("IApplicationBuilder", "app", p => p.WithThisModifier());
 
-                        if (_hangFireConfigurationModel.HasHangfireOptions() && _hangFireConfigurationModel.GetHangfireOptions().ShowDashboard())
+                        if (_hangFireConfigurationModel is not null && _hangFireConfigurationModel.HasHangfireOptions() && _hangFireConfigurationModel.GetHangfireOptions().ShowDashboard())
                         {
                             method.AddObjectInitializerBlock("var dashboardOptions = new DashboardOptions", config =>
                             {
                                 config.AddInitStatement("Authorization", "[new HangfireDashboardAuthFilter()]");
+                                AddTemplateDependency(HangfireDashboardAuthFilterTemplate.TemplateId);
 
                                 if (!string.IsNullOrWhiteSpace(_hangFireConfigurationModel.GetHangfireOptions().DashboardTitle()))
                                 {
@@ -118,6 +123,8 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
                         foreach (var job in ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id)
                             .GetHangfireJobModels().Where(m => m.GetJobOptions().Enabled()))
                         {
+                            AddTemplateDependency(HangfireJobsTemplate.TemplateId);
+
                             switch (job.GetJobOptions().JobType().AsEnum())
                             {
                                 case JobTypeOptionsEnum.Recurring:
@@ -137,8 +144,9 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
                         }
 
                         method.AddReturn("app");
-                    })
-                    .AddMethod("IGlobalConfiguration", "ConfigureHangfireStorage", method =>
+                    });
+                    
+                    @class.AddMethod("IGlobalConfiguration", "ConfigureHangfireStorage", method =>
                     {
                         method.Static();
                         method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
@@ -161,7 +169,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
                 .ToRegister("ConfigureHangfire", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
 
-            if (_hangFireConfigurationModel.GetHangfireOptions().ConfigureAsHangfireServer())
+            if (_hangFireConfigurationModel is not null && _hangFireConfigurationModel.GetHangfireOptions().ConfigureAsHangfireServer())
             {
                 ExecutionContext.EventDispatcher.Publish(ApplicationBuilderRegistrationRequest.ToRegister(
                             extensionMethodName: $"UseHangfire")

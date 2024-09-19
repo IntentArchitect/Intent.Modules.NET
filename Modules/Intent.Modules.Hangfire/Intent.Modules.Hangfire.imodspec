@@ -6,7 +6,7 @@
   <summary>Perform time based and fire-and-forget background processing jobs using Hangfire</summary>
   <description>Perform time based and fire-and-forget background processing jobs using Hangfire</description>
   <authors>Intent.Modules.NET</authors>
-  <iconUrl>H|#1976D2</iconUrl>
+  <iconUrl>H|#1565C0</iconUrl>
   <templates>
     <template id="Intent.Modules.Hangfire.HangfireConfiguration" externalReference="45ecdc92-439b-4a8a-8824-9b1d587bc984">
       <config>

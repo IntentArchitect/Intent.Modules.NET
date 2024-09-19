@@ -36,7 +36,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IList<HangfireConfigurationModel> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetHangfireConfigurationModels().ToList();
+            return _metadataManager.Services(application).GetHangfireConfigurationModels()?.ToList();
         }
     }
 }
