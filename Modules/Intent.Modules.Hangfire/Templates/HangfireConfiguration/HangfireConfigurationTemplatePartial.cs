@@ -1,20 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks.Dataflow;
-using System.Xml.Schema;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Hangfire.Api;
 using Intent.Modules.Hangfire.Templates.HangfireDashboardAuthFilter;
 using Intent.Modules.Hangfire.Templates.HangfireJobs;
-using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using static Intent.Modules.Hangfire.Api.HangfireJobModelStereotypeExtensions.JobOptions;
@@ -102,7 +98,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
 
                         method.AddReturn("cfg");
                     });
-                }));
+                });
         }
 
         public override void BeforeTemplateExecution()
@@ -134,10 +130,11 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
                 {
                     method.AddObjectInitializerBlock("var dashboardOptions = new DashboardOptions", config =>
                     {
-                        config.AddInitStatement("Authorization", "[new HangfireDashboardAuthFilter()]");
-                        
-                        var dashAuthTemplate = this.ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(HangfireDashboardAuthFilterTemplate.TemplateId);
-                        AddUsing(dashAuthTemplate?.Namespace);
+                        config.AddInitStatement("Authorization", $"[new {GetTypeName(HangfireDashboardAuthFilterTemplate.TemplateId)}()]");
+
+
+                        //CSharpResolvedTypeInfo dashAuthTemplate = (CSharpResolvedTypeInfo)GetTypeInfo(HangfireDashboardAuthFilterTemplate.TemplateId);
+                        //AddUsing(dashAuthTemplate.Namespace);
 
                         if (!string.IsNullOrWhiteSpace(_hangFireConfigurationModel.GetHangfireOptions().DashboardTitle()))
                         {
@@ -187,9 +184,6 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
             foreach (var job in ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id)
                                 .GetHangfireJobModels().Where(m => m.GetJobOptions().Enabled()))
             {
-                var jobTemplate = this.ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(HangfireJobsTemplate.TemplateId);
-                AddUsing(jobTemplate.FirstOrDefault()?.Namespace);
-
                 switch (job.GetJobOptions().JobType().AsEnum())
                 {
                     case JobTypeOptionsEnum.Recurring:
@@ -209,9 +203,9 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
             }
         }
 
-        private static void AddRecurringJobInvocation(CSharpClassMethod method, HangfireJobModel job, string serviceProviderName)
+        private void AddRecurringJobInvocation(CSharpClassMethod method, HangfireJobModel job, string serviceProviderName)
         {
-            var jobHandlerName = job.Name.ToPascalCase();
+            var jobHandlerName = GetTypeName(HangfireJobsTemplate.TemplateId, job);
             var addJobInvocationStatement = $"app.{serviceProviderName}.GetService<IRecurringJobManager>().AddOrUpdate<{jobHandlerName}>";
 
             method.AddInvocationStatement(addJobInvocationStatement, addJobConfig =>
@@ -226,9 +220,9 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
             });
         }
 
-        private static void AddDelayedJobInvocation(CSharpClassMethod method, HangfireJobModel job, string serviceProviderName)
+        private void AddDelayedJobInvocation(CSharpClassMethod method, HangfireJobModel job, string serviceProviderName)
         {
-            var jobHandlerName = job.Name.ToPascalCase();
+            var jobHandlerName = GetTypeName(HangfireJobsTemplate.TemplateId, job);
             var addJobInvocationStatement = $" app.{serviceProviderName}.GetService<IBackgroundJobClient>().Schedule<{jobHandlerName}>";
 
             method.AddInvocationStatement(addJobInvocationStatement, addJobConfig =>
@@ -242,9 +236,9 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
             });
         }
 
-        private static void AddFireForgetJobInvocation(CSharpClassMethod method, HangfireJobModel job, string serviceProviderName)
+        private void AddFireForgetJobInvocation(CSharpClassMethod method, HangfireJobModel job, string serviceProviderName)
         {
-            var jobHandlerName = job.Name.ToPascalCase();
+            var jobHandlerName = GetTypeName(HangfireJobsTemplate.TemplateId, job);
             var addJobInvocationStatement = $" app.{serviceProviderName}.GetService<IBackgroundJobClient>().Enqueue<{jobHandlerName}>";
 
             method.AddInvocationStatement(addJobInvocationStatement, addJobConfig =>
