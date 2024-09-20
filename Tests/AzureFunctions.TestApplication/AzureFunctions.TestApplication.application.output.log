@@ -680,7 +680,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetCustomersPaged/GetCustomersPagedQuery.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/GetCustomersPaged/GetCustomersPagedQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
@@ -688,7 +688,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetCustomersPaged/GetCustomersPagedQueryHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/GetCustomersPaged/GetCustomersPagedQueryHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
@@ -828,22 +828,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#9204e067-bdc8-45e7-8970-8a833fdc5253</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Intent/Modelers/Services/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent/Modelers/Services/Pagination/PagedResult.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.PagedResult</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/PagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#f5f5c771-cf9d-4ef6-8071-1f532fc6b7a2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/Customers/CreateCustomerCommand.cs</ApplicationRelativeFilePath>
@@ -900,14 +884,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#392b086e-e503-40d5-b6ae-4e76111c5b73</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/Validation/DummyResultDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Validation/DummyResultDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.EnumContract#c26b48e5-bfdf-4f0a-9ad6-0b86654b195b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/Validation/EnumDescriptions.cs</ApplicationRelativeFilePath>
@@ -928,7 +904,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/ICustomersService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICustomersService.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8de9db3a-61d9-44ff-a555-064a5af07cda</ProjectId>
@@ -976,7 +952,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/ISampleDomainsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISampleDomainsService.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8de9db3a-61d9-44ff-a555-064a5af07cda</ProjectId>
@@ -1624,7 +1600,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/HttpClients/CustomersServiceHttpClient.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomersServiceHttpClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3affc671-40f9-4cc8-abfa-468a74fd531e</ProjectId>
@@ -1680,7 +1656,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/HttpClients/SampleDomainsServiceHttpClient.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SampleDomainsServiceHttpClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3affc671-40f9-4cc8-abfa-468a74fd531e</ProjectId>

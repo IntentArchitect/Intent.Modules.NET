@@ -13,6 +13,5 @@ namespace AzureFunctions.TestApplication.Application.IntegrationServices
     public interface IValidationService : IDisposable
     {
         Task InboundComValAsync(InboundComValCommand command, CancellationToken cancellationToken = default);
-        Task<DummyResultDto> InboundQueValAsync(string rangeStr, string minStr, string maxStr, int rangeInt, int minInt, int maxInt, string isRequired, string isRequiredEmpty, decimal decimalRange, decimal decimalMin, decimal decimalMax, string stringOption, string stringOptionNonEmpty, EnumDescriptions myEnum, string regexField, CancellationToken cancellationToken = default);
     }
 }
