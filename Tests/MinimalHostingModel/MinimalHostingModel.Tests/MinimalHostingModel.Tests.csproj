@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoFixture" Version="4.18.0" />
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.5-alpha.0" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.5" />
     <PackageReference Include="NSubstitute" Version="5.0.0" />
   </ItemGroup>
   </Project>

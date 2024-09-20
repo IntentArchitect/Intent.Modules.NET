@@ -13,7 +13,7 @@
   <ItemGroup>
     <PackageReference Include="AutoFixture" Version="4.18.1" />
     <PackageReference Include="IEvangelist.Azure.CosmosRepository" Version="8.1.7" />
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.5-alpha.0" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.5" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="8.0.8" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />

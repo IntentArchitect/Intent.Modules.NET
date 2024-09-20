@@ -14,7 +14,7 @@
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Dapr.Client" Version="1.13.1" />
     <PackageReference Include="IEvangelist.Azure.CosmosRepository" Version="8.1.7" />
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.5-alpha.0" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.5" />
     <PackageReference Include="MassTransit" Version="8.2.3" />
     <PackageReference Include="MassTransit.Abstractions" Version="8.2.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
