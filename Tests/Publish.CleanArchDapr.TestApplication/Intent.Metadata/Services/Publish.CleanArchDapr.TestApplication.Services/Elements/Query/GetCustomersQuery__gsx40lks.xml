@@ -22,12 +22,16 @@
     <mappingSettingsId>50c4872d-f029-48ec-a818-58b426e8166a</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="754c4749-183b-4dc3-b98a-49e3164d6c2a" name="Customer" type="element" specialization="Class" />
+      <target id="754c4749-183b-4dc3-b98a-49e3164d6c2a" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>b2ed69b1-236e-4d3a-9d72-f627cc09d3da</parentFolderId>
   <packageId>3f763df0-a134-4460-b12c-76f0df862016</packageId>
   <packageName>Publish.CleanArchDapr.TestApplication.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="Allow Comment" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
       <addedByDefault>false</addedByDefault>
@@ -37,6 +41,7 @@
         <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
         <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/customers" isActive="true" />
         <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+        <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
