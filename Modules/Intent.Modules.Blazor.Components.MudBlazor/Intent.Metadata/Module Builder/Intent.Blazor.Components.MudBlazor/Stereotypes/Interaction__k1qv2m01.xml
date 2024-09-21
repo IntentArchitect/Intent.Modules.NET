@@ -15,7 +15,7 @@
   <displayAsText>true</displayAsText>
   <autoAdd>false</autoAdd>
   <allowMultipleApplies>false</allowMultipleApplies>
-  <parentFolderId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</parentFolderId>
+  <parentFolderId>8f48aab9-c1ef-44ec-a3a3-124ad96f17c2</parentFolderId>
   <order>0</order>
   <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
   <packageName>Intent.Blazor.Components.MudBlazor</packageName>

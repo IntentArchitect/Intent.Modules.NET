@@ -11,21 +11,21 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Blazor.Components.MudBlazor.Api
 {
-    public static class ButtonModelStereotypeExtensions
+    public static class TextInputModelStereotypeExtensions
     {
-        public static Appearance GetAppearance(this ButtonModel model)
+        public static Appearance GetAppearance(this TextInputModel model)
         {
             var stereotype = model.GetStereotype(Appearance.DefinitionId);
             return stereotype != null ? new Appearance(stereotype) : null;
         }
 
 
-        public static bool HasAppearance(this ButtonModel model)
+        public static bool HasAppearance(this TextInputModel model)
         {
             return model.HasStereotype(Appearance.DefinitionId);
         }
 
-        public static bool TryGetAppearance(this ButtonModel model, out Appearance stereotype)
+        public static bool TryGetAppearance(this TextInputModel model, out Appearance stereotype)
         {
             if (!HasAppearance(model))
             {
@@ -37,19 +37,43 @@ namespace Intent.Blazor.Components.MudBlazor.Api
             return true;
         }
 
-        public static Icon GetIcon(this ButtonModel model)
+        public static Behaviours GetBehaviours(this TextInputModel model)
+        {
+            var stereotype = model.GetStereotype(Behaviours.DefinitionId);
+            return stereotype != null ? new Behaviours(stereotype) : null;
+        }
+
+
+        public static bool HasBehaviours(this TextInputModel model)
+        {
+            return model.HasStereotype(Behaviours.DefinitionId);
+        }
+
+        public static bool TryGetBehaviours(this TextInputModel model, out Behaviours stereotype)
+        {
+            if (!HasBehaviours(model))
+            {
+                stereotype = null;
+                return false;
+            }
+
+            stereotype = new Behaviours(model.GetStereotype(Behaviours.DefinitionId));
+            return true;
+        }
+
+        public static Icon GetIcon(this TextInputModel model)
         {
             var stereotype = model.GetStereotype(Icon.DefinitionId);
             return stereotype != null ? new Icon(stereotype) : null;
         }
 
 
-        public static bool HasIcon(this ButtonModel model)
+        public static bool HasIcon(this TextInputModel model)
         {
             return model.HasStereotype(Icon.DefinitionId);
         }
 
-        public static bool TryGetIcon(this ButtonModel model, out Icon stereotype)
+        public static bool TryGetIcon(this TextInputModel model, out Icon stereotype)
         {
             if (!HasIcon(model))
             {
@@ -64,7 +88,7 @@ namespace Intent.Blazor.Components.MudBlazor.Api
         public class Appearance
         {
             private IStereotype _stereotype;
-            public const string DefinitionId = "b218f7cb-d150-401d-a17a-9e22fadf863f";
+            public const string DefinitionId = "5b19f111-14dc-40e0-a71b-9758d1b88026";
 
             public Appearance(IStereotype stereotype)
             {
@@ -73,24 +97,14 @@ namespace Intent.Blazor.Components.MudBlazor.Api
 
             public string Name => _stereotype.Name;
 
-            public bool IconOnly()
-            {
-                return _stereotype.GetProperty<bool>("Icon Only");
-            }
-
             public IElement Variant()
             {
                 return _stereotype.GetProperty<IElement>("Variant");
             }
 
-            public IElement Color()
+            public string Placeholder()
             {
-                return _stereotype.GetProperty<IElement>("Color");
-            }
-
-            public string Class()
-            {
-                return _stereotype.GetProperty<string>("Class");
+                return _stereotype.GetProperty<string>("Placeholder");
             }
 
             public class VariantOptions
@@ -165,78 +179,28 @@ namespace Intent.Blazor.Components.MudBlazor.Api
                 Success,
                 Warning
             }
+        }
 
-            public class ColorOptions
+        public class Behaviours
+        {
+            private IStereotype _stereotype;
+            public const string DefinitionId = "b3d9be90-aaa8-4bf7-b8d0-95c73a6ee68a";
+
+            public Behaviours(IStereotype stereotype)
             {
-                public readonly string Value;
-
-                public ColorOptions(string value)
-                {
-                    Value = value;
-                }
-
-                public ColorOptionsEnum AsEnum()
-                {
-                    switch (Value)
-                    {
-                        case "Default":
-                            return ColorOptionsEnum.Default;
-                        case "Primary":
-                            return ColorOptionsEnum.Primary;
-                        case "Secondary":
-                            return ColorOptionsEnum.Secondary;
-                        case "Tertiary":
-                            return ColorOptionsEnum.Tertiary;
-                        case "Info":
-                            return ColorOptionsEnum.Info;
-                        case "Success":
-                            return ColorOptionsEnum.Success;
-                        case "Warning":
-                            return ColorOptionsEnum.Warning;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
-                }
-
-                public bool IsDefault()
-                {
-                    return Value == "Default";
-                }
-                public bool IsPrimary()
-                {
-                    return Value == "Primary";
-                }
-                public bool IsSecondary()
-                {
-                    return Value == "Secondary";
-                }
-                public bool IsTertiary()
-                {
-                    return Value == "Tertiary";
-                }
-                public bool IsInfo()
-                {
-                    return Value == "Info";
-                }
-                public bool IsSuccess()
-                {
-                    return Value == "Success";
-                }
-                public bool IsWarning()
-                {
-                    return Value == "Warning";
-                }
+                _stereotype = stereotype;
             }
 
-            public enum ColorOptionsEnum
+            public string Name => _stereotype.Name;
+
+            public bool Immediate()
             {
-                Default,
-                Primary,
-                Secondary,
-                Tertiary,
-                Info,
-                Success,
-                Warning
+                return _stereotype.GetProperty<bool>("Immediate");
+            }
+
+            public int? DebounceInterval()
+            {
+                return _stereotype.GetProperty<int?>("Debounce Interval");
             }
 
         }
@@ -253,11 +217,6 @@ namespace Intent.Blazor.Components.MudBlazor.Api
 
             public string Name => _stereotype.Name;
 
-            public IElement Variant()
-            {
-                return _stereotype.GetProperty<IElement>("Variant");
-            }
-
             public IElement IconValue()
             {
                 return _stereotype.GetProperty<IElement>("Icon Value");
@@ -268,78 +227,11 @@ namespace Intent.Blazor.Components.MudBlazor.Api
                 return _stereotype.GetProperty<IElement>("Icon Color");
             }
 
-            public class VariantOptions
+            public IElement Variant()
             {
-                public readonly string Value;
-
-                public VariantOptions(string value)
-                {
-                    Value = value;
-                }
-
-                public VariantOptionsEnum AsEnum()
-                {
-                    switch (Value)
-                    {
-                        case "Default":
-                            return VariantOptionsEnum.Default;
-                        case "Primary":
-                            return VariantOptionsEnum.Primary;
-                        case "Secondary":
-                            return VariantOptionsEnum.Secondary;
-                        case "Tertiary":
-                            return VariantOptionsEnum.Tertiary;
-                        case "Info":
-                            return VariantOptionsEnum.Info;
-                        case "Success":
-                            return VariantOptionsEnum.Success;
-                        case "Warning":
-                            return VariantOptionsEnum.Warning;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
-                }
-
-                public bool IsDefault()
-                {
-                    return Value == "Default";
-                }
-                public bool IsPrimary()
-                {
-                    return Value == "Primary";
-                }
-                public bool IsSecondary()
-                {
-                    return Value == "Secondary";
-                }
-                public bool IsTertiary()
-                {
-                    return Value == "Tertiary";
-                }
-                public bool IsInfo()
-                {
-                    return Value == "Info";
-                }
-                public bool IsSuccess()
-                {
-                    return Value == "Success";
-                }
-                public bool IsWarning()
-                {
-                    return Value == "Warning";
-                }
+                return _stereotype.GetProperty<IElement>("Variant");
             }
 
-            public enum VariantOptionsEnum
-            {
-                Default,
-                Primary,
-                Secondary,
-                Tertiary,
-                Info,
-                Success,
-                Warning
-            }
             public class IconValueOptions
             {
                 public readonly string Value;
@@ -475,6 +367,78 @@ namespace Intent.Blazor.Components.MudBlazor.Api
             }
 
             public enum IconColorOptionsEnum
+            {
+                Default,
+                Primary,
+                Secondary,
+                Tertiary,
+                Info,
+                Success,
+                Warning
+            }
+            public class VariantOptions
+            {
+                public readonly string Value;
+
+                public VariantOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public VariantOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "Default":
+                            return VariantOptionsEnum.Default;
+                        case "Primary":
+                            return VariantOptionsEnum.Primary;
+                        case "Secondary":
+                            return VariantOptionsEnum.Secondary;
+                        case "Tertiary":
+                            return VariantOptionsEnum.Tertiary;
+                        case "Info":
+                            return VariantOptionsEnum.Info;
+                        case "Success":
+                            return VariantOptionsEnum.Success;
+                        case "Warning":
+                            return VariantOptionsEnum.Warning;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsDefault()
+                {
+                    return Value == "Default";
+                }
+                public bool IsPrimary()
+                {
+                    return Value == "Primary";
+                }
+                public bool IsSecondary()
+                {
+                    return Value == "Secondary";
+                }
+                public bool IsTertiary()
+                {
+                    return Value == "Tertiary";
+                }
+                public bool IsInfo()
+                {
+                    return Value == "Info";
+                }
+                public bool IsSuccess()
+                {
+                    return Value == "Success";
+                }
+                public bool IsWarning()
+                {
+                    return Value == "Warning";
+                }
+            }
+
+            public enum VariantOptionsEnum
             {
                 Default,
                 Primary,

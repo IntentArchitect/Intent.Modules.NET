@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="f357cbb8-2a8f-4765-93ec-3a5c15ca8313" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
-  <name>Color</name>
-  <display>Color</display>
+<class id="c5a84f56-06d6-4c56-b051-9ad96b12eadf" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>Icon</name>
+  <display>Icon</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
@@ -12,156 +12,169 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="22910495-cd04-40b0-bbb8-d0f2ca6cda02" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
-      <name>Dark</name>
-      <display>Dark</display>
+    <childElement id="3f24bd1d-646b-4a91-b819-78fdc6744a3a" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Add</name>
+      <display>Add</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</parentFolderId>
+      <parentFolderId>c5a84f56-06d6-4c56-b051-9ad96b12eadf</parentFolderId>
       <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
       <packageName>Intent.Blazor.Components.MudBlazor</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="dc569aee-630f-4d5e-9148-69dcf211c117" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
-      <name>Default</name>
-      <display>Default</display>
+    <childElement id="5fbe4136-32b3-437c-b179-c4724217fae4" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>AddBox</name>
+      <display>AddBox</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</parentFolderId>
+      <parentFolderId>c5a84f56-06d6-4c56-b051-9ad96b12eadf</parentFolderId>
       <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
       <packageName>Intent.Blazor.Components.MudBlazor</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="cf8eeb22-fcc7-4059-9d2c-d13a830ec9d0" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
-      <name>Error</name>
-      <display>Error</display>
+    <childElement id="bcb1ed81-8cfa-47c4-826e-46b2fda60b54" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>AddCircle</name>
+      <display>AddCircle</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</parentFolderId>
+      <parentFolderId>c5a84f56-06d6-4c56-b051-9ad96b12eadf</parentFolderId>
       <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
       <packageName>Intent.Blazor.Components.MudBlazor</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="5049e0a2-b3c6-4f54-b2ee-c901912b4f36" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
-      <name>Info</name>
-      <display>Info</display>
+    <childElement id="84282031-2b26-4807-9c29-2deec56841a2" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Cancel</name>
+      <display>Cancel</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</parentFolderId>
+      <parentFolderId>c5a84f56-06d6-4c56-b051-9ad96b12eadf</parentFolderId>
       <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
       <packageName>Intent.Blazor.Components.MudBlazor</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="7d3b2bd9-931f-444b-a478-ad39a98d5d4b" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
-      <name>Inherit</name>
-      <display>Inherit</display>
+    <childElement id="f4f20685-0998-485c-aa88-b794d63244bb" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Delete</name>
+      <display>Delete</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</parentFolderId>
+      <parentFolderId>c5a84f56-06d6-4c56-b051-9ad96b12eadf</parentFolderId>
       <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
       <packageName>Intent.Blazor.Components.MudBlazor</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="edfca156-96df-48d3-80a0-8bb814a37d01" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
-      <name>Primary</name>
-      <display>Primary</display>
+    <childElement id="caf1cca8-fa22-4dbe-97e0-8ed3e6c51c38" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Logout</name>
+      <display>Logout</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</parentFolderId>
+      <parentFolderId>c5a84f56-06d6-4c56-b051-9ad96b12eadf</parentFolderId>
       <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
       <packageName>Intent.Blazor.Components.MudBlazor</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="35ce5616-161f-406e-9130-924e367d7836" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
-      <name>Secondary</name>
-      <display>Secondary</display>
+    <childElement id="4f0b64a4-01a2-4ea8-9ee5-5785449f159d" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>ManageAccounts</name>
+      <display>ManageAccounts</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</parentFolderId>
+      <parentFolderId>c5a84f56-06d6-4c56-b051-9ad96b12eadf</parentFolderId>
       <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
       <packageName>Intent.Blazor.Components.MudBlazor</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="f1eb8fd0-7cb4-44b4-a755-fac12a49a21d" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
-      <name>Success</name>
-      <display>Success</display>
+    <childElement id="e973627f-6106-4763-9459-998016c8c2b3" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>MoreVert</name>
+      <display>MoreVert</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</parentFolderId>
+      <parentFolderId>c5a84f56-06d6-4c56-b051-9ad96b12eadf</parentFolderId>
       <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
       <packageName>Intent.Blazor.Components.MudBlazor</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="9d44b5ae-ca53-48fe-bf7a-9c08a2b9afe6" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
-      <name>Surface</name>
-      <display>Surface</display>
+    <childElement id="9257f134-f2a4-446e-aa94-a37565b130c6" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Person</name>
+      <display>Person</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</parentFolderId>
+      <parentFolderId>c5a84f56-06d6-4c56-b051-9ad96b12eadf</parentFolderId>
       <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
       <packageName>Intent.Blazor.Components.MudBlazor</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="2ea23aaf-f62b-424c-81a7-e32d7a67ad7d" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
-      <name>Tertiary</name>
-      <display>Tertiary</display>
+    <childElement id="f6575b79-a490-42bc-aa0b-c76bf8a981d6" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Receipt</name>
+      <display>Receipt</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</parentFolderId>
+      <parentFolderId>c5a84f56-06d6-4c56-b051-9ad96b12eadf</parentFolderId>
       <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
       <packageName>Intent.Blazor.Components.MudBlazor</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="d41f0380-e3b9-44bd-836c-e84cb801b40d" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
-      <name>Transparent</name>
-      <display>Transparent</display>
+    <childElement id="edaf154e-0c97-4f6a-b8f4-b631984cc7e4" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Save</name>
+      <display>Save</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</parentFolderId>
+      <parentFolderId>c5a84f56-06d6-4c56-b051-9ad96b12eadf</parentFolderId>
       <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
       <packageName>Intent.Blazor.Components.MudBlazor</packageName>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="e8b57d00-fe09-4d21-bc2c-f73eaec19f84" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
-      <name>Warning</name>
-      <display>Warning</display>
+    <childElement id="30ceb16e-07c0-4901-ac73-8a91f57be3c6" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>ShoppingCart</name>
+      <display>ShoppingCart</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</parentFolderId>
+      <parentFolderId>c5a84f56-06d6-4c56-b051-9ad96b12eadf</parentFolderId>
+      <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+      <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="677daad4-5997-4d34-850d-bee0d054e268" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Search</name>
+      <display>Search</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c5a84f56-06d6-4c56-b051-9ad96b12eadf</parentFolderId>
       <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
       <packageName>Intent.Blazor.Components.MudBlazor</packageName>
       <stereotypes />

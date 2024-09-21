@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="8e1b7033-fd27-495a-a2a7-36b5168f04f5" version="3.1.0">
+  <name>Icon</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="d7282bf2-1626-4b8b-9446-1d530527db06">Navigation Menu</type>
+    <type id="adbf2fa8-6833-4c24-960a-31d8a41fd1ed">Menu Item</type>
+    <type id="4474d808-f6fd-405f-a9c7-6998cd000ede">Button</type>
+    <type id="4803bf60-c626-4cbe-94ed-0f1eafff9fe3">Text Input</type>
+    <type id="3c5f8ea8-061a-4e71-826f-59f9281abe71">Icon</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9IjRkNGQ3ZjJhLWQ1Y2EtNDAzNC05NGEyLTgxYmQ5YWMyNWQ2YmxpbmVhci1ncmFkaWVudCIgeDE9Ii01NzAuNCIgeTE9IjQ4Ny4xIiB4Mj0iLTU4Ny4zIiB5Mj0iNDg3LjEiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ1Mi45IC01NTMuMikgcm90YXRlKC05MCkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNWNjN2Q2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzQxNzNiNiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iNGQ0ZDdmMmEtZDVjYS00MDM0LTk0YTItODFiZDlhYzI1ZDZibGluZWFyLWdyYWRpZW50LTIiIHgxPSItMjAxLjYiIHkxPSItMzIwLjYiIHgyPSItMTg0LjciIHkyPSItMzIwLjYiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMwNC44IDIxOC41KSByb3RhdGUoOTApIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzVjYzdkNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MTczYjYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9IjRkNGQ3ZjJhLWQ1Y2EtNDAzNC05NGEyLTgxYmQ5YWMyNWQ2YmxpbmVhci1ncmFkaWVudC0zIiB4MT0iMjQuOSIgeTE9Ii0xMDYuMyIgeDI9IjI0LjkiIHkyPSItMTEzLjUiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtODQpIHNjYWxlKDEgLTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzVjYzdkNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MTczYjYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC42LjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCA3MDkpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJMYXllcl8xIj4KICAgICAgPGcgaWQ9IlF1ZXJ5Ij4KICAgICAgICA8ZyBpZD0idXVpZC01YjI2ZTMxMC0xYmVkLTQ0ZjItOTE2Mi1iZjVhZjc0ZGI1ZTMiPgogICAgICAgICAgPHBhdGggZD0iTTMwLjEsMTEuN2wxMi4xLDExLjljLjQuNC41LjkuNSwxLjRzMCwxLS41LDEuNGwtMTIuMSwxMi4xYy0uOC44LTIsLjgtMi43LDBsLTEuMS0xLjFjLS44LS44LS44LTIsMC0yLjdsOS42LTkuNi05LjYtOS42Yy0uOC0uOC0uOC0yLDAtMi43bDEuMS0xLjFjLjgtLjgsMi0uOCwyLjcsMGgwWiIgZmlsbD0idXJsKCM0ZDRkN2YyYS1kNWNhLTQwMzQtOTRhMi04MWJkOWFjMjVkNmJsaW5lYXItZ3JhZGllbnQpIi8+CiAgICAgICAgICA8cGF0aCBkPSJNMTkuOSwzOC40bC0xMi4xLTExLjljLS40LS40LS41LS45LS41LTEuNHMwLTEsLjUtMS40bDEyLjEtMTIuMWMuOC0uOCwyLS44LDIuNywwbDEuMSwxLjFjLjguOC44LDIsMCwyLjdsLTkuNiw5LjYsOS42LDkuNmMuOC44LjgsMiwwLDIuN2wtMS4xLDEuMWMtLjguOC0yLC44LTIuNywwaDBaIiBmaWxsPSJ1cmwoIzRkNGQ3ZjJhLWQ1Y2EtNDAzNC05NGEyLTgxYmQ5YWMyNWQ2YmxpbmVhci1ncmFkaWVudC0yKSIvPgogICAgICAgICAgPGNpcmNsZSBjeD0iMjQuOSIgY3k9IjI1LjEiIHI9IjMuNiIgZmlsbD0idXJsKCM0ZDRkN2YyYS1kNWNhLTQwMzQtOTRhMi04MWJkOWFjMjVkNmJsaW5lYXItZ3JhZGllbnQtMykiLz4KICAgICAgICA8L2c+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>8f48aab9-c1ef-44ec-a3a3-124ad96f17c2</parentFolderId>
+  <order>3</order>
+  <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+  <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+  <properties>
+    <property id="7bda044e-8be7-4ac4-98cd-41e97132942f">
+      <name>Icon Value</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>lookup-children</optionsSource>
+      <placeholder>(none)</placeholder>
+      <valueOptions>
+        <option>Default</option>
+        <option>Primary</option>
+        <option>Secondary</option>
+        <option>Tertiary</option>
+        <option>Info</option>
+        <option>Success</option>
+        <option>Warning</option>
+      </valueOptions>
+      <lookupTypes />
+      <lookupInternalTargetPropertyId>return "c5a84f56-06d6-4c56-b051-9ad96b12eadf" // Color (Enum);</lookupInternalTargetPropertyId>
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+    <property id="6a70b142-c60d-4015-97aa-be0bcab7d128">
+      <name>Icon Color</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>lookup-children</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions>
+        <option>Default</option>
+        <option>Primary</option>
+        <option>Secondary</option>
+        <option>Tertiary</option>
+        <option>Info</option>
+        <option>Success</option>
+        <option>Warning</option>
+      </valueOptions>
+      <lookupTypes />
+      <lookupInternalTargetPropertyId>return "f357cbb8-2a8f-4765-93ec-3a5c15ca8313" // Color (Enum);</lookupInternalTargetPropertyId>
+    </property>
+    <property id="13f1151e-7611-4bde-8374-1598b5d3335c">
+      <name>Variant</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>lookup-children</optionsSource>
+      <placeholder>(default)</placeholder>
+      <defaultValue>41f2ef78-a358-43bd-9b84-926dc185c8d1</defaultValue>
+      <valueOptions>
+        <option>Default</option>
+        <option>Primary</option>
+        <option>Secondary</option>
+        <option>Tertiary</option>
+        <option>Info</option>
+        <option>Success</option>
+        <option>Warning</option>
+      </valueOptions>
+      <lookupTypes />
+      <lookupInternalTargetPropertyId>return "3e567ea2-5065-40bb-8b52-4e2ce035082d" // Icon Variant (Enum);</lookupInternalTargetPropertyId>
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+  </properties>
+</stereotypeDefinition>

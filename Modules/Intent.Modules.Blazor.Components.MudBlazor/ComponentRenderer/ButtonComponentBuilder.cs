@@ -26,21 +26,36 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
 
     public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
-        var button = new ButtonModel(component);
-        var onClickMapping = _bindingManager.GetMappedEndFor(button, "On Click");
-        var htmlElement = new HtmlElement("MudButton", _componentTemplate.RazorFile)
-            .AddAttribute("Variant", "Variant.Filled")
-            .AddAttribute("Class", "my-2 mr-2");
+        var model = new ButtonModel(component);
+        IHtmlElement htmlElement = new HtmlElement(model.GetAppearance().IconOnly() ? "MudIconButton" : "MudButton", _componentTemplate.RazorFile);
 
-        htmlElement.AddAttribute("Color", _bindingManager.GetBinding(button, "3a04c387-3b5b-4a3d-b03a-4ecd0dcc301a", parentNode)?.ToString()
-            ?? "Color." + (button.GetAppearance()?.Color().Name ?? (button.GetInteraction().Type().IsSubmit() ? "Primary" : "Default")));
-
-        foreach (var child in component.ChildElements)
+        var onLinkToMapping = _bindingManager.GetMappedEndFor(model, "Link To");
+        if (onLinkToMapping != null)
         {
-            _componentResolver.BuildComponent(child, htmlElement);
+            htmlElement.AddAttribute("Href", onLinkToMapping.SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route());
         }
 
-        htmlElement.WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name);
+        htmlElement.AddAttributeIfNotEmpty("Variant", model.GetAppearance()?.Variant() != null ? $"Variant.{model.GetAppearance()?.Variant().Name}" : null)
+            .AddAttributeIfNotEmpty(model.GetAppearance().IconOnly() ? "Icon" : "StartIcon", model.HasIcon() ? $"@Icons.Material.{model.GetIcon().Variant().Name}.{model.GetIcon().IconValue().Name}" : null)
+            .AddAttributeIfNotEmpty("IconColor", !model.GetAppearance().IconOnly() && model.GetIcon()?.IconColor() != null ? $"Color.{model.GetIcon()?.IconColor().Name}" : null)
+            .AddAttributeIfNotEmpty("Class", string.IsNullOrWhiteSpace(model.GetAppearance().Class()) ? "my-2 mr-2" : model.GetAppearance().Class());
+
+        htmlElement.AddAttribute("Color", _bindingManager.GetBinding(model, "3a04c387-3b5b-4a3d-b03a-4ecd0dcc301a", parentNode)?.ToString()
+            ?? "Color." + (model.GetAppearance()?.Color()?.Name ?? (model.GetInteraction().Type().IsSubmit() ? "Primary" : "Default")));
+
+        if (component.ChildElements.Any())
+        {
+            foreach (var child in component.ChildElements)
+            {
+                _componentResolver.BuildComponent(child, htmlElement);
+            }
+        }
+        else if (!model.GetAppearance().IconOnly())
+        {
+            htmlElement.AddHtmlElement("MudText", text => text.WithText(!string.IsNullOrWhiteSpace(model.InternalElement.Value) ? model.InternalElement.Value : model.Name));
+        }
+
+        var onClickMapping = _bindingManager.GetMappedEndFor(model, "On Click");
         if (onClickMapping != null)
         {
             htmlElement.AddAttribute("OnClick", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
@@ -50,8 +65,8 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
                 _componentTemplate.GetCodeBehind().TryGetReferenceForModel(onClickMapping.SourceElement.Id, out var reference);
                 if (reference is CSharpClassMethod method)
                 {
-                    var form = button.GetInteraction().Form() ?? component.GetParentPath().Reverse().FirstOrDefault(x => x.IsFormModel());
-                    if (form != null && button.GetInteraction().Type().IsSubmit())
+                    var form = model.GetInteraction().Form() ?? component.GetParentPath().Reverse().FirstOrDefault(x => x.IsFormModel());
+                    if (form != null && model.GetInteraction().Type().IsSubmit())
                     {
                         method.Async();
                         ((IHasCSharpStatements)method.FindStatement(x => x is CSharpTryBlock) ?? method)?.InsertStatements(0,
@@ -68,7 +83,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
                     {
                         return;
                     }
-                    htmlElement.WithText(null); // clear text
+
                     var processingFieldName = $"{method.Name}Processing".ToPrivateMemberName();
                     _componentTemplate.GetCodeBehind().AddField("bool", processingFieldName, f => f.WithAssignment("false"));
                     ((CSharpTryBlock)method.FindStatement(x => x is CSharpTryBlock))?.InsertStatement(0, new CSharpAssignmentStatement(processingFieldName, "true").WithSemicolon());
@@ -81,41 +96,23 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
 
                     finallyBlock?.InsertStatement(0, new CSharpAssignmentStatement(processingFieldName, "false").WithSemicolon());
 
-                    htmlElement.AddAttribute("Disabled", $"@{processingFieldName}");
-                    htmlElement.AddCodeBlock($"@if ({processingFieldName})", code =>
+                    if (!model.GetAppearance().IconOnly())
                     {
-                        code.AddHtmlElement("MudProgressCircular", spinner =>
+                        htmlElement.AddAttribute("Disabled", $"@{processingFieldName}");
+                        htmlElement.InsertCodeBlock(0, $"@if ({processingFieldName})", code =>
                         {
-                            spinner.AddAttribute("Class", "ms-n1");
-                            spinner.AddAttribute("Size", "Size.Small");
-                            spinner.AddAttribute("Indeterminate", "true");
+                            code.AddHtmlElement("MudProgressCircular", spinner =>
+                            {
+                                spinner.AddAttribute("Class", "ms-n1");
+                                spinner.AddAttribute("Size", "Size.Small");
+                                spinner.AddAttribute("Indeterminate", "true");
+                            });
                         });
-                    });
-                    htmlElement.AddHtmlElement("MudText", text => text.WithText(!string.IsNullOrWhiteSpace(button.InternalElement.Value) ? button.InternalElement.Value : button.Name));
+                    }
                 }
-
-
             });
-
-            //if (onClickMapping.SourceElement.AsComponentOperationModel()?.CallServiceOperationActionTargets().Any() == true)
-            //{
-            //    htmlElement.AddAttribute("Color", "Color.Primary");
-            //}
-            //if (onClickMapping?.SourceElement?.IsNavigationTargetEndModel() == true)
-            //{
-            //    var route = onClickMapping.SourceElement.AsNavigationTargetEndModel().Element.AsComponentModel().GetPage()?.Route();
-            //    htmlElement.AddAttribute("OnClick", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
-            //}
-            //else
-            //{
-            //    htmlElement.AddAttribute("OnClick", $"{_bindingManager.GetBinding(onClickMapping, parentNode).ToLambda()}");
-            //}
         }
 
-        //foreach (var child in component.ChildElements)
-        //{
-        //    htmlElement.Nodes.Add(_componentResolver.ResolveFor(child).Render(child));
-        //}
         parentNode.AddChildNode(htmlElement);
         return [htmlElement];
     }

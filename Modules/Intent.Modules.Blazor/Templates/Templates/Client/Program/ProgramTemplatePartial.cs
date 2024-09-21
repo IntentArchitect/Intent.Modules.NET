@@ -34,7 +34,11 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
 
             ProgramFile = new BlazorProgramFile(this, useTopLevelStatements);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddUsing("Microsoft.AspNetCore.Components.Web")
+                .AddUsing("System")
+                .AddUsing("System.Net.Http")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("Microsoft.Extensions.Configuration")
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Microsoft.AspNetCore.Components.WebAssembly.Hosting");
 
             if (useTopLevelStatements)

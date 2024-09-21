@@ -11,45 +11,22 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Blazor.Components.MudBlazor.Api
 {
-    public static class ButtonModelStereotypeExtensions
+    public static class MenuItemModelStereotypeExtensions
     {
-        public static Appearance GetAppearance(this ButtonModel model)
-        {
-            var stereotype = model.GetStereotype(Appearance.DefinitionId);
-            return stereotype != null ? new Appearance(stereotype) : null;
-        }
 
-
-        public static bool HasAppearance(this ButtonModel model)
-        {
-            return model.HasStereotype(Appearance.DefinitionId);
-        }
-
-        public static bool TryGetAppearance(this ButtonModel model, out Appearance stereotype)
-        {
-            if (!HasAppearance(model))
-            {
-                stereotype = null;
-                return false;
-            }
-
-            stereotype = new Appearance(model.GetStereotype(Appearance.DefinitionId));
-            return true;
-        }
-
-        public static Icon GetIcon(this ButtonModel model)
+        public static Icon GetIcon(this MenuItemModel model)
         {
             var stereotype = model.GetStereotype(Icon.DefinitionId);
             return stereotype != null ? new Icon(stereotype) : null;
         }
 
 
-        public static bool HasIcon(this ButtonModel model)
+        public static bool HasIcon(this MenuItemModel model)
         {
             return model.HasStereotype(Icon.DefinitionId);
         }
 
-        public static bool TryGetIcon(this ButtonModel model, out Icon stereotype)
+        public static bool TryGetIcon(this MenuItemModel model, out Icon stereotype)
         {
             if (!HasIcon(model))
             {
@@ -59,186 +36,6 @@ namespace Intent.Blazor.Components.MudBlazor.Api
 
             stereotype = new Icon(model.GetStereotype(Icon.DefinitionId));
             return true;
-        }
-
-        public class Appearance
-        {
-            private IStereotype _stereotype;
-            public const string DefinitionId = "b218f7cb-d150-401d-a17a-9e22fadf863f";
-
-            public Appearance(IStereotype stereotype)
-            {
-                _stereotype = stereotype;
-            }
-
-            public string Name => _stereotype.Name;
-
-            public bool IconOnly()
-            {
-                return _stereotype.GetProperty<bool>("Icon Only");
-            }
-
-            public IElement Variant()
-            {
-                return _stereotype.GetProperty<IElement>("Variant");
-            }
-
-            public IElement Color()
-            {
-                return _stereotype.GetProperty<IElement>("Color");
-            }
-
-            public string Class()
-            {
-                return _stereotype.GetProperty<string>("Class");
-            }
-
-            public class VariantOptions
-            {
-                public readonly string Value;
-
-                public VariantOptions(string value)
-                {
-                    Value = value;
-                }
-
-                public VariantOptionsEnum AsEnum()
-                {
-                    switch (Value)
-                    {
-                        case "Default":
-                            return VariantOptionsEnum.Default;
-                        case "Primary":
-                            return VariantOptionsEnum.Primary;
-                        case "Secondary":
-                            return VariantOptionsEnum.Secondary;
-                        case "Tertiary":
-                            return VariantOptionsEnum.Tertiary;
-                        case "Info":
-                            return VariantOptionsEnum.Info;
-                        case "Success":
-                            return VariantOptionsEnum.Success;
-                        case "Warning":
-                            return VariantOptionsEnum.Warning;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
-                }
-
-                public bool IsDefault()
-                {
-                    return Value == "Default";
-                }
-                public bool IsPrimary()
-                {
-                    return Value == "Primary";
-                }
-                public bool IsSecondary()
-                {
-                    return Value == "Secondary";
-                }
-                public bool IsTertiary()
-                {
-                    return Value == "Tertiary";
-                }
-                public bool IsInfo()
-                {
-                    return Value == "Info";
-                }
-                public bool IsSuccess()
-                {
-                    return Value == "Success";
-                }
-                public bool IsWarning()
-                {
-                    return Value == "Warning";
-                }
-            }
-
-            public enum VariantOptionsEnum
-            {
-                Default,
-                Primary,
-                Secondary,
-                Tertiary,
-                Info,
-                Success,
-                Warning
-            }
-
-            public class ColorOptions
-            {
-                public readonly string Value;
-
-                public ColorOptions(string value)
-                {
-                    Value = value;
-                }
-
-                public ColorOptionsEnum AsEnum()
-                {
-                    switch (Value)
-                    {
-                        case "Default":
-                            return ColorOptionsEnum.Default;
-                        case "Primary":
-                            return ColorOptionsEnum.Primary;
-                        case "Secondary":
-                            return ColorOptionsEnum.Secondary;
-                        case "Tertiary":
-                            return ColorOptionsEnum.Tertiary;
-                        case "Info":
-                            return ColorOptionsEnum.Info;
-                        case "Success":
-                            return ColorOptionsEnum.Success;
-                        case "Warning":
-                            return ColorOptionsEnum.Warning;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
-                }
-
-                public bool IsDefault()
-                {
-                    return Value == "Default";
-                }
-                public bool IsPrimary()
-                {
-                    return Value == "Primary";
-                }
-                public bool IsSecondary()
-                {
-                    return Value == "Secondary";
-                }
-                public bool IsTertiary()
-                {
-                    return Value == "Tertiary";
-                }
-                public bool IsInfo()
-                {
-                    return Value == "Info";
-                }
-                public bool IsSuccess()
-                {
-                    return Value == "Success";
-                }
-                public bool IsWarning()
-                {
-                    return Value == "Warning";
-                }
-            }
-
-            public enum ColorOptionsEnum
-            {
-                Default,
-                Primary,
-                Secondary,
-                Tertiary,
-                Info,
-                Success,
-                Warning
-            }
-
         }
 
         public class Icon

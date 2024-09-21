@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Blazor.Components.MudBlazor.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
@@ -24,37 +25,62 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
     public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var navigationModel = new NavigationMenuModel(component);
-        var htmlElement = new HtmlElement("MudNavMenu", _componentTemplate.RazorFile);
+        if (component.GetParentPath().All(x => !x.IsLayoutSiderModel()))
+        {
+            IHtmlElement htmlElement = new HtmlElement("MudMenu", _componentTemplate.RazorFile);
+            htmlElement.AddAttributeIfNotEmpty("Icon", navigationModel.HasIcon() ? $"@Icons.Material.{navigationModel.GetIcon().Variant().Name}.{navigationModel.GetIcon().IconValue().Name}" : null)
+                .AddAttributeIfNotEmpty("IconColor", navigationModel.GetIcon()?.IconColor() != null ? $"Color.{navigationModel.GetIcon()?.IconColor().Name}" : null);
+            foreach (var menuItemModel in navigationModel.MenuItems)
+            {
+                htmlElement.AddHtmlElement("MudMenuItem", navLink =>
+                {
+                    var mappingEnd = _bindingManager.GetMappedEndFor(menuItemModel, "Link To");
+                    navLink.AddAttribute("Href", mappingEnd != null
+                        ? mappingEnd.SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route()
+                        : "/");
+                    navLink.AddAttributeIfNotEmpty("Icon", menuItemModel.HasIcon() ? $"@Icons.Material.{menuItemModel.GetIcon().Variant().Name}.{menuItemModel.GetIcon().IconValue().Name}" : null)
+                        .AddAttributeIfNotEmpty("IconColor", menuItemModel.GetIcon()?.IconColor() != null ? $"Color.{menuItemModel.GetIcon()?.IconColor().Name}" : null);
+                    if (!menuItemModel.InternalElement.ChildElements.Any())
+                    {
+                        navLink.WithText(!string.IsNullOrWhiteSpace(menuItemModel.Value) ? menuItemModel.Value : menuItemModel.Name);
+                    }
 
+                    foreach (var innerChild in menuItemModel.InternalElement.ChildElements)
+                    {
+                        _componentResolver.BuildComponent(innerChild, navLink);
+                    }
+                });
+            }
+
+            parentNode.AddChildNode(htmlElement);
+
+            return [htmlElement];
+        }
+
+        var navMenu = new HtmlElement("MudNavMenu", _componentTemplate.RazorFile);
         if (navigationModel.MenuItems.Any())
         {
-            foreach (var navigationItemModel in navigationModel.MenuItems)
+            foreach (var menuItemModel in navigationModel.MenuItems)
             {
-                htmlElement.AddHtmlElement("MudNavLink", navLink =>
+                navMenu.AddHtmlElement("MudNavLink", navLink =>
                 {
-                    if (navigationItemModel.NavigationItems.Count == 0)
+                    navLink.AddAttributeIfNotEmpty("Icon", menuItemModel.HasIcon() ? $"@Icons.Material.{menuItemModel.GetIcon().Variant().Name}.{menuItemModel.GetIcon().IconValue().Name}" : null)
+                        .AddAttributeIfNotEmpty("IconColor", menuItemModel.GetIcon()?.IconColor() != null ? $"Color.{menuItemModel.GetIcon()?.IconColor().Name}" : null);
+                    if (menuItemModel.NavigationItems.Count == 0)
                     {
-                        foreach (var child in navigationItemModel.InternalElement.ChildElements)
+                        foreach (var child in menuItemModel.InternalElement.ChildElements)
                         {
                             _componentResolver.BuildComponent(child, navLink);
                         }
 
-                        if (!navigationItemModel.InternalElement.ChildElements.Any())
+                        if (!menuItemModel.InternalElement.ChildElements.Any())
                         {
-                            navLink.WithText(!string.IsNullOrWhiteSpace(navigationItemModel.Value) ? navigationItemModel.Value : navigationItemModel.Name);
+                            navLink.WithText(!string.IsNullOrWhiteSpace(menuItemModel.Value) ? menuItemModel.Value : menuItemModel.Name);
                         }
-                        if (navigationItemModel.TryGetNavigationLink(out var navigationLink))
+                        var mappingEnd = _bindingManager.GetMappedEndFor(menuItemModel, "Link To");
+                        if (mappingEnd != null)
                         {
-                            var pageRoute = navigationLink.NavigateTo()?.AsNavigationTargetEndModel().Element.AsComponentModel()?.GetPage()?.Route();
-                            navLink.AddAttribute("Href", pageRoute);
-                        }
-                        else
-                        {
-                            var mappingEnd = _bindingManager.GetMappedEndFor(navigationItemModel, "Link To");
-                            if (mappingEnd != null)
-                            {
-                                navLink.AddAttribute("Href", mappingEnd.SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route());
-                            }
+                            navLink.AddAttribute("Href", mappingEnd.SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route());
                         }
                     }
                     //else
@@ -82,7 +108,7 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
                 });
             }
         }
-        parentNode.AddChildNode(htmlElement);
-        return [htmlElement];
+        parentNode.AddChildNode(navMenu);
+        return [navMenu];
     }
 }

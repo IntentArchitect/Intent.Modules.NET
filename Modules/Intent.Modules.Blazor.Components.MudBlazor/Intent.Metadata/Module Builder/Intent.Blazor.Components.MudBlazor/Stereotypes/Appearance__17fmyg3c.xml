@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<stereotypeDefinition id="b218f7cb-d150-401d-a17a-9e22fadf863f" version="3.1.0">
+<stereotypeDefinition id="5b19f111-14dc-40e0-a71b-9758d1b88026" version="3.1.0">
   <name>Appearance</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
-    <type id="4474d808-f6fd-405f-a9c7-6998cd000ede">Button</type>
+    <type id="4803bf60-c626-4cbe-94ed-0f1eafff9fe3">Text Input</type>
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>always</applyMode>
@@ -20,18 +20,7 @@
   <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
   <packageName>Intent.Blazor.Components.MudBlazor</packageName>
   <properties>
-    <property id="eecbc26c-443b-4d97-a706-a4e21fc13552">
-      <name>Icon Only</name>
-      <type>string</type>
-      <controlType>checkbox</controlType>
-      <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
-      <isActiveFunction>return element.hasStereotype("8e1b7033-fd27-495a-a2a7-36b5168f04f5") // Icon</isActiveFunction>
-    </property>
-    <property id="de8a25d2-a144-4806-b5ad-e6c195abfa43">
+    <property id="be812d2d-086b-459d-9828-6299dfd86e9f">
       <name>Variant</name>
       <type>string</type>
       <controlType>select</controlType>
@@ -50,30 +39,12 @@
       <lookupTypes />
       <lookupInternalTargetPropertyId>return "00f38c60-da37-4e7d-acdf-ad79ffb4a9e6" // Variant (Enum);</lookupInternalTargetPropertyId>
     </property>
-    <property id="d527d5a7-fd00-4486-a204-5c6fc93099a5">
-      <name>Color</name>
-      <type>string</type>
-      <controlType>select</controlType>
-      <optionsSource>lookup-children</optionsSource>
-      <placeholder>(default)</placeholder>
-      <valueOptions>
-        <option>Default</option>
-        <option>Primary</option>
-        <option>Secondary</option>
-        <option>Tertiary</option>
-        <option>Info</option>
-        <option>Success</option>
-        <option>Warning</option>
-      </valueOptions>
-      <lookupTypes />
-      <lookupInternalTargetPropertyId>return "f357cbb8-2a8f-4765-93ec-3a5c15ca8313" // Color (Enum);</lookupInternalTargetPropertyId>
-    </property>
-    <property id="9243cf9b-c6de-47d4-a914-382ab7ddf920">
-      <name>Class</name>
+    <property id="821cf818-e401-4d9a-9342-95e4273640a1">
+      <name>Placeholder</name>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder>(default)</placeholder>
+      <placeholder />
       <valueOptions />
       <lookupTypes />
     </property>

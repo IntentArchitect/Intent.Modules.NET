@@ -130,7 +130,7 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
                 pagerContent.AddHtmlElement("MudDataGridPager", pagination =>
                 {
                     pagination.AddAttribute("T", _componentTemplate.GetTypeName(mappedSourceType.AsTypeReference()));
-                    pagination.AddAttributeIfNotEmpty("PageSizeOptions", "new int[] { 5, 10, 20 }");
+                    pagination.AddAttributeIfNotEmpty("PageSizeOptions", "new int[] { 10, 25, 50, 100 }");
                 });
             });
             //}

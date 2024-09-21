@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Blazor.Components.MudBlazor.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
@@ -27,33 +28,17 @@ public class IconComponentBuilder : IRazorComponentBuilder
 
     public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
-        var iconModel = new IconModel(component);
-        var htmlElement = new HtmlElement("MudIcon ", _componentTemplate.RazorFile)
-            .AddAttribute("Icon", $"fab fa-{iconModel.GetIconAppearance().Name().Source}");
+        var model = new IconModel(component);
+        var htmlElement = new HtmlElement("MudIcon", _componentTemplate.RazorFile)
+            .AddAttributeIfNotEmpty("Icon", !model.HasIcon() ? (model.Value ?? "Icons.Material.Filled.QuestionMark") : null)
+            .AddAttributeIfNotEmpty("Icon", model.HasIcon() ? $"@Icons.Material.{model.GetIcon().Variant().Name}.{model.GetIcon().IconValue().Name}" : null)
+            .AddAttributeIfNotEmpty("IconColor", model.GetIcon()?.IconColor() != null ? $"Color.{model.GetIcon()?.IconColor().Name}" : null)
         ;
         foreach (var child in component.ChildElements)
         {
             _componentResolver.BuildComponent(child, htmlElement);
         }
 
-        var onClickMapping = _bindingManager.GetMappedEndFor(iconModel, "On Click");
-        if (onClickMapping != null)
-        {
-            if (onClickMapping?.SourceElement?.IsNavigationTargetEndModel() == true)
-            {
-                var route = onClickMapping.SourceElement.AsNavigationTargetEndModel().Element.AsComponentModel().GetPage()?.Route();
-                htmlElement.AddAttribute("Clicked", $"{_bindingManager.GetBinding(onClickMapping, parentNode)}");
-            }
-            else
-            {
-                htmlElement.AddAttribute("Clicked", $"{_bindingManager.GetBinding(onClickMapping, parentNode)}");
-            }
-        }
-
-        //foreach (var child in component.ChildElements)
-        //{
-        //    htmlElement.Nodes.Add(_componentResolver.ResolveFor(child).Render(child));
-        //}
         parentNode.AddChildNode(htmlElement);
         return [htmlElement];
     }

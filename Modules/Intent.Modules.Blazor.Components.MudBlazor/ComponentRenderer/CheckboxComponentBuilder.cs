@@ -30,3 +30,24 @@ public class CheckboxComponentBuilder : IRazorComponentBuilder
         return [htmlElement];
     }
 }
+
+public class SpacerComponentBuilder : IRazorComponentBuilder
+{
+    private readonly IRazorComponentBuilderProvider _componentResolver;
+    private readonly IRazorComponentTemplate _componentTemplate;
+    private readonly BindingManager _bindingManager;
+
+    public SpacerComponentBuilder(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template)
+    {
+        _componentResolver = componentResolver;
+        _componentTemplate = template;
+        _bindingManager = template.BindingManager;
+    }
+
+    public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
+    {
+        var htmlElement = new HtmlElement("MudSpacer", _componentTemplate.RazorFile);
+        parentNode.AddChildNode(htmlElement);
+        return [htmlElement];
+    }
+}

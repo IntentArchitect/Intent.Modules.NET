@@ -22,6 +22,10 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Templates.FluentValidationP
         public FluentValidationProviderExtensionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Linq")
+                .AddUsing("System.Threading.Tasks")
                 .AddUsing("FluentValidation")
                 .AddClass($"ValidatorProviderExtensions", @class =>
                 {
