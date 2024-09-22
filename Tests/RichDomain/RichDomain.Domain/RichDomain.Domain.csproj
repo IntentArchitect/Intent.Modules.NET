@@ -69,7 +69,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.5" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.6" />
   </ItemGroup>
 
 </Project>

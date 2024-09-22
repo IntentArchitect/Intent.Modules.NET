@@ -19,7 +19,7 @@
     <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="8.0.2" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
     <PackageReference Include="IdentityModel" Version="7.0.0" />
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.5" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.6" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.20" />
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.0" />
