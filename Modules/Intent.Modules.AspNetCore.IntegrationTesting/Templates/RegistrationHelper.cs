@@ -8,23 +8,27 @@ using Intent.Modules.Integration.HttpClients.Shared.Templates;
 
 namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates
 {
-    internal class RegistrationHelper
+    internal static class RegistrationHelper
     {
+        private const string TypeDefinitionSpecializationId = "d4e577cd-ad05-4180-9a2e-fff4ddea0e1e";
+        private const string EnumSpecializationId = "85fba0e9-9161-4c85-a603-a229ef312beb";
+
         internal static IEnumerable<DTOModel> GetReferencedDTOModels(IServiceProxyModel proxy, bool includeReturnTypes)
         {
-            return (from x in DeepGetDistinctReferencedElements(proxy.GetMappedEndpoints().Select(ep => ep.InternalElement), includeReturnTypes).Where(delegate (IElement x)
-            {
-                string specializationTypeId = x.SpecializationTypeId;
-                bool flag = ((specializationTypeId == "d4e577cd-ad05-4180-9a2e-fff4ddea0e1e" || specializationTypeId == "85fba0e9-9161-4c85-a603-a229ef312beb") ? true : false);
-                return !flag;
-            })
-                    select new DTOModel(x)).ToList();
+            return (from x in DeepGetDistinctReferencedElements(proxy.GetMappedEndpoints().Select(ep => ep.InternalElement), includeReturnTypes)
+                    .Where(delegate(IElement x)
+                {
+                    var specializationTypeId = x.SpecializationTypeId;
+                    var flag = specializationTypeId is TypeDefinitionSpecializationId or EnumSpecializationId;
+                    return !flag;
+                })
+                select new DTOModel(x)).ToList();
         }
 
         private static ISet<IElement> DeepGetDistinctReferencedElements(IEnumerable<IElement> elements, bool includeReturnTypes = true)
         {
-            HashSet<IElement> hashSet = new HashSet<IElement>();
-            Stack<IElement> stack = new Stack<IElement>(elements);
+            var hashSet = new HashSet<IElement>();
+            var stack = new Stack<IElement>(elements);
             while (stack.Any())
             {
                 IElement element = stack.Pop();
@@ -76,11 +80,12 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates
 
             return hashSet;
         }
+
         internal static IEnumerable<EnumModel> GetReferencedEnumModels(IServiceProxyModel proxy)
         {
             return (from x in DeepGetDistinctReferencedElements(proxy.GetMappedEndpoints().Select(o => o.InternalElement))
-                    where x.SpecializationTypeId == "85fba0e9-9161-4c85-a603-a229ef312beb"
-                    select new EnumModel(x)).ToList();
+                where x.SpecializationTypeId == EnumSpecializationId
+                select new EnumModel(x)).ToList();
         }
     }
 }
