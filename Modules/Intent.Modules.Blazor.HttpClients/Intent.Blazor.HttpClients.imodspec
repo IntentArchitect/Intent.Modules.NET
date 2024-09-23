@@ -91,7 +91,7 @@
   <interoperability>
     <detect id="Intent.Blazor.FluentValidation">
       <install>
-        <package id="Intent.Blazor.HttpClients.Dtos.FluentValidation" version="1.2.0-pre.9" />
+        <package id="Intent.Blazor.HttpClients.Dtos.FluentValidation" version="1.2.0-pre.10" />
       </install>
     </detect>
   </interoperability>
