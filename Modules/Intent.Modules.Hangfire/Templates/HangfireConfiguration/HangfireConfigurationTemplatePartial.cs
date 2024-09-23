@@ -132,10 +132,6 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
                     {
                         config.AddInitStatement("Authorization", $"[new {GetTypeName(HangfireDashboardAuthFilterTemplate.TemplateId)}()]");
 
-
-                        //CSharpResolvedTypeInfo dashAuthTemplate = (CSharpResolvedTypeInfo)GetTypeInfo(HangfireDashboardAuthFilterTemplate.TemplateId);
-                        //AddUsing(dashAuthTemplate.Namespace);
-
                         if (!string.IsNullOrWhiteSpace(_hangFireConfigurationModel.GetHangfireOptions().DashboardTitle()))
                         {
                             config.AddInitStatement("DashboardTitle", $"\"{_hangFireConfigurationModel.GetHangfireOptions().DashboardTitle()}\"");

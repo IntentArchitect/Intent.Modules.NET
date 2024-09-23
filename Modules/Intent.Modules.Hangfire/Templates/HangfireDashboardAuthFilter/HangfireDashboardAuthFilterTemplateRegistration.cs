@@ -41,20 +41,5 @@ namespace Intent.Modules.Hangfire.Templates.HangfireDashboardAuthFilter
         {
             return _metadataManager.Services(application).GetHangfireConfigurationModels().ToList();
         }
-
-        public override void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
-        {
-            var models = _metadataManager.Services(application).GetHangfireConfigurationModels().ToList();
-            // should be at most 1 model
-            var model = models.FirstOrDefault();
-
-            var registerTemplate = model != null && model.HasHangfireOptions() && model.GetHangfireOptions().ShowDashboard();
-
-            if (registerTemplate)
-            {
-                base.DoRegistration(registry, application);
-            }
-        }
-
     }
 }
