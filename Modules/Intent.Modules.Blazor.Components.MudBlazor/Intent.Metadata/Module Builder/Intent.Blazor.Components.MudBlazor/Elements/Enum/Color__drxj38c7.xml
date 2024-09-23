@@ -168,5 +168,18 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="7e8569f5-4215-4ead-b111-b5aaf377bf09" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Dynamic</name>
+      <display>Dynamic</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</parentFolderId>
+      <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+      <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

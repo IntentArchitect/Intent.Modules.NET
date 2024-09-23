@@ -310,7 +310,9 @@ mapping.addMappedEnd(dataMappingTypeId, newProperty.getMappingPath(), element.ge
           <scriptOptions />
           <staticMappableSettings>
             <staticMappableSetting id="3a04c387-3b5b-4a3d-b03a-4ecd0dcc301a" name="Color" type="Color" typeId="3a04c387-3b5b-4a3d-b03a-4ecd0dcc301a" version="2.0.0">
-              <filterFunction>return element.hasStereotype("b218f7cb-d150-401d-a17a-9e22fadf863f"); // Appearance</filterFunction>
+              <filterFunction>const appearanceStereotypeId = "b218f7cb-d150-401d-a17a-9e22fadf863f";
+const colorPropertyId = "d527d5a7-fd00-4486-a204-5c6fc93099a5";
+return element.getStereotype(appearanceStereotypeId)?.getProperty(colorPropertyId).value == "7e8569f5-4215-4ead-b111-b5aaf377bf09"; // Color.Dynamic</filterFunction>
               <allowMultipleMappings>true</allowMultipleMappings>
               <isMappableFunction>return true;</isMappableFunction>
               <isTraversable>false</isTraversable>

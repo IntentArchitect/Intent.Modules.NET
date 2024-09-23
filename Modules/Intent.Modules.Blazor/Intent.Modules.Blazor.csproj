@@ -19,6 +19,7 @@
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.0-pre.7" />
     <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.0.0-pre.1" />
     <PackageReference Include="Intent.Modules.Modelers.UI.Core" Version="1.0.0-pre.0" />
+    <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.7.7" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -29,7 +30,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
-    <ProjectReference Include="..\Intent.Modules.VisualStudio.Projects\Intent.Modules.VisualStudio.Projects.csproj" />
   </ItemGroup>
 
   <ItemGroup>
