@@ -99,6 +99,8 @@
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+        <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
@@ -144,6 +146,8 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+        <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>

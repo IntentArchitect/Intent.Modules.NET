@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e05917f5-3863-43de-924f-4c741966b9f1" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetSupersQuery</name>
+  <display>GetSupersQuery: SuperDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="1738f720-622c-448f-b6d1-b90eff246bbc">
+    <typeId>686ae81b-037b-48db-ae21-141dfc28dbbe</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+    <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>f684b7aa-7894-4b12-b491-d592d247b665</parentFolderId>
+  <packageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.Tests.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="Allow Comment" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="Supers" />
+  </metadata>
+  <childElements />
+</class>

@@ -1044,6 +1044,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7da1f785-e40a-471b-aa1e-d6fcaf6c3141</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#af8e372e-b3cd-4df9-bbe8-dac39a9795ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain/Entities/BaseClass.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BaseClass.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7da1f785-e40a-471b-aa1e-d6fcaf6c3141</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#d53bb23e-4305-43ac-a0cf-7480a156fff6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain/Entities/Category.cs</ApplicationRelativeFilePath>
@@ -1080,6 +1088,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain/Entities/Product.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Product.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7da1f785-e40a-471b-aa1e-d6fcaf6c3141</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#cd227784-c6ba-4371-8113-7eb05b57c786</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain/Entities/Super.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Super.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1168,6 +1184,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>57817cab-8788-4415-872d-07e3d384d6d0</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#cd227784-c6ba-4371-8113-7eb05b57c786</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain/Repositories/ISuperRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ISuperRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1284,6 +1308,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>bb216a9c-c38f-4f4f-bcbf-66fcd25ba6a6</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#cd227784-c6ba-4371-8113-7eb05b57c786</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure/Persistence/Configurations/SuperConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SuperConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bb216a9c-c38f-4f4f-bcbf-66fcd25ba6a6</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure/Persistence/Configurations/UserConfiguration.cs</ApplicationRelativeFilePath>
@@ -1344,6 +1376,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3545c993-8692-4c66-aa19-838fad4a7436</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#cd227784-c6ba-4371-8113-7eb05b57c786</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure/Repositories/SuperRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SuperRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

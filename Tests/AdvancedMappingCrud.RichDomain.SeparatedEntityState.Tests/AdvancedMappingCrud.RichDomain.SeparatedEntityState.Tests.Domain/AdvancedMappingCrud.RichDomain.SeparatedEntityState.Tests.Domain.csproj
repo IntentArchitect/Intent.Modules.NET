@@ -45,6 +45,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\BaseClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\SuperState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Super.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>
