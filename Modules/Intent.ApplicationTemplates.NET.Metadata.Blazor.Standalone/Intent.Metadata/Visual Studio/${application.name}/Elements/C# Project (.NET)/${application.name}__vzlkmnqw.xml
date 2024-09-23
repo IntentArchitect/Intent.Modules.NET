@@ -62,5 +62,18 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="8d8dcf8c-6c39-4cca-a8bd-36ddac8416b4" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Startup</name>
+      <display>Startup</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5f9b980c-8d87-479d-8ae3-40d830777dc8</parentFolderId>
+      <packageId>e177fd07-ad3d-4cdf-abaa-1e5fefce17e5</packageId>
+      <packageName>${application.name}</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>
