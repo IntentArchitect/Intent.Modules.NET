@@ -36,7 +36,8 @@ public static class SimpleValidationRulesExtensions
     public static void ConfigureForValidation(
         this IFluentValidationTemplate template,
         IElement dtoModel,
-        List<Action<CSharpMethodChainStatement, IElement>> configureValidations)
+        List<Action<CSharpMethodChainStatement, IElement>> configureFieldValidations = default,
+        List<Action<CSharpMethodChainStatement>> configureClassValidations = default)
     {
         template.CSharpFile
             .AddUsing("FluentValidation")
@@ -65,7 +66,8 @@ public static class SimpleValidationRulesExtensions
                     {
                         var validationRuleStatements = template.GetValidationRulesStatements(
                             dtoModel: dtoModel,
-                            configureValidations: configureValidations);
+                            configureFieldValidations: configureFieldValidations ?? [],
+                            configureClassValidations: configureClassValidations ?? []);
 
                         var valids = validationRuleStatements.ToList();
 
@@ -80,7 +82,8 @@ public static class SimpleValidationRulesExtensions
 
     private static IEnumerable<CSharpMethodChainStatement> GetValidationRulesStatements(this IFluentValidationTemplate template,
         IElement dtoModel,
-        List<Action<CSharpMethodChainStatement, IElement>> configureValidations)
+        List<Action<CSharpMethodChainStatement, IElement>> configureFieldValidations,
+        List<Action<CSharpMethodChainStatement>> configureClassValidations)
     {
         var modelTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>(template.ToValidateTemplateId, dtoModel);
         foreach (var field in dtoModel.ChildElements)
@@ -122,7 +125,7 @@ public static class SimpleValidationRulesExtensions
 
             AddValidatorsBasedOnTypeReference(validationRuleChain, template, field);
 
-            foreach (var configureValidation in configureValidations)
+            foreach (var configureValidation in configureFieldValidations)
             {
                 configureValidation(validationRuleChain, field);
             }
@@ -130,6 +133,22 @@ public static class SimpleValidationRulesExtensions
             if (!validationRuleChain.Statements.Any())
             {
                 continue;
+            }
+
+            yield return validationRuleChain;
+        }
+        if (configureClassValidations.Any())
+        {
+            var validationRuleChain = new CSharpMethodChainStatement("RuleFor(v => v)");
+
+            foreach (var configureClassValidation in configureClassValidations)
+            {
+                configureClassValidation(validationRuleChain);
+            }
+
+            if (!validationRuleChain.Statements.Any())
+            {
+                yield break;
             }
 
             yield return validationRuleChain;

@@ -3,6 +3,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Blazor.FluentValidation.Templates;
 using Intent.Modules.Blazor.HttpClients.Templates.DtoContract;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -38,9 +39,13 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
 
             this.ConfigureForValidation(
                 dtoModel: model.InternalElement,
-                configureValidations: [
-                    //(methodChain, field) => methodChain.AddCustomValidations(this, field, DtoContractTemplate.TemplateId),
-                    (methodChain, field) => methodChain.AddValidatorsFromMappedDomain(Model.InternalElement, field)
+                configureFieldValidations: [
+                    (methodChain, field) => methodChain.AddCustomValidations(this, field),
+                    (methodChain, field) => methodChain.AddMaxLengthValidatorsFromMappedDomain(Model.InternalElement, field),
+                    (methodChain, field) => methodChain.AddCheckUniqueConstraintsPlaceholdersForField(this, Model.InternalElement, field)
+                ],
+                configureClassValidations: [
+                    (methodChain) => methodChain.AddCheckUniqueConstraintsPlaceholders(this, Model.InternalElement)
                 ]);
         }
 
@@ -62,7 +67,7 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
         {
             return CSharpFile.ToString();
         }
-    
+
         public override RoslynMergeConfig ConfigureRoslynMerger()
         {
             return new RoslynMergeConfig(new TemplateMetadata(Id, "2.0"), new ConstructorSignatureMigration());
@@ -76,14 +81,14 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
 
                 var root = syntaxTree.GetRoot();
                 using var workspace = new AdhocWorkspace();
-            
+
                 var services = workspace.Services;
                 var editor = new SyntaxEditor(root, services);
-            
+
                 var attributeLists = root.DescendantNodes()
                     .OfType<ConstructorDeclarationSyntax>()
                     .SelectMany(c => c.AttributeLists);
-            
+
                 foreach (var attributeList in attributeLists)
                 {
                     var intentManagedAttributes = attributeList.Attributes

@@ -88,6 +88,13 @@
   <factoryExtensions>
     <factoryExtension id="Intent.Blazor.HttpClients.WebAssemblyProgramIntegrationFactoryExtension" externalReference="a51ff2c8-8ea5-4c37-855e-3c5ec711e580" />
   </factoryExtensions>
+  <interoperability>
+    <detect id="Intent.Blazor.FluentValidation">
+      <install>
+        <package id="Intent.Blazor.HttpClients.Dtos.FluentValidation" version="1.2.0-pre.9" />
+      </install>
+    </detect>
+  </interoperability>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />

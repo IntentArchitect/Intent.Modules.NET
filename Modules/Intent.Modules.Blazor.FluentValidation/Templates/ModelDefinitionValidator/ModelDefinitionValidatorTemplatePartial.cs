@@ -30,9 +30,10 @@ namespace Intent.Modules.Blazor.FluentValidation.Templates.ModelDefinitionValida
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
             this.ConfigureForValidation(
                 dtoModel: model.InternalElement,
-                configureValidations: [
+                configureClassValidations: [],
+                configureFieldValidations: [
                     (methodChain, field) => methodChain.AddCustomValidations(this, field),
-                    (methodChain, field) => methodChain.AddValidatorsFromMappedDomain(model.InternalElement, field)
+                    (methodChain, field) => methodChain.AddMaxLengthValidatorsFromMappedDomain(model.InternalElement, field)
                 ]);
         }
 
