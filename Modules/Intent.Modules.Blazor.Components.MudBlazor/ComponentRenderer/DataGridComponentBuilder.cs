@@ -145,15 +145,15 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
                     var returnType = $"GridData<{_componentTemplate.GetTypeName(mappedSourceType.AsTypeReference())}>";
                     codeBlock.AddMethod(returnType, $"Load{model.Name.ToCSharpIdentifier()}Data", method =>
                     {
+                        codeBlock.Template.AddUsing("System.Linq");
                         method.Private().Async();
                         method.AddParameter($"GridState<{_componentTemplate.GetTypeName(mappedSourceType.AsTypeReference())}>", "state");
                         method.AddStatement("var pageNo = state.Page + 1;");
                         method.AddStatement("var pageSize = state.PageSize;");
                         method.AddStatement("var sorting = string.Join(\", \", state.SortDefinitions.Select(x => $\"{x.SortBy} {(x.Descending ? \"desc\" : \"asc\")}\"));");
                         method.AddStatement(new CSharpAwaitExpression(pageRequestBinding.WithSemicolon()));
-                        method.AddStatement($"return new {returnType}() {{ TotalItems = {_bindingManager.GetBinding(model, "a5e50b44-c402-4006-bcea-a25ab7dc0c56")}, Items = {_bindingManager.GetElementBinding(model)} }};");
+                        method.AddStatement($"return new {returnType}() {{ TotalItems = {_bindingManager.GetBinding(model, "a5e50b44-c402-4006-bcea-a25ab7dc0c56", isTargetNullable: true)} ?? 0, Items = {_bindingManager.GetElementBinding(model, isTargetNullable: true)} ?? [] }};");
                     });
-
                 });
             }
         };

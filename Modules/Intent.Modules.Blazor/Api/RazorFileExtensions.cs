@@ -276,7 +276,7 @@ public static class RazorFileExtensions
 
                             method.AddCatchBlock(catchBlock =>
                             {
-                                catchBlock.WithExceptionType("Exception").WithParameterName("e");
+                                catchBlock.WithExceptionType(block.Template.UseType("System.Exception")).WithParameterName("e");
                                 //if (errorMessageProperty != null)
                                 //{
                                 //    catchBlock.AddStatement(new CSharpAssignmentStatement(errorMessageProperty, "e.Message"), s => s.WithSemicolon());

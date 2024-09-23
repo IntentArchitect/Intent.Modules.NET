@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
@@ -78,10 +79,11 @@ public class TableComponentBuilder : IRazorComponentBuilder
                     {
 
                         td.AddAttributeIfNotEmpty("Class", !string.IsNullOrWhiteSpace(table.GetInteraction()?.OnRowClick()) ? "cursor-pointer" : null);
-                        var columnMapping = _bindingManager.GetElementBinding(column, rowTemplate);
+                        var columnMapping = _bindingManager.GetMappedEndFor(column);
                         if (columnMapping != null)
                         {
-                            td.WithText(columnMapping.ToString().Contains(" ") ? $"@({columnMapping})" : $"@{columnMapping}");
+                            var columnBinding = _bindingManager.GetBinding(columnMapping, rowTemplate);
+                            td.WithText(Regex.IsMatch(columnBinding.ToString(), @"[^\w\.]") ? $"@({columnBinding})" : columnMapping.Sources.Count() != 0 ? $"@{columnBinding}" : columnBinding.ToString());
                         }
                         else
                         {

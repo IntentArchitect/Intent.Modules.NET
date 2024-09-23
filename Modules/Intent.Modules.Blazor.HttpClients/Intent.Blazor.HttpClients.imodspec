@@ -94,6 +94,7 @@
     <dependency id="Intent.Common.CSharp" version="3.5.2" />
     <dependency id="Intent.Common.Types" version="4.0.0-pre.0" />
     <dependency id="Intent.Modelers.Types.ServiceProxies" version="5.2.3" />
+    <dependency id="Intent.Metadata.WebApi" version="4.3.2" />
     <dependency id="Intent.Modelers.UI" version="1.0.0-pre.0" />
     <dependency id="Intent.Modelers.UI.ServiceProxies" version="1.0.0-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />

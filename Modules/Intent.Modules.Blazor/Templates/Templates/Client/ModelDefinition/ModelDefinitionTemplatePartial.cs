@@ -6,6 +6,7 @@ using Intent.Modelers.UI.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -23,6 +24,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.ModelDefinition
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ModelDefinitionTemplate(IOutputTarget outputTarget, ModelDefinitionModel model) : base(TemplateId, outputTarget, model)
         {
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            AddTypeSource(TemplateId);
+            AddTypeSource("Blazor.HttpClient.Contracts.Dto");
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"{Model.Name}", @class =>
                 {
@@ -41,7 +46,20 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.ModelDefinition
 
                     foreach (var propertyModel in Model.Properties)
                     {
-                        @class.AddProperty(propertyModel);
+                        @class.AddProperty(propertyModel, prop =>
+                        {
+                            if (!propertyModel.TypeReference.IsNullable && prop.InitialValue == null)
+                            {
+                                if (propertyModel.TypeReference.IsCollection)
+                                {
+                                    prop.WithInitialValue("[]");
+                                }
+                                else if (GetTypeInfo(propertyModel.TypeReference).Template != null)
+                                {
+                                    prop.WithInitialValue("new()");
+                                }
+                            }
+                        });
                     }
 
                     foreach (var operationModel in Model.Operations)

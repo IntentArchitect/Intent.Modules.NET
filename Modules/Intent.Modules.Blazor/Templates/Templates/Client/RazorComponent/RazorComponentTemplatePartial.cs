@@ -3,6 +3,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Templates.Templates.Client.ModelDefinition;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -36,6 +37,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             //AddTypeSource("Intent.Blazor.HttpClients.PagedResult");
+            AddTypeSource(ModelDefinitionTemplate.TemplateId);
             AddTypeSource("Blazor.HttpClient.Contracts.Dto");
             AddTypeSource("Blazor.HttpClient.ServiceContract");
             AddTypeSource(TemplateId);

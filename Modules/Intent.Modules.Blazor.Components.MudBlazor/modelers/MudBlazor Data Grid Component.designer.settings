@@ -149,6 +149,11 @@ const table = createElement("Data Grid", "DataGrid", mapping.getTargetElement().
 
 mapping.addMappedEnd(dataBindingMappingTypeId, dataCollection.getMappingPath(), table.getMappingPath());
 
+const tableRef = table.getChild(x =&gt; x.specializationId == "28fb9d1a-cd73-4a5e-ac21-6340ec2e90d0"); // Ref static mappable
+const newProperty = createElement("Property", toPascalCase(table.getName()), mapping.getSourceElement().id);
+newProperty.typeReference.setType(tableRef.typeReference.toModel());
+mapping.addMappedEnd(dataBindingMappingTypeId, newProperty.getMappingPath(), tableRef.getMappingPath());
+
 const totalCount = element.getChildren().filter(x =&gt; x.getName() == "TotalCount")[0];
 mapping.addMappedEnd(dataBindingMappingTypeId, totalCount.getMappingPath(), table.getMappingPath().concat(["a5e50b44-c402-4006-bcea-a25ab7dc0c56"])); // Total Items
 
@@ -234,7 +239,7 @@ return result;</displayFunction>
               <scriptOptions>
                 <option>
                   <text>Auto-map to Property</text>
-                  <shortcut>ctrl + space</shortcut>
+                  <shortcut>space</shortcut>
                   <icon type="FontAwesome" source="code" />
                   <script>const dataMappingTypeId = "ee19a932-0cea-4b90-bd3c-857d7942d390";
 const parentElement = mapping.getSourceElement();

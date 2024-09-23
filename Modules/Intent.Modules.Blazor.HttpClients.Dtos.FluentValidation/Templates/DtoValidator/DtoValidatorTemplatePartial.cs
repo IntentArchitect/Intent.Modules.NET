@@ -8,6 +8,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.FluentValidation.Shared;
 using Intent.RoslynWeaver.Attributes;
@@ -31,6 +32,7 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
         public DtoValidatorTemplate(IOutputTarget outputTarget, DTOModel model)
             : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole(TemplateRoles.Blazor.Client.Model.Validator);
             CSharpFile = new CSharpFile(@namespace: ExtensionMethods.GetPackageBasedNamespace(model, outputTarget),
                 relativeLocation: ExtensionMethods.GetPackageBasedRelativeLocation(model, outputTarget));
 

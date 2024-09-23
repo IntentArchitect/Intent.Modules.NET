@@ -19,7 +19,7 @@
       <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
       <updatedAt>2024-08-31T14:23:25.8116789Z</updatedAt>
       <deviationsHash>5B62E4129E2F36143F4064F64FA22BB29355E04CF492569B3EF07D125870655D</deviationsHash>
-      <fileHash>517C44F440BEDA51756C50512BCEFB78AF09F67E8FDAA91E72DE84421DCDC67E</fileHash>
+      <fileHash>5C27C402EA8BB5B3456A79347329683DC77865A4CEA6628D5FCD107020CD1CF4</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#1132514b-15dd-4dac-b602-462278e1128d</correlationId>
@@ -29,7 +29,7 @@
       <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
       <updatedAt>2024-08-31T14:23:25.8117184Z</updatedAt>
       <deviationsHash>D6E9818C67256E08495449C540E7E0408902DCC49FA777A3498754436D726A1D</deviationsHash>
-      <fileHash>1BD84BB91A3B6E7A3EA118AF11BF6BF79C2B5203978127A16B1A87E588F5A40D</fileHash>
+      <fileHash>E4C1C2ECCEB9DFA1C816FB39A4568BF00ADF0A49BEA470E4BD362B2B932A22AF</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#1132514b-15dd-4dac-b602-462278e1128d</correlationId>

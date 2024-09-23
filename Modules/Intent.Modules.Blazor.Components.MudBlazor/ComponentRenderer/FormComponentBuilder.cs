@@ -59,7 +59,7 @@ public class FormComponentBuilder : IRazorComponentBuilder
             form.AddAttributeIfNotEmpty("Model", modelBinding.ToString());
 
 
-            var validator = _componentTemplate.ExecutionContext.FindTemplateInstance(TemplateRoles.Blazor.Client.Model.Definition, modelMapping.SourceElement.TypeReference.Element.Id);
+            var validator = _componentTemplate.ExecutionContext.FindTemplateInstance(TemplateRoles.Blazor.Client.Model.Validator, modelMapping.SourceElement.TypeReference.Element.Id);
             if (validator != null)
             {
                 _componentTemplate.RazorFile.AddInjectDirective(_componentTemplate.GetTypeName("Blazor.Client.Validation.ValidatorProviderInterface"), "ValidatorProvider");

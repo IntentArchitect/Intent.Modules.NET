@@ -43,10 +43,10 @@ public class BindingManager
         return mappingManager.GenerateSourceStatementForMapping(ViewBinding, mappedEnd, isTargetNullable)?.ToString();
     }
 
-    public CSharpStatement? GetBinding(IMetadataModel model, string mappableNameOrId, IRazorFileNode razorNode = null)
+    public CSharpStatement? GetBinding(IMetadataModel model, string mappableNameOrId, IRazorFileNode razorNode = null, bool? isTargetNullable = default)
     {
         var mappedEnd = GetMappedEndFor(model, mappableNameOrId);
-        return GetBinding(mappedEnd, razorNode);
+        return GetBinding(mappedEnd, razorNode, isTargetNullable);
     }
 
     public IElementToElementMappedEnd? GetMappedEndFor(IMetadataModel model)
