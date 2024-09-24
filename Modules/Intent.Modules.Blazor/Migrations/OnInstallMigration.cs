@@ -1,19 +1,15 @@
-﻿using Intent.Engine;
-using Intent.IArchitect.Agent.Persistence.Model;
-using Intent.Plugins;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
+using Intent.Engine;
+using Intent.IArchitect.Agent.Persistence.Model;
 using Intent.Metadata;
-using Exception = System.Exception;
-using Intent.Metadata.Models;
+using Intent.Plugins;
 
-namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Migrations
+namespace Intent.Modules.Blazor.Migrations
 {
     public class OnInstallMigration : IModuleOnInstallMigration
     {

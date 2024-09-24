@@ -29,10 +29,24 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
         var model = new ButtonModel(component);
         IHtmlElement htmlElement = new HtmlElement(model.GetAppearance().IconOnly() ? "MudIconButton" : "MudButton", _componentTemplate.RazorFile);
 
-        var onLinkToMapping = _bindingManager.GetMappedEndFor(model, "Link To");
-        if (onLinkToMapping != null)
+        var mappingEnds = _bindingManager.GetMappedEndsFor(model, "Link To");
+        if (mappingEnds.Any())
         {
-            htmlElement.AddAttribute("Href", onLinkToMapping.SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route());
+            var route = new RouteManager($"{mappingEnds[0].SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route()}");
+            var complexRoute = false;
+            foreach (var mappedEnd in mappingEnds)
+            {
+                var routeParameter = ((IElement)mappedEnd.TargetElement).MappedToElements.FirstOrDefault()?.TargetElement;
+
+                if (routeParameter != null && route.HasParameterExpression(routeParameter.Name))
+                {
+                    var binding = _bindingManager.GetBinding(mappedEnd);
+                    route.ReplaceParameterExpression(routeParameter.Name, $"{{{binding}}}");
+                    complexRoute = true;
+                }
+            }
+
+            htmlElement.AddAttribute("Href", complexRoute ? $"@($\"{route.Route}\")" : route.Route);
         }
 
         htmlElement.AddAttributeIfNotEmpty("Variant", model.GetAppearance()?.Variant() != null ? $"Variant.{model.GetAppearance()?.Variant().Name}" : null)

@@ -181,5 +181,18 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="2e0b8994-65b2-41d5-9818-dfa480428644" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Home</name>
+      <display>Home</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c5a84f56-06d6-4c56-b051-9ad96b12eadf</parentFolderId>
+      <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+      <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

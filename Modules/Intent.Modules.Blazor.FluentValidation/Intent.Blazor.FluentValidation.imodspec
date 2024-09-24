@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.FluentValidation</id>
-  <version>1.0.0-pre.2</version>
+  <version>1.0.0-pre.3</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Support for validating Blazor modles with the FluentValidation library.</summary>
   <description>Support for validating Blazor modles with the FluentValidation library.</description>
@@ -44,7 +44,7 @@
     <dependency id="Intent.Common.CSharp" version="3.8.0-pre.1" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.UI" version="1.0.0-pre.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.8.0-pre.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

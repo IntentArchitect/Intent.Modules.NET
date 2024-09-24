@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.Builder;
@@ -57,6 +58,12 @@ public class BindingManager
     public IElementToElementMappedEnd? GetMappedEndFor(IMetadataModel model, string mappableNameOrId)
     {
         return ViewBinding?.MappedEnds.SingleOrDefault(x => x.TargetPath.Any(x => x.Id == model.Id) && (x.TargetPath.Last().Name == mappableNameOrId || x.TargetPath.Last().Id == mappableNameOrId));
+    }
+
+    public IList<IElementToElementMappedEnd> GetMappedEndsFor(IMetadataModel model, string mappableNameOrId)
+    {
+        return ViewBinding?.MappedEnds.Where(x => x.TargetPath.Any(x => x.Id == model.Id) && x.TargetPath.Any(x => x.Name == mappableNameOrId || x.Id == mappableNameOrId))
+            .ToList() ?? [];
     }
 
     public CSharpStatement? GetElementBinding(IMetadataModel model, IRazorFileNode razorNode = null, bool? isTargetNullable = default)

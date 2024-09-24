@@ -34,10 +34,26 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
             {
                 htmlElement.AddHtmlElement("MudMenuItem", navLink =>
                 {
-                    var mappingEnd = _bindingManager.GetMappedEndFor(menuItemModel, "Link To");
-                    navLink.AddAttribute("Href", mappingEnd != null
-                        ? mappingEnd.SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route()
-                        : "/");
+                    var mappingEnds = _bindingManager.GetMappedEndsFor(menuItemModel, "Link To");
+                    if (mappingEnds.Any())
+                    {
+                        var route = new RouteManager($"{mappingEnds[0].SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route()}");
+                        var complexRoute = false;
+                        foreach (var mappedEnd in mappingEnds)
+                        {
+                            var routeParameter = ((IElement)mappedEnd.TargetElement).MappedToElements.FirstOrDefault()?.TargetElement;
+
+                            if (routeParameter != null && route.HasParameterExpression(routeParameter.Name))
+                            {
+                                var binding = _bindingManager.GetBinding(mappedEnd);
+                                route.ReplaceParameterExpression(routeParameter.Name, $"{{{binding}}}");
+                                complexRoute = true;
+                            }
+                        }
+
+                        navLink.AddAttribute("Href", complexRoute ? $"@($\"{route.Route}\")" : route.Route);
+                    }
+
                     navLink.AddAttributeIfNotEmpty("Icon", menuItemModel.HasIcon() ? $"@Icons.Material.{menuItemModel.GetIcon().Variant().Name}.{menuItemModel.GetIcon().IconValue().Name}" : null)
                         .AddAttributeIfNotEmpty("IconColor", menuItemModel.GetIcon()?.IconColor() != null ? $"Color.{menuItemModel.GetIcon()?.IconColor().Name}" : null);
                     if (!menuItemModel.InternalElement.ChildElements.Any())
@@ -77,11 +93,25 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
                         {
                             navLink.WithText(!string.IsNullOrWhiteSpace(menuItemModel.Value) ? menuItemModel.Value : menuItemModel.Name);
                         }
-                        var mappingEnd = _bindingManager.GetMappedEndFor(menuItemModel, "Link To");
-                        if (mappingEnd != null)
+                        var mappingEnds = _bindingManager.GetMappedEndsFor(menuItemModel, "Link To");
+                    if (mappingEnds.Any())
+                    {
+                        var route = new RouteManager($"{mappingEnds[0].SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route()}");
+                        var complexRoute = false;
+                        foreach (var mappedEnd in mappingEnds)
                         {
-                            navLink.AddAttribute("Href", mappingEnd.SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route());
+                            var routeParameter = ((IElement)mappedEnd.TargetElement).MappedToElements.FirstOrDefault()?.TargetElement;
+
+                            if (routeParameter != null && route.HasParameterExpression(routeParameter.Name))
+                            {
+                                var binding = _bindingManager.GetBinding(mappedEnd);
+                                route.ReplaceParameterExpression(routeParameter.Name, $"{{{binding}}}");
+                                complexRoute = true;
+                            }
                         }
+
+                        navLink.AddAttribute("Href", complexRoute ? $"@($\"{route.Route}\")" : route.Route);
+                    }
                     }
                     //else
                     //{
