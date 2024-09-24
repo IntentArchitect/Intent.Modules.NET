@@ -8,8 +8,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.TestApplication.Application.Common.Exceptions;
 using AzureFunctions.TestApplication.Application.IntegrationServices;
+using AzureFunctions.TestApplication.Application.IntegrationServices.Contracts;
 using AzureFunctions.TestApplication.Application.IntegrationServices.Contracts.Services.Customers;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.WebUtilities;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
@@ -130,6 +132,65 @@ namespace AzureFunctions.TestApplication.Infrastructure.HttpClients
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     return (await JsonSerializer.DeserializeAsync<List<CustomerDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
+        public async Task<PagedResult<CustomerDto>> GetCustomersPagedAsync(
+            int pageNo,
+            int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"customers-paged";
+
+            var queryParams = new Dictionary<string, string?>();
+            queryParams.Add("pageNo", pageNo.ToString());
+            queryParams.Add("pageSize", pageSize.ToString());
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<PagedResult<CustomerDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
+        public async Task<PagedResult<CustomerDto>> GetPagedWithParametersAsync(
+            int pageNo,
+            int pageSize,
+            string searchCriteria,
+            Guid id,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"customers/paged-with-parameters/{id}";
+
+            var queryParams = new Dictionary<string, string?>();
+            queryParams.Add("pageNo", pageNo.ToString());
+            queryParams.Add("pageSize", pageSize.ToString());
+            queryParams.Add("searchCriteria", searchCriteria);
+            relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<PagedResult<CustomerDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }

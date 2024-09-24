@@ -19,6 +19,9 @@
   <parentFolderId>282d7675-8621-4067-89e7-df1018ff8fb7</parentFolderId>
   <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
   <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
@@ -50,6 +53,9 @@
       <parentFolderId>de6eb156-b351-4817-8b5f-36e726b415b5</parentFolderId>
       <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
       <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -106,6 +112,9 @@
       <parentFolderId>de6eb156-b351-4817-8b5f-36e726b415b5</parentFolderId>
       <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
       <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -162,6 +171,9 @@
       <parentFolderId>de6eb156-b351-4817-8b5f-36e726b415b5</parentFolderId>
       <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
       <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -247,6 +259,9 @@
       <parentFolderId>de6eb156-b351-4817-8b5f-36e726b415b5</parentFolderId>
       <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
       <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -305,9 +320,266 @@
       <parentFolderId>de6eb156-b351-4817-8b5f-36e726b415b5</parentFolderId>
       <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
       <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
+    </childElement>
+    <childElement id="c4d56fab-cfbc-4168-93a3-29aaac84e797" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetCustomersPagedQuery</name>
+      <display>GetCustomersPagedQuery(pageNo: int, pageSize: int): PagedResult&lt;CustomerDto&gt;</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="e9e21d55-8245-4fd3-acad-1ae2b0187840">
+        <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+        <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
+        <stereotypes />
+        <genericTypeParameters>
+          <genericTypeParameter id="313da7f6-7f5c-4922-9154-6720a75d172e">
+            <typeId>729da320-1a7e-4314-98df-01c7562afe9a</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+            <typePackageName>AzureFunctions.TestApplication.Services</typePackageName>
+            <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </genericTypeParameter>
+        </genericTypeParameters>
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="53463505-a292-44cf-9eb1-d6729db30602" name="GetCustomersPagedQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>de6eb156-b351-4817-8b5f-36e726b415b5</parentFolderId>
+      <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+      <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="75a2b3fd-6d5e-4639-b149-1aefedd68c18" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>pageNo</name>
+          <display>pageNo: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2486b05b-5a20-4630-95e3-722b7a825462">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c4d56fab-cfbc-4168-93a3-29aaac84e797</parentFolderId>
+          <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+          <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="22ef529c-588c-4218-a238-fbe52fc7545e" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="9dc13edc-8f2f-4ea6-8cde-98dbdd991d9a" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>pageSize</name>
+          <display>pageSize: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e1a098a7-f4f2-4d3f-b574-fa98769d2bed">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c4d56fab-cfbc-4168-93a3-29aaac84e797</parentFolderId>
+          <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+          <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="69c5f87d-ec08-4b60-b13f-f10b0eb851cc" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="708f3983-f98f-416c-bb84-ba01a1779f6c" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetPagedWithParameters</name>
+      <display>GetPagedWithParameters(pageNo: int, pageSize: int, searchCriteria: string, id: guid): PagedResult&lt;CustomerDto&gt;</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="63d883a6-e737-4c79-9667-55422ab697f0">
+        <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+        <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
+        <stereotypes />
+        <genericTypeParameters>
+          <genericTypeParameter id="178459e7-1843-47a0-bf57-b8da77cb75e3">
+            <typeId>729da320-1a7e-4314-98df-01c7562afe9a</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+            <typePackageName>AzureFunctions.TestApplication.Services</typePackageName>
+            <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </genericTypeParameter>
+        </genericTypeParameters>
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="c46b5b51-bc6f-4f45-bf94-7e6610874726" name="GetPagedWithParameters" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>de6eb156-b351-4817-8b5f-36e726b415b5</parentFolderId>
+      <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+      <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="bb906525-6ff1-461a-bdbb-26a33ea40ae6" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>pageNo</name>
+          <display>pageNo: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d243854b-96cf-4589-8d17-7a74fa48956c">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>708f3983-f98f-416c-bb84-ba01a1779f6c</parentFolderId>
+          <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+          <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="3b88d7a7-1e12-44fa-907a-c5fd4aed4f8a" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="60e34b22-878a-4288-a7c5-31547589cd64" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>pageSize</name>
+          <display>pageSize: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f9ca063c-e60e-42d3-b81a-0b5eced311ed">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>708f3983-f98f-416c-bb84-ba01a1779f6c</parentFolderId>
+          <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+          <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="e80332c2-7fb9-48da-9369-138d249bf643" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="860d379a-84cc-4642-b515-d6f0b1fb0a4e" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>searchCriteria</name>
+          <display>searchCriteria: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="329ee12a-41ec-4b03-8cf5-d8e8c2150825">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>708f3983-f98f-416c-bb84-ba01a1779f6c</parentFolderId>
+          <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+          <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="6e48d06e-e1bb-4a66-883e-b3aca271362e" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="475dfae0-cb02-488d-87f5-7809880fa2af" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="be0bb918-d94c-4407-84c5-5445cd4d0200">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>708f3983-f98f-416c-bb84-ba01a1779f6c</parentFolderId>
+          <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+          <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="ea058a2a-eb0a-4683-9365-3ccbf8e7e280" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

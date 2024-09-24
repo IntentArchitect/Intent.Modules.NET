@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using AzureFunctions.TestApplication.Application.IntegrationServices.Contracts;
 using AzureFunctions.TestApplication.Application.IntegrationServices.Contracts.Services.Customers;
 using Intent.RoslynWeaver.Attributes;
 
@@ -18,5 +19,7 @@ namespace AzureFunctions.TestApplication.Application.IntegrationServices
         Task UpdateCustomerAsync(Guid id, UpdateCustomerCommand command, CancellationToken cancellationToken = default);
         Task<CustomerDto> GetCustomerByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<List<CustomerDto>> GetCustomersAsync(CancellationToken cancellationToken = default);
+        Task<PagedResult<CustomerDto>> GetCustomersPagedAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default);
+        Task<PagedResult<CustomerDto>> GetPagedWithParametersAsync(int pageNo, int pageSize, string searchCriteria, Guid id, CancellationToken cancellationToken = default);
     }
 }

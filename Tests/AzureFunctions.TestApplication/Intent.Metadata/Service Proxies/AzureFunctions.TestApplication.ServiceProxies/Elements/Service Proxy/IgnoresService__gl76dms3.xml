@@ -19,6 +19,9 @@
   <parentFolderId>282d7675-8621-4067-89e7-df1018ff8fb7</parentFolderId>
   <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
   <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
@@ -46,6 +49,9 @@
       <parentFolderId>1ef613d3-daf0-40ec-bf9b-c74a6235b126</parentFolderId>
       <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
       <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -77,6 +83,9 @@
       <parentFolderId>1ef613d3-daf0-40ec-bf9b-c74a6235b126</parentFolderId>
       <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
       <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />

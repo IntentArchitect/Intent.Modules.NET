@@ -828,6 +828,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.PagedResult#9204e067-bdc8-45e7-8970-8a833fdc5253</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/PagedResult.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#f5f5c771-cf9d-4ef6-8071-1f532fc6b7a2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/Customers/CreateCustomerCommand.cs</ApplicationRelativeFilePath>
@@ -880,6 +888,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/SampleDomains/SampleDomainUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/SampleDomains/SampleDomainUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#392b086e-e503-40d5-b6ae-4e76111c5b73</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/Validation/DummyResultDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Validation/DummyResultDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

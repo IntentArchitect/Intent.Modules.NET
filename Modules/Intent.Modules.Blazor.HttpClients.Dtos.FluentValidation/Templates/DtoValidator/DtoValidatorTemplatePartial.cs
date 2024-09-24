@@ -13,6 +13,10 @@ using Intent.Modules.Constants;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.FluentValidation.Shared;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Editing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Ignore, Targets = Targets.Usings)]
@@ -21,8 +25,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoValidator
 {
     [IntentManaged(Mode.Merge)]
-    public partial class DtoValidatorTemplate : CSharpTemplateBase<DTOModel>, ICSharpFileBuilderTemplate
-, IFluentValidationTemplate
+    public partial class DtoValidatorTemplate : CSharpTemplateBase<DTOModel>, ICSharpFileBuilderTemplate, IFluentValidationTemplate
     {
         public const string TemplateId = "Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator";
 
