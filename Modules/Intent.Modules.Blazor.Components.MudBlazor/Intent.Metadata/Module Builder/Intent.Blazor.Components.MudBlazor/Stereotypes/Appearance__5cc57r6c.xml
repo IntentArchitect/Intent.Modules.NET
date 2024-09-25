@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<stereotypeDefinition id="5b19f111-14dc-40e0-a71b-9758d1b88026" version="3.1.0">
+<stereotypeDefinition id="54eaa54d-6bed-4de6-8ee3-4c90ecd76a30" version="3.1.0">
   <name>Appearance</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
-    <type id="4803bf60-c626-4cbe-94ed-0f1eafff9fe3">Text Input</type>
+    <type id="329f635b-a55c-465f-b966-fe8411a5f57c">Image</type>
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>always</applyMode>
@@ -20,35 +20,46 @@
   <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
   <packageName>Intent.Blazor.Components.MudBlazor</packageName>
   <properties>
-    <property id="be812d2d-086b-459d-9828-6299dfd86e9f">
-      <name>Variant</name>
+    <property id="e7e01d30-761c-4d74-aab2-86d60f4c3da4">
+      <name>Fluid</name>
       <type>string</type>
-      <controlType>select</controlType>
-      <optionsSource>lookup-children</optionsSource>
-      <placeholder>(default)</placeholder>
-      <defaultValue>93828c49-ea2f-46d2-b661-df6fc2c4a0e2</defaultValue>
-      <valueOptions>
-        <option>Default</option>
-        <option>Primary</option>
-        <option>Secondary</option>
-        <option>Tertiary</option>
-        <option>Info</option>
-        <option>Success</option>
-        <option>Warning</option>
-      </valueOptions>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
       <lookupTypes />
-      <lookupInternalTargetPropertyId>return "00f38c60-da37-4e7d-acdf-ad79ffb4a9e6" // Variant (Enum);</lookupInternalTargetPropertyId>
     </property>
-    <property id="821cf818-e401-4d9a-9342-95e4273640a1">
-      <name>Placeholder</name>
+    <property id="17f49bf9-0511-469e-8fe3-58ce147af1bc">
+      <name>Width</name>
       <type>string</type>
-      <controlType>text</controlType>
+      <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder />
       <valueOptions />
       <lookupTypes />
     </property>
-    <property id="bedbaeff-ad4d-4e7f-b709-d6a2be45900f">
+    <property id="c7f28cef-4c5b-4b41-ae40-50a21ba6dd0f">
+      <name>Height</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="989f2cf7-ca7d-4623-9fa0-c1b90d20f77f">
+      <name>Elevation</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction />
+    </property>
+    <property id="5a21da28-5f76-40b4-946b-0306be8d8dc1">
       <name>Class</name>
       <type>string</type>
       <controlType>text</controlType>

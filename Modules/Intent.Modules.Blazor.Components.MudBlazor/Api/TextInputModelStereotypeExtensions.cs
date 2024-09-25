@@ -107,6 +107,11 @@ namespace Intent.Blazor.Components.MudBlazor.Api
                 return _stereotype.GetProperty<string>("Placeholder");
             }
 
+            public string Class()
+            {
+                return _stereotype.GetProperty<string>("Class");
+            }
+
             public class VariantOptions
             {
                 public readonly string Value;

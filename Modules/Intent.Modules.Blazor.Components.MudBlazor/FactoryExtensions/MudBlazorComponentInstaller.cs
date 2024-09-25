@@ -42,6 +42,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
             DefaultRazorComponentBuilderProvider.Register(DialogModel.SpecializationTypeId, (provider, componentTemplate) => new DialogComponentBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(CardModel.SpecializationTypeId, (provider, componentTemplate) => new CardComponentBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(SpacerModel.SpecializationTypeId, (provider, componentTemplate) => new SpacerComponentBuilder(provider, componentTemplate));
+            DefaultRazorComponentBuilderProvider.Register(ImageModel.SpecializationTypeId, (provider, componentTemplate) => new ImageComponentBuilder(provider, componentTemplate));
 
             DefaultRazorComponentBuilderProvider.AddInterceptor((provider, componentTemplate) => new MudBlazorLayoutInterceptor(provider, componentTemplate));
         }

@@ -27,10 +27,6 @@
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>
-            <module id="Intent.AspNetCore.Cors" version="3.3.12" metadataOnly="false">
-              <includedByDefault>true</includedByDefault>
-              <required>false</required>
-            </module>
           </modules>
           <dependencies />
         </component>

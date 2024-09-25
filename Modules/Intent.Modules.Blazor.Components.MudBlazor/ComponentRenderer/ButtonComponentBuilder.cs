@@ -30,24 +30,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
         IHtmlElement htmlElement = new HtmlElement(model.GetAppearance().IconOnly() ? "MudIconButton" : "MudButton", _componentTemplate.RazorFile);
 
         var mappingEnds = _bindingManager.GetMappedEndsFor(model, "Link To");
-        if (mappingEnds.Any())
-        {
-            var route = new RouteManager($"{mappingEnds[0].SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route()}");
-            var complexRoute = false;
-            foreach (var mappedEnd in mappingEnds)
-            {
-                var routeParameter = ((IElement)mappedEnd.TargetElement).MappedToElements.FirstOrDefault()?.TargetElement;
-
-                if (routeParameter != null && route.HasParameterExpression(routeParameter.Name))
-                {
-                    var binding = _bindingManager.GetBinding(mappedEnd);
-                    route.ReplaceParameterExpression(routeParameter.Name, $"{{{binding}}}");
-                    complexRoute = true;
-                }
-            }
-
-            htmlElement.AddAttribute("Href", complexRoute ? $"@($\"{route.Route}\")" : route.Route);
-        }
+        htmlElement.AddAttributeIfNotEmpty("Href", _bindingManager.GetHrefRoute(mappingEnds));
 
         htmlElement.AddAttributeIfNotEmpty("Variant", model.GetAppearance()?.Variant() != null ? $"Variant.{model.GetAppearance()?.Variant().Name}" : null)
             .AddAttributeIfNotEmpty(model.GetAppearance().IconOnly() ? "Icon" : "StartIcon", model.HasIcon() ? $"@Icons.Material.{model.GetIcon().Variant().Name}.{model.GetIcon().IconValue().Name}" : null)
@@ -76,7 +59,7 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
 
             _componentTemplate.RazorFile.AfterBuild(file =>
             {
-                _componentTemplate.GetCodeBehind().TryGetReferenceForModel(onClickMapping.SourceElement.Id, out var reference);
+                _componentTemplate.GetCodeBehind().TryGetReferenceForModel(onClickMapping.SourceElement?.Id ?? string.Empty, out var reference);
                 if (reference is CSharpClassMethod method)
                 {
                     var form = model.GetInteraction().Form() ?? component.GetParentPath().Reverse().FirstOrDefault(x => x.IsFormModel());

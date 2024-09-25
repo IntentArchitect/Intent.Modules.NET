@@ -371,6 +371,32 @@ public static class RazorFileExtensions
         node.AddMetadata("mapping-replacements", registry);
     }
 
+    public static string? GetHrefRoute(this BindingManager bindingManager, IList<IElementToElementMappedEnd> mappingEnds)
+    {
+        if (mappingEnds.Any())
+        {
+            var route = new RouteManager(mappingEnds[0].SourcePath != null 
+                ? $"{mappingEnds[0].SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route()}"
+                : mappingEnds[0].MappingExpression);
+            var complexRoute = false;
+            foreach (var mappedEnd in mappingEnds)
+            {
+                var routeParameter = ((IElement)mappedEnd.TargetElement).MappedToElements.FirstOrDefault()?.TargetElement;
+
+                if (routeParameter != null && route.HasParameterExpression(routeParameter.Name))
+                {
+                    var binding = bindingManager.GetBinding(mappedEnd);
+                    route.ReplaceParameterExpression(routeParameter.Name, $"{{{binding}}}");
+                    complexRoute = true;
+                }
+            }
+
+            return complexRoute ? $"@($\"{route.Route}\")" : route.Route;
+        }
+
+        return null;
+    }
+
     public static IDictionary<IMetadataModel, string> GetMappingReplacements(this IRazorFileNode node)
     {
         var result = new Dictionary<IMetadataModel, string>();
