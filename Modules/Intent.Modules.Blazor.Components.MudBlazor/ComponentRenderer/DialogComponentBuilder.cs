@@ -63,7 +63,7 @@ public class DialogComponentBuilder : IRazorComponentBuilder
         {
             var codeBehind = _componentTemplate.GetCodeBehind();
 
-            codeBehind.AddProperty("MudDialogInstance", "Dialog", p => p.AddAttribute("[CascadingParameter]"));
+            codeBehind.AddProperty(codeBehind.Template.UseType("MudBlazor.MudDialogInstance"), "Dialog", p => p.AddAttribute($"[{codeBehind.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameter")}]"));
         });
         return [htmlElement];
     }
