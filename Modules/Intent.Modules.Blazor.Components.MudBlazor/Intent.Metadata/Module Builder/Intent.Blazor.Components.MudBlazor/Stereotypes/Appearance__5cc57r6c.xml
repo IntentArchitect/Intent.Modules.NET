@@ -54,7 +54,6 @@
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder />
-      <defaultValue>false</defaultValue>
       <valueOptions />
       <lookupTypes />
       <isActiveFunction />
