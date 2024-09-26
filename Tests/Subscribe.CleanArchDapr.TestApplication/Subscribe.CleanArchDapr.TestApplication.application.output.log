@@ -356,6 +356,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e8982e12-4d12-4736-87bb-8c6c671d3e3d</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.EventHandlerImplementation#115837d7-a8d5-4f87-befe-c68fbab0d6f5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEventHandlers/CustomerCreatedEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerCreatedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e8982e12-4d12-4736-87bb-8c6c671d3e3d</ProjectId>
       <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.EventHandler#5744ece4-a6a6-490b-9a17-82f4186183a0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEventHandlers/CustomerCreatedHandler.cs</ApplicationRelativeFilePath>
