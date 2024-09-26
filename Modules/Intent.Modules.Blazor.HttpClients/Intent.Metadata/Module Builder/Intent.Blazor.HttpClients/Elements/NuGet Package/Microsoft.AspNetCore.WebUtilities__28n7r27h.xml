@@ -24,6 +24,59 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="2c4ab653-97d9-40e8-bc28-5123d2ac6aaa" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>2.2.0</name>
+      <display>2.2.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8e26fa20-0ed6-4c3a-b1bc-5dd22a25f9d3</parentFolderId>
+      <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+      <packageName>Intent.Blazor.HttpClients</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="ac021b9a-5b97-4d34-8919-3271c3894c1c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Net.Http.Headers</name>
+          <display>Microsoft.Net.Http.Headers (2.2.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c4ab653-97d9-40e8-bc28-5123d2ac6aaa</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c252cee5-6d03-4b1e-96ff-f5c24b412d80" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Encodings.Web</name>
+          <display>System.Text.Encodings.Web (4.5.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.5.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2c4ab653-97d9-40e8-bc28-5123d2ac6aaa</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="4b621e86-d89f-4cb1-a76b-bee264488388" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.0.8</name>
       <display>8.0.8 ( &gt;= .NETCoreApp,Version=v8.0 )</display>

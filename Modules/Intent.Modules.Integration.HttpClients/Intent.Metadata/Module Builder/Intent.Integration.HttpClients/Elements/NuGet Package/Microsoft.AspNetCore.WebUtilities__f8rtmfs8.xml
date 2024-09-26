@@ -28,6 +28,7 @@
       <name>2.2.0</name>
       <display>2.2.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a90c31c0-1643-4bac-88e6-471c56576509</parentFolderId>
@@ -45,7 +46,36 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="ea978955-53c7-49ba-abe0-aa3920e25831" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Net.Http.Headers</name>
+          <display>Microsoft.Net.Http.Headers (2.2.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b63a1863-4390-4f0f-9e8d-a47ab5abddc6</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="19464eaf-ce71-4037-b16f-a845f709c911" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Encodings.Web</name>
+          <display>System.Text.Encodings.Web (4.5.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.5.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b63a1863-4390-4f0f-9e8d-a47ab5abddc6</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="8968705f-065c-4bb5-a0b2-eeda81b1cd97" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.0.8</name>
