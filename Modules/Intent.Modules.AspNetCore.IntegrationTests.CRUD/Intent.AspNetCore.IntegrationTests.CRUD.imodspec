@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AspNetCore.IntegrationTests.CRUD</id>
   <version>1.0.9-pre.1</version>
-  <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>The module adds implements integration tests for CRUD Services.</summary>
   <description>The module adds implements integration tests for CRUD Services.</description>
   <authors>Intent Architect</authors>

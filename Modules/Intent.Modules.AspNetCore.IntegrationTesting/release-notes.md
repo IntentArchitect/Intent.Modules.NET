@@ -1,3 +1,7 @@
+### Version 1.0.8
+
+- Fixed: Internal change on how we model PagedResults using new 4.3 tech.
+
 ### Version 1.0.7
 
 - Fixed: HttpClients are able to generate into `netstandard2.*` projects.

@@ -1,6 +1,6 @@
 ### Version 1.1.0
 
-TODO
+- Improvement: Updated for 4.3 UI modeling support
 
 ### Version 1.0.2
 
