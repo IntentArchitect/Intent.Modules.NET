@@ -76,8 +76,8 @@
       </childElements>
     </childElement>
     <childElement id="2d6f69f3-3b54-4170-8cf3-f6f36fc3f201" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
-      <name>Blazor</name>
-      <display>Blazor (1)</display>
+      <name>Blazor (BETA)</name>
+      <display>Blazor (BETA) (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />

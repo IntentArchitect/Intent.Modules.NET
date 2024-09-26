@@ -135,13 +135,17 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
             });
             //}
 
-            var pageRequestBinding = _bindingManager.GetBinding(model, "53a618ca-e5aa-49ca-a993-8cd935683748");
+            var pageRequestMapping = _bindingManager.GetMappedEndFor(model, "53a618ca-e5aa-49ca-a993-8cd935683748");
 
-            if (pageRequestBinding != null)
+            if (pageRequestMapping != null)
             {
                 _componentTemplate.RazorFile.AfterBuild(file =>
                 {
+
                     var codeBlock = _componentTemplate.GetCodeBehind();
+                    (codeBlock.GetReferenceForModel(pageRequestMapping.SourceElement) as CSharpClassMethod)?.Async();
+                    var pageRequestBinding = _bindingManager.GetBinding(pageRequestMapping);
+
                     var returnType = $"GridData<{_componentTemplate.GetTypeName(mappedSourceType.AsTypeReference())}>";
                     codeBlock.AddMethod(returnType, $"Load{model.Name.ToCSharpIdentifier()}Data", method =>
                     {
