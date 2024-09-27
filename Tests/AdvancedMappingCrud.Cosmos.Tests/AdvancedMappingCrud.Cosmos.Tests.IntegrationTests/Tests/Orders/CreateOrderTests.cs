@@ -26,7 +26,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         public async Task CreateOrder_ShouldCreateOrder()
         {
             // Arrange
-            var integrationClient = new OrdersHttpClient(CreateClient());
+            var client = new OrdersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             await dataFactory.CreateOrderDependencies();
@@ -34,10 +34,10 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
             var command = dataFactory.CreateCommand<CreateOrderCommand>();
 
             // Act
-            var orderId = await integrationClient.CreateOrderAsync(command);
+            var orderId = await client.CreateOrderAsync(command);
 
             // Assert
-            var order = await integrationClient.GetOrderByIdAsync(orderId);
+            var order = await client.GetOrderByIdAsync(orderId);
             Assert.NotNull(order);
         }
     }

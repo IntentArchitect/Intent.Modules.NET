@@ -26,16 +26,16 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         public async Task DeleteOrderOrderItem_ShouldDeleteOrderOrderItem()
         {
             // Arrange
-            var integrationClient = new OrdersHttpClient(CreateClient());
+            var client = new OrdersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var ids = await dataFactory.CreateOrderItem();
 
             // Act
-            await integrationClient.DeleteOrderOrderItemAsync(ids.OrderId, ids.OrderItemId);
+            await client.DeleteOrderOrderItemAsync(ids.OrderId, ids.OrderItemId);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => integrationClient.GetOrderOrderItemByIdAsync(ids.OrderId, ids.OrderItemId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetOrderOrderItemByIdAsync(ids.OrderId, ids.OrderItemId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

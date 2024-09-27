@@ -19,13 +19,13 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task GetBrands_ShouldGetBrands()
         {
             // Arrange
-            var integrationClient = new BrandsHttpClient(CreateClient());
+            var client = new BrandsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             await dataFactory.CreateBrand();
 
             // Act
-            var brands = await integrationClient.GetBrandsAsync();
+            var brands = await client.GetBrandsAsync();
 
             // Assert
             Assert.True(brands.Count > 0);

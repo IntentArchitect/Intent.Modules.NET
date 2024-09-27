@@ -21,7 +21,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task CreateOrderOrderItem_ShouldCreateOrderOrderItem()
         {
             // Arrange
-            var integrationClient = new OrdersHttpClient(CreateClient());
+            var client = new OrdersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var orderId = await dataFactory.CreateOrderItemDependencies();
@@ -29,10 +29,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             var command = dataFactory.CreateCommand<CreateOrderOrderItemCommand>();
 
             // Act
-            var orderItemId = await integrationClient.CreateOrderOrderItemAsync(command);
+            var orderItemId = await client.CreateOrderOrderItemAsync(command);
 
             // Assert
-            var orderItem = await integrationClient.GetOrderOrderItemByIdAsync(orderId, orderItemId);
+            var orderItem = await client.GetOrderOrderItemByIdAsync(orderId, orderItemId);
             Assert.NotNull(orderItem);
         }
     }

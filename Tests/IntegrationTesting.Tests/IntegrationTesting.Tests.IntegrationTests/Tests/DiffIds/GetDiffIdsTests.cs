@@ -20,13 +20,13 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task GetDiffIds_ShouldGetDiffIds()
         {
             // Arrange
-            var integrationClient = new DiffIdsHttpClient(CreateClient());
+            var client = new DiffIdsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             await dataFactory.CreateDiffId();
 
             // Act
-            var diffIds = await integrationClient.GetDiffIdsAsync();
+            var diffIds = await client.GetDiffIdsAsync();
 
             // Assert
             Assert.True(diffIds.Count > 0);

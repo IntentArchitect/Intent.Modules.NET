@@ -22,6 +22,9 @@
     <name>richProduct</name>
     <display>[update] richProduct: RichProduct</display>
     <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="62f51fb7-2ce5-4324-a1bd-2667c9a5c452">
       <typeId>368531c0-eb48-4728-bcc2-9573d18e43a5</typeId>
       <isNavigable>true</isNavigable>

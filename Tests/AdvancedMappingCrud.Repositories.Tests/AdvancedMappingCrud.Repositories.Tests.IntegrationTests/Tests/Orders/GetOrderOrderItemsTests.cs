@@ -20,13 +20,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task GetOrderOrderItems_ShouldGetOrderOrderItems()
         {
             // Arrange
-            var integrationClient = new OrdersHttpClient(CreateClient());
+            var client = new OrdersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var ids = await dataFactory.CreateOrderItem();
 
             // Act
-            var orderItems = await integrationClient.GetOrderOrderItemsAsync(ids.OrderId);
+            var orderItems = await client.GetOrderOrderItemsAsync(ids.OrderId);
 
             // Assert
             Assert.True(orderItems.Count > 0);

@@ -20,7 +20,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task UpdatePagingTS_ShouldUpdatePagingTS()
         {
             // Arrange
-            var integrationClient = new PagingTSServiceHttpClient(CreateClient());
+            var client = new PagingTSServiceHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var pagingTSId = await dataFactory.CreatePagingTS();
@@ -29,10 +29,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             command.Id = pagingTSId;
 
             // Act
-            await integrationClient.UpdatePagingTSAsync(pagingTSId, command);
+            await client.UpdatePagingTSAsync(pagingTSId, command);
 
             // Assert
-            var pagingTS = await integrationClient.FindPagingTSByIdAsync(pagingTSId);
+            var pagingTS = await client.FindPagingTSByIdAsync(pagingTSId);
             Assert.NotNull(pagingTS);
             Assert.Equal(command.Name, pagingTS.Name);
         }

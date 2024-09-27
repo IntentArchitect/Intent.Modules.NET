@@ -20,17 +20,17 @@ namespace ValueObjects.Class.IntegrationTests.Tests
         public async Task CreateTestEntity_ShouldCreateTestEntity()
         {
             // Arrange
-            var integrationClient = new TestEntitiesHttpClient(CreateClient());
+            var client = new TestEntitiesHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<CreateTestEntityCommand>();
 
             // Act
-            var testEntityId = await integrationClient.CreateTestEntityAsync(command);
+            var testEntityId = await client.CreateTestEntityAsync(command);
 
             // Assert
-            var testEntity = await integrationClient.GetTestEntityByIdAsync(testEntityId);
+            var testEntity = await client.GetTestEntityByIdAsync(testEntityId);
             Assert.NotNull(testEntity);
         }
     }

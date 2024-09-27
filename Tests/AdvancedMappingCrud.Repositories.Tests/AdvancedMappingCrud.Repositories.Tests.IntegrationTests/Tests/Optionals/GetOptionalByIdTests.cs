@@ -19,13 +19,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task GetOptionalById_ShouldGetOptionalById()
         {
             // Arrange
-            var integrationClient = new OptionalsHttpClient(CreateClient());
+            var client = new OptionalsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var optionalId = await dataFactory.CreateOptional();
 
             // Act
-            var optional = await integrationClient.GetOptionalByIdAsync(optionalId);
+            var optional = await client.GetOptionalByIdAsync(optionalId);
 
             // Assert
             Assert.NotNull(optional);

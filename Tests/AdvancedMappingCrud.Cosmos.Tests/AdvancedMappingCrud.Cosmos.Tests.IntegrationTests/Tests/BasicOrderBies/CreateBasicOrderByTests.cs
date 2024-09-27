@@ -25,17 +25,17 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         public async Task CreateBasicOrderBy_ShouldCreateBasicOrderBy()
         {
             // Arrange
-            var integrationClient = new BasicOrderBiesHttpClient(CreateClient());
+            var client = new BasicOrderBiesHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<CreateBasicOrderByCommand>();
 
             // Act
-            var basicOrderById = await integrationClient.CreateBasicOrderByAsync(command);
+            var basicOrderById = await client.CreateBasicOrderByAsync(command);
 
             // Assert
-            var basicOrderBy = await integrationClient.GetBasicOrderByByIdAsync(basicOrderById);
+            var basicOrderBy = await client.GetBasicOrderByByIdAsync(basicOrderById);
             Assert.NotNull(basicOrderBy);
         }
     }

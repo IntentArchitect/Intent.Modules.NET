@@ -20,17 +20,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task CreateOptional_ShouldCreateOptional()
         {
             // Arrange
-            var integrationClient = new OptionalsHttpClient(CreateClient());
+            var client = new OptionalsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<CreateOptionalCommand>();
 
             // Act
-            var optionalId = await integrationClient.CreateOptionalAsync(command);
+            var optionalId = await client.CreateOptionalAsync(command);
 
             // Assert
-            var optional = await integrationClient.GetOptionalByIdAsync(optionalId);
+            var optional = await client.GetOptionalByIdAsync(optionalId);
             Assert.NotNull(optional);
         }
     }

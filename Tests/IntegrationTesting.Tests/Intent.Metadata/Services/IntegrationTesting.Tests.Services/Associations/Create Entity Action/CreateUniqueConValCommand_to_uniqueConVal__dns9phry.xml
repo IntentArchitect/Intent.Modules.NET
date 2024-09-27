@@ -22,6 +22,9 @@
     <name>uniqueConVal</name>
     <display>[create] uniqueConVal: UniqueConVal</display>
     <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="0606d735-f5e3-474d-b3b2-b933baef98cb">
       <typeId>52d43dc7-7e0d-4305-9ebc-4f0606747989</typeId>
       <isNavigable>true</isNavigable>

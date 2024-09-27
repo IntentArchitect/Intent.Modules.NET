@@ -24,13 +24,13 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         public async Task GetExplicitETagById_ShouldGetExplicitETagById()
         {
             // Arrange
-            var integrationClient = new ExplicitETagsHttpClient(CreateClient());
+            var client = new ExplicitETagsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var explicitETagId = await dataFactory.CreateExplicitETag();
 
             // Act
-            var explicitETag = await integrationClient.GetExplicitETagByIdAsync(explicitETagId);
+            var explicitETag = await client.GetExplicitETagByIdAsync(explicitETagId);
 
             // Assert
             Assert.NotNull(explicitETag);

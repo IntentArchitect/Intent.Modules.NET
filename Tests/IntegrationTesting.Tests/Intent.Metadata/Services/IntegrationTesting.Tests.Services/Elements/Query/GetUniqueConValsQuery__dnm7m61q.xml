@@ -19,6 +19,10 @@
   <parentFolderId>06b8e3eb-3df1-422e-9b1b-18653e712740</parentFolderId>
   <packageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</packageId>
   <packageName>IntegrationTesting.Tests.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes />
   <metadata>
     <entry key="baseName" value="UniqueConVals" />

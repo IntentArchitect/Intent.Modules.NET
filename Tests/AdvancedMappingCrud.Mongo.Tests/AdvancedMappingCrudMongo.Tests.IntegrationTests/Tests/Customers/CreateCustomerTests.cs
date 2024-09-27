@@ -20,17 +20,17 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests
         public async Task CreateCustomer_ShouldCreateCustomer()
         {
             // Arrange
-            var integrationClient = new CustomersHttpClient(CreateClient());
+            var client = new CustomersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<CreateCustomerCommand>();
 
             // Act
-            var customerId = await integrationClient.CreateCustomerAsync(command);
+            var customerId = await client.CreateCustomerAsync(command);
 
             // Assert
-            var customer = await integrationClient.GetCustomerByIdAsync(customerId);
+            var customer = await client.GetCustomerByIdAsync(customerId);
             Assert.NotNull(customer);
         }
     }

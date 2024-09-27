@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="46aaf509-5305-4e74-abda-3fbadfb12219" name="Brand" type="element" specialization="Class" />
+      <target id="46aaf509-5305-4e74-abda-3fbadfb12219" name="Brand" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>f68e6ddb-8b71-43c0-bac7-146e97e08ca7</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="2468788c-590c-4155-a4d1-bb544f25ba96" name="Id" type="element" specialization="Attribute" />
+          <target id="2468788c-590c-4155-a4d1-bb544f25ba96" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>8536fbf2-48e7-4574-87ad-7e784f73f045</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="39177fb7-d0c9-4396-aa76-63fa379e922a" name="Name" type="element" specialization="Attribute" />
+          <target id="39177fb7-d0c9-4396-aa76-63fa379e922a" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>8536fbf2-48e7-4574-87ad-7e784f73f045</parentFolderId>

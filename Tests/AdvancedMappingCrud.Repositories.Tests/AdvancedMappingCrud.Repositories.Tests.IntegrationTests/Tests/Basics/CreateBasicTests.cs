@@ -20,17 +20,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task CreateBasic_ShouldCreateBasic()
         {
             // Arrange
-            var integrationClient = new BasicsHttpClient(CreateClient());
+            var client = new BasicsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<CreateBasicCommand>();
 
             // Act
-            var basicId = await integrationClient.CreateBasicAsync(command);
+            var basicId = await client.CreateBasicAsync(command);
 
             // Assert
-            var basic = await integrationClient.GetBasicByIdAsync(basicId);
+            var basic = await client.GetBasicByIdAsync(basicId);
             Assert.NotNull(basic);
         }
     }

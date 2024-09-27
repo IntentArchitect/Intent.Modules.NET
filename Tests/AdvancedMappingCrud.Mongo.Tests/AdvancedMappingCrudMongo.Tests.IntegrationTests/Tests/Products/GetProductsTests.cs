@@ -19,13 +19,13 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests
         public async Task GetProducts_ShouldGetProducts()
         {
             // Arrange
-            var integrationClient = new ProductsHttpClient(CreateClient());
+            var client = new ProductsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             await dataFactory.CreateProduct();
 
             // Act
-            var products = await integrationClient.GetProductsAsync();
+            var products = await client.GetProductsAsync();
 
             // Assert
             Assert.True(products.Count > 0);

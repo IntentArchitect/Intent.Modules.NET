@@ -26,16 +26,16 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         public async Task DeleteBasicOrderBy_ShouldDeleteBasicOrderBy()
         {
             // Arrange
-            var integrationClient = new BasicOrderBiesHttpClient(CreateClient());
+            var client = new BasicOrderBiesHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var basicOrderById = await dataFactory.CreateBasicOrderBy();
 
             // Act
-            await integrationClient.DeleteBasicOrderByAsync(basicOrderById);
+            await client.DeleteBasicOrderByAsync(basicOrderById);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => integrationClient.GetBasicOrderByByIdAsync(basicOrderById));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetBasicOrderByByIdAsync(basicOrderById));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

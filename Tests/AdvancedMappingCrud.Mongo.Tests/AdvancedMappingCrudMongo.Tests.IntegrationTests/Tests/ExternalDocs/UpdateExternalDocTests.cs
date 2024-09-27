@@ -20,7 +20,7 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests
         public async Task UpdateExternalDoc_ShouldUpdateExternalDoc()
         {
             // Arrange
-            var integrationClient = new ExternalDocsHttpClient(CreateClient());
+            var client = new ExternalDocsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var externalDocId = await dataFactory.CreateExternalDoc();
@@ -29,10 +29,10 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests
             command.Id = externalDocId;
 
             // Act
-            await integrationClient.UpdateExternalDocAsync(externalDocId, command);
+            await client.UpdateExternalDocAsync(externalDocId, command);
 
             // Assert
-            var externalDoc = await integrationClient.GetExternalDocByIdAsync(externalDocId);
+            var externalDoc = await client.GetExternalDocByIdAsync(externalDocId);
             Assert.NotNull(externalDoc);
             Assert.Equal(command.Name, externalDoc.Name);
         }

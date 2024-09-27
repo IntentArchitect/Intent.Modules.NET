@@ -21,7 +21,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task UpdateDiffId_ShouldUpdateDiffId()
         {
             // Arrange
-            var integrationClient = new DiffIdsHttpClient(CreateClient());
+            var client = new DiffIdsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var diffIdId = await dataFactory.CreateDiffId();
@@ -30,10 +30,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             command.MyId = diffIdId;
 
             // Act
-            await integrationClient.UpdateDiffIdAsync(diffIdId, command);
+            await client.UpdateDiffIdAsync(diffIdId, command);
 
             // Assert
-            var diffId = await integrationClient.GetDiffIdByIdAsync(diffIdId);
+            var diffId = await client.GetDiffIdByIdAsync(diffIdId);
             Assert.NotNull(diffId);
             Assert.Equal(command.Name, diffId.Name);
         }

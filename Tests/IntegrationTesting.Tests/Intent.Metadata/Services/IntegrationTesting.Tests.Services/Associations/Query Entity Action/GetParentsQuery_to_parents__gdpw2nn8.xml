@@ -22,6 +22,9 @@
     <name>parents</name>
     <display>[query] parents: Parent[*]</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="3e969c3f-d387-450b-add3-12d245dafd65">
       <typeId>63b14c5a-b7cf-4d3c-8107-6ea0d409e957</typeId>
       <isNavigable>true</isNavigable>

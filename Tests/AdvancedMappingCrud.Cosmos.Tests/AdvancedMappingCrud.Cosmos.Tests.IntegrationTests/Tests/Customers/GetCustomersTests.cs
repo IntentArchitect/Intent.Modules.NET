@@ -25,13 +25,13 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         public async Task GetCustomers_ShouldGetCustomers()
         {
             // Arrange
-            var integrationClient = new CustomersHttpClient(CreateClient());
+            var client = new CustomersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             await dataFactory.CreateCustomer();
 
             // Act
-            var customers = await integrationClient.GetCustomersAsync();
+            var customers = await client.GetCustomersAsync();
 
             // Assert
             Assert.True(customers.Count > 0);

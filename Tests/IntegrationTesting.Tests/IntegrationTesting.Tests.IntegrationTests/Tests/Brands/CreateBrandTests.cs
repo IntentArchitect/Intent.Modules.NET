@@ -20,17 +20,17 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task CreateBrand_ShouldCreateBrand()
         {
             // Arrange
-            var integrationClient = new BrandsHttpClient(CreateClient());
+            var client = new BrandsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<CreateBrandCommand>();
 
             // Act
-            var brandId = await integrationClient.CreateBrandAsync(command);
+            var brandId = await client.CreateBrandAsync(command);
 
             // Assert
-            var brand = await integrationClient.GetBrandByIdAsync(brandId);
+            var brand = await client.GetBrandByIdAsync(brandId);
             Assert.NotNull(brand);
         }
     }

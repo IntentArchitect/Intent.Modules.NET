@@ -21,16 +21,16 @@ namespace ValueObjects.Record.IntegrationTests.Tests
         public async Task DeleteTestEntity_ShouldDeleteTestEntity()
         {
             // Arrange
-            var integrationClient = new TestEntitiesHttpClient(CreateClient());
+            var client = new TestEntitiesHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var testEntityId = await dataFactory.CreateTestEntity();
 
             // Act
-            await integrationClient.DeleteTestEntityAsync(testEntityId);
+            await client.DeleteTestEntityAsync(testEntityId);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => integrationClient.GetTestEntityByIdAsync(testEntityId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetTestEntityByIdAsync(testEntityId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

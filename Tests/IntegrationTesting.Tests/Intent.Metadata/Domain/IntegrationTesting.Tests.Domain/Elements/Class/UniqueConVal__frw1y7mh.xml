@@ -166,7 +166,7 @@
         <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="52d43dc7-7e0d-4305-9ebc-4f0606747989" name="UniqueConVal" type="element" specialization="Class" />
+          <target id="52d43dc7-7e0d-4305-9ebc-4f0606747989" name="UniqueConVal" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>52d43dc7-7e0d-4305-9ebc-4f0606747989</parentFolderId>
@@ -198,7 +198,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="5e418e84-306a-4884-b908-03daf51a9fdd" name="Att1" type="element" specialization="Attribute" />
+              <target id="5e418e84-306a-4884-b908-03daf51a9fdd" name="Att1" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>0bf379fa-ff43-4737-880a-3e668cb52c5d</parentFolderId>
@@ -228,7 +228,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="70163c21-fb44-440e-a540-9f5a014fcc82" name="Att2" type="element" specialization="Attribute" />
+              <target id="70163c21-fb44-440e-a540-9f5a014fcc82" name="Att2" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>0bf379fa-ff43-4737-880a-3e668cb52c5d</parentFolderId>
@@ -258,7 +258,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="9845adca-0d3a-416c-a8ac-b7238fdfbb6e" name="AttInclude" type="element" specialization="Attribute" />
+              <target id="9845adca-0d3a-416c-a8ac-b7238fdfbb6e" name="AttInclude" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>0bf379fa-ff43-4737-880a-3e668cb52c5d</parentFolderId>

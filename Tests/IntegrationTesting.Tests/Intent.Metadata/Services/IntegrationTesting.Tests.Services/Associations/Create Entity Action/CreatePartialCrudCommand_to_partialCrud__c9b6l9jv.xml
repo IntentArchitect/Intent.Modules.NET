@@ -22,6 +22,9 @@
     <name>partialCrud</name>
     <display>[create] partialCrud: PartialCrud</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="aa617d01-c687-4f35-b967-824289ffd582">
       <typeId>64211065-b964-4f8d-aaca-f9ca95668b38</typeId>
       <isNavigable>true</isNavigable>

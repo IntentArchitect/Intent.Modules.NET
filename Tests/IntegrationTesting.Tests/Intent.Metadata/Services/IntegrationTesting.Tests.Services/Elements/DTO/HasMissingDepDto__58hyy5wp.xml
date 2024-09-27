@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="6cb8585c-4658-4961-a373-855a7d26bc17" name="HasMissingDep" type="element" specialization="Class" />
+      <target id="6cb8585c-4658-4961-a373-855a7d26bc17" name="HasMissingDep" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>27129f40-af9a-407b-81ca-f2d6883a0bfa</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c1046add-d6cf-4f62-be4f-c2606985f6fa" name="Id" type="element" specialization="Attribute" />
+          <target id="c1046add-d6cf-4f62-be4f-c2606985f6fa" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>14f1514c-7ae3-4c96-b8b1-521d526804d1</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="f90d6dd5-81a9-44ce-95a4-7bc2a3f6fc8a" name="Name" type="element" specialization="Attribute" />
+          <target id="f90d6dd5-81a9-44ce-95a4-7bc2a3f6fc8a" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>14f1514c-7ae3-4c96-b8b1-521d526804d1</parentFolderId>
@@ -152,7 +152,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="15e7cb5d-b1ff-4ca1-a36a-d56ddf97fc3d" name="MissingDepId" type="element" specialization="Attribute" />
+          <target id="15e7cb5d-b1ff-4ca1-a36a-d56ddf97fc3d" name="MissingDepId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>14f1514c-7ae3-4c96-b8b1-521d526804d1</parentFolderId>

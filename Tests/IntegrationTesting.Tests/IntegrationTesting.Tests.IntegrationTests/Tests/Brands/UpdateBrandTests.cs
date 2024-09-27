@@ -20,7 +20,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task UpdateBrand_ShouldUpdateBrand()
         {
             // Arrange
-            var integrationClient = new BrandsHttpClient(CreateClient());
+            var client = new BrandsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var brandId = await dataFactory.CreateBrand();
@@ -29,10 +29,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             command.Id = brandId;
 
             // Act
-            await integrationClient.UpdateBrandAsync(brandId, command);
+            await client.UpdateBrandAsync(brandId, command);
 
             // Assert
-            var brand = await integrationClient.GetBrandByIdAsync(brandId);
+            var brand = await client.GetBrandByIdAsync(brandId);
             Assert.NotNull(brand);
             Assert.Equal(command.Name, brand.Name);
         }

@@ -26,7 +26,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         public async Task UpdateOrder_ShouldUpdateOrder()
         {
             // Arrange
-            var integrationClient = new OrdersHttpClient(CreateClient());
+            var client = new OrdersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var orderId = await dataFactory.CreateOrder();
@@ -35,10 +35,10 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
             command.Id = orderId;
 
             // Act
-            await integrationClient.UpdateOrderAsync(orderId, command);
+            await client.UpdateOrderAsync(orderId, command);
 
             // Assert
-            var order = await integrationClient.GetOrderByIdAsync(orderId);
+            var order = await client.GetOrderByIdAsync(orderId);
             Assert.NotNull(order);
             Assert.Equal(command.RefNo, order.RefNo);
         }

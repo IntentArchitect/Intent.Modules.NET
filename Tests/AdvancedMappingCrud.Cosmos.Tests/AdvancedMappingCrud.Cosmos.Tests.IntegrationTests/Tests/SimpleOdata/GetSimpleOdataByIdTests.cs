@@ -24,13 +24,13 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         public async Task GetSimpleOdataById_ShouldGetSimpleOdataById()
         {
             // Arrange
-            var integrationClient = new SimpleOdataHttpClient(CreateClient());
+            var client = new SimpleOdataHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var simpleOdataId = await dataFactory.CreateSimpleOdata();
 
             // Act
-            var simpleOdata = await integrationClient.GetSimpleOdataByIdAsync(simpleOdataId);
+            var simpleOdata = await client.GetSimpleOdataByIdAsync(simpleOdataId);
 
             // Assert
             Assert.NotNull(simpleOdata);

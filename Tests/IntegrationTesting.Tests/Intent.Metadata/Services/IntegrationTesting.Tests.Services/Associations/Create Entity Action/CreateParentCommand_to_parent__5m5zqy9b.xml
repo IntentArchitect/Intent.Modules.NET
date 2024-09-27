@@ -22,6 +22,9 @@
     <name>parent</name>
     <display>[create] parent: Parent</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="70e6b826-e8c9-4c68-baed-b6467fc93986">
       <typeId>63b14c5a-b7cf-4d3c-8107-6ea0d409e957</typeId>
       <isNavigable>true</isNavigable>

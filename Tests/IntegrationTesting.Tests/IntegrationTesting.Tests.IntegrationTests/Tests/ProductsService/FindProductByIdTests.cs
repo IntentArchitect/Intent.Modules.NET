@@ -19,13 +19,13 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task FindProductById_ShouldFindProductById()
         {
             // Arrange
-            var integrationClient = new ProductsServiceHttpClient(CreateClient());
+            var client = new ProductsServiceHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var productId = await dataFactory.CreateProduct();
 
             // Act
-            var product = await integrationClient.FindProductByIdAsync(productId);
+            var product = await client.FindProductByIdAsync(productId);
 
             // Assert
             Assert.NotNull(product);

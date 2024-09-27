@@ -21,16 +21,16 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task DeleteRichProduct_ShouldDeleteRichProduct()
         {
             // Arrange
-            var integrationClient = new RichProductsHttpClient(CreateClient());
+            var client = new RichProductsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var richProductId = await dataFactory.CreateRichProduct();
 
             // Act
-            await integrationClient.DeleteRichProductAsync(richProductId);
+            await client.DeleteRichProductAsync(richProductId);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => integrationClient.GetRichProductByIdAsync(richProductId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetRichProductByIdAsync(richProductId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

@@ -19,13 +19,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task FindPagingTSById_ShouldFindPagingTSById()
         {
             // Arrange
-            var integrationClient = new PagingTSServiceHttpClient(CreateClient());
+            var client = new PagingTSServiceHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var pagingTSId = await dataFactory.CreatePagingTS();
 
             // Act
-            var pagingTS = await integrationClient.FindPagingTSByIdAsync(pagingTSId);
+            var pagingTS = await client.FindPagingTSByIdAsync(pagingTSId);
 
             // Assert
             Assert.NotNull(pagingTS);

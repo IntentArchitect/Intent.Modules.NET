@@ -25,13 +25,13 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         public async Task GetOrders_ShouldGetOrders()
         {
             // Arrange
-            var integrationClient = new OrdersHttpClient(CreateClient());
+            var client = new OrdersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             await dataFactory.CreateOrder();
 
             // Act
-            var orders = await integrationClient.GetOrdersAsync();
+            var orders = await client.GetOrdersAsync();
 
             // Assert
             Assert.True(orders.Count > 0);

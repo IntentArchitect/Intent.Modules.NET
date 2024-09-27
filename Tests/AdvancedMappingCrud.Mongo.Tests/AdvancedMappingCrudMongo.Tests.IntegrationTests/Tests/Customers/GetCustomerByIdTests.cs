@@ -19,13 +19,13 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests
         public async Task GetCustomerById_ShouldGetCustomerById()
         {
             // Arrange
-            var integrationClient = new CustomersHttpClient(CreateClient());
+            var client = new CustomersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var customerId = await dataFactory.CreateCustomer();
 
             // Act
-            var customer = await integrationClient.GetCustomerByIdAsync(customerId);
+            var customer = await client.GetCustomerByIdAsync(customerId);
 
             // Assert
             Assert.NotNull(customer);

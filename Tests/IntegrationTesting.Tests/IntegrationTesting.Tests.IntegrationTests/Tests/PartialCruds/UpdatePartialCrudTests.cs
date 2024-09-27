@@ -21,7 +21,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task UpdatePartialCrud_ShouldUpdatePartialCrud()
         {
             // Arrange
-            var integrationClient = new PartialCrudsHttpClient(CreateClient());
+            var client = new PartialCrudsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var partialCrudId = await dataFactory.CreatePartialCrud();
@@ -30,10 +30,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             command.Id = partialCrudId;
 
             // Act
-            await integrationClient.UpdatePartialCrudAsync(partialCrudId, command);
+            await client.UpdatePartialCrudAsync(partialCrudId, command);
 
             // Assert
-            var partialCrud = await integrationClient.GetPartialCrudByIdAsync(partialCrudId);
+            var partialCrud = await client.GetPartialCrudByIdAsync(partialCrudId);
             Assert.NotNull(partialCrud);
             Assert.Equal(command.Name, partialCrud.Name);
         }

@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="64211065-b964-4f8d-aaca-f9ca95668b38" name="PartialCrud" type="element" specialization="Class" />
+      <target id="64211065-b964-4f8d-aaca-f9ca95668b38" name="PartialCrud" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>4086b854-1cf3-46b8-9ace-ca2c781e57ca</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="653f1c8e-d0f0-4f73-a4e7-350dce8c959f" name="Id" type="element" specialization="Attribute" />
+          <target id="653f1c8e-d0f0-4f73-a4e7-350dce8c959f" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>e36e0900-ff10-4e05-941b-74f2f712892f</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="43296710-2f11-4258-b895-ce21dfeb659e" name="Name" type="element" specialization="Attribute" />
+          <target id="43296710-2f11-4258-b895-ce21dfeb659e" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>e36e0900-ff10-4e05-941b-74f2f712892f</parentFolderId>

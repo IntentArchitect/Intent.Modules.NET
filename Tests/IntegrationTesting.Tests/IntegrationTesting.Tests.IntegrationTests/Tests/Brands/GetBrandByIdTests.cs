@@ -19,13 +19,13 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task GetBrandById_ShouldGetBrandById()
         {
             // Arrange
-            var integrationClient = new BrandsHttpClient(CreateClient());
+            var client = new BrandsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var brandId = await dataFactory.CreateBrand();
 
             // Act
-            var brand = await integrationClient.GetBrandByIdAsync(brandId);
+            var brand = await client.GetBrandByIdAsync(brandId);
 
             // Assert
             Assert.NotNull(brand);

@@ -21,16 +21,16 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests
         public async Task DeleteExternalDoc_ShouldDeleteExternalDoc()
         {
             // Arrange
-            var integrationClient = new ExternalDocsHttpClient(CreateClient());
+            var client = new ExternalDocsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var externalDocId = await dataFactory.CreateExternalDoc();
 
             // Act
-            await integrationClient.DeleteExternalDocAsync(externalDocId);
+            await client.DeleteExternalDocAsync(externalDocId);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => integrationClient.GetExternalDocByIdAsync(externalDocId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetExternalDocByIdAsync(externalDocId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

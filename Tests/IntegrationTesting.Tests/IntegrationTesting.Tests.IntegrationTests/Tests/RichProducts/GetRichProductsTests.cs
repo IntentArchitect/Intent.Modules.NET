@@ -19,13 +19,13 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task GetRichProducts_ShouldGetRichProducts()
         {
             // Arrange
-            var integrationClient = new RichProductsHttpClient(CreateClient());
+            var client = new RichProductsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             await dataFactory.CreateRichProduct();
 
             // Act
-            var richProducts = await integrationClient.GetRichProductsAsync();
+            var richProducts = await client.GetRichProductsAsync();
 
             // Assert
             Assert.True(richProducts.Count > 0);

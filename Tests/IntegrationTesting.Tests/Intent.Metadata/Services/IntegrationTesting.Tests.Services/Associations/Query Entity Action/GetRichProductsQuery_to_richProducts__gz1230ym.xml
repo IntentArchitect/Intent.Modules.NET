@@ -22,6 +22,9 @@
     <name>richProducts</name>
     <display>[query] richProducts: RichProduct[*]</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="7117aa7d-8761-49ac-9993-b5912c9123b0">
       <typeId>368531c0-eb48-4728-bcc2-9573d18e43a5</typeId>
       <isNavigable>true</isNavigable>

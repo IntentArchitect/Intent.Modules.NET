@@ -20,7 +20,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task UpdateBasic_ShouldUpdateBasic()
         {
             // Arrange
-            var integrationClient = new BasicsHttpClient(CreateClient());
+            var client = new BasicsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var basicId = await dataFactory.CreateBasic();
@@ -29,10 +29,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             command.Id = basicId;
 
             // Act
-            await integrationClient.UpdateBasicAsync(basicId, command);
+            await client.UpdateBasicAsync(basicId, command);
 
             // Assert
-            var basic = await integrationClient.GetBasicByIdAsync(basicId);
+            var basic = await client.GetBasicByIdAsync(basicId);
             Assert.NotNull(basic);
             Assert.Equal(command.Name, basic.Name);
         }

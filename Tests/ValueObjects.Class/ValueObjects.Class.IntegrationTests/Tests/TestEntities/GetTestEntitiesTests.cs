@@ -19,13 +19,13 @@ namespace ValueObjects.Class.IntegrationTests.Tests
         public async Task GetTestEntities_ShouldGetTestEntities()
         {
             // Arrange
-            var integrationClient = new TestEntitiesHttpClient(CreateClient());
+            var client = new TestEntitiesHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             await dataFactory.CreateTestEntity();
 
             // Act
-            var testEntities = await integrationClient.GetTestEntitiesAsync();
+            var testEntities = await client.GetTestEntitiesAsync();
 
             // Assert
             Assert.True(testEntities.Count > 0);

@@ -21,18 +21,18 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task CreateDtoReturn_ShouldCreateDtoReturn()
         {
             // Arrange
-            var integrationClient = new DtoReturnsHttpClient(CreateClient());
+            var client = new DtoReturnsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<CreateDtoReturnCommand>();
 
             // Act
-            var createdDto = await integrationClient.CreateDtoReturnAsync(command);
+            var createdDto = await client.CreateDtoReturnAsync(command);
             var dtoReturnId = createdDto.Id;
 
             // Assert
-            var dtoReturn = await integrationClient.GetDtoReturnByIdAsync(dtoReturnId);
+            var dtoReturn = await client.GetDtoReturnByIdAsync(dtoReturnId);
             Assert.NotNull(dtoReturn);
         }
     }

@@ -19,13 +19,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         public async Task GetBasicById_ShouldGetBasicById()
         {
             // Arrange
-            var integrationClient = new BasicsHttpClient(CreateClient());
+            var client = new BasicsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var basicId = await dataFactory.CreateBasic();
 
             // Act
-            var basic = await integrationClient.GetBasicByIdAsync(basicId);
+            var basic = await client.GetBasicByIdAsync(basicId);
 
             // Assert
             Assert.NotNull(basic);

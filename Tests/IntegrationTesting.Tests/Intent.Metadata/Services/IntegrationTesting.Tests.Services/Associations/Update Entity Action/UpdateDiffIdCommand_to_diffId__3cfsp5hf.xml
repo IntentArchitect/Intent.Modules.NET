@@ -22,6 +22,9 @@
     <name>diffId</name>
     <display>[update] diffId: DiffId</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="6d4e2354-c2ef-48e9-b455-662caab9da4d">
       <typeId>8b77b4cb-29ff-40ca-8a59-66de22b90cb3</typeId>
       <isNavigable>true</isNavigable>

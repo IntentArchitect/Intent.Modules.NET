@@ -21,16 +21,16 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task DeleteOrder_ShouldDeleteOrder()
         {
             // Arrange
-            var integrationClient = new OrdersHttpClient(CreateClient());
+            var client = new OrdersHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             var orderId = await dataFactory.CreateOrder();
 
             // Act
-            await integrationClient.DeleteOrderAsync(orderId);
+            await client.DeleteOrderAsync(orderId);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => integrationClient.GetOrderByIdAsync(orderId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetOrderByIdAsync(orderId));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

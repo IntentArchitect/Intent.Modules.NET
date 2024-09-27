@@ -26,17 +26,17 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
         public async Task CreateProduct_ShouldCreateProduct()
         {
             // Arrange
-            var integrationClient = new ProductsHttpClient(CreateClient());
+            var client = new ProductsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
 
             var command = dataFactory.CreateCommand<CreateProductCommand>();
 
             // Act
-            var productId = await integrationClient.CreateProductAsync(command);
+            var productId = await client.CreateProductAsync(command);
 
             // Assert
-            var product = await integrationClient.GetProductByIdAsync(productId);
+            var product = await client.GetProductByIdAsync(productId);
             Assert.NotNull(product);
         }
     }

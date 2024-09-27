@@ -20,7 +20,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
         public async Task CreateRichProduct_ShouldCreateRichProduct()
         {
             // Arrange
-            var integrationClient = new RichProductsHttpClient(CreateClient());
+            var client = new RichProductsHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
             await dataFactory.CreateRichProductDependencies();
@@ -28,10 +28,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var command = dataFactory.CreateCommand<CreateRichProductCommand>();
 
             // Act
-            var richProductId = await integrationClient.CreateRichProductAsync(command);
+            var richProductId = await client.CreateRichProductAsync(command);
 
             // Assert
-            var richProduct = await integrationClient.GetRichProductByIdAsync(richProductId);
+            var richProduct = await client.GetRichProductByIdAsync(richProductId);
             Assert.NotNull(richProduct);
         }
     }

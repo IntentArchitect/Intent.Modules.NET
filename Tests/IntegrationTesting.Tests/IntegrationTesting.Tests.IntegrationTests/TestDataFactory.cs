@@ -3,6 +3,7 @@ using IntegrationTesting.Tests.IntegrationTests.HttpClients;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.BadSignatures;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.Brands;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.Children;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.Clients;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.Customers;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.DiffIds;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.DtoReturns;
@@ -13,6 +14,7 @@ using IntegrationTesting.Tests.IntegrationTests.HttpClients.RichProducts;
 using IntegrationTesting.Tests.IntegrationTests.Services.BadSignatures;
 using IntegrationTesting.Tests.IntegrationTests.Services.Brands;
 using IntegrationTesting.Tests.IntegrationTests.Services.Children;
+using IntegrationTesting.Tests.IntegrationTests.Services.Clients;
 using IntegrationTesting.Tests.IntegrationTests.Services.Customers;
 using IntegrationTesting.Tests.IntegrationTests.Services.DiffIds;
 using IntegrationTesting.Tests.IntegrationTests.Services.DtoReturns;
@@ -83,6 +85,16 @@ namespace IntegrationTesting.Tests.IntegrationTests
             var childId = await client.CreateChildAsync(command);
             _idTracker["ChildId"] = childId;
             return childId;
+        }
+
+        public async Task<Guid> CreateClient()
+        {
+            var client = new ClientsHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateClientCommand>();
+            var clientId = await client.CreateClientAsync(command);
+            _idTracker["ClientId"] = clientId;
+            return clientId;
         }
 
         public async Task<Guid> CreateCustomer()

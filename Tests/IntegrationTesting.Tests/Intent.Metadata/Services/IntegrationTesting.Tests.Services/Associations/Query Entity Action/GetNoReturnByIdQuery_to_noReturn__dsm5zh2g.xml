@@ -22,6 +22,9 @@
     <name>noReturn</name>
     <display>[query] noReturn: NoReturn</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="8d6a9dc3-6032-4653-b32d-cd8e708c0c0f">
       <typeId>d41f3b20-b813-4c0b-8889-3f2712018361</typeId>
       <isNavigable>true</isNavigable>
