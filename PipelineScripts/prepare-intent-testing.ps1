@@ -69,7 +69,7 @@ $testSln.solution.applications.application | % {
     $modulesConfigContent.modules.module | % { 
         $module = $_
         $moduleVersionFound = $moduleLookup[$module.moduleId]
-        if ($moduleVersionFound -ne $null) { 
+        if ($moduleVersionFound -ne $null -and [semver]$moduleVersionFound -gt [semver]$module.version) { 
             $module.version = $moduleVersionFound
             $changed = $true
         }

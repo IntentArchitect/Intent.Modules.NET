@@ -255,7 +255,7 @@
       <name>Intent.Common.CSharp</name>
       <display>Intent.Common.CSharp 3.7.5</display>
       <isAbstract>false</isAbstract>
-      <value>3.7.5</value>
+      <value>3.7.6</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -409,7 +409,7 @@
       <name>Intent.Metadata.WebApi</name>
       <display>Intent.Metadata.WebApi 4.5.6</display>
       <isAbstract>false</isAbstract>
-      <value>4.5.6</value>
+      <value>4.5.7</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -423,7 +423,7 @@
       <name>Intent.Modelers.Domain</name>
       <display>Intent.Modelers.Domain 3.9.0</display>
       <isAbstract>false</isAbstract>
-      <value>3.9.0</value>
+      <value>3.9.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -437,7 +437,7 @@
       <name>Intent.Modelers.Domain.Events</name>
       <display>Intent.Modelers.Domain.Events 4.1.0</display>
       <isAbstract>false</isAbstract>
-      <value>4.1.0</value>
+      <value>4.1.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -549,7 +549,7 @@
       <name>Intent.Modelers.Services.DomainInteractions</name>
       <display>Intent.Modelers.Services.DomainInteractions 1.1.5</display>
       <isAbstract>false</isAbstract>
-      <value>1.1.5</value>
+      <value>1.1.6</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -605,7 +605,7 @@
       <name>Intent.OutputManager.RoslynWeaver</name>
       <display>Intent.OutputManager.RoslynWeaver 4.7.7</display>
       <isAbstract>false</isAbstract>
-      <value>4.7.7</value>
+      <value>4.7.8</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
