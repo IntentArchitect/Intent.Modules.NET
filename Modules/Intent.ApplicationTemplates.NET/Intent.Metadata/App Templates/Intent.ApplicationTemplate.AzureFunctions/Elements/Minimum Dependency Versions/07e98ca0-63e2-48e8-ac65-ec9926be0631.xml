@@ -141,7 +141,7 @@
     </childElement>
     <childElement id="0aa3bce1-eda1-49fa-b22f-05b12cd40dd6" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.7.5</display>
+      <display>Intent.Common.CSharp 3.7.6</display>
       <isAbstract>false</isAbstract>
       <value>3.7.6</value>
       <genericTypes />
@@ -253,7 +253,7 @@
     </childElement>
     <childElement id="90780246-1742-45e9-8e15-594bec1aae18" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.WebApi</name>
-      <display>Intent.Metadata.WebApi 4.5.6</display>
+      <display>Intent.Metadata.WebApi 4.5.7</display>
       <isAbstract>false</isAbstract>
       <value>4.5.7</value>
       <genericTypes />
@@ -267,7 +267,7 @@
     </childElement>
     <childElement id="91e4aec2-2da0-4328-bb16-c46c3fe9a545" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Domain</name>
-      <display>Intent.Modelers.Domain 3.9.0</display>
+      <display>Intent.Modelers.Domain 3.9.1</display>
       <isAbstract>false</isAbstract>
       <value>3.9.1</value>
       <genericTypes />
@@ -281,7 +281,7 @@
     </childElement>
     <childElement id="b3751cba-652e-4e6c-b9ac-7874543b436b" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Domain.Events</name>
-      <display>Intent.Modelers.Domain.Events 4.1.0</display>
+      <display>Intent.Modelers.Domain.Events 4.1.1</display>
       <isAbstract>false</isAbstract>
       <value>4.1.1</value>
       <genericTypes />
@@ -365,7 +365,7 @@
     </childElement>
     <childElement id="d865d582-0faa-4973-9f5e-ccfa34525d53" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services.DomainInteractions</name>
-      <display>Intent.Modelers.Services.DomainInteractions 1.1.5</display>
+      <display>Intent.Modelers.Services.DomainInteractions 1.1.6</display>
       <isAbstract>false</isAbstract>
       <value>1.1.6</value>
       <genericTypes />
@@ -407,7 +407,7 @@
     </childElement>
     <childElement id="d8b4c96d-8a4d-40f9-bb33-7e193e9f34f4" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.OutputManager.RoslynWeaver</name>
-      <display>Intent.OutputManager.RoslynWeaver 4.7.7</display>
+      <display>Intent.OutputManager.RoslynWeaver 4.7.8</display>
       <isAbstract>false</isAbstract>
       <value>4.7.8</value>
       <genericTypes />
