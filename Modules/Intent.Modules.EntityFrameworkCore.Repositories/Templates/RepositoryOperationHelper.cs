@@ -62,6 +62,7 @@ public static class RepositoryOperationHelper
             var isAsync = operationModel.Name.EndsWith("Async") || operationModel.HasStereotype("Asynchronous");
             @interface.AddMethod(GetReturnType(template, operationModel.ReturnType), operationModel.Name, method =>
             {
+                method.TryAddXmlDocComments(operationModel.InternalElement);
                 method.AddMetadata("model", operationModel);
                 method.RepresentsModel(operationModel);
                 if (isAsync)

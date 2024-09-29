@@ -21,6 +21,7 @@
   <metadata />
   <childElements>
     <childElement id="87802fb5-da4d-4185-88ca-606e5d6855b4" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <comment>Method comment.</comment>
       <name>MyProc</name>
       <display>MyProc(param: SpParameter[*]): SpResult</display>
       <isAbstract>false</isAbstract>
@@ -54,6 +55,7 @@
       <metadata />
       <childElements>
         <childElement id="1be57d7d-f8ff-4469-b640-91582c0c4ceb" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <comment>Parameter comment.</comment>
           <name>param</name>
           <display>in : param: SpParameter[*]</display>
           <isAbstract>false</isAbstract>

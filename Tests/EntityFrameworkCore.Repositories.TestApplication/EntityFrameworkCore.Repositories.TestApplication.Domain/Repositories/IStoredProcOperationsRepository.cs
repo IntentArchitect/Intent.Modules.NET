@@ -11,6 +11,9 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories
 {
     public interface IStoredProcOperationsRepository
     {
+        /// <summary>
+        /// Method comment.
+        /// </summary>
         Task<SpResult> MyProc(IEnumerable<SpParameter> param, CancellationToken cancellationToken = default);
     }
 }
