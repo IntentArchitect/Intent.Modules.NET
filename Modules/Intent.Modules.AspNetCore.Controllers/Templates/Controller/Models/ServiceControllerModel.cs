@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
@@ -19,7 +20,7 @@ public class ServiceControllerModel : IControllerModel
     {
         if (model.HasSecured() && model.HasUnsecured())
         {
-            throw new Exception($"Controller {model.Name} cannot require authorization and allow-anonymous at the same time");
+            throw new ElementException(model.InternalElement, $"Controller {model.Name} cannot require authorization and allow-anonymous at the same time");
         }
 
         _model = model;
