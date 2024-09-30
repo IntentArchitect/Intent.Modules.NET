@@ -148,6 +148,21 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 return new CSharpAttribute("FromRoute");
             }
 
+            if (parameter.Source is HttpInputSource.FromHeader)
+            {
+                return new CSharpAttribute($"FromHeader").AddArgument($@"""{parameter.HeaderName}""");
+            }
+
+            if (parameter.Source is null or HttpInputSource.FromQuery)
+            {
+                var attr = new CSharpAttribute("FromQuery");
+                if (!string.IsNullOrWhiteSpace(parameter.QueryStringName))
+                {
+                    attr.AddArgument($@"""{parameter.QueryStringName}""");
+                }
+                return attr;
+            }
+
             return null;
         }
 
