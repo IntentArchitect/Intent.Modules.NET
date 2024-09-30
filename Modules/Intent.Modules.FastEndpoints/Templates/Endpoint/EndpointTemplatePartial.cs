@@ -6,6 +6,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
@@ -26,6 +27,8 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public EndpointTemplate(IOutputTarget outputTarget, IEndpointModel model = null) : base(TemplateId, outputTarget, model)
         {
+            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Threading")
@@ -38,6 +41,11 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
 
         private void AddRequestModelIfApplicable()
         {
+            if (!Model.Parameters.Any())
+            {
+                return;
+            }
+            
             _requestModelClass = new CSharpClass($"{Model.Name.RemoveSuffix("Endpoint")}RequestModel", CSharpFile);
             CSharpFile.OnBuild(file =>
             {
@@ -60,21 +68,55 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
         {
             CSharpFile.AddClass($"{Model.Name.RemoveSuffix("Endpoint")}Endpoint", @class =>
             {
+                DefineEndpointBaseType(@class);
+                
                 @class.AddMethod("void", "Configure", method =>
                 {
                     method.Override();
                     AddHttpVerbAndRoute(method);
-
                     method.AddStatement("AllowAnonymous();");
                 });
 
                 @class.AddMethod("Task", "HandleAsync", method =>
                 {
                     method.Override().Async();
-                    method.AddParameter(_requestModelClass.Name, "req");
+                    if (_requestModelClass is not null)
+                    {
+                        method.AddParameter(_requestModelClass.Name, "req");
+                    }
                     method.AddParameter("CancellationToken", "ct");
                 });
             });
+        }
+
+        private void DefineEndpointBaseType(CSharpClass @class)
+        {
+            string? requestType = _requestModelClass is not null ? _requestModelClass.Name : null;
+            string? responseType = Model.ReturnType is not null ? GetTypeName(Model.ReturnType) : null;
+            string baseType = default!;
+
+            if (requestType is not null && 
+                responseType is not null)
+            {
+                baseType = $"Endpoint<{requestType}, {responseType}>";
+            }
+            else if (requestType is not null && 
+                     responseType is null)
+            {
+                baseType = $"Endpoint<{requestType}>";
+            }
+            else if (requestType is null && 
+                     responseType is not null)
+            {
+                baseType = $"EndpointWithoutRequest<{responseType}>";
+            }
+            else if (requestType is null && 
+                     responseType is null)
+            {
+                baseType = "EndpointWithoutRequest";
+            }
+            
+            @class.WithBaseType(baseType);
         }
 
         private void AddHttpVerbAndRoute(CSharpClassMethod method)
