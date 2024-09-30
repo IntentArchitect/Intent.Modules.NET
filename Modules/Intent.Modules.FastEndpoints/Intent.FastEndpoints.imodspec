@@ -16,6 +16,14 @@
       <role>Distribution.WebApi.FastEndpoint</role>
       <location>FastEndpoints</location>
     </template>
+    <template id="Intent.FastEndpoints.JsonResponseTemplate" externalReference="e25c0cf5-6bfd-48f2-93b4-9cd369b9d23f">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.FastEndpointJsonResponse</role>
+      <location>FastEndpoints/ResponseTypes</location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>

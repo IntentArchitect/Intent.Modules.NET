@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.FastEndpoints.Templates.Endpoint;
+using Intent.Modules.FastEndpoints.Templates.JsonResponse;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -19,6 +20,11 @@ namespace Intent.Modules.FastEndpoints.Templates
         public static string GetEndpointTemplateName(this IIntentTemplate template, IEndpointModel model)
         {
             return template.GetTypeName(EndpointTemplate.TemplateId, model);
+        }
+
+        public static string GetJsonResponseTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(JsonResponseTemplate.TemplateId);
         }
 
     }

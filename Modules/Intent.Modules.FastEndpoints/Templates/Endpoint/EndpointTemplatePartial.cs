@@ -28,7 +28,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
         public EndpointTemplate(IOutputTarget outputTarget, IEndpointModel model = null) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Threading")
@@ -45,7 +45,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             {
                 return;
             }
-            
+
             _requestModelClass = new CSharpClass($"{Model.Name.RemoveSuffix("Endpoint")}RequestModel", CSharpFile);
             CSharpFile.OnBuild(file =>
             {
@@ -54,7 +54,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 {
                     _requestModelClass.AddProperty(GetTypeName(parameter.TypeReference), parameter.Name.ToPropertyName(), prop =>
                     {
-                        var attr = GetParameterBindingAttribute(parameter, prop);
+                        var attr = GetParameterBindingAttribute(parameter);
                         if (attr is not null)
                         {
                             prop.AddAttribute(attr);
@@ -69,7 +69,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             CSharpFile.AddClass($"{Model.Name.RemoveSuffix("Endpoint")}Endpoint", @class =>
             {
                 DefineEndpointBaseType(@class);
-                
+
                 @class.AddMethod("void", "Configure", method =>
                 {
                     method.Override();
@@ -84,38 +84,50 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                     {
                         method.AddParameter(_requestModelClass.Name, "req");
                     }
+
                     method.AddParameter("CancellationToken", "ct");
                 });
             });
         }
 
+        private string? GetReturnType()
+        {
+            if (Model.ReturnType is not null && 
+                GetTypeInfo(Model.ReturnType).IsPrimitive || Model.ReturnType.HasStringType())
+            {
+                return $"{this.GetJsonResponseTemplateName()}<{GetTypeName(Model)}>";
+            }
+
+            return Model.ReturnType is not null ? GetTypeName(Model.ReturnType) : null;
+        }
+
         private void DefineEndpointBaseType(CSharpClass @class)
         {
             string? requestType = _requestModelClass is not null ? _requestModelClass.Name : null;
-            string? responseType = Model.ReturnType is not null ? GetTypeName(Model.ReturnType) : null;
+            string? responseType = GetReturnType();
             string baseType = default!;
 
-            if (requestType is not null && 
+            if (requestType is not null &&
                 responseType is not null)
             {
                 baseType = $"Endpoint<{requestType}, {responseType}>";
             }
-            else if (requestType is not null && 
+            else if (requestType is not null &&
                      responseType is null)
             {
                 baseType = $"Endpoint<{requestType}>";
             }
-            else if (requestType is null && 
+            else if (requestType is null &&
                      responseType is not null)
             {
                 baseType = $"EndpointWithoutRequest<{responseType}>";
             }
-            else if (requestType is null && 
+            else if (requestType is null &&
                      responseType is null)
             {
                 baseType = "EndpointWithoutRequest";
             }
-            
+
             @class.WithBaseType(baseType);
         }
 
@@ -134,7 +146,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 .AddArgument($@"""{Model.Route}"""));
         }
 
-        private CSharpAttribute? GetParameterBindingAttribute(IEndpointParameterModel parameter, CSharpProperty prop)
+        private CSharpAttribute? GetParameterBindingAttribute(IEndpointParameterModel parameter)
         {
             if (parameter.TypeReference.Element.IsDTOModel() &&
                 parameter.Source is null or HttpInputSource.FromBody)
@@ -160,6 +172,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 {
                     attr.AddArgument($@"""{parameter.QueryStringName}""");
                 }
+
                 return attr;
             }
 
