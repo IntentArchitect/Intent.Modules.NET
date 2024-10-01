@@ -47,6 +47,11 @@ namespace Intent.Modules.Hangfire.Api
 
             public string Name => _stereotype.Name;
 
+            public StorageOptions Storage()
+            {
+                return new StorageOptions(_stereotype.GetProperty<string>("Storage"));
+            }
+
             public bool ShowDashboard()
             {
                 return _stereotype.GetProperty<bool>("Show Dashboard");
@@ -75,6 +80,51 @@ namespace Intent.Modules.Hangfire.Api
             public int? WorkerCount()
             {
                 return _stereotype.GetProperty<int?>("Worker Count");
+            }
+
+            public class StorageOptions
+            {
+                public readonly string Value;
+
+                public StorageOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public StorageOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "None":
+                            return StorageOptionsEnum.None;
+                        case "InMemory":
+                            return StorageOptionsEnum.InMemory;
+                        case "SQLServer":
+                            return StorageOptionsEnum.SQLServer;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsNone()
+                {
+                    return Value == "None";
+                }
+                public bool IsInMemory()
+                {
+                    return Value == "InMemory";
+                }
+                public bool IsSQLServer()
+                {
+                    return Value == "SQLServer";
+                }
+            }
+
+            public enum StorageOptionsEnum
+            {
+                None,
+                InMemory,
+                SQLServer
             }
 
         }

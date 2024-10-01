@@ -20,6 +20,20 @@
   <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
   <packageName>Intent.Modules.Hangfire</packageName>
   <properties>
+    <property id="23186e28-1e5c-4b0d-a4b2-a268b663e32c">
+      <name>Storage</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder />
+      <defaultValue>In Memory</defaultValue>
+      <valueOptions>
+        <option>None</option>
+        <option>InMemory</option>
+        <option>SQLServer</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
     <property id="08b1856a-2fc3-4347-9257-d79e251fa212">
       <hint>Configure application to show the Hangfire dashboard</hint>
       <name>Show Dashboard</name>

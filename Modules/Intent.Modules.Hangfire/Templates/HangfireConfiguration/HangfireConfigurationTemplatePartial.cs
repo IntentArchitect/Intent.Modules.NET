@@ -13,6 +13,7 @@ using Intent.Modules.Hangfire.Templates.HangfireDashboardAuthFilter;
 using Intent.Modules.Hangfire.Templates.HangfireJobs;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.Modules.Hangfire.Api.HangfireConfigurationModelStereotypeExtensions.HangfireOptions;
 using static Intent.Modules.Hangfire.Api.HangfireJobModelStereotypeExtensions.JobOptions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -39,7 +40,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
 
             AddNugetDependency(NugetPackages.HangfireCore(OutputTarget));
             AddNugetDependency(NugetPackages.HangfireAspNetCore(OutputTarget));
-            AddNugetDependency(NugetPackages.HangfireInMemory(OutputTarget));
+            
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Hangfire")
@@ -54,37 +55,45 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
                         method.AddParameter("IServiceCollection", "services", p => p.WithThisModifier());
                         method.AddParameter("IConfiguration", "configuration");
 
-                        method.AddInvocationStatement("services.AddHangfire", stmt => stmt
-                        .AddArgument(new CSharpLambdaBlock("cfg")
-                            .AddStatement($"cfg.SetDataCompatibilityLevel(CompatibilityLevel.Version_180);")
-                            .AddStatement("cfg.UseSimpleAssemblyNameTypeSerializer();")
-                            .AddStatement("cfg.UseRecommendedSerializerSettings();")
-                            .AddStatement("cfg.UseInMemoryStorage();"))
-                        );
-
-                        if (_hangFireConfigurationModel is not null && _hangFireConfigurationModel.HasHangfireOptions() && _hangFireConfigurationModel.GetHangfireOptions().ConfigureAsHangfireServer())
+                        method.AddInvocationStatement("services.AddHangfire", stmt =>
                         {
-                            method.AddInvocationStatement("services.AddHangfireServer", stmt =>
+                            var lambdaBlock = new CSharpLambdaBlock("cfg")
+                                .AddStatement($"cfg.SetDataCompatibilityLevel(CompatibilityLevel.Version_180);")
+                                .AddStatement("cfg.UseSimpleAssemblyNameTypeSerializer();")
+                                .AddStatement("cfg.UseRecommendedSerializerSettings();");
+
+                            if (_hangFireConfigurationModel is not null && _hangFireConfigurationModel.HasHangfireOptions()
+                            && _hangFireConfigurationModel.GetHangfireOptions().Storage().AsEnum() != StorageOptionsEnum.None)
                             {
-                                if (_hangFireConfigurationModel.GetHangfireOptions().WorkerCount().HasValue)
+                                lambdaBlock.AddStatement(AddStorageUseStatement(_hangFireConfigurationModel));
+                            }
+
+                            stmt.AddArgument(lambdaBlock);
+
+                            if (_hangFireConfigurationModel is not null && _hangFireConfigurationModel.HasHangfireOptions() && _hangFireConfigurationModel.GetHangfireOptions().ConfigureAsHangfireServer())
+                            {
+                                method.AddInvocationStatement("services.AddHangfireServer", stmt =>
                                 {
-                                    stmt.AddArgument(new CSharpLambdaBlock("opt")
-                                        .AddStatement($"opt.WorkerCount = {_hangFireConfigurationModel.GetHangfireOptions().WorkerCount().Value};"));
-                                }
-                            });
+                                    if (_hangFireConfigurationModel.GetHangfireOptions().WorkerCount().HasValue)
+                                    {
+                                        stmt.AddArgument(new CSharpLambdaBlock("opt")
+                                            .AddStatement($"opt.WorkerCount = {_hangFireConfigurationModel.GetHangfireOptions().WorkerCount().Value};"));
+                                    }
+                                });
+                            }
+
+                            method.AddReturn("services");
+                        });
+
+                        if (ExecutionContext.InstalledModules.Any(p => p.ModuleId == "Intent.AspNetCore"))
+                        {
+                            AddApNetCoreUseHangfire(@class);
                         }
-
-                        method.AddReturn("services");
+                        else
+                        {
+                            AddHostUseHangfire(@class);
+                        }
                     });
-
-                    if (ExecutionContext.InstalledModules.Any(p => p.ModuleId == "Intent.AspNetCore"))
-                    {
-                        AddApNetCoreUseHangfire(@class);
-                    }
-                    else
-                    {
-                        AddHostUseHangfire(@class);
-                    }
                 });
         }
 
@@ -102,6 +111,26 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
                             extensionMethodName: $"UseHangfire")
                         .WithPriority(100));
             }
+        }
+
+        private string AddStorageUseStatement(HangfireConfigurationModel model) => model.GetHangfireOptions().Storage().AsEnum() switch
+        {
+            StorageOptionsEnum.None => "",
+            StorageOptionsEnum.InMemory => AddInMemoryStorageUseStatement(),
+            StorageOptionsEnum.SQLServer => AddSqlServerStorageUseStatement(),
+            _ => ""
+        };
+
+        private string AddInMemoryStorageUseStatement()
+        {
+            AddNugetDependency(NugetPackages.HangfireInMemory(OutputTarget));
+            return "cfg.UseInMemoryStorage();";
+        }
+
+        private string AddSqlServerStorageUseStatement()
+        {
+            AddNugetDependency(NugetPackages.HangfireSqlServer(OutputTarget));
+            return "cfg.UseSqlServerStorage(configuration.GetConnectionString(\"DefaultConnection\"));";
         }
 
         private void AddApNetCoreUseHangfire(CSharpClass @class)

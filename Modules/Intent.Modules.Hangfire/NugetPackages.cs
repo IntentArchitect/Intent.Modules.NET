@@ -14,6 +14,7 @@ namespace Intent.Modules.Hangfire
         public const string HangfireAspNetCorePackageName = "Hangfire.AspNetCore";
         public const string HangfireCorePackageName = "Hangfire.Core";
         public const string HangfireInMemoryPackageName = "Hangfire.InMemory";
+        public const string HangfireSqlServerPackageName = "Hangfire.SqlServer";
 
         public void RegisterPackages()
         {
@@ -40,6 +41,13 @@ namespace Intent.Modules.Hangfire
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{HangfireInMemoryPackageName}'"),
                     }
                 );
+            NugetRegistry.Register(HangfireSqlServerPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 0, 0) => new PackageVersion("1.8.14"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{HangfireSqlServerPackageName}'"),
+                    }
+                );
         }
 
         public static NugetPackageInfo HangfireAspNetCore(IOutputTarget outputTarget) => NugetRegistry.GetVersion(HangfireAspNetCorePackageName, outputTarget.GetMaxNetAppVersion());
@@ -47,5 +55,7 @@ namespace Intent.Modules.Hangfire
         public static NugetPackageInfo HangfireCore(IOutputTarget outputTarget) => NugetRegistry.GetVersion(HangfireCorePackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo HangfireInMemory(IOutputTarget outputTarget) => NugetRegistry.GetVersion(HangfireInMemoryPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo HangfireSqlServer(IOutputTarget outputTarget) => NugetRegistry.GetVersion(HangfireSqlServerPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

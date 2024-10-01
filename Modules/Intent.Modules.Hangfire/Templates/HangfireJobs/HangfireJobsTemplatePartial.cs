@@ -42,7 +42,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireJobs
                     @class.AddMethod("Task", "ExecuteAsync", method =>
                     {
                         method.Async();
-                        
+
                         if (model.GetJobOptions().DisallowConcurrentExecution())
                         {
                             method.AddAttribute("DisableConcurrentExecution", attConfig =>
@@ -65,7 +65,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireJobs
                             method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
                         }
 
-                        
+
                     });
                 });
         }
