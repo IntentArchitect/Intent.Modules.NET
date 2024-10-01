@@ -1,57 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
-  <id>Intent.Modules.Hangfire</id>
-  <version>1.0.0</version>
-  <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
-  <summary>Perform time based and fire-and-forget background processing jobs using Hangfire</summary>
-  <description>Perform time based and fire-and-forget background processing jobs using Hangfire</description>
-  <authors>Intent.Modules.NET</authors>
-  <iconUrl>H|#1565C0</iconUrl>
-  <templates>
-    <template id="Intent.Modules.Hangfire.HangfireConfiguration" externalReference="45ecdc92-439b-4a8a-8824-9b1d587bc984">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Distribution.DependencyInjection.Hangfire</role>
-      <location>Configuration</location>
-    </template>
-    <template id="Intent.Modules.Hangfire.HangfireDashboardAuthFilter" externalReference="8afb7368-e6b3-47b7-a807-949d55c9ac20">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Distribution.HangfireDashboardAuthFilter</role>
-      <location>Filters</location>
-    </template>
-    <template id="Intent.Modules.Hangfire.HangfireJobs" externalReference="498cbd43-01f3-4a16-b009-953e0fd7b17b">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Distribution.HangfireJobs</role>
-      <location>HangfireJobs</location>
-    </template>
-  </templates>
-  <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
-  <moduleSettings></moduleSettings>
-  <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.3-pre.0" />
-    <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Modelers.Domain" version="3.9.0" />
-    <dependency id="Intent.Modelers.Services" version="3.7.5" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
-  </dependencies>
-  <files>
-    <file src="$outDir$/$id$.dll" />
-    <file src="$outDir$/$id$.pdb" />
-  </files>
-  <tags />
-  <moduleSettingsExtensions />
-  <metadata>
-    <install target="Services" src="Intent.Metadata/Module Builder/Intent.Modules.Hangfire/Intent.Modules.Hangfire.pkg.config" externalReference="fda30066-088b-48e0-9189-6cad1c70af13" />
-    <install src="modelers/Hangfire Settings.designer.settings" externalReference="045155f0-a262-425a-a77f-1e080062aeba" target="Services" />
-  </metadata>
+	<id>Intent.Modules.Hangfire</id>
+	<version>1.0.0</version>
+	<supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
+	<summary>Perform time based and fire-and-forget background processing jobs using Hangfire</summary>
+	<description>Perform time based and fire-and-forget background processing jobs using Hangfire</description>
+	<authors>Intent Architect</authors>
+	<tags>csharp dotnet hangfire scheduling timer cron worker background</tags>
+	<projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Hangfire/README.md</projectUrl>
+	<iconUrl>H|#1565C0</iconUrl>
+	<releaseNotes>release-notes.md</releaseNotes>
+	<templates>
+		<template id="Intent.Modules.Hangfire.HangfireConfiguration" externalReference="45ecdc92-439b-4a8a-8824-9b1d587bc984">
+			<config>
+				<add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+				<add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+			</config>
+			<role>Distribution.DependencyInjection.Hangfire</role>
+			<location>Configuration</location>
+		</template>
+		<template id="Intent.Modules.Hangfire.HangfireDashboardAuthFilter" externalReference="8afb7368-e6b3-47b7-a807-949d55c9ac20">
+			<config>
+				<add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+				<add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+			</config>
+			<role>Distribution.HangfireDashboardAuthFilter</role>
+			<location>Filters</location>
+		</template>
+		<template id="Intent.Modules.Hangfire.HangfireJobs" externalReference="498cbd43-01f3-4a16-b009-953e0fd7b17b">
+			<config>
+				<add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+				<add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+			</config>
+			<role>Distribution.HangfireJobs</role>
+			<location>HangfireJobs</location>
+		</template>
+	</templates>
+	<decorators></decorators>
+	<factoryExtensions></factoryExtensions>
+	<moduleSettings></moduleSettings>
+	<dependencies>
+		<dependency id="Intent.Common" version="3.6.0" />
+		<dependency id="Intent.Common.CSharp" version="3.7.3-pre.0" />
+		<dependency id="Intent.Common.Types" version="3.4.0" />
+		<dependency id="Intent.Modelers.Domain" version="3.9.0" />
+		<dependency id="Intent.Modelers.Services" version="3.7.5" />
+		<dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+	</dependencies>
+	<files>
+		<file src="$outDir$/$id$.dll" />
+		<file src="$outDir$/$id$.pdb" />
+	</files>
+	<tags />
+	<moduleSettingsExtensions />
+	<metadata>
+		<install target="Services" src="Intent.Metadata/Module Builder/Intent.Modules.Hangfire/Intent.Modules.Hangfire.pkg.config" externalReference="fda30066-088b-48e0-9189-6cad1c70af13" />
+		<install src="modelers/Hangfire Settings.designer.settings" externalReference="045155f0-a262-425a-a77f-1e080062aeba" target="Services" />
+	</metadata>
 </package>
