@@ -30,14 +30,19 @@ namespace Intent.Modules.Hangfire.Templates.HangfireJobs
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
+                        if (model.PublishedCommand() != null)
+                        {
+                            AddUsing("MediatR");
+                            ctor.AddParameter("ISender", "mediator", param =>
+                            {
+                                param.IntroduceReadonlyField();
+                            });
+                        }
                     });
                     @class.AddMethod("Task", "ExecuteAsync", method =>
                     {
-                        AddUsing("System");
-
                         method.Async();
-                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
-
+                        
                         if (model.GetJobOptions().DisallowConcurrentExecution())
                         {
                             method.AddAttribute("DisableConcurrentExecution", attConfig =>
@@ -45,7 +50,22 @@ namespace Intent.Modules.Hangfire.Templates.HangfireJobs
                                 attConfig.AddArgument(model.GetJobOptions().ConcurrentExecutionTimeout().ToString());
                             });
                         }
-                        method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
+
+                        if (model.PublishedCommand() != null)
+                        {
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithSignatureFully());
+                            method.AddStatement($"var command = new {GetTypeName("Application.Contract.Command", model.PublishedCommand())}();");
+                            method.AddStatement("await _mediator.Send(command);");
+                        }
+                        else
+                        {
+                            AddUsing("System");
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                            method.AddStatement($"// TODO: Implement job functionality");
+                            method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
+                        }
+
+                        
                     });
                 });
         }

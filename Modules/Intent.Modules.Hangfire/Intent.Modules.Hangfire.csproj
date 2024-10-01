@@ -9,6 +9,7 @@
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.7.4" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.9.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.7.5" />
+    <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="4.1.2" />
     <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.7.7" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">
       <PrivateAssets>all</PrivateAssets>
@@ -16,6 +17,10 @@
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.4" />
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="resources\" />
   </ItemGroup>
 
 </Project>

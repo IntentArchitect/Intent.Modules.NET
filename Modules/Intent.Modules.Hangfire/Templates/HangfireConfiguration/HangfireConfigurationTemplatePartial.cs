@@ -59,7 +59,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
                             .AddStatement($"cfg.SetDataCompatibilityLevel(CompatibilityLevel.Version_180);")
                             .AddStatement("cfg.UseSimpleAssemblyNameTypeSerializer();")
                             .AddStatement("cfg.UseRecommendedSerializerSettings();")
-                            .AddStatement("cfg.ConfigureHangfireStorage(services, configuration);"))
+                            .AddStatement("cfg.UseInMemoryStorage();"))
                         );
 
                         if (_hangFireConfigurationModel is not null && _hangFireConfigurationModel.HasHangfireOptions() && _hangFireConfigurationModel.GetHangfireOptions().ConfigureAsHangfireServer())
@@ -85,19 +85,6 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
                     {
                         AddHostUseHangfire(@class);
                     }
-
-                    @class.AddMethod("IGlobalConfiguration", "ConfigureHangfireStorage", method =>
-                    {
-                        method.Static();
-                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
-
-                        method.AddParameter("IGlobalConfiguration", "cfg", p => p.WithThisModifier());
-                        method.AddParameter("IServiceCollection", "services");
-                        method.AddParameter("IConfiguration", "configuration");
-                        method.AddStatement("cfg.UseInMemoryStorage();");
-
-                        method.AddReturn("cfg");
-                    });
                 });
         }
 

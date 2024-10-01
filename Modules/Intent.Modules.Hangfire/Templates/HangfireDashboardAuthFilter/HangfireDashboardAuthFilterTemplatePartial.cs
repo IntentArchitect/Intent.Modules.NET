@@ -1,11 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Hangfire.Api;
 using Intent.RoslynWeaver.Attributes;
-using System.Collections.Generic;
-using System.Linq;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -29,15 +32,15 @@ namespace Intent.Modules.Hangfire.Templates.HangfireDashboardAuthFilter
                 .AddClass($"HangfireDashboardAuthFilter", @class =>
                 {
                     @class.ImplementsInterface("IDashboardAuthorizationFilter");
-                    @class.AddConstructor(constuctor =>
-                        constuctor.AddAttribute(CSharpIntentManagedAttribute.Ignore())
+                    @class.AddConstructor(constuctor => { }
+                    //constuctor.AddAttribute(CSharpIntentManagedAttribute.Ignore())
                     );
                     @class.AddMethod("bool", "Authorize", method =>
                     {
                         method.AddAttribute(CSharpIntentManagedAttribute.Ignore());
                         method.AddParameter("DashboardContext", "context");
-                        method.AddStatement("// Add custom implementation here to filter dashboard access");
-                        method.AddReturn(new CSharpStatement("true"));
+                        method.AddStatement("// TODO: Add custom implementation here to filter/grant dashboard access");
+                        method.AddReturn(new CSharpStatement("false"));
                     });
 
                 });
@@ -45,7 +48,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireDashboardAuthFilter
 
         public override bool CanRunTemplate()
         {
-            if(_model.Count == 0)
+            if (_model.Count == 0)
             {
                 return false;
             }

@@ -10,6 +10,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>da58eb88-504b-45ec-b50f-370b79a47ad9</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#232c11ea-e5a9-42ec-a6bf-5d29f876fa97</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/DiagramExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DiagramExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>da58eb88-504b-45ec-b50f-370b79a47ad9</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#7188c898-6b96-4a53-b2e4-ce2d6ae3a3fa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/HangfireConfigurationExtensionModel.cs</ApplicationRelativeFilePath>
@@ -54,6 +62,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/HangfireQueueModel.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HangfireQueueModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>da58eb88-504b-45ec-b50f-370b79a47ad9</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiAssociationModel#9fad2dc6-525f-408c-8981-abe958d65268</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/ScheduledCommandPublishModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScheduledCommandPublishModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>da58eb88-504b-45ec-b50f-370b79a47ad9</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiAssociationModelExtensions#9fad2dc6-525f-408c-8981-abe958d65268</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/ScheduledCommandPublishModelAssociationExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScheduledCommandPublishModelAssociationExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
