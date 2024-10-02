@@ -4,7 +4,7 @@ This module provides patterns for time based, as well as fire-and-forget jobs, u
 
 ## What is Hangfire?
 
-Hangfire is an open-source framework that helps you to create, process and manage your background jobs. Hangfire supports several kinds of background tasks: short-running and long-running, CPU intensive and I/O intensive, one shot and recurrent
+Hangfire is an open-source library for .NET that facilitates background job processing in a reliable and scalable manner - it allows developers to create, manage, and execute background tasks. Hangfire supports several different kinds of background tasks: short-running and long-running, CPU intensive and I/O intensive, one shot and recurrent
 
 For more information on Hangfire, check out their [official docs](https://www.hangfire.io/).
 
@@ -36,22 +36,22 @@ The storage mechanism utilised by Hangfire. Available options are:
 - None: no storage mechanism is configured by Intent Architect. The condiguration is entirely up to the developer.
 
 ##### Show Dashboard
-If this condition is on (the default value), then the Hangfire Dashboard will be exposed on _Dashboard Url_
+If this condition is on (the default value), then the Hangfire Dashboard will be exposed using the _Dashboard Url_ 
 
 ##### Dashboard URL
 The URL on which the Hangfire dashboard will be served. The default is `/hangfire`
 
 ##### Dashboard Title
-The title which appears on the dashboard when browsing to it
+The title which appears on the dashboard when browsing
 
 ##### Read Only Dashboard
 If this condition is off (the default value), the dashboard can be used to trigger scheduled jobs, or reprocess completed jobs. If this condition is on, the dashboard is read-only and is used for monitoring purposes only.
 
 ##### Configure as Hangfire Server
-If this condition is on (the default value) the application is treated as a Hangfire server and will serve as one of, potentially many, servers which will process Hangfire jobs. If this condition is off, the application will only be able to create/schedule jobs, but not perform the processing of the jobs.
+If this condition is on (the default value) the application is configurated as a Hangfire server and will function as a servers, processing Hangfire jobs. If this condition is off, the application will only be able to create/schedule jobs, but not process any jobs.
 
 ##### Worker Count
-This value indicates the number of paralell internal processors (workers) are created to handle job processing (i.e. the maxiumum number of jobs which can be processed in parallel). If left blank (the recommendation) Hangfire will automatically calculate the optimal number of workers.
+This value indicates the number of paralell internal processors (workers) created to handle job processing (i.e. the maxiumum number of jobs which can be processed in parallel). If left blank (the recommendation) Hangfire will automatically calculate the optimal number of workers based on CPU's available.
 
 ### Hangfire Jobs and Queues
 
@@ -77,7 +77,7 @@ Zero or more queues can be added to the Hangfire configuration. Adding a job wil
 The unique name of the job
 
 ##### Enabled
-If this option is on (the default), the job processing code included, otherwise it is excluded from the application. 
+If this option is on (the default), the job processing handler code is included, otherwise it is excluded from the application. 
 
 ##### Job Type
 The type of the job being added. The available options:
