@@ -70,7 +70,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
 
                                 lambdaBlock.AddStatement(useSimpleSchemaIdentifiers
                                     ? "options.CustomSchemaIds(GetFriendlyName);"
-                                    : "options.CustomSchemaIds(x => x.FullName);");
+                                    : "options.CustomSchemaIds(x => x.FullName?.Replace(\"+\", \"_\"));");
 
                                 lambdaBlock.AddStatement(
                                     "var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $\"{Assembly.GetExecutingAssembly().GetName().Name}.xml\");",

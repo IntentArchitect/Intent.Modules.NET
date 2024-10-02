@@ -1,6 +1,11 @@
+using System.Linq;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.Swashbuckle.Templates;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -17,30 +22,30 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.AfterTemplateRegistrations"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
-        protected override void OnAfterTemplateRegistrations(IApplication application)
-        {
-            // Your custom logic here.
-        }
-
-        /// <summary>
-        /// This is an example override which would extend the
-        /// <see cref="ExecutionLifeCycleSteps.BeforeTemplateExecution"/> phase of the Software Factory execution.
-        /// See <see cref="FactoryExtensionBase"/> for all available overrides.
-        /// </summary>
-        /// <remarks>
-        /// It is safe to update or delete this method.
-        /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            // Your custom logic here.
+            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration"));
+            if (template == null)
+            {
+                return;
+            }
+
+            var @class = template.CSharpFile.Classes.First();
+
+            var configureSwaggerOptionsBlock = GetConfigureSwaggerOptionsBlock(@class);
+            if (configureSwaggerOptionsBlock == null)
+            {
+                return;
+            }
+
+            configureSwaggerOptionsBlock.AddStatement($@"options.SchemaFilter<{template.GetTypeSchemaFilterName()}>();");
+        }
+        private static CSharpLambdaBlock GetConfigureSwaggerOptionsBlock(CSharpClass @class)
+        {
+            var configureSwaggerMethod = @class.FindMethod("ConfigureSwagger");
+            var addSwaggerGen = configureSwaggerMethod?.FindStatement(p => p.HasMetadata("AddSwaggerGen")) as CSharpInvocationStatement;
+            var cSharpLambdaBlock = addSwaggerGen?.Statements.First() as CSharpLambdaBlock;
+            return cSharpLambdaBlock;
         }
     }
 }
