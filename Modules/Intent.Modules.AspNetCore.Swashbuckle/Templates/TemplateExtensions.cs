@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfiguration;
+using Intent.Modules.AspNetCore.Swashbuckle.Templates.TypeSchemaFilter;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -14,6 +15,11 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Templates
         public static string GetSwashbuckleConfigurationName(this IIntentTemplate template)
         {
             return template.GetTypeName(SwashbuckleConfigurationTemplate.TemplateId);
+        }
+
+        public static string GetTypeSchemaFilterName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(TypeSchemaFilterTemplate.TemplateId);
         }
 
     }

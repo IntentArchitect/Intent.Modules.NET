@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="abdfb228-799e-426a-9c06-d2571abbfe64" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>TypeSchemaFilterExtension</name>
+  <display>TypeSchemaFilterExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f7c0dfe8-5d94-4a79-9282-4665facdace5</parentFolderId>
+  <packageId>f7c0dfe8-5d94-4a79-9282-4665facdace5</packageId>
+  <packageName>Intent.AspNetCore.Swashbuckle</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers</id>
-  <version>6.1.0</version>
+  <version>6.1.1-pre.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates Controller classes based off of Services in the Services designer</summary>
   <description>Generates Controller classes based off of Services in the Services designer</description>
@@ -51,21 +51,12 @@
       <role>Distribution.Controller.JsonResponse</role>
       <location>Controllers/ResponseTypes</location>
     </template>
-    <template id="Intent.AspNetCore.Controllers.TypeSchemaFilter" externalReference="bd5c08f3-d78d-4b7a-bb89-97fd398827d9">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Distribution.TypeSchemaFilter</role>
-      <location>Filters</location>
-    </template>
   </templates>
   <decorators />
   <factoryExtensions>
     <factoryExtension id="Intent.AspNetCore.Controllers.BinaryContentFilterExtension" externalReference="381a0b6c-688c-43f5-812e-c6b76c61b0a6" />
     <factoryExtension id="Intent.AspNetCore.Controllers.ExceptionFilterExtension" externalReference="6879086c-8477-4b0a-ae01-8b6dc49d1003" />
     <factoryExtension id="Intent.AspNetCore.Controllers.JsonOptionsExtension" externalReference="3f12f92a-d670-4abe-b034-0123bfba10da" />
-    <factoryExtension id="Intent.AspNetCore.Controllers.TypeSchemaFilterExtension" externalReference="6cd2ffc3-bff8-483c-b596-288a908c4f0c" />
   </factoryExtensions>
   <interoperability>
     <detect id="Intent.Application.Contracts">
@@ -78,9 +69,14 @@
         <package id="Intent.AspNetCore.Controllers.Dispatch.MediatR" version="5.5.2" />
       </install>
     </detect>
+    <detect id="Intent.AspNetCore.Swashbuckle">
+      <install>
+        <package id="Intent.AspNetCore.Swashbuckle" version="5.1.1-pre.0" />
+      </install>
+    </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="6.0.3" />
+    <dependency id="Intent.AspNetCore" version="6.0.4" />
     <dependency id="Intent.Common" version="3.6.0" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />

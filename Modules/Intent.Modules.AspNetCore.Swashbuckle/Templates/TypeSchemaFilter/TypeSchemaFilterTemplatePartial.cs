@@ -11,12 +11,12 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.Controllers.Templates.TypeSchemaFilter
+namespace Intent.Modules.AspNetCore.Swashbuckle.Templates.TypeSchemaFilter
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class TypeSchemaFilterTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.AspNetCore.Controllers.TypeSchemaFilter";
+        public const string TemplateId = "Intent.AspNetCore.Swashbuckle.TypeSchemaFilter";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public TypeSchemaFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -51,9 +51,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.TypeSchemaFilter
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() &&
-                ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration")) != null;
+                   ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.SwashbuckleConfiguration")) != null;
         }
-
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

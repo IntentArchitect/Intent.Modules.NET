@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="bd5c08f3-d78d-4b7a-bb89-97fd398827d9" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+<class id="ffdf736a-39d9-4c16-998c-452da9cce2db" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
   <name>TypeSchemaFilter</name>
   <display>TypeSchemaFilter: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="71eb9b46-1708-4088-969e-c02f8e6c9669">
+  <typeReference id="4a91aa01-ee21-4037-b217-fbe03bee9886">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -16,9 +16,9 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>2e47c1f8-bb68-45ad-aa23-385a4faadc92</parentFolderId>
-  <packageId>2e47c1f8-bb68-45ad-aa23-385a4faadc92</packageId>
-  <packageName>Intent.AspNetCore.Controllers</packageName>
+  <parentFolderId>f7c0dfe8-5d94-4a79-9282-4665facdace5</parentFolderId>
+  <packageId>f7c0dfe8-5d94-4a79-9282-4665facdace5</packageId>
+  <packageName>Intent.AspNetCore.Swashbuckle</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>
