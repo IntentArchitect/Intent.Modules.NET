@@ -93,7 +93,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                     method.Override();
                     AddHttpVerbAndRoute(method);
                     AddDescriptionConfiguration(method);
-                    method.AddStatement("AllowAnonymous();");
+                    AddSecurity(method);
                 });
 
                 @class.AddMethod("Task", "HandleAsync", method =>
@@ -229,6 +229,11 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             {
                 method.AddInvocationStatement("Description", inv => inv.AddArgument(lambda));
             }
+        }
+        
+        private void AddSecurity(CSharpClassMethod method)
+        {
+            method.AddStatement("AllowAnonymous();");
         }
 
         private CSharpAttribute? GetParameterBindingAttribute(IEndpointParameterModel parameter)
