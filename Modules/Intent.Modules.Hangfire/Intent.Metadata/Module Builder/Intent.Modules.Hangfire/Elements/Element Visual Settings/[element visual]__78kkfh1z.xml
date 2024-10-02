@@ -79,9 +79,9 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="b5dff2b0-4955-473e-9047-ccedf76425d3" type="SVG Resource Draw Settings" typeId="b5566ace-3353-4009-9370-475b561451a0">
-      <name>Symbol</name>
-      <display>[draw svg]: Symbol</display>
+    <childElement id="edaada32-bb34-44bc-a420-a4e70d8e0764" type="SVG Resource Draw Settings" typeId="b5566ace-3353-4009-9370-475b561451a0">
+      <name>Job Visual</name>
+      <display>[draw svg]: Job Visual</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -94,7 +94,7 @@
           <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
-            <property name="8b60333a-8d5a-4ada-a498-2662a43d1c03" display="Resource Path" value="hangfire-job.svg" isActive="true" />
+            <property name="8b60333a-8d5a-4ada-a498-2662a43d1c03" display="Resource Path" value="scheduled-job.svg" isActive="true" />
             <property name="6addd9b9-6f48-4054-b74c-f670e3b5f847" display="Condition" isActive="true" />
           </properties>
         </stereotype>

@@ -40,7 +40,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
 
             AddNugetDependency(NugetPackages.HangfireCore(OutputTarget));
             AddNugetDependency(NugetPackages.HangfireAspNetCore(OutputTarget));
-            
+
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Hangfire")

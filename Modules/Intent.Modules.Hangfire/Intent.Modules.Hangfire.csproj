@@ -19,8 +19,4 @@
     <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.6.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="resources\" />
-  </ItemGroup>
-
 </Project>
