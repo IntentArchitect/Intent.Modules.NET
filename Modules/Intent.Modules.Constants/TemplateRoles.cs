@@ -28,6 +28,7 @@ namespace Intent.Modules.Constants
             public const string ValueObject = "Domain.ValueObject";
             public const string DataContract = "Domain.DataContract";
             public const string Events = "Domain.Events";
+            public const string Specification = "Domain.Specification";
 
             public static class Entity
             {

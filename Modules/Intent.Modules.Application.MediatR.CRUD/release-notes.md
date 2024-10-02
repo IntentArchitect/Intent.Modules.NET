@@ -1,3 +1,7 @@
+### Version 6.0.19
+
+- Improvement: Basic CRUD support for specifications.
+
 ### Version 6.0.18
 
 - Improvement: Improved error when creating illegal queries.

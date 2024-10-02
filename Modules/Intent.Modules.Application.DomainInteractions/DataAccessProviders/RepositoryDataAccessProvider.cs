@@ -23,6 +23,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
     private readonly CSharpClassMappingManager _mappingManager;
 	private readonly bool _hasUnitOfWork;
     private readonly CSharpProperty[] _pks;
+    private readonly ClassModel _entity;
 
     public RepositoryDataAccessProvider(string repositoryFieldName, ICSharpFileBuilderTemplate template, CSharpClassMappingManager mappingManager, bool hasUnitOfWork, ClassModel entity)
     {
@@ -32,7 +33,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         _mappingManager = mappingManager;
         var entityTemplate = _template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, entity);
         _pks = entityTemplate.CSharpFile.Classes.First().GetPropertiesWithPrimaryKey();
-
+        _entity = entity;
     }
 
     public CSharpStatement SaveChangesAsync()
@@ -91,6 +92,13 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
 
 	public CSharpStatement FindByIdAsync(List<PrimaryKeyFilterMapping> pkMaps)
     {
+
+        if (_template.TryGetTypeName(TemplateRoles.Domain.Specification, _entity, out var specificationType))
+        {
+            return new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FirstOrDefaultAsync")
+                .AddArgument($"new {specificationType}({pkMaps.Select(x => x.ValueExpression).AsSingleOrTuple()})" )
+                .AddArgument("cancellationToken");
+        }
         return new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindByIdAsync")
             .AddArgument(pkMaps.Select(x => x.ValueExpression).AsSingleOrTuple())
             .AddArgument("cancellationToken");
@@ -130,6 +138,14 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
 
     public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements)
     {
+        if (_template.TryGetTypeName(TemplateRoles.Domain.Specification, _entity, out var specificationType))
+        {
+            prerequisiteStatements = new List<CSharpStatement>();
+            return new CSharpInvocationStatement($"await {_repositoryFieldName}", $"ListAsync")
+                .AddArgument($"new {specificationType}()")
+                .AddArgument("cancellationToken");
+        }
+
         var expression = CreateQueryFilterExpression(queryMapping, out prerequisiteStatements);
         var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAllAsync");
         if (expression.Statement is not null)
@@ -143,6 +159,13 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
 
     public CSharpStatement FindAllAsync(CSharpStatement? expression)
     {
+        if (_template.TryGetTypeName(TemplateRoles.Domain.Specification, _entity, out var specificationType))
+        {
+            return new CSharpInvocationStatement($"await {_repositoryFieldName}", $"ListAsync")
+                .AddArgument($"new {specificationType}()")
+                .AddArgument("cancellationToken");
+        }
+
         var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAllAsync");
         if (expression != null)
         {

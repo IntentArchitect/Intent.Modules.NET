@@ -1,3 +1,7 @@
+### Version 5.0.16
+
+- Improvement: Basic CRUD support for specifications.
+
 ### Version 5.0.15
 
 - Improvement: Improved error when creating illegal queries.

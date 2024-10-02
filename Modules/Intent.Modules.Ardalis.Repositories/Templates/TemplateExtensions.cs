@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface;
+using Intent.Modules.Ardalis.Repositories.Templates.Specification;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -20,6 +21,16 @@ namespace Intent.Modules.Ardalis.Repositories.Templates
         public static string GetReadRepositoryInterfaceName(this IIntentTemplate template, ClassModel model)
         {
             return template.GetTypeName(ReadRepositoryInterfaceTemplate.TemplateId, model);
+        }
+
+        public static string GetSpecificationName<T>(this IIntentTemplate<T> template) where T : ClassModel
+        {
+            return template.GetTypeName(SpecificationTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetSpecificationName(this IIntentTemplate template, ClassModel model)
+        {
+            return template.GetTypeName(SpecificationTemplate.TemplateId, model);
         }
 
     }
