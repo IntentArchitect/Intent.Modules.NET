@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -28,12 +29,20 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
         public EndpointTemplate(IOutputTarget outputTarget, IEndpointModel model = null) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+            AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(TemplateRoles.Application.Command);
+            AddTypeSource(TemplateRoles.Application.Query);
+            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
+            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
+            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddUsing("FastEndpoints");
+                .AddUsing("FastEndpoints")
+                .AddUsing("Mode = Intent.RoslynWeaver.Attributes.Mode");
 
             AddRequestModelIfApplicable();
             AddEndpointClass();
@@ -103,8 +112,8 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
 
         private void DefineEndpointBaseType(CSharpClass @class)
         {
-            string? requestType = _requestModelClass is not null ? _requestModelClass.Name : null;
-            string? responseType = GetReturnType();
+            var requestType = _requestModelClass?.Name;
+            var responseType = GetReturnType();
             string baseType = default!;
 
             if (requestType is not null &&
@@ -157,7 +166,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             if (parameter.Source is null or HttpInputSource.FromRoute &&
                 Model.Route.Contains($"{{{parameter.Name}}}", StringComparison.OrdinalIgnoreCase))
             {
-                return new CSharpAttribute("FromRoute");
+                return null; // FastEndpoints default to Route Parameters and doesn't have a FromRoute attribute
             }
 
             if (parameter.Source is HttpInputSource.FromHeader)
