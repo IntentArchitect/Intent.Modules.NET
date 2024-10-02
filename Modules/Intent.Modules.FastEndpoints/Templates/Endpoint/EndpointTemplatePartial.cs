@@ -28,6 +28,8 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public EndpointTemplate(IOutputTarget outputTarget, IEndpointModel model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.FastEndpoints(OutputTarget));
+
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             AddTypeSource(TemplateRoles.Domain.Enum);
             AddTypeSource(TemplateRoles.Application.Command);
@@ -42,7 +44,14 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("FastEndpoints")
-                .AddUsing("Mode = Intent.RoslynWeaver.Attributes.Mode");
+                .AddUsing("Mode = Intent.RoslynWeaver.Attributes.Mode")
+                .OnBuild(file =>
+                {
+                    if (file.Template.ExecutionContext.FindTemplateInstances("Distribution.SwashbuckleConfiguration")?.Any() == true)
+                    {
+                        AddNugetDependency(NugetPackages.FastEndpointsSwaggerSwashbuckle(OutputTarget));
+                    }
+                });
 
             AddRequestModelIfApplicable();
             AddEndpointClass();
@@ -183,7 +192,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             }
 
             var producesReturnTypeDefinition = GetReturnType() is not null ? $"<{GetReturnType()}>" : "";
-            
+
             switch (Model.Verb)
             {
                 case HttpVerb.Get:
@@ -255,7 +264,8 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             return null;
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
