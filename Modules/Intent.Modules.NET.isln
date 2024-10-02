@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.74" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.0.0" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" name="VisualStudio.Projects" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -139,5 +139,7 @@
     <application id="04173526-2384-4828-9f9c-80fdde7c5460" name="Intent.Modules.AI.ChatDrivenDomain" relativePath="Intent.Modules.AI.ChatDrivenDomain/Intent.Modules.AI.ChatDrivenDomain.application.config" />
     <application id="2764f852-7924-40cb-8b2f-c58c211a632d" name="Intent.Modules.Blazor.FluentValidation" relativePath="Intent.Modules.Blazor.FluentValidation/Intent.Modules.Blazor.FluentValidation.application.config" />
     <application id="6bef04ea-3c71-42f7-8988-7f94165a7fca" name="Intent.Modules.FastEndpoints" relativePath="Intent.Modules.FastEndpoints/Intent.Modules.FastEndpoints.application.config" />
+    <application id="28245ab0-d591-4360-984a-886e218302e6" name="Intent.Modules.FastEndpoints.Dispatch.MediatR" relativePath="Intent.Modules.FastEndpoints.Dispatch.MediatR/Intent.Modules.FastEndpoints.Dispatch.MediatR.application.config" />
+    <application id="ef1945f3-b5bf-4321-859b-bda2c6ef4747" name="Intent.Modules.FastEndpoints.Dispatch.Services" relativePath="Intent.Modules.FastEndpoints.Dispatch.Services/Intent.Modules.FastEndpoints.Dispatch.Services.application.config" />
   </applications>
 </solution>

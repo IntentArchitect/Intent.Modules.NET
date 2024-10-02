@@ -230,7 +230,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 method.AddInvocationStatement("Description", inv => inv.AddArgument(lambda));
             }
         }
-        
+
         private void AddSecurity(CSharpClassMethod method)
         {
             method.AddStatement("AllowAnonymous();");
