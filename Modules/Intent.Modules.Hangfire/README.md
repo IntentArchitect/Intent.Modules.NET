@@ -29,8 +29,14 @@ This will add the core Hangfire components to the application, with the followin
 
 #### Hangfire Configuration Options
 
+##### Storage
+The storage mechanism utilised by Hangfire. Available options are:
+- In Memory: all job information, including job execution history is stored in memory and is lost if the service is restarted
+- SQL Server: all job information is stored in SQL Server tables and is persisted even if the service is restarted
+- None: no storage mechanism is configured by Intent Architect. The condiguration is entirely up to the developer.
+
 ##### Show Dashboard
-If this condition is on (the default value), then the Hangfire Dashboard will be added to the application
+If this condition is on (the default value), then the Hangfire Dashboard will be exposed on _Dashboard Url_
 
 ##### Dashboard URL
 The URL on which the Hangfire dashboard will be served. The default is `/hangfire`
@@ -49,7 +55,7 @@ This value indicates the number of paralell internal processors (workers) are cr
 
 ### Hangfire Jobs and Queues
 
-Once the core Hangfire configuration is completed, one or more jobs and/or queues can be added. In the `Service Designer`, right click on the `Hangfire Configuration` and select the `Add Job` or `Ad Queue` context menu option:
+Once the core Hangfire configuration is completed, one or more jobs and/or queues can be added. In the `Service Designer`, right click on the `Hangfire Configuration` and select the `Add Job` or `Add Queue` context menu option:
 
 ![Add Hangfire](./docs/images/modeled-job-queue.png)
 
