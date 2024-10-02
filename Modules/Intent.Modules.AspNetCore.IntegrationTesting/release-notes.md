@@ -1,3 +1,7 @@
+### Version 1.0.7
+
+- Fixed: HttpClients are able to generate into `netstandard2.*` projects.
+
 ### Version 1.0.6
 
 - Improvement: Updated module NuGet packages infrastructure.

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f286ae64-d27a-4a7d-9004-bfbe96abe057" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</parentFolderId>
+  <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
+  <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

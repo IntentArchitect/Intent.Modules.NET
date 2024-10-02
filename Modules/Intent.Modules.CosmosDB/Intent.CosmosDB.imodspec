@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.CosmosDB</id>
-  <version>1.2.3</version>
+  <version>1.2.4-pre.0</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</summary>
   <description>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</description>
@@ -155,6 +155,14 @@
       <role>Repository.Implementation.CosmosDB</role>
       <location>Repositories</location>
     </template>
+    <template id="Intent.CosmosDB.EnumJsonConverter" externalReference="02a70d9d-02d1-44ae-8c40-6e1c9e152086">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.CosmosDB.Document</role>
+      <location>Persistence/Documents</location>
+    </template>
     <template id="Intent.CosmosDB.ReflectionHelper" externalReference="e8f0d58b-b368-4ffb-982b-a5a085ab692c">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -177,6 +185,11 @@
           <isRequired>true</isRequired>
           <hint>Ensures updates are applied only when document etags match, for improved concurrency management</hint>
           <defaultValue>true</defaultValue>
+        </setting>
+        <setting id="863af816-91fb-4f11-9e9d-e62f559ab0ac" title="Store enums as strings" type="switch">
+          <isRequired>false</isRequired>
+          <hint>Enables a convention to convert enums to/from strings.</hint>
+          <defaultValue>false</defaultValue>
         </setting>
       </settings>
     </group>
@@ -212,7 +225,7 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.3" />
+    <dependency id="Intent.Common.CSharp" version="3.7.6-pre.1" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Entities.Repositories.Api" version="5.0.0" />
     <dependency id="Intent.Metadata.DocumentDB" version="1.1.8" />

@@ -11,10 +11,10 @@ namespace SqlServerImporterTests.Application.Orders
 {
     public static class CustomerOrderDtoMappingExtensions
     {
-        public static CustomerOrderDto MapToCustomerOrderDto(this CustomerOrder projectFrom, IMapper mapper)
+        public static CustomerOrderDto MapToCustomerOrderDto(this GetCustomerOrdersResponse projectFrom, IMapper mapper)
             => mapper.Map<CustomerOrderDto>(projectFrom);
 
-        public static List<CustomerOrderDto> MapToCustomerOrderDtoList(this IEnumerable<CustomerOrder> projectFrom, IMapper mapper)
+        public static List<CustomerOrderDto> MapToCustomerOrderDtoList(this IEnumerable<GetCustomerOrdersResponse> projectFrom, IMapper mapper)
             => projectFrom.Select(x => x.MapToCustomerOrderDto(mapper)).ToList();
     }
 }

@@ -45,7 +45,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConf
             Action<CSharpLambdaBlock, IServiceProxyModel, ICSharpFileBuilderTemplate > configureHttpClient
             ) : base(templateId, outputTarget, model)
         {
-            AddNugetDependency(NuGetPackages.IdentityModelAspNetCore);
+            AddNugetDependency(NuGetPackages.IdentityModelAspNetCore(outputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Net.Http")                

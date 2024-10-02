@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d7df95ea-a681-4ab7-a365-52f74a337de7" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>97c1f224-ed45-4fa7-891e-75280542ac06</parentFolderId>
+  <packageId>97c1f224-ed45-4fa7-891e-75280542ac06</packageId>
+  <packageName>CosmosDB.EnumStrings.Domain</packageName>
+  <diagram>
+    <targetPackageId>97c1f224-ed45-4fa7-891e-75280542ac06</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

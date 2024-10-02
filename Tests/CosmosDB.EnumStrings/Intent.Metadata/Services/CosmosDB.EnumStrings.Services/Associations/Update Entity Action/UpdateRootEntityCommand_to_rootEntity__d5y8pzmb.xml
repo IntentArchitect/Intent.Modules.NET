@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="25c2b005-dda2-4d80-972f-78a3fd43eb6d">
+  <sourceEnd id="7f887386-46ec-40f4-b4ba-26b1eef5ac9d" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : RootEntities.UpdateRootEntityCommand</display>
+    <order>0</order>
+    <typeReference id="cf29d63e-11a3-43fc-bd0b-27ba09b00b7d">
+      <typeId>07a12827-d421-4869-b3bf-08524accf745</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.EnumStrings.Services</typePackageName>
+      <typePackageId>c0177b26-f1f9-402d-a74d-c4ac815e7f93</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="25c2b005-dda2-4d80-972f-78a3fd43eb6d" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>rootEntity</name>
+    <display>[update] rootEntity: RootEntity</display>
+    <order>5</order>
+    <typeReference id="37b17675-ee86-48e0-805a-6eb2771d1fe6">
+      <typeId>df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.EnumStrings.Domain</typePackageName>
+      <typePackageId>97c1f224-ed45-4fa7-891e-75280542ac06</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="b045eba4-3b96-458d-b12f-62678792b09f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="07a12827-d421-4869-b3bf-08524accf745" location="[CosmosDB.EnumStrings].[Services].[UpdateRootEntityCommand]" />
+        <target applicationId="b045eba4-3b96-458d-b12f-62678792b09f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72" location="[CosmosDB.EnumStrings].[Services].[RootEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72" name="RootEntity" type="element" specialization="Class" />
+              <target id="3bed7571-2e73-4939-9859-37170389c3a9" name="Id" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="07a12827-d421-4869-b3bf-08524accf745" name="UpdateRootEntityCommand" type="element" specialization="Command" />
+                  <target id="04cab8f9-54f9-47bb-a941-afe854a4bcac" name="Id" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="b045eba4-3b96-458d-b12f-62678792b09f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="07a12827-d421-4869-b3bf-08524accf745" location="[CosmosDB.EnumStrings].[Services].[UpdateRootEntityCommand]" />
+        <target applicationId="b045eba4-3b96-458d-b12f-62678792b09f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72" location="[CosmosDB.EnumStrings].[Services].[RootEntity]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72" name="RootEntity" type="element" specialization="Class" />
+              <target id="ace391c9-125c-492d-af8c-e8aad2e8b54b" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="07a12827-d421-4869-b3bf-08524accf745" name="UpdateRootEntityCommand" type="element" specialization="Command" />
+                  <target id="92efd506-7c5b-46b5-8997-00d0614c83b5" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{EnumExample}</expression>
+            <path>
+              <target id="df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72" name="RootEntity" type="element" specialization="Class" />
+              <target id="ab8d4842-37c3-4d58-b060-7e2c5f1b3810" name="EnumExample" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="EnumExample" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="07a12827-d421-4869-b3bf-08524accf745" name="UpdateRootEntityCommand" type="element" specialization="Command" />
+                  <target id="06b8617e-a047-4320-a83e-c84c9ec8e577" name="EnumExample" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{NullableEnumExample}</expression>
+            <path>
+              <target id="df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72" name="RootEntity" type="element" specialization="Class" />
+              <target id="74ef63dd-0e81-4520-ac87-b21d7fa9858b" name="NullableEnumExample" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="NullableEnumExample" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="07a12827-d421-4869-b3bf-08524accf745" name="UpdateRootEntityCommand" type="element" specialization="Command" />
+                  <target id="92907d24-a60f-4da7-8557-2d838521e0f0" name="NullableEnumExample" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Embedded.Name}</expression>
+            <path>
+              <target id="df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72" name="RootEntity" type="element" specialization="Class" />
+              <target id="8e3856d1-d852-48b3-a881-91a36aa9f651" name="Embedded" type="element" specialization="Attribute" />
+              <target id="bc611a83-7ed6-4bab-a5e8-44059872c706" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Embedded.Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="07a12827-d421-4869-b3bf-08524accf745" name="UpdateRootEntityCommand" type="element" specialization="Command" />
+                  <target id="0c12f472-96ec-4c7c-9f93-06360310664f" name="Embedded" type="element" specialization="DTO-Field" />
+                  <target id="75a46edd-9abc-4bc3-822d-8e292682d11b" name="Name" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Embedded.EnumExample}</expression>
+            <path>
+              <target id="df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72" name="RootEntity" type="element" specialization="Class" />
+              <target id="8e3856d1-d852-48b3-a881-91a36aa9f651" name="Embedded" type="element" specialization="Attribute" />
+              <target id="33d1ddca-0ce7-45f3-9f15-db898fe435c5" name="EnumExample" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Embedded.EnumExample" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="07a12827-d421-4869-b3bf-08524accf745" name="UpdateRootEntityCommand" type="element" specialization="Command" />
+                  <target id="0c12f472-96ec-4c7c-9f93-06360310664f" name="Embedded" type="element" specialization="DTO-Field" />
+                  <target id="469c46e7-8b6a-41e9-8698-110b56f6e441" name="EnumExample" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Embedded.NullableEnumExample}</expression>
+            <path>
+              <target id="df7ec9ee-84bb-41c6-aaa6-fa08bcc4ef72" name="RootEntity" type="element" specialization="Class" />
+              <target id="8e3856d1-d852-48b3-a881-91a36aa9f651" name="Embedded" type="element" specialization="Attribute" />
+              <target id="80c3ad2d-8cd1-4f42-a302-5d5e4a453f05" name="NullableEnumExample" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="Embedded.NullableEnumExample" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="07a12827-d421-4869-b3bf-08524accf745" name="UpdateRootEntityCommand" type="element" specialization="Command" />
+                  <target id="0c12f472-96ec-4c7c-9f93-06360310664f" name="Embedded" type="element" specialization="DTO-Field" />
+                  <target id="4f7678eb-4924-4f01-b3df-07cf05be7be1" name="NullableEnumExample" type="element" specialization="DTO-Field" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

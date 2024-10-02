@@ -394,6 +394,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#02a70d9d-02d1-44ae-8c40-6e1c9e152086</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/EnumJsonConverter/EnumJsonConverterTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EnumJsonConverter/EnumJsonConverterTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#02a70d9d-02d1-44ae-8c40-6e1c9e152086</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/EnumJsonConverter/EnumJsonConverterTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EnumJsonConverter/EnumJsonConverterTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c99d833a-084c-4105-a6fd-a931949e4a9e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e8f0d58b-b368-4ffb-982b-a5a085ab692c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ReflectionHelper/ReflectionHelperTemplatePartial.cs</ApplicationRelativeFilePath>

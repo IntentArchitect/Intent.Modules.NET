@@ -40,5 +40,7 @@ namespace Intent.Modules.CosmosDB.Settings
         }
 
         public bool UseOptimisticConcurrency() => bool.TryParse(_groupSettings.GetSetting("6f75f245-8194-4606-b6b7-2bb226394b5f")?.Value.ToPascalCase(), out var result) && result;
+
+        public bool StoreEnumsAsStrings() => bool.TryParse(_groupSettings.GetSetting("863af816-91fb-4f11-9e9d-e62f559ab0ac")?.Value.ToPascalCase(), out var result) && result;
     }
 }

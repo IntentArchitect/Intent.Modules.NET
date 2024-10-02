@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2dd4005b-a5d8-453f-9e2b-78cdd45f3be7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#fbc12374-fce8-4d95-a768-fefb7a6c444e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/RepositoryExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RepositoryExtensionModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>1c5e20a7-ea37-4fda-9472-c1ea8260c383</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#1c5e20a7-ea37-4fda-9472-c1ea8260c383</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

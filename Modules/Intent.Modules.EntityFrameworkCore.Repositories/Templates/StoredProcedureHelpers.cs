@@ -16,7 +16,6 @@ using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Metadata.RDBMS.Settings;
-using Intent.Modules.Modelers.Domain.Settings;
 using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.Utils;
 
@@ -29,9 +28,7 @@ internal static class StoredProcedureHelpers
         IReadOnlyCollection<StoredProcedureModel> storedProcedures)
         where TTemplate : CSharpTemplateBase<TModel>, ICSharpFileBuilderTemplate
     {
-        template.AddTypeSource(TemplateRoles.Domain.Enum);
-        template.AddTypeSource(TemplateRoles.Domain.Entity.Interface);
-        template.AddTypeSource(TemplateRoles.Domain.DataContract);
+        template.AddDomainTypeSources();
 
         template.CSharpFile
             .AddUsing("System.Threading")
@@ -91,7 +88,7 @@ internal static class StoredProcedureHelpers
                     @class.AddMethod(GetReturnType(template, storedProcedure), storedProcedure.Name.ToPascalCase(), method =>
                     {
                         method.RepresentsModel(storedProcedure);
-                        
+
                         var returnTupleProperties = storedProcedure.Parameters
                             .Where(parameter => parameter.GetStoredProcedureParameterSettings()?.IsOutputParameter() == true)
                             .Select(parameter =>
@@ -226,8 +223,8 @@ internal static class StoredProcedureHelpers
                                 ReturnsCollection: returnsCollection,
                                 ReturnTupleProperties: returnTupleProperties));
                         }
-                        
-                        
+
+
                     });
                 }
             })
@@ -373,7 +370,7 @@ internal static class StoredProcedureHelpers
 
         return tupleProperties;
     }
-    
+
     private static CSharpType GetReturnType(ICSharpTemplate template, StoredProcedureModel storedProcedure)
     {
         var tupleProperties = GetReturnProperties(template, storedProcedure);
@@ -504,7 +501,7 @@ internal static class StoredProcedureHelpers
         }
 
         private static string GetSqlDbType(StoredProcedureParameterModel parameter)
-        { 
+        {
             // https://learn.microsoft.com/dotnet/framework/data/adonet/sql-server-data-type-mappings
             return parameter.TypeReference.Element.Name.ToLowerInvariant() switch
             {

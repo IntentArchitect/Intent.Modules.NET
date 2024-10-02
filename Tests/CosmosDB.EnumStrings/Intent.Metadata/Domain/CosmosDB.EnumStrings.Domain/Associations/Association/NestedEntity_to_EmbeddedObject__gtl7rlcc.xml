@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="32f082d6-8b4c-448c-b974-cccb3f538de9">
+  <sourceEnd id="7392710e-7f64-48e8-9c34-128492818633" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>NestedEntity</name>
+    <display>NestedEntity: NestedEntity</display>
+    <order>0</order>
+    <typeReference id="36172db6-f5b4-4607-9ebe-bc810d27deb9">
+      <typeId>a6d9ddeb-375d-4088-94d2-bee2f3dc6029</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.EnumStrings.Domain</typePackageName>
+      <typePackageId>97c1f224-ed45-4fa7-891e-75280542ac06</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="32f082d6-8b4c-448c-b974-cccb3f538de9" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>EmbeddedObject</name>
+    <display>EmbeddedObject: EmbeddedObject</display>
+    <order>5</order>
+    <typeReference id="f1ef2760-5d21-4506-8503-3b4d701cd964">
+      <typeId>e855d906-4a42-401d-86d4-323f03e7262d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.EnumStrings.Domain</typePackageName>
+      <typePackageId>97c1f224-ed45-4fa7-891e-75280542ac06</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

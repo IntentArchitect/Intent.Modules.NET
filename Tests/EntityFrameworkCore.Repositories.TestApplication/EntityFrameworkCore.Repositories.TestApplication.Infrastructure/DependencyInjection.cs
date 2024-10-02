@@ -33,6 +33,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IAsyncRepositoryTestRepository, AsyncRepositoryTestRepository>();
             services.AddTransient<ICustomRepository, CustomRepository>();
             services.AddTransient<ISqlOutParameterRepository, SqlOutParameterRepository>();
             services.AddTransient<ISqlParameterRepositoryReturningScalarRepository, SqlParameterRepositoryReturningScalarRepository>();

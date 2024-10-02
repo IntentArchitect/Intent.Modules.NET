@@ -7,9 +7,11 @@ using Intent.Engine;
 using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.CosmosDB.Settings;
 using Intent.Modules.CosmosDB.Templates.CosmosDBDocumentInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument;
@@ -25,7 +27,7 @@ namespace Intent.Modules.CosmosDB.Templates
             IEnumerable<AttributeModel> attributes,
             IEnumerable<AssociationEndModel> associationEnds,
             string documentInterfaceTemplateId = null)
-                where TModel : IMetadataModel
+            where TModel : IMetadataModel
         {
             foreach (var attribute in attributes)
             {
@@ -40,9 +42,19 @@ namespace Intent.Modules.CosmosDB.Templates
                     {
                         property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{attribute.GetFieldSetting().Name()}\")");
                     }
+
+                    if (attribute.TypeReference?.Element?.IsEnumModel() == true && template.ExecutionContext.Settings.GetCosmosDb().StoreEnumsAsStrings())
+                    {
+                        property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonConverter")}(typeof({template.GetEnumJsonConverterName()}))");
+                    }
+
+                    if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
+                    {
+                        template.AddDocumentInterfaceAccessor(@class, documentInterfaceTemplateId, attribute.TypeReference, attribute.Name.ToPascalCase());
+                    }
                 });
 
-                if (attribute.TypeReference.IsCollection)   
+                if (attribute.TypeReference.IsCollection)
                 {
                     @class.AddProperty(
                         type: $"{template.UseType("System.Collections.Generic.IReadOnlyList")}<{template.GetTypeName((IElement)attribute.TypeReference.Element)}>",
@@ -75,14 +87,26 @@ namespace Intent.Modules.CosmosDB.Templates
                 {
                     continue;
                 }
+                
+                template.AddDocumentInterfaceAccessor(@class, documentInterfaceTemplateId, associationEnd.TypeReference, associationEnd.Name.ToPascalCase());
+            }
+        }
 
-                @class.AddProperty(template.GetDocumentInterfaceName(associationEnd.TypeReference), associationEnd.Name.ToPascalCase(), property =>
+        private static void AddDocumentInterfaceAccessor<TModel>(
+            this CSharpTemplateBase<TModel> template,
+            CSharpClass @class,
+            string documentInterfaceTemplateId,
+            ITypeReference elementReference,
+            string entityPropertyName)
+            where TModel : IMetadataModel
+        {
+            @class.AddProperty(template.GetDocumentInterfaceName(elementReference), entityPropertyName,
+                property =>
                 {
                     property.ExplicitlyImplements(template.GetTypeName(documentInterfaceTemplateId, template.Model));
-                    property.Getter.WithExpressionImplementation(associationEnd.Name.ToPascalCase());
+                    property.Getter.WithExpressionImplementation(entityPropertyName);
                     property.WithoutSetter();
                 });
-            }
         }
 
         public static string GetDocumentInterfaceName<T>(this CSharpTemplateBase<T> template, ITypeReference typeReference)
@@ -94,6 +118,7 @@ namespace Intent.Modules.CosmosDB.Templates
                     throw new Exception($"No Interface template found for {typeReference.Element.Name}.");
                 }
             }
+
             var typeName = template.UseType(classProvider.FullTypeName());
 
             if (typeReference.IsCollection)
@@ -102,18 +127,17 @@ namespace Intent.Modules.CosmosDB.Templates
             }
 
             return typeName;
-
         }
 
-		internal static bool IsSeparateDatabaseMultiTenancy(IApplicationSettingsProvider settings)
-		{
-			const string multiTenancySettings = "41ae5a02-3eb2-42a6-ade2-322b3c1f1115";
-			const string dataIsolationSetting = "be7c671e-bbef-4d75-b42d-a6547de3ae82";
+        internal static bool IsSeparateDatabaseMultiTenancy(IApplicationSettingsProvider settings)
+        {
+            const string multiTenancySettings = "41ae5a02-3eb2-42a6-ade2-322b3c1f1115";
+            const string dataIsolationSetting = "be7c671e-bbef-4d75-b42d-a6547de3ae82";
 
-			return settings.GetGroup(multiTenancySettings)?.GetSetting(dataIsolationSetting)?.Value == "separate-database";
-		}
+            return settings.GetGroup(multiTenancySettings)?.GetSetting(dataIsolationSetting)?.Value == "separate-database";
+        }
 
-		public static void AddCosmosDBMappingMethods<TModel>(
+        public static void AddCosmosDBMappingMethods<TModel>(
             this CSharpTemplateBase<TModel> template,
             CSharpClass @class,
             IReadOnlyList<AttributeModel> attributes,
@@ -151,10 +175,7 @@ namespace Intent.Modules.CosmosDB.Templates
                 }
                 else
                 {
-                    method.AddIfStatement("entity is null", @if =>
-                    {
-                        @if.AddStatement($"throw new {template.UseType("System.ArgumentNullException")}(nameof(entity));");
-                    });
+                    method.AddIfStatement("entity is null", @if => { @if.AddStatement($"throw new {template.UseType("System.ArgumentNullException")}(nameof(entity));"); });
                 }
 
                 for (var index = 0; index < attributes.Count; index++)
@@ -171,10 +192,10 @@ namespace Intent.Modules.CosmosDB.Templates
                             "int" or "long" => $"{attributeTypeName}.Parse({assignmentValueExpression}, {template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
                             "guid" => $"{template.UseType("System.Guid")}.Parse({assignmentValueExpression})",
                             _ => throw new Exception(
-                                $"Unsupported partition key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
+                                $"Unsupported partition key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " +
+                                $"\"{attribute.Name}\" [{attribute.Id}] " +
                                 $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
                         };
-
                     }
                     // If this is the PK which is not a string, we need to convert it:
                     else if (isAggregate && attribute.HasPrimaryKey() && !string.Equals(attributeTypeName, "string"))
@@ -184,9 +205,20 @@ namespace Intent.Modules.CosmosDB.Templates
                             "int" or "long" => $"{attributeTypeName}.Parse({assignmentValueExpression}, {template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
                             "guid" => $"{template.UseType("System.Guid")}.Parse({assignmentValueExpression})",
                             _ => throw new Exception(
-                                $"Unsupported primary key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
+                                $"Unsupported primary key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " +
+                                $"\"{attribute.Name}\" [{attribute.Id}] " +
                                 $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
                         };
+                    }
+                    else if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
+                    {
+                        var nullable = attribute.TypeReference.IsNullable ? "?" : string.Empty;
+                        assignmentValueExpression = $"{attribute.Name.ToPascalCase()}{nullable}.ToEntity()";
+
+                        if (attribute.TypeReference.IsCollection)
+                        {
+                            assignmentValueExpression = $"{attribute.Name.ToPascalCase()}{nullable}.Select(x => x.ToEntity()).ToList()";
+                        }
                     }
 
                     if (template.IsNonNullableReferenceType(attribute.TypeReference))
@@ -243,6 +275,7 @@ namespace Intent.Modules.CosmosDB.Templates
                 foreach (var attribute in attributes)
                 {
                     var suffix = string.Empty;
+                    var accessEntityAttribute = true;
 
                     // If this is the PK which is not a string, we need to convert it:
                     var attributeTypeName = attribute.TypeReference.Element?.Name.ToLowerInvariant();
@@ -254,7 +287,8 @@ namespace Intent.Modules.CosmosDB.Templates
                             "int" or "long" => $".ToString({template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
                             "guid" => ".ToString()",
                             _ => throw new Exception(
-                                $"Unsupported partition key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
+                                $"Unsupported partition key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " +
+                                $"\"{attribute.Name}\" [{attribute.Id}] " +
                                 $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
                         };
                     }
@@ -265,9 +299,25 @@ namespace Intent.Modules.CosmosDB.Templates
                             "int" or "long" => $".ToString({template.UseType("System.Globalization.CultureInfo")}.InvariantCulture)",
                             "guid" => ".ToString()",
                             _ => throw new Exception(
-                                $"Unsupported primary key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " + $"\"{attribute.Name}\" [{attribute.Id}] " +
+                                $"Unsupported primary key type \"{attributeTypeName}\" [{attribute.TypeReference.Element?.Id}] for attribute " +
+                                $"\"{attribute.Name}\" [{attribute.Id}] " +
                                 $"on \"{attribute.InternalElement.ParentElement.Name}\" [{attribute.InternalElement.ParentElement.Id}]")
                         };
+                    }
+                    else if (attribute.TypeReference?.Element?.SpecializationType == "Value Object")
+                    {
+                        var documentTypeName = template.GetTypeName((IElement)attribute.TypeReference.Element);
+                        if (attribute.TypeReference.IsCollection)
+                        {
+                            suffix = $".Select(x => {documentTypeName}.FromEntity(x)!)";
+                        }
+                        else
+                        {
+                            var nullableSuppression = attribute.TypeReference.IsNullable ? string.Empty : "!";
+                            suffix = $"{documentTypeName}.FromEntity(entity.{attribute.Name.ToPascalCase()}){nullableSuppression}";
+                        }
+
+                        accessEntityAttribute = false;
                     }
 
                     if (attribute.TypeReference.IsCollection)
@@ -276,7 +326,7 @@ namespace Intent.Modules.CosmosDB.Templates
                         suffix = $"{suffix}{(attribute.TypeReference.IsNullable ? "?" : "")}.ToList()";
                     }
 
-                    method.AddStatement($"{attribute.Name.ToPascalCase()} = entity.{attribute.Name.ToPascalCase()}{suffix};");
+                    method.AddStatement($"{attribute.Name.ToPascalCase()} = {(accessEntityAttribute ? $"entity.{attribute.Name.ToPascalCase()}" : "")}{suffix};");
                 }
 
                 foreach (var associationEnd in associationEnds)
@@ -298,7 +348,8 @@ namespace Intent.Modules.CosmosDB.Templates
 
                 if (useOptimisticConcurrency && template.Id != CosmosDBValueObjectDocumentTemplate.TemplateId && isAggregate)
                 {
-                    method.AddStatement($"_etag = _etag == null ? getEtag((({template.UseType("Microsoft.Azure.CosmosRepository.IItem")})this).Id) : _etag;", s => s.SeparatedFromPrevious());
+                    method.AddStatement($"_etag = _etag == null ? getEtag((({template.UseType("Microsoft.Azure.CosmosRepository.IItem")})this).Id) : _etag;",
+                        s => s.SeparatedFromPrevious());
                 }
 
                 if (hasBaseType)

@@ -14,6 +14,12 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
     {
         protected HttpClientRequestExceptionTemplateBase(string templateId, IOutputTarget outputTarget, object model = null) : base(templateId, outputTarget, model)
         {
+            // This is not there by default on `netstandard`
+            if (outputTarget.GetProject().GetMaxNetAppVersion().Major == 2)
+            {
+                AddNugetDependency(NuGetPackages.SystemTextJson(outputTarget));
+            }
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")

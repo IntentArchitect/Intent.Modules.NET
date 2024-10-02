@@ -1,6 +1,11 @@
+### Version 5.1.13
+
+- Improvement: Only generates `HttpClientHeaderHandler` if your authorization is set `Transmittable Access Token`.
+- Fixed: HttpClients are able to generate into `netstandard2.*` projects.
+
 ### Version 5.1.12
 
-- Improvement: improved content type filter int the `HttpClientRequestException`.
+- Improvement: Improved content type filter int the `HttpClientRequestException`.
 
 ### Version 5.1.11
 

@@ -15,13 +15,13 @@ namespace SqlServerImporterTests.Application.Orders.GetCustomerOrders
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetCustomerOrdersQueryHandler : IRequestHandler<GetCustomerOrdersQuery, List<CustomerOrderDto>>
     {
-        private readonly IOrderRepository2Repository _orderRepository2Repository;
+        private readonly IOperationRepository _operationRepository;
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Merge)]
-        public GetCustomerOrdersQueryHandler(IOrderRepository2Repository orderRepository2Repository, IMapper mapper)
+        public GetCustomerOrdersQueryHandler(IOperationRepository operationRepository, IMapper mapper)
         {
-            _orderRepository2Repository = orderRepository2Repository;
+            _operationRepository = operationRepository;
             _mapper = mapper;
         }
 
@@ -30,10 +30,8 @@ namespace SqlServerImporterTests.Application.Orders.GetCustomerOrders
             GetCustomerOrdersQuery request,
             CancellationToken cancellationToken)
         {
-            var result = await _orderRepository2Repository.GetCustomerOrders(request.CustomerID, cancellationToken);
+            var result = _operationRepository.GetCustomerOrders(request.CustomerID);
             return result.MapToCustomerOrderDtoList(_mapper);
         }
-
-
     }
 }

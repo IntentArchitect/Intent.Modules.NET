@@ -28,7 +28,9 @@ namespace SqlServerImporterTests.Infrastructure.Persistence
             _domainEventService = domainEventService;
         }
 
-        public DbSet<CustomerOrder> CustomerOrders { get; set; }
+        public DbSet<GetCustomerOrdersResponse> GetCustomerOrdersResponses { get; set; }
+
+        public DbSet<GetOrderItemDetailsResponse> GetOrderItemDetailsResponses { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<AspNetRole> AspNetRoles { get; set; }
         public DbSet<AspNetRoleClaim> AspNetRoleClaims { get; set; }
@@ -71,7 +73,8 @@ namespace SqlServerImporterTests.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-            modelBuilder.Entity<CustomerOrder>().HasNoKey().ToView(null);
+            modelBuilder.Entity<GetCustomerOrdersResponse>().HasNoKey().ToView(null);
+            modelBuilder.Entity<GetOrderItemDetailsResponse>().HasNoKey().ToView(null);
             modelBuilder.ApplyConfiguration(new AddressConfiguration());
             modelBuilder.ApplyConfiguration(new AspNetRoleConfiguration());
             modelBuilder.ApplyConfiguration(new AspNetRoleClaimConfiguration());

@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>84b0552e-7c31-4f40-9023-c2afb16304e2</ProjectId>
+      <ProjectId>7b442a19-ed55-48b7-beb0-bf700f940e1a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Dapr.AspNetCore.ServiceInvocation.imodspec</ApplicationRelativeFilePath>
@@ -25,11 +25,19 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>84b0552e-7c31-4f40-9023-c2afb16304e2</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#84b0552e-7c31-4f40-9023-c2afb16304e2</CorrelationId>
+      <ProjectId>7b442a19-ed55-48b7-beb0-bf700f940e1a</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#7b442a19-ed55-48b7-beb0-bf700f940e1a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Dapr.AspNetCore.ServiceInvocation.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Dapr.AspNetCore.ServiceInvocation.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b442a19-ed55-48b7-beb0-bf700f940e1a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NugetPackages.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

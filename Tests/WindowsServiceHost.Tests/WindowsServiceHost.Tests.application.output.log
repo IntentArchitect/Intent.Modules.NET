@@ -81,14 +81,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>270c76fd-ca4a-4f3e-833e-235346f9cf15</ProjectId>
-      <CorrelationId>Intent.Integration.HttpClients.HttpClientHeaderHandlerTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/HttpClients/HttpClientHeaderHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HttpClientHeaderHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>0d195826-c00e-41ed-a41c-91263912a4fb</ProjectId>
       <CorrelationId>Intent.QuartzScheduler.ScheduledJob#73d82674-483c-4ae8-a313-a1d45365abb8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

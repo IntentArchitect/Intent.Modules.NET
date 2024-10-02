@@ -20,6 +20,7 @@ using Intent.Modules.CosmosDB.Templates.CosmosDBUnitOfWorkInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocument;
 using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocumentInterface;
 using Intent.Modules.CosmosDB.Templates.CosmosPagedList;
+using Intent.Modules.CosmosDB.Templates.EnumJsonConverter;
 using Intent.Modules.CosmosDB.Templates.ReflectionHelper;
 using Intent.RoslynWeaver.Attributes;
 
@@ -144,6 +145,11 @@ namespace Intent.Modules.CosmosDB.Templates
         public static string GetCosmosPagedListName(this IIntentTemplate template)
         {
             return template.GetTypeName(CosmosPagedListTemplate.TemplateId);
+        }
+
+        public static string GetEnumJsonConverterName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(EnumJsonConverterTemplate.TemplateId);
         }
 
         public static string GetReflectionHelperName(this IIntentTemplate template)

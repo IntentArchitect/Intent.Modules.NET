@@ -819,6 +819,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#8f99e033-d2ab-438b-b880-e9fb326117de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/AsyncRepository/Operation/OperationCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncRepository/Operation/OperationCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#8f99e033-d2ab-438b-b880-e9fb326117de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/AsyncRepository/Operation/OperationCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncRepository/Operation/OperationCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfeea9dd-7255-4c5d-94a3-13ba0a5915b6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#8f99e033-d2ab-438b-b880-e9fb326117de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Application/AsyncRepository/Operation/OperationCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncRepository/Operation/OperationCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7e2b9b47-16c0-4f2c-996e-42234e705997</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -2460,6 +2484,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#32216cce-7ef2-48b2-a8aa-f7d7c29e103b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/IAsyncRepositoryTestRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAsyncRepositoryTestRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#fd0ee61c-23fc-46a0-9831-796371efc3ec</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/ICustomRepository.cs</ApplicationRelativeFilePath>
@@ -2888,6 +2920,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/AggregateRoot5Repository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AggregateRoot5Repository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#32216cce-7ef2-48b2-a8aa-f7d7c29e103b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/AsyncRepositoryTestRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AsyncRepositoryTestRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

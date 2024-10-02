@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.DomainEvents</id>
   <version>5.0.4</version>
@@ -49,7 +49,7 @@
   </factoryExtensions>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.3" />
+    <dependency id="Intent.Common.CSharp" version="3.7.6-pre.1" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Domain" version="3.4.1" />
     <dependency id="Intent.Modelers.Domain.Events" version="4.0.1" />
