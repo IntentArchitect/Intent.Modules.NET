@@ -83,6 +83,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 {
                     method.Override();
                     AddHttpVerbAndRoute(method);
+                    AddDescriptionConfiguration(method);
                     method.AddStatement("AllowAnonymous();");
                 });
 
@@ -101,7 +102,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
 
         private string? GetReturnType()
         {
-            if (Model.ReturnType is not null && 
+            if (Model.ReturnType is not null &&
                 GetTypeInfo(Model.ReturnType).IsPrimitive || Model.ReturnType.HasStringType())
             {
                 return $"{this.GetJsonResponseTemplateName()}<{GetTypeName(Model)}>";
@@ -155,6 +156,72 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 .AddArgument($@"""{Model.Route}"""));
         }
 
+        private void AddDescriptionConfiguration(CSharpClassMethod method)
+        {
+            var operationId = (Model.InternalElement.GetStereotype("OpenAPI Settings")?.GetProperty<string>("OperationId") ?? string.Empty)
+                .Replace("{ServiceName}", Model.Container.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterUpper) ?? string.Empty)
+                .Replace("{MethodName}", Model.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterUpper));
+
+            var lambda = new CSharpLambdaBlock("b");
+            if (!string.IsNullOrWhiteSpace(operationId))
+            {
+                lambda.AddInvocationStatement("b.WithName", name => name.AddArgument($@"""{operationId}"""));
+            }
+
+            if (_requestModelClass is not null)
+            {
+                lambda.AddInvocationStatement($"b.Accepts<{_requestModelClass.Name}>");
+            }
+
+            var mediaTypeNamesApplicationJson = Model.MediaType == HttpMediaType.ApplicationJson || Model.ReturnType?.Element.IsDTOModel() == true
+                ? "MediaTypeNames.Application.Json"
+                : null;
+
+            if (mediaTypeNamesApplicationJson is not null)
+            {
+                AddUsing("System.Net.Mime");
+            }
+
+            var producesReturnTypeDefinition = GetReturnType() is not null ? $"<{GetReturnType()}>" : "";
+            
+            switch (Model.Verb)
+            {
+                case HttpVerb.Get:
+                case HttpVerb.Delete:
+                    lambda.AddInvocationStatement($"b.Produces{producesReturnTypeDefinition}", i => i
+                        .AddArgument($"StatusCodes.{Model.GetSuccessResponseCodeEnumValue("Status200OK")}")
+                        .AddArgumentIfNotNull(mediaTypeNamesApplicationJson));
+                    break;
+                case HttpVerb.Post:
+                    lambda.AddInvocationStatement($"b.Produces{producesReturnTypeDefinition}", i => i
+                        .AddArgument($"StatusCodes.{Model.GetSuccessResponseCodeEnumValue("Status201Created")}")
+                        .AddArgumentIfNotNull(mediaTypeNamesApplicationJson));
+                    break;
+                case HttpVerb.Put:
+                case HttpVerb.Patch:
+                    var defaultValue = Model.ReturnType != null ? "Status200OK" : "Status204NoContent";
+                    lambda.AddInvocationStatement($"b.Produces{producesReturnTypeDefinition}", i => i
+                        .AddArgument($"StatusCodes.{Model.GetSuccessResponseCodeEnumValue(defaultValue)}")
+                        .AddArgumentIfNotNull(mediaTypeNamesApplicationJson));
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException($"Unknown verb: {Model.Verb}");
+            }
+
+            AddUsing("Microsoft.AspNetCore.Http");
+            if (Model.Parameters.Any())
+            {
+                lambda.AddInvocationStatement("b.ProducesProblemDetails");
+            }
+
+            lambda.AddInvocationStatement("b.ProducesProblemDetails", i => i.AddArgument("StatusCodes.Status500InternalServerError"));
+
+            if (lambda.Statements.Count > 0)
+            {
+                method.AddInvocationStatement("Description", inv => inv.AddArgument(lambda));
+            }
+        }
+
         private CSharpAttribute? GetParameterBindingAttribute(IEndpointParameterModel parameter)
         {
             if (parameter.TypeReference.Element.IsDTOModel() &&
@@ -201,5 +268,21 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
         {
             return CSharpFile.ToString();
         }
+    }
+}
+
+static class EndpointUtilExtensions
+{
+    public static CSharpInvocationStatement AddArgumentIfNotNull(
+        this CSharpInvocationStatement statement,
+        CSharpStatement? argument,
+        Action<CSharpStatement> configure = null)
+    {
+        if (argument is null)
+        {
+            return statement;
+        }
+
+        return statement.AddArgument(argument);
     }
 }

@@ -4,6 +4,13 @@ using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.FastEndpoints.Templates.Endpoint;
 
+public interface IEndpointContainerModel
+{
+    string Name { get; }
+    IElement InternalElement { get; }
+    IList<IEndpointModel> Endpoints { get; }
+}
+
 public interface IEndpointModel : IHasName, IHasTypeReference, IMetadataModel
 {
     string Comment { get; }
@@ -12,6 +19,7 @@ public interface IEndpointModel : IHasName, IHasTypeReference, IMetadataModel
     string Route { get; }
     HttpMediaType? MediaType { get; }
     IElement InternalElement { get; }
+    IEndpointContainerModel Container { get; }
     IList<IEndpointParameterModel> Parameters { get; }
 }
 

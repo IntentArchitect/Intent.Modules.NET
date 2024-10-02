@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
@@ -6,13 +7,42 @@ using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.FastEndpoints.Templates.Endpoint;
 
+public class ServiceEndpointContainerModel : IEndpointContainerModel
+{
+    public ServiceEndpointContainerModel(ServiceModel serviceModel)
+    {
+        Name = serviceModel.Name;
+        InternalElement = serviceModel.InternalElement;
+        Endpoints = serviceModel.Operations
+            .Select(IEndpointModel (operation) => new ServiceEndpointModel(this, serviceModel, operation))
+            .ToList();
+    }
+
+    public string Name { get; }
+    public IElement InternalElement { get; }
+    public IList<IEndpointModel> Endpoints { get; }
+}
+
 public class ServiceEndpointModel : IEndpointModel
 {
     private readonly ServiceModel _serviceModel;
     private readonly OperationModel _operationModel;
 
-    public ServiceEndpointModel(ServiceModel serviceModel, OperationModel operationModel)
+    public ServiceEndpointModel(IEndpointContainerModel container, ServiceModel serviceModel, OperationModel operationModel)
     {
+        if (container is null)
+        {
+            ArgumentNullException.ThrowIfNull(container);
+        }
+        if (serviceModel is null)
+        {
+            ArgumentNullException.ThrowIfNull(serviceModel);
+        }
+        if (operationModel is null)
+        {
+            ArgumentNullException.ThrowIfNull(operationModel);
+        }
+        
         _serviceModel = serviceModel;
         _operationModel = operationModel;
 
@@ -21,6 +51,7 @@ public class ServiceEndpointModel : IEndpointModel
         Id = operationModel.Id;
         Name = httpEndpoint.Name;
         InternalElement = operationModel.InternalElement;
+        Container = container;
         Comment = operationModel.Comment;
         TypeReference = operationModel.TypeReference;
         Verb = httpEndpoint.Verb;
@@ -32,6 +63,7 @@ public class ServiceEndpointModel : IEndpointModel
     public string Id { get; }
     public string Name { get; }
     public IElement InternalElement { get; }
+    public IEndpointContainerModel Container { get; }
     public string Comment { get; }
     public ITypeReference TypeReference { get; }
     public ITypeReference? ReturnType => TypeReference.Element != null ? TypeReference : null;
@@ -39,7 +71,7 @@ public class ServiceEndpointModel : IEndpointModel
     public string Route { get; }
     public HttpMediaType? MediaType { get; }
     public IList<IEndpointParameterModel> Parameters { get; }
-    
+
     private static IEndpointParameterModel GetInput(IHttpEndpointInputModel model)
     {
         return new ServiceEndpointParameterModel(

@@ -39,8 +39,8 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
         {
             return _metadataManager.Services(application).GetServiceModels()
                 .Where(p => p.Operations.Any(q => q.HasHttpSettings()))
-                .SelectMany(service => service.Operations.Select(operation => new { Service = service, Operation = operation }))
-                .Select(x => new ServiceEndpointModel(x.Service, x.Operation))
+                .Select(s => new ServiceEndpointContainerModel(s))
+                .SelectMany(s => s.Endpoints)
                 .ToArray();
         }
     }
