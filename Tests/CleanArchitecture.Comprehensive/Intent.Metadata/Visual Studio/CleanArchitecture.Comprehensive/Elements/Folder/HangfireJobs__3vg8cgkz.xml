@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="aaf8c137-4aa3-4f3f-b391-51124c0eb4a7" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>HangfireJobs</name>
+  <display>HangfireJobs</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>23156ea2-5268-45cf-a247-a74d47935f62</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="100c2584-2aeb-4160-938b-cced9d986f9d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.Hangfire.HangfireJobs</name>
+      <display>Intent.Modules.Hangfire.HangfireJobs</display>
+      <externalReference>Intent.Modules.Hangfire</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>aaf8c137-4aa3-4f3f-b391-51124c0eb4a7</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -55,6 +55,7 @@ namespace CleanArchitecture.Comprehensive.Api
             services.ConfigureProblemDetails();
             services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);
+            services.ConfigureHangfire(Configuration);
             services.ConfigureSwagger(Configuration);
         }
 
@@ -79,6 +80,7 @@ namespace CleanArchitecture.Comprehensive.Api
                 endpoints.MapDefaultHealthChecksUI();
                 endpoints.MapControllers();
             });
+            app.UseHangfire();
             app.UseSwashbuckle(Configuration);
         }
     }

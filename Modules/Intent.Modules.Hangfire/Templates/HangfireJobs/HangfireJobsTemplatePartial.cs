@@ -62,7 +62,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireJobs
                             AddUsing("System");
                             method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
                             method.AddStatement($"// TODO: Implement job functionality");
-                            method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
+                            method.AddStatement($@"throw new {UseType("System.NotImplementedException")}(""Your implementation here..."");");
                         }
 
 

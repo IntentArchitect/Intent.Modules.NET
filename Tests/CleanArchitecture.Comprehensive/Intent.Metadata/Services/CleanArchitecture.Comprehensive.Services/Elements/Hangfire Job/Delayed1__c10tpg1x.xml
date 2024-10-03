@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2ccba39f-34d8-4626-a6b0-91932b3a431d" type="Hangfire Job" typeId="995f1902-4efb-42ba-b089-a5e856c48943">
+  <name>Delayed1</name>
+  <display>Delayed1</display>
+  <isAbstract>false</isAbstract>
+  <order>2</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>57127d69-974d-49c2-87dd-85f80fc3ff2b</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="268b1f8f-71ac-4a27-ad87-bdaeffb06022" name="Job Options">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modules.Hangfire</definitionPackageName>
+      <definitionPackageId>fda30066-088b-48e0-9189-6cad1c70af13</definitionPackageId>
+      <properties>
+        <property name="fba31c2d-a5f1-404e-8772-15f72b94e5b1" display="Enabled" value="true" isActive="true" />
+        <property name="1f4905ea-0c33-4dd6-b0e5-f7926f599f92" display="Job Type" value="Delayed" isActive="true" />
+        <property name="153f01ba-f229-4a2e-8f44-0ecd39924073" display="Cron Schedule" value="* * * * *" isActive="false" />
+        <property name="e5a5f7ad-80f9-471c-9e0f-835f8286ffab" display="Delay Time Frame" value="Minutes" isActive="true" />
+        <property name="8220c0e1-203d-43f5-9155-ae73a87bf324" display="Delay Value" value="5" isActive="true" />
+        <property name="0aa4b661-211b-40e2-a917-abfc4fef1b03" display="Disallow Concurrent Execution" value="false" isActive="false" />
+        <property name="722cc50a-5dfd-4eb0-91c2-287ddd077d04" display="Concurrent Execution Timeout" value="1" isActive="false" />
+        <property name="7e719fad-42a3-4282-8328-e086d856dee7" display="Queue" value="" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

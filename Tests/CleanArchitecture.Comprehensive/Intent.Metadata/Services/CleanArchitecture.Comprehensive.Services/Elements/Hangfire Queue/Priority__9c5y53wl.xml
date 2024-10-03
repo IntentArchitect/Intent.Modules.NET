@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b02a7287-9e64-4184-a5ac-2b602ec80d89" type="Hangfire Queue" typeId="18b0f37e-43da-4d94-b65a-8cff601339ac">
+  <name>Priority</name>
+  <display>Priority</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>57127d69-974d-49c2-87dd-85f80fc3ff2b</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

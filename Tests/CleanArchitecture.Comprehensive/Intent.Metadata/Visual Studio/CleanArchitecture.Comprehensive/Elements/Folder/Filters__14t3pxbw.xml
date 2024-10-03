@@ -115,5 +115,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="b163a7ad-fbeb-4cf9-a01e-c612f7acb67e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.Hangfire.HangfireDashboardAuthFilter</name>
+      <display>Intent.Modules.Hangfire.HangfireDashboardAuthFilter</display>
+      <externalReference>Intent.Modules.Hangfire</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

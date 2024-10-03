@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b01b3e17-5db3-4634-8458-9e894179bec4">
+  <sourceEnd id="48f52590-5466-4860-9945-7f922b206cb4" type="Scheduled Command Publish Source End" typeId="8fb7e1f2-a7f1-441d-8189-2af97986d4ea">
+    <display>publishes: Hangfire Configuration.CommandJob</display>
+    <order>0</order>
+    <typeReference id="17166663-464e-4bca-8483-97467abe6b74">
+      <typeId>3c854f9c-92eb-48fe-9282-82f27b28f2df</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b01b3e17-5db3-4634-8458-9e894179bec4" type="Scheduled Command Publish Target End" typeId="53b123fc-d85e-476a-ad62-d0fe68ed8c1b">
+    <display>publishes: HangfireCommand</display>
+    <order>0</order>
+    <typeReference id="277d25a6-e433-4cd6-a708-29186900925c">
+      <typeId>fb863e23-a55d-4020-9bd3-6b66bf82a305</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Scheduled Command Publish</associationType>
+  <associationTypeId>9fad2dc6-525f-408c-8981-abe958d65268</associationTypeId>
+  <stereotypes />
+</association>
