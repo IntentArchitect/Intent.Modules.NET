@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.FastEndpoints</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0-beta.0</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>FastEndpoints is a developer friendly alternative to Minimal APIs &amp; MVC.</summary>
   <description>FastEndpoints is a developer friendly alternative to Minimal APIs &amp; MVC.</description>
@@ -41,12 +41,12 @@
   <interoperability>
     <detect id="Intent.Application.Contracts">
       <install>
-        <package id="Intent.FastEndpoints.Dispatch.Services" version="1.0.0-pre.0" />
+        <package id="Intent.FastEndpoints.Dispatch.Services" version="1.0.0-beta.0" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR">
       <install>
-        <package id="Intent.FastEndpoints.Dispatch.MediatR" version="1.0.0-pre.0" />
+        <package id="Intent.FastEndpoints.Dispatch.MediatR" version="1.0.0-beta.0" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.Swashbuckle">
