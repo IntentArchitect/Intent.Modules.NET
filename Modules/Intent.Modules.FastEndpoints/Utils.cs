@@ -214,7 +214,7 @@ internal static class Utils
 
                 if (responseStatement is null)
                 {
-                    defaultResponseExpression = hasReturnType ? $"TypedResults.Created(string.Empty, {resultExpression})" : "TypedResults.Created(string.Empty, null)";
+                    defaultResponseExpression = hasReturnType ? $"TypedResults.Created(string.Empty, {resultExpression})" : "TypedResults.Created(string.Empty, (string)null)";
                     resultExpression = endpointModel.GetSuccessResponseCodeOperation(defaultResponseExpression, resultExpression);
                     responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("SendResultAsync").AddArgument(resultExpression));
                     responseStatement.AddMetadata("response", "SendResultAsync");
