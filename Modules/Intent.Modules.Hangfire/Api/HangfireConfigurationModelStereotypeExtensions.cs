@@ -14,14 +14,14 @@ namespace Intent.Modules.Hangfire.Api
     {
         public static HangfireOptions GetHangfireOptions(this HangfireConfigurationModel model)
         {
-            var stereotype = model.GetStereotype("fb655689-92b4-49b5-838e-537c3768a2f9");
+            var stereotype = model.GetStereotype(HangfireOptions.DefinitionId);
             return stereotype != null ? new HangfireOptions(stereotype) : null;
         }
 
 
         public static bool HasHangfireOptions(this HangfireConfigurationModel model)
         {
-            return model.HasStereotype("fb655689-92b4-49b5-838e-537c3768a2f9");
+            return model.HasStereotype(HangfireOptions.DefinitionId);
         }
 
         public static bool TryGetHangfireOptions(this HangfireConfigurationModel model, out HangfireOptions stereotype)
@@ -32,13 +32,14 @@ namespace Intent.Modules.Hangfire.Api
                 return false;
             }
 
-            stereotype = new HangfireOptions(model.GetStereotype("fb655689-92b4-49b5-838e-537c3768a2f9"));
+            stereotype = new HangfireOptions(model.GetStereotype(HangfireOptions.DefinitionId));
             return true;
         }
 
         public class HangfireOptions
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "fb655689-92b4-49b5-838e-537c3768a2f9";
 
             public HangfireOptions(IStereotype stereotype)
             {

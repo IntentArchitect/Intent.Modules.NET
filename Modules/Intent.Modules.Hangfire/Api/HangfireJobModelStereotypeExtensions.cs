@@ -14,14 +14,14 @@ namespace Intent.Modules.Hangfire.Api
     {
         public static JobOptions GetJobOptions(this HangfireJobModel model)
         {
-            var stereotype = model.GetStereotype("268b1f8f-71ac-4a27-ad87-bdaeffb06022");
+            var stereotype = model.GetStereotype(JobOptions.DefinitionId);
             return stereotype != null ? new JobOptions(stereotype) : null;
         }
 
 
         public static bool HasJobOptions(this HangfireJobModel model)
         {
-            return model.HasStereotype("268b1f8f-71ac-4a27-ad87-bdaeffb06022");
+            return model.HasStereotype(JobOptions.DefinitionId);
         }
 
         public static bool TryGetJobOptions(this HangfireJobModel model, out JobOptions stereotype)
@@ -32,13 +32,14 @@ namespace Intent.Modules.Hangfire.Api
                 return false;
             }
 
-            stereotype = new JobOptions(model.GetStereotype("268b1f8f-71ac-4a27-ad87-bdaeffb06022"));
+            stereotype = new JobOptions(model.GetStereotype(JobOptions.DefinitionId));
             return true;
         }
 
         public class JobOptions
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "268b1f8f-71ac-4a27-ad87-bdaeffb06022";
 
             public JobOptions(IStereotype stereotype)
             {
