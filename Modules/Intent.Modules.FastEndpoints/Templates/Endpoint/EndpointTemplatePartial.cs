@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
@@ -45,9 +46,9 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("FastEndpoints")
                 .AddUsing("Mode = Intent.RoslynWeaver.Attributes.Mode")
-                .OnBuild(file =>
+                .OnBuild(_ =>
                 {
-                    if (file.Template.ExecutionContext.FindTemplateInstances("Distribution.SwashbuckleConfiguration")?.Any() == true)
+                    if (HasSwashbuckleInstalled())
                     {
                         AddNugetDependency(NugetPackages.FastEndpointsSwaggerSwashbuckle(OutputTarget));
                     }
@@ -267,6 +268,11 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             }
 
             return null;
+        }
+
+        private bool HasSwashbuckleInstalled()
+        {
+            return ExecutionContext.FindTemplateInstances("Distribution.SwashbuckleConfiguration")?.Any() == true;
         }
 
         [IntentManaged(Mode.Fully)]

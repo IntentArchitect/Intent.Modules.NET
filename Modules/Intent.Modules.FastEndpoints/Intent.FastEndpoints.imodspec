@@ -16,6 +16,14 @@
       <role>Distribution.WebApi.FastEndpoint</role>
       <location>FastEndpoints</location>
     </template>
+    <template id="Intent.FastEndpoints.ExceptionProcessorTemplate" externalReference="692240a0-b97d-4a88-8037-003fb558c2fa">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.ExceptionProcessor</role>
+      <location>FastEndpoints</location>
+    </template>
     <template id="Intent.FastEndpoints.JsonResponseTemplate" externalReference="e25c0cf5-6bfd-48f2-93b4-9cd369b9d23f">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -26,7 +34,9 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.FastEndpoints.StartupConfigurationExtension" externalReference="a08c7ea6-f838-432e-a9a1-6dcf3e14b05a" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <interoperability>
     <detect id="Intent.Application.Contracts">

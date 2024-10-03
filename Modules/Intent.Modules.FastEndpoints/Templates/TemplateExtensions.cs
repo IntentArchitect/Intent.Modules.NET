@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.FastEndpoints.Templates.Endpoint;
+using Intent.Modules.FastEndpoints.Templates.ExceptionProcessor;
 using Intent.Modules.FastEndpoints.Templates.JsonResponse;
 using Intent.RoslynWeaver.Attributes;
 
@@ -20,6 +21,11 @@ namespace Intent.Modules.FastEndpoints.Templates
         public static string GetEndpointTemplateName(this IIntentTemplate template, IEndpointModel model)
         {
             return template.GetTypeName(EndpointTemplate.TemplateId, model);
+        }
+
+        public static string GetExceptionProcessorTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ExceptionProcessorTemplate.TemplateId);
         }
 
         public static string GetJsonResponseTemplateName(this IIntentTemplate template)
