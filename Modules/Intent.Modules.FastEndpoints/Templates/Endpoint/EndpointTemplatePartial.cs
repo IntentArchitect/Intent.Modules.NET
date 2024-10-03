@@ -225,11 +225,15 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 .Replace("{ServiceName}", Model.Container.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterUpper) ?? string.Empty)
                 .Replace("{MethodName}", Model.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterUpper));
 
+            AddUsing("Microsoft.AspNetCore.Builder");
+            
             var lambda = new CSharpLambdaBlock("b");
             if (!string.IsNullOrWhiteSpace(operationId))
             {
                 lambda.AddInvocationStatement("b.WithName", name => name.AddArgument($@"""{operationId}"""));
             }
+
+            //lambda.AddInvocationStatement("b.WithGroupName", i => i.AddArgument($@"""{Model.Container.Name}"""));
 
             HandleRequestObject(
                 model => lambda.AddInvocationStatement($"b.Accepts<{model.Name}>"),

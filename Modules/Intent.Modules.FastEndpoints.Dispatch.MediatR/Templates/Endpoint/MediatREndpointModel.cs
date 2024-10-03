@@ -12,7 +12,7 @@ namespace Intent.Modules.FastEndpoints.Dispatch.MediatR.Templates.Endpoint;
 public class MediatREndpointContainerModel : IEndpointContainerModel
 {
     public MediatREndpointContainerModel(
-        IElement parentElement,
+        IElement? parentElement,
         IEnumerable<IElement> elements)
     {
         Id = parentElement?.Id ?? Guid.Empty.ToString();
@@ -22,13 +22,14 @@ public class MediatREndpointContainerModel : IEndpointContainerModel
                     .Select(s => s.Name?.Replace(".", "_").ToPascalCase() ?? string.Empty))
             : "Default";
         Folder = parentElement?.ParentElement?.AsFolderModel();
+        InternalElement = parentElement;
         Endpoints = elements.Select(IEndpointModel (operation) => new MediatREndpointModel(this, operation)).ToList();
     }
 
     public string Id { get; }
-    public FolderModel Folder { get; }
+    public FolderModel? Folder { get; }
     public string Name { get; }
-    public IElement InternalElement { get; }
+    public IElement? InternalElement { get; }
     public IList<IEndpointModel> Endpoints { get; }
 }
 
@@ -63,6 +64,7 @@ public class MediatREndpointModel : IEndpointModel
     public IElement InternalElement { get; }
     public IEndpointContainerModel Container { get; }
     public IList<IEndpointParameterModel> Parameters { get; }
+    public FolderModel? Folder => new FolderModel(Container.InternalElement, Container.InternalElement.SpecializationType);
     
     private static IEndpointParameterModel GetInput(IHttpEndpointInputModel model)
     {

@@ -12,7 +12,7 @@ public interface IEndpointContainerModel : IHasFolder, IHasName, IMetadataModel
     IList<IEndpointModel> Endpoints { get; }
 }
 
-public interface IEndpointModel : IHasName, IHasTypeReference, IMetadataModel
+public interface IEndpointModel : IHasName, IHasTypeReference, IMetadataModel, IHasFolder
 {
     string Comment { get; }
     ITypeReference? ReturnType { get; }

@@ -77,6 +77,7 @@ public class ServiceEndpointModel : IEndpointModel
     public string Route { get; }
     public HttpMediaType? MediaType { get; }
     public IList<IEndpointParameterModel> Parameters { get; }
+    public FolderModel? Folder => new FolderModel(Container.InternalElement, Container.InternalElement.SpecializationType);
 
     private static IEndpointParameterModel GetInput(IHttpEndpointInputModel model)
     {

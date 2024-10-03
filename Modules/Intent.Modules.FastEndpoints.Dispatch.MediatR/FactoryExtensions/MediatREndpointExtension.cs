@@ -60,21 +60,6 @@ namespace Intent.Modules.FastEndpoints.Dispatch.MediatR.FactoryExtensions
                     instantiation.WithoutSemicolon();
                     serviceInvocation.AddArgument(instantiation);
                 }
-                
-                // if (endpointTemplate.Model.InternalElement.IsCommandModel())
-                // {
-                //     serviceInvocation.AddArgument($"req");
-                // }
-                // else if (endpointTemplate.Model.InternalElement.IsQueryModel())
-                // {
-                //     var instantiation = new CSharpInvocationStatement($"new {endpointTemplate.GetTypeName(endpointTemplate.Model.InternalElement)}");
-                //     instantiation.WithoutSemicolon();
-                //     foreach (var parameter in endpointTemplate.Model.Parameters)
-                //     {
-                //         instantiation.AddArgument($"req.{parameter.Name.ToPropertyName()}");
-                //     }
-                //     serviceInvocation.AddArgument(instantiation);
-                // }
 
                 CSharpStatement invocation = serviceInvocation;
                 if (!endpointTemplate.Model.InternalElement.HasStereotype("Synchronous"))
