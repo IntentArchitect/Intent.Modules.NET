@@ -29,6 +29,8 @@ namespace Intent.Modules.FastEndpoints.FactoryExtensions
 
             var programTemplate = application.FindTemplateInstance<IProgramTemplate>(TemplateRoles.Distribution.WebApi.Program);
 
+            startupTemplate.AddUsing("Mode = Intent.RoslynWeaver.Attributes.Mode");
+            
             startupTemplate?.CSharpFile.OnBuild(_ =>
             {
                 var startup = startupTemplate.StartupFile;
