@@ -43,9 +43,15 @@ namespace Intent.Modules.Hangfire.Templates.HangfireJobs
                     {
                         method.Async();
 
+                        method.AddAttribute(UseType("Hangfire.AutomaticRetry"), attConfig =>
+                        {
+                            attConfig.AddArgument($"Attempts = {model.GetJobOptions().RetryAttempts()}");
+                            attConfig.AddArgument($"OnAttemptsExceeded = AttemptsExceededAction.{model.GetJobOptions().OnAttemptsExceeded().Value}");
+                        });
+
                         if (model.GetJobOptions().DisallowConcurrentExecution())
                         {
-                            method.AddAttribute("DisableConcurrentExecution", attConfig =>
+                            method.AddAttribute(UseType("Hangfire.DisableConcurrentExecution"), attConfig =>
                             {
                                 attConfig.AddArgument(model.GetJobOptions().ConcurrentExecutionTimeout().ToString());
                             });
@@ -62,7 +68,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireJobs
                             AddUsing("System");
                             method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
                             method.AddStatement($"// TODO: Implement job functionality");
-                            method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
+                            method.AddStatement($@"throw new {UseType("System.NotImplementedException")}(""Your implementation here..."");");
                         }
 
 

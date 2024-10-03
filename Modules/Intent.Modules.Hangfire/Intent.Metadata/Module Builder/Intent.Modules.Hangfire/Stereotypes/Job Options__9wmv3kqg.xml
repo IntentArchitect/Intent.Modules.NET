@@ -99,7 +99,7 @@
       <defaultValue>false</defaultValue>
       <valueOptions />
       <lookupTypes />
-      <isActiveFunction>return JobType === "Recurring";</isActiveFunction>
+      <isActiveFunction />
     </property>
     <property id="722cc50a-5dfd-4eb0-91c2-287ddd077d04">
       <hint>The amount of time (in seconds) before a concurrent job waiting execution is cancelled</hint>
@@ -111,7 +111,30 @@
       <defaultValue>1</defaultValue>
       <valueOptions />
       <lookupTypes />
-      <isActiveFunction>return JobType === "Recurring";</isActiveFunction>
+      <isActiveFunction />
+    </property>
+    <property id="545f4c0d-b389-4b8d-a092-e65ead77f445">
+      <name>Retry Attempts</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>10</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="78be64bd-7eb8-44aa-b5f8-180ec74c42fb">
+      <name>On Attempts Exceeded</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder />
+      <defaultValue>Fail</defaultValue>
+      <valueOptions>
+        <option>Fail</option>
+        <option>Deleted</option>
+      </valueOptions>
+      <lookupTypes />
     </property>
     <property id="7e719fad-42a3-4282-8328-e086d856dee7">
       <hint>The queue on which the job is executed. If no queue is supplied, the default queue is used.</hint>

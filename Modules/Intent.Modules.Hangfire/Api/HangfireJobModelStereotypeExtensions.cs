@@ -83,6 +83,16 @@ namespace Intent.Modules.Hangfire.Api
                 return _stereotype.GetProperty<int?>("Concurrent Execution Timeout");
             }
 
+            public int? RetryAttempts()
+            {
+                return _stereotype.GetProperty<int?>("Retry Attempts");
+            }
+
+            public OnAttemptsExceededOptions OnAttemptsExceeded()
+            {
+                return new OnAttemptsExceededOptions(_stereotype.GetProperty<string>("On Attempts Exceeded"));
+            }
+
             public IElement Queue()
             {
                 return _stereotype.GetProperty<IElement>("Queue");
@@ -196,6 +206,43 @@ namespace Intent.Modules.Hangfire.Api
                 Hours,
                 Days,
                 Ticks
+            }
+            public class OnAttemptsExceededOptions
+            {
+                public readonly string Value;
+
+                public OnAttemptsExceededOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public OnAttemptsExceededOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "Fail":
+                            return OnAttemptsExceededOptionsEnum.Fail;
+                        case "Deleted":
+                            return OnAttemptsExceededOptionsEnum.Deleted;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsFail()
+                {
+                    return Value == "Fail";
+                }
+                public bool IsDeleted()
+                {
+                    return Value == "Deleted";
+                }
+            }
+
+            public enum OnAttemptsExceededOptionsEnum
+            {
+                Fail,
+                Deleted
             }
         }
 
