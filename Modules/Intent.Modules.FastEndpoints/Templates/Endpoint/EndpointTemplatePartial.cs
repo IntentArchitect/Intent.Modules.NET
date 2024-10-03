@@ -128,6 +128,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                     method.Override();
                     AddHttpVerbAndRoute(method);
                     AddDescriptionConfiguration(method);
+                    AddValidator(method);
                     AddSecurity(method);
                 });
 
@@ -270,6 +271,22 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             {
                 method.AddInvocationStatement("Description", inv => inv.AddArgument(lambda));
             }
+        }
+        
+        private void AddValidator(CSharpClassMethod method)
+        {
+            if (_requestPayload is null)
+            {
+                return;
+            }
+
+            var validatorTemplate = ExecutionContext.FindTemplateInstance<ICSharpFileBuilderTemplate>("Application.Validation.Dto", _requestPayload);
+            if (validatorTemplate is null)
+            {
+                return;
+            }
+
+            method.AddStatement($"Validator<{GetTypeName(validatorTemplate)}>();");
         }
 
         private void AddSecurity(CSharpClassMethod method)
