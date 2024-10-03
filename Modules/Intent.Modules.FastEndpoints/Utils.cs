@@ -161,11 +161,13 @@ internal static class Utils
                 defaultResponseExpression = hasReturnType ? $"TypedResults.Ok({resultExpression})" : "TypedResults.NoContent()";
                 resultExpression = endpointModel.GetSuccessResponseCodeOperation(defaultResponseExpression, resultExpression);
                 responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("SendResultAsync").AddArgument(resultExpression));
+                responseStatement.AddMetadata("response", "SendResultAsync");
                 break;
             case HttpVerb.Delete:
                 defaultResponseExpression = hasReturnType ? $"TypedResults.Ok({resultExpression})" : "TypedResults.Ok()";
                 resultExpression = endpointModel.GetSuccessResponseCodeOperation(defaultResponseExpression, resultExpression);
                 responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("SendResultAsync").AddArgument(resultExpression));
+                responseStatement.AddMetadata("response", "SendResultAsync");
                 break;
             case HttpVerb.Post:
                 responseStatement = null;
@@ -185,6 +187,7 @@ internal static class Utils
                             .AddArgument(resultExpression)
                             .AddArgument("cancellation: ct");
                         responseStatement = new CSharpAwaitExpression(responseStatement);
+                        responseStatement.AddMetadata("response", "SendCreatedAtAsync");
                     }
                 }
                 else if (endpointModel.Parameters.Count == 2) // Owned Composite Entity
@@ -205,6 +208,7 @@ internal static class Utils
                             .AddArgument(resultExpression)
                             .AddArgument("cancellation: ct");
                         responseStatement = new CSharpAwaitExpression(responseStatement);
+                        responseStatement.AddMetadata("response", "SendCreatedAtAsync");
                     }
                 }
 
@@ -213,6 +217,7 @@ internal static class Utils
                     defaultResponseExpression = hasReturnType ? $"TypedResults.Created(string.Empty, {resultExpression})" : "TypedResults.Created(string.Empty, null)";
                     resultExpression = endpointModel.GetSuccessResponseCodeOperation(defaultResponseExpression, resultExpression);
                     responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("SendResultAsync").AddArgument(resultExpression));
+                    responseStatement.AddMetadata("response", "SendResultAsync");
                 }
                 
                 break;

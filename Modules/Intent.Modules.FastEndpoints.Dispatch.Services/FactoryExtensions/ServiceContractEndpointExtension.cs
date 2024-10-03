@@ -8,6 +8,8 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.FastEndpoints.Templates.Endpoint;
+using Intent.Modules.Metadata.WebApi.Models;
+using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -30,6 +32,7 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
             foreach (var endpointTemplate in endpointTemplates)
             {
                 InstallServiceContractDispatch(endpointTemplate);
+                InstallTransactionWithUnitOfWork(endpointTemplate);
             }
         }
 
@@ -58,8 +61,6 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
                     }
                 }
 
-                serviceInvocation.AddMetadata("service-contract-dispatch", true);
-
                 CSharpStatement invocation = serviceInvocation;
                 if (!endpointTemplate.Model.InternalElement.HasStereotype("Synchronous"))
                 {
@@ -69,9 +70,13 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
 
                 if (endpointTemplate.Model.ReturnType is not null)
                 {
-                    invocation = new CSharpAssignmentStatement("var result", invocation);
+                    invocation = new CSharpAssignmentStatement("result", invocation);
+                    
+                    method.AddStatement($"var result = default({endpointTemplate.GetTypeName(endpointTemplate.Model.ReturnType)});");
                 }
 
+                invocation.AddMetadata("service-contract-dispatch", true);
+                
                 method.AddStatement(invocation);
                 
                 var returnStatement = endpointTemplate.GetReturnStatement();
@@ -79,7 +84,52 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
                 {
                     method.AddStatement(returnStatement);
                 }
-            });
+            }, 2);
+        }
+        
+        private void InstallTransactionWithUnitOfWork(EndpointTemplate endpointTemplate)
+        {
+            if (!endpointTemplate.SystemUsesPersistenceUnitOfWork())
+            {
+                return;
+            }
+
+            endpointTemplate.CSharpFile.OnBuild(file =>
+            {
+                var @class = file.Classes.First();
+                var method = @class.FindMethod(s => s.TryGetMetadata("handle", out _))!;
+                if (endpointTemplate.Model.Verb == HttpVerb.Get)
+                {
+                    return;
+                }
+
+                var dispatchStmt = method.Statements.FirstOrDefault(stmt => stmt.HasMetadata("service-contract-dispatch"));
+                if (dispatchStmt == null)
+                {
+                    return;
+                }
+
+                //remove current dispatch statement (UOW implementation replaces it)
+                dispatchStmt.Remove();
+                method.ApplyUnitOfWorkImplementations(
+                    template: endpointTemplate,
+                    constructor: @class.Constructors.First(),
+                    invocationStatement: dispatchStmt,
+                    returnType: null,
+                    resultVariableName: "result",
+                    fieldSuffix: "unitOfWork",
+                    includeComments: false,
+                    cancellationTokenExpression: "ct");
+
+                //Move return statement to the end
+                var returnStatement = method.Statements.LastOrDefault(x => x.HasMetadata("response"));
+                if (returnStatement != null)
+                {
+                    returnStatement.Remove();
+                    method.AddStatement(returnStatement);
+                }
+                
+            }, order: 3);
         }
     }
 }
