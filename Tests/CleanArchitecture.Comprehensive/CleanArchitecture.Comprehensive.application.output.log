@@ -52,14 +52,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
-      <CorrelationId>Intent.Modules.Hangfire.HangfireConfiguration</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Configuration/HangfireConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HangfireConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>9f9e5811-85a2-4276-96d0-d8e5aa18eec0</ProjectId>
       <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Configuration/HealthChecksConfiguration.cs</ApplicationRelativeFilePath>
@@ -412,14 +404,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
-      <CorrelationId>Intent.Modules.Hangfire.HangfireDashboardAuthFilter</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Filters/HangfireDashboardAuthFilter.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HangfireDashboardAuthFilter.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
       <CorrelationId>Intent.AspNetCore.ODataQuery.ODataQuerySwaggerFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Filters/ODataQueryFilter.cs</ApplicationRelativeFilePath>
@@ -432,38 +416,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>aaf8c137-4aa3-4f3f-b391-51124c0eb4a7</ProjectId>
-      <CorrelationId>Intent.Modules.Hangfire.HangfireJobs#3c854f9c-92eb-48fe-9282-82f27b28f2df</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/HangfireJobs/CommandJob.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CommandJob.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>aaf8c137-4aa3-4f3f-b391-51124c0eb4a7</ProjectId>
-      <CorrelationId>Intent.Modules.Hangfire.HangfireJobs#2ccba39f-34d8-4626-a6b0-91932b3a431d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/HangfireJobs/Delayed1.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Delayed1.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>aaf8c137-4aa3-4f3f-b391-51124c0eb4a7</ProjectId>
-      <CorrelationId>Intent.Modules.Hangfire.HangfireJobs#d1febd6b-7b20-4826-8e86-d5433f3946e3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/HangfireJobs/FireAndForget.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FireAndForget.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>aaf8c137-4aa3-4f3f-b391-51124c0eb4a7</ProjectId>
-      <CorrelationId>Intent.Modules.Hangfire.HangfireJobs#a082a4d5-f9e8-4dc3-a895-e1a7922f9672</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/HangfireJobs/Recurring1.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Recurring1.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6200,30 +6152,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GeometryTypes/UpdateGeometryType/UpdateGeometryTypeCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GeometryTypes/UpdateGeometryType/UpdateGeometryTypeCommandValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#fb863e23-a55d-4020-9bd3-6b66bf82a305</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Hangfire/Hangfire/HangfireCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Hangfire/Hangfire/HangfireCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#fb863e23-a55d-4020-9bd3-6b66bf82a305</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Hangfire/Hangfire/HangfireCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Hangfire/Hangfire/HangfireCommandHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#fb863e23-a55d-4020-9bd3-6b66bf82a305</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Hangfire/Hangfire/HangfireCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Hangfire/Hangfire/HangfireCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
