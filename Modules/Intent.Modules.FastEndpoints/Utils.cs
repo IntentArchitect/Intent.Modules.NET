@@ -26,7 +26,7 @@ internal static class Utils
         },
         {
             "202 (Accepted)", 
-            new ResponseCodeLookup("202", "Status202Accepted", resultExpression => $"TypedResults.Accepted({resultExpression})")
+            new ResponseCodeLookup("202", "Status202Accepted", resultExpression => $"TypedResults.Accepted({(string.IsNullOrEmpty(resultExpression) ? "string.Empty" : resultExpression)})")
         },
         {
             "203 (Non-Authoritative Information)",
