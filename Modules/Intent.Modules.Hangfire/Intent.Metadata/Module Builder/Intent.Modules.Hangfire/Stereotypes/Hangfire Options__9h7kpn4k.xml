@@ -26,7 +26,7 @@
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
       <placeholder />
-      <defaultValue>In Memory</defaultValue>
+      <defaultValue>InMemory</defaultValue>
       <valueOptions>
         <option>None</option>
         <option>InMemory</option>

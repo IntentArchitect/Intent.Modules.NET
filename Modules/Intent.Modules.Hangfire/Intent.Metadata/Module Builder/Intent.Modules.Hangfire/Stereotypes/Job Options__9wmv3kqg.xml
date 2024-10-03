@@ -52,6 +52,7 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(example: */10 * * * * ?)</placeholder>
+      <defaultValue>* * * * *</defaultValue>
       <valueOptions />
       <lookupTypes />
       <isActiveFunction>return JobType === "Recurring";</isActiveFunction>
