@@ -1,4 +1,4 @@
-### Version 5.0.15
+### Version 5.0.16
 
 - Improvement: Basic CRUD support for specifications.
 
