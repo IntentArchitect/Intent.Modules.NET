@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="32702de8-347f-41e0-86bb-9cc8f2021bcf">
+  <sourceEnd id="0151108d-463e-4c2b-8405-7af3076e90fe" type="Scheduled Command Publish Source End" typeId="8fb7e1f2-a7f1-441d-8189-2af97986d4ea">
+    <display>publishes: Hangfire Configuration.PublishCommandJob</display>
+    <order>0</order>
+    <typeReference id="684ec4a0-e402-4b8d-90bf-317fcd8f92d5">
+      <typeId>3ff3cb37-8e6c-451d-b780-cae9fa1f1b5b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Hangfire.Tests.Services</typePackageName>
+      <typePackageId>ff35c9a1-30d0-4862-b7f9-eb966064c91f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="32702de8-347f-41e0-86bb-9cc8f2021bcf" type="Scheduled Command Publish Target End" typeId="53b123fc-d85e-476a-ad62-d0fe68ed8c1b">
+    <display>publishes: JobCommand</display>
+    <order>0</order>
+    <typeReference id="0287105d-3544-4dea-bf0b-b7440842b65c">
+      <typeId>fe74d216-b1cb-4fae-be4d-dabc1441aca2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Hangfire.Tests.Services</typePackageName>
+      <typePackageId>ff35c9a1-30d0-4862-b7f9-eb966064c91f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Scheduled Command Publish</associationType>
+  <associationTypeId>9fad2dc6-525f-408c-8981-abe958d65268</associationTypeId>
+  <stereotypes />
+</association>

@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="4.3.56" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.0.0" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -131,5 +131,6 @@
     <application id="02808467-d0f1-40b4-877a-9206ff897be8" name="EntityFrameworkCore.MySql" relativePath="EntityFrameworkCore.MySql/EntityFrameworkCore.MySql.application.config" />
     <application id="75cf5e5a-53b1-4fa4-8f66-a81e38fc3356" name="BasicAuditing.CustomUserId.Tests" relativePath="BasicAuditing.CustomUserId.Tests/BasicAuditing.CustomUserId.Tests.application.config" />
     <application id="b045eba4-3b96-458d-b12f-62678792b09f" name="CosmosDB.EnumStrings" relativePath="CosmosDB.EnumStrings/CosmosDB.EnumStrings.application.config" />
+    <application id="407767b0-b856-43cd-9935-6bfee08058c9" name="Hangfire.Tests" relativePath="Hangfire.Tests/Hangfire.Tests.application.config" />
   </applications>
 </solution>
