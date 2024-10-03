@@ -1,5 +1,6 @@
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -47,8 +48,16 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
                 var serviceInvocation = new CSharpInvocationStatement($"_appService.{endpointTemplate.Model.Name.ToPascalCase()}");
                 foreach (var parameter in endpointTemplate.Model.Parameters)
                 {
-                    serviceInvocation.AddArgument($"req.{parameter.Name.ToPropertyName()}");
+                    if (parameter.TypeReference?.Element?.IsDTOModel() == true)
+                    {
+                        serviceInvocation.AddArgument($"req");
+                    }
+                    else
+                    {
+                        serviceInvocation.AddArgument($"req.{parameter.Name.ToPropertyName()}");
+                    }
                 }
+
                 serviceInvocation.AddMetadata("service-contract-dispatch", true);
 
                 CSharpStatement invocation = serviceInvocation;
