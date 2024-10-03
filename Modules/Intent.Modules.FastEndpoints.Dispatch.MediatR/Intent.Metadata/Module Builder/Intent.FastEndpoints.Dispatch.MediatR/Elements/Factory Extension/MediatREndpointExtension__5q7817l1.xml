@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fa33b952-536e-4aea-8c96-1c1e4f83386d" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MediatREndpointExtension</name>
+  <display>MediatREndpointExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>09431a7a-bf51-47c3-b4e7-3e47abab5917</parentFolderId>
+  <packageId>09431a7a-bf51-47c3-b4e7-3e47abab5917</packageId>
+  <packageName>Intent.FastEndpoints.Dispatch.MediatR</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

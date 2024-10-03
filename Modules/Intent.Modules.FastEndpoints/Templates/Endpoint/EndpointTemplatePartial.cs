@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Exceptions;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -26,7 +27,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
         public const string TemplateId = "Intent.FastEndpoints.EndpointTemplate";
 
         private CSharpClass? _requestModelClass; // For handling inputs without body payloads
-        private DTOModel? _requestPayload; // Request Model + Body Payload
+        private IElement? _requestPayload; // Request Model + Body Payload
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public EndpointTemplate(IOutputTarget outputTarget, IEndpointModel model = null) : base(TemplateId, outputTarget, model)
@@ -42,18 +43,10 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
             AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
 
-            var payloadParameters = model.Parameters
-                .Where(p => p.TypeReference?.Element?.IsDTOModel() == true)
-                .Select(s => s.TypeReference.Element.AsDTOModel())
-                .ToArray();
-            if (payloadParameters.Length > 1)
-            {
-                throw new ElementException(model.InternalElement, "This service cannot have more than one DTO payload.");
-            }
-            _requestPayload = payloadParameters.FirstOrDefault();
-            
             AddKnownType("FastEndpoints.IEventBus");
-            
+
+            DetermineRequestPayload();
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Threading")
@@ -71,13 +64,35 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             AddRequestModelIfApplicable();
             AddEndpointClass();
         }
-        
+
         public CSharpStatement? GetReturnStatement()
         {
             return this.GetReturnStatement(Model);
         }
+        
+        private void DetermineRequestPayload()
+        {
+            if ((Model.InternalElement.SpecializationType == "Command" ||
+                 Model.InternalElement.SpecializationType == "Query") &&
+                Model.Parameters.Any())
+            {
+                _requestPayload = Model.InternalElement;
+            }
+            else
+            {
+                 var payloadParameters = Model.Parameters
+                     .Where(p => p.TypeReference.Element.IsDTOModel())
+                     .Select(s => (IElement)s.TypeReference.Element)
+                     .ToArray();
+                 if (payloadParameters.Length > 1)
+                 {
+                     throw new ElementException(Model.InternalElement, "This service cannot have more than one DTO payload.");
+                 }
+                 _requestPayload = payloadParameters.FirstOrDefault();    
+            }
+        }
 
-        private void HandleRequestObject(Action<CSharpClass> requestModel, Action<DTOModel> requestPayload)
+        private void HandleRequestObject(Action<CSharpClass> requestModel, Action<IElement> requestPayload)
         {
             ArgumentNullException.ThrowIfNull(requestModel);
             ArgumentNullException.ThrowIfNull(requestPayload);
@@ -107,8 +122,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 {
                     _requestModelClass.AddProperty(GetTypeName(parameter.TypeReference), parameter.Name.ToPropertyName(), prop =>
                     {
-                        var attr = GetParameterBindingAttribute(parameter);
-                        if (attr is not null)
+                        if (TryGetParameterBindingAttribute(parameter, out var attr) && attr is not null)
                         {
                             prop.AddAttribute(attr);
                         }
@@ -138,7 +152,6 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 {
                     method.Override().Async();
                     
-                    
                     HandleRequestObject(
                         model => method.AddParameter(model.Name, "req"),
                         payload => method.AddParameter(payload.Name, "req"));
@@ -162,8 +175,8 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
         private void DefineEndpointBaseType(CSharpClass @class)
         {
             string? requestType = null;
-            HandleRequestObject(model => requestType = model.Name, payload => requestType = GetTypeName(payload.InternalElement));
-            
+            HandleRequestObject(model => requestType = model.Name, payload => requestType = GetTypeName(payload));
+
             var responseType = GetReturnType();
             string baseType = default!;
 
@@ -220,8 +233,12 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
 
             HandleRequestObject(
                 model => lambda.AddInvocationStatement($"b.Accepts<{model.Name}>"),
-                payload => lambda.AddInvocationStatement($"b.Accepts<{GetTypeName(payload.InternalElement)}>", i =>
+                payload => lambda.AddInvocationStatement($"b.Accepts<{GetTypeName(payload)}>", i =>
                 {
+                    if (Model.Parameters.All(p => TryGetParameterBindingAttribute(p, out _)))
+                    {
+                        return;
+                    }
                     AddUsing("System.Net.Mime");
                     i.AddArgument("MediaTypeNames.Application.Json");
                 }));
@@ -274,7 +291,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 method.AddInvocationStatement("Description", inv => inv.AddArgument(lambda));
             }
         }
-        
+
         private void AddValidator(CSharpClassMethod method)
         {
             if (_requestPayload is null)
@@ -296,7 +313,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             method.AddStatement("AllowAnonymous();");
         }
 
-        private CSharpAttribute? GetParameterBindingAttribute(IEndpointParameterModel parameter)
+        private bool TryGetParameterBindingAttribute(IEndpointParameterModel parameter, out CSharpAttribute? attribute)
         {
             // We will not be including FromBody bindings here as this will be used
             // by the input model that gets generated when an endpoint doesn't have
@@ -305,12 +322,14 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             if (parameter.Source is null or HttpInputSource.FromRoute &&
                 Model.Route.Contains($"{{{parameter.Name}}}", StringComparison.OrdinalIgnoreCase))
             {
-                return null; // FastEndpoints default to Route Parameters and doesn't have a FromRoute attribute
+                attribute = null; // FastEndpoints default to Route Parameters and doesn't have a FromRoute attribute
+                return true;
             }
 
             if (parameter.Source is HttpInputSource.FromHeader)
             {
-                return new CSharpAttribute($"FromHeader").AddArgument($@"""{parameter.HeaderName}""");
+                attribute = new CSharpAttribute($"FromHeader").AddArgument($@"""{parameter.HeaderName}""");
+                return true;
             }
 
             if (parameter.Source is null or HttpInputSource.FromQuery)
@@ -321,10 +340,12 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                     attr.AddArgument($@"""{parameter.QueryStringName}""");
                 }
 
-                return attr;
+                attribute = attr;
+                return true;
             }
 
-            return null;
+            attribute = null;
+            return false;
         }
 
         private bool HasSwashbuckleInstalled()

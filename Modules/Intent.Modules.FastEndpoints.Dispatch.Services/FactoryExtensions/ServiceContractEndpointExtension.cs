@@ -31,6 +31,10 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
             var endpointTemplates = application.FindTemplateInstances<EndpointTemplate>(EndpointTemplate.TemplateId);
             foreach (var endpointTemplate in endpointTemplates)
             {
+                if (endpointTemplate.Model is not ServiceEndpointModel)
+                {
+                    continue;
+                }
                 InstallServiceContractDispatch(endpointTemplate);
                 InstallTransactionWithUnitOfWork(endpointTemplate);
                 InstallMessageBus(endpointTemplate, application);

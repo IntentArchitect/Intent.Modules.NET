@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using Intent.Metadata.Models;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.FastEndpoints.Templates.Endpoint;
 
-public interface IEndpointContainerModel
+public interface IEndpointContainerModel : IHasFolder, IHasName, IMetadataModel
 {
     string Name { get; }
     IElement InternalElement { get; }
