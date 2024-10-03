@@ -233,7 +233,12 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 lambda.AddInvocationStatement("b.WithName", name => name.AddArgument($@"""{operationId}"""));
             }
 
-            //lambda.AddInvocationStatement("b.WithGroupName", i => i.AddArgument($@"""{Model.Container.Name}"""));
+            lambda.AddInvocationStatement("b.WithTags", i => i.AddArgument($@"""{Model.Container.Name}"""));
+
+            if (!string.IsNullOrWhiteSpace(Model.Comment))
+            {
+                lambda.AddInvocationStatement("b.WithSummary", i => i.AddArgument($@"@""{Model.Comment}"""));
+            }
 
             HandleRequestObject(
                 model => lambda.AddInvocationStatement($"b.Accepts<{model.Name}>"),
