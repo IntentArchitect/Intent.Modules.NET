@@ -24,7 +24,7 @@ namespace Intent.Modules.FastEndpoints.Templates.ExceptionProcessor
             AddKnownType("FastEndpoints.Mode");
             AddKnownType("FastEndpoints.ProblemDetails");
             AddKnownType("FastEndpoints.ForbiddenAccessException");
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Diagnostics")
@@ -54,7 +54,7 @@ namespace Intent.Modules.FastEndpoints.Templates.ExceptionProcessor
                                 block.AddStatement("await context.HttpContext.Response.SendResultAsync(new ProblemDetails(exception.Errors.ToList(), context.HttpContext.Request.Path, Activity.Current?.Id ?? context.HttpContext.TraceIdentifier, StatusCodes.Status400BadRequest));");
                                 block.WithBreak();
                             });
-                            
+
                             var forbidException = ExecutionContext.FindTemplateInstance(TemplateDependency.OnTemplate("Application.ForbiddenAccessException"));
                             if (forbidException is not null)
                             {
@@ -72,7 +72,7 @@ namespace Intent.Modules.FastEndpoints.Templates.ExceptionProcessor
                                 block.AddStatement("await context.HttpContext.Response.SendResultAsync(Results.Unauthorized());");
                                 block.WithBreak();
                             });
-                            
+
                             var notFoundException = ExecutionContext.FindTemplateInstance(TemplateDependency.OnTemplate("Domain.NotFoundException"));
                             if (notFoundException is not null)
                             {
@@ -96,7 +96,8 @@ namespace Intent.Modules.FastEndpoints.Templates.ExceptionProcessor
                 });
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

@@ -52,7 +52,7 @@ namespace Intent.Modules.FastEndpoints.Dispatch.MediatR.FactoryExtensions
 
                 if (endpointTemplate.Model.Parameters.Any())
                 {
-                    serviceInvocation.AddArgument($"req");    
+                    serviceInvocation.AddArgument($"req");
                 }
                 else
                 {

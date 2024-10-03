@@ -150,10 +150,10 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
 
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
-                
+
                 ctor.AddParameter(endpointTemplate.GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface), "eventBus",
                     p => p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()));
-                
+
                 var method = @class.FindMethod(s => s.HasMetadata("handle"))!;
                 method.Statements.LastOrDefault(x => x.HasMetadata("response"))
                     ?.InsertAbove("await _eventBus.FlushAllAsync(ct);", stmt => stmt.AddMetadata("eventbus-flush", true));

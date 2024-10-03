@@ -69,7 +69,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
         {
             return this.GetReturnStatement(Model);
         }
-        
+
         private void DetermineRequestPayload()
         {
             if ((Model.InternalElement.SpecializationType == "Command" ||
@@ -80,15 +80,15 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             }
             else
             {
-                 var payloadParameters = Model.Parameters
-                     .Where(p => p.TypeReference.Element.IsDTOModel())
-                     .Select(s => (IElement)s.TypeReference.Element)
-                     .ToArray();
-                 if (payloadParameters.Length > 1)
-                 {
-                     throw new ElementException(Model.InternalElement, "This service cannot have more than one DTO payload.");
-                 }
-                 _requestPayload = payloadParameters.FirstOrDefault();    
+                var payloadParameters = Model.Parameters
+                    .Where(p => p.TypeReference.Element.IsDTOModel())
+                    .Select(s => (IElement)s.TypeReference.Element)
+                    .ToArray();
+                if (payloadParameters.Length > 1)
+                {
+                    throw new ElementException(Model.InternalElement, "This service cannot have more than one DTO payload.");
+                }
+                _requestPayload = payloadParameters.FirstOrDefault();
             }
         }
 
@@ -151,7 +151,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 @class.AddMethod("Task", "HandleAsync", method =>
                 {
                     method.Override().Async();
-                    
+
                     HandleRequestObject(
                         model => method.AddParameter(model.Name, "req"),
                         payload => method.AddParameter(payload.Name, "req"));
@@ -226,7 +226,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 .Replace("{MethodName}", Model.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterUpper));
 
             AddUsing("Microsoft.AspNetCore.Builder");
-            
+
             var lambda = new CSharpLambdaBlock("b");
             if (!string.IsNullOrWhiteSpace(operationId))
             {
@@ -362,7 +362,8 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             return ExecutionContext.FindTemplateInstances("Distribution.SwashbuckleConfiguration")?.Any() == true;
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

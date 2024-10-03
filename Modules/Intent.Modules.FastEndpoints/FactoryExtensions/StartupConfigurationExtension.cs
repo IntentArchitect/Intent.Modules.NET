@@ -26,7 +26,7 @@ namespace Intent.Modules.FastEndpoints.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var startupTemplate = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-            
+
             var programTemplate = application.FindTemplateInstance<IProgramTemplate>(TemplateRoles.Distribution.WebApi.Program);
 
             startupTemplate?.CSharpFile.OnBuild(_ =>

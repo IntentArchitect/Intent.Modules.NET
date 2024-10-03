@@ -14,11 +14,11 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.7.0" />
-    <dependency id="Intent.Common.Types" version="4.0.0" />
-    <dependency id="Intent.Common.CSharp" version="3.8.0" />
-    <dependency id="Intent.FastEndpoints" version="1.0.0-pre.0" />
     <dependency id="Intent.Application.Contracts" version="5.0.8" />
+    <dependency id="Intent.Common" version="3.7.0" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0" />
+    <dependency id="Intent.Common.Types" version="4.0.0" />
+    <dependency id="Intent.FastEndpoints" version="1.0.0-pre.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
