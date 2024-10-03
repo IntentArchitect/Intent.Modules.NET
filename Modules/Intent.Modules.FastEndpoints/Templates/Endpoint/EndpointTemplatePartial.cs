@@ -89,6 +89,8 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             {
                 DefineEndpointBaseType(@class);
 
+                @class.AddConstructor();
+
                 @class.AddMethod("void", "Configure", method =>
                 {
                     method.Override();
@@ -106,14 +108,19 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                     }
 
                     method.AddParameter("CancellationToken", "ct");
+                    method.AddMetadata("handle", true);
                 });
             });
         }
 
+        public CSharpStatement? GetReturnStatement()
+        {
+            return this.GetReturnStatement(Model);
+        }
+
         private string? GetReturnType()
         {
-            if (Model.ReturnType is not null &&
-                GetTypeInfo(Model.ReturnType).IsPrimitive || Model.ReturnType.HasStringType())
+            if(this.ShouldBeJsonResponseWrapped(Model))
             {
                 return $"{this.GetJsonResponseTemplateName()}<{GetTypeName(Model)}>";
             }
