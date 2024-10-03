@@ -37,14 +37,13 @@ namespace Intent.Modules.Hangfire.Templates.HangfireDashboardAuthFilter
                     {
                         method.AddAttribute(CSharpIntentManagedAttribute.Ignore());
                         method.AddParameter("DashboardContext", "context");
-                        method.AddStatement("// TODO: Add custom implementation here to filter/grant dashboard access");
 
                         if (ExecutionContext.InstalledModules.Any(p => p.ModuleId == "Intent.Application.Identity"))
                         {
                             AddUsing("Microsoft.Extensions.DependencyInjection");
 
                             method.AddStatement($"var currentUser = context.GetHttpContext().RequestServices.GetRequiredService<{GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface")}>();");
-                            method.AddStatement("return currentUser.IsInRoleAsync(\"CustomRole\").GetAwaiter().GetResult();");
+                            method.AddStatement("return currentUser.UserId is not null;");
                         }
                         else
                         {
