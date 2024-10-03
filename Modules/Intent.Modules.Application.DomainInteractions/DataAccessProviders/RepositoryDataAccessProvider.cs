@@ -178,6 +178,21 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
 
     public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, string? orderBy, bool orderByIsNullable, out IList<CSharpStatement> prerequisiteStatements)
     {
+        if (_template.TryGetTypeName(TemplateRoles.Domain.Specification, _entity, out var specificationType))
+        {
+            prerequisiteStatements = new List<CSharpStatement>();
+            var result = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAllAsync")
+                .AddArgument($"new {specificationType}()")
+                .AddArgument($"{pageNo}")
+                .AddArgument($"{pageSize}");
+            if (orderBy != null)
+            {
+                result.AddArgument($"queryOptions => queryOptions.OrderBy({GetOrderByValue(orderByIsNullable, orderBy)})");
+            }
+            result.AddArgument("cancellationToken");
+            return result;
+        }
+
         var expressionResult = CreateQueryFilterExpression(queryMapping, out prerequisiteStatements);
         var expression = expressionResult.Statement;
         var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAllAsync");
@@ -210,6 +225,20 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
     public CSharpStatement FindAllAsync(CSharpStatement? expression, string pageNo, string pageSize, string? orderBy, bool orderByIsNullable, out IList<CSharpStatement> prerequisiteStatements)
     {
         prerequisiteStatements = new List<CSharpStatement>();
+        if (_template.TryGetTypeName(TemplateRoles.Domain.Specification, _entity, out var specificationType))
+        {
+            var result =  new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAllAsync")
+                .AddArgument($"new {specificationType}()")
+                .AddArgument($"{pageNo}")
+                .AddArgument($"{pageSize}");
+            if (orderBy != null)
+            {
+                result.AddArgument($"queryOptions => queryOptions.OrderBy({GetOrderByValue(orderByIsNullable, orderBy)})");
+            }
+            result.AddArgument("cancellationToken");
+            return result;
+        }
+
         var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAllAsync");
         if (expression?.ToString().StartsWith("x =>") == true) // a bit rudimentary
         {
