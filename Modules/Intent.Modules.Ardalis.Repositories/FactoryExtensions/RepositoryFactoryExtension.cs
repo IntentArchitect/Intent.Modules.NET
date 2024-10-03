@@ -106,6 +106,13 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         method.AddParameter($"Func<IQueryable<TDomain>, IQueryable<TDomain>> ", "queryOptions");
                         method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     });
+                    @interface.AddMethod($"Task<{PagedListInterfaceName(template)}<TDomain>>", "FindAllAsync", method =>
+                    {
+                        method.AddParameter($"ISpecification<TDomain>", "specification");
+                        method.AddParameter("int", "pageNo");
+                        method.AddParameter("int", "PageSize");
+                        method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                    });
                 });
             }
         }
@@ -245,12 +252,21 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         method.AddParameter($"Func<IQueryable<TDomain>, IQueryable<TDomain>>", "queryOptions");
                         method.AddParameter($"CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                         method.AddStatement("var queryable = ApplySpecification(specification);");
-                        method.AddStatement("queryable = queryOptions(queryable);");
+                        method.AddStatement("queryable = queryOptions == null ? queryable : queryOptions(queryable);");
                         method.AddStatement(@"return await ToPagedListAsync<TDomain>(
                             queryable,
                             pageNo,
                             pageSize,
                             cancellationToken);");
+                    });
+                    @class.AddMethod($"{PagedListInterfaceName(template)}<TDomain>", "FindAllAsync", method =>
+                    {
+                        method.Async();
+                        method.AddParameter($"ISpecification<TDomain>", "specification");
+                        method.AddParameter($"int", "pageNo");
+                        method.AddParameter($"int", "pageSize");
+                        method.AddParameter($"CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                        method.AddStatement("return await FindAllAsync(specification, pageNo, pageSize, null, cancellationToken);");
                     });
 
                     @class.AddMethod($"{PagedListInterfaceName(template)}<T>", "ToPagedListAsync<T>", method =>

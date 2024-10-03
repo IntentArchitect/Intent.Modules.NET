@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="731d5899-6861-4efe-b7b5-20a84a5af932" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Specifications</name>
+  <display>Specifications</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cea18431-54e0-4b93-821e-60980756e067</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f8b4554b-3797-4cb1-8cf0-2146a501e39f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Ardalis.Repositories.Specification</name>
+      <display>Intent.Ardalis.Repositories.Specification</display>
+      <externalReference>Intent.Ardalis.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>731d5899-6861-4efe-b7b5-20a84a5af932</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

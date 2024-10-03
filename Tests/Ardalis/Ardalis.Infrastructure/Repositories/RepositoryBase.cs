@@ -19,9 +19,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Ardalis.Infrastructure.Repositories
 {
-    public class RepositoryBase<TDomain, TPersistence, TDbContext> : RepositoryBase<TPersistence>, IRepositoryBase<TPersistence>
+    public class RepositoryBase<TDomain, TDbContext> : RepositoryBase<TDomain>, IRepositoryBase<TDomain>
         where TDbContext : DbContext, IUnitOfWork
-        where TPersistence : class, TDomain
         where TDomain : class
     {
         protected readonly TDbContext _dbContext;
@@ -36,13 +35,13 @@ namespace Ardalis.Infrastructure.Repositories
         public IUnitOfWork UnitOfWork => _dbContext;
 
         [IntentManaged(Mode.Fully)]
-        public void Add(TPersistence entity)
+        public void Add(TDomain entity)
         {
             base.AddAsync(entity).Wait();
         }
 
         [IntentManaged(Mode.Fully)]
-        public void Remove(TPersistence entity)
+        public void Remove(TDomain entity)
         {
             base.DeleteAsync(entity).Wait();
         }
@@ -64,7 +63,7 @@ namespace Ardalis.Infrastructure.Repositories
 
         [IntentManaged(Mode.Fully)]
         public Task<IPagedList<TDomain>> FindAllAsync(
-            Expression<Func<TPersistence, bool>> filterExpression,
+            Expression<Func<TDomain, bool>> filterExpression,
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
@@ -74,13 +73,13 @@ namespace Ardalis.Infrastructure.Repositories
 
         [IntentManaged(Mode.Fully)]
         public async Task<IPagedList<TDomain>> FindAllAsync(
-            Expression<Func<TPersistence, bool>> filterExpression,
+            Expression<Func<TDomain, bool>> filterExpression,
             int pageNo,
             int pageSize,
-            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> linq,
+            Func<IQueryable<TDomain>, IQueryable<TDomain>> linq,
             CancellationToken cancellationToken = default)
         {
-            IQueryable<TPersistence> queryable = _dbContext.Set<TPersistence>();
+            IQueryable<TDomain> queryable = _dbContext.Set<TDomain>();
             queryable = queryable.Where(filterExpression);
             var result = linq(queryable);
             return await ToPagedListAsync<TDomain>(
@@ -100,9 +99,34 @@ namespace Ardalis.Infrastructure.Repositories
 
         // In the event that SaveChanges is invoked explicitly, it should still operate as intended.
         [IntentManaged(Mode.Fully)]
-        Task<int> IRepositoryBase<TPersistence>.SaveChangesAsync(CancellationToken cancellationToken)
+        Task<int> IRepositoryBase<TDomain>.SaveChangesAsync(CancellationToken cancellationToken)
         {
             return base.SaveChangesAsync(cancellationToken);
+        }
+
+        public async Task<IPagedList<TDomain>> FindAllAsync(
+            ISpecification<TDomain> specification,
+            int pageNo,
+            int pageSize,
+            Func<IQueryable<TDomain>, IQueryable<TDomain>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = ApplySpecification(specification);
+            queryable = queryOptions == null ? queryable : queryOptions(queryable);
+            return await ToPagedListAsync<TDomain>(
+                            queryable,
+                            pageNo,
+                            pageSize,
+                            cancellationToken);
+        }
+
+        public async Task<IPagedList<TDomain>> FindAllAsync(
+            ISpecification<TDomain> specification,
+            int pageNo,
+            int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAllAsync(specification, pageNo, pageSize, null, cancellationToken);
         }
 
         private static async Task<IPagedList<T>> ToPagedListAsync<T>(

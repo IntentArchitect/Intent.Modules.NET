@@ -17,7 +17,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Ardalis.Infrastructure.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class ClientRepository : RepositoryBase<Client, Client, ApplicationDbContext>, IClientRepository
+    public class ClientRepository : RepositoryBase<Client, ApplicationDbContext>, IClientRepository
     {
         public ClientRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {

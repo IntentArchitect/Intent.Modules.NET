@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Ardalis.Domain.Repositories;
+using Ardalis.Domain.Specifications;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -28,7 +29,7 @@ namespace Ardalis.Application.Clients.GetClients
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<ClientDto>> Handle(GetClientsQuery request, CancellationToken cancellationToken)
         {
-            var clients = await _clientRepository.FindAllAsync(cancellationToken);
+            var clients = await _clientRepository.ListAsync(new ClientSpec(), cancellationToken);
             return clients.MapToClientDtoList(_mapper);
         }
     }
