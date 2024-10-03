@@ -22,7 +22,7 @@ internal static class Utils
         },
         {
             "201 (Created)",
-            new ResponseCodeLookup("201", "Status201Created", resultExpression => string.IsNullOrEmpty(resultExpression) ? $"TypedResults.Created(string.Empty, null)" : $"TypedResults.Created(string.Empty, {resultExpression})")
+            new ResponseCodeLookup("201", "Status201Created", resultExpression => string.IsNullOrEmpty(resultExpression) ? $"TypedResults.Created(string.Empty, (string)null)" : $"TypedResults.Created(string.Empty, {resultExpression})")
         },
         {
             "202 (Accepted)", 

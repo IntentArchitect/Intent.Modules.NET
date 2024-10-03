@@ -23,6 +23,7 @@ namespace Intent.Modules.FastEndpoints.Templates.ExceptionProcessor
         {
             AddKnownType("FastEndpoints.Mode");
             AddKnownType("FastEndpoints.ProblemDetails");
+            AddKnownType("FastEndpoints.ForbiddenAccessException");
             
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -53,25 +54,38 @@ namespace Intent.Modules.FastEndpoints.Templates.ExceptionProcessor
                                 block.AddStatement("await context.HttpContext.Response.SendResultAsync(new ProblemDetails(exception.Errors.ToList(), context.HttpContext.Request.Path, Activity.Current?.Id ?? context.HttpContext.TraceIdentifier, StatusCodes.Status400BadRequest));");
                                 block.WithBreak();
                             });
-                            switchStatement.AddCase("ForbiddenAccessException", block =>
+                            
+                            var forbidException = ExecutionContext.FindTemplateInstance(TemplateDependency.OnTemplate("Application.ForbiddenAccessException"));
+                            if (forbidException is not null)
                             {
-                                block.AddStatement("context.MarkExceptionAsHandled();");
-                                block.AddStatement("await context.HttpContext.Response.SendResultAsync(Results.Forbid());");
-                                block.WithBreak();
-                            });
+                                switchStatement.AddCase(GetTypeName(forbidException), block =>
+                                {
+                                    block.AddStatement("context.MarkExceptionAsHandled();");
+                                    block.AddStatement("await context.HttpContext.Response.SendResultAsync(Results.Forbid());");
+                                    block.WithBreak();
+                                });
+                            }
+
                             switchStatement.AddCase("UnauthorizedAccessException", block =>
                             {
                                 block.AddStatement("context.MarkExceptionAsHandled();");
                                 block.AddStatement("await context.HttpContext.Response.SendResultAsync(Results.Unauthorized());");
                                 block.WithBreak();
                             });
-                            switchStatement.AddCase("NotFoundException exception", block =>
+                            
+                            var notFoundException = ExecutionContext.FindTemplateInstance(TemplateDependency.OnTemplate("Domain.NotFoundException"));
+                            if (notFoundException is not null)
                             {
-                                block.AddStatement("context.MarkExceptionAsHandled();");
-                                block.AddStatement("context.HttpContext.Response.HttpContext.MarkResponseStart();");
-                                block.AddStatement("await context.HttpContext.Response.SendResultAsync(Results.NotFound(new { Detail = exception.Message, TraceId = Activity.Current?.Id ?? context.HttpContext.TraceIdentifier }));");
-                                block.WithBreak();
-                            });
+                                switchStatement.AddCase($"{GetTypeName(notFoundException)} exception", block =>
+                                {
+                                    block.AddStatement("context.MarkExceptionAsHandled();");
+                                    block.AddStatement("context.HttpContext.Response.HttpContext.MarkResponseStart();");
+                                    block.AddStatement(
+                                        "await context.HttpContext.Response.SendResultAsync(Results.NotFound(new { Detail = exception.Message, TraceId = Activity.Current?.Id ?? context.HttpContext.TraceIdentifier }));");
+                                    block.WithBreak();
+                                });
+                            }
+
                             switchStatement.AddDefault(block =>
                             {
                                 block.AddStatement("context.ExceptionDispatchInfo.Throw();");
