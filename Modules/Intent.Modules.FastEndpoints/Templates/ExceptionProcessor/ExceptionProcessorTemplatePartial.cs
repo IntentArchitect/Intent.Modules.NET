@@ -21,6 +21,9 @@ namespace Intent.Modules.FastEndpoints.Templates.ExceptionProcessor
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ExceptionProcessorTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddKnownType("FastEndpoints.Mode");
+            AddKnownType("FastEndpoints.ProblemDetails");
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Diagnostics")
@@ -30,7 +33,6 @@ namespace Intent.Modules.FastEndpoints.Templates.ExceptionProcessor
                 .AddUsing("FastEndpoints")
                 .AddUsing("FluentValidation")
                 .AddUsing("Microsoft.AspNetCore.Http")
-                .AddUsing("ProblemDetails = FastEndpoints.ProblemDetails")
                 .AddUsing("Mode = Intent.RoslynWeaver.Attributes.Mode")
                 .AddClass($"ExceptionProcessor", @class =>
                 {

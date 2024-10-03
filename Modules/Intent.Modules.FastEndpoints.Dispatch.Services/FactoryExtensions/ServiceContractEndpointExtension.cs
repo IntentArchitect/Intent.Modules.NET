@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.FastEndpoints.Templates.Endpoint;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Modules.UnitOfWork.Persistence.Shared;
@@ -23,8 +24,7 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
     {
         public override string Id => "Intent.FastEndpoints.Dispatch.Services.ServiceContractEndpointExtension";
 
-        [IntentManaged(Mode.Ignore)]
-        public override int Order => 0;
+        [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
@@ -33,6 +33,7 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
             {
                 InstallServiceContractDispatch(endpointTemplate);
                 InstallTransactionWithUnitOfWork(endpointTemplate);
+                InstallMessageBus(endpointTemplate, application);
             }
         }
 
@@ -42,12 +43,10 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
             {
                 var @class = file.Classes.First();
                 var ctor = @class.Constructors.First();
-                ctor.AddParameter(endpointTemplate.GetTypeName(ServiceContractTemplate.TemplateId, endpointTemplate.Model.Container.InternalElement), "appService", p =>
-                {
-                    p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException());
-                });
+                ctor.AddParameter(endpointTemplate.GetTypeName(ServiceContractTemplate.TemplateId, endpointTemplate.Model.Container.InternalElement), "appService",
+                    p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
-                var method = @class.FindMethod(s => s.TryGetMetadata("handle", out _))!;
+                var method = @class.FindMethod(s => s.HasMetadata("handle"))!;
                 var serviceInvocation = new CSharpInvocationStatement($"_appService.{endpointTemplate.Model.Name.ToPascalCase()}");
                 foreach (var parameter in endpointTemplate.Model.Parameters)
                 {
@@ -71,14 +70,14 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
                 if (endpointTemplate.Model.ReturnType is not null)
                 {
                     invocation = new CSharpAssignmentStatement("result", invocation);
-                    
+
                     method.AddStatement($"var result = default({endpointTemplate.GetTypeName(endpointTemplate.Model.ReturnType)});");
                 }
 
                 invocation.AddMetadata("service-contract-dispatch", true);
-                
+
                 method.AddStatement(invocation);
-                
+
                 var returnStatement = endpointTemplate.GetReturnStatement();
                 if (returnStatement is not null)
                 {
@@ -86,7 +85,7 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
                 }
             }, 2);
         }
-        
+
         private void InstallTransactionWithUnitOfWork(EndpointTemplate endpointTemplate)
         {
             if (!endpointTemplate.SystemUsesPersistenceUnitOfWork())
@@ -97,7 +96,7 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
             endpointTemplate.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();
-                var method = @class.FindMethod(s => s.TryGetMetadata("handle", out _))!;
+                var method = @class.FindMethod(s => s.HasMetadata("handle"))!;
                 if (endpointTemplate.Model.Verb == HttpVerb.Get)
                 {
                     return;
@@ -128,8 +127,33 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
                     returnStatement.Remove();
                     method.AddStatement(returnStatement);
                 }
-                
             }, order: 3);
+        }
+
+        private static void InstallMessageBus(EndpointTemplate endpointTemplate, IApplication application)
+        {
+            if (application.FindTemplateInstance<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface) is null)
+            {
+                return;
+            }
+
+            endpointTemplate.CSharpFile.AfterBuild(file =>
+            {
+                if (endpointTemplate.Model.Verb == HttpVerb.Get)
+                {
+                    return;
+                }
+
+                var @class = file.Classes.First();
+                var ctor = @class.Constructors.First();
+                
+                ctor.AddParameter(endpointTemplate.GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface), "eventBus",
+                    p => p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()));
+                
+                var method = @class.FindMethod(s => s.HasMetadata("handle"))!;
+                method.Statements.LastOrDefault(x => x.HasMetadata("response"))
+                    ?.InsertAbove("await _eventBus.FlushAllAsync(ct);", stmt => stmt.AddMetadata("eventbus-flush", true));
+            }, order: -100);
         }
     }
 }

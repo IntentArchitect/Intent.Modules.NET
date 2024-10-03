@@ -52,6 +52,8 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             }
             _requestPayload = payloadParameters.FirstOrDefault();
             
+            AddKnownType("FastEndpoints.IEventBus");
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Threading")
