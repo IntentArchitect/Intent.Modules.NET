@@ -68,7 +68,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a44283e3-0094-42ac-804e-95316aa86fd3</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>

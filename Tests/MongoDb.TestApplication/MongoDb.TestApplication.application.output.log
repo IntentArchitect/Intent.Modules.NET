@@ -180,7 +180,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>4b82569a-216d-4120-bb61-222435de1743</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.TestApplication.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>

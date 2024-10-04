@@ -84,7 +84,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>53e1426a-098c-49da-9cdf-7d1745401e8f</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SignalR.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>

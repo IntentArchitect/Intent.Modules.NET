@@ -68,7 +68,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c0fbbbc9-37f6-4f39-bce4-9c5c24e15a2d</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>

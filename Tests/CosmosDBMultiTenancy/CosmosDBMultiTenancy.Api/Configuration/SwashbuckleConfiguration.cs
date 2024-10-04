@@ -32,7 +32,7 @@ namespace CosmosDBMultiTenancy.Api.Configuration
                 {
                     options.SchemaFilter<RequireNonNullablePropertiesSchemaFilter>();
                     options.SupportNonNullableReferenceTypes();
-                    options.CustomSchemaIds(x => x.FullName);
+                    options.CustomSchemaIds(x => x.FullName?.Replace("+", "_"));
 
                     var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
                     if (File.Exists(apiXmlFile))
@@ -46,7 +46,6 @@ namespace CosmosDBMultiTenancy.Api.Configuration
                         options.IncludeXmlComments(applicationXmlFile);
                     }
                     options.OperationFilter<TenantHeaderOperationFilter>();
-                    options.SchemaFilter<TypeSchemaFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()
@@ -70,6 +69,7 @@ namespace CosmosDBMultiTenancy.Api.Configuration
                         {
                             { securityScheme, Array.Empty<string>() }
                         });
+                    options.SchemaFilter<TypeSchemaFilter>();
                 });
             return services;
         }

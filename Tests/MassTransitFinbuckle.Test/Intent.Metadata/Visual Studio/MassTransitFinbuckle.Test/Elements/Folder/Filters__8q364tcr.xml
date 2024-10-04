@@ -83,10 +83,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="0464efb4-bb60-4434-8e81-d009d9cc3be2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Controllers.TypeSchemaFilter</name>
-      <display>Intent.AspNetCore.Controllers.TypeSchemaFilter</display>
-      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+    <childElement id="995b4d43-61e8-4673-9776-48789f3cc524" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

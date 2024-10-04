@@ -32,7 +32,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Configuration
                 {
                     options.SchemaFilter<RequireNonNullablePropertiesSchemaFilter>();
                     options.SupportNonNullableReferenceTypes();
-                    options.CustomSchemaIds(x => x.FullName);
+                    options.CustomSchemaIds(x => x.FullName?.Replace("+", "_"));
 
                     var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
                     if (File.Exists(apiXmlFile))
@@ -46,7 +46,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Configuration
                         options.IncludeXmlComments(applicationXmlFile);
                     }
                     options.OperationFilter<BinaryContentFilter>();
-                    options.SchemaFilter<TypeSchemaFilter>();
                     options.OperationFilter<ODataQueryFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
@@ -71,6 +70,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Configuration
                         {
                             { securityScheme, Array.Empty<string>() }
                         });
+                    options.SchemaFilter<TypeSchemaFilter>();
                 });
             return services;
         }

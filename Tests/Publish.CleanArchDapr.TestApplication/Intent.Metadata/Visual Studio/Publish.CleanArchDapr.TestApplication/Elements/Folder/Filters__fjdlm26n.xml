@@ -53,10 +53,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="223afd6a-ebe2-447b-b528-98dcebba63ae" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Controllers.TypeSchemaFilter</name>
-      <display>Intent.AspNetCore.Controllers.TypeSchemaFilter</display>
-      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+    <childElement id="4da0c1a9-4d76-4367-b124-6b9616c6ea71" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle.Security</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -69,16 +69,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="4da0c1a9-4d76-4367-b124-6b9616c6ea71" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</name>
-      <display>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</display>
-      <externalReference>Intent.AspNetCore.Swashbuckle.Security</externalReference>
+    <childElement id="31b9815b-6ea2-4116-ae68-8c5dbe7fbe97" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0eadc1c3-d3a6-4c82-9213-aa7380c4f54b</parentFolderId>
-      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
-      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
