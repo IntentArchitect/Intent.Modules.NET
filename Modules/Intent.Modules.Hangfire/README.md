@@ -53,6 +53,9 @@ If this condition is on (the default value) the application is configurated as a
 ##### Worker Count
 This value indicates the number of paralell internal processors (workers) created to handle job processing (i.e. the maxiumum number of jobs which can be processed in parallel). If left blank (the recommendation) Hangfire will automatically calculate the optimal number of workers based on CPU's available.
 
+##### Job Retention Hours
+The time frame, in hours, that the history of completed jobs (successful or deleted) will be retained before expiring and being removed from Hangfire
+
 ### Hangfire Jobs and Queues
 
 Once the core Hangfire configuration is completed, one or more jobs and/or queues can be added. In the `Service Designer`, right click on the `Hangfire Configuration` and select the `Add Job` or `Add Queue` context menu option:
@@ -95,13 +98,9 @@ Specifies the interval on which the job should executing, using the cron express
 
 If this condition is set, then only one instance of the recurring job can be executed at any given time.
 
-> Only applicable when _Job Type_ is **Recurring** 
-
 ##### Concurrent Execution Timeout
 
 The amount of time, in seconds, a duplicate job will wait (if _Disallow Concurrent Execution_ is set) before it is cancelled.
-
-> Only applicable when _Job Type_ is **Recurring** 
 
 ##### Delay Time Frame
 
@@ -114,6 +113,14 @@ The unit of the _Delay Value_, the amount of time delayed before the job is exec
 The value of the _Delay Time Frame_, the amount of time delayed before the job is executed.
 
 > Only applicable when _Job Type_ is **Delayed** 
+
+##### Retry Attempts
+
+The number of times the processing of the job will be retried, in the case where the job did not complete successfully.
+
+##### On Attempts Exceeded:
+
+When the processing of a job has been retried more than _retry attempts_ number of times, this is the final state the job will be moved into. Options are _Fail_ and _Deleted_
 
 ##### Queue
 
