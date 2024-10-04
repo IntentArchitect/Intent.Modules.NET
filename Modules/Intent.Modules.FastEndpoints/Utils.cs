@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.FastEndpoints.Templates;
 using Intent.Modules.FastEndpoints.Templates.Endpoint;
 using Intent.Modules.Metadata.WebApi.Models;
@@ -30,7 +31,7 @@ internal static class Utils
         },
         {
             "203 (Non-Authoritative Information)",
-            new ResponseCodeLookup("203", "Status203NonAuthoritative", resultExpression => $"TypedResults.StatusCode(203{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})")
+            new ResponseCodeLookup("203", "Status203NonAuthoritative", resultExpression => null)
         },
         {
             "204 (No Content)", 
@@ -38,27 +39,27 @@ internal static class Utils
         },
         {
             "205 (Reset Content)",
-            new ResponseCodeLookup("205", "Status205ResetContent", resultExpression => $"TypedResults.StatusCode(205{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})")
+            new ResponseCodeLookup("205", "Status205ResetContent", resultExpression => null)
         },
         {
             "206 (Partial Content)",
-            new ResponseCodeLookup("206", "Status206PartialContent", resultExpression => $"StatusCode(206{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})")
+            new ResponseCodeLookup("206", "Status206PartialContent", resultExpression => null)
         },
         {
             "207 (Multi-Status)",
-            new ResponseCodeLookup("207", "Status207MultiStatus", resultExpression => $"TypedResults.StatusCode(207{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})")
+            new ResponseCodeLookup("207", "Status207MultiStatus", resultExpression => null)
         },
         {
             "208 (Already Reported)", 
-            new ResponseCodeLookup("208", "Status208AlreadyReported", resultExpression => $"TypedResults.StatusCode(208{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})")
+            new ResponseCodeLookup("208", "Status208AlreadyReported", resultExpression => null)
         },
         {
             "226 (IM Used)",
-            new ResponseCodeLookup("226", "Status226IMUsed", resultExpression => $"TypedResults.StatusCode(226{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})")
+            new ResponseCodeLookup("226", "Status226IMUsed", resultExpression => null)
         }
     };
 
-    internal record ResponseCodeLookup(string Code, string StatusCodesEnumValue, Func<string?, string> ReturnOperation);
+    internal record ResponseCodeLookup(string Code, string StatusCodesEnumValue, Func<string?, string?> ReturnOperation);
 
     public static bool ShouldBeJsonResponseWrapped(this ICSharpTemplate template, IEndpointModel endpointModel)
     {
@@ -95,12 +96,7 @@ internal static class Utils
             return null;
         }
 
-        if (!_responseCodeLookup.TryGetValue(property.Value, out var result))
-        {
-            return null;
-        }
-
-        return result;
+        return _responseCodeLookup.GetValueOrDefault(property.Value);
     }
 
     internal static string GetSuccessResponseCode(this IEndpointModel endpointModel, string defaultValue)
@@ -110,7 +106,7 @@ internal static class Utils
         {
             return defaultValue;
         }
-
+    
         return lookup.Code;
     }
 
@@ -126,14 +122,14 @@ internal static class Utils
         return lookup.StatusCodesEnumValue;
     }
 
-    private static string GetSuccessResponseCodeOperation(this IEndpointModel endpointModel, string defaultValue, string? resultExpression)
+    private static string? GetSuccessResponseCodeOperation(this IEndpointModel endpointModel, string defaultValue, string? resultExpression)
     {
         var lookup = endpointModel.GetResponseCodeLookup();
         if (lookup == null)
         {
             return defaultValue;
         }
-
+    
         return lookup.ReturnOperation(resultExpression);
     }
 
@@ -151,7 +147,7 @@ internal static class Utils
         }
 
         string defaultResponseExpression;
-        CSharpStatement? responseStatement = null;
+        CSharpStatement? responseStatement;
         
         switch (endpointModel.Verb)
         {
@@ -159,15 +155,11 @@ internal static class Utils
             case HttpVerb.Patch:
             case HttpVerb.Put:
                 defaultResponseExpression = hasReturnType ? $"TypedResults.Ok({resultExpression})" : "TypedResults.NoContent()";
-                resultExpression = endpointModel.GetSuccessResponseCodeOperation(defaultResponseExpression, resultExpression);
-                responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("SendResultAsync").AddArgument(resultExpression));
-                responseStatement.AddMetadata("response", "SendResultAsync");
+                responseStatement = GetResponseCodeStatement(endpointModel, defaultResponseExpression, resultExpression);
                 break;
             case HttpVerb.Delete:
                 defaultResponseExpression = hasReturnType ? $"TypedResults.Ok({resultExpression})" : "TypedResults.Ok()";
-                resultExpression = endpointModel.GetSuccessResponseCodeOperation(defaultResponseExpression, resultExpression);
-                responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("SendResultAsync").AddArgument(resultExpression));
-                responseStatement.AddMetadata("response", "SendResultAsync");
+                responseStatement = GetResponseCodeStatement(endpointModel, defaultResponseExpression, resultExpression);
                 break;
             case HttpVerb.Post:
                 responseStatement = null;
@@ -214,10 +206,9 @@ internal static class Utils
 
                 if (responseStatement is null)
                 {
-                    defaultResponseExpression = hasReturnType ? $"TypedResults.Created(string.Empty, {resultExpression})" : "TypedResults.Created(string.Empty, (string)null)";
-                    resultExpression = endpointModel.GetSuccessResponseCodeOperation(defaultResponseExpression, resultExpression);
-                    responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("SendResultAsync").AddArgument(resultExpression));
-                    responseStatement.AddMetadata("response", "SendResultAsync");
+                    var nullableSymbol = template.OutputTarget.GetProject().NullableEnabled ? "?" : string.Empty;
+                    defaultResponseExpression = hasReturnType ? $"TypedResults.Created(string.Empty, {resultExpression})" : $"TypedResults.Created(string.Empty, (string{nullableSymbol})null)";
+                    responseStatement = GetResponseCodeStatement(endpointModel, defaultResponseExpression, resultExpression);
                 }
                 
                 break;
@@ -225,6 +216,34 @@ internal static class Utils
                 throw new ArgumentOutOfRangeException($"Unknown verb: {endpointModel.Verb}");
         }
         
+        return responseStatement;
+    }
+
+    private static CSharpStatement GetResponseCodeStatement(IEndpointModel endpointModel, string defaultResponseExpression, string? resultExpression)
+    {
+        CSharpStatement responseStatement;
+        var packagedResultExpression = endpointModel.GetSuccessResponseCodeOperation(defaultResponseExpression, resultExpression);
+        if (packagedResultExpression is not null)
+        {
+            responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("SendResultAsync")
+                .AddArgument(packagedResultExpression));
+            responseStatement.AddMetadata("response", "SendResultAsync");
+        }
+        else if (!string.IsNullOrEmpty(resultExpression))
+        {
+            responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("SendAsync")
+                .AddArgument(resultExpression)
+                .AddArgument(endpointModel.GetSuccessResponseCode("204"))
+                .AddArgument("ct"));
+            responseStatement.AddMetadata("response", "SendAsync");
+        }
+        else
+        {
+            responseStatement = new CSharpAwaitExpression(new CSharpInvocationStatement("SendResultAsync")
+                .AddArgument($"TypedResults.StatusCode({endpointModel.GetSuccessResponseCode("204")})"));
+            responseStatement.AddMetadata("response", "SendResultAsync");
+        }
+
         return responseStatement;
     }
 
