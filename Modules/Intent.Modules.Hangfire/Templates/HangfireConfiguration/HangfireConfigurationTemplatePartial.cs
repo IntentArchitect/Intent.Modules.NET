@@ -74,11 +74,22 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
                             {
                                 method.AddInvocationStatement("services.AddHangfireServer", stmt =>
                                 {
+                                    var queues = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id).GetHangfireQueueModels();
+                                    var queueNames = queues.Select(q => $"\"{q.Name.ToLower()}\"").ToList();
+                                    if (!queueNames.Contains("\"default\""))
+                                    {
+                                        queueNames.Add("\"default\"");
+                                    }
+
+                                    var lambdaBlock = new CSharpLambdaBlock("opt")
+                                        .AddStatement($"opt.Queues = [{string.Join(",", queueNames)}];");
+
                                     if (_hangFireConfigurationModel.GetHangfireOptions().WorkerCount().HasValue)
                                     {
-                                        stmt.AddArgument(new CSharpLambdaBlock("opt")
-                                            .AddStatement($"opt.WorkerCount = {_hangFireConfigurationModel.GetHangfireOptions().WorkerCount().Value};"));
+                                        lambdaBlock.AddStatement($"opt.WorkerCount = {_hangFireConfigurationModel.GetHangfireOptions().WorkerCount().Value};");
                                     }
+
+                                    stmt.AddArgument(lambdaBlock);
                                 });
                             }
 
@@ -117,7 +128,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
         {
             StorageOptionsEnum.None => "",
             StorageOptionsEnum.InMemory => AddInMemoryStorageUseStatement(),
-            StorageOptionsEnum.SQLServer => AddSqlServerStorageUseStatement(),
+            StorageOptionsEnum.SQLServer => AddSqlServerStorageUseStatement(model),
             _ => ""
         };
 
@@ -127,10 +138,30 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
             return "cfg.UseInMemoryStorage();";
         }
 
-        private string AddSqlServerStorageUseStatement()
+        private string AddSqlServerStorageUseStatement(HangfireConfigurationModel model)
         {
             AddNugetDependency(NugetPackages.HangfireSqlServer(OutputTarget));
-            return "cfg.UseSqlServerStorage(configuration.GetConnectionString(\"DefaultConnection\"));";
+            AddNugetDependency(NugetPackages.MicrosoftDataSqlClient(OutputTarget));
+            AddUsing("System");
+
+            var x = new CSharpObjectInitializerBlock($"new {UseType("Hangfire.SqlServer.SqlServerStorageOptions")}")
+                .AddObjectInitStatement("CommandBatchMaxTimeout", "TimeSpan.FromMinutes(5)")
+                .AddObjectInitStatement("SlidingInvisibilityTimeout", "TimeSpan.FromMinutes(5)")
+                .AddObjectInitStatement("QueuePollInterval", "TimeSpan.Zero")
+                .AddObjectInitStatement("UseRecommendedIsolationLevel", "true")
+                .AddObjectInitStatement("DisableGlobalLocks ", "true");
+
+            var statement = new CSharpStatement("cfg")
+                .AddInvocation("UseSqlServerStorage", config =>
+                {
+                    config.AddArgument("configuration.GetConnectionString(\"DefaultConnection\")");
+                    config.AddArgument(x);
+                }).AddInvocation($"WithJobExpirationTimeout", config =>
+                {
+                    config.AddArgument($"TimeSpan.FromHours({model.GetHangfireOptions().JobRetentionHours()})");
+                });
+
+            return statement.ToString();
         }
 
         private void AddApNetCoreUseHangfire(CSharpClass @class)

@@ -114,6 +114,7 @@
       <isActiveFunction />
     </property>
     <property id="545f4c0d-b389-4b8d-a092-e65ead77f445">
+      <hint>The number of times a job will be reprocessed before reverting to Failed/Deleted</hint>
       <name>Retry Attempts</name>
       <type>string</type>
       <controlType>number</controlType>
@@ -124,6 +125,7 @@
       <lookupTypes />
     </property>
     <property id="78be64bd-7eb8-44aa-b5f8-180ec74c42fb">
+      <hint>The state a job will be set to when the retry attempts is exceeded</hint>
       <name>On Attempts Exceeded</name>
       <type>string</type>
       <controlType>select</controlType>
@@ -132,7 +134,7 @@
       <defaultValue>Fail</defaultValue>
       <valueOptions>
         <option>Fail</option>
-        <option>Deleted</option>
+        <option>Delete</option>
       </valueOptions>
       <lookupTypes />
     </property>

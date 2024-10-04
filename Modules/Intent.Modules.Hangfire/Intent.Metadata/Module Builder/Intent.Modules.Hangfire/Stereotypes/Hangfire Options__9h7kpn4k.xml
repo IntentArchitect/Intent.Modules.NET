@@ -101,5 +101,16 @@
       <valueOptions />
       <lookupTypes />
     </property>
+    <property id="77137365-d28d-459b-b1f3-b2d286b6f633">
+      <hint>The number of hours successful or deleted jobs are retained before being deleted</hint>
+      <name>Job Retention Hours</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>24</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
   </properties>
 </stereotypeDefinition>

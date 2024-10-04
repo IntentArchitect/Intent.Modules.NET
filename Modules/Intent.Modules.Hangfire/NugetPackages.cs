@@ -15,6 +15,7 @@ namespace Intent.Modules.Hangfire
         public const string HangfireCorePackageName = "Hangfire.Core";
         public const string HangfireInMemoryPackageName = "Hangfire.InMemory";
         public const string HangfireSqlServerPackageName = "Hangfire.SqlServer";
+        public const string MicrosoftDataSqlClientPackageName = "Microsoft.Data.SqlClient";
 
         public void RegisterPackages()
         {
@@ -48,6 +49,13 @@ namespace Intent.Modules.Hangfire
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{HangfireSqlServerPackageName}'"),
                     }
                 );
+            NugetRegistry.Register(MicrosoftDataSqlClientPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 0, 0) => new PackageVersion("5.2.2"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftDataSqlClientPackageName}'"),
+                    }
+                );
         }
 
         public static NugetPackageInfo HangfireAspNetCore(IOutputTarget outputTarget) => NugetRegistry.GetVersion(HangfireAspNetCorePackageName, outputTarget.GetMaxNetAppVersion());
@@ -57,5 +65,7 @@ namespace Intent.Modules.Hangfire
         public static NugetPackageInfo HangfireInMemory(IOutputTarget outputTarget) => NugetRegistry.GetVersion(HangfireInMemoryPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo HangfireSqlServer(IOutputTarget outputTarget) => NugetRegistry.GetVersion(HangfireSqlServerPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftDataSqlClient(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftDataSqlClientPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

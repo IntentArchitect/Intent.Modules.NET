@@ -83,6 +83,11 @@ namespace Intent.Modules.Hangfire.Api
                 return _stereotype.GetProperty<int?>("Worker Count");
             }
 
+            public int? JobRetentionHours()
+            {
+                return _stereotype.GetProperty<int?>("Job Retention Hours");
+            }
+
             public class StorageOptions
             {
                 public readonly string Value;

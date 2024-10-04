@@ -222,8 +222,8 @@ namespace Intent.Modules.Hangfire.Api
                     {
                         case "Fail":
                             return OnAttemptsExceededOptionsEnum.Fail;
-                        case "Deleted":
-                            return OnAttemptsExceededOptionsEnum.Deleted;
+                        case "Delete":
+                            return OnAttemptsExceededOptionsEnum.Delete;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
@@ -233,16 +233,16 @@ namespace Intent.Modules.Hangfire.Api
                 {
                     return Value == "Fail";
                 }
-                public bool IsDeleted()
+                public bool IsDelete()
                 {
-                    return Value == "Deleted";
+                    return Value == "Delete";
                 }
             }
 
             public enum OnAttemptsExceededOptionsEnum
             {
                 Fail,
-                Deleted
+                Delete
             }
         }
 
