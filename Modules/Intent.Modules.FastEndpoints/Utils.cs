@@ -204,7 +204,7 @@ internal static class Utils
                     {
                         var aggregateIdParameter = getByIdOperation.Parameters[0].Name.ToParameterName();
                         responseStatement = new CSharpInvocationStatement($"SendCreatedAtAsync<{template.GetEndpointTemplateName(getByIdOperation)}>")
-                            .AddArgument($"new {{ {aggregateIdParameter} = {aggregateIdParameter},  id = result }}")
+                            .AddArgument($"new {{ {aggregateIdParameter} = req.{aggregateIdParameter.ToPropertyName()},  id = result }}")
                             .AddArgument(resultExpression)
                             .AddArgument("cancellation: ct");
                         responseStatement = new CSharpAwaitExpression(responseStatement);

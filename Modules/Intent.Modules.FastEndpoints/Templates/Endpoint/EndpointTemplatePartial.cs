@@ -253,7 +253,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 }));
 
             var mediaTypeNamesApplicationJson = Model.MediaType == HttpMediaType.ApplicationJson || Model.ReturnType?.Element.IsDTOModel() == true
-                ? "MediaTypeNames.Application.Json"
+                ? "contentType: MediaTypeNames.Application.Json"
                 : null;
 
             if (mediaTypeNamesApplicationJson is not null)
@@ -343,7 +343,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
 
             if (parameter.Source is null or HttpInputSource.FromQuery)
             {
-                var attr = new CSharpAttribute("FromQuery");
+                var attr = new CSharpAttribute("FromQueryParams");
                 if (!string.IsNullOrWhiteSpace(parameter.QueryStringName))
                 {
                     attr.AddArgument($@"""{parameter.QueryStringName}""");
