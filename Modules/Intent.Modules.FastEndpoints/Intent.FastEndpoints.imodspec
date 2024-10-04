@@ -67,7 +67,7 @@
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
   </files>
-  <tags />
+  <tags>csharp dotnet aspnetcore controllers endpoints</tags>
   <moduleSettingsExtensions />
   <metadata />
   <releaseNotes>release-notes.md</releaseNotes>
