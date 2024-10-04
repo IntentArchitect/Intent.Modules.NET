@@ -23,13 +23,17 @@
     <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
     <autoSyncTypeReference>false</autoSyncTypeReference>
     <mappedPath>
-      <target id="ef229a2c-3961-4466-ab21-99aae3e3bf58" name="AccountHolder" type="element" specialization="Class" />
-      <target id="8e6367d1-f289-4d12-bcd0-85db10817390" name="Constructor" type="element" specialization="Class Constructor" />
+      <target id="ef229a2c-3961-4466-ab21-99aae3e3bf58" name="AccountHolder" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+      <target id="8e6367d1-f289-4d12-bcd0-85db10817390" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>5cc5f20e-147a-41e0-a05d-9f5fc17ab216</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
@@ -54,7 +58,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="e2a90524-b8bd-4097-8566-1ec62c7aa03c" name="name" type="element" specialization="Parameter" />
+          <target id="e2a90524-b8bd-4097-8566-1ec62c7aa03c" name="name" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>7bd45b8d-4efd-4c7b-8b66-838e686febd8</parentFolderId>

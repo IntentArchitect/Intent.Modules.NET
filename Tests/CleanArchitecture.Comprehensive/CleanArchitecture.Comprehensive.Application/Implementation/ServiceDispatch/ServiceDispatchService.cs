@@ -19,50 +19,58 @@ namespace CleanArchitecture.Comprehensive.Application.Implementation.ServiceDisp
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public void Mutation()
+        public void Mutation1()
         {
+            // TODO: Implement Mutation1 (ServiceDispatchService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public void Mutation(string param)
+        public void Mutation2(string param)
         {
+            // TODO: Implement Mutation2 (ServiceDispatchService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task MutationAsync(CancellationToken cancellationToken = default)
+        public async Task Mutation3Async(CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Mutation3Async (ServiceDispatchService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task MutationAsync(string param, CancellationToken cancellationToken = default)
+        public async Task Mutation4Async(string param, CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Mutation4Async (ServiceDispatchService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public string Query(string param)
+        public string Query5(string param)
         {
+            // TODO: Implement Query5 (ServiceDispatchService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public string Query()
+        public string Query6()
         {
+            // TODO: Implement Query6 (ServiceDispatchService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<string> QueryAsync(CancellationToken cancellationToken = default)
+        public async Task<string> Query7Async(CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Query7Async (ServiceDispatchService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<string> QueryAsync(string param, CancellationToken cancellationToken = default)
+        public async Task<string> Query8Async(string param, CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Query8Async (ServiceDispatchService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 

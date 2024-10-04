@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="7fea9447-5553-481e-9f80-7786b8b32f8e" name="LogEntry" type="element" specialization="Class" />
+      <target id="7fea9447-5553-481e-9f80-7786b8b32f8e" name="LogEntry" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>36747d74-0978-4f41-883c-71e2133fe305</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="980e3efc-0f9a-4570-ba4b-3e2d81ad4a2d" name="Id" type="element" specialization="Attribute" />
+          <target id="980e3efc-0f9a-4570-ba4b-3e2d81ad4a2d" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>6c326be1-1ab4-4002-8a45-69d16ae4971f</parentFolderId>
@@ -96,7 +96,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="88579877-a0b2-4bf5-b2a2-85f19337a561" name="Message" type="element" specialization="Attribute" />
+          <target id="88579877-a0b2-4bf5-b2a2-85f19337a561" name="Message" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>6c326be1-1ab4-4002-8a45-69d16ae4971f</parentFolderId>
@@ -150,7 +150,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="00f345cd-21ff-4983-9fda-cff07d6520d5" name="TimeStamp" type="element" specialization="Attribute" />
+          <target id="00f345cd-21ff-4983-9fda-cff07d6520d5" name="TimeStamp" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>6c326be1-1ab4-4002-8a45-69d16ae4971f</parentFolderId>

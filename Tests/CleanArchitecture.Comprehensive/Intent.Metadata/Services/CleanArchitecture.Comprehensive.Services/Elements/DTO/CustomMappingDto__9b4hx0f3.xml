@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="4c90f590-66a5-4eee-b96e-974fed985b78" name="CustomMapping" type="element" specialization="Class" />
+      <target id="4c90f590-66a5-4eee-b96e-974fed985b78" name="CustomMapping" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>d1b34366-3f8a-445d-9ba2-935dbb580637</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="41eba662-4dc4-43e7-b526-c9e2bb617358" name="Id" type="element" specialization="Attribute" />
+          <target id="41eba662-4dc4-43e7-b526-c9e2bb617358" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>212df586-4773-46f5-b7f4-88f0caa221f5</parentFolderId>
@@ -96,7 +96,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="508a5697-778d-45fb-9adc-c0beeb297e49" name="When" type="element" specialization="Attribute" />
+          <target id="508a5697-778d-45fb-9adc-c0beeb297e49" name="When" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>212df586-4773-46f5-b7f4-88f0caa221f5</parentFolderId>
@@ -150,7 +150,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="508a5697-778d-45fb-9adc-c0beeb297e49" name="When" type="element" specialization="Attribute" />
+          <target id="508a5697-778d-45fb-9adc-c0beeb297e49" name="When" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
           <target name="HasValue ? src" type="n/a" />
           <target name="When" type="n/a" />
           <target name="Value" type="n/a" />

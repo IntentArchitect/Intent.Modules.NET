@@ -22,6 +22,9 @@
     <name>customer</name>
     <display>[update] customer: Customer</display>
     <order>5</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="7cf733ae-f7a3-411d-8210-d3b72ea058a8">
       <typeId>21cdffa0-70f5-4a71-8e25-c51d99c183b9</typeId>
       <isNavigable>true</isNavigable>

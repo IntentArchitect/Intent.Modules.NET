@@ -23,12 +23,16 @@
     <mappingSettingsId>50c4872d-f029-48ec-a818-58b426e8166a</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="b1e11bdc-ab77-4e0e-80dd-9b0e7d170b90" name="Camera" type="element" specialization="Class" />
+      <target id="b1e11bdc-ab77-4e0e-80dd-9b0e7d170b90" name="Camera" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>5cc5f20e-147a-41e0-a05d-9f5fc17ab216</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
@@ -53,7 +57,7 @@
         <mappingSettingsId>50c4872d-f029-48ec-a818-58b426e8166a</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="3bba58e2-7e90-426b-8003-375fcdb1898f" name="IdemiaId" type="element" specialization="Attribute" />
+          <target id="3bba58e2-7e90-426b-8003-375fcdb1898f" name="IdemiaId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>1e1dae43-fed8-49ab-be70-491d23ce3a70</parentFolderId>

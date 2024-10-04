@@ -20,12 +20,16 @@
     <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="418c755c-ad12-4f6e-8998-c530e8eb5dce" name="Submission" type="element" specialization="Class" />
+      <target id="418c755c-ad12-4f6e-8998-c530e8eb5dce" name="Submission" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>88377388-58be-410b-b30e-d09bf8a3b3d6</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes />
   <metadata>
     <entry key="baseName" value="Submission" />
@@ -52,7 +56,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="806875bd-3449-435b-9c87-05268573068d" name="Id" type="element" specialization="Attribute" />
+          <target id="806875bd-3449-435b-9c87-05268573068d" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>ce64f803-6c6e-4389-a03b-d0b59beeea91</parentFolderId>
@@ -106,7 +110,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="aa5cc60a-987b-486c-8eab-66b1e3276f6c" name="SubmissionType" type="element" specialization="Attribute" />
+          <target id="aa5cc60a-987b-486c-8eab-66b1e3276f6c" name="SubmissionType" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>ce64f803-6c6e-4389-a03b-d0b59beeea91</parentFolderId>
@@ -160,7 +164,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="4d7ca201-5d20-4d27-8d5d-b5720ae5a9b6" name="Items" type="association" specialization="Association Target End" />
+          <target id="4d7ca201-5d20-4d27-8d5d-b5720ae5a9b6" name="Items" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>ce64f803-6c6e-4389-a03b-d0b59beeea91</parentFolderId>

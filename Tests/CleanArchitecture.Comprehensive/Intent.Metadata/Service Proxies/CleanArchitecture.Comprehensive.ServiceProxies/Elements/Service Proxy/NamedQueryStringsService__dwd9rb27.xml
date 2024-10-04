@@ -12,13 +12,16 @@
     <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.Comprehensive.Services" type="association" specialization="Services Package" />
-      <target id="a575ade1-e3ef-45d7-b85a-4cfd49d63683" name="NamedQueryStrings" type="element" specialization="Folder" />
+      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.Comprehensive.Services" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="a575ade1-e3ef-45d7-b85a-4cfd49d63683" name="NamedQueryStrings" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</parentFolderId>
   <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
   <packageName>CleanArchitecture.Comprehensive.ServiceProxies</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
@@ -41,12 +44,15 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="1e7ada7c-e257-4760-a1f9-85d170636777" name="NamedQueryStringsCommand" type="element" specialization="Command" />
+          <target id="1e7ada7c-e257-4760-a1f9-85d170636777" name="NamedQueryStringsCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d6d46aba-0653-489a-a910-a75684dbae29</parentFolderId>
       <packageId>10d0d735-77d8-42fa-a8b1-5e8baf76ed38</packageId>
       <packageName>CleanArchitecture.Comprehensive.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>

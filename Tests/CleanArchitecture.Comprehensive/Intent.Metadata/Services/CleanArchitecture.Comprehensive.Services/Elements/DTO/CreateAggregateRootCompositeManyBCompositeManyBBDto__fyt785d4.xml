@@ -12,7 +12,7 @@
     <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="ba1340ed-6d22-4ff8-9bc8-288b30b28f6c" name="CompositeManyBB" type="element" specialization="Class" />
+      <target id="ba1340ed-6d22-4ff8-9bc8-288b30b28f6c" name="CompositeManyBB" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>acc2c837-4400-4947-b384-e08adaf288f9</parentFolderId>
@@ -45,7 +45,7 @@
         <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="cb4ffa56-09e6-4bcb-866b-bdd2eff0fa59" name="CompositeAttr" type="element" specialization="Attribute" />
+          <target id="cb4ffa56-09e6-4bcb-866b-bdd2eff0fa59" name="CompositeAttr" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>6fb403ca-5147-47bd-b8e5-d9d034361096</parentFolderId>

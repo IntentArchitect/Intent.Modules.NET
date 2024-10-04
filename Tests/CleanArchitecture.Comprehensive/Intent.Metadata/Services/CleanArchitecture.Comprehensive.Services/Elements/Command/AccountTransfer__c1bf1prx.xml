@@ -20,13 +20,17 @@
     <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="ef229a2c-3961-4466-ab21-99aae3e3bf58" name="AccountHolder" type="element" specialization="Class" />
-      <target id="b1e50f83-6630-4cad-821e-39a2561c2f17" name="Transfer" type="element" specialization="Operation" />
+      <target id="ef229a2c-3961-4466-ab21-99aae3e3bf58" name="AccountHolder" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+      <target id="b1e50f83-6630-4cad-821e-39a2561c2f17" name="Transfer" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>5cc5f20e-147a-41e0-a05d-9f5fc17ab216</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
@@ -98,7 +102,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="e9f8c8dd-93aa-42b6-a1c9-27de267744aa" name="description" type="element" specialization="Parameter" />
+          <target id="e9f8c8dd-93aa-42b6-a1c9-27de267744aa" name="description" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>42c4c89f-862d-4ae7-b219-b42028c06505</parentFolderId>
@@ -152,7 +156,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="d91b9f71-d495-4917-9ed3-acb2f340d1fe" name="amount" type="element" specialization="Parameter" />
+          <target id="d91b9f71-d495-4917-9ed3-acb2f340d1fe" name="amount" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>42c4c89f-862d-4ae7-b219-b42028c06505</parentFolderId>
@@ -206,7 +210,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="0e31859d-d1b6-4eff-b6ef-096270eb1d82" name="currency" type="element" specialization="Parameter" />
+          <target id="0e31859d-d1b6-4eff-b6ef-096270eb1d82" name="currency" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>42c4c89f-862d-4ae7-b219-b42028c06505</parentFolderId>

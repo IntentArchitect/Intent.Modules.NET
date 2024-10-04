@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="a2bef711-d214-4ffa-9469-ae085ccd3687" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+<class id="49d42729-40e9-4a7c-a05c-37dedc3faca2" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
   <name>GetPeoplePaginatedQuery</name>
   <display>GetPeoplePaginatedQuery: PagedResult&lt;PersonEntryDto&gt;</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <typeReference id="19e6b69e-fbaf-4dbf-bc18-07c45750f6a9">
+  <typeReference id="eef6077c-2aeb-4e00-a88d-d48bb2083c54">
     <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.Modelers.Services</typePackageName>
-    <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
+    <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+    <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
     <stereotypes />
     <genericTypeParameters>
-      <genericTypeParameter id="f6e51061-602b-4805-87dd-574928b01754">
+      <genericTypeParameter id="720657b8-8f4e-4ffa-ae01-32dd83bcf785">
         <typeId>35052c38-8c53-4f43-b87b-672a07e41873</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -33,6 +33,10 @@
   <parentFolderId>36747d74-0978-4f41-883c-71e2133fe305</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
       <addedByDefault>false</addedByDefault>
@@ -48,12 +52,12 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="8e424de2-484e-4a19-9594-154ce4f57f43" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="58667620-1766-4c45-ab8a-7c2a41ca5d46" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>PageNo</name>
       <display>PageNo: int</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="ac4467b1-bb98-470b-8518-99b58d845bf4">
+      <typeReference id="3dbcd90c-c4bd-4917-9086-82cd3eb32dde">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -65,7 +69,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>a2bef711-d214-4ffa-9469-ae085ccd3687</parentFolderId>
+      <parentFolderId>49d42729-40e9-4a7c-a05c-37dedc3faca2</parentFolderId>
       <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
       <packageName>CleanArchitecture.Comprehensive.Services</packageName>
       <stereotypes>
@@ -95,12 +99,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="c9774d3b-4b1a-42a1-a91a-0cd4ff48a866" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="1554d143-ec24-4750-8f06-bcc711ff8942" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>PageSize</name>
       <display>PageSize: int</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="71cd5d78-be1b-4127-89f6-fef8b8110608">
+      <typeReference id="e36a1014-075b-47bf-afa7-5ae50563ede3">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -112,7 +116,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>a2bef711-d214-4ffa-9469-ae085ccd3687</parentFolderId>
+      <parentFolderId>49d42729-40e9-4a7c-a05c-37dedc3faca2</parentFolderId>
       <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
       <packageName>CleanArchitecture.Comprehensive.Services</packageName>
       <stereotypes>
@@ -142,12 +146,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="8e6a9923-bf7b-413e-9736-a805c2200cf0" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="c2e90f60-5c90-4ff1-a6dd-7257830dadc0" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>OrderBy</name>
       <display>OrderBy: string?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="ef97e09b-4be3-467f-b99d-4248b37b85bb">
+      <typeReference id="0b06c3e2-2005-4ce2-a86a-944630273b4b">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
@@ -159,7 +163,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>a2bef711-d214-4ffa-9469-ae085ccd3687</parentFolderId>
+      <parentFolderId>49d42729-40e9-4a7c-a05c-37dedc3faca2</parentFolderId>
       <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
       <packageName>CleanArchitecture.Comprehensive.Services</packageName>
       <stereotypes>

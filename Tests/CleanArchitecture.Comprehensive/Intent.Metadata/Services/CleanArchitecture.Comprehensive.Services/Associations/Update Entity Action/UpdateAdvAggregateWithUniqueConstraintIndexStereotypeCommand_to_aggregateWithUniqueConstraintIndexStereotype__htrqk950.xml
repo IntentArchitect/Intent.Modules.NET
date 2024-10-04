@@ -22,6 +22,9 @@
     <name>aggregateWithUniqueConstraintIndexStereotype</name>
     <display>[update] aggregateWithUniqueConstraintIndexStereotype: AggregateWithUniqueConstraintIndexStereotype</display>
     <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="4703c2fb-2358-4b73-b60c-443453cece37">
       <typeId>b438b509-8039-4070-9e3e-4305a333028a</typeId>
       <isNavigable>true</isNavigable>

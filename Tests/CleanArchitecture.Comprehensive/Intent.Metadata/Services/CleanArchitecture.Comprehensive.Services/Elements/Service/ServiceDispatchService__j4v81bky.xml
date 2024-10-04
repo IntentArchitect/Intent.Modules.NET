@@ -22,8 +22,8 @@
   <metadata />
   <childElements>
     <childElement id="d21c20f9-b500-47b3-a251-b09e1570100b" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>Mutation</name>
-      <display>Mutation(): void</display>
+      <name>Mutation1</name>
+      <display>Mutation1(): void</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="89e9fbc5-8b99-4169-9482-f89f18e3cc1b">
@@ -61,8 +61,8 @@
       <childElements />
     </childElement>
     <childElement id="b31f4a59-4358-4b32-8d93-cd357018c436" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>Mutation</name>
-      <display>Mutation(param: string): void</display>
+      <name>Mutation2</name>
+      <display>Mutation2(param: string): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -126,8 +126,8 @@
       </childElements>
     </childElement>
     <childElement id="4f470b96-468b-4da8-94cb-da4f2c5ee742" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>MutationAsync</name>
-      <display>MutationAsync(): void</display>
+      <name>Mutation3Async</name>
+      <display>Mutation3Async(): void</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="dce1c795-8d81-4de2-b5b5-00d811fa7a35">
@@ -159,8 +159,8 @@
       <childElements />
     </childElement>
     <childElement id="aeb0bf7a-9519-496f-89bb-eda1f553c740" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>MutationAsync</name>
-      <display>MutationAsync(param: string): void</display>
+      <name>Mutation4Async</name>
+      <display>Mutation4Async(param: string): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -218,8 +218,8 @@
       </childElements>
     </childElement>
     <childElement id="f4397f42-439b-444f-a1a2-a4a0950fc7df" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>Query</name>
-      <display>Query(param: string): string</display>
+      <name>Query5</name>
+      <display>Query5(param: string): string</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -286,8 +286,8 @@
       </childElements>
     </childElement>
     <childElement id="f4e3716f-9b6e-4b72-a9a2-7d8e723d1df4" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>Query</name>
-      <display>Query(): string</display>
+      <name>Query6</name>
+      <display>Query6(): string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="8720c1ff-4851-4569-b754-f885e00f28da">
@@ -328,8 +328,8 @@
       <childElements />
     </childElement>
     <childElement id="e3fa4fb5-0327-43ab-a93a-e39f2d1a6f24" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>QueryAsync</name>
-      <display>QueryAsync(): string</display>
+      <name>Query7Async</name>
+      <display>Query7Async(): string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="396c8fc6-6fd9-4bd4-abf1-d3b9b2c14b3e">
@@ -364,8 +364,8 @@
       <childElements />
     </childElement>
     <childElement id="5c328400-399b-4b39-b990-8bc89d02c0d4" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>QueryAsync</name>
-      <display>QueryAsync(param: string): string</display>
+      <name>Query8Async</name>
+      <display>Query8Async(param: string): string</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />

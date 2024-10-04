@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="eb720540-8523-40dd-9da4-39dad2aefaf9" name="GeometryType" type="element" specialization="Class" />
+      <target id="eb720540-8523-40dd-9da4-39dad2aefaf9" name="GeometryType" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>ca77a7f4-9305-4696-88c3-74f2aa32de64</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="d217b783-9255-4952-a874-ec8f1ab4c2e5" name="Id" type="element" specialization="Attribute" />
+          <target id="d217b783-9255-4952-a874-ec8f1ab4c2e5" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>4cb31d4f-00f2-4534-922c-3832d8290e41</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="afbc32c1-e3a8-46b9-be5d-4ac6e2c04b1e" name="Point" type="element" specialization="Attribute" />
+          <target id="afbc32c1-e3a8-46b9-be5d-4ac6e2c04b1e" name="Point" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>4cb31d4f-00f2-4534-922c-3832d8290e41</parentFolderId>

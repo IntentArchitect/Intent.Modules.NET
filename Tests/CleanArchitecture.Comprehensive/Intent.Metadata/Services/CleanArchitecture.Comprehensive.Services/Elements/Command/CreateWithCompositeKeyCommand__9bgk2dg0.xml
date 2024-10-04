@@ -23,12 +23,16 @@
     <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
     <autoSyncTypeReference>false</autoSyncTypeReference>
     <mappedPath>
-      <target id="5842fb8d-3d99-46d9-82dc-ab450933ce38" name="WithCompositeKey" type="element" specialization="Class" />
+      <target id="5842fb8d-3d99-46d9-82dc-ab450933ce38" name="WithCompositeKey" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>dd5e822d-d453-422e-99b2-bd2b1b953f68</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
       <addedByDefault>false</addedByDefault>
@@ -67,7 +71,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="b1b822d8-b8d0-4265-85d0-9c3fc4943cbd" name="Name" type="element" specialization="Attribute" />
+          <target id="b1b822d8-b8d0-4265-85d0-9c3fc4943cbd" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d1dd1b87-024a-4c82-8376-67ef87804120</parentFolderId>

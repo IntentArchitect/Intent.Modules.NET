@@ -12,7 +12,7 @@
     <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="445f6443-589b-4ae1-9d6a-3bc8bffa43a8" name="CompositeSingleA" type="element" specialization="Class" />
+      <target id="445f6443-589b-4ae1-9d6a-3bc8bffa43a8" name="CompositeSingleA" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>acc2c837-4400-4947-b384-e08adaf288f9</parentFolderId>
@@ -45,7 +45,7 @@
         <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="5dc73f0d-e3d0-402a-b126-22035d636c2c" name="CompositeAttr" type="element" specialization="Attribute" />
+          <target id="5dc73f0d-e3d0-402a-b126-22035d636c2c" name="CompositeAttr" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>56717f98-efb6-4aec-ab3e-f3f854b64a0f</parentFolderId>
@@ -99,7 +99,7 @@
         <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="227f30bf-9641-4656-a328-8b15d024bace" name="Id" type="element" specialization="Attribute" />
+          <target id="227f30bf-9641-4656-a328-8b15d024bace" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>56717f98-efb6-4aec-ab3e-f3f854b64a0f</parentFolderId>
@@ -153,7 +153,7 @@
         <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="0d0875a8-39c4-470d-bf49-9d7d7630344a" name="Composite" type="association" specialization="Association Target End" />
+          <target id="0d0875a8-39c4-470d-bf49-9d7d7630344a" name="Composite" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>56717f98-efb6-4aec-ab3e-f3f854b64a0f</parentFolderId>
@@ -207,7 +207,7 @@
         <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="f8d1876f-4337-49d9-a4e0-64fe7d04ef8a" name="Composites" type="association" specialization="Association Target End" />
+          <target id="f8d1876f-4337-49d9-a4e0-64fe7d04ef8a" name="Composites" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>56717f98-efb6-4aec-ab3e-f3f854b64a0f</parentFolderId>

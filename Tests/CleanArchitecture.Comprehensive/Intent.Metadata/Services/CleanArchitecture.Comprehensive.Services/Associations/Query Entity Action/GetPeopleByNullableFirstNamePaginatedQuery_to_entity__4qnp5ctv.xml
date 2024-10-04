@@ -22,6 +22,9 @@
     <name>entity</name>
     <display>[query] entity: PersonEntry</display>
     <order>5</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="ba7ad9f5-f129-4dc2-aed0-f62e893f370f">
       <typeId>22baeeb4-ed00-4fe8-af44-996402a68655</typeId>
       <isNavigable>true</isNavigable>

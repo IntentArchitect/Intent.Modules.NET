@@ -22,6 +22,9 @@
     <name>geometryType</name>
     <display>[create] geometryType: GeometryType</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="e4c2aa21-cefd-418b-8e71-7daa399d5937">
       <typeId>eb720540-8523-40dd-9da4-39dad2aefaf9</typeId>
       <isNavigable>true</isNavigable>

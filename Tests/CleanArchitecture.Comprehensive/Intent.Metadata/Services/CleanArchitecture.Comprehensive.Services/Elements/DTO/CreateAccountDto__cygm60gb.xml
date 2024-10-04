@@ -12,7 +12,7 @@
     <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="43071d5b-3c4b-4a6a-9e21-4094f37d9a48" name="Account" type="element" specialization="Class" />
+      <target id="43071d5b-3c4b-4a6a-9e21-4094f37d9a48" name="Account" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>5cc5f20e-147a-41e0-a05d-9f5fc17ab216</parentFolderId>
@@ -45,7 +45,7 @@
         <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="be32091d-2add-4fb5-9e6c-01d8947343ca" name="AccNumber" type="element" specialization="Attribute" />
+          <target id="be32091d-2add-4fb5-9e6c-01d8947343ca" name="AccNumber" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>5c96eaac-8b37-4d24-8472-889d66738368</parentFolderId>
@@ -99,7 +99,7 @@
         <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="88d50bd6-3f09-4353-8c3e-d6120a32c5eb" name="Note" type="element" specialization="Attribute" />
+          <target id="88d50bd6-3f09-4353-8c3e-d6120a32c5eb" name="Note" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>5c96eaac-8b37-4d24-8472-889d66738368</parentFolderId>

@@ -20,13 +20,17 @@
     <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="bd7476de-b70f-4850-a145-342baa029aab" name="OperationsClass" type="element" specialization="Class" />
-      <target id="3f11685c-a5ea-43f6-9481-78fb683279c6" name="Sync" type="element" specialization="Operation" />
+      <target id="bd7476de-b70f-4850-a145-342baa029aab" name="OperationsClass" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+      <target id="3f11685c-a5ea-43f6-9481-78fb683279c6" name="Sync" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>94822e16-398b-41b6-aa4e-a06d3779fe53</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
       <addedByDefault>false</addedByDefault>

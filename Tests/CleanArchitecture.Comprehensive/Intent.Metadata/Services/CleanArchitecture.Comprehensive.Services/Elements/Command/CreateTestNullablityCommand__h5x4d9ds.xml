@@ -23,13 +23,17 @@
     <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="c18ee638-36a2-4082-a9cb-763fdbb6ef1b" name="TestNullablity" type="element" specialization="Class" />
-      <target id="08beef1e-2f90-4e74-a15c-148096ef6ea1" name="Constructor" type="element" specialization="Class Constructor" />
+      <target id="c18ee638-36a2-4082-a9cb-763fdbb6ef1b" name="TestNullablity" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+      <target id="08beef1e-2f90-4e74-a15c-148096ef6ea1" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>7c62e125-37d5-4183-bec0-90048bdb7b5f</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes />
   <metadata>
     <entry key="baseName" value="TestNullablity" />
@@ -56,7 +60,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="4549a6ca-a881-432a-9679-7095edfe487f" name="id" type="element" specialization="Parameter" />
+          <target id="4549a6ca-a881-432a-9679-7095edfe487f" name="id" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>346ccbdb-d029-4be8-966b-db74673096a3</parentFolderId>
@@ -110,7 +114,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="32b0f669-3ab4-45f3-8cf0-9a8e153af3cb" name="sampleEnum" type="element" specialization="Parameter" />
+          <target id="32b0f669-3ab4-45f3-8cf0-9a8e153af3cb" name="sampleEnum" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>346ccbdb-d029-4be8-966b-db74673096a3</parentFolderId>
@@ -164,7 +168,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="f402ded6-30a7-4d68-b46d-28aa6e49d088" name="str" type="element" specialization="Parameter" />
+          <target id="f402ded6-30a7-4d68-b46d-28aa6e49d088" name="str" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>346ccbdb-d029-4be8-966b-db74673096a3</parentFolderId>
@@ -218,7 +222,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="443ab78d-c0a2-447b-8f05-97d75d83e3be" name="date" type="element" specialization="Parameter" />
+          <target id="443ab78d-c0a2-447b-8f05-97d75d83e3be" name="date" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>346ccbdb-d029-4be8-966b-db74673096a3</parentFolderId>
@@ -274,7 +278,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="d6f295ff-0680-4073-99a9-ee0623786198" name="dateTime" type="element" specialization="Parameter" />
+          <target id="d6f295ff-0680-4073-99a9-ee0623786198" name="dateTime" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>346ccbdb-d029-4be8-966b-db74673096a3</parentFolderId>
@@ -328,7 +332,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="be4cc00f-0ae7-40fa-b727-12c0cf45cc21" name="nullableGuid" type="element" specialization="Parameter" />
+          <target id="be4cc00f-0ae7-40fa-b727-12c0cf45cc21" name="nullableGuid" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>346ccbdb-d029-4be8-966b-db74673096a3</parentFolderId>
@@ -382,7 +386,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="1a1b851a-c646-4b0d-ac1b-4e96cd362b16" name="nullableEnum" type="element" specialization="Parameter" />
+          <target id="1a1b851a-c646-4b0d-ac1b-4e96cd362b16" name="nullableEnum" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>346ccbdb-d029-4be8-966b-db74673096a3</parentFolderId>
@@ -436,7 +440,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="8d073853-7b45-4e4b-b93a-143930033184" name="defaultLiteralEnum" type="element" specialization="Parameter" />
+          <target id="8d073853-7b45-4e4b-b93a-143930033184" name="defaultLiteralEnum" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>346ccbdb-d029-4be8-966b-db74673096a3</parentFolderId>
