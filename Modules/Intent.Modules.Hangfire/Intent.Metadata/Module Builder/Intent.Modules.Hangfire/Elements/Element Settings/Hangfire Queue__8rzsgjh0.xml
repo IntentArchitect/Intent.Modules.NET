@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="18b0f37e-43da-4d94-b65a-8cff601339ac" type="Element Settings" typeId="727577aa-3e07-4b41-be7d-7359bb1e48c8">
+  <name>Hangfire Queue</name>
+  <display>Hangfire Queue</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>045155f0-a262-425a-a77f-1e080062aeba</parentFolderId>
+  <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
+  <packageName>Intent.Modules.Hangfire</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="d8f6f331-d4f0-4c75-aa91-f2e715cd9591" name="Type Reference Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="8da796ff-e5b8-4a53-9c18-9176bfff8fbc" display="Mode" value="Disabled" isActive="true" />
+        <property name="07613cf6-d1bf-411c-96db-65daad7d07f4" display="Display Name" isActive="false" />
+        <property name="3941cc0b-503e-495a-bef3-9923a6554cee" display="Hint" isActive="false" />
+        <property name="b94f760c-0ce7-4176-bbae-97e26914b39c" display="Target Types" isActive="false" />
+        <property name="52f3c2e8-6438-494a-b0a7-7a9e61c8aae8" display="Target Traits" isActive="true" />
+        <property name="eedd06e4-e2b8-42f2-b882-c8ae9cecabb8" display="Represents" value="Reference" isActive="false" />
+        <property name="ff4b18c5-397b-4639-ba79-89939deb9834" display="Default Type Id" isActive="false" />
+        <property name="229dcbe7-f000-4ee9-a06a-febad727f7e1" display="Allow Nullable" value="true" isActive="false" />
+        <property name="d04ec558-6f6a-462b-b16a-9da1d7b4e9db" display="Allow Collection" value="true" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="f406222b-31a8-435e-80f6-6a08f9108649" name="Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="5a9277a9-b808-4ade-bb57-840b51b0da3a" display="Save Mode" value="Default" isActive="true" />
+        <property name="736b1337-6f35-4e38-85a8-69ff5d69fb7d" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEMAAABDCAYAAADHyrhzAAAAAXNSR0IArs4c6QAAAw1JREFUeF7tms9rE0EUx3d2Zjcb02IjeBT/B/UmeqmKSqASL4oHj0LVo9JSpAQpFj3behfRU7EQUKv9AwTr/yD+AanamM3u7KyssOmYZE128zbJzr6cN+8Nn3y/78dsiIafDgGCLA4JIAxJDQgDYfQvDqiMfspYufH6hOD8wrQVVJ2xT2tvbn4fx7lIAIHtFxfdgn1PGO7MOJLGyaG7xk+jbW3wudYGNJSV6quTprDuWG7h/DH7+DJZvfz2SXvm11KcA07i2cLB7Hrt/bVlqNwBCOqzmkOd20FMKphNHs/XvzTLjdNQSdKKU2qU9x7tVs5AxA9AGLzw0jZb5+R4uYIR2sIl7n1Oe0tCbmB026KfwnIBI8oW3UCULqCDbNEDI2ytzGUXIYpTGjG4wT/Gba3D2KIHRhqHn3TMYW2hNIy4tlAWRhJbKAkjqS2UgjGqLZSBAWGLyNZKfFr1Nd+adCfoye+TpqZ723JrhbJFpocufqT5Ili5o3aLUX/ITI3jYra902K/wdb4HmVkaYU3Lc1uFBtnR1VA1PdRGRKZTMGwj/643u9SBkopmdta02ipIczOhTB12RVP900oylBxqK/ZHvM+dLdW+f4SKldm35tAT58B0MzCCNUAaZvMwwigQAFRAkYIZNTpVBkYELZRDsYotum0VsaNq5wIA6pNQcWhQnM8w3uX5EI4rm0yN3TFhRxn3c/UOJ70Xeuw3SYXMIbtNrmBIXebqGUvdzD+122UL6BRBbd7tzGd4udOa9UEXdCIX4pbrdN+Xhd6U1D+z4UwZM4AiiD+Jd0nO0oOXUlhIQz52i8pRRW/h8pAZfTXNSpDVsbffusV7xY8c35a60CbOrsObT1f27r1Lc0zktrC1tOW0XyQZhKI2EW39Gx1u/oQIlZUDLJeqe/tW41TaSaBiD1nl78u1Sup/pMZYcg1A5VxSAOVISsDC6ikjLC1OrS96Ol86rZWJowDwzM3x9Ja5RugYJWFqPyQMYLVOu35IjwvTqC4m+BuMtC9aBO0CdoEbTKQANoEbTJQJH8AV+IYQg07ZzgAAAAASUVORK5CYII=&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+        <property name="32086823-bd72-4be0-a765-2d9530f4ce06" display="Expanded Icon" isActive="true" />
+        <property name="b966a8e9-f298-4741-8397-fe49f29c248b" display="Icon Function" isActive="true" />
+        <property name="0632053a-6b40-47a0-857f-6840e322344c" display="Display Text Function" value="" isActive="true" />
+        <property name="1e5a5798-220b-4a92-993d-c4ebd4123e53" display="Validate Function" value="" isActive="true" />
+        <property name="c48d9593-c1f4-4610-9cb3-54de9c2f0c06" display="Allow Rename" value="true" isActive="true" />
+        <property name="581e77d6-4587-4041-86f6-880bd57d5848" display="Name Must Be Unique" value="true" isActive="true" />
+        <property name="4b17e907-bd58-4f70-b376-383c6046ad8a" display="Allow Abstract" value="false" isActive="true" />
+        <property name="ad2bbaa1-becc-477b-83d2-97179678e4bb" display="Allow Static" value="false" isActive="true" />
+        <property name="0eb8bcd6-4120-47c5-ac74-9a9e4a7d4536" display="Allow Set Value" value="false" isActive="true" />
+        <property name="8ad604ab-7edf-4a6c-86a5-e27f0f95dfac" display="Allow Generic Types" value="false" isActive="true" />
+        <property name="ad5ce0fc-72ab-4aa3-92e9-238954c2aedb" display="Allow Sorting" value="true" isActive="true" />
+        <property name="3a68e3cb-8014-4c43-9965-f6fc35589d37" display="Sort Children" value="By type then name" isActive="true" />
+        <property name="46180320-9a7e-4fe3-8351-f7524612a52c" display="Allow Find in View" value="false" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="79d3dd89-8c84-49bd-9ff4-50b106d4066a" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+      <name>[context menu]</name>
+      <display>[context menu]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>18b0f37e-43da-4d94-b65a-8cff601339ac</parentFolderId>
+      <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
+      <packageName>Intent.Modules.Hangfire</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

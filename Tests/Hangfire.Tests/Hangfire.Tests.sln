@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{0F32389A-151B-4293-BB56-8F67EF210684}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hangfire.Tests.Api", "Hangfire.Tests.Api\Hangfire.Tests.Api.csproj", "{6964125B-0B54-4EAB-A826-3FF7057B8A3B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{15D06CF9-66C9-4EF7-9C68-644584FF8D2F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hangfire.Tests.Application", "Hangfire.Tests.Application\Hangfire.Tests.Application.csproj", "{A8D86D54-5AF0-4B55-AAD6-6ED4E2E52A3A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{D70EDFE5-0D6B-4899-8045-3D5DD6D89604}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hangfire.Tests.Domain", "Hangfire.Tests.Domain\Hangfire.Tests.Domain.csproj", "{5F0C44AD-FF9D-4108-88CF-0560E10E319B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{BA881E1C-2BB9-4EA0-AE5A-23BBA4D9B7F9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hangfire.Tests.Infrastructure", "Hangfire.Tests.Infrastructure\Hangfire.Tests.Infrastructure.csproj", "{F4A64113-0A4D-4036-BAC3-8B20A0E1E36C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6964125B-0B54-4EAB-A826-3FF7057B8A3B} = {0F32389A-151B-4293-BB56-8F67EF210684}
+		{A8D86D54-5AF0-4B55-AAD6-6ED4E2E52A3A} = {15D06CF9-66C9-4EF7-9C68-644584FF8D2F}
+		{5F0C44AD-FF9D-4108-88CF-0560E10E319B} = {D70EDFE5-0D6B-4899-8045-3D5DD6D89604}
+		{F4A64113-0A4D-4036-BAC3-8B20A0E1E36C} = {BA881E1C-2BB9-4EA0-AE5A-23BBA4D9B7F9}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6964125B-0B54-4EAB-A826-3FF7057B8A3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6964125B-0B54-4EAB-A826-3FF7057B8A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6964125B-0B54-4EAB-A826-3FF7057B8A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6964125B-0B54-4EAB-A826-3FF7057B8A3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8D86D54-5AF0-4B55-AAD6-6ED4E2E52A3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8D86D54-5AF0-4B55-AAD6-6ED4E2E52A3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8D86D54-5AF0-4B55-AAD6-6ED4E2E52A3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8D86D54-5AF0-4B55-AAD6-6ED4E2E52A3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F0C44AD-FF9D-4108-88CF-0560E10E319B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F0C44AD-FF9D-4108-88CF-0560E10E319B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F0C44AD-FF9D-4108-88CF-0560E10E319B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F0C44AD-FF9D-4108-88CF-0560E10E319B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A64113-0A4D-4036-BAC3-8B20A0E1E36C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A64113-0A4D-4036-BAC3-8B20A0E1E36C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A64113-0A4D-4036-BAC3-8B20A0E1E36C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A64113-0A4D-4036-BAC3-8B20A0E1E36C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

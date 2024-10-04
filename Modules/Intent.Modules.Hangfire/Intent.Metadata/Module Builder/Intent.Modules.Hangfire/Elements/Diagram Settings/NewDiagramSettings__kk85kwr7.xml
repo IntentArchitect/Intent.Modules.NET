@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5b8708fe-189c-455c-b4b9-ce12e7a5cf30" type="Diagram Settings" typeId="67d711dd-3918-4b28-b2a0-4d845884e17a">
+  <name>NewDiagramSettings</name>
+  <display>[diagram]</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>232c11ea-e5a9-42ec-a6bf-5d29f876fa97</parentFolderId>
+  <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
+  <packageName>Intent.Modules.Hangfire</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="96bf17d7-7077-4d32-ab8a-3a2dd72a0514" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+      <name>[context menu]</name>
+      <display>[context menu]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5b8708fe-189c-455c-b4b9-ce12e7a5cf30</parentFolderId>
+      <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
+      <packageName>Intent.Modules.Hangfire</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
