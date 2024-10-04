@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.FastEndpoints.Dispatch.Services</id>
+  <version>1.0.0-beta.0</version>
+  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <summary>Instructs FastEndpoints to dispatch requests to a separate handler via Application Contract interfaces.</summary>
+  <description>Instructs FastEndpoints to dispatch requests to a separate handler via Application Contract interfaces.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/png;base64,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</iconUrl>
+  <templates></templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.FastEndpoints.Dispatch.Services.ServiceContractEndpointExtension" externalReference="2e0f7082-72dd-4dec-be25-4459af2f46c0" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Application.Contracts" version="5.0.8" />
+    <dependency id="Intent.Common" version="3.7.0" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0" />
+    <dependency id="Intent.Common.Types" version="4.0.0" />
+    <dependency id="Intent.FastEndpoints" version="1.0.0-beta.0" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags />
+  <moduleSettingsExtensions />
+  <metadata />
+  <releaseNotes>release-notes.md</releaseNotes>
+</package>

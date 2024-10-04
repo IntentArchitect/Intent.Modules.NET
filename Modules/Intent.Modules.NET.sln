@@ -26,7 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET Standard", "NET Standar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Docker", "Intent.Modules.AspNetCore.Docker\Intent.Modules.AspNetCore.Docker.csproj", "{733303D8-9ECF-4ACA-86B2-C2F34B8B9DE0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Swashbuckle", "Intent.Modules.AspNetCore.Swashbuckle\Intent.Modules.AspNetCore.Swashbuckle.csproj", "{0A2DEC4C-A2FC-4290-85FA-2F64F6FAC4C2}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Swashbuckle", "Intent.Modules.AspNetCore.Swashbuckle\Intent.Modules.AspNetCore.Swashbuckle.csproj", "{0A2DEC4C-A2FC-4290-85FA-2F64F6FAC4C2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore", "Intent.Modules.AspNetCore\Intent.Modules.AspNetCore.csproj", "{5CD69B39-BFF1-4713-86C7-D5D7D7F397EA}"
 EndProject
@@ -42,7 +42,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Interop.Angular", "Intent.Modules.AspNetCore.Interop.Angular\Intent.Modules.AspNetCore.Interop.Angular.csproj", "{96AC5884-36A9-4B6D-8E91-3C8D7BA75BB6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Controllers", "Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj", "{863DEDBB-B0A4-467E-96EA-F1EE97D7BD10}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Controllers", "Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj", "{863DEDBB-B0A4-467E-96EA-F1EE97D7BD10}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR", "Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.csproj", "{80081361-CC7D-430C-8861-8B2AC9D6E8A7}"
 EndProject
@@ -303,6 +303,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AI.ChatDrivenDomain", "Intent.Modules.AI.ChatDrivenDomain\Intent.Modules.AI.ChatDrivenDomain.csproj", "{99CFB6D5-18C2-4220-AB71-ADE0CC6BAF7B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.FluentValidation", "Intent.Modules.Blazor.FluentValidation\Intent.Modules.Blazor.FluentValidation.csproj", "{B0E51FB2-24BB-4CCB-8E3F-A815134DE6A2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.FastEndpoints", "Intent.Modules.FastEndpoints\Intent.Modules.FastEndpoints.csproj", "{558D0E7A-9B9E-4EEA-85AA-10C6466425DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.FastEndpoints.Dispatch.MediatR", "Intent.Modules.FastEndpoints.Dispatch.MediatR\Intent.Modules.FastEndpoints.Dispatch.MediatR.csproj", "{3791BE41-8BBE-48B5-836B-DC6DFF7E2845}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.FastEndpoints.Dispatch.Services", "Intent.Modules.FastEndpoints.Dispatch.Services\Intent.Modules.FastEndpoints.Dispatch.Services.csproj", "{D45C75D5-5CEE-428C-9DD8-CCA45B97D980}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -838,6 +844,18 @@ Global
 		{B0E51FB2-24BB-4CCB-8E3F-A815134DE6A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0E51FB2-24BB-4CCB-8E3F-A815134DE6A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0E51FB2-24BB-4CCB-8E3F-A815134DE6A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{558D0E7A-9B9E-4EEA-85AA-10C6466425DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{558D0E7A-9B9E-4EEA-85AA-10C6466425DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{558D0E7A-9B9E-4EEA-85AA-10C6466425DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{558D0E7A-9B9E-4EEA-85AA-10C6466425DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3791BE41-8BBE-48B5-836B-DC6DFF7E2845}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3791BE41-8BBE-48B5-836B-DC6DFF7E2845}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3791BE41-8BBE-48B5-836B-DC6DFF7E2845}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3791BE41-8BBE-48B5-836B-DC6DFF7E2845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D45C75D5-5CEE-428C-9DD8-CCA45B97D980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D45C75D5-5CEE-428C-9DD8-CCA45B97D980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D45C75D5-5CEE-428C-9DD8-CCA45B97D980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D45C75D5-5CEE-428C-9DD8-CCA45B97D980}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -987,6 +1005,9 @@ Global
 		{B3844F12-304A-475A-99D2-B54E8D202E97} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{99CFB6D5-18C2-4220-AB71-ADE0CC6BAF7B} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{B0E51FB2-24BB-4CCB-8E3F-A815134DE6A2} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{558D0E7A-9B9E-4EEA-85AA-10C6466425DD} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{3791BE41-8BBE-48B5-836B-DC6DFF7E2845} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{D45C75D5-5CEE-428C-9DD8-CCA45B97D980} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

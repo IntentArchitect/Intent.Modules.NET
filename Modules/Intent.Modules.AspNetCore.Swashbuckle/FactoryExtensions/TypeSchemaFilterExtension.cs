@@ -1,6 +1,6 @@
 using System.Linq;
 using Intent.Engine;
-using Intent.Modules.AspNetCore.Controllers.Templates;
+using Intent.Modules.AspNetCore.Swashbuckle.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -12,12 +12,12 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.Controllers.FactoryExtentions
+namespace Intent.Modules.AspNetCore.Swashbuckle.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class TypeSchemaFilterExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.AspNetCore.Controllers.TypeSchemaFilterExtension";
+        public override string Id => "Intent.AspNetCore.Swashbuckle.TypeSchemaFilterExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;

@@ -1,3 +1,7 @@
+### Version 6.1.1
+
+- Fixed: `TypeSchemaFilterExtension` class moved from `Intent.AspNetCore.Controllers` to `Intent.AspNetCore.Swashbuckle` module where it belongs as other hosting infrastructure using Swashbuckle can also benefit from it.
+
 ### Version 6.1.0
 
 - Fixed: Removed Legacy behaviour where `Services` without `Http Service Settings` stereotypes would result in interpreting the Operations with `Http Settings` to have a base route of `api/[controller]`.

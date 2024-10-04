@@ -5,7 +5,6 @@ using Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.AspNetCore.Controllers.Templates.ExceptionFilter;
 using Intent.Modules.AspNetCore.Controllers.Templates.JsonResponse;
-using Intent.Modules.AspNetCore.Controllers.Templates.TypeSchemaFilter;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -46,11 +45,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates
             var jsonResponseTemplate = template.GetTemplate<JsonResponseTemplate>(JsonResponseTemplate.TemplateId);
             jsonResponseTemplate.NotifyTemplateIsRequired(); // GCB - consider a way to track which templates resolve this one and can use that to determine if is required.
             return template.GetTypeName(JsonResponseTemplate.TemplateId);
-        }
-
-        public static string GetTypeSchemaFilterName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(TypeSchemaFilterTemplate.TemplateId);
         }
 
     }

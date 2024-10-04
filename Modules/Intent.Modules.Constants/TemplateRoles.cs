@@ -17,6 +17,7 @@ namespace Intent.Modules.Constants
             {
                 public const string Controller = "Distribution.WebApi.Controller";
                 public const string Startup = "App.Startup";
+                public const string Program = "App.Program";
                 public const string MultiTenancyConfiguration = "Configuration.MultiTenancy";
             }
         }

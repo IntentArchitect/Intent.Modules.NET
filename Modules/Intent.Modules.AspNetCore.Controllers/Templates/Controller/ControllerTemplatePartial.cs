@@ -311,7 +311,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{Utils.GetSuccessResponseCodeEnumValue(operation, "Status200OK")})]"));
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException($"Unknown verb: {operation.Verb}");
             }
 
             if (operation.Parameters.Any())

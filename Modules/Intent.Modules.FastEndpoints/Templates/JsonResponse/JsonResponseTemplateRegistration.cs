@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.Controllers.Templates.TypeSchemaFilter
+namespace Intent.Modules.FastEndpoints.Templates.JsonResponse
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class TypeSchemaFilterTemplateRegistration : SingleFileTemplateRegistration
+    public class JsonResponseTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => TypeSchemaFilterTemplate.TemplateId;
+        public override string TemplateId => JsonResponseTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new TypeSchemaFilterTemplate(outputTarget);
+            return new JsonResponseTemplate(outputTarget);
         }
     }
 }

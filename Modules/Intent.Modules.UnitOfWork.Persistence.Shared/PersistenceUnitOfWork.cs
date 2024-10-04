@@ -319,7 +319,7 @@ internal static class PersistenceUnitOfWork
             else
             {
                 // We need to split the variable and assignment
-                blockWithReturn.InsertStatement(0, $"{template.UseType(returnType)} {resultVariableName};");
+                blockWithReturn.InsertStatement(0, new CSharpStatement($"{template.UseType(returnType)} {resultVariableName};"));
 
                 invocationStatement.FindAndReplace(
                     find: invocationStatement.ToString(),
