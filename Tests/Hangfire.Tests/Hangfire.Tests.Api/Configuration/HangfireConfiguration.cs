@@ -23,7 +23,10 @@ namespace Hangfire.Tests.Api.Configuration
                 cfg.UseRecommendedSerializerSettings();
                 cfg.UseInMemoryStorage();
             });
-            services.AddHangfireServer();
+            services.AddHangfireServer(opt =>
+            {
+                opt.Queues = ["priority", "default"];
+            });
             return services;
         }
 

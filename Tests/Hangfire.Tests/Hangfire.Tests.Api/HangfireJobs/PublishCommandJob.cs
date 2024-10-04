@@ -19,6 +19,7 @@ namespace Hangfire.Tests.Api.HangfireJobs
             _mediator = mediator;
         }
 
+        [AutomaticRetry(Attempts = 10, OnAttemptsExceeded = AttemptsExceededAction.Fail)]
         [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
         public async Task ExecuteAsync()
         {

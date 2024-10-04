@@ -20,8 +20,10 @@
         <property name="153f01ba-f229-4a2e-8f44-0ecd39924073" display="Cron Schedule" value="* * * * *" isActive="false" />
         <property name="e5a5f7ad-80f9-471c-9e0f-835f8286ffab" display="Delay Time Frame" value="Minutes" isActive="false" />
         <property name="8220c0e1-203d-43f5-9155-ae73a87bf324" display="Delay Value" value="5" isActive="false" />
-        <property name="0aa4b661-211b-40e2-a917-abfc4fef1b03" display="Disallow Concurrent Execution" value="false" isActive="false" />
-        <property name="722cc50a-5dfd-4eb0-91c2-287ddd077d04" display="Concurrent Execution Timeout" value="1" isActive="false" />
+        <property name="0aa4b661-211b-40e2-a917-abfc4fef1b03" display="Disallow Concurrent Execution" value="false" isActive="true" />
+        <property name="722cc50a-5dfd-4eb0-91c2-287ddd077d04" display="Concurrent Execution Timeout" value="1" isActive="true" />
+        <property name="545f4c0d-b389-4b8d-a092-e65ead77f445" display="Retry Attempts" value="5" isActive="true" />
+        <property name="78be64bd-7eb8-44aa-b5f8-180ec74c42fb" display="On Attempts Exceeded" value="Delete" isActive="true" />
         <property name="7e719fad-42a3-4282-8328-e086d856dee7" display="Queue" value="" isActive="true" />
       </properties>
     </stereotype>

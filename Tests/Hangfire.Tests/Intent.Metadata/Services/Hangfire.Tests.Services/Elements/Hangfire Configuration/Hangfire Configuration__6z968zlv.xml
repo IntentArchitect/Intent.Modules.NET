@@ -22,6 +22,7 @@
         <property name="0e7bb0de-bb46-4567-b75c-71d834899a91" display="Read Only Dashboard" value="false" isActive="true" />
         <property name="ac8e4db0-5e47-47dd-8038-7981baf39e96" display="Configure as Hangfire server" value="true" isActive="true" />
         <property name="efb398ef-71c0-49b8-8187-067a43eb64df" display="Worker Count" isActive="true" />
+        <property name="77137365-d28d-459b-b1f3-b2d286b6f633" display="Job Retention Hours" value="24" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

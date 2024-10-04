@@ -15,6 +15,7 @@ namespace Hangfire.Tests.Api.HangfireJobs
         {
         }
 
+        [AutomaticRetry(Attempts = 5, OnAttemptsExceeded = AttemptsExceededAction.Delete)]
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task ExecuteAsync()
         {

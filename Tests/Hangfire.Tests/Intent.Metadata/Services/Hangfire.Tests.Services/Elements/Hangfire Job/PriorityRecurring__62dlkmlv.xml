@@ -22,6 +22,8 @@
         <property name="8220c0e1-203d-43f5-9155-ae73a87bf324" display="Delay Value" value="5" isActive="false" />
         <property name="0aa4b661-211b-40e2-a917-abfc4fef1b03" display="Disallow Concurrent Execution" value="false" isActive="true" />
         <property name="722cc50a-5dfd-4eb0-91c2-287ddd077d04" display="Concurrent Execution Timeout" value="1" isActive="true" />
+        <property name="545f4c0d-b389-4b8d-a092-e65ead77f445" display="Retry Attempts" value="10" isActive="true" />
+        <property name="78be64bd-7eb8-44aa-b5f8-180ec74c42fb" display="On Attempts Exceeded" value="Fail" isActive="true" />
         <property name="7e719fad-42a3-4282-8328-e086d856dee7" display="Queue" value="df259a6e-0c57-4342-865b-2a0cc242212b" isActive="true" />
       </properties>
     </stereotype>
