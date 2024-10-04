@@ -21,6 +21,8 @@
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="8.0.2" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="8.0.1" />
+    <PackageReference Include="FastEndpoints" Version="5.30.0" />
+    <PackageReference Include="FastEndpoints.Swagger.Swashbuckle" Version="2.3.0" />
     <PackageReference Include="IdentityModel" Version="7.0.0" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.6" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.7" />
