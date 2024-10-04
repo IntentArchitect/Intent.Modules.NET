@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="73ba71c6-41c6-41ef-ba80-0d589ea75417" name="Basic" type="element" specialization="Class" />
+      <target id="73ba71c6-41c6-41ef-ba80-0d589ea75417" name="Basic" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>e0222e50-bd09-4c28-8571-5e56facf9c00</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="de889aea-4a98-4a7c-aa2d-37fc7f0d9bbe" name="Id" type="element" specialization="Attribute" />
+          <target id="de889aea-4a98-4a7c-aa2d-37fc7f0d9bbe" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>fd2b2f67-b872-4ebf-a9bb-67826366da29</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="6651cf58-58bd-4914-a15d-eb79f58c1f5a" name="Name" type="element" specialization="Attribute" />
+          <target id="6651cf58-58bd-4914-a15d-eb79f58c1f5a" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>fd2b2f67-b872-4ebf-a9bb-67826366da29</parentFolderId>
@@ -152,7 +152,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="4cc0c652-f950-427d-90ba-d8d47d25f1c2" name="Surname" type="element" specialization="Attribute" />
+          <target id="4cc0c652-f950-427d-90ba-d8d47d25f1c2" name="Surname" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>fd2b2f67-b872-4ebf-a9bb-67826366da29</parentFolderId>

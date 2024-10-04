@@ -5,9 +5,10 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
-using Intent.Modelers.WebClient.Api;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Modules.Modelers.Types.ServiceProxies;
 using Intent.Registrations;
@@ -34,12 +35,17 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            var models = _metadataManager.WebClient(applicationManager).GetMappedServiceProxyInboundDTOModels()
+            var models = _metadataManager.UserInterface(applicationManager).GetMappedServiceProxyInboundDTOModels()
                 .Where(x =>
                 {
                     if (x.InternalElement.IsCommandModel() || x.InternalElement.IsQueryModel())
                     {
                         return HttpEndpointModelFactory.GetEndpoint(x.InternalElement)?.Inputs.Any(i => i.Id == x.Id) == true;
+                    }
+
+                    if (x.Id == PagedResultTemplateBase.TypeDefinitionElementId)
+                    {
+                        return false;
                     }
 
                     return true;
@@ -48,18 +54,10 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
 
             foreach (var model in models)
             {
-                var advancedMappingSource = model.InternalElement.AssociatedElements.Count() switch
-                {
-                    0 => null,
-                    1 => model.InternalElement,
-                    _ => null,
-                };
-
                 registry.RegisterTemplate(TemplateId,
                     project => new DtoValidatorTemplate(
                         project,
-                        model,
-                        advancedMappingSource?.AssociatedElements));
+                        model));
             }
         }
     }

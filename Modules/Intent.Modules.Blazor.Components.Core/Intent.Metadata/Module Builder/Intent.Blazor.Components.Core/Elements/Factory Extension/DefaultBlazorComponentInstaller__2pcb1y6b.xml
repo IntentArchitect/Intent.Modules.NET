@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ef14e926-b99c-4bd5-83c3-54f715c41dc6" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DefaultBlazorComponentInstaller</name>
+  <display>DefaultBlazorComponentInstaller</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2de187d1-f928-4c0c-bd99-9400166accd0</parentFolderId>
+  <packageId>2de187d1-f928-4c0c-bd99-9400166accd0</packageId>
+  <packageName>Intent.Blazor.Components.Core</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

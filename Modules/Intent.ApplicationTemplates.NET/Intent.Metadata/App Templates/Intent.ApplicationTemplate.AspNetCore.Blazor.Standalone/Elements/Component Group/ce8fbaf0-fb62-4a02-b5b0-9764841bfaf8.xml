@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ce8fbaf0-fb62-4a02-b5b0-9764841bfaf8" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
+  <name>Validation</name>
+  <display>Validation (1)</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <order>4</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d0cc6657-888c-4820-98c7-0298e893c2b9</parentFolderId>
+  <packageId>d0cc6657-888c-4820-98c7-0298e893c2b9</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="08b4c68f-3654-44cc-b3a1-87de79c23936" name="Component Group Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+      <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+      <properties>
+        <property name="54b29a03-082b-407a-b42e-cbacbcfa7fd7" display="Selection Mode" value="Allow Multiple" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="0443cf34-9cf2-404f-9309-e0f806632e94" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>Fluent Validation</name>
+      <display>Fluent Validation (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ce8fbaf0-fb62-4a02-b5b0-9764841bfaf8</parentFolderId>
+      <packageId>d0cc6657-888c-4820-98c7-0298e893c2b9</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="A popular .NET library for building strongly-typed validation rules." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="true" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="3c615f9a-3b86-473b-b43a-478abc78b366" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Blazor.FluentValidation</name>
+          <display>Intent.Blazor.FluentValidation</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>0443cf34-9cf2-404f-9309-e0f806632e94</parentFolderId>
+          <packageId>d0cc6657-888c-4820-98c7-0298e893c2b9</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.0" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="false" isActive="true" />
+                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

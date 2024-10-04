@@ -46,6 +46,9 @@
         <parentFolderId>52a77343-8971-412c-9fc2-85d4391e7415</parentFolderId>
         <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
         <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+        <traits>
+          <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+        </traits>
         <stereotypes />
         <mappings>
           <mapping type="Process Action Mapping" typeId="01bc7593-a6a2-45aa-8497-b4b6a269ab68">

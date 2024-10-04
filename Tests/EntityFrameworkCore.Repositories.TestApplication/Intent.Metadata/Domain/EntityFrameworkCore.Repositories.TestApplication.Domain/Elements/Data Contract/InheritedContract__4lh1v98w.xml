@@ -2,7 +2,7 @@
 <class id="0c388142-4d87-4dad-b975-76a5314d4cf0" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
   <comment>6070899024 - (For Trade Shield) Domain Data Objects don't generate base type captured in the designer</comment>
   <name>InheritedContract</name>
-  <display>InheritedContract</display>
+  <display>InheritedContract : BaseContract</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

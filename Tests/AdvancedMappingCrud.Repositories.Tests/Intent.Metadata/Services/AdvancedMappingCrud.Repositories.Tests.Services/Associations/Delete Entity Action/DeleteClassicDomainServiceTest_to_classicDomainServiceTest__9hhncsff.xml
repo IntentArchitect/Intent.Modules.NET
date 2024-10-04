@@ -22,6 +22,9 @@
     <name>classicDomainServiceTest</name>
     <display>[delete] classicDomainServiceTest: ClassicDomainServiceTest</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="b4182b16-182a-453a-8b8e-b211cf04eb37">
       <typeId>513c7a03-e1d4-44e4-939c-f85848f5acdb</typeId>
       <isNavigable>true</isNavigable>

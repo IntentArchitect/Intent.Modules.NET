@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="652c26a6-ddc8-436f-ad9c-315fb8d227e7" type="Mappable Elements Package Extension" typeId="bddb69f0-e2c8-4373-b5cb-d701f311f935">
+  <name>Component Code Source Extensions</name>
+  <display>Component Code Source Extensions: Component Code Source Mappables</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <typeReference id="f0e90ef6-093a-4f11-8bac-57f84390a0db">
+    <typeId>2d30eb9d-daa0-45d7-a596-32c57d61c6bd</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.UI</typePackageName>
+    <typePackageId>5c4628ec-679e-4f3d-afda-137c978deae0</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>30eb8a90-664b-483b-9dfd-794c8e85f9eb</parentFolderId>
+  <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+  <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c8b92a4f-2367-4ec2-be34-613ac9be2419" type="Mappable Element Extension" typeId="f9449923-9173-4347-a3a2-38d1eb66f6b5">
+      <name>Property Extension</name>
+      <display>Property Extension extends Property, DTO-Field</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>652c26a6-ddc8-436f-ad9c-315fb8d227e7</parentFolderId>
+      <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+      <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="dfd7cc0c-7c7a-47dc-b16d-d3d9f0b7a9b2" name="Mappable Extension Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="bd502960-a08e-4138-b3e0-d3dad4439410" display="Extend Target Settings" value="[&quot;dd00e457-f34b-47ea-bca6-138a3f52c385&quot;,&quot;5dacc38f-5bdd-43f5-8d2f-5ad3f12071ee&quot;]" isActive="true" />
+            <property name="92b5cff8-04da-47e2-bd8a-7f639e7f8716" display="Validate Function" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="29b85939-5c62-4880-bf6c-02ab9e33c0ca" type="Run Script Option" typeId="345d46fb-c500-409a-88c7-26720572c9af">
+          <name>Auto-map to Data Grid</name>
+          <display>Auto-map to Data Grid: Inline Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9530cace-3cc1-4e0c-b2b0-228290efa2cb">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c8b92a4f-2367-4ec2-be34-613ac9be2419</parentFolderId>
+          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const dataBindingMappingTypeId = &quot;ee19a932-0cea-4b90-bd3c-857d7942d390&quot;;&#xD;&#xA;const invocationMappingTypeId = &quot;e4f0c63b-0f00-42bd-a703-00adf44f3364&quot;;&#xD;&#xA;//const paginationStereotypeId = &quot;f0663cd4-da7c-43cc-9cda-bbc7923d5431&quot;;&#xD;&#xA;&#xD;&#xA;element.typeReference.setIsNullable(true); // paged models will almost always be nullable.&#xD;&#xA;const dataCollection = element.getChildren().filter(x =&gt; x.getName() == &quot;Data&quot;)[0];&#xD;&#xA;const table = createElement(&quot;Data Grid&quot;, &quot;DataGrid&quot;, mapping.getTargetElement().id);&#xD;&#xA;//table.addStereotype(paginationStereotypeId);&#xD;&#xA;&#xD;&#xA;mapping.addMappedEnd(dataBindingMappingTypeId, dataCollection.getMappingPath(), table.getMappingPath());&#xD;&#xA;&#xD;&#xA;const tableRef = table.getChild(x =&gt; x.specializationId == &quot;28fb9d1a-cd73-4a5e-ac21-6340ec2e90d0&quot;); // Ref static mappable&#xD;&#xA;const newProperty = createElement(&quot;Property&quot;, toPascalCase(table.getName()), mapping.getSourceElement().id);&#xD;&#xA;newProperty.typeReference.setType(tableRef.typeReference.toModel());&#xD;&#xA;mapping.addMappedEnd(dataBindingMappingTypeId, newProperty.getMappingPath(), tableRef.getMappingPath());&#xD;&#xA;&#xD;&#xA;const totalCount = element.getChildren().filter(x =&gt; x.getName() == &quot;TotalCount&quot;)[0];&#xD;&#xA;mapping.addMappedEnd(dataBindingMappingTypeId, totalCount.getMappingPath(), table.getMappingPath().concat([&quot;a5e50b44-c402-4006-bcea-a25ab7dc0c56&quot;])); // Total Items&#xD;&#xA;&#xD;&#xA;const onPageChangedOperation = createElement(&quot;Component Operation&quot;, `Fetch${table.getName()}Data`, mapping.getSourceElement().id);&#xD;&#xA;const pageNoParam = createElement(&quot;Parameter&quot;, &quot;pageNo&quot;, onPageChangedOperation.id);&#xD;&#xA;pageNoParam.typeReference.setType(&quot;fb0a362d-e9e2-40de-b6ff-5ce8167cbe74&quot;); // int&#xD;&#xA;const pageSizeParam = createElement(&quot;Parameter&quot;, &quot;pageSize&quot;, onPageChangedOperation.id);&#xD;&#xA;pageSizeParam.typeReference.setType(&quot;fb0a362d-e9e2-40de-b6ff-5ce8167cbe74&quot;); // int&#xD;&#xA;const sortingParam = createElement(&quot;Parameter&quot;, &quot;sorting&quot;, onPageChangedOperation.id);&#xD;&#xA;mapping.addMappedEnd(invocationMappingTypeId, onPageChangedOperation.getMappingPath(), table.getMappingPath().concat([&quot;53a618ca-e5aa-49ca-a993-8cd935683748&quot;])); // On Load Data&#xD;&#xA;mapping.addMappingExpression(table.getMappingPath().concat([&quot;53a618ca-e5aa-49ca-a993-8cd935683748&quot;, pageNoParam.id]), &quot;pageNo&quot;); // On Load Data -&gt; Parameter (synced)&#xD;&#xA;mapping.addMappingExpression(table.getMappingPath().concat([&quot;53a618ca-e5aa-49ca-a993-8cd935683748&quot;, pageSizeParam.id]), &quot;pageSize&quot;); // On Load Data-&gt; Parameter (synced)&#xD;&#xA;mapping.addMappingExpression(table.getMappingPath().concat([&quot;53a618ca-e5aa-49ca-a993-8cd935683748&quot;, sortingParam.id]), &quot;sorting&quot;); // On Load Data -&gt; Parameter (synced)&#xD;&#xA;&#xD;&#xA;dataCollection.getChildren().filter(x =&gt; x.specialization == &quot;Property&quot; || x.specialization == &quot;DTO-Field&quot;).forEach(p =&gt; {&#xD;&#xA;    if (p.typeReference.getTypeId() == &quot;d384db9c-a279-45e1-801e-e4e8099625f2&quot; || // string&#xD;&#xA;        p.typeReference.getTypeId() == &quot;fb0a362d-e9e2-40de-b6ff-5ce8167cbe74&quot; || // int&#xD;&#xA;        p.typeReference.getTypeId() == &quot;1fbaa056-b666-4f25-b8fd-76fe3165acc8&quot; || // date&#xD;&#xA;        p.typeReference.getTypeId() == &quot;a4107c29-7851-4121-9416-cf1236908f1e&quot; || // datetime&#xD;&#xA;        p.typeReference.getTypeId() == &quot;675c7b84-997a-44e0-82b9-cd724c07c9e6&quot;) { // decimal&#xD;&#xA;        const newColumn = createElement(&quot;Data Grid Column&quot;, toTitleCase(p.getName()), table.id);&#xD;&#xA;        mapping.addMappedEnd(dataBindingMappingTypeId, p.getMappingPath(), newColumn.getMappingPath())&#xD;&#xA;    }&#xD;&#xA;    else if (p.typeReference.getTypeId() == &quot;e6f92b09-b2c5-4536-8270-a4d9e5bbd930&quot;){ // bool&#xD;&#xA;        const newColumn = createElement(&quot;Data Grid Column&quot;, toTitleCase(p.getName()), table.id);&#xD;&#xA;        const newInput = createElement(&quot;Checkbox&quot;, p.getName(), newColumn.id);&#xD;&#xA;        newInput.removeStereotype(&quot;Label Addon&quot;);&#xD;&#xA;        mapping.addMappedEnd(dataBindingMappingTypeId, p.getMappingPath(), newInput.getMappingPath());&#xD;&#xA;    }&#xD;&#xA;});" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
+              </properties>
+            </stereotype>
+            <stereotype stereotypeDefinitionId="cbe77364-d1d0-400b-a8c4-646a4c869612" name="Option Settings">
+              <comment />
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="b2c3a117-23d3-47e5-8b83-5b902c55a226" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjI0LjgiIHkxPSI3MDguMSIgeDI9IjI0LjgiIHkyPSI3NDEuNSIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgwIC03MDApIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzVjYzdkNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MTczYjYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC0yIiB4MT0iMjQuOSIgeTE9IjcxNS44IiB4Mj0iMjQuOSIgeTI9Ijc0My43IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTcwMCkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNWNjN2Q2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzQxNzNiNiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTMiIHgxPSIyNC45IiB5MT0iMTUuMiIgeDI9IjI0LjkiIHkyPSI2IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2Y1N2YyMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmY2I2NDUiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNDIpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJUYWJsZSI+CiAgICAgIDxwYXRoIGlkPSJfeDNDX0dyaWRfeDNFXyIgZD0iTTM1LjIsMjIuNGg2LjN2LTEuNmgtNi4zdi0zLjJoLTEuNnYzLjJoLTcuOXYtMy4yaC0xLjZ2My4yaC03Ljl2LTMuMmgtMS42djMuMmgtNi40djEuNmg2LjN2NC44aC02LjN2MS42aDYuM3Y0LjhoLTYuM3YxLjZoNi4zdjMuMmgxLjZ2LTMuMmg3Ljl2My4yaDEuNnYtMy4yaDcuOXYzLjJoMS42di0zLjJoNi4zdi0xLjZoLTYuM3YtNC44aDYuM3YtMS42aC02LjN2LTQuOHMuMSwwLC4xLDBaTTI0LjEsMzMuNWgtNy45di00LjhoNy45djQuOFpNMjQuMSwyNy4yaC03Ljl2LTQuOGg3Ljl2NC44Wk0zMy42LDMzLjVoLTcuOXYtNC44aDcuOXY0LjhaTTMzLjYsMjcuMmgtNy45di00LjhoNy45djQuOFoiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50KSIvPgogICAgICA8cGF0aCBpZD0iX3gzQ19Cb3JkZXJfeDNFXyIgZD0iTTQzLjksMTUuOHYyNC4zSDUuOFYxNS44aC0zLjR2MjcuOGg0NVYxNS44aC0zLjVaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudC0yKSIvPgogICAgICA8cGF0aCBkPSJNMi40LDUuNXYxMC4zaDQ1VjUuNUgyLjRaTTQzLjksMTIuNEg1Ljh2LTMuNWgzOC4xdjMuNVoiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTMpIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4=&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+                <property name="0abff08a-3986-40b1-a28f-4cc03c4fc1ec" display="Shortcut" value="space" isActive="true" />
+                <property name="79f6973f-5e3a-4618-9d4c-d7cc604bffe0" display="Shortcut (macOS)" isActive="true" />
+                <property name="e034a0ca-0101-4594-8384-43048b714578" display="Type Order" isActive="true" />
+                <property name="c03841e5-a1e9-4e95-b699-5a466dde7d7d" display="Is Option Visible Function" value="return  !element.typeReference.getIsCollection() &amp;&amp; element.typeReference.getType().id == &quot;9204e067-bdc8-45e7-8970-8a833fdc5253&quot;; // PagedResult" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

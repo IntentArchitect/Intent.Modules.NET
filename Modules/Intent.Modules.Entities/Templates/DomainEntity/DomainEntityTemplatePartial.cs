@@ -8,6 +8,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Settings;
@@ -38,6 +39,10 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 {
                     FulfillsRole(TemplateRoles.Domain.Entity.Interface);
                 }
+            }
+            else
+            {
+                FulfillsRole(TemplateRoles.Domain.Entity.Behaviour);
             }
 
             if (Model.Operations.Any(x => x.IsAsync()))

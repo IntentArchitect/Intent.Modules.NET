@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fb620d93-23a7-4a7c-b7a4-a6e45839d64d" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+  <name>Home</name>
+  <display>Home</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6f15e952-6990-4fa9-9f67-c27d6aff8ff3</parentFolderId>
+  <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
+  <packageName>${application.name}.UI</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+      <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+      <properties>
+        <property name="9dff9df1-a993-4bf6-9aa7-c16811142228" display="Route" value="/" isActive="true" />
+        <property name="0a8627ba-ec45-4023-9c36-b0999f43e982" display="Title" value="Home" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="92ee89ba-5c27-445d-9418-ee24e0cd20f6" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="fb620d93-23a7-4a7c-b7a4-a6e45839d64d" location="[Blazor.WebAssembly.Metadata].[User Interface].[Home]" />
+      <target applicationId="92ee89ba-5c27-445d-9418-ee24e0cd20f6" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="4cd6c2f9-9d07-47f5-94c5-cb49410f1ccb" location="[Blazor.WebAssembly.Metadata].[User Interface].[[view]]" />
+      <mappedEnds>
+        <mappedEnd>
+          <expression>###Hello, world!</expression>
+          <path>
+            <target id="4cd6c2f9-9d07-47f5-94c5-cb49410f1ccb" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="72a6938d-d404-493f-aadd-d2b231fabdb1" name="Head" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>Welcome to your new app, powered by .NET 8!</expression>
+          <path>
+            <target id="4cd6c2f9-9d07-47f5-94c5-cb49410f1ccb" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c2ebf3f0-a5be-4e70-82d7-baffdd4abd1e" name="Text" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources />
+        </mappedEnd>
+      </mappedEnds>
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements />
+</class>

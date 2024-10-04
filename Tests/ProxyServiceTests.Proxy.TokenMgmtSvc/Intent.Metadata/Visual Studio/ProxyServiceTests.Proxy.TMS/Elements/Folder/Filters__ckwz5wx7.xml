@@ -53,10 +53,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="046a2d16-188d-4830-af6f-0fa0e6181cd1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Controllers.TypeSchemaFilter</name>
-      <display>Intent.AspNetCore.Controllers.TypeSchemaFilter</display>
-      <externalReference>Intent.AspNetCore.Controllers</externalReference>
+    <childElement id="621d1025-8f31-4ca8-9567-22b93958831d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle.Security</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -69,16 +69,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="621d1025-8f31-4ca8-9567-22b93958831d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</name>
-      <display>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</display>
-      <externalReference>Intent.AspNetCore.Swashbuckle.Security</externalReference>
+    <childElement id="7a8a3162-b9b7-4b84-8d53-6af272e3f56d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6c3784a7-96dd-4a1a-bd7b-eea5bf7ecea9</parentFolderId>
-      <packageId>a880b47d-5e3c-4c5b-8a26-d836fbf177db</packageId>
-      <packageName>ProxyServiceTests.Proxy.TMS</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -22,6 +22,9 @@
     <name>basic</name>
     <display>[delete] basic: Basic</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="1fcaf6c7-2bb4-4d99-8dca-dc09f60d8677">
       <typeId>73ba71c6-41c6-41ef-ba80-0d589ea75417</typeId>
       <isNavigable>true</isNavigable>

@@ -29,10 +29,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomReposi
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddInterface($"I{Model.Name.EnsureSuffixedWith("Repository")}", @interface =>
                 {
+                    @interface.TryAddXmlDocComments(Model.InternalElement);
+
                     RepositoryOperationHelper.ApplyMethods(this, @interface, model);
                 });
 
-            var storedProcedures = Model.GetStoredProcedureModels();
+            var storedProcedures = Model.GetGeneralizedStoredProcedures();
             if (!storedProcedures.Any())
             {
                 return;

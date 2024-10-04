@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Swashbuckle</id>
-  <version>5.1.0</version>
+  <version>5.1.1-pre.0</version>
   <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <summary>Provides Swagger support for using the Swashbuckle library for ASP.NET Core.</summary>
   <description>Provides Swagger support for using the Swashbuckle library for ASP.NET Core.</description>
@@ -18,6 +18,14 @@
       </config>
       <role>Distribution.SwashbuckleConfiguration</role>
       <location>Configuration</location>
+    </template>
+    <template id="Intent.AspNetCore.Swashbuckle.TypeSchemaFilter" externalReference="ffdf736a-39d9-4c16-998c-452da9cce2db">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.TypeSchemaFilter</role>
+      <location>Filters</location>
     </template>
   </templates>
   <decorators />
@@ -44,6 +52,11 @@
     <detect id="Intent.AspNetCore">
       <install>
         <package id="Intent.AspNetCore" version="6.0.2" />
+      </install>
+    </detect>
+    <detect id="Intent.AspNetCore.Controllers">
+      <install>
+        <package id="Intent.AspNetCore.Controllers" version="6.1.1-pre.0" />
       </install>
     </detect>
     <detect id="Intent.AspNetCore.Swashbuckle.Security">
@@ -76,5 +89,6 @@
   <moduleSettingsExtensions />
   <factoryExtensions>
     <factoryExtension id="Intent.AspNetCore.Swashbuckle.SwashbuckleStartupConfigurationExtension" externalReference="e763a07f-47e8-4ca3-924d-7c4efb567c38" />
+    <factoryExtension id="Intent.AspNetCore.Swashbuckle.TypeSchemaFilterExtension" externalReference="abdfb228-799e-426a-9c06-d2571abbfe64" />
   </factoryExtensions>
 </package>

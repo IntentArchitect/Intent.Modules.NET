@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0186f0dc-57eb-4807-8655-167af18d0b90" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>EnumService</name>
+  <display>EnumService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>859f5adf-c40e-40fb-9e68-e41da908d768</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="d334321a-377b-4cd9-ae64-2aec501e2a55" name="AzureFunctions.TestApplication.Services" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="35b17407-2bef-4869-aaf2-d62cb6fe6ded" name="Enums" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
+      <target id="347c7d33-6946-4cab-a3e3-8d682e575b06" name="EnumService" type="element" specialization="Service" specializationId="b16578a5-27b1-4047-a8df-f0b783d706bd" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>282d7675-8621-4067-89e7-df1018ff8fb7</parentFolderId>
+  <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+  <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="26e27729-6fbd-475f-8f29-be51f5047e44" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>TestRouteEnum</name>
+      <display>TestRouteEnum(testEnum: Company): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="549b6130-af06-4081-a6f0-d6d01025e9b7">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="81b18e7d-a8db-4a92-a6eb-167a9e68ebf1" name="TestRouteEnum" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>0186f0dc-57eb-4807-8655-167af18d0b90</parentFolderId>
+      <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+      <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="9b4dbdbf-7edf-46ac-b2e2-1e6b20987f8d" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>testEnum</name>
+          <display>testEnum: Company</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f22890e2-93ea-4243-aa07-32d035b15395">
+            <typeId>d938afce-4f7e-46bc-ac67-0ffaa21a5f8d</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.TestApplication.Services</typePackageName>
+            <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>26e27729-6fbd-475f-8f29-be51f5047e44</parentFolderId>
+          <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+          <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="dd152d8f-7c14-4e23-984c-bc0143b4ed57" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="14a1d517-17d3-4a03-9498-be8d9a826c78" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>TestQueryEnum</name>
+      <display>TestQueryEnum(testEnum: Company): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="7ffcaf39-80d9-4f74-9ff3-aaa463011626">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="61915bbc-fc68-447d-952c-c95c7d4b13ba" name="TestQueryEnum" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>0186f0dc-57eb-4807-8655-167af18d0b90</parentFolderId>
+      <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+      <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="826e830e-1014-4e4f-aa59-8f0ae44c7e97" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>testEnum</name>
+          <display>testEnum: Company</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="02291b13-ebae-42b0-ad08-c46285e6f003">
+            <typeId>d938afce-4f7e-46bc-ac67-0ffaa21a5f8d</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.TestApplication.Services</typePackageName>
+            <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>14a1d517-17d3-4a03-9498-be8d9a826c78</parentFolderId>
+          <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+          <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="a67a8c2d-352c-40c2-847c-a0d25dab3d3c" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="ca3e613f-2b95-4c6e-8bef-317772a82be8" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>TestHeaderEnum</name>
+      <display>TestHeaderEnum(testEnum: Company): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="26c59beb-7768-43c8-aa64-4bbac1b665c7">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="78a2b9b5-1a83-4033-8c00-49f3422a3a34" name="TestHeaderEnum" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>0186f0dc-57eb-4807-8655-167af18d0b90</parentFolderId>
+      <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+      <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="d9c81ed9-18c2-4b45-b763-76c5dfb7edc6" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>testEnum</name>
+          <display>testEnum: Company</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2eafac4c-c5ff-4185-863d-f22e4a7db09a">
+            <typeId>d938afce-4f7e-46bc-ac67-0ffaa21a5f8d</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.TestApplication.Services</typePackageName>
+            <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ca3e613f-2b95-4c6e-8bef-317772a82be8</parentFolderId>
+          <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+          <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="1200b916-9da3-4025-83db-710483c2f16c" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

@@ -22,6 +22,9 @@
     <name>richProduct</name>
     <display>[create] richProduct: Constructor</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="14008292-0f27-461c-86d2-7d0b08bac047">
       <typeId>c22c4f63-5305-45d7-ab5c-e8e5cad2df22</typeId>
       <isNavigable>true</isNavigable>

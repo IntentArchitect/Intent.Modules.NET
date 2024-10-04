@@ -459,6 +459,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>da9d9f58-8dd2-4c37-8002-73239d0b9058</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClientRequestException</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Common/Exceptions/HttpClientRequestException.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>da9d9f58-8dd2-4c37-8002-73239d0b9058</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.ProblemDetailsWithErrors</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Common/Exceptions/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>17100853-a557-46b5-ad5b-43665cc2099d</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -680,7 +696,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetPagedWithParameters/GetPagedWithParameters.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/GetPagedWithParameters/GetPagedWithParameters.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
@@ -688,7 +704,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Customers/GetPagedWithParameters/GetPagedWithParametersHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/GetPagedWithParameters/GetPagedWithParametersHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>eabb855e-a43c-4f98-af32-04abafc961bd</ProjectId>
@@ -808,6 +824,158 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Implementation/SampleDomainsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SampleDomainsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>true</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.PagedResult#9204e067-bdc8-45e7-8970-8a833fdc5253</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/PagedResult.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#f5f5c771-cf9d-4ef6-8071-1f532fc6b7a2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/Customers/CreateCustomerCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Customers/CreateCustomerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#729da320-1a7e-4314-98df-01c7562afe9a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/Customers/CustomerDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Customers/CustomerDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#8077016b-525c-4ba2-ac04-09a1cd0814f1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/Customers/UpdateCustomerCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Customers/UpdateCustomerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.EnumContract#d938afce-4f7e-46bc-ac67-0ffaa21a5f8d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/Enums/Company.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Enums/Company.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#d59572ba-0a5c-408c-9793-4dc885a4e347</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/SampleDomains/SampleDomainCreateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/SampleDomains/SampleDomainCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/SampleDomains/SampleDomainDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/SampleDomains/SampleDomainDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#f784648e-ac13-4e81-a272-4e7c783a498e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/SampleDomains/SampleDomainUpdateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/SampleDomains/SampleDomainUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#392b086e-e503-40d5-b6ae-4e76111c5b73</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/Validation/DummyResultDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Validation/DummyResultDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.EnumContract#c26b48e5-bfdf-4f0a-9ad6-0b86654b195b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/Validation/EnumDescriptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Validation/EnumDescriptions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>31b35b7e-dc74-43ef-916c-b6f34be5aaa6</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#cc509d59-db35-428a-a70a-1b0838332b28</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/Contracts/Services/Validation/InboundComValCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Validation/InboundComValCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8de9db3a-61d9-44ff-a555-064a5af07cda</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#de6eb156-b351-4817-8b5f-36e726b415b5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/ICustomersService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICustomersService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8de9db3a-61d9-44ff-a555-064a5af07cda</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#0186f0dc-57eb-4807-8655-167af18d0b90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/IEnumService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEnumService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8de9db3a-61d9-44ff-a555-064a5af07cda</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#1ef613d3-daf0-40ec-bf9b-c74a6235b126</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/IIgnoresService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IIgnoresService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8de9db3a-61d9-44ff-a555-064a5af07cda</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#ecb6372d-5c41-49a5-8308-b0446585cc00</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/IListedUnlistedServicesService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IListedUnlistedServicesService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8de9db3a-61d9-44ff-a555-064a5af07cda</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#d23aa47c-3a78-4b0e-9ebd-03ceb8777730</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/INullableResultService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>INullableResultService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8de9db3a-61d9-44ff-a555-064a5af07cda</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#52680c0d-d234-4193-8eca-72a8baab5e39</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/IParamsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IParamsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8de9db3a-61d9-44ff-a555-064a5af07cda</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#0cd43d06-cd71-446b-8bb2-7ae1e3c43755</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/ISampleDomainsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ISampleDomainsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8de9db3a-61d9-44ff-a555-064a5af07cda</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#802fa974-64d8-4496-92e8-52c0346caf6c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/IntegrationServices/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -848,7 +1016,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Application/Interfaces/ISampleDomainsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISampleDomainsService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>bc3744f9-7d1c-4917-881c-0c4aecd847db</ProjectId>
@@ -1427,11 +1595,91 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>9f90588d-182f-4756-bf21-fdd409615539</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClientConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/Configuration/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>53ac4ed2-2438-49bf-b131-1ec31bcbe287</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3affc671-40f9-4cc8-abfa-468a74fd531e</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#de6eb156-b351-4817-8b5f-36e726b415b5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/HttpClients/CustomersServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomersServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3affc671-40f9-4cc8-abfa-468a74fd531e</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#0186f0dc-57eb-4807-8655-167af18d0b90</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/HttpClients/EnumServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EnumServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3affc671-40f9-4cc8-abfa-468a74fd531e</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#1ef613d3-daf0-40ec-bf9b-c74a6235b126</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/HttpClients/IgnoresServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IgnoresServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3affc671-40f9-4cc8-abfa-468a74fd531e</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.JsonResponse</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/HttpClients/JsonResponse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3affc671-40f9-4cc8-abfa-468a74fd531e</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#ecb6372d-5c41-49a5-8308-b0446585cc00</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/HttpClients/ListedUnlistedServicesServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ListedUnlistedServicesServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3affc671-40f9-4cc8-abfa-468a74fd531e</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#d23aa47c-3a78-4b0e-9ebd-03ceb8777730</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/HttpClients/NullableResultServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableResultServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3affc671-40f9-4cc8-abfa-468a74fd531e</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#52680c0d-d234-4193-8eca-72a8baab5e39</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/HttpClients/ParamsServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParamsServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3affc671-40f9-4cc8-abfa-468a74fd531e</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#0cd43d06-cd71-446b-8bb2-7ae1e3c43755</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/HttpClients/SampleDomainsServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SampleDomainsServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3affc671-40f9-4cc8-abfa-468a74fd531e</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#802fa974-64d8-4496-92e8-52c0346caf6c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.TestApplication.Infrastructure/HttpClients/ValidationServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

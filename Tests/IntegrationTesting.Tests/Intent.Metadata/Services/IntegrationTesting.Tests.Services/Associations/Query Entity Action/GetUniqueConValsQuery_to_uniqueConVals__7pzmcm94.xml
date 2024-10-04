@@ -22,6 +22,9 @@
     <name>uniqueConVals</name>
     <display>[query] uniqueConVals: UniqueConVal[*]</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="da7e3d09-c1d2-4dd5-8faf-16431eee6a36">
       <typeId>52d43dc7-7e0d-4305-9ebc-4f0606747989</typeId>
       <isNavigable>true</isNavigable>

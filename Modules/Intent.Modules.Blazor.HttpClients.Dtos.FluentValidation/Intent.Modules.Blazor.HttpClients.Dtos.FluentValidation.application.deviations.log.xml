@@ -4,15 +4,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#cd2b4329-787d-4baf-a062-323636a1b582</correlationId>
       <path>Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation/Templates/DtoValidator/DtoValidatorTemplatePartial.cs</path>
-      <count>6</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T13:33:14.6602798Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:18:23.9401864Z</approvedAt>
-      <deviationsHash>E5DFB210AE1F2BB5932632E761B5DE3C88289319B9B07A151CD543310884C6AA</deviationsHash>
-      <fileHash>63A2B746F1EA7458D0E19411F271D1682B32AF46093AC1EE8361BD1DAF9CA488</fileHash>
+      <count>2</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-09-13T11:32:52.3629775Z</updatedAt>
+      <deviationsHash>151590F145B29553097101D8DA1353DFEE6238FE651C252526C3032907C6D8D2</deviationsHash>
+      <fileHash>418CAA55F4EB4F915A3800A26D00F5A237840521123BE76F2668C318C9259133</fileHash>
     </file>
   </files>
 </deviationsLog>

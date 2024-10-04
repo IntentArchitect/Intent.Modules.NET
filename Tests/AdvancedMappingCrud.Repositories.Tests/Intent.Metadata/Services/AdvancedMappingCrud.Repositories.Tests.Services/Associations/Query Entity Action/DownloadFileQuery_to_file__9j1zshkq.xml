@@ -22,6 +22,9 @@
     <name>file</name>
     <display>[query] file: FileUpload</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="d68f9779-3571-4e74-af0a-cd38aab72351">
       <typeId>319abbbb-65b5-4179-a3dd-33699a0f778e</typeId>
       <isNavigable>true</isNavigable>

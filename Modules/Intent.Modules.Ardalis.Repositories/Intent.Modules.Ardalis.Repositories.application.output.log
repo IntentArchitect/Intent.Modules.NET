@@ -82,6 +82,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>993b27f8-e854-4a3a-8f9c-3540666c3ed8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#010f82f0-575c-4d76-8347-cca0fa8d739d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Specification/SpecificationTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Specification/SpecificationTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>993b27f8-e854-4a3a-8f9c-3540666c3ed8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#010f82f0-575c-4d76-8347-cca0fa8d739d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Specification/SpecificationTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Specification/SpecificationTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>993b27f8-e854-4a3a-8f9c-3540666c3ed8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>

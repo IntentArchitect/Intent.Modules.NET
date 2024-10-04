@@ -1,3 +1,7 @@
+### Version 5.0.9
+
+- Fixed: Possible PagedResult duplication through DTOs as opposed to only using the PagedResult template. 
+
 ### Version 5.0.8
 
 - Improvement: Updated module NuGet packages infrastructure.

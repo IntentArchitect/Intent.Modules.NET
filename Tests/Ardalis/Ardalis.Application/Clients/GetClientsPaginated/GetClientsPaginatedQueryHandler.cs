@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Ardalis.Application.Common.Pagination;
 using Ardalis.Domain.Repositories;
+using Ardalis.Domain.Specifications;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -30,7 +31,7 @@ namespace Ardalis.Application.Clients.GetClientsPaginated
             GetClientsPaginatedQuery request,
             CancellationToken cancellationToken)
         {
-            var clients = await _clientRepository.FindAllAsync(request.PageNo, request.PageSize, cancellationToken);
+            var clients = await _clientRepository.FindAllAsync(new ClientSpec(), request.PageNo, request.PageSize, cancellationToken);
             return clients.MapToPagedResult(x => x.MapToClientDto(_mapper));
         }
     }

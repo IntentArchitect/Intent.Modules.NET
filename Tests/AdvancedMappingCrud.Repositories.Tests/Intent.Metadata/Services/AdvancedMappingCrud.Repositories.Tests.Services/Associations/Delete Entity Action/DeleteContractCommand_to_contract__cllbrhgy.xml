@@ -22,6 +22,9 @@
     <name>contract</name>
     <display>[delete] contract: Contract</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="4e12d9eb-2f89-4e24-9654-1e9fa96c3c0d">
       <typeId>492eec1f-13ec-425c-88ed-04666d2c7a7b</typeId>
       <isNavigable>true</isNavigable>

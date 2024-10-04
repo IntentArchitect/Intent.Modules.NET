@@ -142,7 +142,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         return new RoslynMergeConfig(new TemplateMetadata(Id, "2.0"), new ConstructorSignatureMigration());
     }
 
-    private class ConstructorSignatureMigration : ITemplateMigration
+    public class ConstructorSignatureMigration : ITemplateMigration
     {
         public string Execute(string currentText)
         {

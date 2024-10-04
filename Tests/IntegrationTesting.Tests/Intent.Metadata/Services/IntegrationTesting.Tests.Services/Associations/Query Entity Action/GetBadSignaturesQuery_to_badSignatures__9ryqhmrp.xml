@@ -22,6 +22,9 @@
     <name>badSignatures</name>
     <display>[query] badSignatures: BadSignatures[*]</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="dddd31fb-ce33-44c5-bc09-610d01f4717d">
       <typeId>53cb7742-0fd9-472e-885a-4ece3ffd230c</typeId>
       <isNavigable>true</isNavigable>

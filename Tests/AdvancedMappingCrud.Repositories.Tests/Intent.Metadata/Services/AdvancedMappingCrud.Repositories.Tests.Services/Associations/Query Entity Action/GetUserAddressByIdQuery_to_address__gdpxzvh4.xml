@@ -22,6 +22,9 @@
     <name>address</name>
     <display>[query] address: UserAddress</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="6b8dbef4-b706-4495-b8db-6f125f76c87a">
       <typeId>93dd60e4-2bcc-46f9-be53-97693c0b97dd</typeId>
       <isNavigable>true</isNavigable>

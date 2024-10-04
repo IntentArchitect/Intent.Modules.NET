@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ecb6372d-5c41-49a5-8308-b0446585cc00" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>ListedUnlistedServicesService</name>
+  <display>ListedUnlistedServicesService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>859f5adf-c40e-40fb-9e68-e41da908d768</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="d334321a-377b-4cd9-ae64-2aec501e2a55" name="AzureFunctions.TestApplication.Services" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="4b2b5e97-94de-4c02-969f-4f2c754315f4" name="ListedUnlistedServices" type="element" specialization="Service" specializationId="b16578a5-27b1-4047-a8df-f0b783d706bd" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>282d7675-8621-4067-89e7-df1018ff8fb7</parentFolderId>
+  <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+  <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="83e431a1-76e3-43f5-9717-fdbdfc4da34b" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>ListedServiceFunc</name>
+      <display>ListedServiceFunc(param: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="3298e6f4-96c0-4201-aa85-fea45e8af492">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="4260a48c-f8ed-476b-8909-1937cfff38ef" name="ListedServiceFunc" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>ecb6372d-5c41-49a5-8308-b0446585cc00</parentFolderId>
+      <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+      <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="b5e496c8-0bb8-4b74-84b1-2b083c82bb15" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>param</name>
+          <display>param: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="19b24f58-f125-49fe-a4ab-8b7defd96dcb">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>83e431a1-76e3-43f5-9717-fdbdfc4da34b</parentFolderId>
+          <packageId>282d7675-8621-4067-89e7-df1018ff8fb7</packageId>
+          <packageName>AzureFunctions.TestApplication.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="30e5fbc7-f001-483e-83ed-d551c4c3fd10" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

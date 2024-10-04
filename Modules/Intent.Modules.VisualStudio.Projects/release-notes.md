@@ -1,3 +1,7 @@
+### Version 3.8.0
+
+TODO
+
 ### Version 3.7.8
 
 - Improvement: Added support for modeled Implicit NuGet package dependencies.

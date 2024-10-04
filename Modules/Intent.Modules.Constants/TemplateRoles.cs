@@ -1,4 +1,5 @@
 ﻿using System;
+using static Intent.Modules.Constants.TemplateRoles.Application;
 
 namespace Intent.Modules.Constants
 {
@@ -16,6 +17,7 @@ namespace Intent.Modules.Constants
             {
                 public const string Controller = "Distribution.WebApi.Controller";
                 public const string Startup = "App.Startup";
+                public const string Program = "App.Program";
                 public const string MultiTenancyConfiguration = "Configuration.MultiTenancy";
             }
         }
@@ -27,6 +29,7 @@ namespace Intent.Modules.Constants
             public const string ValueObject = "Domain.ValueObject";
             public const string DataContract = "Domain.DataContract";
             public const string Events = "Domain.Events";
+            public const string Specification = "Domain.Specification";
 
             public static class Entity
             {
@@ -34,6 +37,7 @@ namespace Intent.Modules.Constants
                 public const string Interface = "Domain.Entity.Interface";
                 public const string EntityImplementation = "Domain.Entity.Primary";
                 public const string State = "Domain.Entity.State";
+                public const string Behaviour = "Domain.Entity.Behaviour";
             }
 
             public static class DomainServices
@@ -68,7 +72,7 @@ namespace Intent.Modules.Constants
                 public const string Command = "Application.Command.Handler";
                 public const string Query = "Application.Query.Handler";
             }
-            
+
             public static class Common
             {
                 public const string DbContextInterface = "Application.Common.DbContextInterface";
@@ -88,7 +92,7 @@ namespace Intent.Modules.Constants
                     public const string Enum = "Application.Contracts.Clients.Enum";
                 }
             }
-            
+
             public static class Services
             {
                 [Obsolete("Use Distribution.WebApi.Controller")]
@@ -97,7 +101,7 @@ namespace Intent.Modules.Constants
                 public const string Implementation = "Application.Implementation";
                 public const string ClientInterface = "Application.Contracts.Clients";
             }
-            
+
             public static class Eventing
             {
                 public const string EventBusInterface = "Application.Eventing.EventBusInterface";
@@ -131,6 +135,34 @@ namespace Intent.Modules.Constants
                 public const string ConnectionStringDbContext = "Infrastructure.Data.ConnectionStringDbContext";
                 [Obsolete("This template has been moved Application.Common.PagedList")]
                 public const string PagedList = "Infrastructure.Data.PagedList";
+            }
+        }
+
+        public static class Blazor
+        {
+            [Obsolete("No longer will be used. Use Blazor.Client instead")]
+            public static class WebAssembly
+            {
+                public const string Program = "Blazor.WebAssembly.Program";
+            }
+            public static class Client
+            {
+                public const string Program = "Blazor.Client.Program";
+                public const string DependencyInjection = "Blazor.Client.DependencyInjection";
+
+                public static class Model
+                {
+                    public const string Definition = "Blazor.Client.Model.Definition";
+                    public const string Validator = "Blazor.Client.Model.Validator";
+                }
+            }
+
+            public static class HttpClient
+            {
+                public static class Contracts
+                {
+                    public const string Dto = "Blazor.HttpClient.Contracts.Dto";
+                }
             }
         }
     }

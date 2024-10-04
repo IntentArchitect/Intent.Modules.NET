@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d33d1f4d-8254-4d0d-8300-79d1fa9b5716" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Subs</name>
+  <display>Subs</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1711e8b9-ebdd-4b06-882e-9cd7ef38ad0c</parentFolderId>
+  <packageId>1711e8b9-ebdd-4b06-882e-9cd7ef38ad0c</packageId>
+  <packageName>Subscribe.CleanArchDapr.TestApplication.Services</packageName>
+  <diagram>
+    <targetPackageId>d33d1f4d-8254-4d0d-8300-79d1fa9b5716</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

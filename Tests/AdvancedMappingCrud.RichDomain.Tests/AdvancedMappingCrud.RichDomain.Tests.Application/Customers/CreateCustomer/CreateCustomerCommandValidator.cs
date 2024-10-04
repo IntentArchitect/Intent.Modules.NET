@@ -23,7 +23,8 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Customers.CreateCusto
                 .SetValidator(provider.GetValidator<CreateCustomerUserDto>()!);
 
             RuleFor(v => v.Login)
-                .NotNull();
+                .NotNull()
+                .MaximumLength(50);
         }
     }
 }

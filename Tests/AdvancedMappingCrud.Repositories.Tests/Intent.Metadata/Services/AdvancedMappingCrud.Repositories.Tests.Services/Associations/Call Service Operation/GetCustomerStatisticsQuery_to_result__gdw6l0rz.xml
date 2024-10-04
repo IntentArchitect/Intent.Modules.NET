@@ -22,6 +22,9 @@
     <name>result</name>
     <display>[call] result: GetCustomerStatistics(...): CustomerStatistics</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="2f83fb3e-da16-4570-bffe-67d0196a06be">
       <typeId>98f8def3-c0e2-49fd-8e8b-247d10e0680c</typeId>
       <isNavigable>true</isNavigable>

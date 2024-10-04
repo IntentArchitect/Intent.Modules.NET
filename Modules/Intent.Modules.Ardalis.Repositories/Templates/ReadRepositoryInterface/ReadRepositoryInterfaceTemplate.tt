@@ -33,17 +33,5 @@ namespace <#= Namespace #>
         Task<List<<#= GetDomainEntityTypeName() #>>> FindByIdsAsync(<#= GetSurrogateKey() #>[] ids, CancellationToken cancellationToken = default);
 <#
     } 
-#>
-        [IntentManaged(Mode.Fully)]
-        Task<List<<#= GetDomainEntityTypeName() #>>> FindAllAsync(CancellationToken cancellationToken = default);
-
-        [IntentManaged(Mode.Fully)]
-        Task<<#= GetPagedListInterface() #><<#= GetDomainEntityTypeName() #>>> FindAllAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default);
-
-        [IntentManaged(Mode.Fully)]
-        Task<<#= GetPagedListInterface() #><<#= GetDomainEntityTypeName() #>>> FindAllAsync(Expression<Func<<#= GetPersistenceEntityTypeName() #>, bool>> filterExpression, int pageNo, int pageSize, CancellationToken cancellationToken = default);
-
-        [IntentManaged(Mode.Fully)]
-        Task<<#= GetPagedListInterface() #><<#= GetDomainEntityTypeName() #>>> FindAllAsync(Expression<Func<<#= GetPersistenceEntityTypeName() #>, bool>> filterExpression, int pageNo, int pageSize, Func<IQueryable<<#= GetPersistenceEntityTypeName() #>>, IQueryable<<#= GetPersistenceEntityTypeName() #>>> linq, CancellationToken cancellationToken = default);
-    }
+#>  }
 }

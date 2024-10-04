@@ -22,6 +22,9 @@
     <name>hasMissingDep</name>
     <display>[update] hasMissingDep: HasMissingDep</display>
     <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="8b10e873-026a-4e2c-a307-ab9e8467afb4">
       <typeId>6cb8585c-4658-4961-a373-855a7d26bc17</typeId>
       <isNavigable>true</isNavigable>

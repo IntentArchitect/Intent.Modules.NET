@@ -25,7 +25,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates
 
             var elementsGroupedByParent = Enumerable.Empty<IElement>()
                 .Concat(metadataManager.Services(application).GetCommandModels()
-            .Where(x => x.HasHttpSettings())
+                    .Where(x => x.HasHttpSettings())
                     .Select(x => x.InternalElement))
                 .Concat(metadataManager.Services(application).GetQueryModels()
                     .Where(x => x.HasHttpSettings())

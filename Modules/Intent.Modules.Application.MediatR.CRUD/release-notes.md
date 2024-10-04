@@ -1,3 +1,11 @@
+### Version 6.0.19
+
+- Improvement: Basic CRUD support for specifications.
+
+### Version 6.0.18
+
+- Improvement: Improved error when creating illegal queries.
+
 ### Version 6.0.17
 
 - Fixed: Issue where `CRUD Update Action` was not generating correct code if Domain Services were injected.

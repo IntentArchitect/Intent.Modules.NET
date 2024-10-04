@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="986f7c68-d796-4d6c-a823-a638bdd0bc42" type="Type-Definition" typeId="d4e577cd-ad05-4180-9a2e-fff4ddea0e1e">
+  <name>MudDialogInstance</name>
+  <display>MudDialogInstance</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>561539f3-acf4-4a1c-90ab-82fa4dcb57c7</parentFolderId>
+  <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+  <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="aecdb5f8-9acf-4365-a894-c3ea09f23018" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Cancel</name>
+      <display>Cancel(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="307af2f5-bea4-45c5-b0f6-da0e2d575ab4">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>986f7c68-d796-4d6c-a823-a638bdd0bc42</parentFolderId>
+      <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+      <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="6143176f-5953-48d2-8eb4-c1ef02e3adf0" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Close</name>
+      <display>Close(result: object?): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="03d2a26e-1b20-43be-a30f-1793b6c69764">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>986f7c68-d796-4d6c-a823-a638bdd0bc42</parentFolderId>
+      <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+      <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="a42e7676-1ee2-4531-9443-b586bae6cef9" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>result</name>
+          <display>in : result: object?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5c35e985-599f-4b75-8b8a-539288075137">
+            <typeId>341DD965-D06C-4A40-9437-9516ADA77FF5</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>6143176f-5953-48d2-8eb4-c1ef02e3adf0</parentFolderId>
+          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

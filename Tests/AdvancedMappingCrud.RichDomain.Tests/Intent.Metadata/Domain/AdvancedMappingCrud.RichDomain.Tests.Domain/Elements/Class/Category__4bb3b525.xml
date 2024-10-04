@@ -96,7 +96,7 @@
         <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="d53bb23e-4305-43ac-a0cf-7480a156fff6" name="Category" type="element" specialization="Class" />
+          <target id="d53bb23e-4305-43ac-a0cf-7480a156fff6" name="Category" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d53bb23e-4305-43ac-a0cf-7480a156fff6</parentFolderId>
@@ -126,7 +126,7 @@
             <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="a0eb265f-cb7f-4dc5-a446-c949eee3b275" name="Name" type="element" specialization="Attribute" />
+              <target id="a0eb265f-cb7f-4dc5-a446-c949eee3b275" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>fa193274-e5ad-463b-8aa1-69ce00b57c1c</parentFolderId>

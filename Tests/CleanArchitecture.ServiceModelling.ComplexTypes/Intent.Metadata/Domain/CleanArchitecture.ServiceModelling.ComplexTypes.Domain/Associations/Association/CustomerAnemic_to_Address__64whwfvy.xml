@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="84991859-9b9a-494d-bc32-f3007e1d62ad" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Address</name>
-    <display>Address: Address   [1 --&gt; 1]</display>
+    <display>Address: Address</display>
     <order>2</order>
     <typeReference id="7ae1e918-8720-44d8-adf6-5484ea65841b">
       <typeId>0401fdfa-c102-4062-8551-3ef9951986a8</typeId>

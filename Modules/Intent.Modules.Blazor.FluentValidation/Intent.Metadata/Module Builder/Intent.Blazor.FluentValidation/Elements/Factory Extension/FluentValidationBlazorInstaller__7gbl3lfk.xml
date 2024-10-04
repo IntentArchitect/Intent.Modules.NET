@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0153fa6b-0e26-4295-b51f-6285701486fb" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>FluentValidationBlazorInstaller</name>
+  <display>FluentValidationBlazorInstaller</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>90eb0073-c577-4253-9e76-0039622affa9</parentFolderId>
+  <packageId>90eb0073-c577-4253-9e76-0039622affa9</packageId>
+  <packageName>Intent.Blazor.FluentValidation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

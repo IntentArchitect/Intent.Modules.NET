@@ -106,7 +106,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
 
             foreach (var (entity, repository) in classRepositories)
             {
-                var storedProcedures = repository.GetStoredProcedureModels();
+                var storedProcedures = repository.GetGeneralizedStoredProcedures();
                 if (!storedProcedures.Any())
                 {
                     continue;

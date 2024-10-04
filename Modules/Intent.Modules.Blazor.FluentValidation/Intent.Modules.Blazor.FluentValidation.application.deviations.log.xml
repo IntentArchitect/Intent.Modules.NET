@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8a34e1a2-e62f-422a-b393-6cfcfe186871</correlationId>
+      <path>Intent.Modules.Blazor.FluentValidation/Templates/ModelDefinitionValidator/ModelDefinitionValidatorTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-09-11T16:37:03.6801429Z</updatedAt>
+      <deviationsHash>5D127A3C090EF415730EAD5C365197860B2B6017DF2E8E5EF3C3C62C3B5D6746</deviationsHash>
+      <fileHash>197A08D7A2AD0E227821462103664109CD7543F4D0777A5F2BFDAA9E1852D514</fileHash>
+    </file>
+  </files>
+</deviationsLog>

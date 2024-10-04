@@ -21,7 +21,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
         private readonly IUsersService _appService;
@@ -39,7 +38,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPost]
+        [HttpPost("users")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -65,7 +64,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         /// <response code="200">Returns the specified UserDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         /// <response code="404">No UserDto could be found with the provided parameters.</response>
-        [HttpGet("{id}")]
+        [HttpGet("users/{id}")]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -82,7 +81,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified List&lt;UserDto&gt;.</response>
-        [HttpGet]
+        [HttpGet("users")]
         [ProducesResponseType(typeof(List<UserDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<UserDto>>> FindAll(CancellationToken cancellationToken = default)
@@ -97,7 +96,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
-        [HttpPut("{id}")]
+        [HttpPut("users/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -123,7 +122,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         /// <response code="404">No UserDto could be found with the provided parameters.</response>
-        [HttpDelete("{id}")]
+        [HttpDelete("users/{id}")]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

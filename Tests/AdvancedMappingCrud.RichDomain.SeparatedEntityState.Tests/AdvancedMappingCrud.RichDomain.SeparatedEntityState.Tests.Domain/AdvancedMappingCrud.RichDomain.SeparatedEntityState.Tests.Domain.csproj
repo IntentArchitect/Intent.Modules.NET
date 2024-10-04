@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Entities\AddressState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Address.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\CategoryState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Category.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\CompanyState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Company.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\CustomerState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\PersonState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Person.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ProductState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\UserState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\BaseClassState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\SuperState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Super.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

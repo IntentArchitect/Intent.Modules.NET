@@ -85,7 +85,7 @@
         <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="64543361-23ff-4f7f-bcbb-0134267aa08d" name="Person" type="element" specialization="Class" />
+          <target id="64543361-23ff-4f7f-bcbb-0134267aa08d" name="Person" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>64543361-23ff-4f7f-bcbb-0134267aa08d</parentFolderId>
@@ -115,7 +115,7 @@
             <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="f3ed30a5-54c2-490a-8c12-1e6cc8570ea3" name="Details" type="element" specialization="Attribute" />
+              <target id="f3ed30a5-54c2-490a-8c12-1e6cc8570ea3" name="Details" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>b3ceac1e-d37e-4a84-bd02-968255da157d</parentFolderId>
@@ -148,7 +148,7 @@
         <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="64543361-23ff-4f7f-bcbb-0134267aa08d" name="Person" type="element" specialization="Class" />
+          <target id="64543361-23ff-4f7f-bcbb-0134267aa08d" name="Person" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>64543361-23ff-4f7f-bcbb-0134267aa08d</parentFolderId>
@@ -178,7 +178,7 @@
             <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="f3ed30a5-54c2-490a-8c12-1e6cc8570ea3" name="Details" type="element" specialization="Attribute" />
+              <target id="f3ed30a5-54c2-490a-8c12-1e6cc8570ea3" name="Details" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>9f62ea3e-c49d-43c5-91dc-c42bd5c09524</parentFolderId>

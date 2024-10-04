@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1547a142-247a-49b6-be59-b3aa2b157fdd</correlationId>
+      <path>Intent.Modules.FastEndpoints/Templates/Endpoint/EndpointTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2024-10-02T14:09:37.4824036Z</updatedAt>
+      <deviationsHash>F9A6EFD3C277F24FC1B3D3DBF491EA0EF4EBE02E739D613DF5239B097D76A3B4</deviationsHash>
+      <fileHash>69E723BA33F6EAC58053E2D14D9C5DD188BDCE4C0466D9C26C019100123B72C9</fileHash>
+    </file>
+  </files>
+</deviationsLog>

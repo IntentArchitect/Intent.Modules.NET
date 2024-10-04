@@ -22,6 +22,9 @@
     <name>product</name>
     <display>[delete] product: Product</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="5495bb05-09f4-48a7-90c1-b2d8b7266c8d">
       <typeId>b68a5a90-4016-415c-84b7-3cbfddac93eb</typeId>
       <isNavigable>true</isNavigable>

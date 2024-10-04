@@ -1,3 +1,7 @@
+### Version 4.0.0
+
+TODO
+
 ### Version 3.1.8
 
 - Fixed: HttpClients are able to generate into `netstandard2.*` projects.

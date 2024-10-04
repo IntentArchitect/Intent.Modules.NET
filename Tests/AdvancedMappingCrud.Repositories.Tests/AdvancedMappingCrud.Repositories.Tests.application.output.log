@@ -188,7 +188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e66243e8-f160-47cf-bb2c-ca9b3c4837ec</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
@@ -2867,6 +2867,174 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#dfa0a936-cba9-4c2c-b8aa-2f9effc23fc5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/CreateWarehouse/CreateWarehouseCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/CreateWarehouse/CreateWarehouseCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#dfa0a936-cba9-4c2c-b8aa-2f9effc23fc5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/CreateWarehouse/CreateWarehouseCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/CreateWarehouse/CreateWarehouseCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#dfa0a936-cba9-4c2c-b8aa-2f9effc23fc5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/CreateWarehouse/CreateWarehouseCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/CreateWarehouse/CreateWarehouseCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#1440a3d7-b58f-48e6-8e96-29f502da6e6c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/CreateWarehouseCommandAddressDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/CreateWarehouseCommandAddressDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#1440a3d7-b58f-48e6-8e96-29f502da6e6c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/CreateWarehouseCommandAddressDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/CreateWarehouseCommandAddressDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#add9ff3e-9f14-4e94-901d-220defb9c319</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/DeleteWarehouse/DeleteWarehouseCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/DeleteWarehouse/DeleteWarehouseCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#add9ff3e-9f14-4e94-901d-220defb9c319</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/DeleteWarehouse/DeleteWarehouseCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/DeleteWarehouse/DeleteWarehouseCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#add9ff3e-9f14-4e94-901d-220defb9c319</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/DeleteWarehouse/DeleteWarehouseCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/DeleteWarehouse/DeleteWarehouseCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#d33b659f-ef0b-4326-bbc9-6a7d8f82ff4c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/GetWarehouseById/GetWarehouseByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/GetWarehouseById/GetWarehouseByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#d33b659f-ef0b-4326-bbc9-6a7d8f82ff4c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/GetWarehouseById/GetWarehouseByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/GetWarehouseById/GetWarehouseByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#d33b659f-ef0b-4326-bbc9-6a7d8f82ff4c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/GetWarehouseById/GetWarehouseByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/GetWarehouseById/GetWarehouseByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#7608e6f8-6ecc-4f4c-861d-6d448b234772</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/GetWarehouses/GetWarehousesQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/GetWarehouses/GetWarehousesQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#7608e6f8-6ecc-4f4c-861d-6d448b234772</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/GetWarehouses/GetWarehousesQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/GetWarehouses/GetWarehousesQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#7608e6f8-6ecc-4f4c-861d-6d448b234772</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/GetWarehouses/GetWarehousesQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/GetWarehouses/GetWarehousesQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6292800c-4dcf-49a1-a16c-42ba1483ce9f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/UpdateWarehouse/UpdateWarehouseCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/UpdateWarehouse/UpdateWarehouseCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6292800c-4dcf-49a1-a16c-42ba1483ce9f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/UpdateWarehouse/UpdateWarehouseCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/UpdateWarehouse/UpdateWarehouseCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#6292800c-4dcf-49a1-a16c-42ba1483ce9f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/UpdateWarehouse/UpdateWarehouseCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/UpdateWarehouse/UpdateWarehouseCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#3540b38d-2faa-407f-b7d3-2ae8245a2bec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/UpdateWarehouseCommandAddressDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/UpdateWarehouseCommandAddressDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#3540b38d-2faa-407f-b7d3-2ae8245a2bec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/UpdateWarehouseCommandAddressDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/UpdateWarehouseCommandAddressDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#9ed83fd0-ff6f-4f00-996d-fbaf3af70cdf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/WarehouseDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/WarehouseDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#9ed83fd0-ff6f-4f00-996d-fbaf3af70cdf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/WarehouseDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouses/WarehouseDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>be55778e-4aa9-493e-aa22-9492bdd94674</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObject#050f0248-ba17-49d9-868e-f048970d74f2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -3179,6 +3347,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#a0ccd6f2-6e45-4620-8a30-ff178bb51e7e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Warehouse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Warehouse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>65796914-f66d-4e55-a987-7db2ca6986a9</ProjectId>
       <CorrelationId>Intent.DomainEvents.DomainEvent#51da9af6-ef50-4720-9eda-59ecb3cc858c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -3384,6 +3560,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/IUserRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUserRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#a0ccd6f2-6e45-4620-8a30-ff178bb51e7e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/IWarehouseRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IWarehouseRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3731,6 +3915,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a0ccd6f2-6e45-4620-8a30-ff178bb51e7e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/WarehouseConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WarehouseConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>486950aa-60cc-49a6-8678-b4a6a22bb8fd</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -3912,6 +4104,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/UserRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UserRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#a0ccd6f2-6e45-4620-8a30-ff178bb51e7e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/WarehouseRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>WarehouseRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4524,7 +4724,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7bb66cc0-10ed-4f0d-99f3-5e126a09071c</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.PagedResult</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.PagedResult#9204e067-bdc8-45e7-8970-8a833fdc5253</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>

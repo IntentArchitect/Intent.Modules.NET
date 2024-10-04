@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.7.0-pre.2" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.0-pre.5" />
+    <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.0.0-alpha.4" />
+    <PackageReference Include="Intent.Modules.Modelers.UI.Core" Version="1.0.0-alpha.4" />
+    <PackageReference Include="Intent.Packager" Version="3.4.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.4" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Blazor\Intent.Modules.Blazor.csproj" />
+  </ItemGroup>
+
+</Project>

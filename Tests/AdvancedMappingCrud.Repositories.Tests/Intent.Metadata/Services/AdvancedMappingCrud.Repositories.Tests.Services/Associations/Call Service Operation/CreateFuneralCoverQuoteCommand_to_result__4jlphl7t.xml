@@ -22,6 +22,9 @@
     <name>result</name>
     <display>[call] result: GetProductsQuery(...): ProductDto[*]</display>
     <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="4e95d503-df5f-4eb2-a790-3da297ad7aef">
       <typeId>49999a43-ce5b-4bc0-b64b-8d892edee188</typeId>
       <isNavigable>true</isNavigable>

@@ -22,6 +22,9 @@
     <name>customer</name>
     <display>[delete] customer: Customer</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="bd85a2a9-dabd-460d-9e45-30fc5450c29b">
       <typeId>7ec51383-c468-41fc-ac0a-1702683ce526</typeId>
       <isNavigable>true</isNavigable>

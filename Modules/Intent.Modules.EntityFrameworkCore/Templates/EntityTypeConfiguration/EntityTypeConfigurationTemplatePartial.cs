@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Reflection.Metadata;
 using System.Text;
-using System.Threading;
 using Intent.Engine;
 using Intent.EntityFrameworkCore.Api;
 using Intent.Metadata.Models;
@@ -12,13 +9,10 @@ using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Common.Types.Api;
-using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.Metadata.RDBMS.Api.Indexes;
@@ -37,8 +31,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
     public partial class EntityTypeConfigurationTemplate : CSharpTemplateBase<ClassModel, ITemplateDecorator>, ICSharpFileBuilderTemplate
     {
         private IIntentTemplate _entityTemplate;
-        private readonly bool _enforceColumnOrdering = false;
-        private int _columnCurrentOrder = 0;
+        private readonly bool _enforceColumnOrdering;
+        private int _columnCurrentOrder;
 
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.EntityFrameworkCore.EntityTypeConfiguration";
 
@@ -81,7 +75,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                             AddIgnoreForNonPersistent(method, isOwned: false);
                         });
 
-                    foreach (var statement in @class.Methods.SelectMany(x => x.Statements.OfType<EfCoreKeyMappingStatement>().Where(x => x.KeyColumns.Any())))
+                    foreach (var statement in @class.Methods.SelectMany(x => x.Statements.OfType<EfCoreKeyMappingStatement>().Where(y => y.KeyColumns.Any())))
                     {
                         EnsurePrimaryKeysOnEntity(
                             statement.KeyColumns.First().Class,
@@ -117,8 +111,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             entityBuilder.CSharpFile.AfterBuild(_ => // Needs to run after other decorators of the entity
             {
                 if (!method.TryGetMetadata("model", out IElement element) ||
-                    (!TryGetTemplate("Domain.Entity.State", element, out ICSharpFileBuilderTemplate entityTemplate) &&
-                     !TryGetTemplate("Domain.Entity", element, out entityTemplate)))
+                    (!TryGetTemplate("Domain.Entity.State", element, out ICSharpFileBuilderTemplate _) &&
+                     !TryGetTemplate("Domain.Entity", element, out ICSharpFileBuilderTemplate _)))
                 {
                     return;
                 }
@@ -157,10 +151,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         {
             if (targetClass is null)
             {
-                return Enumerable.Empty<CSharpProperty>();
+                return [];
             }
 
-            CSharpClass @class = null;
+            CSharpClass @class;
             if (TryGetTemplate("Domain.Entity.State", targetClass, out ICSharpFileBuilderTemplate entityTemplate))
             {
                 @class = entityTemplate.CSharpFile.Classes.First();
@@ -171,7 +165,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
             else
             {
-                return Enumerable.Empty<CSharpProperty>();
+                return [];
             }
 
             return @class.Properties.Concat(GetAllBuilderProperties(targetClass.ParentClass)).ToArray();
@@ -258,7 +252,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private static bool HasSerializationType(ICSharpFileBuilderTemplate valueObjectTemplate, out string serializationType)
         {
-            return valueObjectTemplate.CSharpFile.TypeDeclarations.First().TryGetMetadata<string>("serialization", out serializationType);
+            return valueObjectTemplate.CSharpFile.TypeDeclarations.First().TryGetMetadata("serialization", out serializationType);
         }
 
         private IEnumerable<CSharpStatement> GetTableMapping(ClassExtensionModel model)
@@ -311,15 +305,17 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 yield return ToTableStatement(model);
             }
 
-            CSharpStatement ToTableStatement(ClassExtensionModel model)
+            yield break;
+
+            CSharpStatement ToTableStatement(ClassExtensionModel modelInner)
             {
-                string schema = model.FindSchema();
+                var schema = modelInner.FindSchema();
                 var statement = new CSharpInvocationStatement("builder.ToTable");
-                if (!string.IsNullOrWhiteSpace(model.GetTable()?.Name()) ||
+                if (!string.IsNullOrWhiteSpace(modelInner.GetTable()?.Name()) ||
                     !string.IsNullOrWhiteSpace(schema) ||
-                    model.Triggers.Count == 0)
+                    modelInner.Triggers.Count == 0)
                 {
-                    statement.AddArgument($"\"{model.GetTable()?.Name() ?? GetTableNameByConvention(model.Name)}\"");
+                    statement.AddArgument($"\"{modelInner.GetTable()?.Name() ?? GetTableNameByConvention(modelInner.Name)}\"");
                 }
 
                 if (!string.IsNullOrWhiteSpace(schema))
@@ -327,16 +323,16 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     statement.AddArgument($"\"{schema}\"");
                 }
 
-                if (model.Triggers.Count == 1)
+                if (modelInner.Triggers.Count == 1)
                 {
-                    statement.AddArgument($"tb => tb.HasTrigger(\"{model.Triggers[0].Name}\")");
+                    statement.AddArgument($"tb => tb.HasTrigger(\"{modelInner.Triggers[0].Name}\")");
                 }
-                else if (model.Triggers.Count > 1)
+                else if (modelInner.Triggers.Count > 1)
                 {
                     statement.WithArgumentsOnNewLines();
 
                     var lambda = new CSharpLambdaBlock("tb");
-                    foreach (var trigger in model.Triggers)
+                    foreach (var trigger in modelInner.Triggers)
                     {
                         lambda.AddStatement($"tb.HasTrigger(\"{trigger.Name}\");");
                     }
@@ -561,32 +557,24 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     AddUsing("System");
                     AddUsing("System.Linq");
                     var constraint = new StringBuilder();
-                    string enumType = this.GetTypeName(enumAttribute.TypeReference);
-                    var tempVarName = $"{enumAttribute.Name}EnumValues".ToLocalVariableName();
-                    if (ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings())
-                    {
-                        constraint.AppendLine(@$"var {tempVarName} =  Enum.GetNames<{enumType}>()
-                .Select(e => $""'{{e}}'"");");
-                    }
-                    else
-                    {
-                        constraint.AppendLine(@$"var {tempVarName} = Enum.GetValuesAsUnderlyingType<{enumType}>()
-                .Cast<object>()
-                .Select(value => value.ToString());");
-                    }
+                    var enumType = GetTypeName(enumAttribute.TypeReference);
+                    var constraintValuesExpression = ExecutionContext.Settings.GetDatabaseSettings().StoreEnumsAsStrings()
+                        ? $"Enum.GetValues<{enumType}>().Select(e => $\"'{{e}}'\")"
+                        : $"Enum.GetValues<{enumType}>().Select(e => $\"{{e:D}}\")";
+
                     constraint.AppendLine();
-                    constraint.AppendLine(@$"builder.ToTable(tb => tb.HasCheckConstraint(""{GetContraintName(enumAttribute)}"", $""\""{enumAttribute.Name}\"" IN ({{string.Join("","", {tempVarName})}})""));");
+                    constraint.AppendLine(@$"builder.ToTable(tb => tb.HasCheckConstraint(""{GetConstraintName(enumAttribute)}"", $""\""{enumAttribute.Name}\"" IN ({{string.Join("","", {constraintValuesExpression})}})""));");
                     yield return constraint.ToString();
                 }
             }
             var checkConstraints = model.GetCheckConstraints();
             foreach (var checkConstraint in checkConstraints)
             {
-                yield return @$"builder.HasCheckConstraint(""{checkConstraint.Name()}"", ""{checkConstraint.SQL()}"");";
+                yield return $"""builder.HasCheckConstraint("{checkConstraint.Name()}", "{checkConstraint.SQL()}");""";
             }
         }
 
-        private string GetContraintName(AttributeModel Model)
+        private static string GetConstraintName(AttributeModel Model)
         {
             return (Model.InternalElement.ParentElement.Name + Model.Name + "Check").ToSnakeCase();
         }
@@ -596,7 +584,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             var indexes = model.GetIndexes();
             if (indexes.Count == 0)
             {
-                return Array.Empty<CSharpStatement>();
+                return [];
             }
 
             var statements = new List<string>();

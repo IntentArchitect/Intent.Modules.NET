@@ -22,6 +22,9 @@
     <name>dtoReturns</name>
     <display>[query] dtoReturns: DtoReturn[*]</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="904cede2-0ecc-4bf9-8d48-45305b746e53">
       <typeId>1bc4a45e-47a6-4211-99b7-7f53cee2c9b7</typeId>
       <isNavigable>true</isNavigable>

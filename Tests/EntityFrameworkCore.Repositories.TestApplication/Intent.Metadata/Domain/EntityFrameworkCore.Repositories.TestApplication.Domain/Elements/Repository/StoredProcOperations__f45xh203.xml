@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a5130ebe-8193-4498-be4f-83ae4a19f8f8" type="Repository" typeId="96ffceb2-a70a-4b69-869b-0df436c470c3">
+  <name>StoredProcOperations</name>
+  <display>StoredProcOperations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="d2e53902-a88c-4e2c-bd7a-94fb708c9076">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</parentFolderId>
+  <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+  <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="87802fb5-da4d-4185-88ca-606e5d6855b4" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <comment>Method comment.</comment>
+      <name>MyProc</name>
+      <display>MyProc(param: SpParameter[*]): SpResult</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="c5d36d92-7de6-44d6-8adc-8502133a05ad">
+        <typeId>ac220ea1-4718-4f07-986f-bc72141bb099</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a5130ebe-8193-4498-be4f-83ae4a19f8f8</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="f40ff84c-68ad-405f-bda0-1237dd15fc92" name="Stored Procedure">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.Modelers.Domain.StoredProcedures</definitionPackageName>
+          <definitionPackageId>e3eb7873-c66f-4636-a7c8-8cb1f7b34d71</definitionPackageId>
+          <properties>
+            <property name="4e2a3f58-6b6e-43c5-9398-f9c3fde593f6" display="Name in Schema" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="1be57d7d-f8ff-4469-b640-91582c0c4ceb" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <comment>Parameter comment.</comment>
+          <name>param</name>
+          <display>in : param: SpParameter[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2843d803-28b0-4076-b7a6-9b039d157522">
+            <typeId>bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+            <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>87802fb5-da4d-4185-88ca-606e5d6855b4</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="6ac91fd5-206c-49da-b4a2-b6ea2cad11f7" name="Stored Procedure Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Modules.Modelers.Domain.StoredProcedures</definitionPackageName>
+              <definitionPackageId>e3eb7873-c66f-4636-a7c8-8cb1f7b34d71</definitionPackageId>
+              <properties>
+                <property name="714a95a6-c3ef-4117-a66c-24876c675cd5" display="Name" value="sp_myParam" isActive="true" />
+                <property name="39491728-8327-4b94-b9a2-9851dd4b4a01" display="Direction" value="In" isActive="true" />
+                <property name="8ba486d3-853c-42b8-acfb-bafb1e2cdb6e" display="SQL String Type" value="VarChar" isActive="false" />
+                <property name="a2df34af-2fb9-49e3-ab6e-caff7a27bf99" display="Size" isActive="false" />
+                <property name="ed35ae5c-a708-457d-a22a-145b3b2f1148" display="Precision" isActive="false" />
+                <property name="38d3c607-ac3b-41ea-86b2-b43fa81e101c" display="Scale" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

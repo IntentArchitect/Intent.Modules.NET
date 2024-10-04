@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="25c4c4d7-731e-4459-8127-74454754e686" type="Application Template Settings Configuration" typeId="69000b7e-8bc8-49d0-80f5-eb65a6f7653a">
+  <name>Basic Settings</name>
+  <display>Basic Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <order>6</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d0cc6657-888c-4820-98c7-0298e893c2b9</parentFolderId>
+  <packageId>d0cc6657-888c-4820-98c7-0298e893c2b9</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f16e301f-5506-49b6-a5a9-e9bf0b1cd5ca" type="Application Template Settings Field Configuration" typeId="053d28c8-18c9-45b9-b3cb-184ec4b19679">
+      <name>Target Framework</name>
+      <display>Target Framework = target-framework</display>
+      <isAbstract>false</isAbstract>
+      <value>target-framework</value>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>25c4c4d7-731e-4459-8127-74454754e686</parentFolderId>
+      <packageId>d0cc6657-888c-4820-98c7-0298e893c2b9</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="97f6fe89-5973-447c-93b8-ac18fe446047" name="Settings Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="ad6b372c-58e6-4fe0-b6fe-aa7d70f95ebc" display="Control Type" value="Select" isActive="true" />
+            <property name="f0689c97-cb23-4ae1-8bb1-8b6af69b1504" display="Is Required" value="true" isActive="true" />
+            <property name="95738255-b024-4b7f-b789-26eb8c30665f" display="Hint" isActive="true" />
+            <property name="980bae71-ac8a-4a52-9888-9bac41f126ba" display="Default Value" value="f8b1618d-1e64-4c2c-9787-e0725c3633a1" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="cdfbd4d3-9c45-4e1b-a56f-8eb19fc469b3" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
+          <name>.NET 8.0</name>
+          <display>.NET 8.0 = f8b1618d-1e64-4c2c-9787-e0725c3633a1</display>
+          <isAbstract>false</isAbstract>
+          <value>f8b1618d-1e64-4c2c-9787-e0725c3633a1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f16e301f-5506-49b6-a5a9-e9bf0b1cd5ca</parentFolderId>
+          <packageId>d0cc6657-888c-4820-98c7-0298e893c2b9</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c29b2c02-afe5-4498-aa2e-4bab19829d50" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
+          <name>.NET 7.0</name>
+          <display>.NET 7.0 = 0cd4e056-3bc1-4f8c-9cba-7d362d42c33c</display>
+          <isAbstract>false</isAbstract>
+          <value>0cd4e056-3bc1-4f8c-9cba-7d362d42c33c</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f16e301f-5506-49b6-a5a9-e9bf0b1cd5ca</parentFolderId>
+          <packageId>d0cc6657-888c-4820-98c7-0298e893c2b9</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e25ad1f5-0ef7-4ece-b0a8-df50673c9838" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
+          <name>.NET 6.0</name>
+          <display>.NET 6.0 = 16d99e3e-7b91-42f8-ae3b-2686edde94b7</display>
+          <isAbstract>false</isAbstract>
+          <value>16d99e3e-7b91-42f8-ae3b-2686edde94b7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f16e301f-5506-49b6-a5a9-e9bf0b1cd5ca</parentFolderId>
+          <packageId>d0cc6657-888c-4820-98c7-0298e893c2b9</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e8362aec-dc68-4c39-8a48-0bc4b02f57b6" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
+          <name>.NET 5.0</name>
+          <display>.NET 5.0 = 9880b776-9b13-4ff6-87b3-2219cfa66652</display>
+          <isAbstract>false</isAbstract>
+          <value>9880b776-9b13-4ff6-87b3-2219cfa66652</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f16e301f-5506-49b6-a5a9-e9bf0b1cd5ca</parentFolderId>
+          <packageId>d0cc6657-888c-4820-98c7-0298e893c2b9</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e18203b0-de1f-496d-a4bb-f4aef472f51f" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
+          <name>.NET Core 3.1</name>
+          <display>.NET Core 3.1 = d603dbfd-3361-4406-b5c0-efc2ac6f33fc</display>
+          <isAbstract>false</isAbstract>
+          <value>d603dbfd-3361-4406-b5c0-efc2ac6f33fc</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f16e301f-5506-49b6-a5a9-e9bf0b1cd5ca</parentFolderId>
+          <packageId>d0cc6657-888c-4820-98c7-0298e893c2b9</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

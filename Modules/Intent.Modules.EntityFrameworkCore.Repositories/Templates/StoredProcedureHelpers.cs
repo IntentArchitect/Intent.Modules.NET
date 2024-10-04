@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
+using Intent.Modules.EntityFrameworkCore.Repositories.Api;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates;
@@ -25,7 +26,7 @@ internal static class StoredProcedureHelpers
 {
     public static void ApplyInterfaceMethods<TTemplate, TModel>(
         TTemplate template,
-        IReadOnlyCollection<StoredProcedureModel> storedProcedures)
+        IReadOnlyCollection<GeneralizedStoredProcedure> storedProcedures)
         where TTemplate : CSharpTemplateBase<TModel>, ICSharpFileBuilderTemplate
     {
         template.AddDomainTypeSources();
@@ -39,24 +40,24 @@ internal static class StoredProcedureHelpers
 
                 foreach (var storedProcedure in storedProcedures)
                 {
-                    @interface.AddMethod(GetReturnType(template, storedProcedure), storedProcedure.Name.ToPascalCase(), method =>
+                    @interface.AddMethod(GetReturnType(template, storedProcedure), storedProcedure.InternalElement.Name.ToPascalCase(), method =>
                     {
-                        method.RepresentsModel(storedProcedure);
+                        method.RepresentsModel(storedProcedure.Model);
                         method.TryAddXmlDocComments(storedProcedure.InternalElement);
 
                         foreach (var parameter in storedProcedure.Parameters)
                         {
-                            if (parameter.GetStoredProcedureParameterSettings()?.IsOutputParameter() == true)
+                            if (parameter.StoredProcedureDetails != null && parameter.StoredProcedureDetails.Direction != StoredProcedureParameterDirection.In)
                             {
                                 continue;
                             }
 
                             method.AddParameter(template.GetTypeName(parameter.TypeReference),
-                                parameter.Name.ToLocalVariableName());
+                                parameter.InternalElement.Name.ToLocalVariableName());
                         }
 
                         method.AddOptionalCancellationTokenParameter();
-                        //method.AddDeconstructedReturnMembers(GetReturnProperties(template, storedProcedure).Select(s => s.Name.ToCamelCase()).ToList());
+                        //method.AddDeconstructedReturnMembers(GetReturnProperties(template, storedProcedure).Select(s => s.InternalElement.Name.ToCamelCase()).ToList());
                     });
                 }
             });
@@ -64,7 +65,7 @@ internal static class StoredProcedureHelpers
 
     public static void ApplyImplementationMethods<TTemplate, TModel>(
         TTemplate template,
-        IReadOnlyCollection<StoredProcedureModel> storedProcedures,
+        IReadOnlyCollection<GeneralizedStoredProcedure> storedProcedures,
         DbContextInstance dbContextInstance)
         where TTemplate : CSharpTemplateBase<TModel>, ICSharpFileBuilderTemplate
     {
@@ -85,15 +86,15 @@ internal static class StoredProcedureHelpers
                 {
                     storedProcedure.Validate();
 
-                    @class.AddMethod(GetReturnType(template, storedProcedure), storedProcedure.Name.ToPascalCase(), method =>
+                    @class.AddMethod(GetReturnType(template, storedProcedure), storedProcedure.InternalElement.Name.ToPascalCase(), method =>
                     {
                         method.RepresentsModel(storedProcedure);
 
                         var returnTupleProperties = storedProcedure.Parameters
-                            .Where(parameter => parameter.GetStoredProcedureParameterSettings()?.IsOutputParameter() == true)
+                            .Where(parameter => parameter.StoredProcedureDetails?.Direction == StoredProcedureParameterDirection.Out)
                             .Select(parameter =>
                             {
-                                var sqlParameter = parameter.Name.ToCamelCase().EnsureSuffixedWith("Parameter");
+                                var sqlParameter = parameter.InternalElement.Name.ToCamelCase().EnsureSuffixedWith("Parameter");
                                 var typeName = template.GetTypeName(parameter.TypeReference, "{0}");
 
                                 return $"({typeName}){sqlParameter}.Value";
@@ -119,21 +120,20 @@ internal static class StoredProcedureHelpers
 
                         foreach (var parameter in storedProcedure.Parameters)
                         {
-                            if (parameter.GetStoredProcedureParameterSettings()?.IsOutputParameter() == true)
+                            if (parameter.StoredProcedureDetails?.Direction == StoredProcedureParameterDirection.Out)
                             {
                                 continue;
                             }
 
                             method.AddParameter(template.GetTypeName(parameter.TypeReference),
-                                parameter.Name.ToLocalVariableName());
+                                parameter.InternalElement.Name.ToLocalVariableName());
                         }
 
                         method.AddOptionalCancellationTokenParameter();
 
-                        var nameInSchema = storedProcedure.GetStoredProcedureSettings()?.NameInSchema();
-                        var spName = !string.IsNullOrWhiteSpace(nameInSchema)
-                            ? nameInSchema
-                            : storedProcedure.Name;
+                        var spName = !string.IsNullOrWhiteSpace(storedProcedure.Name)
+                            ? storedProcedure.Name
+                            : storedProcedure.InternalElement.Name;
 
                         var provider = template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum();
 
@@ -152,10 +152,15 @@ internal static class StoredProcedureHelpers
 
                         foreach (var parameter in storedProcedure.Parameters)
                         {
-                            var isOutputParameter = parameter.GetStoredProcedureParameterSettings()?.IsOutputParameter() == true;
+                            if (parameter.StoredProcedureDetails == null)
+                            {
+                                continue;
+                            }
+
+                            var isOutputParameter = parameter.StoredProcedureDetails.Direction == StoredProcedureParameterDirection.Out;
                             var isUserDefinedTableType = parameter.TypeReference.Element.IsDataContractModel();
                             var output = isOutputParameter ? " OUTPUT" : string.Empty;
-                            var parameterName = parameter.Name.ToLocalVariableName();
+                            var parameterName = parameter.InternalElement.Name.ToLocalVariableName();
                             var variableName = isOutputParameter || isUserDefinedTableType || returnsScalar
                                 ? parameterName.EnsureSuffixedWith("Parameter")
                                 : parameterName;
@@ -290,7 +295,7 @@ internal static class StoredProcedureHelpers
 
     private record ComplexReturnTypeImplRecord(
         CSharpClassMethod Method,
-        StoredProcedureModel StoredProcedure,
+        GeneralizedStoredProcedure StoredProcedure,
         string Sql,
         ICanBeReferencedType ReturnTypeElement,
         string ResultVariableName,
@@ -305,7 +310,7 @@ internal static class StoredProcedureHelpers
             .ToArray();
     }
 
-    public static void Validate(this StoredProcedureModel storedProc)
+    public static void Validate(this GeneralizedStoredProcedure storedProc)
     {
         foreach (var parameter in storedProc.Parameters)
         {
@@ -331,7 +336,7 @@ internal static class StoredProcedureHelpers
 
                 if (!parameter.TypeReference.IsCollection)
                 {
-                    Logging.Log.Failure($"Parameter \"{parameter.Name}\" [{parameter.Id}] on Stored Procedure \"{storedProc.Name}\" [{storedProc.Id}] " +
+                    Logging.Log.Failure($"Parameter \"{parameter.InternalElement.Name}\" [{parameter.Id}] on Stored Procedure \"{storedProc.InternalElement.Name}\" [{storedProc.Id}] " +
                                         $"has \"Is Collection\" disabled and is of type \"Data Contract\", this is " +
                                         $"unsupported for user-defined table types.");
                 }
@@ -341,7 +346,7 @@ internal static class StoredProcedureHelpers
 
             if (parameter.TypeReference.IsCollection)
             {
-                Logging.Log.Failure($"Parameter \"{parameter.Name}\" [{parameter.Id}] on Stored Procedure \"{storedProc.Name}\" [{storedProc.Id}] " +
+                Logging.Log.Failure($"Parameter \"{parameter.InternalElement.Name}\" [{parameter.Id}] on Stored Procedure \"{storedProc.InternalElement.Name}\" [{storedProc.Id}] " +
                                     $"has \"Is Collection\" enabled and is not of type \"Data Contract\", this is " +
                                     $"unsupported.");
             }
@@ -350,12 +355,12 @@ internal static class StoredProcedureHelpers
 
     private record TupleEntry(string Name, string TypeName);
 
-    private static IReadOnlyList<TupleEntry> GetReturnProperties(ICSharpTemplate template, StoredProcedureModel storedProcedure)
+    private static IReadOnlyList<TupleEntry> GetReturnProperties(ICSharpTemplate template, GeneralizedStoredProcedure storedProcedure)
     {
         var tupleProperties = storedProcedure.Parameters
-            .Where(parameter => parameter.GetStoredProcedureParameterSettings()?.IsOutputParameter() == true)
+            .Where(parameter => parameter.StoredProcedureDetails?.Direction == StoredProcedureParameterDirection.Out)
             .Select(parameter => new TupleEntry(
-                Name: parameter.Name.ToPascalCase().EnsureSuffixedWith("Output"),
+                Name: parameter.InternalElement.Name.ToPascalCase().EnsureSuffixedWith("Output"),
                 TypeName: template.GetTypeName(parameter.TypeReference)
             ))
             .ToList();
@@ -371,7 +376,7 @@ internal static class StoredProcedureHelpers
         return tupleProperties;
     }
 
-    private static CSharpType GetReturnType(ICSharpTemplate template, StoredProcedureModel storedProcedure)
+    private static CSharpType GetReturnType(ICSharpTemplate template, GeneralizedStoredProcedure storedProcedure)
     {
         var tupleProperties = GetReturnProperties(template, storedProcedure);
 
@@ -387,16 +392,16 @@ internal static class StoredProcedureHelpers
     {
         CSharpStatement CreateForOutput(string invocationPrefix,
             string valueVariableName,
-            StoredProcedureParameterModel parameter);
+            Parameter parameter);
 
         CSharpStatement CreateForInput(
             string invocationPrefix,
             string valueVariableName,
-            StoredProcedureParameterModel parameter);
+            Parameter parameter);
 
         CSharpStatement CreateForTableType(
             string invocationPrefix,
-            StoredProcedureParameterModel parameter);
+            Parameter parameter);
     }
 
     /// <summary>
@@ -420,7 +425,7 @@ internal static class StoredProcedureHelpers
 
         public CSharpStatement CreateForOutput(string invocationPrefix,
             string valueVariableName,
-            StoredProcedureParameterModel parameter)
+            Parameter parameter)
         {
             var statement = new CSharpObjectInitializerBlock($"{invocationPrefix}new {ParameterTypeName}");
 
@@ -428,7 +433,7 @@ internal static class StoredProcedureHelpers
             statement.AddObjectInitStatement("SqlDbType", $"{DbTypeTypeName}.{GetSqlDbType(parameter)}");
             if (parameter.TypeReference.HasStringType())
             {
-                var size = parameter.GetStoredProcedureParameterSettings()?.Size();
+                var size = parameter.StoredProcedureDetails?.Size;
                 if (size.HasValue)
                 {
                     statement.AddObjectInitStatement("Size", size.ToString());
@@ -436,8 +441,8 @@ internal static class StoredProcedureHelpers
             }
             if (parameter.TypeReference.HasDecimalType())
             {
-                var precision = parameter.GetStoredProcedureParameterSettings()?.Precision();
-                var scale = parameter.GetStoredProcedureParameterSettings()?.Scale();
+                var precision = parameter.StoredProcedureDetails?.Precision;
+                var scale = parameter.StoredProcedureDetails?.Scale;
                 if (_template.ExecutionContext.Settings.GetDatabaseSettings().TryGetDecimalPrecisionAndScale(out var constraints))
                 {
                     precision ??= constraints.Precision;
@@ -462,7 +467,7 @@ internal static class StoredProcedureHelpers
         public CSharpStatement CreateForInput(
             string invocationPrefix,
             string valueVariableName,
-            StoredProcedureParameterModel parameter)
+            Parameter parameter)
         {
             var statement = new CSharpObjectInitializerBlock($"{invocationPrefix}new {ParameterTypeName}");
 
@@ -477,7 +482,7 @@ internal static class StoredProcedureHelpers
 
         public CSharpStatement CreateForTableType(
             string invocationPrefix,
-            StoredProcedureParameterModel parameter)
+            Parameter parameter)
         {
             var dataContractModel = parameter.TypeReference.Element.AsDataContractModel();
             var userDefinedTableName = dataContractModel.GetUserDefinedTableTypeSettings()?.Name();
@@ -493,14 +498,14 @@ internal static class StoredProcedureHelpers
 
             statement.AddObjectInitStatement("IsNullable", parameter.TypeReference.IsNullable ? "true" : "false");
             statement.AddObjectInitStatement("SqlDbType", $"{DbTypeTypeName}.Structured");
-            statement.AddObjectInitStatement("Value", $"{parameter.Name.ToLocalVariableName()}.ToDataTable()");
+            statement.AddObjectInitStatement("Value", $"{parameter.InternalElement.Name.ToLocalVariableName()}.ToDataTable()");
             statement.AddObjectInitStatement("TypeName", $"\"{userDefinedTableName}\"");
             statement.WithSemicolon();
 
             return statement;
         }
 
-        private static string GetSqlDbType(StoredProcedureParameterModel parameter)
+        private static string GetSqlDbType(Parameter parameter)
         {
             // https://learn.microsoft.com/dotnet/framework/data/adonet/sql-server-data-type-mappings
             return parameter.TypeReference.Element.Name.ToLowerInvariant() switch
@@ -523,10 +528,10 @@ internal static class StoredProcedureHelpers
             };
         }
 
-        private static string GetStringSqlType(StoredProcedureParameterModel parameter)
+        private static string GetStringSqlType(Parameter parameter)
         {
-            var sqlStringType = parameter.GetStoredProcedureParameterSettings()?.SQLStringType();
-            return sqlStringType?.Value switch
+            var sqlStringType = parameter.StoredProcedureDetails?.SqlStringType;
+            return sqlStringType switch
             {
                 null => "VarChar",
                 var value => value

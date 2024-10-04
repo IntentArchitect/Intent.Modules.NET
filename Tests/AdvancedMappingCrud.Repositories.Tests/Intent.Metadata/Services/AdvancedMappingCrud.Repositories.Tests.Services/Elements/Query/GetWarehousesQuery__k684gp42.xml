@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7608e6f8-6ecc-4f4c-861d-6d448b234772" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetWarehousesQuery</name>
+  <display>GetWarehousesQuery: WarehouseDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="3c8af57f-2749-4f1c-8929-75c05a1fc7cf">
+    <typeId>9ed83fd0-ff6f-4f00-996d-fbaf3af70cdf</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+    <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>398bc6da-d519-4841-b1df-bacd9ac6d11f</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="Allow Comment" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="Warehouses" />
+  </metadata>
+  <childElements />
+</class>

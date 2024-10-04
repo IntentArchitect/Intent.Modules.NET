@@ -43,6 +43,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             _template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
             _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
             _template.AddTypeSource(TemplateRoles.Domain.DataContract);
+            _template.AddTypeSource(TemplateRoles.Domain.Entity.Behaviour); // So that the mapping system can find the constructor when Separated State and Behaviours enabled in domain.
 
             var @class = _template.CSharpFile.Classes.First(x => x.FindMethod("Handle") is not null);
             var handleMethod = @class.FindMethod("Handle");

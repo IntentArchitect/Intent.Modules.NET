@@ -21,6 +21,9 @@
   <targetEnd id="22047a7d-cbb8-4925-bf82-e0118264457b" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <display>[call] : PerformValueObjAsync(...): null</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="8ecef2bf-94e9-4985-a11d-6f72bad52426">
       <typeId>8e0709f2-2eff-44db-bc0b-eaf6ed9481ce</typeId>
       <isNavigable>true</isNavigable>

@@ -46,7 +46,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                     continue;
                 }
 
-                InstallContractDispatch(template);
+                InstallServiceContractDispatch(template);
                 InstallValidation(template);
                 InstallTransactionWithUnitOfWork(template, application);
                 InstallMessageBus(template, application);
@@ -86,7 +86,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
             });
         }
 
-        private void InstallContractDispatch(IControllerTemplate<IControllerModel> template)
+        // Please look at FastEndpoints to see how this can be refactored towards
+        private void InstallServiceContractDispatch(IControllerTemplate<IControllerModel> template)
         {
             template.AddTypeSource(DtoModelTemplate.TemplateId, "List<{0}>");
             template.CSharpFile.OnBuild(file =>

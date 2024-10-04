@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application\AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.csproj" />
+    <ProjectReference Include="..\AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructure\AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructure.csproj" />
+    <ProjectReference Include="..\AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain\AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
+    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
+    <PackageReference Include="IdentityModel" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.7" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.0" />
+  </ItemGroup>
+  </Project>

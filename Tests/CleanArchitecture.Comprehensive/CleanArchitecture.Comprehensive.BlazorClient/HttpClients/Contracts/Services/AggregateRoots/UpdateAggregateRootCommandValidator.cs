@@ -1,4 +1,4 @@
-using CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Common.Validation;
+using CleanArchitecture.Comprehensive.BlazorClient.Client.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -15,6 +16,19 @@ using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
 
 namespace Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract
 {
+    public class DtoContractTemplateConfig(
+        string enumContractTemplateId,
+        string pagedResultTemplateId,
+        IFileNamespaceProvider fileNamespaceProvider)
+    {
+        public string EnumContractTemplateId { get; } = enumContractTemplateId;
+        public string PagedResultTemplateId { get; } = pagedResultTemplateId;
+        public IFileNamespaceProvider FileNamespaceProvider { get; } = fileNamespaceProvider;
+        /// <summary>
+        /// Will instantiate properties (i.e. <code>Property = new();</code>) if the property is a DTO and non-nullable
+        /// </summary>
+        public bool InstantiateNonNullableDtoProperties { get; set; }
+    }
     public abstract class DtoContractTemplateBase : CSharpTemplateBase<DTOModel>, ICSharpFileBuilderTemplate
     {
         private static ISet<string> _outboundDtoElementIds = new HashSet<string>();
@@ -26,18 +40,27 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract
             string enumContractTemplateId,
             string pagedResultTemplateId,
             IFileNamespaceProvider fileNamespaceProvider)
+            : this(templateId, outputTarget, model, new DtoContractTemplateConfig(enumContractTemplateId, pagedResultTemplateId, fileNamespaceProvider))
+        {
+        }
+
+        protected DtoContractTemplateBase(
+            string templateId,
+            IOutputTarget outputTarget,
+            DTOModel model,
+            DtoContractTemplateConfig config)
             : base(templateId, outputTarget, model)
         {
             AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
 
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            PagedResultTypeSource.ApplyTo(this, pagedResultTemplateId);
+            PagedResultTypeSource.ApplyTo(this, config.PagedResultTemplateId);
             AddTypeSource(templateId);
-            AddTypeSource(enumContractTemplateId);
+            AddTypeSource(config.EnumContractTemplateId);
 
             CSharpFile = new CSharpFile(
-                    @namespace: fileNamespaceProvider.GetFileNamespace(this),
-                    relativeLocation: fileNamespaceProvider.GetFileLocation(this))
+                    @namespace: config.FileNamespaceProvider.GetFileNamespace(this),
+                    relativeLocation: config.FileNamespaceProvider.GetFileLocation(this))
                 .AddAssemblyAttribute("[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]")
                 .AddClass($"{Model.Name}", @class =>
                 {
@@ -56,7 +79,7 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract
                     var nullableMembers = Model.Fields
                         .Where(x => string.IsNullOrWhiteSpace(x.Value) &&
                                     NeedsNullabilityAssignment(GetTypeInfo(x.TypeReference)))
-                        .Select(x => $"{x.Name.ToPascalCase()} = null!;")
+                        .Select(x => $"{x.Name.ToPascalCase()} = {GetNullabilityAssignment(x.TypeReference, config)};")
                         .ToArray();
 
                     if (nullableMembers.Any())
@@ -89,7 +112,7 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract
 
                     foreach (var field in Model.Fields)
                     {
-                        @class.AddProperty(GetTypeName(field.TypeReference), field.Name.ToPascalCase(), property =>
+                        @class.AddProperty(field, property =>
                         {
                             property.AddMetadata("model", field);
 
@@ -110,9 +133,16 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract
 
         private static bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
         {
-            return !(typeInfo.IsPrimitive
-                     || typeInfo.IsNullable
-                     || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel()));
+            return !typeInfo.IsPrimitive
+                   && !typeInfo.IsNullable
+                   && (typeInfo.TypeReference == null || !typeInfo.TypeReference.Element.IsEnumModel());
+        }
+
+        private string GetNullabilityAssignment(ITypeReference typeReference, DtoContractTemplateConfig config)
+        {
+            return config.InstantiateNonNullableDtoProperties && typeReference.Element.IsDTOModel() 
+                ? typeReference.IsCollection ? "[]" : "new()" 
+                : "null!";
         }
 
         public string GenericTypes => Model.GenericTypes.Any() ? $"<{string.Join(", ", Model.GenericTypes)}>" : "";

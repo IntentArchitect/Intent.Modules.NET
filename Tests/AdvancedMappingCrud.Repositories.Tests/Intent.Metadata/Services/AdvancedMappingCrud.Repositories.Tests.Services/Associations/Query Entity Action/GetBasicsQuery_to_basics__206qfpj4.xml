@@ -22,6 +22,9 @@
     <name>basics</name>
     <display>[query] basics: Basic[*]</display>
     <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="548bc911-f871-42c7-8844-7f97e316d61f">
       <typeId>73ba71c6-41c6-41ef-ba80-0d589ea75417</typeId>
       <isNavigable>true</isNavigable>

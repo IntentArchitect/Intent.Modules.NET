@@ -34,7 +34,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Configuration
                 {
                     options.SchemaFilter<RequireNonNullablePropertiesSchemaFilter>();
                     options.SupportNonNullableReferenceTypes();
-                    options.CustomSchemaIds(x => x.FullName);
+                    options.CustomSchemaIds(x => x.FullName?.Replace("+", "_"));
 
                     var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
                     if (File.Exists(apiXmlFile))
@@ -47,7 +47,6 @@ namespace Standard.AspNetCore.TestApplication.Api.Configuration
                     {
                         options.IncludeXmlComments(applicationXmlFile);
                     }
-                    options.SchemaFilter<TypeSchemaFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()
@@ -71,6 +70,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Configuration
                         {
                             { securityScheme, Array.Empty<string>() }
                         });
+                    options.SchemaFilter<TypeSchemaFilter>();
                 });
             return services;
         }

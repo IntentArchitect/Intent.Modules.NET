@@ -412,7 +412,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>01dfb610-b5c5-4b62-85c4-b0e97e33eb7e</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
@@ -6356,7 +6356,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>27244089-3e99-4634-8c09-f3a02db199e7</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.PagedResult</CorrelationId>
+      <CorrelationId>Intent.Application.Contracts.Clients.PagedResult#9204e067-bdc8-45e7-8970-8a833fdc5253</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/IntegrationServices/Contracts/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
@@ -8315,6 +8315,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>07a87ade-746d-4b1c-a8b6-e3a71e3f42af</ProjectId>
+      <CorrelationId>Intent.Blazor.FluentValidation.ValidatorProviderInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/Client/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>07a87ade-746d-4b1c-a8b6-e3a71e3f42af</ProjectId>
+      <CorrelationId>Intent.Blazor.FluentValidation.ValidatorProvider</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/Client/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>76b794d3-4350-458f-aa25-ef4fb223a588</ProjectId>
       <CorrelationId>Intent.Blazor.WebAssembly.ProgramTemplate</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -8344,22 +8360,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/HttpClients/Common/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6cfea9e8-00fa-4b97-817e-9738a69a4d7f</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.ValidatorProviderInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/HttpClients/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6cfea9e8-00fa-4b97-817e-9738a69a4d7f</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.ValidatorProvider</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.BlazorClient/HttpClients/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

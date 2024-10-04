@@ -22,6 +22,9 @@
     <name>user</name>
     <display>[create] user: Constructor</display>
     <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="d807cc7e-9aaf-4387-874e-e7a8e64fdefd">
       <typeId>c0ec52b3-8a6a-4b04-8477-2ac6028179bc</typeId>
       <isNavigable>true</isNavigable>

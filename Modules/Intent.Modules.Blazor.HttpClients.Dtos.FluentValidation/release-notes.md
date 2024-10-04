@@ -1,3 +1,7 @@
+### Version 1.2.0
+
+TODO
+
 ### Version 1.1.3
 
 - Improvement: Updated module NuGet packages infrastructure.

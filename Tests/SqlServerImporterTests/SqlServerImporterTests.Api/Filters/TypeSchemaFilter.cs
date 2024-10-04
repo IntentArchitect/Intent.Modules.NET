@@ -5,7 +5,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.AspNetCore.Controllers.TypeSchemaFilter", Version = "1.0")]
+[assembly: IntentTemplate("Intent.AspNetCore.Swashbuckle.TypeSchemaFilter", Version = "1.0")]
 
 namespace SqlServerImporterTests.Api.Filters
 {

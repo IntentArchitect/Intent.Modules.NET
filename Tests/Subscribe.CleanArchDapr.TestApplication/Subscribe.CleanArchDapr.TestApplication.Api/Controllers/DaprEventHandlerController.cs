@@ -24,6 +24,13 @@ namespace Subscribe.CleanArchDapr.TestApplication.Api.Controllers
         }
 
         [HttpPost]
+        [Topic(CustomerCreatedEvent.PubsubName, CustomerCreatedEvent.TopicName)]
+        public async Task HandleCustomerCreatedEvent(CustomerCreatedEvent @event, CancellationToken cancellationToken)
+        {
+            await _mediatr.Send(@event, cancellationToken);
+        }
+
+        [HttpPost]
         [Topic(OrderCreatedEvent.PubsubName, OrderCreatedEvent.TopicName)]
         public async Task HandleOrderCreatedEvent(OrderCreatedEvent @event, CancellationToken cancellationToken)
         {

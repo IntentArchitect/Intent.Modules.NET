@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="16782826-ec76-4256-a1ec-a72c48ff981f" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
+  <name>Blazor Components</name>
+  <display>Blazor Components (1)</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <order>3</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d0cc6657-888c-4820-98c7-0298e893c2b9</parentFolderId>
+  <packageId>d0cc6657-888c-4820-98c7-0298e893c2b9</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="08b4c68f-3654-44cc-b3a1-87de79c23936" name="Component Group Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+      <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+      <properties>
+        <property name="54b29a03-082b-407a-b42e-cbacbcfa7fd7" display="Selection Mode" value="Allow Single Only" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="fc80735b-0e86-4449-8085-f458abaa1fe3" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>MudBlazor (BETA)</name>
+      <display>MudBlazor (BETA) (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>16782826-ec76-4256-a1ec-a72c48ff981f</parentFolderId>
+      <packageId>d0cc6657-888c-4820-98c7-0298e893c2b9</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="A popular and comprehensive component library for Blazor." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="true" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="7428affb-c591-4351-ad4b-cb1abe4b5f35" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Blazor.Components.MudBlazor</name>
+          <display>Intent.Blazor.Components.MudBlazor</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fc80735b-0e86-4449-8085-f458abaa1fe3</parentFolderId>
+          <packageId>d0cc6657-888c-4820-98c7-0298e893c2b9</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.0-beta.3" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="false" isActive="true" />
+                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

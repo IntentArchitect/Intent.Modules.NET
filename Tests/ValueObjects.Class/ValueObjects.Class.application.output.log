@@ -76,7 +76,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b3af574e-5de3-42db-8c99-b04ac5815bc1</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ValueObjects.Class.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
@@ -852,7 +852,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7a8e2111-0b46-4789-8117-0117d57e0213</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.PagedResult</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.PagedResult#9204e067-bdc8-45e7-8970-8a833fdc5253</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ValueObjects.Class.IntegrationTests/Services/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>

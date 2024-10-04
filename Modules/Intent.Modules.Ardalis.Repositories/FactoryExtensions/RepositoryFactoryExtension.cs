@@ -1,5 +1,8 @@
+using System;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Ardalis.Repositories.Templates;
@@ -12,10 +15,13 @@ using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates;
+using Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBase;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Modules.Modelers.Domain.Settings;
+using static Intent.Modules.Constants.TemplateRoles.Repository;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -43,6 +49,72 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
             UpdateRepositoryBase(application);
             UpdateEntityRepositoryInterface(application);
             UpdateEntityRepository(application);
+            UpdateEFInterface(application);
+        }
+
+        private void UpdateEFInterface(IApplication application)
+        {
+            var repoInterfaceTemplates = application.FindTemplateInstances<CSharpTemplateBase<object>>(TemplateDependency.OnTemplate(EFRepositoryInterfaceTemplate.TemplateId));
+            foreach (var template in repoInterfaceTemplates)
+            {
+                template.AddNugetDependency(NugetPackages.ArdalisSpecification(template.OutputTarget));
+
+                ((ICSharpFileBuilderTemplate)template).CSharpFile.AfterBuild(file =>
+                {
+                    file.AddUsing("Ardalis.Specification");
+
+                    var @interface = file.Interfaces.First();
+                    if (@interface.GenericParameters.FirstOrDefault(x => x.TypeName == "TPersistence") != null)
+                    {
+                        @interface.GenericParameters.Remove(@interface.GenericParameters.First(x => x.TypeName == "TPersistence"));
+                    }
+                    @interface.Interfaces.Clear();
+                    @interface.Methods.Clear();
+                    @interface.Properties.Clear();
+
+                    @interface.AddProperty(template.GetUnitOfWorkInterfaceName(), "UnitOfWork", prop => { prop.ReadOnly(); });
+                    @interface.AddMethod("void", "Add", method => { method.AddParameter("TDomain", "entity"); });
+                    @interface.AddMethod("void", "Remove", method => { method.AddParameter("TDomain", "entity"); });
+
+                    @interface.AddMethod($"Task<List<TDomain>>", "FindAllAsync", method => { method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default")); });
+                    @interface.AddMethod($"Task<{PagedListInterfaceName(template)}<TDomain>>", "FindAllAsync", method => 
+                    {
+                        method.AddParameter("int", "pageNo");
+                        method.AddParameter("int", "PageSize");
+                        method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default")); 
+                    });
+                    @interface.AddMethod($"Task<{PagedListInterfaceName(template)}<TDomain>>", "FindAllAsync", method =>
+                    {
+                        method.AddParameter($"Expression<Func<TDomain, bool>>", "filterExpression");
+                        method.AddParameter("int", "pageNo");
+                        method.AddParameter("int", "PageSize");
+                        method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                    });
+                    @interface.AddMethod($"Task<{PagedListInterfaceName(template)}<TDomain>>", "FindAllAsync", method =>
+                    {
+                        method.AddParameter($"Expression<Func<TDomain, bool>>", "filterExpression");
+                        method.AddParameter("int", "pageNo");
+                        method.AddParameter("int", "PageSize");
+                        method.AddParameter($"Func<IQueryable<TDomain>, IQueryable<TDomain>> ", "linq");
+                        method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                    });
+                    @interface.AddMethod($"Task<{PagedListInterfaceName(template)}<TDomain>>", "FindAllAsync", method =>
+                    {
+                        method.AddParameter($"ISpecification<TDomain>", "specification");
+                        method.AddParameter("int", "pageNo");
+                        method.AddParameter("int", "PageSize");
+                        method.AddParameter($"Func<IQueryable<TDomain>, IQueryable<TDomain>> ", "queryOptions");
+                        method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                    });
+                    @interface.AddMethod($"Task<{PagedListInterfaceName(template)}<TDomain>>", "FindAllAsync", method =>
+                    {
+                        method.AddParameter($"ISpecification<TDomain>", "specification");
+                        method.AddParameter("int", "pageNo");
+                        method.AddParameter("int", "PageSize");
+                        method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                    });
+                });
+            }
         }
 
         private static void UpdateRepositoryBase(IApplication application)
@@ -59,10 +131,19 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     file.AddUsing("Microsoft.EntityFrameworkCore");
 
                     var @class = file.Classes.First();
-                    @class.ExtendsClass($"RepositoryBase<TPersistence>");
+                    if (@class.GenericParameters.FirstOrDefault(x => x.TypeName == "TPersistence") != null)
+                    {
+                        @class.GenericParameters.Remove(@class.GenericParameters.First(x => x.TypeName == "TPersistence"));
+                        if (@class.GenericTypeConstraints.FirstOrDefault(x => x.GenericTypeParameter == "TPersistence") != null)
+                        {
+                            @class.GenericTypeConstraints.Remove(@class.GenericTypeConstraints.First(x => x.GenericTypeParameter == "TPersistence"));
+                        }
+                    }
+
+                    @class.ExtendsClass($"RepositoryBase<TDomain>");
                     @class.Interfaces.Clear();
                     @class.Methods.Clear();
-                    @class.ImplementsInterface($"IRepositoryBase<TPersistence>");
+                    @class.ImplementsInterface($"IRepositoryBase<TDomain>");
 
                     var ctor = @class.Constructors.First();
                     ctor.CallsBase(b => b.AddArgument("dbContext"));
@@ -70,14 +151,14 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     @class.AddMethod("void", "Add", method =>
                     {
                         method.AddAttribute(CSharpIntentManagedAttribute.Fully());
-                        method.AddParameter("TPersistence", "entity");
+                        method.AddParameter("TDomain", "entity");
                         method.AddStatement("base.AddAsync(entity).Wait();");
                     });
 
                     @class.AddMethod("void", "Remove", method =>
                     {
                         method.AddAttribute(CSharpIntentManagedAttribute.Fully());
-                        method.AddParameter("TPersistence", "entity");
+                        method.AddParameter("TDomain", "entity");
                         method.AddStatement("base.DeleteAsync(entity).Wait();");
                     });
 
@@ -111,7 +192,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         {
                             method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                             method
-                                .AddParameter($"Expression<Func<TPersistence, bool>>", "filterExpression")
+                                .AddParameter($"Expression<Func<TDomain, bool>>", "filterExpression")
                                 .AddParameter("int", "pageNo")
                                 .AddParameter("int", "pageSize")
                                 .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
@@ -127,12 +208,12 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                             method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                             method.Async();
                             method
-                                .AddParameter($"Expression<Func<TPersistence, bool>>", "filterExpression")
+                                .AddParameter($"Expression<Func<TDomain, bool>>", "filterExpression")
                                 .AddParameter("int", "pageNo")
                                 .AddParameter("int", "pageSize")
-                                .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "linq")
+                                .AddParameter($"Func<IQueryable<TDomain>, IQueryable<TDomain>>", "linq")
                                 .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                            method.AddStatement($"IQueryable<TPersistence> queryable = _dbContext.Set<TPersistence>();")
+                            method.AddStatement($"IQueryable<TDomain> queryable = _dbContext.Set<TDomain>();")
                                 .AddStatement($"queryable = queryable.Where(filterExpression);")
                                 .AddStatement($"var result = linq(queryable);")
                                 .AddStatement(new CSharpInvocationStatement($"return await ToPagedListAsync<TDomain>")
@@ -153,13 +234,39 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         method.AddStatement($"return Task.FromResult(0);");
                     });
 
-                    @class.AddMethod("Task<int>", $"IRepositoryBase<TPersistence>.SaveChangesAsync", method =>
+                    @class.AddMethod("Task<int>", $"IRepositoryBase<TDomain>.SaveChangesAsync", method =>
                     {
                         method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                         method.WithoutAccessModifier();
                         method.WithComments("// In the event that SaveChanges is invoked explicitly, it should still operate as intended. ");
                         method.AddParameter("CancellationToken", "cancellationToken");
                         method.AddStatement("return base.SaveChangesAsync(cancellationToken);");
+                    });
+
+                    @class.AddMethod($"{PagedListInterfaceName(template)}<TDomain>", "FindAllAsync", method =>
+                    {
+                        method.Async();
+                        method.AddParameter($"ISpecification<TDomain>", "specification");
+                        method.AddParameter($"int", "pageNo");
+                        method.AddParameter($"int", "pageSize");
+                        method.AddParameter($"Func<IQueryable<TDomain>, IQueryable<TDomain>>", "queryOptions");
+                        method.AddParameter($"CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                        method.AddStatement("var queryable = ApplySpecification(specification);");
+                        method.AddStatement("queryable = queryOptions == null ? queryable : queryOptions(queryable);");
+                        method.AddStatement(@"return await ToPagedListAsync<TDomain>(
+                            queryable,
+                            pageNo,
+                            pageSize,
+                            cancellationToken);");
+                    });
+                    @class.AddMethod($"{PagedListInterfaceName(template)}<TDomain>", "FindAllAsync", method =>
+                    {
+                        method.Async();
+                        method.AddParameter($"ISpecification<TDomain>", "specification");
+                        method.AddParameter($"int", "pageNo");
+                        method.AddParameter($"int", "pageSize");
+                        method.AddParameter($"CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                        method.AddStatement("return await FindAllAsync(specification, pageNo, pageSize, null, cancellationToken);");
                     });
 
                     @class.AddMethod($"{PagedListInterfaceName(template)}<T>", "ToPagedListAsync<T>", method =>
@@ -177,6 +284,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                             .AddChainStatement("ToListAsync(cancellationToken)"));
                         method.AddStatement($"return new {PagedListClassName(template)}<T>(count, pageNo, pageSize, results);");
                     });
+
                 });
             }
         }
@@ -194,15 +302,10 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     var model = @interface.GetMetadata<ClassModel>("model");
                     @interface.Interfaces.Clear();
                     @interface.Methods.Clear();
+                    @interface.ExtendsInterface($"IEFRepository<{GetEntityStateName(template)}>");
                     @interface.ExtendsInterface($"IRepositoryBase<{GetEntityStateName(template)}>");
                     @interface.ExtendsInterface(template.GetReadRepositoryInterfaceName(model));
                     file.AddUsing("Ardalis.Specification");
-
-                    @interface.AddProperty(template.GetUnitOfWorkInterfaceName(), "UnitOfWork", prop => { prop.ReadOnly(); });
-
-                    @interface.AddMethod("void", "Add", method => { method.AddParameter(GetEntityStateName(template), "entity"); });
-
-                    @interface.AddMethod("void", "Remove", method => { method.AddParameter(GetEntityStateName(template), "entity"); });
                 });
             }
         }
@@ -229,6 +332,10 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     @class.Interfaces.Clear();
                     @class.Methods.Clear();
                     @class.ImplementsInterface(template.GetEntityRepositoryInterfaceName(model));
+                    if (@class.BaseType.Name.Contains($"{GetEntityStateName(template)}, {GetEntityStateName(template)}"))
+                    {
+                        @class.WithBaseType(@class.BaseType.Name.Replace($", {GetEntityStateName(template)}", ""));
+                    }
 
                     if (HasSinglePrimaryKey(template))
                     {
@@ -276,7 +383,6 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
 
         public static string PagedListInterfaceName(CSharpTemplateBase<object> template) => template.TryGetTypeName(TemplateRoles.Repository.Interface.PagedList, out var name)
             ? name : template.GetTypeName(TemplateRoles.Repository.Interface.PagedResult); // for backward compatibility
-
         public static string PagedListClassName(CSharpTemplateBase<object> template) => template.GetTypeName(TemplateRoles.Application.Common.PagedList);
 
         private string GetEntityStateName(CSharpTemplateBase<ClassModel> template) => template.GetTypeName("Domain.Entity", template.Model);

@@ -22,6 +22,9 @@
     <name>order</name>
     <display>[delete] order: Order</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="c3af8459-5419-4bee-ae00-b2c9a32d2088">
       <typeId>b7a33ac5-f100-4e0c-aaac-17fdc2b81051</typeId>
       <isNavigable>true</isNavigable>

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OpenTelemetry.Exporter;
 using OpenTelemetry.Logs;
+using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 
@@ -22,14 +23,26 @@ namespace OpenTelemetry.OpenTelemetryProtocol.Api.Configuration
         {
             services.AddOpenTelemetry()
                 .ConfigureResource(res => res
-                    .AddService(configuration["OpenTelemetry:ServiceName"]!)
+                    .AddService(serviceName: configuration["OpenTelemetry:ServiceName"]!, serviceInstanceId: configuration.GetValue<string?>("OpenTelemetry:ServiceInstanceId"))
                     .AddTelemetrySdk()
                     .AddEnvironmentVariableDetector())
                 .WithTracing(trace => trace
                     .AddAspNetCoreInstrumentation()
+                    .AddHttpClientInstrumentation()
+                    .AddSqlClientInstrumentation()
                     .AddOtlpExporter(opt =>
                     {
-                        opt.Endpoint = configuration.GetValue<Uri>("open-telemetry-protocol:endpoint");
+                        opt.Endpoint = configuration.GetValue<Uri>("open-telemetry-protocol:endpoint")!;
+                        opt.Protocol = configuration.GetValue<OtlpExportProtocol>("open-telemetry-protocol:protocol");
+                    }))
+                .WithMetrics(metrics => metrics
+                    .AddAspNetCoreInstrumentation()
+                    .AddHttpClientInstrumentation()
+                    .AddProcessInstrumentation()
+                    .AddRuntimeInstrumentation()
+                    .AddOtlpExporter(opt =>
+                    {
+                        opt.Endpoint = configuration.GetValue<Uri>("open-telemetry-protocol:endpoint")!;
                         opt.Protocol = configuration.GetValue<OtlpExportProtocol>("open-telemetry-protocol:protocol");
                     }));
             return services;
@@ -46,7 +59,7 @@ namespace OpenTelemetry.OpenTelemetryProtocol.Api.Configuration
                     .AddService(context.Configuration["OpenTelemetry:ServiceName"]!));
                 options.AddOtlpExporter(opt =>
                 {
-                    opt.Endpoint = context.Configuration.GetValue<Uri>("open-telemetry-protocol:endpoint");
+                    opt.Endpoint = context.Configuration.GetValue<Uri>("open-telemetry-protocol:endpoint")!;
                     opt.Protocol = context.Configuration.GetValue<OtlpExportProtocol>("open-telemetry-protocol:protocol");
                 });
                 options.IncludeFormattedMessage = true;

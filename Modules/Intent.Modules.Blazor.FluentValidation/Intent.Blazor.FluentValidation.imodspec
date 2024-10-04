@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Blazor.FluentValidation</id>
+  <version>1.0.0</version>
+  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <summary>Support for validating Blazor modles with the FluentValidation library.</summary>
+  <description>Support for validating Blazor modles with the FluentValidation library.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAP90lEQVR4Xu1ceVSUV5b/va8WqKJYhJK1MIICKiKjEpcYExyXOaCB44IdO9GmbGMSk7gkGjNxRk0yxrSajEt3DDYR4+kcgyadtMtI0ipgwO4oigEMrRIRQUFZCgooSmp5cz5QWrSob6kPSZ/j+xN+9757f/W+t9x73yPo40YXLYpHenq2SDPCCHBVpKwkYkQSLS4oocBAAOUiVTwiUDSBGo0BSmUsaWioFEm+JGJ9PwJDQnQwmQphMGgFeeTvfw6BgQmkqOiWIDmJwX1P4ODB/WEwHER9/ThBvkVGfoopU5aTjz9uESQnMbjvCYyO1uD69W1obFwoyLfAwNdQXf0xIcQuSE5icN8TSCmDoKAlqKnZIdA3PQH2CJSRHN7nBLIeUSAVQIZA7x4ReJcwwQQyDCCT6YnF8mgEihqB3t5tCA7Wk9LSTIGjVnL4L+MT1ul+jYaGPTCZFLw8VKkuIiRET8rK/sYL34ugXwaBavXjMJszYLdH8/LV1/evePllPdmw4TovfC+CfhkEJiVFITc3A01N43n56uPzZ2Rl6cm4cUZeeJEgSikhhFBn4k4JpN9+64HZsxNIS8uXIm3gJUa3b++Pdev2wGBI5CUA7CGAnidWFIzGx2tRXJyA2bNPkV27fu5JiXMCvbx2wmR6HkrlW/jgg3SydOltUdZwCLG/NGSyPbDbF/DU36sE0sGDR6KhYTUMhmT4+x/D0qWLyZo11Y5s65FAyjCbYbcvByAHIa2IivoKMTFLyYEDTTydFASjnftAdj/Ip/UagVSlCgHwd5jNwWA3+YTY4OGRhpyc5SQuznK/cQ8QSNevZ7Bzpx4Gw060t3dfFTWaFrS0DAWl17nmBj4s3IvpawJpSooK9fUxOHHiB4e2u7ktR1LS78mBA7Z7//8ggbNm6XDy5FeoqxvjUBEh9QgLexFPPplD9u6tF0pUT3jeBDKMHd7enxCD4RXJ+g4ICIe7+yuoqnoJNpvaoV4vr1sYNWo6yckpcE6gWn0QJtMzTo1zc2uEn99RyOWvkGvXDFI4QpXKDFgsqaBOFz1ALm/DkCFrSUnJFkn6nT9/KPbtSwOlE2CzMU51enrmk+bmJ3skkE6Y8Dby8zfwMoxhbLDbq0HpEMLOkS42OmDAB7h+/XXYbM4303J5C4YPX0HOn093sUvQadNew/Hjb8NmC+Sta/DgL0lZWcpdfNcnTD09tWhuLgSg462MBSoUrYiNfQcFBTsJIDo2R0ePfgdFRW/BYlE67Z8QA3x8fkMMhkOC7LwDpgDBwIHeqK/fgdbWX8Nudz7q7u9EJqvBnDn/TjIzS9l/dRBIt293w7p1GWhsnMf5CTmymj3cE5KOyZPfJ999Jyq/QSMiUnHlynbYbJ5OiVEobmHFiulk06ZucxFfMmlExCzcvJkKo9H5NOVMoZvb10hK0rM7kk4Cdbp41NVlwGxmEzzim0aTi7CwA6S4+A9CldC4uGQUFu6BzebjVFYmq8K+faPI3Lm1gvsANsPDYyFaW32FynbDKxS10Gj0xGA4Quj+/UqsXfsWLl5cD3ZD62qTy01Qqz/DiRMrSVycia86unLlcGzdegxWawCHzFVQGi5kG0UnTIhGcfEWGI1TOva1UrTg4D8iMvJ1Qr29w9HS8jNs3bY3rneh030P4FVSVVXERxk9diwciYl5aG8P4iKQAGG8dC5c6Indu2MBsLZI37TaKEKjo5fgwgXBnxwvaxSKdhCSimefPUn27uWMnNDO/DDXNHKVD4E0IGAcfH2XoLR0Pi9bxYDCw7cRGh4+Dzdu/BfM5mFidHDKMMxteHl9D7l8A2prc519elIQSFNT3ZGb+zyuX38DFkuUJNOSIydVqlNQKjPYWA0DDw9/TJo0BFlZmbBa/TlJEQNgTzDx8dtIdvZ7PYlLQqCXV0XHImGzacSYySnj61sCH59ZqK01oLm54cGjXEpKIPLyPsHNm2Nht7NkCtsncVng6VkGpTIeY8bUkaNHu0V3xBJIAwI8MHToHOTnb4PF4s1lgqD/swcG4AYiIg5jwoTVZPfu5nvle47GjBs3FGfOvAJ398fQ3j4FFou7oI6dgVWqG1Cp0jFy5HZy/HjXeVoMgXT8+Cdw7twC2Gy/hdUqzQrL2i6X34Tdng1f3xps3vwO0esbHbnEuW2hixdr8cUXU+DmloyGhlmw2ZyfFPiyTAigVB5CdPQRcu5cGismhECane2OxMQNUCpnoKkpkm+3nDiZzAR//z+itfVb+PufIGVlTmOgnATe7ZCOHeuFH3/sh4CApaioeJ3TEL4AubwVDPMNIiJW4sIFNknEuQpj2LD5qKr6EM3No0CpdKNu4sTXcObMQUydWkcOHeK1h+VN4L180KSkYJw4sRltbU/BbteJOv7dT7Ba3Qaz2U3w2ZTvD+UIJ5dbQOk1BAd/hmvX3ids8FRgE0Vg16jcv78/FizYDEKi0N4+hjMcJNC4XoN3jvp8hIcXYOfOdWTSJKvYvlwisGPeYo9/sbGRKC9/AgzzLpqahEVzxFouVk6ny0Jj426EhuaR0lKHeQ4hql0msGs0spGd0NAgNDWFQqH4BvX1/GNsQiwWi1Wr80HIqxg5soLk5UkSBGZNkYzAbnPk5ctuSEh4GxUVz8NuH9hnn7ZM1gqZrBwJCWvJX/7ytVjuncn1CoFdo5JSd4SEbIHB8G935kh+pRuueiqXGzvmuAEDjpCyst4559+xsVcJ7JojR48ehMrKiWhr24CWFq5oi2v0BQV9j+bmrQgPz3sY5b+9TuA9o5FAqw3GkCEzkJ//iWssOZDu168BNtt0RESUkbNn6yTX34PCh0bgPYsNg6eeikVh4cdobhZWF+3ICYah8PX9EomJL0uZZuX7AzxUAumqVYHYunUmVKqFMBrj+BrJievMFWeCYbJQV/e5mA0xZx99OQLp5s0e2LhxEShNgMHwH2KN5ZRTKKyQyT5HYGAWuXr1C068BIBeH4E0OXkKDh/+FJRqYbc7zvpL4Eg3FQxjhK9vKTw9k0l5+U2p1d+rT3ICO04mI0d6Qy4PQ0nJ1zCbH+tNBzh1DxyYg5qa3yAysp4UFblcAHB/f5ISSFev9kZa2iwolcmorU2WJMjAyRAPgFJpgofHHvTvf4xcuiTphloSAunGjf3w4YeLYDI9gdu3n4HNJuPh1sOHaDRNuH37z4iMPImSkr1SXNJxmUAaE/MCLlxYC4Cd46SLWvcWvWwgl2GaoVZfQ2rqfLJjB1vOIroJJpACMmi1/vDzS0FZ2QZJkjesU0A9KGXzGVwBUhsYpgV2uzS5D7W6DlOmzMfp02dRU1NPAEFXx3gTSAsKFJg9eypu3BgEd/flaG4OF/2zdVvGiBkazXFoNJtQXb0XgPNFh2Guw9//dRiNb8FsHgG7XZrpwsurAG1tuzFs2Eny448X+PrGSSBdvFiB7OxnUFExC3L5NJhM/fkq58T163cDRuMbSEw8Rg4dqhOUExk+fATq68eiunoXZz9CAGp1AWy2Quh0n6Gs7BRXCYnzIvOnn9YjN3cdGMZHsk/mrjPBwb+HVvsRKSrqquYSQiCrhrI1zP36xUKhSENt7eNCeHKKZa82sHlslaoO69bNI2++eb4nfDcC6eLFamRmBiIgIBmVle+hrc1DMqPuKnJzu4zY2I/I6dMPBBSEEnhXJaVUBrV6CyyWBbBaXau8cuSwSnUV3t6rQMhprF9fTV58savYvLO8LSYmHFeujEdg4OP4+edlkpPGKnR3r0F7ew4KCxeR2FiHG1qxBHYROWPGZBw+/BIYZg7sgtYCfi57erYhIOBdGAyXMHp0Hvnuu1ukozLVav0KFst4WK29E/BUKs8gLIxdsbN6yrPSrKwgzJhxBlYre83AWXNaXEQBDXx934DJ9FuYzaH8mBGIUio7A7Zm8wJCExK8UFKShsrKZwWq4QfX6fahsXEZmpvrnBYW/e53UVizJgdWK1cuhbM6i0ZHK1FerkVb2w+gtHeSXL6+30OrndX5CSsUbGkEe9lPqjoYNr9ah3nz5pB9+/L4ME1nzkzG4cN7YLE4r1BlmGs4fXoo3+JNOmLEFhQXs9X/fnzs4I0JDHwV1dVsXThA4+Im4NKlDBiNEbwV9LgsETO8vb+ExbKJtLYW89VHg4PnoabmE9jtXk5lFIqbeP/9KWTVqhI+ujuCG1rtJLS1/S/M5uGSDBJ391r4+OhJTc2RfxaZr1yZgfb2eXyM6hHj5tYGq1WP5547JjQ6TMeMWYPCwv+GxeLm1AaGacCgQc+Sy5f/KsRWOnToKJhMk1FRsUmInEPs/UXmHaNw7NhEFBT8CTZbP1EdBAXlQyZbwrek9/4+aETE/6C8/E3OhUwma0ZU1DLy009C31gATUtTYPnyx0HpcZjN4s7tbKo0MnI1KS3tyPZ13wfK5edgtY4URCCr0GZj54JVguTuA1MPjwyYTHxuKpkwZMh/kpKS7WL7oykpw5Cb+xFu3ZrM4+zdvRu5/AKxWoff/WN3ApOS4nDw4Bnehvn5nYWvbzq5fNnlLBvvu3JyuQ063Q5y9eoK3nY6ANLsbA2mTn0XcvmSjqImvm3YsLnkp58OOCSw41PW6bahqmopD33pSEnZTg4c4L1QONPJm0BWiUy2h9hskly4pqGhqbBaF6K6eiKnz6Gh35DKypn34h4s8Y2OHozKygswGh0XUspkFgQF7URV1RpXrnY9MAf20X3hjuu9RUUBOHyYvd6b3COJ7G2s/v1jyM2b3VZ/h8EEKpPNg92eAUrvH9pVmDt3Adm/X+x7fz3aJ2gE9tKVf6rTHUBNzTRYrd23UmzdYHDwq6iq2nV/FNsxgRMnBqG4eBeamqZ3XBOQy+0gJA8Wy2zCbpAlbjQtTY3lyzPQ1jaXp+reu7EeH/8cTp1agfb20V22qFRn8dhjevKPfzwwXfUYzqIBAWNx69YhyGReiIz8HC0tG8i1a1d4OigIRl96aSAyMzNgMMTzEtRo9iMnR8/3NMJL5x1Qxyednh7NPmwGm+1JsPvOiIjnyMWLWY70OI8HTps2FkajJ/z9fyAHD3Yr7xdiFBeWKpUjYLGwU8YoLmzH/7Xao9i4UU9eeKHXcr6UzfGEhOxFTEw2jh79sKcEFGdEmpdDLoJoVFQKqqvZoyS/+KNKVXTn5aJzLnbtsvgvg0Chr7d5e99CWJienD//fy4z4KKCf00CFQoLVCo9MRo/d9F/l8X/NQnsdPvR+4F3f36qUCyExfKpwOHwiECWMBof746SkndQV/emIALV6kVobd3NlXYUpFMEuM8/YRoS4ofW1q/Q2Pi0IPsHDdqAZcve6633vPja0vcERkUFo77+b6irG8DX6A5cUFAegoNnPsx6aMEbaUEOiQSLfsncz68GKlUcqarifEpApGm8xPp+BIp9S58tSKL00Vv6dPr00ThyRNQjOgAeEUgTEl7A0aPiCoR+9avxJDPz77y+tV4C/T/d6846iEeAGAAAAABJRU5ErkJggg==</iconUrl>
+  <tags>blazor validation</tags>
+  <templates>
+    <template id="Intent.Blazor.FluentValidation.ModelDefinitionValidator" externalReference="8a34e1a2-e62f-422a-b393-6cfcfe186871">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Model.Validator</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.FluentValidation.ValidatorProvider" externalReference="7d2c16b2-e20a-4fe0-9279-dfcd522d7ed5">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Validation.ValidatorProvider</role>
+      <location>Common/Validation</location>
+    </template>
+    <template id="Intent.Blazor.FluentValidation.ValidatorProviderInterface" externalReference="a8526a8b-5b96-442e-adfb-8073e7b6f3ed">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Validation.ValidatorProviderInterface</role>
+      <location>Common/Validation</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Blazor.FluentValidation.FluentValidationBlazorInstaller" externalReference="0153fa6b-0e26-4295-b51f-6285701486fb" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Modelers.UI" version="1.0.0-beta.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.8.0" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags />
+  <moduleSettingsExtensions />
+  <metadata>
+    <install target="User Interface" src="Intent.Metadata/Module Builder/Intent.Blazor.FluentValidation/Intent.Blazor.FluentValidation.pkg.config" externalReference="90eb0073-c577-4253-9e76-0039622affa9" />
+  </metadata>
+  <releaseNotes>release-notes.md</releaseNotes>
+</package>

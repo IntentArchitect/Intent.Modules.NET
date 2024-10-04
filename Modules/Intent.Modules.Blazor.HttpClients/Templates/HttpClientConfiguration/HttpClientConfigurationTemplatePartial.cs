@@ -6,9 +6,11 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.Configuration;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Contracts.Clients.Http.Shared;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Integration.HttpClients.Shared;
@@ -34,6 +36,14 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
                 AddNugetDependency("Microsoft.AspNetCore.Components.WebAssembly.Authentication", "6.0.20");
             }
 
+            HostingSettingsCreatedEvent hostSettings = null;
+            ExecutionContext.EventDispatcher.Subscribe<HostingSettingsCreatedEvent>(x =>
+            {
+                hostSettings = x;
+            });
+
+
+            var uniqueApplicationNames = new HashSet<string>();
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddAssemblyAttribute("[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]")
@@ -47,17 +57,13 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
                         method.AddParameter(UseType("Microsoft.Extensions.DependencyInjection.IServiceCollection"), "services", p => p.WithThisModifier());
                         method.AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration");
 
-                        var uniqueApplicationNames = new HashSet<string>();
                         foreach (var proxy in Model)
                         {
                             method.AddMethodChainStatement("services", chain =>
                             {
                                 var applicationName = GetApplicationName(proxy);
 
-                                if (uniqueApplicationNames.Add(applicationName))
-                                {
-                                    this.ApplyAppSetting($"Urls:{applicationName}", "", null, Frontend.Blazor);
-                                }
+                                uniqueApplicationNames.Add(applicationName);
 
                                 chain.AddChainStatement(new CSharpInvocationStatement($"AddHttpClient<{this.GetServiceContractName(proxy)}, {this.GetHttpClientName(proxy)}>")
                                     .AddArgument(new CSharpLambdaBlock("http")
@@ -96,6 +102,14 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
                             $"return url ?? throw new {UseType("System.Exception")}($\"Configuration key \\\"Urls:{{applicationName}}\\\" is not set\");",
                             s => s.SeparatedFromPrevious());
                     });
+                })
+                .AfterBuild(file =>
+                {
+                    foreach (var applicationName in uniqueApplicationNames)
+                    {
+                        this.ApplyAppSetting($"Urls:{applicationName}", hostSettings != null ? $"https://localhost:{hostSettings.SslPort}/" : "", null, Frontend.Blazor);
+                        this.ApplyAppSetting($"Urls:{applicationName}", hostSettings != null ? $"https://localhost:{hostSettings.SslPort}/" : "", null, "Startup");
+                    }
                 });
         }
 

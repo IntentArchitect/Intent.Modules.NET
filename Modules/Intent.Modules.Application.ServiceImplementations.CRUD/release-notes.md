@@ -1,3 +1,11 @@
+### Version 5.0.16
+
+- Improvement: Basic CRUD support for specifications.
+
+### Version 5.0.15
+
+- Improvement: Improved error when creating illegal queries.
+
 ### Version 5.0.14
 
 - Fixed: Issue where `CRUD Update Action` was not generating correct code if Domain Services were injected.

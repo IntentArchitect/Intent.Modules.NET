@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.WebClient.Api;
+using Intent.Modelers.UI.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -18,17 +18,18 @@ using Intent.Templates;
 namespace Intent.Modules.Blazor.HttpClients.Templates.PagedResult
 {
     [IntentManaged(Mode.Ignore)]
-    public partial class PagedResultTemplate : PagedResultTemplateBase, ICSharpFileBuilderTemplate
+    public partial class PagedResultTemplate : PagedResultTemplateBase, ICSharpFileBuilderTemplate, ITemplateWithModel
     {
         public const string TemplateId = "Intent.Blazor.HttpClients.PagedResult";
 
         public PagedResultTemplate(IOutputTarget outputTarget) : base(TemplateId, outputTarget, new HttpServiceProxyMappedService())
         {
+            FulfillsRole("Blazor.HttpClient.Contracts.Dto");
         }
 
         protected override IDesigner GetSourceDesigner(IMetadataManager metadataManager, string applicationId)
         {
-            return metadataManager.WebClient(applicationId);
+            return metadataManager.UserInterface(applicationId);
         }
     }
 }

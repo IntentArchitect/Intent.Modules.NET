@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2e0f7082-72dd-4dec-be25-4459af2f46c0" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ServiceContractEndpointExtension</name>
+  <display>ServiceContractEndpointExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d86e3381-f59e-476e-b0e2-0677122010cc</parentFolderId>
+  <packageId>d86e3381-f59e-476e-b0e2-0677122010cc</packageId>
+  <packageName>Intent.FastEndpoints.Dispatch.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

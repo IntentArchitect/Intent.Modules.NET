@@ -22,6 +22,9 @@
     <name>optional</name>
     <display>[create] optional: Optional</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="6f5c3d5b-f326-439f-8e8e-08901e176b58">
       <typeId>25b33f68-88fc-468d-9954-f9d67b53c057</typeId>
       <isNavigable>true</isNavigable>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e57aa24c-eed9-4301-96f3-a34610cef546" type="Type-Definition" typeId="d4e577cd-ad05-4180-9a2e-fff4ddea0e1e">
+  <name>MudDataGrid</name>
+  <display>MudDataGrid&lt;T&gt;</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes>
+    <genericType id="dba952dc-53e2-43d1-a8c9-c2b2160bec44">
+      <name>T</name>
+    </genericType>
+  </genericTypes>
+  <isMapped>false</isMapped>
+  <parentFolderId>561539f3-acf4-4a1c-90ab-82fa4dcb57c7</parentFolderId>
+  <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+  <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="e3d73296-8577-4047-ba64-f19c8546e693" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>ReloadServerData</name>
+      <display>ReloadServerData(): Task</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0e6379a5-0433-4544-9759-573ea0b90fe6">
+        <typeId>6cdaffae-7609-47ab-b8db-9d7282d2df6f</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.CSharp</typePackageName>
+        <typePackageId>730e1275-0c32-44f7-991a-9619d07ca68d</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e57aa24c-eed9-4301-96f3-a34610cef546</parentFolderId>
+      <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+      <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Blazor.Components.Core</id>
+  <version>1.0.0-alpha.1</version>
+  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <summary>A custom module for Intent.Modules.NET.</summary>
+  <description>A custom module for Intent.Modules.NET.</description>
+  <authors>Intent.Modules.NET</authors>
+  <iconUrl>data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAuODUgLTE0LjU0IDMwNS4yIDMwNS4yIj4NCiAgICA8cGF0aA0KICAgICAgICBkPSJtMzAzLjkzNSA4OC40NzljLTYuNTk4IDQxLjM2Mi0yNy42NTMgNzkuMDQxLTU5LjQyIDEwNi4zMzVzLTcyLjE4NSA0Mi40MzMtMTE0LjA2NCA0Mi43MjNjLTguNDgzLjMyNi0xNi45NzctLjE5LTI1LjM1OC0xLjUzOWE3Ny43MjMgNzcuNzIzIDAgMCAxIC02NC42My03My4yNjYgNzUuNDc5IDc1LjQ3OSAwIDAgMSAyMi4xNC01Mi43NjIgNzUuNDYgNzUuNDYgMCAwIDEgMTA1Ljg4NS0uNzQ4IDc1LjQ3OCA3NS40NzggMCAwIDEgMjIuODg0IDUyLjQ0M2MuMzE3IDEyLjUxLTUuMTAyIDIzLjQ4My0xNi4yMzkgMjMuOC0xMS44OTkgMC0xNy40NzctOC40OTEtMTcuNDc3LTE5LjkzNHYtMzEuNzk3YTE5LjQ3OCAxOS40NzggMCAwIDAgLTE5LjMyMy0xOS40OTRoLTI2LjY1M2E0Ni4zODYgNDYuMzg2IDAgMCAwIC0zOS4xMTkgMjAuOTYxIDQ2LjM5OSA0Ni4zOTkgMCAwIDAgMzEuNTg3IDcxLjI2OCA0Ni4zOTIgNDYuMzkyIDAgMCAwIDQxLjgtMTQuOTExbC45MzItMS4zOS45MzMgMS41NDNhMzIuODIgMzIuODIgMCAwIDAgMjcuOTg2IDEzLjMyOCAzNi45OTIgMzYuOTkyIDAgMCAwIDM0LjI2OC0zOC42NzEgMTAwLjY0IDEwMC42NCAwIDAgMCAtMi43NjEtMjQuNTc3Yy00Ljk0My0yMi43MzQtMTguMTI2LTQyLjgzNC0zNy4wMDgtNTYuNDIzYTk0LjE1MyA5NC4xNTMgMCAwIDAgLTEyNS4yMzYgMTMuNzE4IDk0LjE3NSA5NC4xNzUgMCAwIDAgLTIzLjkyIDYzLjA5NyA5NS4zNTIgOTUuMzUyIDAgMCAwIDI3LjQ3MyA2NS44MjQgOTUuMzMxIDk1LjMzMSAwIDAgMCA2NS40NDggMjguMzQ0czYuOTguNjM1IDE0Ljg0OS40NTRhMjAwLjk0IDIwMC45NCAwIDAgMCAxMDcuNzY5LTMyLjE1NWMuNDU3LS4zMTguOTE0LjMxNy42MS43OGExNTguMTc3IDE1OC4xNzcgMCAwIDEgLTEyMy4yMjUgNTAuMzk2IDExMS4xODUgMTExLjE4NSAwIDAgMSAtODAuOTYxLTMyLjg3MSAxMTEuMjE1IDExMS4yMTUgMCAwIDEgLTMyLjIxNS04MS4yMzIgMTE1LjA5OSAxMTUuMDk5IDAgMCAxIDQ2LjIyMy05Mi4xNyAxMTIuNzA0IDExMi43MDQgMCAwIDEgNjYuNDk3LTIxLjk1M2gzNS43NzJhMTAwLjYzNyAxMDAuNjM3IDAgMCAwIDc0LjI0Ny0zMi43ODQgMS4zOSAxLjM5IDAgMCAxIC43NTUtLjQzMSAxLjQxOCAxLjQxOCAwIDAgMSAxLjUyLjY2M2MuMTUzLjI1Ny4yMjIuNTU1LjE5Ny44NTRhMTAwLjkzIDEwMC45MyAwIDAgMSAtMTUuNjA4IDQ1LjE0IDEuMzg2IDEuMzg2IDAgMCAwIC4xMTUgMS41MTEgMS4zODcgMS4zODcgMCAwIDAgMS40MjQuNTA3IDEwOC4xNTggMTA4LjE1OCAwIDAgMCA3NS4xOTgtNjIuMDEzYy4xNzMtLjI3Ny40MTEtLjUwNy42OTUtLjY3YTEuOTAyIDEuOTAyIDAgMCAxIDEuODY5IDBjLjI4NC4xNjIuNTIzLjM5Mi42OTQuNjdhMTM3LjA5OCAxMzcuMDk4IDAgMCAxIDEzLjQ0NyA4Ny40MzJ6bS0xODkuOTY0IDQ0Ljg1OGEyNy44MjMgMjcuODIzIDAgMCAwIC0yNy4yOTMgMzMuMjU1IDI3LjgzIDI3LjgzIDAgMCAwIDIxLjg2MiAyMS44NjUgMjcuODI0IDI3LjgyNCAwIDAgMCAzMy4yNTEtMjcuMjk2di0yNS45NzdhMi4wMDcgMi4wMDcgMCAwIDAgLTEuOTA0LTEuOTA0eiINCiAgICAgICAgZmlsbD0iIzVjMmI5MSIgLz4NCjwvc3ZnPg==</iconUrl>
+  <templates />
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Blazor.Components.Core.DefaultBlazorComponentInstaller" externalReference="ef14e926-b99c-4bd5-83c3-54f715c41dc6" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.7.0-pre.1" />
+    <dependency id="Intent.Common.CSharp" version="3.7.0-pre.5" />
+    <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Modelers.UI" version="1.0.0-alpha.3" />
+    <dependency id="Intent.Modelers.UI.Core" version="1.0.0-alpha.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags />
+  <moduleSettingsExtensions />
+  <metadata />
+</package>

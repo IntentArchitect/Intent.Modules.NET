@@ -60,7 +60,7 @@
         <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="ea7615a1-f195-4679-bb65-bc8e4283d815" name="ConcreteEntityB" type="element" specialization="Class" />
+          <target id="ea7615a1-f195-4679-bb65-bc8e4283d815" name="ConcreteEntityB" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>ea7615a1-f195-4679-bb65-bc8e4283d815</parentFolderId>
@@ -90,8 +90,8 @@
             <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="c2193e2d-5f80-4c09-ad1f-1f669da4275e" name="base" type="association" specialization="Generalization Target End" />
-              <target id="25f7ab6e-c71d-47fd-91de-91227f742f3e" name="BaseAttr" type="element" specialization="Attribute" />
+              <target id="c2193e2d-5f80-4c09-ad1f-1f669da4275e" name="base" type="association" specialization="Generalization Target End" specializationId="4686cc1d-b4d8-4b99-b45b-f77bd5496946" />
+              <target id="25f7ab6e-c71d-47fd-91de-91227f742f3e" name="BaseAttr" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>0f7d1394-df9d-40e2-9df3-902e89ae674c</parentFolderId>
@@ -122,7 +122,7 @@
             <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="1e94a1f8-fcae-46e2-9a10-41d8355e42cb" name="ConcreteAttr" type="element" specialization="Attribute" />
+              <target id="1e94a1f8-fcae-46e2-9a10-41d8355e42cb" name="ConcreteAttr" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>0f7d1394-df9d-40e2-9df3-902e89ae674c</parentFolderId>

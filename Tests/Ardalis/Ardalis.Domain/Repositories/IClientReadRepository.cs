@@ -21,16 +21,5 @@ namespace Ardalis.Domain.Repositories
 
         [IntentManaged(Mode.Fully)]
         Task<List<Client>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
-        [IntentManaged(Mode.Fully)]
-        Task<List<Client>> FindAllAsync(CancellationToken cancellationToken = default);
-
-        [IntentManaged(Mode.Fully)]
-        Task<IPagedList<Client>> FindAllAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default);
-
-        [IntentManaged(Mode.Fully)]
-        Task<IPagedList<Client>> FindAllAsync(Expression<Func<Client, bool>> filterExpression, int pageNo, int pageSize, CancellationToken cancellationToken = default);
-
-        [IntentManaged(Mode.Fully)]
-        Task<IPagedList<Client>> FindAllAsync(Expression<Func<Client, bool>> filterExpression, int pageNo, int pageSize, Func<IQueryable<Client>, IQueryable<Client>> linq, CancellationToken cancellationToken = default);
     }
 }

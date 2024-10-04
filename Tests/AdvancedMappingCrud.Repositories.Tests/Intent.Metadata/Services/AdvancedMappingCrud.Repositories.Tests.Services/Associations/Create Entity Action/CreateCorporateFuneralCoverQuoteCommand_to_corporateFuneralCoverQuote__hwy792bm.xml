@@ -22,6 +22,9 @@
     <name>corporateFuneralCoverQuote</name>
     <display>[create] corporateFuneralCoverQuote: CorporateFuneralCoverQuote</display>
     <order>6</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="c4cf08e6-ce30-49e9-8698-21305e87cb08">
       <typeId>4da701dd-1644-418e-ac1a-19668809b605</typeId>
       <isNavigable>true</isNavigable>

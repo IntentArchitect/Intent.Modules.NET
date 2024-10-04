@@ -4,7 +4,6 @@
   <display>Validators</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>bd5e4339-667c-4f46-93d5-1eb6b93ed09d</parentFolderId>

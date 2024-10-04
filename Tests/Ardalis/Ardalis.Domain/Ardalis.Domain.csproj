@@ -8,7 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Ardalis.GuardClauses" Version="4.6.0" />
     <PackageReference Include="Ardalis.Specification" Version="8.0.0" />
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.4" />
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.6" />
   </ItemGroup>
 
 </Project>

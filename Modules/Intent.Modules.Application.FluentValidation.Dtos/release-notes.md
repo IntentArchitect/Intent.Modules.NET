@@ -1,3 +1,8 @@
+### Version 3.10.0
+
+- Fixed: Domain constraints not being propagated into validators when the data graph is more than two levels deep.
+- Fixed: Validations not being applied when mapping to constructor parameters.
+
 ### Version 3.9.3
 
 - Improvement: Updated module NuGet packages infrastructure.

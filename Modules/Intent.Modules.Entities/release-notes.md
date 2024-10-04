@@ -1,3 +1,7 @@
+### Version 5.1.4
+
+- Fixed: Domain Behaviours not discoverable by a specific role.
+
 ### Version 5.1.3
 
 - Improvement: Updated module NuGet packages infrastructure.

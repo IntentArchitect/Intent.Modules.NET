@@ -1,3 +1,9 @@
+### Version 5.0.0
+
+- Improvement: Module now generates Specifications for Aggregate Roots.
+- Improvement: Better interactions with CRUD modules to use Specifications out the box
+- Improvement: Clean up of Repository contracts
+
 ### Version 4.1.2
 
 - Improvement: Updated module NuGet packages infrastructure.

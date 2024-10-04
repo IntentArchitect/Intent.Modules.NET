@@ -31,6 +31,11 @@ namespace Intent.Modules.Application.Dtos.Pagination.FactoryExtensions
             // and will resolve the namespace correctly. However, this is not the ideal
             // method and will be relooked in the future using some "Global Type Source"
             // idea.
+
+            // GCB REPLY TO ABOVE COMMENT:
+            // This is not ideal. See what I did for the Blazor Http Clients that also need
+            // to resolve a paged result. It uses our standard type resolution mechanisms (which are far more
+            // intuitive)
             var templates = pagedResultTemplate.ExecutionContext
                 .OutputTargets
                 .SelectMany(s => s.TemplateInstances)

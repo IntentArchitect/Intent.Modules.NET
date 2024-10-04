@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos.Pagination</id>
-  <version>4.0.12</version>
-  <supportedClientVersions>[4.1.0-pre.0, 5.0.0-a)</supportedClientVersions>
+  <version>4.0.13</version>
+  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Enable Service Operations to expose a paginated interface for a DTO type</summary>
   <description>Enable Service Operations to expose a paginated interface for a DTO type</description>
   <authors>Intent Architect</authors>
@@ -35,8 +35,9 @@
   <dependencies>
     <dependency id="Intent.Application.Dtos" version="4.2.0" />
     <dependency id="Intent.Common" version="3.5.0" />
-    <dependency id="Intent.Common.CSharp" version="3.3.33" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
+    <dependency id="Intent.Modelers.Services" version="3.8.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

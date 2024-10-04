@@ -20,12 +20,16 @@
     <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="7434dfda-7ada-49d6-8a4d-c50f345cc011" name="Customer" type="element" specialization="Class" />
+      <target id="7434dfda-7ada-49d6-8a4d-c50f345cc011" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>939167b7-ce8e-4f54-899c-fa215fc682f0</parentFolderId>
   <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
   <packageName>AzureFunctions.TestApplication.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="Allow Comment" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
       <addedByDefault>false</addedByDefault>
@@ -68,7 +72,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="162fb476-6359-4139-9243-12f873aa314b" name="Name" type="element" specialization="Attribute" />
+          <target id="162fb476-6359-4139-9243-12f873aa314b" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>fd843a55-e102-424d-8e1d-da22a98ae87d</parentFolderId>

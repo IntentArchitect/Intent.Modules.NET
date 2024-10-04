@@ -1,3 +1,7 @@
+### Version 2.1.3
+
+- Fixed: Subscribing to Events can now be modeled in the Services designer. 
+
 ### Version 2.1.2
 
 - Improvement: Updated module NuGet packages infrastructure.

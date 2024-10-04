@@ -14,6 +14,7 @@
           <text>Paginate</text>
           <shortcut>ctrl + shift + g</shortcut>
           <icon type="FontAwesome" source="angle-double-right" />
+          <isOptionVisibleFunction>return typeReference.getIsCollection();</isOptionVisibleFunction>
           <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
 function changeReturnType(element) {
     const pagedResultType = "9204e067-bdc8-45e7-8970-8a833fdc5253";
@@ -76,6 +77,7 @@ addPagination(element);
           <text>Paginate</text>
           <shortcut>ctrl + shift + g</shortcut>
           <icon type="FontAwesome" source="angle-double-right" />
+          <isOptionVisibleFunction>return typeReference.getIsCollection();</isOptionVisibleFunction>
           <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
 function changeReturnType(element) {
     const pagedResultType = "9204e067-bdc8-45e7-8970-8a833fdc5253";
@@ -137,4 +139,5 @@ addPagination(element);
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
+  <scripts />
 </settings>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d3691ded-2c70-4d94-83a1-6858fbac7978" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>BlazoriseInstaller</name>
+  <display>BlazoriseInstaller</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>03961596-d816-4a71-8dc1-8a8df7c1b070</parentFolderId>
+  <packageId>03961596-d816-4a71-8dc1-8a8df7c1b070</packageId>
+  <packageName>Intent.Blazor.Components.Blazorise</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

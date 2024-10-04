@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Blazor.Components.MudBlazor</id>
+  <version>1.0.0-beta.3</version>
+  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <summary>Automates MudBlazor components for a Blazor application</summary>
+  <description>Automates MudBlazor components for a Blazor application</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/png;base64,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</iconUrl>
+  <releaseNotes>release-notes.md</releaseNotes>
+  <tags>blazor mudblazor ui</tags>
+  <templates>
+    <template id="Intent.Blazor.Components.MudBlazor.FluentValidationProviderExtensions" externalReference="a051e5c4-0715-4917-8cca-aa4f65cb93ed">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.FluentValidation.ProviderExtensions</role>
+      <location>Common/Validation</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Blazor.Components.MudBlazor.MudBlazorComponentInstaller" externalReference="ea521efb-a5fa-4076-adac-154b24c0c10a" />
+    <factoryExtension id="Intent.Blazor.Components.MudBlazor.MudBlazorInstaller" externalReference="dd277b16-0158-4a95-ac69-c6ffaa4c9612" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Blazor" version="1.0.0-beta.1" />
+    <dependency id="Intent.Common" version="3.7.0-pre.7" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0-pre.16" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Modelers.UI" version="1.0.0-beta.1" />
+    <dependency id="Intent.Modelers.UI.Core" version="1.0.0-beta.2" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags />
+  <moduleSettingsExtensions />
+  <metadata>
+    <install src="modelers/MudBlazor Data Grid Component.designer.settings" externalReference="30eb8a90-664b-483b-9dfd-794c8e85f9eb" target="User Interface" />
+    <install target="User Interface" src="Intent.Metadata/Module Builder/Intent.Blazor.Components.MudBlazor/Intent.Blazor.Components.MudBlazor.pkg.config" externalReference="47e5f8d0-3892-4408-b6f9-88bf8591af2d" />
+    <install target="User Interface" src="modelers/MudBlazor Core Components.designer.settings" externalReference="a490ca93-d5f0-448e-94ef-0f53e729c284" />
+  </metadata>
+</package>

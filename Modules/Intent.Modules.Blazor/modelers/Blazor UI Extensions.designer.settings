@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>07ebdd16-a83c-401c-95bc-0ec02d4c7daf</id>
+  <name>Blazor UI Extensions</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+      <mappingSettings />
+      <macros>
+        <macro trigger="on-created">
+          <script>createElement("Component Operation", "OnInitializedAsync", element.id);</script>
+        </macro>
+        <macro trigger="on-name-changed">
+          <script>const pageId = "ea4adc09-8978-4ede-ba5f-265debb2b60c";
+const routeId = "9dff9df1-a993-4bf6-9aa7-c16811142228";
+
+const folders = element.getParents("Folder");
+const stereotype = element.getStereotype(pageId)
+stereotype?.getProperty(routeId).setValue("/" + folders.slice(1).map(x =&gt; toKebabCase(x.getName()) + "/") + toKebabCase(element.getName()))</script>
+        </macro>
+      </macros>
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+  <scripts />
+</settings>

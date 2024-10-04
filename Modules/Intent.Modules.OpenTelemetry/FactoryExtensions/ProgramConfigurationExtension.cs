@@ -38,7 +38,7 @@ namespace Intent.Modules.OpenTelemetry.FactoryExtensions
                 return;
             }
 
-            if (!application.Settings.GetOpenTelemetry().CaptureLogs())
+            if (!application.Settings.GetOpenTelemetry().CaptureLogs() || application.Settings.GetOpenTelemetry().Export().IsAzureMonitorOpentelemetryDistro())
             {
                 return;
             }

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Blazor</id>
+  <version>1.0.0-beta.1</version>
+  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <summary>Automates the bootstrapping and core patterns of a Blazor web application.</summary>
+  <description>Automates the bootstrapping and core patterns of a Blazor web application.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCAyNTAwIDIyNDgiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQiIHgxPSI1NzIuNiIgeTE9IjE3ODYuNSIgeDI9IjIyNTAuNSIgeTI9IjQ0MS45IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iLjIiIHN0b3AtY29sb3I9IiM5NDYwZjciLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNCIgc3RvcC1jb2xvcj0iIzkwNWJmNCIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii42IiBzdG9wLWNvbG9yPSIjODY0ZmVjIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjgiIHN0b3AtY29sb3I9IiM3NjNhZTAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNjQyMmQyIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJOZXdfR3JhZGllbnRfU3dhdGNoIiBkYXRhLW5hbWU9Ik5ldyBHcmFkaWVudCBTd2F0Y2giIHgxPSIxMjI4LjEiIHkxPSIyNjguNCIgeDI9IjEyMjguMSIgeTI9IjIyMzMuNCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9Ii4yIiBzdG9wLWNvbG9yPSIjOTQ2MGY3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzY0MjJkMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI4LjcuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDEuMi4wIEJ1aWxkIDE0MikgIC0tPgogIDxnPgogICAgPGcgaWQ9IkxheWVyXzEiPgogICAgICA8cGF0aCBkPSJNMjI4OC4zLDkwMS42Yy00Ni41LDI5MS40LTE5NC44LDU1Ni45LTQxOC42LDc0OS4yLTIyMy44LDE5Mi4zLTUwOC42LDI5OS04MDMuNiwzMDEtNTkuOCwyLjMtMTE5LjYtMS4zLTE3OC43LTEwLjgtMjU0LjUtNDMuMi00NDQuMi0yNTguMy00NTUuMy01MTYuMiwxLjItMTM5LjYsNTcuMi0yNzMuMSwxNTYtMzcxLjcsMjA1LjUtMjA1LjIsNTM3LjYtMjA3LjYsNzQ2LTUuMywxMDAuMiw5Ny4yLDE1OC4xLDIyOS45LDE2MS4yLDM2OS41LDIuMiw4OC4xLTM1LjksMTY1LjQtMTE0LjQsMTY3LjctODMuOCwwLTEyMy4xLTU5LjgtMTIzLjEtMTQwLjR2LTIyNGMwLTc1LjQtNjAuNy0xMzYuNy0xMzYuMS0xMzcuM2gtMTg3LjhjLTExMS0uOC0yMTQuOCw1NC44LTI3NS42LDE0Ny43LTk5LDE1MS01Ni44LDM1My42LDk0LjIsNDUyLjYsMzguOCwyNS40LDgyLjUsNDIuMywxMjguMyw0OS41LDEwOS42LDE3LjMsMjIwLjUtMjIuMywyOTQuNS0xMDUuMWw2LjYtOS44LDYuNiwxMC45YzQ1LjksNjIuMywxMTkuOSw5Ny42LDE5Ny4yLDkzLjksMTQxLjEtMTAuMywyNDguMi0xMzEuMiwyNDEuNC0yNzIuNC43LTU4LjMtNS45LTExNi41LTE5LjUtMTczLjItMzQuOC0xNjAuMi0xMjcuNy0zMDEuOC0yNjAuNy0zOTcuNS0yNzUuNS0xOTguMy02NTYuMy0xNTYuNi04ODIuMyw5Ni42LTEwOS4yLDEyMi4zLTE2OS4yLDI4MC42LTE2OC41LDQ0NC41LDIuMSwxNzMuOCw3MS41LDM0MCwxOTMuNiw0NjMuOCwxMjIuMSwxMjMuNywyODcuNCwxOTUuMyw0NjEuMSwxOTkuNywwLDAsNDkuMiw0LjUsMTA0LjYsMy4yLDI2OS41LTEuNyw1MzIuOS04MC4zLDc1OS4zLTIyNi41LDMuMi0yLjIsNi40LDIuMiw0LjMsNS41LTIyMy4xLDI0MC4zLTU0MC42LDM3MC4yLTg2OC4yLDM1NS4xLTIxMy44LDMuOS00MTkuOC03OS44LTU3MC40LTIzMS42LTE1MC42LTE1MS44LTIzMi42LTM1OC42LTIyNy01NzIuMy4xLTI1NS43LDEyMC44LTQ5Ni40LDMyNS43LTY0OS40LDEzNS44LTEwMCwyOTkuOS0xNTQuMiw0NjguNS0xNTQuN2gyNTJjMTk5LjEtLjEsMzg4LjktODQsNTIzLjEtMjMxLDEuNC0xLjYsMy4zLTIuNiw1LjMtMyw0LjItLjksOC41LDEsMTAuNyw0LjcsMS4xLDEuOCwxLjYsMy45LDEuNCw2LTEwLjcsMTEzLjMtNDguNCwyMjIuMy0xMTAsMzE4LTEuOSwzLjQtMS41LDcuNi44LDEwLjYsMi4zLDMuMSw2LjMsNC41LDEwLDMuNiwyMzUuOS01My4zLDQzMi41LTIxNS40LDUyOS44LTQzNi45LDEuMi0yLDIuOS0zLjYsNC45LTQuNyw0LjEtMi4zLDkuMS0yLjMsMTMuMiwwLDIsMS4xLDMuNywyLjgsNC45LDQuNyw5OC44LDE4OS4yLDEzMi4xLDQwNS44LDk0LjcsNjE2aDBaTTk0OS45LDEyMTcuNmMtMTA4LjMsMC0xOTYsODcuNy0xOTYuMSwxOTYsMCwxMi45LDEuMywyNS43LDMuOCwzOC4zLDE1LjUsNzcuOCw3Ni4zLDEzOC42LDE1NCwxNTQsMTA2LjIsMjEuMSwyMDkuNC00Ny44LDIzMC41LTE1NCwyLjUtMTIuNiwzLjgtMjUuNCwzLjgtMzguM3YtMTgzYy0uNC03LjMtNi4yLTEzLjEtMTMuNC0xMy40bC0xODIuNi40WiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQpIiBzdHJva2U9InVybCgjTmV3X0dyYWRpZW50X1N3YXRjaCkiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3Ryb2tlLXdpZHRoPSIyMS41Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4=</iconUrl>
+  <releaseNotes>release-notes.md</releaseNotes>
+  <tags>blazor ui</tags>
+  <templates>
+    <template id="Intent.Blazor.Templates.Client.ClientImportsRazorTemplate" externalReference="4a938a9b-e670-43dd-8e6d-f03f0c48d812">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Imports,RazorImportsFile</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.DependencyInjection" externalReference="21e2413b-645f-477d-a38b-730820f9191b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.DependencyInjection</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.ModelDefinitionTemplate" externalReference="d3690156-710e-44a8-89ef-a27ade4e2f52">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Model.Definition</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.ProgramTemplate" externalReference="2d5ee2ba-5a78-4ac9-9905-ccd9f68247f9">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Program</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate" externalReference="7fd439ee-bc05-4db6-a66a-f3b07b024d74">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Component</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.RazorComponentTemplate" externalReference="1132514b-15dd-4dac-b602-462278e1128d">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Component</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.RazorLayoutCodeBehindTemplate" externalReference="b08b0ac8-c7ef-4a54-b7fc-1e379e32b449">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Layout</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.RazorLayoutTemplate" externalReference="4220376c-a610-4599-b89c-83599b2f49f0">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Layout</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.Client.RoutesRazorTemplate" externalReference="92022c0f-33eb-40fd-9d2a-88fb20eefaac">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Blazor.Client.Routes</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.AppRazorTemplate" externalReference="b7665695-e7e7-4a21-883a-da6fa2d84710">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup</role>
+      <location>Components</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.ServerImportsRazorTemplate" externalReference="f4e96c35-f23e-49b2-ae25-151ec6564357">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup,RazorImportsFile</role>
+      <location>Components</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Blazor.BlazorAspNetCoreStartupInstaller" externalReference="b649e2a1-96a8-4b1b-ba82-b48cb32f6a66" />
+  </factoryExtensions>
+  <moduleSettings>
+    <group id="489a67db-31b2-4d51-96d7-52637c3795be" title="Blazor" externalReference="489a67db-31b2-4d51-96d7-52637c3795be">
+      <settings>
+        <setting id="4c4c903b-6fbb-4a6b-b1f7-98a180f010f2" title="Use Code Behind Files for Components" type="switch">
+          <hint>Use [code-behind](https://learn.microsoft.com/aspnet/core/blazor/components#partial-class-support) files for Razor components.</hint>
+          <defaultValue>true</defaultValue>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Code.Weaving.Razor" version="1.0.0-pre.4" />
+    <dependency id="Intent.Common" version="3.7.0-pre.3" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0-pre.16" />
+    <dependency id="Intent.Common.Types" version="4.0.0-pre.1" />
+    <dependency id="Intent.Modelers.UI" version="1.0.0-beta.0" />
+    <dependency id="Intent.Modelers.UI.Core" version="1.0.0-beta.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.8.0-pre.0" />
+  </dependencies>
+  <interoperability>
+    <detect id="Intent.VisualStudio.Projects">
+      <install>
+        <package id="Intent.VisualStudio.Projects" version="3.8.0-pre.2" />
+      </install>
+    </detect>
+  </interoperability>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags />
+  <moduleSettingsExtensions />
+  <metadata>
+    <install src="modelers/Blazor UI Extensions.designer.settings" externalReference="07ebdd16-a83c-401c-95bc-0ec02d4c7daf" target="User Interface" />
+  </metadata>
+</package>

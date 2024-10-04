@@ -5,6 +5,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.EntityFrameworkCore.Repositories.Api;
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates;
 
@@ -14,9 +15,14 @@ public static class RepositoryOperationHelper
     public static void ApplyMethods(ICSharpFileBuilderTemplate template, CSharpClass @class, RepositoryModel repositoryModel)
     {
         template.AddDomainTypeSources();
-        
+
         foreach (var operationModel in repositoryModel.Operations)
         {
+            if (operationModel.TryGetStoredProcedure(out _))
+            {
+                continue;
+            }
+
             var isAsync = operationModel.Name.EndsWith("Async") || operationModel.HasStereotype("Asynchronous");
             @class.AddMethod(GetReturnType(template, operationModel.ReturnType), operationModel.Name, method =>
             {
@@ -48,9 +54,15 @@ public static class RepositoryOperationHelper
 
         foreach (var operationModel in repositoryModel.Operations)
         {
+            if (operationModel.TryGetStoredProcedure(out _))
+            {
+                continue;
+            }
+
             var isAsync = operationModel.Name.EndsWith("Async") || operationModel.HasStereotype("Asynchronous");
             @interface.AddMethod(GetReturnType(template, operationModel.ReturnType), operationModel.Name, method =>
             {
+                method.TryAddXmlDocComments(operationModel.InternalElement);
                 method.AddMetadata("model", operationModel);
                 method.RepresentsModel(operationModel);
                 if (isAsync)

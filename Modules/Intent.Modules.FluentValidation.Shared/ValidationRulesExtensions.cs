@@ -12,7 +12,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Utils;
 
@@ -145,7 +144,7 @@ public static class ValidationRulesExtensions
 
                     if (indexFields.Any(p => p.FieldName == field.Name && p.GroupCount == 1))
                     {
-                        if (!TryGetMappedAttribute(field, out var mappedAttribute) && !TryGetAdvancedMappedAttribute(associationedElements, field, out mappedAttribute))
+                        if (!TryGetMappedAttribute(field, out var mappedAttribute) && !TryGetAdvancedMappedAttribute(field, out mappedAttribute))
                         { 
                             continue; 
                         }
@@ -231,7 +230,7 @@ public static class ValidationRulesExtensions
 
         foreach (var field in dtoModel.Fields)
         {
-            if ((!TryGetMappedAttribute(field, out var mappedAttribute) && !TryGetAdvancedMappedAttribute(associationedElements, field, out mappedAttribute)) || 
+            if ((!TryGetMappedAttribute(field, out var mappedAttribute) && !TryGetAdvancedMappedAttribute(field, out mappedAttribute)) || 
                 constraintFields.All(p => p.FieldName != mappedAttribute.Name))
             {
                 continue;
@@ -396,7 +395,7 @@ public static class ValidationRulesExtensions
         IReadOnlyCollection<ConstraintField> indexFields,
         IEnumerable<IAssociationEnd> associationedElements)
     {
-        var hasMappedAttribute = TryGetMappedAttribute(field, out var mappedAttribute) || TryGetAdvancedMappedAttribute(associationedElements, field, out mappedAttribute);
+        var hasMappedAttribute = TryGetMappedAttribute(field, out var mappedAttribute) || TryGetAdvancedMappedAttribute(field, out mappedAttribute);
         if (!validationRuleChain.Statements.Any(x => x.HasMetadata("max-length")) && hasMappedAttribute)
         {
             try
@@ -424,7 +423,7 @@ public static class ValidationRulesExtensions
     private static void AddValidatorsBasedOnTypeReference<TModel>(CSharpTemplateBase<TModel> template, string dtoTemplateId, string dtoValidatorTemplateId, DTOFieldModel property,
         CSharpMethodChainStatement validationRuleChain)
     {
-        if (property.TypeReference.Element.IsEnumModel())
+        if (Common.Types.Api.EnumModelExtensions.IsEnumModel(property.TypeReference.Element))
         {
             validationRuleChain.AddChainStatement(property.TypeReference.IsCollection
                 ? "ForEach(x => x.IsInEnum())"
@@ -642,26 +641,6 @@ public static class ValidationRulesExtensions
         return false;
     }
 
-    private static bool TryGetMappedAttribute(DTOFieldModel field, out AttributeModel attribute)
-    {
-        var mappedElement = field.InternalElement.MappedElement?.Element as IElement;
-        // The loop is not needed on the service side where a Command/Query/DTO is mapped
-        // to an Attribute but it is needed when mapping from a Service Proxy to a DTO Field and then to an Attribute.
-        while (mappedElement is not null)
-        {
-            if (mappedElement.IsAttributeModel())
-            {
-                attribute = mappedElement.AsAttributeModel();
-                return true;
-            }
-
-            mappedElement = mappedElement.MappedElement?.Element as IElement;
-        }
-
-        attribute = default;
-        return false;
-    }
-
     private static bool TryGetAdvancedMappedClass(IEnumerable<IAssociationEnd> associationedElements, out ClassModel classModel)
     {
         if (associationedElements is null)
@@ -691,30 +670,47 @@ public static class ValidationRulesExtensions
         classModel = null;
         return false;
     }
-    
-    private static bool TryGetAdvancedMappedAttribute(IEnumerable<IAssociationEnd> associationedElements, DTOFieldModel field, out AttributeModel attribute)
+
+    private static bool TryGetMappedAttribute(DTOFieldModel field, out AttributeModel attribute) => TryGetMappedAttribute(field.InternalElement, out attribute);
+    private static bool TryGetMappedAttribute(IElement field, out AttributeModel attribute)
     {
-        if (associationedElements is null)
+        var mappedElement = field.MappedElement?.Element as IElement;
+        // The loop is not needed on the service side where a Command/Query/DTO is mapped
+        // to an Attribute but it is needed when mapping from a Service Proxy to a DTO Field and then to an Attribute.
+        while (mappedElement is not null)
         {
-            attribute = null;
-            return false;
+            if (mappedElement.IsAttributeModel())
+            {
+                attribute = mappedElement.AsAttributeModel();
+                return true;
+            }
+
+            if (mappedElement.MappedElement?.Element is null)
+            {
+                return TryGetAdvancedMappedAttribute(mappedElement, out attribute);
+            }
+            mappedElement = mappedElement.MappedElement?.Element as IElement;
         }
 
-        foreach (var associationEnd in associationedElements)
-        {
-            foreach (var mapping in associationEnd.Mappings)
-            {
-                var mappedEnd = mapping.MappedEnds.FirstOrDefault(p => p.MappingType == "Data Mapping" && p.SourceElement.Id == field.Id);
-                if (mappedEnd is null)
-                {
-                    continue;
-                }
+        attribute = default;
+        return false;
+    }
 
-                attribute = mappedEnd.TargetElement?.AsAttributeModel();
-                if (attribute is not null)
-                {
-                    return true;
-                }
+    private static bool TryGetAdvancedMappedAttribute(DTOFieldModel field, out AttributeModel attribute) => TryGetAdvancedMappedAttribute(field.InternalElement, out attribute);
+    private static bool TryGetAdvancedMappedAttribute(IElement field, out AttributeModel attribute)
+    {
+        var mappedEnd = field.MappedToElements.FirstOrDefault(p => p.MappingType == "Data Mapping");
+        if (mappedEnd != null)
+        {
+            if (mappedEnd.TargetElement.IsAttributeModel())
+            {
+                attribute = mappedEnd.TargetElement.AsAttributeModel();
+                return true;
+            }
+
+            if (TryGetMappedAttribute((IElement)mappedEnd.TargetElement, out attribute))
+            {
+                return true;
             }
         }
 

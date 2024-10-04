@@ -11,7 +11,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Contracts.Ser
         public AggregateRootCompositeManyBDto()
         {
             CompositeAttr = null!;
-            Composites = null!;
+            Composites = [];
         }
 
         public string CompositeAttr { get; set; }

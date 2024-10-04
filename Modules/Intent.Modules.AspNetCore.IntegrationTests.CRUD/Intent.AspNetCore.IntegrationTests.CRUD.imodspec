@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.IntegrationTests.CRUD</id>
-  <version>1.0.8</version>
-  <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
+  <version>1.0.9</version>
+  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>The module adds implements integration tests for CRUD Services.</summary>
   <description>The module adds implements integration tests for CRUD Services.</description>
   <authors>Intent Architect</authors>
@@ -34,9 +34,9 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.AspNetCore.IntegrationTesting" version="1.0.6" />
+    <dependency id="Intent.AspNetCore.IntegrationTesting" version="1.0.8" />
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.6-pre.1" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Services" version="3.5.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />

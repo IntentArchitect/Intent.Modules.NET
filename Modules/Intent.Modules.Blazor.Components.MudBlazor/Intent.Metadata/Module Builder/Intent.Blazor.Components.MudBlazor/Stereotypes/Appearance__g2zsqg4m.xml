@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="b218f7cb-d150-401d-a17a-9e22fadf863f" version="3.1.0">
+  <name>Appearance</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="4474d808-f6fd-405f-a9c7-6998cd000ede">Button</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>always</applyMode>
+  <icon type="UrlImagePath" source="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjM0LjIiIHkxPSIxMi43IiB4Mj0iMzQuMiIgeTI9IjM2IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDAgNTIpIHNjYWxlKDEgLTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzRhOTkyNCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM4NmRlMzMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC0yIiB4MT0iMTUuOCIgeTE9IjEyLjciIHgyPSIxNS44IiB5Mj0iMzYiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA1Mikgc2NhbGUoMSAtMSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNGE5OTI0Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzg2ZGUzMyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTMiIHgxPSIyNC45IiB5MT0iMTIuNyIgeDI9IjI0LjkiIHkyPSIzNiIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgwIDUyKSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM0YTk5MjQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjODZkZTMzIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjguNy4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMS4yLjAgQnVpbGQgMTQyKSAgLS0+CiAgPGc+CiAgICA8ZyBpZD0iTGF5ZXJfMSI+CiAgICAgIDxwYXRoIGQ9Ik0zMC4xLDExLjdsMTIuMSwxMS45Yy40LjQuNS45LjUsMS40czAsMS0uNSwxLjRsLTEyLjEsMTIuMWMtLjguOC0yLC44LTIuNywwbC0xLjEtMS4xYy0uOC0uOC0uOC0yLDAtMi43bDkuNi05LjYtOS42LTkuNmMtLjgtLjgtLjgtMiwwLTIuN2wxLjEtMS4xYy44LS44LDItLjgsMi43LDBoMFoiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50KSIvPgogICAgICA8cGF0aCBkPSJNMTkuOSwzOC40bC0xMi4xLTExLjljLS40LS40LS41LS45LS41LTEuNHMwLTEsLjUtMS40bDEyLjEtMTIuMWMuOC0uOCwyLS44LDIuNywwbDEuMSwxLjFjLjguOC44LDIsMCwyLjdsLTkuNiw5LjYsOS42LDkuNmMuOC44LjgsMiwwLDIuN2wtMS4xLDEuMWMtLjguOC0yLC44LTIuNywwaDBaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudC0yKSIvPgogICAgICA8Y2lyY2xlIGN4PSIyNC45IiBjeT0iMjUuMSIgcj0iMy42IiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudC0zKSIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>8f48aab9-c1ef-44ec-a3a3-124ad96f17c2</parentFolderId>
+  <order>2</order>
+  <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+  <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+  <properties>
+    <property id="eecbc26c-443b-4d97-a706-a4e21fc13552">
+      <name>Icon Only</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return element.hasStereotype("8e1b7033-fd27-495a-a2a7-36b5168f04f5") // Icon</isActiveFunction>
+    </property>
+    <property id="de8a25d2-a144-4806-b5ad-e6c195abfa43">
+      <name>Variant</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>lookup-children</optionsSource>
+      <placeholder>(default)</placeholder>
+      <defaultValue>93828c49-ea2f-46d2-b661-df6fc2c4a0e2</defaultValue>
+      <valueOptions>
+        <option>Default</option>
+        <option>Primary</option>
+        <option>Secondary</option>
+        <option>Tertiary</option>
+        <option>Info</option>
+        <option>Success</option>
+        <option>Warning</option>
+      </valueOptions>
+      <lookupTypes />
+      <lookupInternalTargetPropertyId>return "00f38c60-da37-4e7d-acdf-ad79ffb4a9e6" // Variant (Enum);</lookupInternalTargetPropertyId>
+    </property>
+    <property id="d527d5a7-fd00-4486-a204-5c6fc93099a5">
+      <name>Color</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>lookup-children</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions>
+        <option>Default</option>
+        <option>Primary</option>
+        <option>Secondary</option>
+        <option>Tertiary</option>
+        <option>Info</option>
+        <option>Success</option>
+        <option>Warning</option>
+      </valueOptions>
+      <lookupTypes />
+      <lookupInternalTargetPropertyId>return "f357cbb8-2a8f-4765-93ec-3a5c15ca8313" // Color (Enum);</lookupInternalTargetPropertyId>
+    </property>
+    <property id="9243cf9b-c6de-47d4-a914-382ab7ddf920">
+      <name>Class</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

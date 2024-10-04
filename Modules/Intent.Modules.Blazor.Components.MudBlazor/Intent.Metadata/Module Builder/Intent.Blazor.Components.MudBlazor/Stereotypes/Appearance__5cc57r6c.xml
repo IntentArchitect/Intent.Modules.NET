@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="54eaa54d-6bed-4de6-8ee3-4c90ecd76a30" version="3.1.0">
+  <name>Appearance</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="329f635b-a55c-465f-b966-fe8411a5f57c">Image</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>always</applyMode>
+  <icon type="UrlImagePath" source="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjM0LjIiIHkxPSIxMi43IiB4Mj0iMzQuMiIgeTI9IjM2IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDAgNTIpIHNjYWxlKDEgLTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzRhOTkyNCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM4NmRlMzMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC0yIiB4MT0iMTUuOCIgeTE9IjEyLjciIHgyPSIxNS44IiB5Mj0iMzYiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA1Mikgc2NhbGUoMSAtMSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNGE5OTI0Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzg2ZGUzMyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTMiIHgxPSIyNC45IiB5MT0iMTIuNyIgeDI9IjI0LjkiIHkyPSIzNiIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgwIDUyKSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM0YTk5MjQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjODZkZTMzIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjguNy4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMS4yLjAgQnVpbGQgMTQyKSAgLS0+CiAgPGc+CiAgICA8ZyBpZD0iTGF5ZXJfMSI+CiAgICAgIDxwYXRoIGQ9Ik0zMC4xLDExLjdsMTIuMSwxMS45Yy40LjQuNS45LjUsMS40czAsMS0uNSwxLjRsLTEyLjEsMTIuMWMtLjguOC0yLC44LTIuNywwbC0xLjEtMS4xYy0uOC0uOC0uOC0yLDAtMi43bDkuNi05LjYtOS42LTkuNmMtLjgtLjgtLjgtMiwwLTIuN2wxLjEtMS4xYy44LS44LDItLjgsMi43LDBoMFoiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50KSIvPgogICAgICA8cGF0aCBkPSJNMTkuOSwzOC40bC0xMi4xLTExLjljLS40LS40LS41LS45LS41LTEuNHMwLTEsLjUtMS40bDEyLjEtMTIuMWMuOC0uOCwyLS44LDIuNywwbDEuMSwxLjFjLjguOC44LDIsMCwyLjdsLTkuNiw5LjYsOS42LDkuNmMuOC44LjgsMiwwLDIuN2wtMS4xLDEuMWMtLjguOC0yLC44LTIuNywwaDBaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudC0yKSIvPgogICAgICA8Y2lyY2xlIGN4PSIyNC45IiBjeT0iMjUuMSIgcj0iMy42IiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudC0zKSIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>8f48aab9-c1ef-44ec-a3a3-124ad96f17c2</parentFolderId>
+  <order>2</order>
+  <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+  <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+  <properties>
+    <property id="e7e01d30-761c-4d74-aab2-86d60f4c3da4">
+      <name>Fluid</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>false</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="17f49bf9-0511-469e-8fe3-58ce147af1bc">
+      <name>Width</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="c7f28cef-4c5b-4b41-ae40-50a21ba6dd0f">
+      <name>Height</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="989f2cf7-ca7d-4623-9fa0-c1b90d20f77f">
+      <name>Elevation</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction />
+    </property>
+    <property id="5a21da28-5f76-40b4-946b-0306be8d8dc1">
+      <name>Class</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

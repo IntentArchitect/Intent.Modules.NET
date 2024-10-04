@@ -35,7 +35,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.CreateOrderO
             var orderItem = new OrderItem
             {
                 Quantity = request.Quantity,
+                Units = request.Units,
                 UnitPrice = request.Amount,
+                OrderId = request.OrderId,
                 ProductId = request.ProductId
             };
 

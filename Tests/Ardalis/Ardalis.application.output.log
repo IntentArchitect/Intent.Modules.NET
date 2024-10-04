@@ -84,7 +84,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3aa4bb7c-d323-48c1-85c5-64c5bdfcbf3a</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.TypeSchemaFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Ardalis.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
@@ -539,6 +539,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>731d5899-6861-4efe-b7b5-20a84a5af932</ProjectId>
+      <CorrelationId>Intent.Ardalis.Repositories.Specification#bea45036-f306-433e-99e0-abeebfe8180f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Ardalis.Domain/Specifications/ClientSpec.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientSpec.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>8f2dac92-e4b7-47e4-9db6-fd06d04e58dc</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#8f2dac92-e4b7-47e4-9db6-fd06d04e58dc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -592,6 +600,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Ardalis.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>07472d48-4d45-418a-9655-f1c8604d38df</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#07472d48-4d45-418a-9655-f1c8604d38df</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Ardalis.IntegrationTests/Ardalis.IntegrationTests.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ardalis.IntegrationTests.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

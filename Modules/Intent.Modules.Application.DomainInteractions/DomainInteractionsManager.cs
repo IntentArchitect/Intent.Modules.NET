@@ -184,7 +184,7 @@ public class DomainInteractionsManager
                 }
                 else
                 {
-                    queryInvocation =  dataAccess.FindAsync(queryMapping, out var requiredStatements);
+                    queryInvocation = dataAccess.FindAsync(queryMapping, out var requiredStatements);
                     prerequisiteStatement.AddRange(requiredStatements);
                 }
             }
@@ -204,11 +204,11 @@ public class DomainInteractionsManager
 
                     if (associationEnd.TypeReference.IsCollection && idFields.All(x => x.Mapping.SourceElement.TypeReference.IsCollection))
                     {
-                        queryInvocation =  dataAccess.FindByIdsAsync(idFields);
+                        queryInvocation = dataAccess.FindByIdsAsync(idFields);
                     }
                     else
                     {
-                        queryInvocation =  dataAccess.FindByIdAsync(idFields);
+                        queryInvocation = dataAccess.FindByIdAsync(idFields);
                     }
                 }
                 // USE THE FindAllAsync/FindAsync METHODS WITH EXPRESSION:
@@ -223,12 +223,12 @@ public class DomainInteractionsManager
                     }
                     else if (associationEnd.TypeReference.IsCollection)
                     {
-                        queryInvocation =  dataAccess.FindAllAsync(queryMapping, out var requiredStatements);
+                        queryInvocation = dataAccess.FindAllAsync(queryMapping, out var requiredStatements);
                         prerequisiteStatement.AddRange(requiredStatements);
                     }
                     else
                     {
-                        queryInvocation =  dataAccess.FindAsync(queryMapping, out var requiredStatements);
+                        queryInvocation = dataAccess.FindAsync(queryMapping, out var requiredStatements);
                         prerequisiteStatement.AddRange(requiredStatements);
                     }
                 }
@@ -243,6 +243,11 @@ public class DomainInteractionsManager
                 var queryFields = queryMapping.MappedEnds
                     .Select(x => new CSharpStatement($"{{{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}}}"))
                     .ToList();
+                if (queryFields.Count == 0)
+                {
+                    throw new ElementException(associationEnd, "Query for single entity has no mappings specified. Either indicate mappings or set Is Collection to true if trying to fetch all entities as a collection.");
+                }
+
                 statements.Add(CreateIfNullThrowNotFoundStatement(
                     template: _template,
                     variable: entityVariableName,
@@ -253,6 +258,10 @@ public class DomainInteractionsManager
             TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity.InternalElement, entityVariableName, dataAccess, false, associationEnd.TypeReference.IsCollection));
 
             return statements;
+        }
+        catch (ElementException ex)
+        {
+            throw;
         }
         catch (Exception ex)
         {

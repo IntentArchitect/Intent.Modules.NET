@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>a490ca93-d5f0-448e-94ef-0f53e729c284</id>
+  <name>MudBlazor Core Components</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings>
+    <elementSetting type="Spacer" typeId="cfc58280-fe7e-466d-9c00-ddb41b5462e7">
+      <implements>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </implements>
+      <icon type="UrlImagePath" source="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjI1IiB5MT0iMzQuNyIgeDI9IjI1IiB5Mj0iMTkuMSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM0YTk5MjQiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjODZkZTMzIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjguNy4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMS4yLjAgQnVpbGQgMTQyKSAgLS0+CiAgPGc+CiAgICA8ZyBpZD0iTGF5ZXJfMSI+CiAgICAgIDxnIGlkPSJMYXllcl8xLTIiIGRhdGEtbmFtZT0iTGF5ZXJfMSI+CiAgICAgICAgPHBhdGggZD0iTTQ3LjMsMjQuMXYxLjhjMCwuMywwLC42LS4zLjhoMGwtOS40LDkuNGgwYy0uNS41LTEuNS4zLTIuMi0uNGwtMS42LTEuNmMtLjctLjctLjktMS43LS4zLTIuM2w0LjMtNC4zSDEyLjVsNC4zLDQuM2gwYy41LjUuMywxLjUtLjQsMi4ybC0xLjYsMS42Yy0uNy43LTEuNy45LTIuMy4zTDQsMjcuNGwtLjktLjljLS4yLS4yLS4zLS41LS4zLS44di0xLjhjMC0uMywwLS42LjMtLjhoMGw5LjQtOS40aDBjLjUtLjUsMS41LS4zLDIuMi40bDEuNiwxLjZjLjcuNy45LDEuNy4zLDIuM2wtNC4zLDQuM2gyNS4zbC00LjMtNC4zaDBjLS41LS41LS4zLTEuNS40LTIuMmwxLjYtMS42Yy43LS43LDEuNy0uOSwyLjMtLjNsMy44LDMuOCw0LjYsNC42LjkuOWMuMi4yLjMuNS4zLjloLjFaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudCkiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+" />
+      <saveAsOwnFile>false</saveAsOwnFile>
+      <allowRename>true</allowRename>
+      <nameMustBeUnique>true</nameMustBeUnique>
+      <allowAbstract>false</allowAbstract>
+      <allowStatic>false</allowStatic>
+      <allowGenericTypes>false</allowGenericTypes>
+      <allowMapping>false</allowMapping>
+      <allowSorting>true</allowSorting>
+      <sortChildren>by-type-then-by-name</sortChildren>
+      <allowFindInView>false</allowFindInView>
+      <allowTypeReference>false</allowTypeReference>
+      <allowConvertToType p4:nil="true" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance" />
+      <allowSetValue>false</allowSetValue>
+      <mappingSettings />
+    </elementSetting>
+  </elementSettings>
+  <elementExtensions />
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+  <scripts />
+</settings>

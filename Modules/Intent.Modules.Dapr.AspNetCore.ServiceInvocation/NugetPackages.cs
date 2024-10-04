@@ -33,6 +33,9 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
                         ( >= 8, 0) => new PackageVersion("8.0.8")
                             .WithNugetDependency("Microsoft.Net.Http.Headers", "8.0.8")
                             .WithNugetDependency("System.IO.Pipelines", "8.0.0"),
+                        ( >= 2, 0) => new PackageVersion("2.2.0")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "2.2.0")
+                            .WithNugetDependency("System.Text.Encodings.Web", "4.5.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreWebUtilitiesPackageName}'"),
                     }
                 );

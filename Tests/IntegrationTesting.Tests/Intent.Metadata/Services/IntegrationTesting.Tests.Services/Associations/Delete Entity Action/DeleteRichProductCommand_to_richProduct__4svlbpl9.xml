@@ -22,6 +22,9 @@
     <name>richProduct</name>
     <display>[delete] richProduct: RichProduct</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="8d8201cb-4bd5-4723-8772-d9dd0d3c0774">
       <typeId>368531c0-eb48-4728-bcc2-9573d18e43a5</typeId>
       <isNavigable>true</isNavigable>

@@ -101,7 +101,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="3949680a-f572-48d4-95c9-f42bd8df2a01" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="91762226-321d-4a87-b127-3cc888d9e10e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.CosmosDB.EnumJsonConverter</name>
       <display>Intent.CosmosDB.EnumJsonConverter</display>
       <externalReference>Intent.CosmosDB</externalReference>

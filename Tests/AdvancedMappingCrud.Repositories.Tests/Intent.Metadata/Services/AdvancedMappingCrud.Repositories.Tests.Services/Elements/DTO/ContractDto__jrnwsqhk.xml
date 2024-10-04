@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="492eec1f-13ec-425c-88ed-04666d2c7a7b" name="Contract" type="element" specialization="Class" />
+      <target id="492eec1f-13ec-425c-88ed-04666d2c7a7b" name="Contract" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>ac17ce78-ac1e-4394-aedf-5ef7ec74bb1b</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="533951aa-9ba8-4372-89b5-cd4ad1addaf3" name="Id" type="element" specialization="Attribute" />
+          <target id="533951aa-9ba8-4372-89b5-cd4ad1addaf3" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>c65d8ef2-07d6-4cce-8baa-d635563ad1e5</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="efa68665-8a16-48e8-a71e-48ae55732303" name="Name" type="element" specialization="Attribute" />
+          <target id="efa68665-8a16-48e8-a71e-48ae55732303" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>c65d8ef2-07d6-4cce-8baa-d635563ad1e5</parentFolderId>
@@ -152,7 +152,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="6e8b9b19-c7ba-42ca-b7cb-a76dd2ebe07e" name="IsActive" type="element" specialization="Attribute" />
+          <target id="6e8b9b19-c7ba-42ca-b7cb-a76dd2ebe07e" name="IsActive" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>c65d8ef2-07d6-4cce-8baa-d635563ad1e5</parentFolderId>

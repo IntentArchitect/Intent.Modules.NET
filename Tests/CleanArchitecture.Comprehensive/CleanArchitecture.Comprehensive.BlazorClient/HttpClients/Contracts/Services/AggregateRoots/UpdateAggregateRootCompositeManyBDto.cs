@@ -12,7 +12,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Contracts.Ser
         public UpdateAggregateRootCompositeManyBDto()
         {
             CompositeAttr = null!;
-            Composites = null!;
+            Composites = [];
         }
 
         [Required(ErrorMessage = "Composite attr is required.")]

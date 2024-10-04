@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#b649e2a1-96a8-4b1b-ba82-b48cb32f6a66</correlationId>
+      <path>Intent.Modules.Blazor/FactoryExtensions/BlazorAspNetCoreStartupInstaller.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-06-26T06:13:53.2222578Z</updatedAt>
+      <deviationsHash>4952755CE6BDC0936CB35781E416897F46153F726BAD40450FDADA30AFACEB04</deviationsHash>
+      <fileHash>3375873776747980DBDFC12408B8DF5F2C76BF081F01EE373124DEE4E29EFAC2</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2d5ee2ba-5a78-4ac9-9905-ccd9f68247f9</correlationId>
+      <path>Intent.Modules.Blazor/Templates/Templates/Client/Program/ProgramTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-08-31T14:23:25.8116789Z</updatedAt>
+      <deviationsHash>5B62E4129E2F36143F4064F64FA22BB29355E04CF492569B3EF07D125870655D</deviationsHash>
+      <fileHash>5C27C402EA8BB5B3456A79347329683DC77865A4CEA6628D5FCD107020CD1CF4</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#1132514b-15dd-4dac-b602-462278e1128d</correlationId>
+      <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorComponent/RazorComponentTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-08-31T14:23:25.8117184Z</updatedAt>
+      <deviationsHash>D6E9818C67256E08495449C540E7E0408902DCC49FA777A3498754436D726A1D</deviationsHash>
+      <fileHash>E4C1C2ECCEB9DFA1C816FB39A4568BF00ADF0A49BEA470E4BD362B2B932A22AF</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#1132514b-15dd-4dac-b602-462278e1128d</correlationId>
+      <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorComponent/RazorComponentTemplateRegistration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-08-31T14:23:25.8117764Z</updatedAt>
+      <deviationsHash>C7387633408EF74314BAD37F65241AC4064F7B0086877EED5E83C1F72501359A</deviationsHash>
+      <fileHash>CC9D06A80ECE2BE15B53215F9E3E298A30F52F81A97DE2B1235B6C7BFFA8778F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#4220376c-a610-4599-b89c-83599b2f49f0</correlationId>
+      <path>Intent.Modules.Blazor/Templates/Templates/Client/RazorLayout/RazorLayoutTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-08-31T14:23:25.8117262Z</updatedAt>
+      <deviationsHash>0F27A94780EEB5385BC0BFE852EF2D89D1C235431D997964BD63B661CB29A3D1</deviationsHash>
+      <fileHash>B6832BCD18CB801D841F77B9C3CCB2034D4B24C81502212656C6A8839AAE004E</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#92022c0f-33eb-40fd-9d2a-88fb20eefaac</correlationId>
+      <path>Intent.Modules.Blazor/Templates/Templates/Client/RoutesRazor/RoutesRazorTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-08-31T14:23:25.8117336Z</updatedAt>
+      <deviationsHash>54A1C27F1CF048A4FA7369BF01D455FE04C3E36F1F8742A570EE7BF090964567</deviationsHash>
+      <fileHash>02E07FBDD3F5CB7FCAEF16E40447B43EAB1F16989C74FE48785EA1BC8AD2C8C3</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#b7665695-e7e7-4a21-883a-da6fa2d84710</correlationId>
+      <path>Intent.Modules.Blazor/Templates/Templates/Server/AppRazor/AppRazorTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-08-31T14:23:25.8117022Z</updatedAt>
+      <deviationsHash>EB677E52EC84423A6AC719FAD686B65C99C5244DC6B8964C899617CE3749B8D2</deviationsHash>
+      <fileHash>EF92CA7ACE8F5ACA0AC1265BFEA4E45B0ADE418947ADD0C405D7047FD8B1AB25</fileHash>
+    </file>
+  </files>
+</deviationsLog>

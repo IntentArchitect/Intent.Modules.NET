@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
@@ -122,6 +123,12 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                     @class.AddMethod(GetReturnType(endpoint), $"{endpoint.Name.ToPascalCase().RemoveSuffix("Async")}Async", method =>
                     {
                         method.Async();
+                        // Doing it this way because endpoints don't have any context of the source operation, only the mapped-to elements (i.e. commands/queries/etc).
+                        if (Model.UnderlyingModel is ServiceProxyModel serviceProxyModel && serviceProxyModel.Operations.Any())
+                        {
+                            var operationModel = serviceProxyModel.Operations.Single(x => x.Mapping?.ElementId == endpoint.Id);
+                            method.RepresentsModel(operationModel);
+                        }
 
                         var endpointRoute = endpoint.Route;
                         foreach (var input in endpoint.Inputs)
@@ -176,8 +183,16 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                      ? headerParams
                                      : Enumerable.Empty<IHttpEndpointInputModel>())
                         {
-                            if (headerParameter.HeaderName.ToLower() == "content-type")
+                            if (string.IsNullOrWhiteSpace(headerParameter.HeaderName))
+                            {
+                                throw new Exception($"Header parameter '{headerParameter.Name}' is missing a Header Name.");
+                            }
+
+                            if (headerParameter.HeaderName.Equals("content-type", StringComparison.OrdinalIgnoreCase))
+                            {
                                 continue;
+                            }
+
                             if (headerParameter.TypeReference.IsNullable)
                             {
                                 method.AddIfStatement($"{headerParameter.Name.ToParameterName()} != null", stmt => 

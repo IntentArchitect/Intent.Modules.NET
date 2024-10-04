@@ -3,7 +3,7 @@
   <name>[element visual]</name>
   <display>[visual]: Hangfire Job</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-manually</sort-children>
+  <sort-children>manually</sort-children>
   <genericTypes />
   <typeReference id="8e7945cc-e974-482d-a724-3b033a834e6f">
     <typeId>995f1902-4efb-42ba-b089-a5e856c48943</typeId>

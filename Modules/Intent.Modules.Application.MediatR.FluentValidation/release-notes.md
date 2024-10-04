@@ -1,3 +1,8 @@
+### Version 4.7.0
+
+- Fixed: Domain constraints not being propagated into validators when the data graph is more than two levels deep.
+- Fixed: Validations not being applied when mapping to constructor parameters.
+
 ### Version 4.6.4
 
 - Fixed: Update the `UnhandledExceptionBehaviour` in `Intent.Application.MediatR.Behaviours` to not allow logging of `ValidationExceptions` as part of unhandled exceptions.

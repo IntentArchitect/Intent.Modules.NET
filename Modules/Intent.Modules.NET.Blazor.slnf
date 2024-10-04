@@ -1,0 +1,19 @@
+{
+  "solution": {
+    "path": "Intent.Modules.NET.sln",
+    "projects": [
+      "Intent.Modules.Application.FluentValidation\\Intent.Modules.Application.FluentValidation.csproj",
+      "Intent.Modules.Blazor.Components.Core\\Intent.Modules.Blazor.Components.Core.csproj",
+      "Intent.Modules.Blazor.Components.MudBlazor\\Intent.Modules.Blazor.Components.MudBlazor.csproj",
+      "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation\\Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.csproj",
+      "Intent.Modules.Blazor.HttpClients\\Intent.Modules.Blazor.HttpClients.csproj",
+      "Intent.Modules.Blazor\\Intent.Modules.Blazor.csproj",
+      "Intent.Modules.Constants\\Intent.Modules.Constants.csproj",
+      "Intent.Modules.Contracts.Clients.Shared\\Intent.Modules.Contracts.Clients.Shared.shproj",
+      "Intent.Modules.Enums.Shared\\Intent.Modules.Enums.Shared.shproj",
+      "Intent.Modules.FluentValidation.Shared\\Intent.Modules.FluentValidation.Shared.shproj",
+      "Intent.Modules.Integration.HttpClients.Shared\\Intent.Modules.Integration.HttpClients.Shared.shproj",
+      "Intent.Modules.VisualStudio.Projects\\Intent.Modules.VisualStudio.Projects.csproj"
+    ]
+  }
+}

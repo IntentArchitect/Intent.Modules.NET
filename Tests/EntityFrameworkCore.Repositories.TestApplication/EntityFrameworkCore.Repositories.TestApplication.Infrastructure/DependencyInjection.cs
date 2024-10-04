@@ -39,6 +39,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure
             services.AddTransient<ISqlParameterRepositoryReturningScalarRepository, SqlParameterRepositoryReturningScalarRepository>();
             services.AddTransient<ISqlParameterRepositoryWithNameRepository, SqlParameterRepositoryWithNameRepository>();
             services.AddTransient<ISqlParameterRepositoryWithoutNameRepository, SqlParameterRepositoryWithoutNameRepository>();
+            services.AddTransient<IStoredProcOperationsRepository, StoredProcOperationsRepository>();
             services.AddTransient<IMappableStoredProcRepository, MappableStoredProcRepository>();
             services.AddTransient<IAggregateRoot1Repository, AggregateRoot1Repository>();
             services.AddTransient<IAggregateRoot2CompositionRepository, AggregateRoot2CompositionRepository>();

@@ -3,6 +3,13 @@
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-    "AzureBlobStorage": "UseDevelopmentStorage=true"
+    "AzureBlobStorage": "UseDevelopmentStorage=true",
+    "IdentityClients:default:Address": "https://localhost:{sts_port}/connect/token",
+    "IdentityClients:default:ClientId": "clientId",
+    "IdentityClients:default:ClientSecret": "secret",
+    "IdentityClients:default:Scope": "api",
+    "HttpClients:AzureFunctions.TestApplication.Services:Uri": "https://localhost:{app_port}/",
+    "HttpClients:AzureFunctions.TestApplication.Services:IdentityClientKey": "default",
+    "HttpClients:AzureFunctions.TestApplication.Services:Timeout": "00:01:00"
   }
 }

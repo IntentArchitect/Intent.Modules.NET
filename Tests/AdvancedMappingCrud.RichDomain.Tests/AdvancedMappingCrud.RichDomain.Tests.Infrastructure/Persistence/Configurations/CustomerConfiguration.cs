@@ -15,7 +15,8 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Persistence.Config
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Login)
-                .IsRequired();
+                .IsRequired()
+                .HasMaxLength(50);
 
             builder.Property(x => x.UserId)
                 .IsRequired();

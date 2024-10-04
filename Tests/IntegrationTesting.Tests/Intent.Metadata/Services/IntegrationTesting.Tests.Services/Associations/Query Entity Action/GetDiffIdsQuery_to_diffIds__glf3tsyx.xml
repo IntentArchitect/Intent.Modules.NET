@@ -22,6 +22,9 @@
     <name>diffIds</name>
     <display>[query] diffIds: DiffId[*]</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="cf44caec-ea12-4287-9af5-3365706905a1">
       <typeId>8b77b4cb-29ff-40ca-8a59-66de22b90cb3</typeId>
       <isNavigable>true</isNavigable>

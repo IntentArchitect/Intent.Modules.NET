@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Ardalis.Domain.Common.Exceptions;
 using Ardalis.Domain.Repositories;
+using Ardalis.Domain.Specifications;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -28,7 +29,7 @@ namespace Ardalis.Application.Clients.GetClientById
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<ClientDto> Handle(GetClientByIdQuery request, CancellationToken cancellationToken)
         {
-            var client = await _clientRepository.FindByIdAsync(request.Id, cancellationToken);
+            var client = await _clientRepository.FirstOrDefaultAsync(new ClientSpec(request.Id), cancellationToken);
             if (client is null)
             {
                 throw new NotFoundException($"Could not find Client '{request.Id}'");

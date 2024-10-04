@@ -25,6 +25,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         private CSharpProjectNETModel _model;
 
         private readonly List<EnvironmentVariableRegistrationRequest> _environmentVariables = new();
+        private bool _noDefaultLaunchSettingsFile;
 
         public const string Identifier = "Intent.VisualStudio.Projects.CoreWeb.LaunchSettings";
 
@@ -40,6 +41,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 #pragma warning restore CS0618 // Type or member is obsolete
             ExecutionContext.EventDispatcher.Subscribe<DefaultLaunchUrlPathRequest>(HandleDefaultLaunchUrlRequest);
             ExecutionContext.EventDispatcher.Subscribe(LaunchProfileHttpPortRequired.EventId, _ => _launchProfileHttpPortRequired = true);
+            ExecutionContext.EventDispatcher.Subscribe<AddProjectPropertyEvent>(HandleNoDefaultLaunchSettingsFile);
         }
 
         public override string GetCorrelationId()
@@ -67,6 +69,26 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                     out var publishAllPorts) && publishAllPorts ? null : true,
                 UseSsl = bool.TryParse(@event.TryGetValue(LaunchProfileRegistrationEvent.UseSSL), out var useSsl) && useSsl ? null : false,
             });
+        }
+
+        private void HandleNoDefaultLaunchSettingsFile(AddProjectPropertyEvent @event)
+        {
+            if (!OutputTarget.GetProject().Equals(@event.Target))
+            {
+                return;
+            }
+
+            if (@event.PropertyName != "NoDefaultLaunchSettingsFile")
+            {
+                return;
+            }
+
+            _noDefaultLaunchSettingsFile = @event.PropertyValue == "true";
+        }
+        
+        public override bool CanRunTemplate()
+        {
+            return !_noDefaultLaunchSettingsFile;
         }
 
         private void HandleLaunchProfileRegistration(LaunchProfileRegistrationRequest request)

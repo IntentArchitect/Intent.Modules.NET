@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
@@ -19,7 +20,7 @@ public class ServiceControllerModel : IControllerModel
     {
         if (model.HasSecured() && model.HasUnsecured())
         {
-            throw new Exception($"Controller {model.Name} cannot require authorization and allow-anonymous at the same time");
+            throw new ElementException(model.InternalElement, $"Controller {model.Name} cannot require authorization and allow-anonymous at the same time");
         }
 
         _model = model;
@@ -39,6 +40,9 @@ public class ServiceControllerModel : IControllerModel
         InternalElement = model.InternalElement;
     }
 
+    // DJVV - Why are we checking here for "Authorize" when it's a MediatR only thing?
+    // This should only check for "Secured" since this Controller Model is for traditional services.
+    // See CqrsControllerModel.cs
     private static bool GetAuthorizationRolesAndPolicies(IElement element, out string roles, out string policy)
     {
         roles = null;
@@ -93,9 +97,12 @@ public class ServiceControllerModel : IControllerModel
 
     private string GetControllerRoute(string route)
     {
-        var serviceName = _model.Name.RemoveSuffix("Controller", "Service");
+        if (string.IsNullOrWhiteSpace(route))
+        {
+            return null;
+        }
 
-        route ??= "api/[controller]";
+        var serviceName = _model.Name.RemoveSuffix("Controller", "Service");
         var segments = route
             .Split('/')
             .Select(segment => segment.Equals(serviceName, StringComparison.OrdinalIgnoreCase) ? "[controller]" : segment);

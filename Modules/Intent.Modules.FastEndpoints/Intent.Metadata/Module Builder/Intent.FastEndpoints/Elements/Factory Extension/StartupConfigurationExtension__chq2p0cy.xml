@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a08c7ea6-f838-432e-a9a1-6dcf3e14b05a" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>StartupConfigurationExtension</name>
+  <display>StartupConfigurationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>430deea4-f39e-436a-890e-10ff0536f95c</parentFolderId>
+  <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+  <packageName>Intent.FastEndpoints</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

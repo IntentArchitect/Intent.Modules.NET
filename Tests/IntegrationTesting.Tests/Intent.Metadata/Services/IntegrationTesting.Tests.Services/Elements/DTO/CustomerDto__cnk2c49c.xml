@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="7ec51383-c468-41fc-ac0a-1702683ce526" name="Customer" type="element" specialization="Class" />
+      <target id="7ec51383-c468-41fc-ac0a-1702683ce526" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>0880fd7d-223d-4174-9365-e76d4320a242</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="9025a8ac-15ae-4123-a047-489e1d6cf156" name="Id" type="element" specialization="Attribute" />
+          <target id="9025a8ac-15ae-4123-a047-489e1d6cf156" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>5aacc0a8-9fd2-404f-87d8-ff9c121daafe</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="467e2863-3f6e-4e9f-a183-2f29ae51fbb6" name="Name" type="element" specialization="Attribute" />
+          <target id="467e2863-3f6e-4e9f-a183-2f29ae51fbb6" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>5aacc0a8-9fd2-404f-87d8-ff9c121daafe</parentFolderId>
@@ -152,8 +152,8 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="54566610-8907-4a37-ac65-a1c9c0233d37" name="Address" type="association" specialization="Association Target End" />
-          <target id="196abaad-d9d5-4138-9e6b-65667640567a" name="Line1" type="element" specialization="Attribute" />
+          <target id="54566610-8907-4a37-ac65-a1c9c0233d37" name="Address" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+          <target id="196abaad-d9d5-4138-9e6b-65667640567a" name="Line1" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>5aacc0a8-9fd2-404f-87d8-ff9c121daafe</parentFolderId>
