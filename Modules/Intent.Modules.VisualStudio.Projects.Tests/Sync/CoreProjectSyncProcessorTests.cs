@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common.CSharp.VisualStudio;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Sync;
 using Intent.Modules.VisualStudio.Projects.Templates;
@@ -73,6 +74,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.Sync
             outputTarget.Metadata.Returns(new Dictionary<string, object>
             {
                 ["VS.Dependencies"] = new List<IOutputTarget>(),
+                ["VS.References"] = new List<IAssemblyReference>(),
                 ["VS.FrameworkReferences"] = new HashSet<string>()
             });
 
