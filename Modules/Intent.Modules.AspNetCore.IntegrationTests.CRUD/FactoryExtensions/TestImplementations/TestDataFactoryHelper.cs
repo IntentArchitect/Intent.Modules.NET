@@ -1,5 +1,6 @@
 ﻿using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.AspNetCore.IntegrationTesting;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -30,9 +31,23 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                         .AddGenericParameter("T")
                         .AddStatement("var fixture = new Fixture();")
                         .AddStatement("fixture.RepeatCount = 1;")
-                        .AddStatement("fixture.Customizations.Add(new PopulateIdsSpecimenBuilder(_idTracker));")
-                        .AddStatement("return fixture.Create<T>();")
-                    ;
+                        .AddStatement("fixture.Customizations.Add(new PopulateIdsSpecimenBuilder(_idTracker));");
+
+                    var autoFixtureVersions = NugetPackages.AutoFixture(template.OutputTarget).Version.Split(".");
+
+                    // The fix is only required for versions of AutoFixture < 5
+                    // Strictly speaking, this is required for all versions of AutoFixture before 5.0.0-preview0011, but the assumption
+                    // is a preview version will not be added into Intent as the default
+                    if (autoFixtureVersions.Length > 0 && int.TryParse(autoFixtureVersions[0], out int majorVersion) && majorVersion < 5 )
+                    {
+                        if (crudTests is not null && crudTests.Any(t => t.Entity is not null &&
+                            t.Entity.Attributes is not null && t.Entity.Attributes.Any(a => a.Type.HasDateType())))
+                        {
+                            method.AddStatement($"fixture.Customize<DateOnly>(o => o.FromFactory(({template.UseType("System.DateTime")} dt) => DateOnly.FromDateTime(dt)));");
+                        }
+                    }
+
+                    method.AddStatement("return fixture.Create<T>();");
                 });
 
                 foreach (var crudTest in crudTests)
