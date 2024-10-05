@@ -37,20 +37,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="c4eb1f92-4763-4e18-b8c2-b73d86923f08" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Controllers.TypeSchemaFilter</name>
-      <display>Intent.AspNetCore.Controllers.TypeSchemaFilter</display>
-      <externalReference>Intent.AspNetCore.Controllers</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>0e2b340a-ff02-42a7-96e9-e519747747b8</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="1d5b1c23-4daa-4956-8d52-28078551e979" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</name>
       <display>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</display>
@@ -69,6 +55,20 @@
       <name>Intent.Modules.Hangfire.HangfireDashboardAuthFilter</name>
       <display>Intent.Modules.Hangfire.HangfireDashboardAuthFilter</display>
       <externalReference>Intent.Modules.Hangfire</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0e2b340a-ff02-42a7-96e9-e519747747b8</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3ad2eef2-52d4-4edc-8a65-e541a7366b93" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</name>
+      <display>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</display>
+      <externalReference>Intent.AspNetCore.Swashbuckle</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

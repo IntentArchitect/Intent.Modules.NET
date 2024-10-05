@@ -184,7 +184,10 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
 
         private static void SyncActualProjectReferences(IOutputTarget project, XDocument doc)
         {
-            if (project.References().Count <= 0)
+            // Temporary hack to address an issue in the current Application.Dtos module doing this (which needs to be removed)
+            // AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
+            var references = project.References().Where(r => r.Library != "System.Runtime.Serialization").ToList();
+            if (references.Count <= 0)
             {
                 return;
             }
@@ -204,8 +207,9 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
                 projectElement.Add("  ");
             }
 
-            foreach (var reference in project.References())
+            foreach (var reference in references)
             {
+
                 var projectUrl = reference.Library.Replace('/', '\\'); 
                     
                 var projectReferenceItem = doc.XPathSelectElement($"/Project/ItemGroup/ProjectReference[@Include='{projectUrl}']");
