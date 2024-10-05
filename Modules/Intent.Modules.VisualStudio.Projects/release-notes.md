@@ -1,4 +1,4 @@
-### Version 3.8.0
+### Version 3.8.1
 
 - Improvement: Added support for external project references on CSharpProject.
 
