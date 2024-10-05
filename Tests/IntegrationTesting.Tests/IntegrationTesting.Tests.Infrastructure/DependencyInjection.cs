@@ -34,6 +34,7 @@ namespace IntegrationTesting.Tests.Infrastructure
             services.AddTransient<IDiffIdRepository, DiffIdRepository>();
             services.AddTransient<IDiffPkRepository, DiffPkRepository>();
             services.AddTransient<IDtoReturnRepository, DtoReturnRepository>();
+            services.AddTransient<IHasDateOnlyFieldRepository, HasDateOnlyFieldRepository>();
             services.AddTransient<IHasMissingDepRepository, HasMissingDepRepository>();
             services.AddTransient<IMissingDepRepository, MissingDepRepository>();
             services.AddTransient<INoReturnRepository, NoReturnRepository>();

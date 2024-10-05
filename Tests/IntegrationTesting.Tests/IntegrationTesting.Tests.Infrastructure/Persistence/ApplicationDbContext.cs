@@ -33,6 +33,7 @@ namespace IntegrationTesting.Tests.Infrastructure.Persistence
         public DbSet<DiffId> DiffIds { get; set; }
         public DbSet<DiffPk> DiffPks { get; set; }
         public DbSet<DtoReturn> DtoReturns { get; set; }
+        public DbSet<HasDateOnlyField> HasDateOnlyFields { get; set; }
         public DbSet<HasMissingDep> HasMissingDeps { get; set; }
         public DbSet<MissingDep> MissingDeps { get; set; }
         public DbSet<NoReturn> NoReturns { get; set; }
@@ -70,6 +71,7 @@ namespace IntegrationTesting.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new DiffIdConfiguration());
             modelBuilder.ApplyConfiguration(new DiffPkConfiguration());
             modelBuilder.ApplyConfiguration(new DtoReturnConfiguration());
+            modelBuilder.ApplyConfiguration(new HasDateOnlyFieldConfiguration());
             modelBuilder.ApplyConfiguration(new HasMissingDepConfiguration());
             modelBuilder.ApplyConfiguration(new MissingDepConfiguration());
             modelBuilder.ApplyConfiguration(new NoReturnConfiguration());

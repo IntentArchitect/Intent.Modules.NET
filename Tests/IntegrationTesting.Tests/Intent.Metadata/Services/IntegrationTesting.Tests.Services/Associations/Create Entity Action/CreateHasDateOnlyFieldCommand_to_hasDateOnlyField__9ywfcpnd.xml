@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f9c42b90-8ccb-4cf8-8943-120913d5cfbe">
+  <sourceEnd id="8f43764f-eb1a-48e8-b2ad-f87c6dcaa71a" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : HasDateOnlyFields.CreateHasDateOnlyFieldCommand</display>
+    <order>0</order>
+    <typeReference id="d8152521-31be-4728-8d0b-8121cdcb354f">
+      <typeId>f6577b74-e621-4641-876a-8fffa4edb6da</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f9c42b90-8ccb-4cf8-8943-120913d5cfbe" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>hasDateOnlyField</name>
+    <display>[create] hasDateOnlyField: HasDateOnlyField</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="ecd37210-7be6-469d-9f89-f0daabb9d2a7">
+      <typeId>629a37b1-7ac8-45aa-80e0-db4aeb9db54a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f6577b74-e621-4641-876a-8fffa4edb6da" location="[IntegrationTesting.Tests].[Services].[CreateHasDateOnlyFieldCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="629a37b1-7ac8-45aa-80e0-db4aeb9db54a" location="[IntegrationTesting.Tests].[Services].[HasDateOnlyField]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateHasDateOnlyFieldCommand}</expression>
+            <path>
+              <target id="629a37b1-7ac8-45aa-80e0-db4aeb9db54a" name="HasDateOnlyField" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateHasDateOnlyFieldCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="f6577b74-e621-4641-876a-8fffa4edb6da" name="CreateHasDateOnlyFieldCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{MyDate}</expression>
+            <path>
+              <target id="629a37b1-7ac8-45aa-80e0-db4aeb9db54a" name="HasDateOnlyField" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a346c438-7fbe-4c8d-bd29-cbd6b8b35b09" name="MyDate" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="MyDate" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f6577b74-e621-4641-876a-8fffa4edb6da" name="CreateHasDateOnlyFieldCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="bc7076b5-78ef-40a0-8344-40d8e46ef844" name="MyDate" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

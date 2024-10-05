@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="629a37b1-7ac8-45aa-80e0-db4aeb9db54a" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>HasDateOnlyField</name>
+  <display>HasDateOnlyField</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>086ea1d7-21ff-4b2f-89af-27f09033705a</parentFolderId>
+  <packageId>086ea1d7-21ff-4b2f-89af-27f09033705a</packageId>
+  <packageName>IntegrationTesting.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="3f023fd7-0b85-4bc9-a8e5-2bbbd2eae44e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="6ac414f1-2f17-4c3a-8845-0fec9f844dd1">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>629a37b1-7ac8-45aa-80e0-db4aeb9db54a</parentFolderId>
+      <packageId>086ea1d7-21ff-4b2f-89af-27f09033705a</packageId>
+      <packageName>IntegrationTesting.Tests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a346c438-7fbe-4c8d-bd29-cbd6b8b35b09" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>MyDate</name>
+      <display>MyDate: date</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b66d0f68-9fa0-42c1-8b76-d06d1636144f">
+        <typeId>1fbaa056-b666-4f25-b8fd-76fe3165acc8</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>629a37b1-7ac8-45aa-80e0-db4aeb9db54a</parentFolderId>
+      <packageId>086ea1d7-21ff-4b2f-89af-27f09033705a</packageId>
+      <packageName>IntegrationTesting.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

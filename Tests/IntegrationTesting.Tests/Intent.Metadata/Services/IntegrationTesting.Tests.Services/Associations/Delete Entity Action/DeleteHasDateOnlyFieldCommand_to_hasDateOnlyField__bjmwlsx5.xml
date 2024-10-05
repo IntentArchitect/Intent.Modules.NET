@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="bc787598-6ac7-4c35-8971-ae2c23e401dd">
+  <sourceEnd id="e47db562-e884-4433-b793-b7ad29722aae" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : HasDateOnlyFields.DeleteHasDateOnlyFieldCommand</display>
+    <order>0</order>
+    <typeReference id="1846be8e-1a83-43fc-b636-8991b7c341f5">
+      <typeId>ca352f03-d740-4705-9699-f515e1da770c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="bc787598-6ac7-4c35-8971-ae2c23e401dd" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>hasDateOnlyField</name>
+    <display>[delete] hasDateOnlyField: HasDateOnlyField</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="9a5601be-b133-4670-9710-9296a5586fa5">
+      <typeId>629a37b1-7ac8-45aa-80e0-db4aeb9db54a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ca352f03-d740-4705-9699-f515e1da770c" location="[IntegrationTesting.Tests].[Services].[DeleteHasDateOnlyFieldCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="629a37b1-7ac8-45aa-80e0-db4aeb9db54a" location="[IntegrationTesting.Tests].[Services].[HasDateOnlyField]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="629a37b1-7ac8-45aa-80e0-db4aeb9db54a" name="HasDateOnlyField" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3f023fd7-0b85-4bc9-a8e5-2bbbd2eae44e" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="ca352f03-d740-4705-9699-f515e1da770c" name="DeleteHasDateOnlyFieldCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="78b38cc0-ea78-4a3f-a1b1-95de5d0523c0" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

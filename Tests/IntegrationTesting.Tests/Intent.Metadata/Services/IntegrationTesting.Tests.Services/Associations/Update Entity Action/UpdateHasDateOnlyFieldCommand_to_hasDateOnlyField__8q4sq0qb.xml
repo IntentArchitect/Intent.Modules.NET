@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0a04187e-222c-4582-ae60-5567831c3987">
+  <sourceEnd id="b3973152-7a11-4319-8fb7-200118ba22a8" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : HasDateOnlyFields.UpdateHasDateOnlyFieldCommand</display>
+    <order>0</order>
+    <typeReference id="a65fc43d-4d04-4d2a-b7d2-c46ee5fa0a40">
+      <typeId>5ac1e69d-2fe1-434c-a795-76a7bc90d7a6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0a04187e-222c-4582-ae60-5567831c3987" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>hasDateOnlyField</name>
+    <display>[update] hasDateOnlyField: HasDateOnlyField</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="b27312d2-f152-4f79-88a6-05a11c042c09">
+      <typeId>629a37b1-7ac8-45aa-80e0-db4aeb9db54a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5ac1e69d-2fe1-434c-a795-76a7bc90d7a6" location="[IntegrationTesting.Tests].[Services].[UpdateHasDateOnlyFieldCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="629a37b1-7ac8-45aa-80e0-db4aeb9db54a" location="[IntegrationTesting.Tests].[Services].[HasDateOnlyField]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="629a37b1-7ac8-45aa-80e0-db4aeb9db54a" name="HasDateOnlyField" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3f023fd7-0b85-4bc9-a8e5-2bbbd2eae44e" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="5ac1e69d-2fe1-434c-a795-76a7bc90d7a6" name="UpdateHasDateOnlyFieldCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="90db60ef-a9af-4541-8c5f-24da89737aee" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5ac1e69d-2fe1-434c-a795-76a7bc90d7a6" location="[IntegrationTesting.Tests].[Services].[UpdateHasDateOnlyFieldCommand]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="629a37b1-7ac8-45aa-80e0-db4aeb9db54a" location="[IntegrationTesting.Tests].[Services].[HasDateOnlyField]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{MyDate}</expression>
+            <path>
+              <target id="629a37b1-7ac8-45aa-80e0-db4aeb9db54a" name="HasDateOnlyField" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a346c438-7fbe-4c8d-bd29-cbd6b8b35b09" name="MyDate" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="MyDate" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="5ac1e69d-2fe1-434c-a795-76a7bc90d7a6" name="UpdateHasDateOnlyFieldCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="566aa115-57a4-4686-b70d-e54d66254024" name="MyDate" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

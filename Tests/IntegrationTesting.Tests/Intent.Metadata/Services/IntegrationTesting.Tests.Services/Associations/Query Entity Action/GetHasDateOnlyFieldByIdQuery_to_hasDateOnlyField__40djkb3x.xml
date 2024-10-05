@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="62b7103a-9875-4ce6-b87c-635164f43cfc">
+  <sourceEnd id="5be3a496-3eac-4a5d-b6b1-c39fe0c4d401" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetHasDateOnlyFieldByIdQuery</display>
+    <order>0</order>
+    <typeReference id="049741cc-1064-4a02-8449-96eadbfadb9b">
+      <typeId>65475b09-a9bb-4bee-ab25-acadb47c1c74</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="62b7103a-9875-4ce6-b87c-635164f43cfc" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>hasDateOnlyField</name>
+    <display>[query] hasDateOnlyField: HasDateOnlyField</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="b824c72c-fd24-4fb8-9f3f-7a9b94c384c8">
+      <typeId>629a37b1-7ac8-45aa-80e0-db4aeb9db54a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="65475b09-a9bb-4bee-ab25-acadb47c1c74" location="[IntegrationTesting.Tests].[Services].[GetHasDateOnlyFieldByIdQuery]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="629a37b1-7ac8-45aa-80e0-db4aeb9db54a" location="[IntegrationTesting.Tests].[Services].[HasDateOnlyField]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="629a37b1-7ac8-45aa-80e0-db4aeb9db54a" name="HasDateOnlyField" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3f023fd7-0b85-4bc9-a8e5-2bbbd2eae44e" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="65475b09-a9bb-4bee-ab25-acadb47c1c74" name="GetHasDateOnlyFieldByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="e58cca20-2c84-49e8-a2b3-923bb1c87508" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

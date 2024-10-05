@@ -116,6 +116,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>68f4fb1c-9cdb-456c-8594-b5d4bc883cd2</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#b7ecb377-bd27-43cd-a5ae-39f7ea6e02cd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Api/Controllers/HasDateOnlyField/HasDateOnlyFieldHasDateOnlyFieldsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFieldHasDateOnlyFieldsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>68f4fb1c-9cdb-456c-8594-b5d4bc883cd2</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#27129f40-af9a-407b-81ca-f2d6883a0bfa</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Api/Controllers/HasMissingDepsController.cs</ApplicationRelativeFilePath>
@@ -1388,6 +1396,142 @@
     </FileLog>
     <FileLog>
       <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#f6577b74-e621-4641-876a-8fffa4edb6da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/CreateHasDateOnlyField/CreateHasDateOnlyFieldCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/CreateHasDateOnlyField/CreateHasDateOnlyFieldCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#f6577b74-e621-4641-876a-8fffa4edb6da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/CreateHasDateOnlyField/CreateHasDateOnlyFieldCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/CreateHasDateOnlyField/CreateHasDateOnlyFieldCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f6577b74-e621-4641-876a-8fffa4edb6da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/CreateHasDateOnlyField/CreateHasDateOnlyFieldCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/CreateHasDateOnlyField/CreateHasDateOnlyFieldCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#ca352f03-d740-4705-9699-f515e1da770c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/DeleteHasDateOnlyField/DeleteHasDateOnlyFieldCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/DeleteHasDateOnlyField/DeleteHasDateOnlyFieldCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#ca352f03-d740-4705-9699-f515e1da770c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/DeleteHasDateOnlyField/DeleteHasDateOnlyFieldCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/DeleteHasDateOnlyField/DeleteHasDateOnlyFieldCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#ca352f03-d740-4705-9699-f515e1da770c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/DeleteHasDateOnlyField/DeleteHasDateOnlyFieldCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/DeleteHasDateOnlyField/DeleteHasDateOnlyFieldCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#65475b09-a9bb-4bee-ab25-acadb47c1c74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFieldById/GetHasDateOnlyFieldByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFieldById/GetHasDateOnlyFieldByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#65475b09-a9bb-4bee-ab25-acadb47c1c74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFieldById/GetHasDateOnlyFieldByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFieldById/GetHasDateOnlyFieldByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#65475b09-a9bb-4bee-ab25-acadb47c1c74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFieldById/GetHasDateOnlyFieldByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFieldById/GetHasDateOnlyFieldByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#91db30d5-84ff-416e-933f-ed56e19868b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFields/GetHasDateOnlyFieldsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFields/GetHasDateOnlyFieldsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#91db30d5-84ff-416e-933f-ed56e19868b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFields/GetHasDateOnlyFieldsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFields/GetHasDateOnlyFieldsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#91db30d5-84ff-416e-933f-ed56e19868b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFields/GetHasDateOnlyFieldsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFields/GetHasDateOnlyFieldsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#72fda910-1b34-4c44-9e03-92253e7a189e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/HasDateOnlyFieldDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/HasDateOnlyFieldDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#72fda910-1b34-4c44-9e03-92253e7a189e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/HasDateOnlyFieldDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/HasDateOnlyFieldDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#5ac1e69d-2fe1-434c-a795-76a7bc90d7a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/UpdateHasDateOnlyField/UpdateHasDateOnlyFieldCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/UpdateHasDateOnlyField/UpdateHasDateOnlyFieldCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#5ac1e69d-2fe1-434c-a795-76a7bc90d7a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/UpdateHasDateOnlyField/UpdateHasDateOnlyFieldCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/UpdateHasDateOnlyField/UpdateHasDateOnlyFieldCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#5ac1e69d-2fe1-434c-a795-76a7bc90d7a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasDateOnlyField/HasDateOnlyFields/UpdateHasDateOnlyField/UpdateHasDateOnlyFieldCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/UpdateHasDateOnlyField/UpdateHasDateOnlyFieldCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#c9df9693-e774-4054-bdf4-f6688f3d3e88</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/HasMissingDeps/CreateHasMissingDep/CreateHasMissingDepCommand.cs</ApplicationRelativeFilePath>
@@ -2628,6 +2772,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0a7a6f49-71ab-4550-bee2-ad6f95dccae8</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#629a37b1-7ac8-45aa-80e0-db4aeb9db54a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/HasDateOnlyField.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6f49-71ab-4550-bee2-ad6f95dccae8</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#6cb8585c-4658-4961-a373-855a7d26bc17</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/HasMissingDep.cs</ApplicationRelativeFilePath>
@@ -2784,6 +2936,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bd2c8ef-87e5-48ec-aab2-e15aa8773c87</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#629a37b1-7ac8-45aa-80e0-db4aeb9db54a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Repositories/IHasDateOnlyFieldRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IHasDateOnlyFieldRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2972,6 +3132,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b019a06f-0542-4575-97c9-60f9e54aedb9</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#629a37b1-7ac8-45aa-80e0-db4aeb9db54a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Persistence/Configurations/HasDateOnlyFieldConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyFieldConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b019a06f-0542-4575-97c9-60f9e54aedb9</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#6cb8585c-4658-4961-a373-855a7d26bc17</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Persistence/Configurations/HasMissingDepConfiguration.cs</ApplicationRelativeFilePath>
@@ -3112,6 +3280,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Repositories/DtoReturnRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DtoReturnRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a5dadd94-25e7-46b1-9df2-837e5af379ed</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#629a37b1-7ac8-45aa-80e0-db4aeb9db54a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Repositories/HasDateOnlyFieldRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyFieldRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3336,6 +3512,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/DtoReturns/IDtoReturnsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DtoReturns/IDtoReturnsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#b7ecb377-bd27-43cd-a5ae-39f7ea6e02cd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/HasDateOnlyField/HasDateOnlyFields/HasDateOnlyFieldsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/HasDateOnlyFieldsHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#b7ecb377-bd27-43cd-a5ae-39f7ea6e02cd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/HasDateOnlyField/HasDateOnlyFields/IHasDateOnlyFieldsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyField/HasDateOnlyFields/IHasDateOnlyFieldsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3832,6 +4024,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/DtoReturns/UpdateDtoReturnCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/DtoReturns/UpdateDtoReturnCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#f6577b74-e621-4641-876a-8fffa4edb6da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/HasDateOnlyField/HasDateOnlyFields/CreateHasDateOnlyFieldCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/HasDateOnlyField/HasDateOnlyFields/CreateHasDateOnlyFieldCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#ca352f03-d740-4705-9699-f515e1da770c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/HasDateOnlyField/HasDateOnlyFields/DeleteHasDateOnlyFieldCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/HasDateOnlyField/HasDateOnlyFields/DeleteHasDateOnlyFieldCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#65475b09-a9bb-4bee-ab25-acadb47c1c74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFieldByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFieldByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#91db30d5-84ff-416e-933f-ed56e19868b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFieldsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/HasDateOnlyField/HasDateOnlyFields/GetHasDateOnlyFieldsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#72fda910-1b34-4c44-9e03-92253e7a189e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/HasDateOnlyField/HasDateOnlyFields/HasDateOnlyFieldDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/HasDateOnlyField/HasDateOnlyFields/HasDateOnlyFieldDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#5ac1e69d-2fe1-434c-a795-76a7bc90d7a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/HasDateOnlyField/HasDateOnlyFields/UpdateHasDateOnlyFieldCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/HasDateOnlyField/HasDateOnlyFields/UpdateHasDateOnlyFieldCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4488,6 +4728,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/DtoReturns/UpdateDtoReturnTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DtoReturns/UpdateDtoReturnTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#f6577b74-e621-4641-876a-8fffa4edb6da</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/HasDateOnlyFields/CreateHasDateOnlyFieldTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyFields/CreateHasDateOnlyFieldTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#ca352f03-d740-4705-9699-f515e1da770c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/HasDateOnlyFields/DeleteHasDateOnlyFieldTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyFields/DeleteHasDateOnlyFieldTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#65475b09-a9bb-4bee-ab25-acadb47c1c74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/HasDateOnlyFields/GetHasDateOnlyFieldByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyFields/GetHasDateOnlyFieldByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#91db30d5-84ff-416e-933f-ed56e19868b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/HasDateOnlyFields/GetHasDateOnlyFieldsTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyFields/GetHasDateOnlyFieldsTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#5ac1e69d-2fe1-434c-a795-76a7bc90d7a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/HasDateOnlyFields/UpdateHasDateOnlyFieldTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HasDateOnlyFields/UpdateHasDateOnlyFieldTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

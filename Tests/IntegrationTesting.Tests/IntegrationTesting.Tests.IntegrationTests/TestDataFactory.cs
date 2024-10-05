@@ -7,6 +7,7 @@ using IntegrationTesting.Tests.IntegrationTests.HttpClients.Clients;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.Customers;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.DiffIds;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.DtoReturns;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.HasDateOnlyField.HasDateOnlyFields;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.Orders;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.Parents;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.PartialCruds;
@@ -18,6 +19,7 @@ using IntegrationTesting.Tests.IntegrationTests.Services.Clients;
 using IntegrationTesting.Tests.IntegrationTests.Services.Customers;
 using IntegrationTesting.Tests.IntegrationTests.Services.DiffIds;
 using IntegrationTesting.Tests.IntegrationTests.Services.DtoReturns;
+using IntegrationTesting.Tests.IntegrationTests.Services.HasDateOnlyField.HasDateOnlyFields;
 using IntegrationTesting.Tests.IntegrationTests.Services.Orders;
 using IntegrationTesting.Tests.IntegrationTests.Services.Parents;
 using IntegrationTesting.Tests.IntegrationTests.Services.PartialCruds;
@@ -47,6 +49,7 @@ namespace IntegrationTesting.Tests.IntegrationTests
             var fixture = new Fixture();
             fixture.RepeatCount = 1;
             fixture.Customizations.Add(new PopulateIdsSpecimenBuilder(_idTracker));
+            fixture.Customize<DateOnly>(o => o.FromFactory((DateTime dt) => DateOnly.FromDateTime(dt)));
             return fixture.Create<T>();
         }
 
@@ -127,6 +130,16 @@ namespace IntegrationTesting.Tests.IntegrationTests
             var dtoReturnId = dto.Id;
             _idTracker["DtoReturnId"] = dtoReturnId;
             return dtoReturnId;
+        }
+
+        public async Task<Guid> CreateHasDateOnlyField()
+        {
+            var client = new HasDateOnlyFieldsHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateHasDateOnlyFieldCommand>();
+            var hasDateOnlyFieldId = await client.CreateHasDateOnlyFieldAsync(command);
+            _idTracker["HasDateOnlyFieldId"] = hasDateOnlyFieldId;
+            return hasDateOnlyFieldId;
         }
 
         public async Task CreateOrderDependencies()

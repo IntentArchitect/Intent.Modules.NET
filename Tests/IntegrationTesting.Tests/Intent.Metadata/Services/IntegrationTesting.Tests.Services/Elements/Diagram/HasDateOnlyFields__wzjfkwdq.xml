@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="40d40f0d-71ab-4e5b-89fc-4e0ce0ba6649" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>HasDateOnlyFields</name>
+  <display>HasDateOnlyFields</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b7ecb377-bd27-43cd-a5ae-39f7ea6e02cd</parentFolderId>
+  <packageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</packageId>
+  <packageName>IntegrationTesting.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>40d40f0d-71ab-4e5b-89fc-4e0ce0ba6649</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
