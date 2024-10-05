@@ -141,5 +141,6 @@
     <application id="6bef04ea-3c71-42f7-8988-7f94165a7fca" name="Intent.Modules.FastEndpoints" relativePath="Intent.Modules.FastEndpoints/Intent.Modules.FastEndpoints.application.config" />
     <application id="28245ab0-d591-4360-984a-886e218302e6" name="Intent.Modules.FastEndpoints.Dispatch.MediatR" relativePath="Intent.Modules.FastEndpoints.Dispatch.MediatR/Intent.Modules.FastEndpoints.Dispatch.MediatR.application.config" />
     <application id="ef1945f3-b5bf-4321-859b-bda2c6ef4747" name="Intent.Modules.FastEndpoints.Dispatch.Services" relativePath="Intent.Modules.FastEndpoints.Dispatch.Services/Intent.Modules.FastEndpoints.Dispatch.Services.application.config" />
+    <application id="a3a8db7f-a9d5-4f17-a5c4-c8a65ad56d80" name="Intent.Modules.Hangfire" relativePath="Intent.Modules.Hangfire/Intent.Modules.Hangfire.application.config" />
   </applications>
 </solution>

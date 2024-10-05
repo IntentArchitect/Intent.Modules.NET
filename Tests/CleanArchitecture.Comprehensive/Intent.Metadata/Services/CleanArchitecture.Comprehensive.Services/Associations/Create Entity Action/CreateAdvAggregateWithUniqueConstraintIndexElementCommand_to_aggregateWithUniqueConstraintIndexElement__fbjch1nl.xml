@@ -22,6 +22,9 @@
     <name>aggregateWithUniqueConstraintIndexElement</name>
     <display>[create] aggregateWithUniqueConstraintIndexElement: AggregateWithUniqueConstraintIndexElement</display>
     <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="c137c913-1735-4131-a2d0-51d1cad97500">
       <typeId>864aa549-6d79-4a29-bd0a-6d78fd7e99da</typeId>
       <isNavigable>true</isNavigable>

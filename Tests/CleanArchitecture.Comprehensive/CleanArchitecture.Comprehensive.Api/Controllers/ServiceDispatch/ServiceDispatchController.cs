@@ -39,12 +39,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [HttpPost("mutation")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Mutation(CancellationToken cancellationToken = default)
+        public async Task<ActionResult> Mutation1(CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                _appService.Mutation();
+                _appService.Mutation1();
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -60,12 +60,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> Mutation(string param, CancellationToken cancellationToken = default)
+        public async Task<ActionResult> Mutation2(string param, CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                _appService.Mutation(param);
+                _appService.Mutation2(param);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -79,12 +79,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [HttpPost("mutation-async")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> MutationAsync(CancellationToken cancellationToken = default)
+        public async Task<ActionResult> Mutation3Async(CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.MutationAsync(cancellationToken);
+                await _appService.Mutation3Async(cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -100,12 +100,12 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> MutationAsync(string param, CancellationToken cancellationToken = default)
+        public async Task<ActionResult> Mutation4Async(string param, CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.MutationAsync(param, cancellationToken);
+                await _appService.Mutation4Async(param, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -121,13 +121,14 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [ProducesResponseType(typeof(string), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> Query(string param, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<string>> Query5(string param, CancellationToken cancellationToken = default)
         {
             var result = default(string);
+
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                result = _appService.Query(param);
+                result = _appService.Query5(param);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -141,13 +142,14 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [HttpPost("query")]
         [ProducesResponseType(typeof(string), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> Query(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<string>> Query6(CancellationToken cancellationToken = default)
         {
             var result = default(string);
+
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                result = _appService.Query();
+                result = _appService.Query6();
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -161,13 +163,14 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [HttpPost("query-with-param-async")]
         [ProducesResponseType(typeof(string), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> QueryAsync(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<string>> Query7Async(CancellationToken cancellationToken = default)
         {
             var result = default(string);
+
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                result = await _appService.QueryAsync(cancellationToken);
+                result = await _appService.Query7Async(cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -183,13 +186,14 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.ServiceDispatch
         [ProducesResponseType(typeof(string), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> QueryAsync(string param, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<string>> Query8Async(string param, CancellationToken cancellationToken = default)
         {
             var result = default(string);
+
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                result = await _appService.QueryAsync(param, cancellationToken);
+                result = await _appService.Query8Async(param, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }

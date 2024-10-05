@@ -20,13 +20,17 @@
     <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="864aa549-6d79-4a29-bd0a-6d78fd7e99da" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" />
-      <target id="521de202-cb2e-4cc3-942a-4ee3e216eeb8" name="Constructor" type="element" specialization="Class Constructor" />
+      <target id="864aa549-6d79-4a29-bd0a-6d78fd7e99da" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+      <target id="521de202-cb2e-4cc3-942a-4ee3e216eeb8" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>5c55a81a-a6e7-4c77-9306-3e3d5d9d990a</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
       <addedByDefault>false</addedByDefault>
@@ -63,7 +67,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="31f77138-bdcc-4e26-b517-f6c53b829480" name="singleUniqueField" type="element" specialization="Parameter" />
+          <target id="31f77138-bdcc-4e26-b517-f6c53b829480" name="singleUniqueField" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>2a869638-3f86-4c05-bdf2-f78e7871adae</parentFolderId>
@@ -117,7 +121,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="34ca9ada-2ef9-4ce2-8928-5aa5ead73096" name="compUniqueFieldA" type="element" specialization="Parameter" />
+          <target id="34ca9ada-2ef9-4ce2-8928-5aa5ead73096" name="compUniqueFieldA" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>2a869638-3f86-4c05-bdf2-f78e7871adae</parentFolderId>
@@ -171,7 +175,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="328c9589-b66e-4282-8d25-52aa4df50e40" name="compUniqueFieldB" type="element" specialization="Parameter" />
+          <target id="328c9589-b66e-4282-8d25-52aa4df50e40" name="compUniqueFieldB" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>2a869638-3f86-4c05-bdf2-f78e7871adae</parentFolderId>

@@ -10,13 +10,13 @@ namespace CleanArchitecture.Comprehensive.Application.Interfaces.ServiceDispatch
 {
     public interface IServiceDispatchWithoutImplementationService : IDisposable
     {
-        void Mutation(string param);
-        Task MutationAsync(CancellationToken cancellationToken = default);
-        Task MutationAsync(string param, CancellationToken cancellationToken = default);
-        string Query(string param);
-        string Query();
-        Task<string> QueryAsync(CancellationToken cancellationToken = default);
-        Task<string> QueryAsync(string param, CancellationToken cancellationToken = default);
-        void Mutation();
+        void MutationNoImpl1(string param);
+        Task MutationNoImpl2Async(CancellationToken cancellationToken = default);
+        Task MutationNoImpl3Async(string param, CancellationToken cancellationToken = default);
+        string QueryNoImpl4(string param);
+        string QueryNoImpl5();
+        Task<string> QueryNoImpl6Async(CancellationToken cancellationToken = default);
+        Task<string> QueryNoImpl7Async(string param, CancellationToken cancellationToken = default);
+        void MutationNoImpl8();
     }
 }

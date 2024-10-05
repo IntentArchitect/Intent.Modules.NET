@@ -16,6 +16,10 @@
   <parentFolderId>daa794cc-5bd6-4c7f-aa7c-6f95e4524d22</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="b6197544-7e0e-4900-a6e2-9747fb7e4ac4" name="OpenAPI Settings">
       <addedByDefault>false</addedByDefault>

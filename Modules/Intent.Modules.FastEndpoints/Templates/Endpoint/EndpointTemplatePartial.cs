@@ -7,14 +7,12 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -52,17 +50,18 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("FastEndpoints")
-                .AddUsing("Mode = Intent.RoslynWeaver.Attributes.Mode")
-                .OnBuild(_ =>
-                {
-                    if (HasSwashbuckleInstalled())
-                    {
-                        AddNugetDependency(NugetPackages.FastEndpointsSwaggerSwashbuckle(OutputTarget));
-                    }
-                });
+                .AddUsing("Mode = Intent.RoslynWeaver.Attributes.Mode");
 
             AddRequestModelIfApplicable();
             AddEndpointClass();
+        }
+
+        public override void AfterTemplateRegistration()
+        {
+            if (HasSwashbuckleInstalled())
+            {
+                AddNugetDependency(NugetPackages.FastEndpointsSwaggerSwashbuckle(OutputTarget));
+            }
         }
 
         public CSharpStatement? GetReturnStatement()
@@ -253,7 +252,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 }));
 
             var mediaTypeNamesApplicationJson = Model.MediaType == HttpMediaType.ApplicationJson || Model.ReturnType?.Element.IsDTOModel() == true
-                ? "MediaTypeNames.Application.Json"
+                ? "contentType: MediaTypeNames.Application.Json"
                 : null;
 
             if (mediaTypeNamesApplicationJson is not null)
@@ -343,7 +342,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
 
             if (parameter.Source is null or HttpInputSource.FromQuery)
             {
-                var attr = new CSharpAttribute("FromQuery");
+                var attr = new CSharpAttribute("FromQueryParams");
                 if (!string.IsNullOrWhiteSpace(parameter.QueryStringName))
                 {
                     attr.AddArgument($@"""{parameter.QueryStringName}""");
@@ -379,12 +378,12 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
     }
 }
 
-static class EndpointUtilExtensions
+internal static class EndpointUtilExtensions
 {
     public static CSharpInvocationStatement AddArgumentIfNotNull(
         this CSharpInvocationStatement statement,
         CSharpStatement? argument,
-        Action<CSharpStatement> configure = null)
+        Action<CSharpStatement>? configure = null)
     {
         if (argument is null)
         {

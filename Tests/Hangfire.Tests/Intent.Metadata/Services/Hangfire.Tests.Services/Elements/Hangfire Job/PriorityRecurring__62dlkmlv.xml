@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8824f057-df3c-42fa-a565-566a9f439897" type="Hangfire Job" typeId="995f1902-4efb-42ba-b089-a5e856c48943">
+  <name>PriorityRecurring</name>
+  <display>PriorityRecurring</display>
+  <isAbstract>false</isAbstract>
+  <order>4</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>42b1f464-c2b6-4fb8-bd5b-c67970a53e77</parentFolderId>
+  <packageId>ff35c9a1-30d0-4862-b7f9-eb966064c91f</packageId>
+  <packageName>Hangfire.Tests.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="268b1f8f-71ac-4a27-ad87-bdaeffb06022" name="Job Options">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modules.Hangfire</definitionPackageName>
+      <definitionPackageId>fda30066-088b-48e0-9189-6cad1c70af13</definitionPackageId>
+      <properties>
+        <property name="fba31c2d-a5f1-404e-8772-15f72b94e5b1" display="Enabled" value="true" isActive="true" />
+        <property name="1f4905ea-0c33-4dd6-b0e5-f7926f599f92" display="Job Type" value="Recurring" isActive="true" />
+        <property name="153f01ba-f229-4a2e-8f44-0ecd39924073" display="Cron Schedule" value="* * * * *" isActive="true" />
+        <property name="e5a5f7ad-80f9-471c-9e0f-835f8286ffab" display="Delay Time Frame" value="Minutes" isActive="false" />
+        <property name="8220c0e1-203d-43f5-9155-ae73a87bf324" display="Delay Value" value="5" isActive="false" />
+        <property name="0aa4b661-211b-40e2-a917-abfc4fef1b03" display="Disallow Concurrent Execution" value="false" isActive="true" />
+        <property name="722cc50a-5dfd-4eb0-91c2-287ddd077d04" display="Concurrent Execution Timeout" value="1" isActive="true" />
+        <property name="545f4c0d-b389-4b8d-a092-e65ead77f445" display="Retry Attempts" value="10" isActive="true" />
+        <property name="78be64bd-7eb8-44aa-b5f8-180ec74c42fb" display="On Attempts Exceeded" value="Fail" isActive="true" />
+        <property name="7e719fad-42a3-4282-8328-e086d856dee7" display="Queue" value="df259a6e-0c57-4342-865b-2a0cc242212b" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

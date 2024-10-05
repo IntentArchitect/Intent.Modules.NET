@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="42b1f464-c2b6-4fb8-bd5b-c67970a53e77" type="Hangfire Configuration" typeId="2debe83d-5a45-431b-ba43-b236894135cc">
+  <name>Hangfire Configuration</name>
+  <display>Hangfire Configuration</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ff35c9a1-30d0-4862-b7f9-eb966064c91f</parentFolderId>
+  <packageId>ff35c9a1-30d0-4862-b7f9-eb966064c91f</packageId>
+  <packageName>Hangfire.Tests.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="fb655689-92b4-49b5-838e-537c3768a2f9" name="Hangfire Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Modules.Hangfire</definitionPackageName>
+      <definitionPackageId>fda30066-088b-48e0-9189-6cad1c70af13</definitionPackageId>
+      <properties>
+        <property name="23186e28-1e5c-4b0d-a4b2-a268b663e32c" display="Storage" value="InMemory" isActive="true" />
+        <property name="08b1856a-2fc3-4347-9257-d79e251fa212" display="Show Dashboard" value="true" isActive="true" />
+        <property name="064ab6bc-f20b-4b87-83c6-ad6c3e5b0e16" display="Dashboard URL" value="/hfjobs" isActive="true" />
+        <property name="de33daff-4050-43d2-a180-2f366b295656" display="Dashboard Title" isActive="true" />
+        <property name="0e7bb0de-bb46-4567-b75c-71d834899a91" display="Read Only Dashboard" value="false" isActive="true" />
+        <property name="ac8e4db0-5e47-47dd-8038-7981baf39e96" display="Configure as Hangfire server" value="true" isActive="true" />
+        <property name="efb398ef-71c0-49b8-8187-067a43eb64df" display="Worker Count" isActive="true" />
+        <property name="77137365-d28d-459b-b1f3-b2d286b6f633" display="Job Retention Hours" value="24" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

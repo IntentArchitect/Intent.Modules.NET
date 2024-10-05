@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="b1e11bdc-ab77-4e0e-80dd-9b0e7d170b90" name="Camera" type="element" specialization="Class" />
+      <target id="b1e11bdc-ab77-4e0e-80dd-9b0e7d170b90" name="Camera" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>5cc5f20e-147a-41e0-a05d-9f5fc17ab216</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="7980e0e9-64a6-4c77-ab9f-bcf8daf01ada" name="Id" type="element" specialization="Attribute" />
+          <target id="7980e0e9-64a6-4c77-ab9f-bcf8daf01ada" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>a3218ab8-5368-427b-9b8c-acedce5434da</parentFolderId>
@@ -96,7 +96,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="3bba58e2-7e90-426b-8003-375fcdb1898f" name="IdemiaId" type="element" specialization="Attribute" />
+          <target id="3bba58e2-7e90-426b-8003-375fcdb1898f" name="IdemiaId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>a3218ab8-5368-427b-9b8c-acedce5434da</parentFolderId>

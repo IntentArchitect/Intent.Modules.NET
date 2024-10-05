@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Engine;
@@ -131,6 +132,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
 
         public static void SyncProjectReferences(this IOutputTarget project, XDocument doc)
         {
+            SyncActualProjectReferences(project, doc);
+
             if (project.Dependencies().Count <= 0)
             {
                 return;
@@ -172,6 +175,59 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
                 var item = new XElement(XName.Get("ProjectReference"));
                 item.Add(new XAttribute("Include", projectUrl));
 
+                itemGroupElement.Add("  ");
+                itemGroupElement.Add(item);
+                itemGroupElement.Add(Environment.NewLine);
+                itemGroupElement.Add("  ");
+            }
+        }
+
+        private static void SyncActualProjectReferences(IOutputTarget project, XDocument doc)
+        {
+            // Temporary hack to address an issue in the current Application.Dtos module doing this (which needs to be removed)
+            // AddAssemblyReference(new GacAssemblyReference("System.Runtime.Serialization"));
+            var references = project.References().Where(r => r.Library != "System.Runtime.Serialization").ToList();
+            if (references.Count <= 0)
+            {
+                return;
+            }
+
+            var itemGroupElement = doc.XPathSelectElement("Project/ItemGroup[ProjectReference]");
+            if (itemGroupElement == null)
+            {
+                itemGroupElement = new XElement("ItemGroup");
+                itemGroupElement.Add(Environment.NewLine);
+                itemGroupElement.Add("  ");
+
+                var projectElement = doc.XPathSelectElement("Project");
+
+                projectElement.Add("  ");
+                projectElement.Add(itemGroupElement);
+                projectElement.Add(Environment.NewLine);
+                projectElement.Add("  ");
+            }
+
+            foreach (var reference in references)
+            {
+
+                var projectUrl = reference.Library.Replace('/', '\\'); 
+                    
+                var projectReferenceItem = doc.XPathSelectElement($"/Project/ItemGroup/ProjectReference[@Include='{projectUrl}']");
+                if (projectReferenceItem != null)
+                {
+                    continue;
+                }
+
+                /*
+                <ProjectReference Include="..\Intent.SoftwareFactory\Intent.SoftwareFactory.csproj"/>
+                */
+
+                var item = new XElement(XName.Get("ProjectReference"));
+                item.Add(new XAttribute("Include", projectUrl));
+                if (reference.HintPath != null) 
+                {
+                    item.Add(new XAttribute("HintPath", reference.HintPath));
+                }
                 itemGroupElement.Add("  ");
                 itemGroupElement.Add(item);
                 itemGroupElement.Add(Environment.NewLine);
