@@ -34,7 +34,8 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.Specification
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge());
                     @class.WithBaseType($"Specification<{GetPersistenceEntityTypeName()}>");
                     @class.AddConstructor(ctor => 
-                    { 
+                    {
+                        @ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
                     });
                 }).AfterBuild(file => 
                 { 
