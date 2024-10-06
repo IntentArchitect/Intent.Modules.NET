@@ -1,6 +1,8 @@
 ### Version 3.8.1
 
+- Feature: It is now possible to model custom implicit usings for a project in the Visual Studio designer. Right-click a project and select the `Add Custom Implicit Usings` option, then right-click on that and add as many `Implicit Using`s as desired.
 - Improvement: Added support for external project references on CSharpProject.
+- Improvement: `.csproj` templates for .NET Core / 5+ Projects now implement `ICanContainGlobalUsings`.
 
 ### Version 3.8.0
 

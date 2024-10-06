@@ -14,13 +14,13 @@ namespace Intent.Modules.VisualStudio.Projects.Api
     {
         public static NETFrameworkVersionSettings GetNETFrameworkVersionSettings(this NETFrameworkVersionModel model)
         {
-            var stereotype = model.GetStereotype("21cd7c00-cf82-4526-8539-8685dfca3791");
+            var stereotype = model.GetStereotype(NETFrameworkVersionSettings.DefinitionId);
             return stereotype != null ? new NETFrameworkVersionSettings(stereotype) : null;
         }
 
         public static bool HasNETFrameworkVersionSettings(this NETFrameworkVersionModel model)
         {
-            return model.HasStereotype("21cd7c00-cf82-4526-8539-8685dfca3791");
+            return model.HasStereotype(NETFrameworkVersionSettings.DefinitionId);
         }
 
         public static bool TryGetNETFrameworkVersionSettings(this NETFrameworkVersionModel model, out NETFrameworkVersionSettings stereotype)
@@ -31,7 +31,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return false;
             }
 
-            stereotype = new NETFrameworkVersionSettings(model.GetStereotype("21cd7c00-cf82-4526-8539-8685dfca3791"));
+            stereotype = new NETFrameworkVersionSettings(model.GetStereotype(NETFrameworkVersionSettings.DefinitionId));
             return true;
         }
 
@@ -39,6 +39,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public class NETFrameworkVersionSettings
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "21cd7c00-cf82-4526-8539-8685dfca3791";
 
             public NETFrameworkVersionSettings(IStereotype stereotype)
             {

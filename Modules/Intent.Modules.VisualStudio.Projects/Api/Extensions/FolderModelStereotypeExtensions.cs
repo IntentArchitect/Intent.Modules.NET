@@ -15,14 +15,14 @@ namespace Intent.Modules.VisualStudio.Projects.Api
     {
         public static FolderOptions GetFolderOptions(this FolderModel model)
         {
-            var stereotype = model.GetStereotype("61132551-825d-4c6e-b9f1-0f95249d08d4");
+            var stereotype = model.GetStereotype(FolderOptions.DefinitionId);
             return stereotype != null ? new FolderOptions(stereotype) : null;
         }
 
 
         public static bool HasFolderOptions(this FolderModel model)
         {
-            return model.HasStereotype("61132551-825d-4c6e-b9f1-0f95249d08d4");
+            return model.HasStereotype(FolderOptions.DefinitionId);
         }
 
         public static bool TryGetFolderOptions(this FolderModel model, out FolderOptions stereotype)
@@ -33,13 +33,14 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return false;
             }
 
-            stereotype = new FolderOptions(model.GetStereotype("61132551-825d-4c6e-b9f1-0f95249d08d4"));
+            stereotype = new FolderOptions(model.GetStereotype(FolderOptions.DefinitionId));
             return true;
         }
 
         public class FolderOptions
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "61132551-825d-4c6e-b9f1-0f95249d08d4";
 
             public FolderOptions(IStereotype stereotype)
             {

@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.VisualStudio.Projects</id>
-  <version>3.8.1-pre.0</version>
+  <version>3.8.1-pre.1</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Visual Studio solution and project layout designer</summary>
   <description>Visual Studio solution and project layout designer</description>
@@ -81,8 +81,8 @@
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.6" />
+    <dependency id="Intent.Common" version="3.7.1-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.8.1-pre.0" />
     <dependency id="Intent.Common.Types" version="3.3.9" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
   </dependencies>
@@ -105,7 +105,6 @@
     <group id="ee3f6418-ee19-4bb7-9b8e-07a4f1d94499" title="Visual Studio Designer" externalReference="ee3f6418-ee19-4bb7-9b8e-07a4f1d94499">
       <settings>
         <setting id="2dee07a2-4956-474b-b58e-ae04404ba2a3" title="Enable .NET Framework project creation" type="switch">
-          <isRequired>false</isRequired>
           <hint>Whether context menu options includes creation .NET Framework project types.</hint>
           <defaultValue>false</defaultValue>
         </setting>

@@ -95,15 +95,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#8e9e6693-2888-4f48-a0d6-0f163baab740</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Api/CSharpProjectNETModel.cs</path>
-      <count>12</count>
+      <count>3</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-08-15T11:53:38.677239Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:30:39.7456294Z</approvedAt>
-      <deviationsHash>AE3CDDCDEB754CE8A010A721A4FC7315FA769925FB6D12A5089F87F6BB56E8DE</deviationsHash>
-      <fileHash>8FEC1C870E6540CA262C754E872F7232A3A6E536324ACBEA3B7DA6169E6BC1F3</fileHash>
+      <updatedAt>2024-10-06T20:13:16.6230724Z</updatedAt>
+      <deviationsHash>670E7C085ED9C3BA208F35E309DB637C3582E06E09F240721253C22754B78883</deviationsHash>
+      <fileHash>62E7B78890ACF93AAAEA2BDB7A198D07746DDBF07CA6BB0D452DB55B0CB2DB95</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#3407a825-1331-4f3f-89a4-901903ed97ce</correlationId>

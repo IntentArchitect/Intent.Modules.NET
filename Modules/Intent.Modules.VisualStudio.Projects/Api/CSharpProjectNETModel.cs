@@ -110,6 +110,11 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             .Select(x => new RoleModel(x))
             .ToList();
 
+        public CustomImplicitUsingsModel CustomImplicitUsings => _element.ChildElements
+            .GetElementsOfType(CustomImplicitUsingsModel.SpecializationTypeId)
+            .Select(x => new CustomImplicitUsingsModel(x))
+            .SingleOrDefault();
+
         public override string ToString()
         {
             return _element.ToString();

@@ -14,14 +14,14 @@ namespace Intent.Modules.VisualStudio.Projects.Api
     {
         public static NETFrameworkSettings GetNETFrameworkSettings(this WCFServiceApplicationModel model)
         {
-            var stereotype = model.GetStereotype("f3fcc35a-4bb2-44e7-aca2-d721e047a4c9");
+            var stereotype = model.GetStereotype(NETFrameworkSettings.DefinitionId);
             return stereotype != null ? new NETFrameworkSettings(stereotype) : null;
         }
 
 
         public static bool HasNETFrameworkSettings(this WCFServiceApplicationModel model)
         {
-            return model.HasStereotype("f3fcc35a-4bb2-44e7-aca2-d721e047a4c9");
+            return model.HasStereotype(NETFrameworkSettings.DefinitionId);
         }
 
         public static bool TryGetNETFrameworkSettings(this WCFServiceApplicationModel model, out NETFrameworkSettings stereotype)
@@ -32,20 +32,20 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return false;
             }
 
-            stereotype = new NETFrameworkSettings(model.GetStereotype("f3fcc35a-4bb2-44e7-aca2-d721e047a4c9"));
+            stereotype = new NETFrameworkSettings(model.GetStereotype(NETFrameworkSettings.DefinitionId));
             return true;
         }
 
         public static CSharpProjectOptions GetCSharpProjectOptions(this WCFServiceApplicationModel model)
         {
-            var stereotype = model.GetStereotype("d9b43864-0370-401b-9e71-b1d286919500");
+            var stereotype = model.GetStereotype(CSharpProjectOptions.DefinitionId);
             return stereotype != null ? new CSharpProjectOptions(stereotype) : null;
         }
 
 
         public static bool HasCSharpProjectOptions(this WCFServiceApplicationModel model)
         {
-            return model.HasStereotype("d9b43864-0370-401b-9e71-b1d286919500");
+            return model.HasStereotype(CSharpProjectOptions.DefinitionId);
         }
 
         public static bool TryGetCSharpProjectOptions(this WCFServiceApplicationModel model, out CSharpProjectOptions stereotype)
@@ -56,13 +56,14 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return false;
             }
 
-            stereotype = new CSharpProjectOptions(model.GetStereotype("d9b43864-0370-401b-9e71-b1d286919500"));
+            stereotype = new CSharpProjectOptions(model.GetStereotype(CSharpProjectOptions.DefinitionId));
             return true;
         }
 
         public class NETFrameworkSettings
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "f3fcc35a-4bb2-44e7-aca2-d721e047a4c9";
 
             public NETFrameworkSettings(IStereotype stereotype)
             {
@@ -125,6 +126,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public class CSharpProjectOptions
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "d9b43864-0370-401b-9e71-b1d286919500";
 
             public CSharpProjectOptions(IStereotype stereotype)
             {

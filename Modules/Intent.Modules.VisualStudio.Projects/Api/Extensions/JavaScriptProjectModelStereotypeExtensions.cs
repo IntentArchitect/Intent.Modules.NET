@@ -14,14 +14,14 @@ namespace Intent.Modules.VisualStudio.Projects.Api
     {
         public static JavaScriptProjectOptions GetJavaScriptProjectOptions(this JavaScriptProjectModel model)
         {
-            var stereotype = model.GetStereotype("8ec9ad63-9d46-4d3d-954f-2adb7d9f18a2");
+            var stereotype = model.GetStereotype(JavaScriptProjectOptions.DefinitionId);
             return stereotype != null ? new JavaScriptProjectOptions(stereotype) : null;
         }
 
 
         public static bool HasJavaScriptProjectOptions(this JavaScriptProjectModel model)
         {
-            return model.HasStereotype("8ec9ad63-9d46-4d3d-954f-2adb7d9f18a2");
+            return model.HasStereotype(JavaScriptProjectOptions.DefinitionId);
         }
 
         public static bool TryGetJavaScriptProjectOptions(this JavaScriptProjectModel model, out JavaScriptProjectOptions stereotype)
@@ -32,19 +32,19 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return false;
             }
 
-            stereotype = new JavaScriptProjectOptions(model.GetStereotype("8ec9ad63-9d46-4d3d-954f-2adb7d9f18a2"));
+            stereotype = new JavaScriptProjectOptions(model.GetStereotype(JavaScriptProjectOptions.DefinitionId));
             return true;
         }
         public static JavaScriptSettings GetJavaScriptSettings(this JavaScriptProjectModel model)
         {
-            var stereotype = model.GetStereotype("141b4305-433b-4d5a-97ed-7796eabbe2aa");
+            var stereotype = model.GetStereotype(JavaScriptSettings.DefinitionId);
             return stereotype != null ? new JavaScriptSettings(stereotype) : null;
         }
 
 
         public static bool HasJavaScriptSettings(this JavaScriptProjectModel model)
         {
-            return model.HasStereotype("141b4305-433b-4d5a-97ed-7796eabbe2aa");
+            return model.HasStereotype(JavaScriptSettings.DefinitionId);
         }
 
         public static bool TryGetJavaScriptSettings(this JavaScriptProjectModel model, out JavaScriptSettings stereotype)
@@ -55,13 +55,14 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return false;
             }
 
-            stereotype = new JavaScriptSettings(model.GetStereotype("141b4305-433b-4d5a-97ed-7796eabbe2aa"));
+            stereotype = new JavaScriptSettings(model.GetStereotype(JavaScriptSettings.DefinitionId));
             return true;
         }
 
         public class JavaScriptProjectOptions
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "8ec9ad63-9d46-4d3d-954f-2adb7d9f18a2";
 
             public JavaScriptProjectOptions(IStereotype stereotype)
             {
@@ -80,6 +81,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
         public class JavaScriptSettings
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "141b4305-433b-4d5a-97ed-7796eabbe2aa";
 
             public JavaScriptSettings(IStereotype stereotype)
             {

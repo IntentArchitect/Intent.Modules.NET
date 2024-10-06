@@ -733,7 +733,7 @@
       <childElements>
         <childElement id="e242a0c4-429d-44ba-82eb-2e90e984eb4b" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <name>On Loaded</name>
-          <display>On Loaded: Script</display>
+          <display>On Loaded: Inline Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="7d190e6c-3aaf-4be7-8dd9-5ed93db153c0">
@@ -758,6 +758,7 @@
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
                 <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="var elementTypes = [&#xD;&#xA;    &quot;Class Library (.NET Core)&quot;,&#xD;&#xA;    &quot;ASP.NET Core Web Application&quot;,&#xD;&#xA;    &quot;Console App (.NET Framework)&quot;,&#xD;&#xA;    &quot;Class Library (.NET Framework)&quot;,&#xD;&#xA;    &quot;ASP.NET Web Application (.NET Framework)&quot;,&#xD;&#xA;    &quot;WCF Service Application&quot;,&#xD;&#xA;    &quot;Azure Functions Project&quot;,&#xD;&#xA;    &quot;Console App (.NET Core)&quot;&#xD;&#xA;];&#xD;&#xA;&#xD;&#xA;const elements = elementTypes.map(type =&gt; lookupTypesOf(type)).flat();&#xD;&#xA;&#xD;&#xA;for (let element of elements) {&#xD;&#xA;    const stereotype = element.getStereotype(&quot;C# Project Options&quot;);&#xD;&#xA;    const nullableProperty = stereotype?.getProperty(&quot;Nullable&quot;);&#xD;&#xA;    const nullableEnabledProperty = stereotype?.getProperty(&quot;Nullable Enabled&quot;);&#xD;&#xA;&#xD;&#xA;    if (nullableProperty?.value != null &amp;&amp; nullableProperty?.value?.trim() !== &quot;&quot;) {&#xD;&#xA;        nullableEnabledProperty.setValue(false);&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    if (nullableEnabledProperty?.value == true) {&#xD;&#xA;        nullableEnabledProperty.setValue(false);&#xD;&#xA;        nullableProperty.setValue(&quot;enable&quot;);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

@@ -21,7 +21,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates;
 
-public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTemplateBase<TModel>, IVisualStudioProjectTemplate
+public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTemplateBase<TModel>, IVisualStudioProjectTemplate, ICanContainGlobalUsings
     where TModel : IVisualStudioProject
 {
     private string _fileContent;
@@ -211,6 +211,8 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
             {
                 hasChange |= SyncProperty(doc, "NoWarn", netSettings.SuppressWarnings());
             }
+
+            hasChange |= SyncUsings(doc, model);
         }
 
         var projectOptions = project.GetCSharpProjectOptions();
@@ -248,6 +250,39 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
         foreach (var property in _moduleRequestedProperties)
         {
             hasChange |= AddProperty(doc, property.Key, property.Value);
+        }
+
+        return hasChange;
+    }
+
+    private static bool SyncUsings(XDocument doc, CSharpProjectNETModel model)
+    {
+        var implicitUsings = model.CustomImplicitUsings?.ImplicitUsings?.Select(x => x.Name).ToArray() ?? [];
+        if (implicitUsings.Length == 0)
+        {
+            return false;
+        }
+
+        var hasChange = false;
+
+        var usingGroup = GetUsingItemGroup(doc);
+        foreach (var implicitUsing in implicitUsings)
+        {
+            if (usingGroup.Elements().Any(x => x.Name == "Using" && x.Attribute("Include")?.Value == implicitUsing))
+            {
+                continue;
+            }
+
+            usingGroup.Add(new XElement("Using", new XAttribute("Include", implicitUsing)));
+            hasChange = true;
+        }
+
+        // Sort alphabetically:
+        if (hasChange)
+        {
+            var elements = usingGroup.Elements().OrderBy(x => x.Name).ThenBy(x => x.Attribute("Include")?.Value).Cast<object>().ToArray();
+            usingGroup.RemoveAll();
+            usingGroup.Add(elements);
         }
 
         return hasChange;
@@ -447,5 +482,123 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
         var (prefix, namespaceManager, _) = doc.GetNamespaceManager();
 
         return doc.XPathSelectElement($"/{prefix}:Project/{prefix}:PropertyGroup/{prefix}:{name}", namespaceManager);
+    }
+
+    private static XElement GetUsingItemGroup(XDocument doc)
+    {
+        var (prefix, namespaceManager, _) = doc.GetNamespaceManager();
+
+        var usingGroup = doc.XPathSelectElements($"/{prefix}:Project/{prefix}:ItemGroup", namespaceManager)
+            .FirstOrDefault(x => x.Descendants("Using").Any());
+        if (usingGroup != null)
+        {
+            return usingGroup;
+        }
+
+        usingGroup = new XElement("ItemGroup");
+
+        doc.Elements().First().Add(usingGroup);
+
+        return usingGroup;
+    }
+
+    IEnumerable<string> ICanContainGlobalUsings.GetGlobalUsings()
+    {
+        var project = ((IVisualStudioProjectTemplate)this).Project;
+        var (implicitUsingsIsEnabled, sdk, customImplicitUsings) = GetSettings(project);
+
+        foreach (var customImplicitUsing in customImplicitUsings)
+        {
+            yield return customImplicitUsing;
+        }
+
+        if (TryGetExistingFileContent(out var content))
+        {
+            var doc = XDocument.Parse(content);
+            if (implicitUsingsIsEnabled == null)
+            {
+                var implicitUsingsValue = doc.Root?.Descendants("ImplicitUsings").FirstOrDefault()?.Value;
+                if (string.Equals("enable", implicitUsingsValue, StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals("true", implicitUsingsValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    implicitUsingsIsEnabled = true;
+                }
+            }
+
+            sdk ??= doc.Root?.Attribute("Sdk")?.Value;
+
+            var usings = doc.Root!
+                .Descendants("Using")
+                .Select(x => x.Attribute("Include")?.Value)
+                .Where(x => x != null);
+
+            foreach (var @using in usings)
+            {
+                yield return @using;
+            }
+        }
+
+        if (implicitUsingsIsEnabled == true)
+        {
+            var implicitUsings = sdk switch
+            {
+                "Microsoft.NET.Sdk" => ImplicitUsings.ForSdk,
+                "Microsoft.NET.Sdk.BlazorWebAssembly" => ImplicitUsings.ForBlazorWebAssemblySdk,
+                "Microsoft.NET.Sdk.Web" => ImplicitUsings.ForWebSdk,
+                "Microsoft.NET.Sdk.Worker" => ImplicitUsings.ForWorkerSdk,
+                _ => Enumerable.Empty<string>()
+            };
+
+            foreach (var implicitUsing in implicitUsings)
+            {
+                yield return implicitUsing;
+            }
+        }
+
+        yield break;
+
+        static (bool? ImplicitUsingsIsEnabled, string Sdk, IEnumerable<string> CustomImplicitUsings) GetSettings(IVisualStudioProject project)
+        {
+            if (project.HasNETCoreSettings())
+            {
+                var settings = project.GetNETCoreSettings();
+
+                var implicitUsings = settings.ImplicitUsings();
+                if (implicitUsings.IsEnable())
+                {
+                    return (true, null, []);
+                }
+
+                if (implicitUsings.IsDisable())
+                {
+                    return (false, null, []);
+                }
+
+                return (null, null, []);
+            }
+
+            if (project is CSharpProjectNETModel model &&
+                model.HasNETSettings())
+            {
+                var settings = model.GetNETSettings();
+                var sdk = settings.SDK().Value;
+                var customImplicitUsings = model.CustomImplicitUsings?.ImplicitUsings?.Select(x => x.Name) ?? [];
+
+                var implicitUsings = settings.ImplicitUsings();
+                if (implicitUsings.IsEnable())
+                {
+                    return (true, sdk, customImplicitUsings);
+                }
+
+                if (implicitUsings.IsDisable())
+                {
+                    return (false, sdk, customImplicitUsings);
+                }
+
+                return (null, sdk, customImplicitUsings);
+            }
+
+            return (null, null, []);
+        }
     }
 }
