@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Http.Json;
 using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Eventing;
-using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
@@ -18,12 +15,9 @@ using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.Events;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions;
-using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Templates;
-using Intent.Utils;
-using Microsoft.Build.Evaluation;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates;
 
@@ -31,15 +25,15 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
     where TModel : IVisualStudioProject
 {
     private string _fileContent;
-    private Dictionary<string, string> _moduleRequestedProperties = new Dictionary<string, string>(); 
+    private readonly Dictionary<string, string> _moduleRequestedProperties = [];
 
     protected VisualStudioProjectTemplateBase(string templateId, IOutputTarget outputTarget, TModel model) : base(templateId, outputTarget, model)
     {
-		ExecutionContext.EventDispatcher.Subscribe<AddProjectPropertyEvent>(HandleAddProjectPropertyEvent);
-		ExecutionContext.EventDispatcher.Subscribe<AddUserSecretsEvent>(HandleAddUserSecretsEvent);
-	}
+        ExecutionContext.EventDispatcher.Subscribe<AddProjectPropertyEvent>(HandleAddProjectPropertyEvent);
+        ExecutionContext.EventDispatcher.Subscribe<AddUserSecretsEvent>(HandleAddUserSecretsEvent);
+    }
 
-	public string ProjectId => Model.Id;
+    public string ProjectId => Model.Id;
     public string Name => Model.Name;
     public string FilePath => FileMetadata.GetFilePath();
     IVisualStudioProject IVisualStudioProjectTemplate.Project => Model;
@@ -74,7 +68,7 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
         var change = ExecutionContext.ChangeManager.FindChange(FilePath);
         if (change != null)
         {
-            change.ChangeContent(content);
+            change.ChangeContent(content, content);
             return;
         }
 
@@ -155,7 +149,7 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
     /// <summary>
     /// Applies settings from stereotypes in the Visual Studio designer.
     /// </summary>
-    /// <returns>Whether or not there was a change.</returns>
+    /// <returns>Whether there was a change.</returns>
     private bool ApplySettings(XDocument doc)
     {
         if (doc.ResolveProjectScheme() != VisualStudioProjectScheme.Sdk)
@@ -246,15 +240,17 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
             }
         }
 
-        if (_moduleRequestedProperties.Any())
+        if (_moduleRequestedProperties.Count == 0)
         {
-            foreach (var property in _moduleRequestedProperties)
-            {
-                hasChange |= AddProperty(doc, property.Key, property.Value);
-            }
-		}
+            return hasChange;
+        }
 
-		return hasChange;
+        foreach (var property in _moduleRequestedProperties)
+        {
+            hasChange |= AddProperty(doc, property.Key, property.Value);
+        }
+
+        return hasChange;
     }
 
     /// <summary>
@@ -337,30 +333,32 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
         return true;
     }
 
-	/// <returns>True if there was a change.</returns>
-	private static bool AddProperty(XDocument doc, string propertyName, string value)
-	{
-		var element = GetPropertyGroupElement(doc, propertyName);
-		if (element == null)
-		{
-			var propertyGroupElement = GetPropertyGroupElement(doc, "TargetFramework")?.Parent ??
-									   GetPropertyGroupElement(doc, "TargetFrameworks")?.Parent;
-			if (propertyGroupElement == null)
-			{
-				throw new Exception("Could not determine target property group element.");
-			}
+    /// <returns>True if there was a change.</returns>
+    private static bool AddProperty(XDocument doc, string propertyName, string value)
+    {
+        var element = GetPropertyGroupElement(doc, propertyName);
+        if (element != null)
+        {
+            return false;
+        }
 
-			element = new XElement(propertyName);
-			propertyGroupElement.Add(element);
-			element.Value = value;
-			return true;
-		}
-        return false;
-	}
+        var propertyGroupElement = GetPropertyGroupElement(doc, "TargetFramework")?.Parent ??
+                                   GetPropertyGroupElement(doc, "TargetFrameworks")?.Parent;
+        if (propertyGroupElement == null)
+        {
+            throw new Exception("Could not determine target property group element.");
+        }
+
+        element = new XElement(propertyName);
+        propertyGroupElement.Add(element);
+        element.Value = value;
+
+        return true;
+    }
 
 
-	/// <returns>True if there was a change.</returns>
-	private bool SyncFrameworks(XDocument doc)
+    /// <returns>True if there was a change.</returns>
+    private bool SyncFrameworks(XDocument doc)
     {
         var targetFrameworks = GetTargetFrameworks().ToArray();
         if (targetFrameworks.Length == 1 && targetFrameworks[0] == "unspecified")
@@ -384,7 +382,7 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
             return false;
         }
 
-        var elementName = targetFrameworks.Count() == 1
+        var elementName = targetFrameworks.Length == 1
             ? "TargetFramework"
             : "TargetFrameworks";
 
@@ -393,59 +391,58 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
         return true;
     }
 
-	private void HandleAddUserSecretsEvent(AddUserSecretsEvent @event)
-	{
-		if (@event.Target.Id != Project.Id || @event.SecretsToAdd == null)
-		{
-			return;
-		}
-		var project = ((IVisualStudioProjectTemplate)this).Project;
+    private void HandleAddUserSecretsEvent(AddUserSecretsEvent @event)
+    {
+        if (@event.Target.Id != Project.Id || @event.SecretsToAdd == null)
+        {
+            return;
+        }
 
-		if (project is CSharpProjectNETModel model &&
-			model.HasNETSettings())
-		{
-			if (string.IsNullOrEmpty(model.GetNETSettings().UserSecretsId()))
-			{
-				CreateUserSecretsFile(@event);
-			}
-		}
-	}
+        var project = ((IVisualStudioProjectTemplate)this).Project;
+        if (project is not CSharpProjectNETModel model ||
+            !model.HasNETSettings() ||
+            !string.IsNullOrEmpty(model.GetNETSettings().UserSecretsId()))
+        {
+            return;
+        }
 
-	private void CreateUserSecretsFile(AddUserSecretsEvent @event)
-	{
-		var userSecretsId = Guid.NewGuid().ToString();
-		_moduleRequestedProperties.Add("UserSecretsId", userSecretsId);
+        CreateUserSecretsFile(@event);
+    }
+
+    private void CreateUserSecretsFile(AddUserSecretsEvent @event)
+    {
+        var userSecretsId = Guid.NewGuid().ToString();
+        _moduleRequestedProperties.Add("UserSecretsId", userSecretsId);
 
         var directory = GetUserSecretsDirectoryName(userSecretsId);
-        if (!Directory.Exists(directory)) 
+        if (!Directory.Exists(directory))
         {
             Directory.CreateDirectory(directory);
         }
 
-		File.WriteAllText(Path.Combine(directory, "secrets.json"), JsonSerializer.Serialize(@event.SecretsToAdd));
-	}
-	static string GetUserSecretsDirectoryName(string userSecretsId)
-	{
-		string appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-		string homeDir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-		string userSecretsDir = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ?
-									Path.Combine(appDataDir, "Microsoft", "UserSecrets", userSecretsId) :
-									Path.Combine(homeDir, ".microsoft", "usersecrets", userSecretsId);
-		return userSecretsDir;
-	}
+        File.WriteAllText(Path.Combine(directory, "secrets.json"), JsonSerializer.Serialize(@event.SecretsToAdd));
+    }
 
-	private void HandleAddProjectPropertyEvent(AddProjectPropertyEvent @event)
-	{
-		if (@event.Target.Id != Project.Id)
-		{
-			return;
-		}
-		_moduleRequestedProperties[@event.PropertyName] = @event.PropertyValue;
-	}
+    private static string GetUserSecretsDirectoryName(string userSecretsId)
+    {
+        var appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        var homeDir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        var userSecretsDir = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
+            ? Path.Combine(appDataDir, "Microsoft", "UserSecrets", userSecretsId)
+            : Path.Combine(homeDir, ".microsoft", "usersecrets", userSecretsId);
+        return userSecretsDir;
+    }
 
+    private void HandleAddProjectPropertyEvent(AddProjectPropertyEvent @event)
+    {
+        if (@event.Target.Id != Project.Id)
+        {
+            return;
+        }
+        _moduleRequestedProperties[@event.PropertyName] = @event.PropertyValue;
+    }
 
-
-	private static XElement GetPropertyGroupElement(XDocument doc, string name)
+    private static XElement GetPropertyGroupElement(XDocument doc, string name)
     {
         var (prefix, namespaceManager, _) = doc.GetNamespaceManager();
 
