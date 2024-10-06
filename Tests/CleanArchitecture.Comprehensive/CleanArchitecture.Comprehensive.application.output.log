@@ -7915,6 +7915,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#4c4d1c6d-92a7-421c-a58b-d7ff8d74efce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GlobalUsingsTesting/Dto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GlobalUsingsTesting/Dto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#f0bb44b9-8346-46f0-b081-b232e577cc0c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/GlobalUsingsTesting/SubNamespace/Transaction.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GlobalUsingsTesting/SubNamespace/Transaction.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a9777160-2dc0-4598-970b-36756f75a0da</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#0e993a94-e4d2-4617-9dc8-416a97cdada0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

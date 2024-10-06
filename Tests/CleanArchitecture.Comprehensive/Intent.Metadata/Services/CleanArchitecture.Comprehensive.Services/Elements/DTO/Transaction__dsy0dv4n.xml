@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f0bb44b9-8346-46f0-b081-b232e577cc0c" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>Transaction</name>
+  <display>Transaction</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5853ee0a-f1ff-4657-b7ef-d525089b2a7f</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

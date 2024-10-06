@@ -27,7 +27,7 @@ namespace CleanArchitecture.Comprehensive.Application.DDD.CreateTransaction
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(CreateTransactionCommand request, CancellationToken cancellationToken)
         {
-            var newTransaction = new Transaction
+            var newTransaction = new Domain.Entities.DDD.Transaction
             {
                 Current = CreateMoney(request.Current),
                 Description = request.Description,

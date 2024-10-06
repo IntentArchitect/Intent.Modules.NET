@@ -1,7 +1,6 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Transactions;
 using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
 using CleanArchitecture.Comprehensive.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;

@@ -16,7 +16,7 @@
       <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
       <properties>
         <property name="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf" display="SDK" value="Microsoft.NET.Sdk" isActive="true" />
-        <property name="252d4572-8255-4e87-9bd9-ede6220f44c1" display="Use top-level statements" value="false" isActive="false" />
+        <property name="252d4572-8255-4e87-9bd9-ede6220f44c1" display="Use top-level statements" value="false" isActive="true" />
         <property name="8f218e6c-9115-42d1-ad23-9b0403bfbcb4" display="Use minimal hosting model" value="false" isActive="false" />
         <property name="6a7d81d7-351e-4cdf-a596-142a74507455" display="Output Type" isActive="true" />
         <property name="9da51e12-529a-4592-9119-491d7bc9d5d5" display="Azure Functions Version" isActive="true" />
@@ -49,6 +49,34 @@
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="d8409208-0f72-4427-9587-548c1c3d5ba7" type="Custom Implicit Usings" typeId="f18c4808-ef93-4b1d-8bc1-7745579843cf">
+      <name>Custom Implicit Usings</name>
+      <display>Custom Implicit Usings</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</parentFolderId>
+      <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+      <packageName>CleanArchitecture.Comprehensive</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="dfc224cb-a7ff-46f7-91c7-1642a92f1c40" type="Implicit Using" typeId="7fe449d0-5448-4ee0-9c3c-2c1226d04c5f">
+          <name>System.Transactions</name>
+          <display>System.Transactions</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d8409208-0f72-4427-9587-548c1c3d5ba7</parentFolderId>
+          <packageId>7a254ecf-09b1-431f-83b1-ef39009b2028</packageId>
+          <packageName>CleanArchitecture.Comprehensive</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="afa5706d-9dd7-46a9-bce8-67ea212a678f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.DependencyInjection.DependencyInjection</name>
       <display>Intent.Application.DependencyInjection.DependencyInjection</display>
