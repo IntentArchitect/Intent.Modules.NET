@@ -1,3 +1,7 @@
+### Version 1.0.10
+
+- Fixed: AutoFixture code around setting up test data wasn't handling `DateOnly` fields correctly.
+
 ### Version 1.0.9
 
 - Fixed: When testing services with a Domain Entity called `Client` it will no longer generate conflicting code.
