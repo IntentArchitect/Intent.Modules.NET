@@ -40,9 +40,6 @@ public class ServiceControllerModel : IControllerModel
         InternalElement = model.InternalElement;
     }
 
-    // DJVV - Why are we checking here for "Authorize" when it's a MediatR only thing?
-    // This should only check for "Secured" since this Controller Model is for traditional services.
-    // See CqrsControllerModel.cs
     private static bool GetAuthorizationRolesAndPolicies(IElement element, out string roles, out string policy)
     {
         roles = null;

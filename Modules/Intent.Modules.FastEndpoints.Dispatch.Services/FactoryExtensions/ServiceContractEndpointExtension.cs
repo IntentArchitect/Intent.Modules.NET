@@ -9,6 +9,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.FastEndpoints.Templates.Endpoint;
+using Intent.Modules.FastEndpoints.Templates.Endpoint.Models;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.Plugins.FactoryExtensions;

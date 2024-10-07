@@ -80,10 +80,7 @@ public class CqrsControllerModel : IControllerModel
 
         return new List<IApiVersionModel>();
     }
-
-    // DJVV - Here we can use hard coded versions and possibly reuse the logic in AspNetCore.Controllers for
-    // handling "Secured" stereotypes too. Now we're just duplicating logic which can easily be neglected
-    // or updated in the wrong place.
+    
     private static bool GetAuthorizationRolesAndPolicies(IElement element, out string roles, out string policy)
     {
         roles = null;

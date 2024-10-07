@@ -318,7 +318,27 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
 
         private void AddSecurity(CSharpClassMethod method)
         {
-            method.AddStatement("AllowAnonymous();");
+            if (!IsEndpointSecured())
+            {
+                method.AddStatement("AllowAnonymous();");
+            }
+
+            if (!string.IsNullOrWhiteSpace(Model.Authorization?.RolesExpression) && 
+                Model.Authorization.RolesExpression.Contains('+'))
+            {
+                var roles = Model.Authorization.RolesExpression.Split('+');
+
+                foreach (var roleGroup in roles)
+                {
+                    var individualRoles = roleGroup.Split(',', StringSplitOptions.RemoveEmptyEntries);
+                    method.AddStatement($@"Roles({string.Join(", ", individualRoles.Select(s => $@"""{s}"""))});");
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(Model.Authorization?.Policy))
+            {
+                method.AddStatement($@"Policies(""{Model.Authorization.Policy}"");");
+            }
         }
 
         private bool TryGetParameterBindingAttribute(IEndpointParameterModel parameter, out CSharpAttribute? attribute)
@@ -374,6 +394,30 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
         public override string TransformText()
         {
             return CSharpFile.ToString();
+        }
+        
+        private bool IsContainerSecured()
+        {
+            // Still to be applied
+            // return ExecutionContext.Settings.GetAPISettings().DefaultAPISecurity().AsEnum() switch
+            // {
+            //     APISettings.DefaultAPISecurityOptionsEnum.Secured => Model.RequiresAuthorization || !Model.AllowAnonymous,
+            //     APISettings.DefaultAPISecurityOptionsEnum.Unsecured => Model.RequiresAuthorization,
+            //     _ => throw new ArgumentOutOfRangeException()
+            // };
+            return Model.RequiresAuthorization || !Model.AllowAnonymous;
+        }
+
+        private bool IsEndpointSecured()
+        {
+            if (!Model.RequiresAuthorization && !Model.AllowAnonymous)
+            {
+                return IsContainerSecured();
+            }
+
+            return IsContainerSecured()
+                ? Model.RequiresAuthorization || !Model.AllowAnonymous
+                : Model.RequiresAuthorization;
         }
     }
 }

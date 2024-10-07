@@ -7,34 +7,14 @@ using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Metadata.WebApi.Models;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
-namespace Intent.Modules.FastEndpoints.Templates.Endpoint;
-
-public class ServiceEndpointContainerModel : IEndpointContainerModel
-{
-    public ServiceEndpointContainerModel(ServiceModel serviceModel)
-    {
-        Id = serviceModel.Id;
-        Name = serviceModel.Name;
-        Folder = serviceModel.Folder;
-        InternalElement = serviceModel.InternalElement;
-        Endpoints = serviceModel.Operations
-            .Select(IEndpointModel (operation) => new ServiceEndpointModel(this, serviceModel, operation))
-            .ToList();
-    }
-
-    public string Id { get; }
-    public string Name { get; }
-    public FolderModel Folder { get; }
-    public IElement InternalElement { get; }
-    public IList<IEndpointModel> Endpoints { get; }
-}
+namespace Intent.Modules.FastEndpoints.Templates.Endpoint.Models;
 
 public class ServiceEndpointModel : IEndpointModel
 {
     private readonly ServiceModel _serviceModel;
     private readonly OperationModel _operationModel;
 
-    public ServiceEndpointModel(IEndpointContainerModel container, ServiceModel serviceModel, OperationModel operationModel)
+    public ServiceEndpointModel(IEndpointContainerModel container, ServiceModel serviceModel, OperationModel operationModel, IAuthorizationModel? authorizationModel)
     {
         if (container is null)
         {
@@ -64,6 +44,9 @@ public class ServiceEndpointModel : IEndpointModel
         Route = httpEndpoint.Route;
         MediaType = httpEndpoint.MediaType;
         Parameters = httpEndpoint.Inputs.Select(GetInput).ToList();
+        RequiresAuthorization = httpEndpoint.RequiresAuthorization;
+        AllowAnonymous = httpEndpoint.AllowAnonymous;
+        Authorization = authorizationModel;
     }
 
     public string Id { get; }
@@ -77,6 +60,9 @@ public class ServiceEndpointModel : IEndpointModel
     public string Route { get; }
     public HttpMediaType? MediaType { get; }
     public IList<IEndpointParameterModel> Parameters { get; }
+    public bool RequiresAuthorization { get; }
+    public bool AllowAnonymous { get; }
+    public IAuthorizationModel? Authorization { get; }
     public FolderModel? Folder => new FolderModel(Container.InternalElement, Container.InternalElement.SpecializationType);
 
     private static IEndpointParameterModel GetInput(IHttpEndpointInputModel model)
@@ -91,36 +77,4 @@ public class ServiceEndpointModel : IEndpointModel
             mappedPayloadProperty: model.MappedPayloadProperty,
             value: model.Value);
     }
-}
-
-public class ServiceEndpointParameterModel : IEndpointParameterModel
-{
-    public ServiceEndpointParameterModel(
-        string id,
-        string name,
-        ITypeReference typeReference,
-        HttpInputSource? source,
-        string? headerName,
-        string? queryStringName,
-        ICanBeReferencedType? mappedPayloadProperty,
-        string? value)
-    {
-        Id = id;
-        Name = name;
-        TypeReference = typeReference;
-        Source = source;
-        HeaderName = headerName;
-        QueryStringName = queryStringName;
-        MappedPayloadProperty = mappedPayloadProperty;
-        Value = value;
-    }
-
-    public string Id { get; }
-    public string Name { get; }
-    public ITypeReference TypeReference { get; }
-    public HttpInputSource? Source { get; }
-    public string? HeaderName { get; }
-    public string? QueryStringName { get; }
-    public ICanBeReferencedType? MappedPayloadProperty { get; }
-    public string? Value { get; }
 }
