@@ -330,13 +330,34 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return CSharpFile.GetConfig();
+
+            return new CSharpFileConfig(
+                className: Model.Name,
+                @namespace: $"{this.GetNamespace()}",
+                fileName: $"{GetTemplateFileName()}",
+                relativeLocation: $"{this.GetFolderPath()}");
         }
 
         [IntentManaged(Mode.Fully)]
         public override string TransformText()
         {
             return CSharpFile.ToString();
+        }
+
+        private string GetTemplateFileName()
+        {
+            // get the number of DTO models
+            var designer = ExecutionContext.MetadataManager.GetDesigner(ExecutionContext.GetApplicationConfig().Id, "Services");
+            var models = designer?.GetDTOModels().Where(m => m.Name == Model.Name);
+
+            // if the current model has no generic types OR there is only one DTO model with this name, then just use the name 
+            // for the file name
+            if (!Model.GenericTypes.Any() || models?.Count() == 1)
+            {
+                return Model.Name;
+            }
+
+            return $"{Model.Name}Of{string.Join("And", Model.GenericTypes)}";
         }
     }
 }

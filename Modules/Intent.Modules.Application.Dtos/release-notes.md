@@ -1,3 +1,7 @@
+### Version 4.3.3
+
+- Improvement: The filename of DTOs with generic types will now contain the generic type (e.g. ProductDto\<T> will be named ProductOfT). This is only applicable if there is another non-generic DTO with the same name.
+
 ### Version 4.3.2
 
 - Fixed: Constructor nullability assignment omitted for generic type properties.
