@@ -34,7 +34,6 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.QueryDtoParameter
                 b.ProducesProblemDetails();
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
-            AllowAnonymous();
         }
 
         public override async Task HandleAsync(HasDtoParameterQuery req, CancellationToken ct)

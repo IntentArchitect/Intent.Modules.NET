@@ -32,7 +32,6 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.SecuredService
                 b.Produces(StatusCodes.Status204NoContent);
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
-            AllowAnonymous();
         }
 
         public override async Task HandleAsync(CancellationToken ct)

@@ -34,7 +34,6 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.GeometryTypes
                 b.ProducesProblemDetails();
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
-            AllowAnonymous();
         }
 
         public override async Task HandleAsync(DeleteGeometryTypeCommand req, CancellationToken ct)

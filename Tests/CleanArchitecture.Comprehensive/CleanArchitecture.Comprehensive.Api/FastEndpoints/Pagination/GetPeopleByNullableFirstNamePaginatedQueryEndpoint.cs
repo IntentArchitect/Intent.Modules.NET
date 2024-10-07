@@ -36,7 +36,6 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.Pagination
                 b.ProducesProblemDetails();
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
-            AllowAnonymous();
         }
 
         public override async Task HandleAsync(GetPeopleByNullableFirstNamePaginatedQuery req, CancellationToken ct)

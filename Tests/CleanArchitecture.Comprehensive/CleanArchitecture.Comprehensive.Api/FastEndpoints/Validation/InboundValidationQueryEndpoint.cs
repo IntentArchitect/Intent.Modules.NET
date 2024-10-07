@@ -36,7 +36,6 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.Validation
                 b.ProducesProblemDetails();
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
-            AllowAnonymous();
         }
 
         public override async Task HandleAsync(InboundValidationQuery req, CancellationToken ct)

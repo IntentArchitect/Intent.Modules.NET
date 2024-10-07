@@ -35,7 +35,6 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.AggregateTestNoIdRet
                 b.ProducesProblemDetails();
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
-            AllowAnonymous();
         }
 
         public override async Task HandleAsync(UpdateAggregateTestNoIdReturnCommand req, CancellationToken ct)

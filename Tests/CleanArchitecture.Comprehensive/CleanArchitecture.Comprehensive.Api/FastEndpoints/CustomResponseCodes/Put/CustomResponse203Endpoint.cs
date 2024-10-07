@@ -32,7 +32,6 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.CustomResponseCodes.
                 b.Produces(StatusCodes.Status203NonAuthoritative);
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
-            AllowAnonymous();
         }
 
         public override async Task HandleAsync(CancellationToken ct)

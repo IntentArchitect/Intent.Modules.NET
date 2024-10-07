@@ -35,7 +35,6 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.IntegrationTriggerin
                 b.ProducesProblemDetails();
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
-            AllowAnonymous();
         }
 
         public override async Task HandleAsync(UpdateAnemicIntegrationTriggeringCommand req, CancellationToken ct)
