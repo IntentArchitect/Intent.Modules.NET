@@ -21,7 +21,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates;
 
-public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTemplateBase<TModel>, IVisualStudioProjectTemplate, ICanContainGlobalUsings
+public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTemplateBase<TModel>, IVisualStudioProjectTemplate, IHasGlobalUsings
     where TModel : IVisualStudioProject
 {
     private string _fileContent;
@@ -502,7 +502,7 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
         return usingGroup;
     }
 
-    IEnumerable<string> ICanContainGlobalUsings.GetGlobalUsings()
+    IEnumerable<string> IHasGlobalUsings.GetGlobalUsings()
     {
         var project = ((IVisualStudioProjectTemplate)this).Project;
         var (implicitUsingsIsEnabled, sdk, customImplicitUsings) = GetSettings(project);
