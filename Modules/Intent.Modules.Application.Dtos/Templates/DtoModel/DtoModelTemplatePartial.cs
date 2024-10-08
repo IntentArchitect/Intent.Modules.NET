@@ -346,13 +346,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
 
         private string GetTemplateFileName()
         {
-            // get the number of DTO models
-            var designer = ExecutionContext.MetadataManager.GetDesigner(ExecutionContext.GetApplicationConfig().Id, "Services");
-            var models = designer?.GetDTOModels().Where(m => m.Name == Model.Name);
-
-            // if the current model has no generic types OR there is only one DTO model with this name, then just use the name 
-            // for the file name
-            if (!Model.GenericTypes.Any() || models?.Count() == 1)
+            if (!Model.GenericTypes.Any())
             {
                 return Model.Name;
             }
