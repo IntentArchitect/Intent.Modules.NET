@@ -188,22 +188,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>b485a01b-41c9-4c91-a217-f59c349bcff5</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#3de05355-663e-48db-a6f4-99e512cbc1ed</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Application/Invoices/CustomDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Invoices/CustomDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b485a01b-41c9-4c91-a217-f59c349bcff5</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#e9022cc3-a840-40a7-9e8c-d1de3787b252</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Application/Invoices/CustomDtoOfTAndT1AndT2.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Invoices/CustomDtoOfTAndT1AndT2.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b485a01b-41c9-4c91-a217-f59c349bcff5</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#135e1dd6-5533-4cd5-88d8-9767803b14f6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Application/Invoices/InvoiceCreateDto.cs</ApplicationRelativeFilePath>
@@ -256,14 +240,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Application/Invoices/InvoiceUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Invoices/InvoiceUpdateDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b485a01b-41c9-4c91-a217-f59c349bcff5</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#e1a78888-0ff1-4daa-a5c5-d442993c00a0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>DtoSettings.Class.Protected.Application/Invoices/OtherCustomerDtoOfT.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Invoices/OtherCustomerDtoOfT.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
