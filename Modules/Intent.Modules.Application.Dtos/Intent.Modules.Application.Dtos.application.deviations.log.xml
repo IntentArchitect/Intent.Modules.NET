@@ -28,6 +28,19 @@
       <fileHash>363B55480CFBE195323719FCEFFB7EED75B447FE3B3E117611861840C7F41CA8</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#8229e960-3d06-4e61-952e-b08570edca67</correlationId>
+      <path>Intent.Modules.Application.Dtos/Templates/DtoModel/DtoModelTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2024-10-08T11:49:38.8931795Z</updatedAt>
+      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>JP Seini</approvedByDisplayName>
+      <approvedAt>2024-10-08T12:03:41.5591273Z</approvedAt>
+      <deviationsHash>E5A486C55B686A78C43D3430B55F51EC3C454555A2C5A7A74BB35255DE6F1B53</deviationsHash>
+      <fileHash>E787DFF79480AF9549BF2DBD51B75241B2CC2C7E6F528FD2C011A15BA0687C5D</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#8229e960-3d06-4e61-952e-b08570edca67</correlationId>
       <path>Intent.Modules.Application.Dtos/Templates/DtoModel/DtoModelTemplateRegistration.cs</path>
       <count>1</count>

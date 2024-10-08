@@ -327,7 +327,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
         {
 

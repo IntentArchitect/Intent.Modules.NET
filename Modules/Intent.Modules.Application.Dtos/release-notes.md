@@ -1,6 +1,6 @@
-### Version 4.3.3
+### Version 4.4.0
 
-- Improvement: The filename of DTOs with generic types will now contain the generic type (e.g. ProductDto\<T> will be named ProductOfT). 
+- Improvement: The filename of DTOs with generic types will now contain the generic type(s) (e.g. the filename for the DTO ProductDto\<T> will now be named ProductOfT). 
 
 ### Version 4.3.2
 
