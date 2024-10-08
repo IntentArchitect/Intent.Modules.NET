@@ -59,18 +59,23 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                     var ctor = @class.Constructors.First();
                     if (IsNonPublicPropertyAccessors())
                     {
-                        @class.AddConstructor(protectedCtor =>
+                        // if there are no fields, and the second constructor is added
+                        // there are conflicts
+                        if (Model.Fields.Any())
                         {
-                            if (ExecutionContext.Settings.GetDTOSettings().Sealed())
+                            @class.AddConstructor(protectedCtor =>
                             {
-                                protectedCtor.Private();
-                            }
-                            else
-                            {
-                                protectedCtor.Protected();
-                            }
-                            PopulateDefaultCtor(protectedCtor);
-                        });
+                                if (ExecutionContext.Settings.GetDTOSettings().Sealed())
+                                {
+                                    protectedCtor.Private();
+                                }
+                                else
+                                {
+                                    protectedCtor.Protected();
+                                }
+                                PopulateDefaultCtor(protectedCtor);
+                            });
+                        }
 
                         foreach (var field in Model.Fields)
                         {
