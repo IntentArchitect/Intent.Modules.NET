@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f6ad98cd-9a37-4e9f-9036-82389d27cc4b" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>NewDto</name>
+  <display>NewDto&lt;T&gt;</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes>
+    <genericType id="0541d5b0-e6c8-436c-a0f8-bff21e9b59f0">
+      <name>T</name>
+    </genericType>
+  </genericTypes>
+  <isMapped>false</isMapped>
+  <parentFolderId>21989178-e6ee-4e1b-950c-5c73458cb3d1</parentFolderId>
+  <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+  <packageName>DtoSettings.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

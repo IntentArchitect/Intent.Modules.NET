@@ -244,6 +244,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>93359efb-d807-4a3c-bfc0-71fb72589163</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#286b58e1-af23-4199-8641-5aa2c8ca022f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Private.Application/Invoices/NewDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/NewDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>93359efb-d807-4a3c-bfc0-71fb72589163</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#f6ad98cd-9a37-4e9f-9036-82389d27cc4b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Private.Application/Invoices/NewDtoOfT.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/NewDtoOfT.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>93359efb-d807-4a3c-bfc0-71fb72589163</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#b23dd6a6-45f4-4cb3-ba2a-0b467bd75f25</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Private.Application/Invoices/OtherNewDtoOfTAndT1.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/OtherNewDtoOfTAndT1.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>93359efb-d807-4a3c-bfc0-71fb72589163</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#f5a35859-2285-4f92-8db3-ec7b73d93169</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Private.Application/InvoicesAdvanced/CreateInvoice/CreateInvoiceCommand.cs</ApplicationRelativeFilePath>
