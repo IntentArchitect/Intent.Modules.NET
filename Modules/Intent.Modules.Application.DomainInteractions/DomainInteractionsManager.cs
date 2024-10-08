@@ -121,6 +121,7 @@ public class DomainInteractionsManager
 
                         return x;
                     }).ToList();
+                    WireupDomainServicesForProcessingAction(handlerClass, actions.InternalElement.Mappings.Single(), processingStatements);
                     processingStatements.FirstOrDefault()?.SeparatedFromPrevious();
                     statements.AddRange(processingStatements);
 
@@ -839,7 +840,59 @@ public class DomainInteractionsManager
             }
         }
     }
-    
+
+    private void WireupDomainServicesForProcessingAction(CSharpClass handlerClass, IElementToElementMapping mapping, IList<CSharpStatement> processingActions)
+    {
+        var mappedOperations = mapping.MappedEnds.Where(me => OperationModelExtensions.IsOperationModel(me.TargetElement)).Select(me => OperationModelExtensions.AsOperationModel(me.TargetElement)).ToList();
+
+        if (!mappedOperations.Any())
+        {
+            return;
+        }
+        if (!mappedOperations.Any(o => o.Parameters.Any(p => p.TypeReference.Element.SpecializationTypeId == DomainServiceSpecializationId)))
+        {
+            return;
+        }
+
+        Func<CSharpInvocationStatement, Intent.Modelers.Domain.Api.OperationModel> getOperation;
+
+        getOperation = (invocation) =>
+        {
+            string operationName = invocation.Expression.Reference is ICSharpMethodDeclaration iCSharpMethodDeclaration ? iCSharpMethodDeclaration.Name.ToCSharpIdentifier() : null;
+            return mappedOperations.FirstOrDefault(operation => operation.Name == operationName);
+        };
+
+        foreach (var updateStatement in processingActions)
+        {
+            if (updateStatement is not CSharpInvocationStatement invocation)
+            {
+                continue;
+            }
+            var operation = getOperation(invocation);
+
+            if (operation == null)
+            {
+                continue;
+            }
+            for (var i = 0; i < operation.Parameters.Count; i++)
+            {
+                var arg = operation.Parameters[i];
+                if (arg.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId)
+                {
+                    continue;
+                }
+
+                if (!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, arg.TypeReference.Element.Id, out var domainServiceInterface))
+                {
+                    continue;
+                }
+                var fieldName = InjectService(domainServiceInterface, handlerClass, domainServiceInterface.Substring(1).ToParameterName());
+                //Change `default` or `parameterName: default` into `_domainService` (fieldName)
+                invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldName));
+            }
+        }
+    }
+
     private void WireupDomainServicesForOperations(CSharpClass handlerClass, CallServiceOperationTargetEndModel callServiceOperation, List<CSharpStatement> statements)
     {
         var operation = OperationModelExtensions.AsOperationModel(callServiceOperation.Element);

@@ -5,6 +5,7 @@
 ### Version 6.0.19
 
 - Improvement: Basic CRUD support for specifications.
+- Improvement: Added support for Domain Service injection on Processing Actions.
 
 ### Version 6.0.18
 
