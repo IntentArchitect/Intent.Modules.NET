@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="a0a93a94-a11d-4b3b-9025-d2f19b8c25d3">
   <sourceEnd id="6ca1e488-58f5-4b93-b0f5-93b764d0b4a3" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
-    <display>created by : Invoices.CreateInvoiceCommand</display>
+    <display>created by : InvoicesAdvanced.CreateInvoiceCommand</display>
     <order>0</order>
     <typeReference id="0e1c8b1f-90ac-411a-bda1-1d73ee739fa0">
       <typeId>f5a35859-2285-4f92-8db3-ec7b73d93169</typeId>
@@ -22,6 +22,9 @@
     <name>invoice</name>
     <display>[create] invoice: Invoice</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="e4f396e7-de0a-4e4a-b6b2-f6bcbcfb10d0">
       <typeId>4db32430-16e4-4d67-90cc-5b283932c4fd</typeId>
       <isNavigable>true</isNavigable>

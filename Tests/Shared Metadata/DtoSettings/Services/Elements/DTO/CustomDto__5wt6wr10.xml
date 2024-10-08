@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3de05355-663e-48db-a6f4-99e512cbc1ed" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>CustomDto</name>
+  <display>CustomDto</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>21989178-e6ee-4e1b-950c-5c73458cb3d1</parentFolderId>
+  <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+  <packageName>DtoSettings.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

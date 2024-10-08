@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="4db32430-16e4-4d67-90cc-5b283932c4fd" name="Invoice" type="element" specialization="Class" />
+      <target id="4db32430-16e4-4d67-90cc-5b283932c4fd" name="Invoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>21989178-e6ee-4e1b-950c-5c73458cb3d1</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="42774679-bbae-4489-8b2c-51b7823c426a" name="Id" type="element" specialization="Attribute" />
+          <target id="42774679-bbae-4489-8b2c-51b7823c426a" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>50f25776-d91d-4194-b859-fa9f3a098762</parentFolderId>
@@ -73,7 +73,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="6f0b3c4a-1e89-4432-a105-9c39df5dc171" name="Number" type="element" specialization="Attribute" />
+          <target id="6f0b3c4a-1e89-4432-a105-9c39df5dc171" name="Number" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>50f25776-d91d-4194-b859-fa9f3a098762</parentFolderId>
@@ -104,7 +104,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="00253d09-6507-403a-85a7-9c1cad31924f" name="InvoiceLines" type="association" specialization="Association Target End" />
+          <target id="00253d09-6507-403a-85a7-9c1cad31924f" name="InvoiceLines" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>50f25776-d91d-4194-b859-fa9f3a098762</parentFolderId>

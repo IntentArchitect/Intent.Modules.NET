@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e1a78888-0ff1-4daa-a5c5-d442993c00a0" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>OtherCustomerDto</name>
+  <display>OtherCustomerDto&lt;T&gt;</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes>
+    <genericType id="f6aa763f-787b-4cd6-bd9c-81c8028932b7">
+      <name>T</name>
+    </genericType>
+  </genericTypes>
+  <isMapped>false</isMapped>
+  <parentFolderId>21989178-e6ee-4e1b-950c-5c73458cb3d1</parentFolderId>
+  <packageId>24958345-ec60-4d20-9c08-de1c4255fc5d</packageId>
+  <packageName>DtoSettings.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

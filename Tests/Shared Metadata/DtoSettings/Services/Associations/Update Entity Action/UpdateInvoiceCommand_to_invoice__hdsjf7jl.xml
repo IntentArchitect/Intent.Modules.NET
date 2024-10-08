@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="23e901df-abee-4048-81f4-a3bb8e0e1fe6">
   <sourceEnd id="f1a6ed67-1092-4e02-9654-1c31d1e72df2" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
-    <display>updated by : Invoices.UpdateInvoiceCommand</display>
+    <display>updated by : InvoicesAdvanced.UpdateInvoiceCommand</display>
     <order>0</order>
     <typeReference id="6e53c655-e73a-46c3-80a0-b4ed885ffc2a">
       <typeId>65944888-c386-47bc-8053-515323d99c1f</typeId>
@@ -22,6 +22,9 @@
     <name>invoice</name>
     <display>[update] invoice: Invoice</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="5fd16f89-d77d-4600-b167-9eb5bad7cdbd">
       <typeId>4db32430-16e4-4d67-90cc-5b283932c4fd</typeId>
       <isNavigable>true</isNavigable>
