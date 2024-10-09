@@ -752,24 +752,7 @@ public class DomainInteractionsManager
 		var constructor = createAction.Element.AsClassConstructorModel();
 		if (constructor != null)
 		{
-			if (constructor.Parameters.Any(p => p.TypeReference.Element.SpecializationTypeId == DomainServiceSpecializationId)) // Domain Service
-			{
-				var invocation = constructionStatement as CSharpInvocationStatement;
-				for (var i = 0; i < constructor.Parameters.Count; i++)
-				{
-					var arg = constructor.Parameters[i];
-					if (arg.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId)
-					{
-						continue;
-					}
-					if (_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, arg.TypeReference.Element.Id, out var domainServiceInterface))
-					{
-						var fieldname = InjectService(domainServiceInterface, handlerClass, domainServiceInterface.Substring(1).ToParameterName());
-						//Change `default` or `parameterName: default` into `_domainService` (fieldName)
-						invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldname));
-					}
-				}
-			}
+            WireupDomainService(constructionStatement as CSharpInvocationStatement, constructor.Parameters, handlerClass);
 		}
 	}
 
@@ -821,23 +804,8 @@ public class DomainInteractionsManager
             if (operation == null)
             {
                 continue;
-            }    
-            for (var i = 0; i < operation.Parameters.Count; i++)
-            {
-                var arg = operation.Parameters[i];
-                if (arg.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId)
-                {
-                    continue;
-                }
-
-                if (!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, arg.TypeReference.Element.Id, out var domainServiceInterface))
-                {
-                    continue;
-                }
-                var fieldName = InjectService(domainServiceInterface, handlerClass, domainServiceInterface.Substring(1).ToParameterName());
-                //Change `default` or `parameterName: default` into `_domainService` (fieldName)
-                invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldName));
             }
+            WireupDomainService(invocation, operation.Parameters, handlerClass);
         }
     }
 
@@ -854,13 +822,6 @@ public class DomainInteractionsManager
             return;
         }
 
-        Func<CSharpInvocationStatement, Intent.Modelers.Domain.Api.OperationModel> getOperation;
-
-        getOperation = (invocation) =>
-        {
-            string operationName = invocation.Expression.Reference is ICSharpMethodDeclaration iCSharpMethodDeclaration ? iCSharpMethodDeclaration.Name.ToCSharpIdentifier() : null;
-            return mappedOperations.FirstOrDefault(operation => operation.Name == operationName);
-        };
 
         foreach (var updateStatement in processingActions)
         {
@@ -868,28 +829,14 @@ public class DomainInteractionsManager
             {
                 continue;
             }
-            var operation = getOperation(invocation);
+            string operationName = invocation.Expression.Reference is ICSharpMethodDeclaration iCSharpMethodDeclaration ? iCSharpMethodDeclaration.Name.ToCSharpIdentifier() : null;
+            var operation = mappedOperations.FirstOrDefault(operation => operation.Name == operationName);
 
             if (operation == null)
             {
                 continue;
             }
-            for (var i = 0; i < operation.Parameters.Count; i++)
-            {
-                var arg = operation.Parameters[i];
-                if (arg.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId)
-                {
-                    continue;
-                }
-
-                if (!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, arg.TypeReference.Element.Id, out var domainServiceInterface))
-                {
-                    continue;
-                }
-                var fieldName = InjectService(domainServiceInterface, handlerClass, domainServiceInterface.Substring(1).ToParameterName());
-                //Change `default` or `parameterName: default` into `_domainService` (fieldName)
-                invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldName));
-            }
+            WireupDomainService(invocation, operation.Parameters, handlerClass);
         }
     }
 
@@ -932,42 +879,52 @@ public class DomainInteractionsManager
                 return;
             }
             
-            for (var i = 0; i < operation.Parameters.Count; i++)
-            {
-                var arg = operation.Parameters[i];
-                if (arg.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId)
-                {
-                    continue;
-                }
-
-                if (!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, arg.TypeReference.Element.Id, out var domainServiceInterface))
-                {
-                    continue;
-                }
-                var fieldName = InjectService(domainServiceInterface, handlerClass, domainServiceInterface.Substring(1).ToParameterName());
-                //Change `default` or `parameterName: default` into `_domainService` (fieldName)
-                invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldName));
-            }
+            WireupDomainService(invocation, operation.Parameters, handlerClass);
         }
     }
 
-	//private void InjectAutoMapper(out string fieldName)
-	//{
-	//    var temp = default(string);
-	//    var ctor = _template.CSharpFile.Classes.First().Constructors.First();
-	//    if (ctor.Parameters.All(x => x.Type != _template.UseType("AutoMapper.IMapper")))
-	//    {
-	//        ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper",
-	//            param => param.IntroduceReadonlyField(field => temp = field.Name));
-	//        fieldName = temp;
-	//    }
-	//    else
-	//    {
-	//        fieldName = ctor.Parameters.First(x => x.Type == _template.UseType("AutoMapper.IMapper")).Name.ToPrivateMemberName();
-	//    }
-	//}
+    private void WireupDomainService(CSharpInvocationStatement invocation, IList<Intent.Modelers.Domain.Api.ParameterModel> parameters, CSharpClass handlerClass)
+    {
+        if (invocation is null)
+        {
+            return;
+        }
 
-	private bool RequiresAggegateExplicitUpdate(EntityDetails entityDetails)
+        for (var i = 0; i < parameters.Count; i++)
+        {
+            var arg = parameters[i];
+            if (arg.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId)
+            {
+                continue;
+            }
+
+            if (!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, arg.TypeReference.Element.Id, out var domainServiceInterface))
+            {
+                continue;
+            }
+            var fieldName = InjectService(domainServiceInterface, handlerClass, domainServiceInterface.Substring(1).ToParameterName());
+            //Change `default` or `parameterName: default` into `_domainService` (fieldName)
+            invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldName));
+        }
+    }
+
+    //private void InjectAutoMapper(out string fieldName)
+    //{
+    //    var temp = default(string);
+    //    var ctor = _template.CSharpFile.Classes.First().Constructors.First();
+    //    if (ctor.Parameters.All(x => x.Type != _template.UseType("AutoMapper.IMapper")))
+    //    {
+    //        ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper",
+    //            param => param.IntroduceReadonlyField(field => temp = field.Name));
+    //        fieldName = temp;
+    //    }
+    //    else
+    //    {
+    //        fieldName = ctor.Parameters.First(x => x.Type == _template.UseType("AutoMapper.IMapper")).Name.ToPrivateMemberName();
+    //    }
+    //}
+
+    private bool RequiresAggegateExplicitUpdate(EntityDetails entityDetails)
     {
         if (entityDetails.DataAccessProvider is CompositeDataAccessProvider cda)
         {
