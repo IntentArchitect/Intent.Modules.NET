@@ -142,5 +142,6 @@
     <application id="28245ab0-d591-4360-984a-886e218302e6" name="Intent.Modules.FastEndpoints.Dispatch.MediatR" relativePath="Intent.Modules.FastEndpoints.Dispatch.MediatR/Intent.Modules.FastEndpoints.Dispatch.MediatR.application.config" />
     <application id="ef1945f3-b5bf-4321-859b-bda2c6ef4747" name="Intent.Modules.FastEndpoints.Dispatch.Services" relativePath="Intent.Modules.FastEndpoints.Dispatch.Services/Intent.Modules.FastEndpoints.Dispatch.Services.application.config" />
     <application id="a3a8db7f-a9d5-4f17-a5c4-c8a65ad56d80" name="Intent.Modules.Hangfire" relativePath="Intent.Modules.Hangfire/Intent.Modules.Hangfire.application.config" />
+    <application id="69705fd3-4f0c-449e-9b70-50f1f7f5db97" name="Intent.Modules.Google.CloudStorage" relativePath="Intent.Modules.Google.CloudStorage/Intent.Modules.Google.CloudStorage.application.config" />
   </applications>
 </solution>

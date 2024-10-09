@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="258debf5-454a-440e-b8f6-33d5a8de9558" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1cd103d0-3bec-4144-8795-b5d6066ca528</parentFolderId>
+  <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
+  <packageName>Intent.Modules.Google.CloudStorage</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
