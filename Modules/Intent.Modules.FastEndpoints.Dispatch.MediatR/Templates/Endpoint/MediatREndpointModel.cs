@@ -26,6 +26,8 @@ public class MediatREndpointContainerModel : IEndpointContainerModel
         Folder = parentElement?.ParentElement?.AsFolderModel();
         InternalElement = parentElement;
         Endpoints = elements.Select(IEndpointModel (operation) => new MediatREndpointModel(this, operation, GetAuthorizationModel(operation))).ToList();
+        AllowAnonymous = true;
+        RequiresAuthorization = false;
     }
 
     public string Id { get; }

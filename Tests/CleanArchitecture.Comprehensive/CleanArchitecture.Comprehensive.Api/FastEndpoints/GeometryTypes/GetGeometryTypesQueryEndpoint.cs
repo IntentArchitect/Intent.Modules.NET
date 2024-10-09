@@ -35,6 +35,7 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.GeometryTypes
                 b.Produces<List<GeometryTypeDto>>(StatusCodes.Status200OK, contentType: MediaTypeNames.Application.Json);
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
+            AllowAnonymous();
         }
 
         public override async Task HandleAsync(CancellationToken ct)

@@ -22,7 +22,7 @@ public class ServiceEndpointContainerModel : IEndpointContainerModel
             .Select(IEndpointModel (operation) => new ServiceEndpointModel(this, serviceModel, operation, GetAuthorizationModel(operation.InternalElement)))
             .ToList();
         RequiresAuthorization = serviceModel.HasSecured();
-        AllowAnonymous = serviceModel.HasUnsecured();
+        AllowAnonymous = !serviceModel.HasSecured();
         Authorization = GetAuthorizationModel(serviceModel.InternalElement);
     }
 
