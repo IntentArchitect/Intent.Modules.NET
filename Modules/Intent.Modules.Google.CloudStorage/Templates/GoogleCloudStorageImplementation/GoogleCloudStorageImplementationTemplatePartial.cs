@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -94,9 +96,39 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                                 tokenArg.WithName("cancellationToken");
                             });
                         });
-                        
+
                         method.AddStatement("returnStream.Position = 0;");
                         method.AddReturn("returnStream");
+                    });
+
+                    @class.AddMethod(UseType($"System.Threading.Tasks.Task<{UseType("System.Uri")}>"), "UploadAsync", method =>
+                    {
+                        method.Async();
+                        method.AddParameter("string", "bucketName")
+                            .AddParameter("string", "objectName")
+                            .AddParameter($"{UseType($"System.IO.Stream")}", "dataStream")
+                            .AddParameter("string?", "contentType", ct =>
+                            {
+                                ct.WithDefaultValue("null");
+                            })
+                            .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", cancelTokenParam =>
+                            {
+                                cancelTokenParam.WithDefaultValue("default");
+                            });
+
+                        method.AddInvocationStatement("var uploadResponse = await _client.UploadObjectAsync", uploadInvoc =>
+                        {
+                            uploadInvoc.AddArgument("bucketName")
+                                .AddArgument("objectName")
+                                .AddArgument("contentType")
+                                .AddArgument("dataStream")
+                                .AddArgument(new CSharpArgument("cancellationToken"), tokenArg =>
+                                {
+                                    tokenArg.WithName("cancellationToken");
+                                });
+                        });
+
+                        method.AddReturn("new Uri(uploadResponse.SelfLink)");
                     });
                 });
         }
@@ -107,10 +139,7 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
         {
-            return new CSharpFileConfig(
-                 className: $"GoogleCloudStorage",
-                 @namespace: $"{this.GetNamespace()}",
-                 relativeLocation: $"{this.GetFolderPath()}");
+            return CSharpFile.GetConfig();
         }
 
         [IntentManaged(Mode.Fully)]

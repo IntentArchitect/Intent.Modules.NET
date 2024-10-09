@@ -16,6 +16,14 @@
       <role>Application.Storage.CloudStorageInterface</role>
       <location>Common/Storage</location>
     </template>
+    <template id="Intent.Modules.Google.CloudStorage.GoogleCloudStorageConfiguration" externalReference="cd64f158-be0a-48a3-944c-9f61dfdc2983">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Configuration.GoogleCloudtStorageConfiguration</role>
+      <location>Configuration</location>
+    </template>
     <template id="Intent.Modules.Google.CloudStorage.GoogleCloudStorageImplementation" externalReference="7bbc6e9c-c0bc-4cb5-9d23-10b7b1bf974c">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />

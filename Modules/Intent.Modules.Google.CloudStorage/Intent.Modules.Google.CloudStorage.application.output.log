@@ -50,6 +50,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>989988dc-b6fd-4b64-91a8-44a939bbf178</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#cd64f158-be0a-48a3-944c-9f61dfdc2983</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/GoogleCloudStorageConfiguration/GoogleCloudStorageConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GoogleCloudStorageConfiguration/GoogleCloudStorageConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>989988dc-b6fd-4b64-91a8-44a939bbf178</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#cd64f158-be0a-48a3-944c-9f61dfdc2983</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/GoogleCloudStorageConfiguration/GoogleCloudStorageConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GoogleCloudStorageConfiguration/GoogleCloudStorageConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>989988dc-b6fd-4b64-91a8-44a939bbf178</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7bbc6e9c-c0bc-4cb5-9d23-10b7b1bf974c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/GoogleCloudStorageImplementation/GoogleCloudStorageImplementationTemplatePartial.cs</ApplicationRelativeFilePath>

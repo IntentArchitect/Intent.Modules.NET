@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -48,6 +51,22 @@ namespace Intent.Modules.Google.CloudStorage.Templates.CloudStorageInterface
                         method.Async();
                         method.AddParameter("string", "bucketName")
                             .AddParameter("string", "objectName")
+                            .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", cancelTokenParam =>
+                            {
+                                cancelTokenParam.WithDefaultValue("default");
+                            });
+                    });
+
+                    @interface.AddMethod(UseType($"System.Threading.Tasks.Task<{UseType("System.Uri")}>"), "UploadAsync", method =>
+                    {
+                        method.Async();
+                        method.AddParameter("string", "bucketName")
+                            .AddParameter("string", "objectName")
+                            .AddParameter($"{UseType($"System.IO.Stream")}", "dataStream")
+                            .AddParameter("string?", "contentType", ct =>
+                            {
+                                ct.WithDefaultValue("null");
+                            })
                             .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", cancelTokenParam =>
                             {
                                 cancelTokenParam.WithDefaultValue("default");
