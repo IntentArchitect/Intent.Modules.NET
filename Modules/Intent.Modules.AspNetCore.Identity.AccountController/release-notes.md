@@ -1,3 +1,7 @@
+### Version 3.1.5
+
+- Fixed: Missed `Intent.JWT` module as dependency.
+
 ### Version 3.1.4
 
 - Improvement: Updated module NuGet packages infrastructure.
