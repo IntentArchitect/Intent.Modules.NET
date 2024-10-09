@@ -1,7 +1,9 @@
+### Version 4.4.1
+- Bug: Fixed issue of duplicate constructors if no fields are added to the DTO
+
 ### Version 4.4.0
 
 - Improvement: The filename of DTOs with generic types will now contain the generic type(s) (e.g. the filename for the DTO ProductDto\<T> will now be named ProductOfT). 
-- Bug: Fixed issue of duplicate constructors if no fields are added to the DTO
 
 ### Version 4.3.2
 
