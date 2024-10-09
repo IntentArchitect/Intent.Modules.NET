@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Controllers</id>
-  <version>6.1.1-pre.0</version>
+  <version>6.1.1</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates Controller classes based off of Services in the Services designer</summary>
   <description>Generates Controller classes based off of Services in the Services designer</description>
@@ -71,7 +71,7 @@
     </detect>
     <detect id="Intent.AspNetCore.Swashbuckle">
       <install>
-        <package id="Intent.AspNetCore.Swashbuckle" version="5.1.1-pre.0" />
+        <package id="Intent.AspNetCore.Swashbuckle" version="5.1.1" />
       </install>
     </detect>
   </interoperability>

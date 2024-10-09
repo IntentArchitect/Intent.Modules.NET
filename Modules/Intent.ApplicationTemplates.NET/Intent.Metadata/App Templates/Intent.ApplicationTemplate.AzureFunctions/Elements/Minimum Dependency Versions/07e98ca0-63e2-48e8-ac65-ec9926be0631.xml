@@ -45,7 +45,7 @@
       <name>Intent.Application.Dtos</name>
       <display>Intent.Application.Dtos 4.3.2</display>
       <isAbstract>false</isAbstract>
-      <value>4.3.2</value>
+      <value>4.4.0</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -129,7 +129,7 @@
       <name>Intent.Common</name>
       <display>Intent.Common 3.7.0</display>
       <isAbstract>false</isAbstract>
-      <value>3.7.0</value>
+      <value>3.7.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -143,7 +143,7 @@
       <name>Intent.Common.CSharp</name>
       <display>Intent.Common.CSharp 3.8.0</display>
       <isAbstract>false</isAbstract>
-      <value>3.8.0</value>
+      <value>3.8.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -255,7 +255,7 @@
       <name>Intent.Metadata.WebApi</name>
       <display>Intent.Metadata.WebApi 4.6.0</display>
       <isAbstract>false</isAbstract>
-      <value>4.6.0</value>
+      <value>4.6.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -269,7 +269,7 @@
       <name>Intent.Modelers.Domain</name>
       <display>Intent.Modelers.Domain 3.10.0</display>
       <isAbstract>false</isAbstract>
-      <value>3.10.0</value>
+      <value>3.11.0</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -339,7 +339,7 @@
       <name>Intent.Modelers.Services</name>
       <display>Intent.Modelers.Services 3.8.0</display>
       <isAbstract>false</isAbstract>
-      <value>3.8.0</value>
+      <value>3.8.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>

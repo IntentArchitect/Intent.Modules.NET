@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos</id>
-  <version>4.4.0-pre.1</version>
+  <version>4.4.1-pre.0</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>Generates code for your Application Service that applies the Interface segregation principal</summary>
   <description>Generates code for your Application Service that applies the Interface segregation principal</description>
@@ -32,7 +32,7 @@
   </decorators>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.6-pre.1" />
+    <dependency id="Intent.Common.CSharp" version="3.8.1" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Services" version="3.5.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
