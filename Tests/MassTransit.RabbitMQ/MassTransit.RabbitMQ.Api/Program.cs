@@ -1,7 +1,10 @@
 using System;
 using Intent.RoslynWeaver.Attributes;
+using MassTransit.RabbitMQ.Api.Configuration;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
 
@@ -39,7 +42,12 @@ namespace MassTransit.RabbitMQ.Api
             Host.CreateDefaultBuilder(args)
                 .UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services))
+                    .ReadFrom.Services(services), writeToProviders: true)
+                .ConfigureLogging((context, logBuilder) =>
+                {
+                    logBuilder.ClearProviders();
+                    logBuilder.AddTelemetryConfiguration(context);
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

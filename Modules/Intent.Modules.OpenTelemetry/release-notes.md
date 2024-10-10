@@ -1,3 +1,7 @@
+### Version 2.2.1
+
+- Fixed: Integration with MassTransit is broken due to new CSharpInvocationStatements representable as method chaining statements.
+
 ### Version 2.2.0
 
 - New Feature: New Exporter option available `Azure Monitor OpenTelemetry Distro`. Read more about it [here](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore#why-should-i-use-the-azure-monitor-opentelemetry-distro).

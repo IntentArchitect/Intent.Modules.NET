@@ -28,18 +28,21 @@ public class TelemetryConfiguratorExtension : FactoryExtensionBase
 
     private void UpdateOpenTelemetryConfiguration(IApplication application)
     {
-        var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.OpenTelemetry"));
+        // Until we can modify wrapped invocation statements we can't go with this solution.
+        // See the TEMP FIX in OpenTelemetryConfigurationTemplate
+        
+        //var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Distribution.OpenTelemetry"));
+        
+        // template?.CSharpFile.AfterBuild(file =>
+        // {
+        //     var priClass = file.Classes.First();
+        //     var method = priClass.FindMethod("AddTelemetryConfiguration");
+            // var telemetryConfigStmt = (CSharpMethodChainStatement)method.FindStatement(stmt => stmt.HasMetadata("telemetry-config"));
+            // var telemetryTranceStmt = (CSharpInvocationStatement)telemetryConfigStmt.FindStatement(stmt => stmt.HasMetadata("telemetry-tracing"));
+            // var traceChain = (CSharpMethodChainStatement)((CSharpLambdaBlock)telemetryTranceStmt.Statements.First()).Statements.First();
 
-        template?.CSharpFile.AfterBuild(file =>
-        {
-            var priClass = file.Classes.First();
-            var method = priClass.FindMethod("AddTelemetryConfiguration");
-            var telemetryConfigStmt = (CSharpMethodChainStatement)method.FindStatement(stmt => stmt.HasMetadata("telemetry-config"));
-            var telemetryTranceStmt = (CSharpInvocationStatement)telemetryConfigStmt.FindStatement(stmt => stmt.HasMetadata("telemetry-tracing"));
-            var traceChain = (CSharpMethodChainStatement)((CSharpLambdaBlock)telemetryTranceStmt.Statements.First()).Statements.First();
-
-            traceChain.Statements.Insert(0, @"AddSource(""MassTransit"")");
-        });
+            //traceChain.Statements.Insert(0, @"AddSource(""MassTransit"")");
+        //});
     }
 
 }

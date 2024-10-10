@@ -141,6 +141,12 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
 
         var traceChain = new CSharpStatement("trace");
 
+        // TEMP FIX - also see TelemetryConfiguratorExtension
+        if (ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.Eventing.MassTransit"))
+        {
+            traceChain = traceChain.AddInvocation("AddSource", inv => inv.AddArgument(@"""MassTransit""").OnNewLine());
+        }
+
         if (ExecutionContext.Settings.GetOpenTelemetry().ASPNETCoreInstrumentation())
         {
             AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationAspNetCore(OutputTarget));
