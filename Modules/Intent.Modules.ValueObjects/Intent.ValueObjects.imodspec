@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.ValueObjects</id>
-  <version>4.2.1</version>
+  <version>4.2.2-pre.0</version>
   <supportedClientVersions>[4.1.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>A simple Value Object implementation in C# based on the Microsoft suggested pattern.</summary>
   <description>A simple Value Object implementation in C# based on the Microsoft suggested pattern.</description>

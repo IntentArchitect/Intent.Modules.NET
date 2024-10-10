@@ -1,6 +1,10 @@
+### Version 4.0.14
+
+- Improvement: Added Extension method overload for MapToPagedResult where you are just dealing with Dtos. 
+
 ### Version 4.0.13
 
-- TODO
+- Improvement: 4.3 upgrades
 
 ### Version 4.0.12
 

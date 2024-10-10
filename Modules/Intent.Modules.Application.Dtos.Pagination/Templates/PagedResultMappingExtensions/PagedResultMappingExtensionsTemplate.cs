@@ -97,6 +97,48 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
                 pageNumber: pagedList.PageNo,
                 data: data);
         }
+
+        /// <summary>
+        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref=""");
+            
+            #line 46 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetPagedListInterfaceName()));
+            
+            #line default
+            #line hidden
+            this.Write(@"{T}""/>. 
+        /// </summary>
+        /// <param name=""pagedList"">A single page retrieved from a persistence store.</param>
+        /// <typeparam name=""TDto"">DTO element type</typeparam>
+        /// <returns>A single page of DTO elements</returns>
+        public static ");
+            
+            #line 51 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetPagedResultName()));
+            
+            #line default
+            #line hidden
+            this.Write("<TDto> MapToPagedResult<TDto>(this ");
+            
+            #line 51 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetPagedListInterfaceName()));
+            
+            #line default
+            #line hidden
+            this.Write("<TDto> pagedList)\r\n        { \r\n            return ");
+            
+            #line 53 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(this.GetPagedResultName()));
+            
+            #line default
+            #line hidden
+            this.Write(@"<TDto>.Create(
+                totalCount: pagedList.TotalCount,
+                pageCount: pagedList.PageCount,
+                pageSize: pagedList.PageSize,
+                pageNumber: pagedList.PageNo,
+                data: pagedList);
+        }
     }
 
 }");

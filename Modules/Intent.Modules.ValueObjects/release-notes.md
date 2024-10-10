@@ -1,3 +1,7 @@
+### Version 4.2.2
+
+- Improvement: Cleaned up various code warnings.
+
 ### Version 4.2.1
 
 - Improvement: Updated module NuGet packages infrastructure.
