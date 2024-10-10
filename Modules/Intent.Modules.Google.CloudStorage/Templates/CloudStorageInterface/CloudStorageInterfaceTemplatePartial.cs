@@ -34,6 +34,9 @@ namespace Intent.Modules.Google.CloudStorage.Templates.CloudStorageInterface
 
                         ctor.AddParameter(UseType($"System.IO.Stream"), "DataStream",
                             prm => prm.IntroduceProperty(p => p.Init()));
+
+                        ctor.AddParameter(UseType($"string?"), "ContentType",
+                            prm => prm.IntroduceProperty(p => p.Init()));
                     });
                 })
                 .AddInterface($"ICloudStorage", @interface =>
@@ -51,6 +54,7 @@ namespace Intent.Modules.Google.CloudStorage.Templates.CloudStorageInterface
                     @interface.AddMethod(UseType($"System.Collections.Generic.IAsyncEnumerable<{UseType("System.Uri")}>"), "ListAsync", method =>
                     {
                         method.AddParameter("string", "bucketName")
+                            .AddParameter("string?", "prefix", prefix => prefix.WithDefaultValue("null"))
                             .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", cancelTokenParam =>
                             {
                                 cancelTokenParam.WithDefaultValue("default");

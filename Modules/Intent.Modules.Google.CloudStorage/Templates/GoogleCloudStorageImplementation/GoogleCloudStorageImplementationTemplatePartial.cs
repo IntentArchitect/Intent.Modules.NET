@@ -62,7 +62,7 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                             .AddArgument(new CSharpArgument("cancellationToken"), tokenArg =>
                             {
                                 tokenArg.WithName("cancellationToken");
-                            }));
+                            }).AddInvocation("ConfigureAwait", ca => ca.AddArgument("false")));
                         method.AddReturn("new Uri(url)");
                     });
 
@@ -70,13 +70,15 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                     {
                         method.Async();
                         method.AddParameter("string", "bucketName")
+                            .AddParameter("string?", "prefix", prefix => prefix.WithDefaultValue("null"))
                             .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", cancelTokenParam =>
                             {
                                 cancelTokenParam.AddAttribute(UseType("System.Runtime.CompilerServices.EnumeratorCancellation"));
                                 cancelTokenParam.WithDefaultValue("default");
                             });
 
-                        method.AddObjectInitStatement("var objects", "_client.ListObjectsAsync(bucketName).AsRawResponses();");
+                        method.AddObjectInitStatement("var objects", new CSharpInvocationStatement("_client.ListObjectsAsync(bucketName, prefix).AsRawResponses")
+                            .AddInvocation("ConfigureAwait", ca => ca.AddArgument("false")));
                         method.AddForEachStatement("@object", "objects", itemIteration =>
                         {
                             itemIteration.Await();
@@ -87,6 +89,8 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                                     returnStatement.AddArgument("bucketName")
                                         .AddArgument("gcObject.Name")
                                         .AddArgument("cancellationToken");
+
+                                    returnStatement.AddInvocation("ConfigureAwait", ca => ca.AddArgument("false"));
                                 });
                             });
                         });
@@ -112,6 +116,7 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                             {
                                 tokenArg.WithName("cancellationToken");
                             });
+                            downloadInvoc.AddInvocation("ConfigureAwait", ca => ca.AddArgument("false"));
                         });
 
                         method.AddStatement("returnStream.Position = 0;");
@@ -142,14 +147,16 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                                 .AddArgument(new CSharpArgument("cancellationToken"), tokenArg =>
                                 {
                                     tokenArg.WithName("cancellationToken");
-                                });
+                                })
+                                .AddInvocation("ConfigureAwait", ca => ca.AddArgument("false"));
                         });
 
                         method.AddInvocationStatement(" return await GetAsync", returnStatement =>
                         {
                             returnStatement.AddArgument("bucketName")
                                 .AddArgument("objectName")
-                                .AddArgument("cancellationToken");
+                                .AddArgument("cancellationToken")
+                                .AddInvocation("ConfigureAwait", ca => ca.AddArgument("false"));
                         });
                     });
 
@@ -168,33 +175,35 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                         {
                             loopConfig.AddInvocationStatement("yield return await UploadAsync", uploadConfig =>
                             {
-                            uploadConfig.AddArgument("bucketName")
-                                .AddArgument("cloudObject.Name")
-                                .AddArgument("cloudObject.DataStream")
-                                .AddArgument(new CSharpArgument("cancellationToken"), tokenArg =>
-                                 {
-                                     tokenArg.WithName("cancellationToken");
-                                 });
+                                uploadConfig.AddArgument("bucketName")
+                                    .AddArgument("cloudObject.Name")
+                                    .AddArgument("cloudObject.DataStream")
+                                    .AddArgument("cloudObject.ContentType")
+                                    .AddArgument(new CSharpArgument("cancellationToken"), tokenArg =>
+                                     {
+                                         tokenArg.WithName("cancellationToken");
+                                     });
+                                uploadConfig.AddInvocation("ConfigureAwait", ca => ca.AddArgument("false"));
+                            });
                         });
                     });
-                });
 
-        });
+                });
         }
 
-    [IntentManaged(Mode.Fully)]
-    public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
-    [IntentManaged(Mode.Fully)]
-    protected override CSharpFileConfig DefineFileConfig()
-    {
-        return CSharpFile.GetConfig();
-    }
+        [IntentManaged(Mode.Fully)]
+        protected override CSharpFileConfig DefineFileConfig()
+        {
+            return CSharpFile.GetConfig();
+        }
 
-    [IntentManaged(Mode.Fully)]
-    public override string TransformText()
-    {
-        return CSharpFile.ToString();
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
+        }
     }
-}
 }
