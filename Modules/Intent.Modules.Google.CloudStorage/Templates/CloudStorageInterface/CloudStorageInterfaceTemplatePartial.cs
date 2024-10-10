@@ -25,6 +25,17 @@ namespace Intent.Modules.Google.CloudStorage.Templates.CloudStorageInterface
         public CloudStorageInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddRecord("BulkCloudObjectItem", @record =>
+                {
+                    @record.AddConstructor(ctor =>
+                    {
+                        ctor.AddParameter("string", "Name",
+                            prm => prm.IntroduceProperty(p => p.Init()));
+
+                        ctor.AddParameter(UseType($"System.IO.Stream"), "DataStream",
+                            prm => prm.IntroduceProperty(p => p.Init()));
+                    });
+                })
                 .AddInterface($"ICloudStorage", @interface =>
                 {
                     @interface.AddMethod(UseType($"System.Threading.Tasks.Task<{UseType("System.Uri")}>"), "GetAsync", method =>
@@ -71,6 +82,16 @@ namespace Intent.Modules.Google.CloudStorage.Templates.CloudStorageInterface
                             {
                                 cancelTokenParam.WithDefaultValue("default");
                             });
+                    });
+
+                    @interface.AddMethod(UseType($"{UseType($"System.Collections.Generic.IAsyncEnumerable<{UseType("System.Uri")}>")}"), "BulkUploadAsync", method =>
+                    {
+                        method.AddParameter("string", "bucketName")
+                        .AddParameter(UseType("System.Collections.Generic.IEnumerable<BulkCloudObjectItem>"), "objects")
+                         .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", cancelTokenParam =>
+                         {
+                             cancelTokenParam.WithDefaultValue("default");
+                         });
                     });
                 });
         }

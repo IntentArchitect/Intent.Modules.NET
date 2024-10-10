@@ -36,6 +36,11 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                         {
                             param.IntroduceReadonlyField();
                         });
+                        ctor.AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration", param =>
+                        {
+                            param.IntroduceReadonlyField();
+                        });
+
                     });
 
                     @class.AddMethod(UseType($"System.Threading.Tasks.Task<{UseType("System.Uri")}>"), "GetAsync", method =>
@@ -49,14 +54,21 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                                 cancelTokenParam.WithDefaultValue("default");
                             });
 
-                        method.AddObjectInitStatement("var credential", $"await {UseType("Google.Apis.Auth.OAuth2.GoogleCredential")}.GetApplicationDefaultAsync(cancellationToken);");
-                        method.AddObjectInitStatement($"{UseType("Google.Cloud.Storage.V1.UrlSigner")} urlSigner", "UrlSigner.FromCredential(credential);");
-                        method.AddObjectInitStatement("var url", $"await urlSigner.SignAsync(bucketName, objectName, TimeSpan.FromMinutes(1));");
+                        method.AddObjectInitStatement($"var urlSigner", "_client.CreateUrlSigner();");
+                        method.AddObjectInitStatement("var url", new CSharpInvocationStatement("await urlSigner.SignAsync")
+                            .AddArgument("bucketName")
+                            .AddArgument("objectName")
+                            .AddArgument("_configuration.GetValue<TimeSpan?>(\"GCP:PreSignedUrlExpiry\") ?? TimeSpan.FromMinutes(5)")
+                            .AddArgument(new CSharpArgument("cancellationToken"), tokenArg =>
+                            {
+                                tokenArg.WithName("cancellationToken");
+                            }));
                         method.AddReturn("new Uri(url)");
                     });
 
                     @class.AddMethod(UseType($"System.Collections.Generic.IAsyncEnumerable<{UseType("System.Uri")}>"), "ListAsync", method =>
                     {
+                        method.Async();
                         method.AddParameter("string", "bucketName")
                             .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", cancelTokenParam =>
                             {
@@ -70,7 +82,12 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                             itemIteration.Await();
                             itemIteration.AddForEachStatement("gcObject", "@object.Items", gcItemIteration =>
                             {
-                                gcItemIteration.AddStatement("yield return new Uri(gcObject.SelfLink);");
+                                gcItemIteration.AddInvocationStatement("yield return await GetAsync", returnStatement =>
+                                {
+                                    returnStatement.AddArgument("bucketName")
+                                        .AddArgument("gcObject.Name")
+                                        .AddArgument("cancellationToken");
+                                });
                             });
                         });
                     });
@@ -86,7 +103,7 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                             });
 
                         method.AddObjectInitStatement("var returnStream", $"new {UseType("System.IO.MemoryStream();")}");
-                        method.AddInvocationStatement("var @object = await _client.DownloadObjectAsync", downloadInvoc =>
+                        method.AddInvocationStatement("_ = await _client.DownloadObjectAsync", downloadInvoc =>
                         {
                             downloadInvoc.AddArgument("bucketName");
                             downloadInvoc.AddArgument("objectName");
@@ -116,7 +133,7 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                                 cancelTokenParam.WithDefaultValue("default");
                             });
 
-                        method.AddInvocationStatement("var uploadResponse = await _client.UploadObjectAsync", uploadInvoc =>
+                        method.AddInvocationStatement("_ = await _client.UploadObjectAsync", uploadInvoc =>
                         {
                             uploadInvoc.AddArgument("bucketName")
                                 .AddArgument("objectName")
@@ -128,24 +145,56 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                                 });
                         });
 
-                        method.AddReturn("new Uri(uploadResponse.SelfLink)");
+                        method.AddInvocationStatement(" return await GetAsync", returnStatement =>
+                        {
+                            returnStatement.AddArgument("bucketName")
+                                .AddArgument("objectName")
+                                .AddArgument("cancellationToken");
+                        });
+                    });
+
+                    @class.AddMethod(UseType($"{UseType($"System.Collections.Generic.IAsyncEnumerable<{UseType("System.Uri")}>")}"), "BulkUploadAsync", method =>
+                    {
+                        method.Async();
+                        method.AddParameter("string", "bucketName")
+                         .AddParameter(UseType("System.Collections.Generic.IEnumerable<BulkCloudObjectItem>"), "objects")
+                         .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", cancelTokenParam =>
+                         {
+                             cancelTokenParam.AddAttribute(UseType("System.Runtime.CompilerServices.EnumeratorCancellation"));
+                             cancelTokenParam.WithDefaultValue("default");
+                         });
+
+                        method.AddForEachStatement("cloudObject", "objects", loopConfig =>
+                        {
+                            loopConfig.AddInvocationStatement("yield return await UploadAsync", uploadConfig =>
+                            {
+                            uploadConfig.AddArgument("bucketName")
+                                .AddArgument("cloudObject.Name")
+                                .AddArgument("cloudObject.DataStream")
+                                .AddArgument(new CSharpArgument("cancellationToken"), tokenArg =>
+                                 {
+                                     tokenArg.WithName("cancellationToken");
+                                 });
+                        });
                     });
                 });
+
+        });
         }
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
+    [IntentManaged(Mode.Fully)]
+    public CSharpFile CSharpFile { get; }
 
-        [IntentManaged(Mode.Fully)]
-        protected override CSharpFileConfig DefineFileConfig()
-        {
-            return CSharpFile.GetConfig();
-        }
-
-        [IntentManaged(Mode.Fully)]
-        public override string TransformText()
-        {
-            return CSharpFile.ToString();
-        }
+    [IntentManaged(Mode.Fully)]
+    protected override CSharpFileConfig DefineFileConfig()
+    {
+        return CSharpFile.GetConfig();
     }
+
+    [IntentManaged(Mode.Fully)]
+    public override string TransformText()
+    {
+        return CSharpFile.ToString();
+    }
+}
 }
