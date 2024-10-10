@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
 using CleanArchitecture.Comprehensive.Domain.Common;
 using CleanArchitecture.Comprehensive.Domain.Common.Interfaces;
+using CleanArchitecture.Comprehensive.Domain.Entities;
 using CleanArchitecture.Comprehensive.Domain.Entities.Async;
 using CleanArchitecture.Comprehensive.Domain.Entities.BasicMappingMapToValueObjects;
 using CleanArchitecture.Comprehensive.Domain.Entities.BugFixes;
@@ -22,6 +23,7 @@ using CleanArchitecture.Comprehensive.Domain.Entities.OperationAndConstructorMap
 using CleanArchitecture.Comprehensive.Domain.Entities.Operations;
 using CleanArchitecture.Comprehensive.Domain.Entities.Pagination;
 using CleanArchitecture.Comprehensive.Domain.Entities.UniqueIndexConstraint;
+using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations;
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.Async;
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.BasicMappingMapToValueObjects;
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurations.BugFixes;
@@ -79,6 +81,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence
         public DbSet<IntegrationTriggering> IntegrationTriggerings { get; set; }
         public DbSet<ClassWithDefault> ClassWithDefaults { get; set; }
         public DbSet<ClassWithEnums> ClassWithEnums { get; set; }
+        public DbSet<TypeName> TypeNames { get; set; }
         public DbSet<CustomMapping> CustomMappings { get; set; }
         public DbSet<GeometryType> GeometryTypes { get; set; }
         public DbSet<BaseClass> BaseClasses { get; set; }
@@ -119,6 +122,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new TypeNameConfiguration());
             modelBuilder.ApplyConfiguration(new AsyncOperationsClassConfiguration());
             modelBuilder.ApplyConfiguration(new SubmissionConfiguration());
             modelBuilder.ApplyConfiguration(new BankConfiguration());

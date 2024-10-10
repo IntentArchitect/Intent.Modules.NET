@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CleanArchitecture.Comprehensive.Domain.Repositories.BugFixes
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ITaskRepository : IEFRepository<Domain.Entities.BugFixes.Task, Domain.Entities.BugFixes.Task>
+    public interface ITaskRepository : IEFRepository<Entities.BugFixes.Task, Entities.BugFixes.Task>
     {
         [IntentManaged(Mode.Fully)]
         Task<Entities.BugFixes.Task?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
