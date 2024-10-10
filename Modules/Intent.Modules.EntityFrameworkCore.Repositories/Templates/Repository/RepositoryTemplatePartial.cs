@@ -67,9 +67,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                             return;
                         }
 
+                        var entityInterfaceName = interfaceTemplate.GetTypeName("Domain.Entity.Interface", Model);
+                        var entityName = interfaceTemplate.GetTypeName("Domain.Entity", Model);
+
                         @interface.Interfaces.Clear();
-                        @interface.ExtendsInterface($"{this.GetEFRepositoryInterfaceName()}<{EntityInterfaceName}, {EntityName}>");
-                    });
+                        @interface.ExtendsInterface($"{this.GetEFRepositoryInterfaceName()}<{entityInterfaceName}, {entityName}>");
+                    }, 2000);
 
                     if (TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model, out var entityTemplate))
                     {
