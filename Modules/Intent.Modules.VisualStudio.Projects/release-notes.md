@@ -1,3 +1,7 @@
+### Version 3.8.2
+
+- Fixed: `appsettings.json` files would not respect formatting settings from `.editorconfig` files being generated/updated by the Software Factory.
+
 ### Version 3.8.1
 
 - Feature: It is now possible to model custom implicit usings for a project in the Visual Studio designer. Right-click a project and select the `Add Custom Implicit Usings` option, then right-click on that and add as many `Implicit Using`s as desired.

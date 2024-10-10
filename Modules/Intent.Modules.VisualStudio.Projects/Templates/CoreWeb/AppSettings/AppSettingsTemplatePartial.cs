@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.VisualStudio;
@@ -13,7 +12,6 @@ using Intent.Templates;
 using Intent.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using static Intent.Modules.Constants.TemplateRoles.Infrastructure;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
@@ -86,14 +84,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
 
             using (var sw = new StringWriter())
             {
-                using (JsonTextWriter jw = new JsonTextWriter(sw))
+                using (var jw = new JsonTextWriter(sw))
                 {
                     var settings = GetEditorConfigSettings();
                     jw.Formatting = Formatting.Indented;
                     jw.Indentation = int.Parse(settings["indent_size"]);
                     jw.IndentChar = settings["indent_style"].Equals("tab", StringComparison.OrdinalIgnoreCase) ? '\t' : ' '; ;
 
-                    JsonSerializer serializer = new JsonSerializer();
+                    var serializer = new JsonSerializer();
                     serializer.Serialize(jw, json);
                     return sw.ToString();
                 }
@@ -108,46 +106,97 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
 
         private Dictionary<string, string> GetEditorConfigSettings()
         {
-            string filePath = FileMetadata.GetFilePath();
-            string directory = Path.GetDirectoryName(filePath);
+            var filePath = FileMetadata.GetFilePath();
+            var directory = Path.GetDirectoryName(filePath);
 
-            var editorFiles = GetEditorFiles(directory);
-            if (editorFiles.Any())
+            var editorConfigs = GetEditorConfigFiles(directory);
+            if (editorConfigs.Count == 0)
             {
-                var settings = new Dictionary<string, string>(DefaultSettings, StringComparer.OrdinalIgnoreCase);
-                foreach (var editorFile in editorFiles)
-                {
-                    try
-                    {
-                        ParseEditorConfigToSettings(editorFile, settings);
-                    }
-                    catch (Exception ex)
-                    {
-                        Logging.Log.Warning($"Unable to parse .editorConfig at {editorFile}({ex.Message})");
-                    }
-                }
-                return settings;
+                return DefaultSettings;
             }
 
-            return DefaultSettings;
+            var settings = new Dictionary<string, string>(DefaultSettings, StringComparer.OrdinalIgnoreCase);
+            foreach (var editorConfig in editorConfigs)
+            {
+                try
+                {
+                    ParseEditorConfigToSettings(editorConfig, settings);
+                }
+                catch (Exception ex)
+                {
+                    Logging.Log.Warning($"Unable to parse .editorConfig at {editorConfig}({ex.Message})");
+                }
+            }
+
+            return settings;
         }
 
-        static List<string> GetEditorFiles(string directory)
+        /// <summary>
+        /// Returns content of .editorconfig files ordered by parent folder depth ascending.
+        /// </summary>
+        private List<string> GetEditorConfigFiles(string directory)
         {
+            var editorConfigContentFromTemplates = ExecutionContext
+                .FindTemplateInstances<IntentTemplateBase>(TemplateDependency.OfType<IntentTemplateBase>())
+                .Where(template => template.FileMetadata.GetFilePath().EndsWith(".editorconfig", StringComparison.OrdinalIgnoreCase))
+                .Select(template =>
+                {
+                    string content;
+                    var currentPath = template.FileMetadata.GetFilePath();
+                    var previousPath = template.GetExistingFilePath();
+
+                    switch (template.FileMetadata.OverwriteBehaviour)
+                    {
+                        case OverwriteBehaviour.Always:
+                            content = template.RunTemplate();
+                            break;
+                        case OverwriteBehaviour.OnceOff:
+                        case OverwriteBehaviour.OverwriteDisabled:
+                            if (!template.TryGetExistingFileContent(out content))
+                            {
+                                content = template.RunTemplate();
+                            }
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+
+                    return new
+                    {
+                        Content = content,
+                        CurrentPath = currentPath,
+                        PreviousPath = previousPath
+                    };
+                })
+                .ToArray();
+
             var editorConfigFiles = new List<string>();
 
             // Start from the specified directory
-            string currentDir = directory;
+            var currentDir = directory;
 
             // Traverse upwards until we reach the root
             while (!string.IsNullOrEmpty(currentDir))
             {
-                string editorConfigFile = Path.Combine(currentDir, ".editorconfig");
+                var pathToCheck = Path.Combine(currentDir, ".editorconfig");
 
-                // Check if .editorconfig file exists in the current directory
-                if (File.Exists(editorConfigFile))
+                var editorConfigTemplate = editorConfigContentFromTemplates.SingleOrDefault(x => x.CurrentPath == pathToCheck);
+
+                // First check if a template outputs to the path as it will have the content as appropriate depending
+                // on whether the file was renamed and its overwrite behaviour.
+                if (editorConfigTemplate != default)
                 {
-                    editorConfigFiles.Add(editorConfigFile);
+                    editorConfigFiles.Add(editorConfigTemplate.Content);
+                }
+                // Ignore renamed files as already covered above
+                else if (editorConfigContentFromTemplates.Any(x => x.PreviousPath == pathToCheck && x.PreviousPath != x.CurrentPath))
+                {
+                    // NOP
+                }
+                // Finally check to see if there is a completely unmanaged file on the disk drive
+                else if (File.Exists(pathToCheck))
+                {
+                    editorConfigFiles.Add(File.ReadAllText(pathToCheck));
                 }
 
                 // Move to the parent directory
@@ -157,26 +206,26 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.CoreWeb.AppSettings
             return editorConfigFiles;
         }
 
-        static void ParseEditorConfigToSettings(string path, Dictionary<string, string> settings)
+        private static void ParseEditorConfigToSettings(string content, Dictionary<string, string> settings)
         {
-            string[] lines = File.ReadAllLines(path);
+            var lines = content.ReplaceLineEndings("\n").Split('\n');
 
-            foreach (string line in lines.Select(l => l.Trim()))
+            foreach (var line in lines.Select(l => l.Trim()))
             {
-                if (string.IsNullOrWhiteSpace(line) || line.StartsWith("#"))
+                if (string.IsNullOrWhiteSpace(line) || line.StartsWith('#'))
                 {
                     continue; // Skip comments and section headers
                 }
-                if (line.StartsWith("["))
+                if (line.StartsWith('['))
                 {
-                    string match = line.Substring(1, line.Length - 2);//Remove[]
+                    var match = line.Substring(1, line.Length - 2); // Remove []
                     if (match is not "*" or "*.json")
                     {
                         continue;
                     }
                 }
 
-                var keyValue = line.Split(new[] { '=' }, 2);
+                var keyValue = line.Split(['='], 2);
                 if (keyValue.Length == 2)
                 {
                     settings[keyValue[0].Trim()] = keyValue[1].Trim();
