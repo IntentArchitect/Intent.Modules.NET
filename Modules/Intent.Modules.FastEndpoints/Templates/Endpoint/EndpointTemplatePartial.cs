@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
+using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -11,8 +12,10 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.FastEndpoints.Templates.Endpoint.Models;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -44,7 +47,8 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             AddKnownType("FastEndpoints.IEventBus");
 
             DetermineRequestPayload();
-
+            Versions = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id).GetApiVersionModels().FirstOrDefault();
+            
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Threading")
@@ -55,6 +59,8 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             AddRequestModelIfApplicable();
             AddEndpointClass();
         }
+
+        private ApiVersionModel? Versions { get; set; }
 
         public override void AfterTemplateRegistration()
         {
@@ -145,6 +151,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                     AddDescriptionConfiguration(method);
                     AddValidator(method);
                     AddSecurity(method);
+                    AddVersioning(method);
                 });
 
                 @class.AddMethod("Task", "HandleAsync", method =>
@@ -215,7 +222,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 _ => throw new NotSupportedException($"Verb {Model.Verb} is not supported.")
             };
             method.AddStatement(new CSharpInvocationStatement(verb)
-                .AddArgument($@"""{Model.Route}"""));
+                .AddArgument($@"""{Model.Route}""".Replace("{version}", "v{version:apiVersion}")));
         }
 
         private void AddDescriptionConfiguration(CSharpClassMethod method)
@@ -323,7 +330,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 method.AddStatement("AllowAnonymous();");
             }
 
-            if (!string.IsNullOrWhiteSpace(Model.Authorization?.RolesExpression) && 
+            if (!string.IsNullOrWhiteSpace(Model.Authorization?.RolesExpression) &&
                 Model.Authorization.RolesExpression.Contains('+'))
             {
                 var roles = Model.Authorization.RolesExpression.Split('+');
@@ -339,6 +346,32 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             {
                 method.AddStatement($@"Policies(""{Model.Authorization.Policy}"");");
             }
+        }
+        
+        private void AddVersioning(CSharpClassMethod method)
+        {
+            if (Versions is null)
+            {
+                return;
+            }
+            
+            AddUsing("FastEndpoints.AspVersioning");
+            AddUsing("Asp.Versioning");
+            AddNugetDependency(NugetPackages.FastEndpointsAspVersioning(OutputTarget));
+
+            CSharpStatement versionSet = new CSharpInvocationStatement("x.WithVersionSet")
+                .AddArgument(@""">>Api Version<<""")
+                .WithoutSemicolon();
+
+            var versions = Model.ApplicableVersions.Any() ? Model.ApplicableVersions : [new EndpointApiVersionModel("", "V1.0", false)];
+            
+            foreach (var versionModel in versions)
+            {
+                versionSet = versionSet.AddInvocation($"MapToApiVersion", inv => inv.AddArgument($@"new ApiVersion({versionModel.Version.Replace("V", "")})").WithoutSemicolon());
+            }
+            
+            method.AddInvocationStatement("Options",
+                inv => inv.AddArgument(new CSharpLambdaBlock("x").WithExpressionBody(versionSet)));
         }
 
         private bool TryGetParameterBindingAttribute(IEndpointParameterModel parameter, out CSharpAttribute? attribute)
@@ -395,7 +428,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
         {
             return CSharpFile.ToString();
         }
-        
+
         private bool IsContainerSecured()
         {
             // Still to be applied

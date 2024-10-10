@@ -24,8 +24,13 @@ public class ServiceEndpointContainerModel : IEndpointContainerModel
         RequiresAuthorization = serviceModel.HasSecured();
         AllowAnonymous = !serviceModel.HasSecured();
         Authorization = GetAuthorizationModel(serviceModel.InternalElement);
+        ApplicableVersions = serviceModel.GetApiVersionSettings()
+            ?.ApplicableVersions()
+            .Select(s => new EndpointApiVersionModel(s))
+            .Cast<IApiVersionModel>()
+            .ToList() ?? new List<IApiVersionModel>();
     }
-
+    
     public string Id { get; }
     public string Name { get; }
     public FolderModel Folder { get; }
@@ -34,6 +39,7 @@ public class ServiceEndpointContainerModel : IEndpointContainerModel
     public bool RequiresAuthorization { get; }
     public bool AllowAnonymous { get; }
     public IAuthorizationModel? Authorization { get; }
+    public IList<IApiVersionModel> ApplicableVersions { get; }
 
     private static bool GetAuthorizationRolesAndPolicies(IElement element, out string roles, out string policy)
     {

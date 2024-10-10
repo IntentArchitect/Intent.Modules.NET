@@ -13,6 +13,7 @@ public interface IEndpointContainerModel : IHasFolder, IHasName, IMetadataModel
     bool RequiresAuthorization { get; }
     bool AllowAnonymous { get; }
     IAuthorizationModel? Authorization { get; }
+    IList<IApiVersionModel> ApplicableVersions { get; }
 }
 
 public interface IEndpointModel : IHasName, IHasTypeReference, IMetadataModel, IHasFolder
@@ -28,6 +29,7 @@ public interface IEndpointModel : IHasName, IHasTypeReference, IMetadataModel, I
     bool RequiresAuthorization { get; }
     bool AllowAnonymous { get; }
     IAuthorizationModel? Authorization { get; }
+    IList<IApiVersionModel> ApplicableVersions { get; }
 }
 
 public interface IEndpointParameterModel : IHasName, IHasTypeReference, IMetadataModel
@@ -50,4 +52,11 @@ public interface IAuthorizationModel
     /// Gets or sets the Roles that determines access to this Resource. Note the format will generate exactly in C#.
     ///</summary>
     public string? RolesExpression { get; }
+}
+
+public interface IApiVersionModel
+{
+    public string DefinitionName { get; }
+    public string Version { get; }
+    public bool IsDeprecated { get; }
 }
