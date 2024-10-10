@@ -19,10 +19,10 @@ namespace Ardalis.Domain.Repositories
         void Add(TDomain entity);
         void Remove(TDomain entity);
         Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default);
-        Task<IPagedList<TDomain>> FindAllAsync(int pageNo, int PageSize, CancellationToken cancellationToken = default);
-        Task<IPagedList<TDomain>> FindAllAsync(Expression<Func<TDomain, bool>> filterExpression, int pageNo, int PageSize, CancellationToken cancellationToken = default);
-        Task<IPagedList<TDomain>> FindAllAsync(Expression<Func<TDomain, bool>> filterExpression, int pageNo, int PageSize, Func<IQueryable<TDomain>, IQueryable<TDomain>> linq, CancellationToken cancellationToken = default);
-        Task<IPagedList<TDomain>> FindAllAsync(ISpecification<TDomain> specification, int pageNo, int PageSize, Func<IQueryable<TDomain>, IQueryable<TDomain>> queryOptions, CancellationToken cancellationToken = default);
-        Task<IPagedList<TDomain>> FindAllAsync(ISpecification<TDomain> specification, int pageNo, int PageSize, CancellationToken cancellationToken = default);
+        Task<IPagedList<TDomain>> FindAllAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default);
+        Task<IPagedList<TDomain>> FindAllAsync(Expression<Func<TDomain, bool>> filterExpression, int pageNo, int pageSize, CancellationToken cancellationToken = default);
+        Task<IPagedList<TDomain>> FindAllAsync(Expression<Func<TDomain, bool>> filterExpression, int pageNo, int pageSize, Func<IQueryable<TDomain>, IQueryable<TDomain>> linq, CancellationToken cancellationToken = default);
+        Task<IPagedList<TDomain>> FindAllAsync(ISpecification<TDomain> specification, int pageNo, int pageSize, Func<IQueryable<TDomain>, IQueryable<TDomain>> queryOptions, CancellationToken cancellationToken = default);
+        Task<IPagedList<TDomain>> FindAllAsync(ISpecification<TDomain> specification, int pageNo, int pageSize, CancellationToken cancellationToken = default);
     }
 }
