@@ -66,7 +66,7 @@ public class CqrsControllerModel : IControllerModel
                 ?.ApplicableVersions()
                 .Select(s => new ControllerApiVersionModel(s))
                 .Cast<IApiVersionModel>()
-                .ToList();
+                .ToList() ?? [];
         }
 
         if (element.IsQueryModel())
@@ -75,7 +75,7 @@ public class CqrsControllerModel : IControllerModel
                 ?.ApplicableVersions()
                 .Select(s => new ControllerApiVersionModel(s))
                 .Cast<IApiVersionModel>()
-                .ToList();
+                .ToList() ?? [];
         }
 
         return new List<IApiVersionModel>();

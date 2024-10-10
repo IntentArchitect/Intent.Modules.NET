@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.FastEndpoints.Templates.ApiVersioningConfiguration;
+using Intent.Modules.FastEndpoints.Templates.ApiVersionSwaggerGenOptions;
 using Intent.Modules.FastEndpoints.Templates.Endpoint;
 using Intent.Modules.FastEndpoints.Templates.ExceptionProcessor;
 using Intent.Modules.FastEndpoints.Templates.JsonResponse;
@@ -13,6 +15,15 @@ namespace Intent.Modules.FastEndpoints.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetApiVersioningConfigurationName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ApiVersioningConfigurationTemplate.TemplateId);
+        }
+
+        public static string GetApiVersionSwaggerGenOptionsName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ApiVersionSwaggerGenOptionsTemplate.TemplateId);
+        }
         public static string GetEndpointTemplateName<T>(this IIntentTemplate<T> template) where T : IEndpointModel
         {
             return template.GetTypeName(EndpointTemplate.TemplateId, template.Model);

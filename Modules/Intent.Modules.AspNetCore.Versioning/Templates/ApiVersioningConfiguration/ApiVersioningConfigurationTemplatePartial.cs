@@ -55,6 +55,7 @@ public partial class ApiVersioningConfigurationTemplate : CSharpTemplateBase<obj
 
     public override void BeforeTemplateExecution()
     {
+        // The obsolete `Microsoft. AspNetCore. Mvc. Versioning` and `Microsoft. AspNetCore. Mvc. Versioning. ApiExplorer` NuGet packages were not automatically removed if installed by an earlier version of this module.
         ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent("Microsoft.AspNetCore.Mvc.Versioning", OutputTarget));
         ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent("Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer", OutputTarget));
 
