@@ -37,8 +37,7 @@ variables:
 - name: 'error-logging-command'
   value: '##vso[task.logissue type=error;]{@m} {@x}\n'
 
-pool:
-  vmImage: 'ubuntu-latest'
+pool: 'azure-managed-devops-pool-01'
 
 steps:
 
