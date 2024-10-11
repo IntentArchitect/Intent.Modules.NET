@@ -164,7 +164,7 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                     {
                         method.Async();
                         method.AddParameter("string", "bucketName")
-                         .AddParameter(UseType("System.Collections.Generic.IEnumerable<BulkCloudObjectItem>"), "objects")
+                         .AddParameter(UseType($"System.Collections.Generic.IEnumerable<{this.GetBulkCloudObjectItemName()}>"), "objects")
                          .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", cancelTokenParam =>
                          {
                              cancelTokenParam.AddAttribute(UseType("System.Runtime.CompilerServices.EnumeratorCancellation"));
@@ -189,6 +189,12 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                     });
 
                 });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("GCP",
+                new { PreSignedUrlExpiry = TimeSpan.FromMinutes(5), CloudStorageAuthFileLocation = "" }));
         }
 
         [IntentManaged(Mode.Fully)]

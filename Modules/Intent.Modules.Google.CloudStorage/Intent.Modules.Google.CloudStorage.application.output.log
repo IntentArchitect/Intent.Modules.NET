@@ -34,6 +34,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>989988dc-b6fd-4b64-91a8-44a939bbf178</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2a5bbf39-8674-4ca7-84d1-b4fa3367715b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/BulkCloudObjectItem/BulkCloudObjectItemTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BulkCloudObjectItem/BulkCloudObjectItemTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>989988dc-b6fd-4b64-91a8-44a939bbf178</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#2a5bbf39-8674-4ca7-84d1-b4fa3367715b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/BulkCloudObjectItem/BulkCloudObjectItemTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BulkCloudObjectItem/BulkCloudObjectItemTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>989988dc-b6fd-4b64-91a8-44a939bbf178</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c3374951-99bc-49e6-9d60-eacb550ee9d2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CloudStorageInterface/CloudStorageInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>

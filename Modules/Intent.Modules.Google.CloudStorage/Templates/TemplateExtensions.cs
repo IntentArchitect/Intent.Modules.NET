@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Google.CloudStorage.Templates.BulkCloudObjectItem;
 using Intent.Modules.Google.CloudStorage.Templates.CloudStorageInterface;
 using Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageConfiguration;
 using Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImplementation;
@@ -13,6 +14,10 @@ namespace Intent.Modules.Google.CloudStorage.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetBulkCloudObjectItemName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(BulkCloudObjectItemTemplate.TemplateId);
+        }
         public static string GetCloudStorageInterfaceName(this IIntentTemplate template)
         {
             return template.GetTypeName(CloudStorageInterfaceTemplate.TemplateId);
