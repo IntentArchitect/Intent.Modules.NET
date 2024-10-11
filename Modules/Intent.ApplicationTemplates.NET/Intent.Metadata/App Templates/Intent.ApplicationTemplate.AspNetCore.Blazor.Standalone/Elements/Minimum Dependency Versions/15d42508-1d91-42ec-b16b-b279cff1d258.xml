@@ -113,7 +113,7 @@
     </childElement>
     <childElement id="2e2e2e54-a94a-498a-98b6-5f0c70b83465" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common</name>
-      <display>Intent.Common 3.7.0</display>
+      <display>Intent.Common 3.7.1</display>
       <isAbstract>false</isAbstract>
       <value>3.7.1</value>
       <genericTypes />
@@ -127,7 +127,7 @@
     </childElement>
     <childElement id="817d6b21-5833-41bd-b476-e7d1c6b951e2" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.8.0</display>
+      <display>Intent.Common.CSharp 3.8.1</display>
       <isAbstract>false</isAbstract>
       <value>3.8.1</value>
       <genericTypes />
@@ -155,7 +155,7 @@
     </childElement>
     <childElement id="733af0b2-3664-47af-9425-7c551f3f7aa0" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.WebApi</name>
-      <display>Intent.Metadata.WebApi 4.6.0</display>
+      <display>Intent.Metadata.WebApi 4.6.1</display>
       <isAbstract>false</isAbstract>
       <value>4.6.1</value>
       <genericTypes />
@@ -169,7 +169,7 @@
     </childElement>
     <childElement id="ec8a1b65-5255-4487-8216-fae4e28925a3" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services</name>
-      <display>Intent.Modelers.Services 3.8.0</display>
+      <display>Intent.Modelers.Services 3.8.1</display>
       <isAbstract>false</isAbstract>
       <value>3.8.1</value>
       <genericTypes />
@@ -267,7 +267,7 @@
     </childElement>
     <childElement id="b256a7fb-0f6c-465b-a1ea-b492eb95bc32" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.VisualStudio.Projects</name>
-      <display>Intent.VisualStudio.Projects 3.8.0</display>
+      <display>Intent.VisualStudio.Projects 3.8.1</display>
       <isAbstract>false</isAbstract>
       <value>3.8.1</value>
       <genericTypes />

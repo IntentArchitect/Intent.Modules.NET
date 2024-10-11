@@ -239,7 +239,7 @@
     </childElement>
     <childElement id="12e16a6b-eff2-40de-8674-0b5e9edfad0e" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common</name>
-      <display>Intent.Common 3.7.0</display>
+      <display>Intent.Common 3.7.1</display>
       <isAbstract>false</isAbstract>
       <value>3.7.1</value>
       <genericTypes />
@@ -253,7 +253,7 @@
     </childElement>
     <childElement id="e12102a4-a113-47b8-ada5-9f676f5d7c46" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.8.0</display>
+      <display>Intent.Common.CSharp 3.8.1</display>
       <isAbstract>false</isAbstract>
       <value>3.8.1</value>
       <genericTypes />
@@ -393,7 +393,7 @@
     </childElement>
     <childElement id="c4481412-fb2b-48ff-8654-a1f23c8b3292" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.WebApi</name>
-      <display>Intent.Metadata.WebApi 4.6.0</display>
+      <display>Intent.Metadata.WebApi 4.6.1</display>
       <isAbstract>false</isAbstract>
       <value>4.6.1</value>
       <genericTypes />
@@ -407,7 +407,7 @@
     </childElement>
     <childElement id="a74a49dd-cf2c-4001-9d28-2f9bc284414c" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Domain</name>
-      <display>Intent.Modelers.Domain 3.10.0</display>
+      <display>Intent.Modelers.Domain 3.11.0</display>
       <isAbstract>false</isAbstract>
       <value>3.11.0</value>
       <genericTypes />
@@ -505,7 +505,7 @@
     </childElement>
     <childElement id="abcc0a85-5004-4355-9943-e8b0fdf11807" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services</name>
-      <display>Intent.Modelers.Services 3.8.0</display>
+      <display>Intent.Modelers.Services 3.8.1</display>
       <isAbstract>false</isAbstract>
       <value>3.8.1</value>
       <genericTypes />
