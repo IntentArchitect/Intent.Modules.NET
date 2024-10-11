@@ -84,6 +84,17 @@ namespace Intent.Modules.Google.CloudStorage.Templates.CloudStorageInterface
                              cancelTokenParam.WithDefaultValue("default");
                          });
                     });
+
+                    @interface.AddMethod(UseType("System.Threading.Tasks.Task"), "DeleteAsync", method =>
+                    {
+                        method.Async();
+                        method.AddParameter("string", "bucketName")
+                         .AddParameter(UseType("string"), "objectName")
+                         .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", cancelTokenParam =>
+                         {
+                             cancelTokenParam.WithDefaultValue("default");
+                         });
+                    });
                 });
         }
 

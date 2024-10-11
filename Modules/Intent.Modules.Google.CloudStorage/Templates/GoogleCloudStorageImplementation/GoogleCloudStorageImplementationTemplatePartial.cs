@@ -188,6 +188,26 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                         });
                     });
 
+                    @class.AddMethod(UseType("System.Threading.Tasks.Task"), "DeleteAsync", method =>
+                    {
+                        method.Async();
+                        method.AddParameter("string", "bucketName")
+                         .AddParameter("string", "objectName")
+                         .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", cancelTokenParam =>
+                         {
+                             cancelTokenParam.WithDefaultValue("default");
+                         });
+
+                        method.AddInvocationStatement(" await _client.DeleteObjectAsync", returnStatement =>
+                        {
+                            returnStatement.AddArgument("bucketName")
+                                .AddArgument("objectName")
+                                .AddArgument(new CSharpArgument("cancellationToken"), tokenArg =>
+                                {
+                                    tokenArg.WithName("cancellationToken");
+                                }).AddInvocation("ConfigureAwait", ca => ca.AddArgument("false"));
+                        });
+                    });
                 });
         }
 
