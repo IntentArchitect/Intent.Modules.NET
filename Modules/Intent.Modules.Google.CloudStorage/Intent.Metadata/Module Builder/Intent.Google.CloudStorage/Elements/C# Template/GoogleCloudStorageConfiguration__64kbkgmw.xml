@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="2a5bbf39-8674-4ca7-84d1-b4fa3367715b" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>BulkCloudObjectItem</name>
-  <display>BulkCloudObjectItem: Single File</display>
+<class id="cd64f158-be0a-48a3-944c-9f61dfdc2983" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>GoogleCloudStorageConfiguration</name>
+  <display>GoogleCloudStorageConfiguration: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="7d4baccc-3ca9-43f5-9e3e-8f0cbd25c5cd">
+  <typeReference id="c054d573-59a4-4678-b430-acaa12c0d176">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -18,7 +18,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>1cd103d0-3bec-4144-8795-b5d6066ca528</parentFolderId>
   <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
-  <packageName>Intent.Modules.Google.CloudStorage</packageName>
+  <packageName>Intent.Google.CloudStorage</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>
@@ -37,8 +37,8 @@
         <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" isActive="true" />
         <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Application.Storage.CloudStorageInterface" isActive="true" />
-        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="Common/Storage" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Infrastructure.Configuration.GoogleCloudtStorageConfiguration" isActive="true" />
+        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="Configuration" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

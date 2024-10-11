@@ -10,18 +10,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>8ea4de74-862a-41dc-bdca-ccc5693e3410</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#8ea4de74-862a-41dc-bdca-ccc5693e3410</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.Google.CloudStorage.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Google.CloudStorage.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Google.CloudStorage.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Google.CloudStorage.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8ea4de74-862a-41dc-bdca-ccc5693e3410</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#8ea4de74-862a-41dc-bdca-ccc5693e3410</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.Google.CloudStorage.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Google.CloudStorage.imodspec</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Modules.Google.CloudStorage.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Google.CloudStorage.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

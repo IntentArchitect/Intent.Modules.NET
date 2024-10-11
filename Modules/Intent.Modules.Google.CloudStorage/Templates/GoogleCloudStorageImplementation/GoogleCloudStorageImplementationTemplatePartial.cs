@@ -18,7 +18,7 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class GoogleCloudStorageImplementationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.Google.CloudStorage.GoogleCloudStorageImplementation";
+        public const string TemplateId = "Intent.Google.CloudStorage.GoogleCloudStorageImplementation";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public GoogleCloudStorageImplementationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

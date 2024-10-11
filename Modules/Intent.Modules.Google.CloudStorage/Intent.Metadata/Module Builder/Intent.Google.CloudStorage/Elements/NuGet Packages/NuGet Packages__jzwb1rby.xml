@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>1cd103d0-3bec-4144-8795-b5d6066ca528</parentFolderId>
   <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
-  <packageName>Intent.Modules.Google.CloudStorage</packageName>
+  <packageName>Intent.Google.CloudStorage</packageName>
   <stereotypes />
   <metadata />
   <childElements />

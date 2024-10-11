@@ -19,13 +19,13 @@ namespace Intent.Modules.Google.CloudStorage.Templates.CloudStorageInterface
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class CloudStorageInterfaceTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.Google.CloudStorage.CloudStorageInterface";
+        public const string TemplateId = "Intent.Google.CloudStorage.CloudStorageInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CloudStorageInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                
+
                 .AddInterface($"ICloudStorage", @interface =>
                 {
                     @interface.AddMethod(UseType($"System.Threading.Tasks.Task<{UseType("System.Uri")}>"), "GetAsync", method =>

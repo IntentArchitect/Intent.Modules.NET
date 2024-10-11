@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>258debf5-454a-440e-b8f6-33d5a8de9558</parentFolderId>
   <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
-  <packageName>Intent.Modules.Google.CloudStorage</packageName>
+  <packageName>Intent.Google.CloudStorage</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
       <addedByDefault>true</addedByDefault>
@@ -32,7 +32,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>c2dd35a7-8bcc-4d4c-a84f-3cd46b344771</parentFolderId>
       <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
-      <packageName>Intent.Modules.Google.CloudStorage</packageName>
+      <packageName>Intent.Google.CloudStorage</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>true</addedByDefault>

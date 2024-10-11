@@ -16,7 +16,7 @@ namespace Intent.Modules.Google.CloudStorage.Templates.BulkCloudObjectItem
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class BulkCloudObjectItemTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.Google.CloudStorage.BulkCloudObjectItem";
+        public const string TemplateId = "Intent.Google.CloudStorage.BulkCloudObjectItem";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public BulkCloudObjectItemTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
