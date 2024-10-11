@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Hangfire.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Hangfire.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -18,7 +18,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireDashboardAuthFilter
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class HangfireDashboardAuthFilterTemplate : CSharpTemplateBase<IList<HangfireConfigurationModel>>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.Hangfire.HangfireDashboardAuthFilter";
+        public const string TemplateId = "Intent.Hangfire.HangfireDashboardAuthFilter";
 
         private readonly IList<HangfireConfigurationModel> _model;
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Hangfire.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -17,7 +18,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireJobs
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class HangfireJobsTemplate : CSharpTemplateBase<HangfireJobModel>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.Hangfire.HangfireJobs";
+        public const string TemplateId = "Intent.Hangfire.HangfireJobs";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public HangfireJobsTemplate(IOutputTarget outputTarget, HangfireJobModel model) : base(TemplateId, outputTarget, model)

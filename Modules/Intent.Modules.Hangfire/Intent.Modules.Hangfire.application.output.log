@@ -98,18 +98,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>b00b0e8a-3970-46c6-83cf-38cd2ef030e4</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#b00b0e8a-3970-46c6-83cf-38cd2ef030e4</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.Hangfire.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Hangfire.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Hangfire.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Hangfire.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>b00b0e8a-3970-46c6-83cf-38cd2ef030e4</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#b00b0e8a-3970-46c6-83cf-38cd2ef030e4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.Hangfire.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Hangfire.imodspec</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Modules.Hangfire.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Hangfire.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

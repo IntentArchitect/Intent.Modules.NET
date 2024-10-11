@@ -2,19 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Hangfire.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Hangfire.Api;
 using Intent.Modules.Hangfire.Templates.HangfireDashboardAuthFilter;
 using Intent.Modules.Hangfire.Templates.HangfireJobs;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using static Intent.Modules.Hangfire.Api.HangfireConfigurationModelStereotypeExtensions.HangfireOptions;
-using static Intent.Modules.Hangfire.Api.HangfireJobModelStereotypeExtensions.JobOptions;
+using static Intent.Hangfire.Api.HangfireConfigurationModelStereotypeExtensions.HangfireOptions;
+using static Intent.Hangfire.Api.HangfireJobModelStereotypeExtensions.JobOptions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -24,7 +24,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class HangfireConfigurationTemplate : CSharpTemplateBase<IList<HangfireConfigurationModel>>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.Hangfire.HangfireConfiguration";
+        public const string TemplateId = "Intent.Hangfire.HangfireConfiguration";
 
         private readonly IOutputTarget _outputTarget;
 

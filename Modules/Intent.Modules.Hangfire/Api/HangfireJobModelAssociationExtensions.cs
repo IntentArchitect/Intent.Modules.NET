@@ -1,4 +1,5 @@
-﻿using Intent.Modelers.Services.CQRS.Api;
+﻿using Intent.Hangfire.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using System.Linq;
 
 namespace Intent.Modules.Hangfire.Api;

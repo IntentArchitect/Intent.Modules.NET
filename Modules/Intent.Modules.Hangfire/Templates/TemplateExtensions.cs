@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using Intent.Hangfire.Api;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Hangfire.Api;
 using Intent.Modules.Hangfire.Templates.HangfireConfiguration;
 using Intent.Modules.Hangfire.Templates.HangfireDashboardAuthFilter;
 using Intent.Modules.Hangfire.Templates.HangfireJobs;
