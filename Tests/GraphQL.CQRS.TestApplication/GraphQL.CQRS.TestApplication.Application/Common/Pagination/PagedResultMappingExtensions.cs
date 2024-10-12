@@ -35,6 +35,22 @@ namespace GraphQL.CQRS.TestApplication.Application.Common.Pagination
                 pageNumber: pagedList.PageNo,
                 data: data);
         }
+
+        /// <summary>
+        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref="IPagedList{T}"/>. 
+        /// </summary>
+        /// <param name="pagedList">A single page retrieved from a persistence store.</param>
+        /// <typeparam name="TDto">DTO element type</typeparam>
+        /// <returns>A single page of DTO elements</returns>
+        public static PagedResult<TDto> MapToPagedResult<TDto>(this IPagedList<TDto> pagedList)
+        {
+            return PagedResult<TDto>.Create(
+                totalCount: pagedList.TotalCount,
+                pageCount: pagedList.PageCount,
+                pageSize: pagedList.PageSize,
+                pageNumber: pagedList.PageNo,
+                data: pagedList);
+        }
     }
 
 }

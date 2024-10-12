@@ -80,21 +80,21 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     @interface.AddMethod($"Task<{PagedListInterfaceName(template)}<TDomain>>", "FindAllAsync", method => 
                     {
                         method.AddParameter("int", "pageNo");
-                        method.AddParameter("int", "PageSize");
+                        method.AddParameter("int", "pageSize");
                         method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default")); 
                     });
                     @interface.AddMethod($"Task<{PagedListInterfaceName(template)}<TDomain>>", "FindAllAsync", method =>
                     {
                         method.AddParameter($"Expression<Func<TDomain, bool>>", "filterExpression");
                         method.AddParameter("int", "pageNo");
-                        method.AddParameter("int", "PageSize");
+                        method.AddParameter("int", "pageSize");
                         method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     });
                     @interface.AddMethod($"Task<{PagedListInterfaceName(template)}<TDomain>>", "FindAllAsync", method =>
                     {
                         method.AddParameter($"Expression<Func<TDomain, bool>>", "filterExpression");
                         method.AddParameter("int", "pageNo");
-                        method.AddParameter("int", "PageSize");
+                        method.AddParameter("int", "pageSize");
                         method.AddParameter($"Func<IQueryable<TDomain>, IQueryable<TDomain>> ", "linq");
                         method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     });
@@ -102,7 +102,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     {
                         method.AddParameter($"ISpecification<TDomain>", "specification");
                         method.AddParameter("int", "pageNo");
-                        method.AddParameter("int", "PageSize");
+                        method.AddParameter("int", "pageSize");
                         method.AddParameter($"Func<IQueryable<TDomain>, IQueryable<TDomain>> ", "queryOptions");
                         method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     });
@@ -110,7 +110,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     {
                         method.AddParameter($"ISpecification<TDomain>", "specification");
                         method.AddParameter("int", "pageNo");
-                        method.AddParameter("int", "PageSize");
+                        method.AddParameter("int", "pageSize");
                         method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     });
                 });

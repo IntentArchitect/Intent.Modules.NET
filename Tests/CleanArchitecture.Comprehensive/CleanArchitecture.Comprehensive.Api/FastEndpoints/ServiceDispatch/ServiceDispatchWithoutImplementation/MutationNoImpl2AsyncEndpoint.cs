@@ -40,6 +40,7 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.ServiceDispatch.Serv
                 b.Produces(StatusCodes.Status201Created);
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
+            AllowAnonymous();
         }
 
         public override async Task HandleAsync(CancellationToken ct)

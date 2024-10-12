@@ -166,7 +166,7 @@
         <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="864aa549-6d79-4a29-bd0a-6d78fd7e99da" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" />
+          <target id="864aa549-6d79-4a29-bd0a-6d78fd7e99da" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>864aa549-6d79-4a29-bd0a-6d78fd7e99da</parentFolderId>
@@ -196,7 +196,7 @@
             <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="e225cc40-5c90-46f6-98f7-47d25365511d" name="SingleUniqueField" type="element" specialization="Attribute" />
+              <target id="e225cc40-5c90-46f6-98f7-47d25365511d" name="SingleUniqueField" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>521de202-cb2e-4cc3-942a-4ee3e216eeb8</parentFolderId>
@@ -227,7 +227,7 @@
             <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="5a7af0da-bb2d-44c1-904c-2ac967bf5d5d" name="CompUniqueFieldA" type="element" specialization="Attribute" />
+              <target id="5a7af0da-bb2d-44c1-904c-2ac967bf5d5d" name="CompUniqueFieldA" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>521de202-cb2e-4cc3-942a-4ee3e216eeb8</parentFolderId>
@@ -258,7 +258,7 @@
             <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="5ae4d23c-7f78-4b38-8b3d-c1c2a0d0e2c9" name="CompUniqueFieldB" type="element" specialization="Attribute" />
+              <target id="5ae4d23c-7f78-4b38-8b3d-c1c2a0d0e2c9" name="CompUniqueFieldB" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>521de202-cb2e-4cc3-942a-4ee3e216eeb8</parentFolderId>
@@ -283,7 +283,7 @@
         <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="864aa549-6d79-4a29-bd0a-6d78fd7e99da" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" />
+          <target id="864aa549-6d79-4a29-bd0a-6d78fd7e99da" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>864aa549-6d79-4a29-bd0a-6d78fd7e99da</parentFolderId>
@@ -315,7 +315,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="e225cc40-5c90-46f6-98f7-47d25365511d" name="SingleUniqueField" type="element" specialization="Attribute" />
+              <target id="e225cc40-5c90-46f6-98f7-47d25365511d" name="SingleUniqueField" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>37eee591-1b4a-4758-9848-12ee1c266cc9</parentFolderId>
@@ -350,7 +350,7 @@
         <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="864aa549-6d79-4a29-bd0a-6d78fd7e99da" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" />
+          <target id="864aa549-6d79-4a29-bd0a-6d78fd7e99da" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>864aa549-6d79-4a29-bd0a-6d78fd7e99da</parentFolderId>
@@ -382,7 +382,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="5a7af0da-bb2d-44c1-904c-2ac967bf5d5d" name="CompUniqueFieldA" type="element" specialization="Attribute" />
+              <target id="5a7af0da-bb2d-44c1-904c-2ac967bf5d5d" name="CompUniqueFieldA" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>46f8aeb2-21bb-49cb-a26b-db09ccb09f79</parentFolderId>
@@ -412,7 +412,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="5ae4d23c-7f78-4b38-8b3d-c1c2a0d0e2c9" name="CompUniqueFieldB" type="element" specialization="Attribute" />
+              <target id="5ae4d23c-7f78-4b38-8b3d-c1c2a0d0e2c9" name="CompUniqueFieldB" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>46f8aeb2-21bb-49cb-a26b-db09ccb09f79</parentFolderId>

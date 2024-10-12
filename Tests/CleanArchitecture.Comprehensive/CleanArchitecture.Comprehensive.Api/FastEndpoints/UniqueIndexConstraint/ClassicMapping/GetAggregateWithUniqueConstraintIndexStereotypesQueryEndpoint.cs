@@ -35,6 +35,7 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.UniqueIndexConstrain
                 b.Produces<List<AggregateWithUniqueConstraintIndexStereotypeDto>>(StatusCodes.Status200OK, contentType: MediaTypeNames.Application.Json);
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
+            AllowAnonymous();
         }
 
         public override async Task HandleAsync(CancellationToken ct)

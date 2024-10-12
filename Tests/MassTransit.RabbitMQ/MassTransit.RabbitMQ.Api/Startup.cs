@@ -43,6 +43,7 @@ namespace MassTransit.RabbitMQ.Api
             services.ConfigureHealthChecks(Configuration);
             services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
+            services.AddTelemetryConfiguration(Configuration);
             services.ConfigureSwagger(Configuration);
         }
 

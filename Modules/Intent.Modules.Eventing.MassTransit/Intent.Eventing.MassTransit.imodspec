@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
-  <version>6.2.5</version>
+  <version>6.2.6</version>
   <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
   <summary>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</summary>
   <description>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</description>
@@ -107,13 +107,13 @@
         <package id="Intent.Application.ServiceImplementations.CRUD.Eventing" version="1.0.11" />
       </install>
     </detect>
-    <!-- Remove after 30 June 2024 -->
-    <detect id="Intent.Eventing.MassTransit.RequestResponse">
+    <!-- Remove after 1 January 2025 -->
+    <detect id="Intent.OpenTelemetry">
       <install>
-        <package id="Intent.Eventing.MassTransit.RequestResponse" version="1.1.0" />
+        <package id="Intent.OpenTelemetry" version="2.2.1" />
       </install>
     </detect>
-    <!-- Remove after 30 June 2024 -->
+    <!-- Remove after 1 January 2025 -->
   </interoperability>
   <moduleSettings>
     <group id="b1c11f3f-63ce-4917-8ffb-b6c7698346c7" title="Eventing Settings" externalReference="b1c11f3f-63ce-4917-8ffb-b6c7698346c7">

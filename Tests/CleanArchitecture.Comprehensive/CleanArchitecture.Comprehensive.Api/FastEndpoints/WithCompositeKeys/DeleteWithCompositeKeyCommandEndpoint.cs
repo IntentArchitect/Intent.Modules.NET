@@ -34,6 +34,7 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.WithCompositeKeys
                 b.ProducesProblemDetails();
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
+            AllowAnonymous();
         }
 
         public override async Task HandleAsync(DeleteWithCompositeKeyCommand req, CancellationToken ct)

@@ -1,3 +1,11 @@
+### Version 2.2.2
+
+- Fixed: It will no longer remove nuget packages that it deems to be remnants from previous settings since users may want to introduce those nuget packages themselves and it shouldn't get removed. The will need to remove it themselves.
+
+### Version 2.2.1
+
+- Fixed: Integration with MassTransit is broken due to new CSharpInvocationStatements representable as method chaining statements.
+
 ### Version 2.2.0
 
 - New Feature: New Exporter option available `Azure Monitor OpenTelemetry Distro`. Read more about it [here](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore#why-should-i-use-the-azure-monitor-opentelemetry-distro).

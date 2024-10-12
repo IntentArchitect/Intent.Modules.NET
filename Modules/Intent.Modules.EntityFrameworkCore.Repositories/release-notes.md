@@ -1,3 +1,7 @@
+### Version 4.7.2
+
+- Fixed: Type disambiguation was incorrect under some circumstances for entity repository interfaces.
+
 ### Version 4.7.1
 
 - Improvement: Comments are now generated for methods on repository interfaces.

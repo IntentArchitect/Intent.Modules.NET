@@ -28,6 +28,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>2deb9d63-6529-4b8c-ba67-e29d4e6f6c41</ProjectId>
+      <CorrelationId>Intent.OpenTelemetry.OpenTelemetryConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Api/Configuration/OpenTelemetryConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenTelemetryConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2deb9d63-6529-4b8c-ba67-e29d4e6f6c41</ProjectId>
       <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Api/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>

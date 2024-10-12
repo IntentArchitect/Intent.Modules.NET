@@ -36,6 +36,7 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.TestNullablities
                 b.ProducesProblemDetails();
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
+            AllowAnonymous();
         }
 
         public override async Task HandleAsync(GetTestNullablityByIdQuery req, CancellationToken ct)

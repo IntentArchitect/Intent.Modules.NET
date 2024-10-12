@@ -34,6 +34,7 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.Unversioned
                 b.ProducesProblemDetails();
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
+            AllowAnonymous();
         }
 
         public override async Task HandleAsync(TestQuery req, CancellationToken ct)

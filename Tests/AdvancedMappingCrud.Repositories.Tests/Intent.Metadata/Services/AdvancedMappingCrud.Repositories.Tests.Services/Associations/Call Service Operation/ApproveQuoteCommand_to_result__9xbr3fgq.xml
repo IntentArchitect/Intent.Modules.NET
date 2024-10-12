@@ -45,12 +45,12 @@
           <mappedEnd>
             <expression>{ApproveQuoteCommand}</expression>
             <path>
-              <target id="75164753-0cac-446b-b867-a56b434306f1" name="GetPersonById" type="element" specialization="Operation" />
+              <target id="75164753-0cac-446b-b867-a56b434306f1" name="GetPersonById" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
             </path>
             <sources>
               <source identifier="ApproveQuoteCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
                 <path>
-                  <target id="1d883b18-40f6-4097-9989-8a8c0f5c99f2" name="ApproveQuoteCommand" type="element" specialization="Command" />
+                  <target id="1d883b18-40f6-4097-9989-8a8c0f5c99f2" name="ApproveQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                 </path>
               </source>
             </sources>
@@ -58,15 +58,15 @@
           <mappedEnd>
             <expression>{entity.PersonId}</expression>
             <path>
-              <target id="75164753-0cac-446b-b867-a56b434306f1" name="GetPersonById" type="element" specialization="Operation" />
-              <target id="34226f14-a6ac-49c4-ae19-d167779d9ba9" name="personId" type="element" specialization="Parameter" />
+              <target id="75164753-0cac-446b-b867-a56b434306f1" name="GetPersonById" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              <target id="34226f14-a6ac-49c4-ae19-d167779d9ba9" name="personId" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
             </path>
             <sources>
               <source identifier="entity.PersonId" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
                 <path>
-                  <target id="1d883b18-40f6-4097-9989-8a8c0f5c99f2" name="ApproveQuoteCommand" type="element" specialization="Command" />
-                  <target id="f34e74fc-4a33-4674-8d6b-677367c21644" name="entity" type="association" specialization="Query Entity Action Target End" />
-                  <target id="abfb5805-665b-409b-9f96-94d9dc6e1e08" name="PersonId" type="element" specialization="Attribute" />
+                  <target id="1d883b18-40f6-4097-9989-8a8c0f5c99f2" name="ApproveQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f34e74fc-4a33-4674-8d6b-677367c21644" name="entity" type="association" specialization="Query Entity Action Target End" specializationId="93ef6675-cba4-4998-adff-cb22d5343ed4" />
+                  <target id="abfb5805-665b-409b-9f96-94d9dc6e1e08" name="PersonId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
                 </path>
               </source>
             </sources>

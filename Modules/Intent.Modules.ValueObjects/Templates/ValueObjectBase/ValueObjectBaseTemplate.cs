@@ -38,22 +38,16 @@ namespace {Namespace}
     /// </summary>
     public abstract class ValueObject
     {{
-        protected static bool EqualOperator(ValueObject left, ValueObject right)
-        {{
-            if (ReferenceEquals(left, null) ^ ReferenceEquals(right, null))
-            {{
-                return false;
-            }}
 
-            return ReferenceEquals(left, right) || left!.Equals(right);
+        public static bool operator ==(ValueObject one, ValueObject two)
+        {{
+            return EqualOperator(one, two);
         }}
 
-        protected static bool NotEqualOperator(ValueObject left, ValueObject right)
+        public static bool operator !=(ValueObject one, ValueObject two)
         {{
-            return !EqualOperator(left, right);
+            return NotEqualOperator(one, two);
         }}
-
-        protected abstract IEnumerable<object?> GetEqualityComponents();
 
         public override bool Equals(object? obj)
         {{
@@ -74,17 +68,24 @@ namespace {Namespace}
                 .Aggregate((x, y) => x ^ y);
         }}
 
-        public static bool operator ==(ValueObject one, ValueObject two)
-        {{
-            return EqualOperator(one, two);
-        }}
-
-        public static bool operator !=(ValueObject one, ValueObject two)
-        {{
-            return NotEqualOperator(one, two);
-        }}
-
         {sameTypeImplementation}
+
+        protected static bool EqualOperator(ValueObject left, ValueObject right)
+        {{
+            if (left is null ^ right is null)
+            {{
+                return false;
+            }}
+
+            return ReferenceEquals(left, right) || left!.Equals(right);
+        }}
+
+        protected static bool NotEqualOperator(ValueObject left, ValueObject right)
+        {{
+            return !EqualOperator(left, right);
+        }}
+
+        protected abstract IEnumerable<object?> GetEqualityComponents();
     }}
 }}";
         }

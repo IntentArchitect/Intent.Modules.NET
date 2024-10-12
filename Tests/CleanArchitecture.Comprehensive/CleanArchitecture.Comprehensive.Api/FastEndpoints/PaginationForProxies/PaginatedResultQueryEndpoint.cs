@@ -35,6 +35,7 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.PaginationForProxies
                 b.ProducesProblemDetails();
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
+            AllowAnonymous();
         }
 
         public override async Task HandleAsync(PaginatedResultQuery req, CancellationToken ct)

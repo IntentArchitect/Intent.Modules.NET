@@ -68,8 +68,6 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             }
             else
             {
-                ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.AzureMonitorOpenTelemetryAspNetCorePackageName, OutputTarget));
-                
                 method.AddInvocationStatement("services.AddOpenTelemetry", main => main
                     .AddInvocation("ConfigureResource", inv => inv
                         .AddArgument(GetResourceConfigurationStatement())
@@ -141,14 +139,16 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
 
         var traceChain = new CSharpStatement("trace");
 
+        // TEMP FIX - also see TelemetryConfiguratorExtension
+        if (ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.Eventing.MassTransit"))
+        {
+            traceChain = traceChain.AddInvocation("AddSource", inv => inv.AddArgument(@"""MassTransit""").OnNewLine());
+        }
+
         if (ExecutionContext.Settings.GetOpenTelemetry().ASPNETCoreInstrumentation())
         {
             AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationAspNetCore(OutputTarget));
             traceChain = traceChain.AddInvocation("AddAspNetCoreInstrumentation", inv => inv.OnNewLine());
-        }
-        else
-        {
-            ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.OpenTelemetryInstrumentationAspNetCorePackageName, OutputTarget));
         }
 
         if (ExecutionContext.Settings.GetOpenTelemetry().HTTPInstrumentation())
@@ -156,19 +156,11 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationHttp(OutputTarget));
             traceChain = traceChain.AddInvocation("AddHttpClientInstrumentation", inv => inv.OnNewLine());
         }
-        else
-        {
-            ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.OpenTelemetryInstrumentationHttpPackageName, OutputTarget));
-        }
 
         if (ExecutionContext.Settings.GetOpenTelemetry().SQLInstrumentation())
         {
             AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationSqlClient(OutputTarget));
             traceChain = traceChain.AddInvocation("AddSqlClientInstrumentation", inv => inv.OnNewLine());
-        }
-        else
-        {
-            ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.OpenTelemetryInstrumentationSqlClientPackageName, OutputTarget));
         }
 
         var finalChain = AddExporterConfiguration(traceChain, ExporterType.Trace);
@@ -187,19 +179,11 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationAspNetCore(OutputTarget));
             traceChain = traceChain.AddInvocation("AddAspNetCoreInstrumentation", inv => inv.OnNewLine());
         }
-        else
-        {
-            ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.OpenTelemetryInstrumentationAspNetCorePackageName, OutputTarget));
-        }
 
         if (ExecutionContext.Settings.GetOpenTelemetry().HTTPInstrumentation())
         {
             AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationHttp(OutputTarget));
             traceChain = traceChain.AddInvocation("AddHttpClientInstrumentation", inv => inv.OnNewLine());
-        }
-        else
-        {
-            ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.OpenTelemetryInstrumentationHttpPackageName, OutputTarget));
         }
 
         if (ExecutionContext.Settings.GetOpenTelemetry().ProcessInstrumentation())
@@ -207,19 +191,11 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationProcess(OutputTarget));
             traceChain = traceChain.AddInvocation("AddProcessInstrumentation", inv => inv.OnNewLine());
         }
-        else
-        {
-            ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.OpenTelemetryInstrumentationProcessPackageName, OutputTarget));
-        }
 
         if (ExecutionContext.Settings.GetOpenTelemetry().NETRuntimeInstrumentation())
         {
             AddNugetDependency(NugetPackages.OpenTelemetryInstrumentationRuntime(OutputTarget));
             traceChain = traceChain.AddInvocation("AddRuntimeInstrumentation", inv => inv.OnNewLine());
-        }
-        else
-        {
-            ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.OpenTelemetryInstrumentationRuntimePackageName, OutputTarget));
         }
 
         var finalChain = AddExporterConfiguration(traceChain, ExporterType.Metric);
@@ -241,18 +217,12 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
                 {
                     AddNugetDependency(NugetPackages.OpenTelemetryExporterConsole(OutputTarget));
                     
-                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.OpenTelemetryExporterOpenTelemetryProtocolPackageName, OutputTarget));
-                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.AzureMonitorOpenTelemetryExporterPackageName, OutputTarget));
-
                     return configChain.AddInvocation("AddConsoleExporter", inv => inv.OnNewLine());
                 }
             case Settings.OpenTelemetry.ExportOptionsEnum.OpenTelemetryProtocol:
                 {
                     AddNugetDependency(NugetPackages.OpenTelemetryExporterOpenTelemetryProtocol(OutputTarget));
                     
-                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.OpenTelemetryExporterConsolePackageName, OutputTarget));
-                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.AzureMonitorOpenTelemetryExporterPackageName, OutputTarget));
-
                     return configChain.AddInvocation("AddOtlpExporter", inv => inv.OnNewLine()
                         .AddArgument(new CSharpLambdaBlock("opt")
                             .AddStatement($@"opt.Endpoint = configuration.GetValue<{UseType("System.Uri")}>(""open-telemetry-protocol:endpoint"")!;")
@@ -261,9 +231,6 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             case Settings.OpenTelemetry.ExportOptionsEnum.AzureApplicationInsights:
                 {
                     AddNugetDependency(NugetPackages.AzureMonitorOpenTelemetryExporter(OutputTarget));
-                    
-                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.OpenTelemetryExporterConsolePackageName, OutputTarget));
-                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.OpenTelemetryExporterOpenTelemetryProtocolPackageName, OutputTarget));
                     
                     AddUsing("Azure.Monitor.OpenTelemetry.Exporter");
 

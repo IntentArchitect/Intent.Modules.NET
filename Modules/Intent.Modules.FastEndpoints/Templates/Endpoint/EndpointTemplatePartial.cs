@@ -405,7 +405,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             //     APISettings.DefaultAPISecurityOptionsEnum.Unsecured => Model.RequiresAuthorization,
             //     _ => throw new ArgumentOutOfRangeException()
             // };
-            return Model.RequiresAuthorization || !Model.AllowAnonymous;
+            return Model.Container.RequiresAuthorization || !Model.Container.AllowAnonymous;
         }
 
         private bool IsEndpointSecured()

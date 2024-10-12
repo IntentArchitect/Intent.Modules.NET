@@ -109,7 +109,7 @@
         <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="3a1a50c6-21ce-4caf-b953-c2484b3f851b" name="IntegrationTriggering" type="element" specialization="Class" />
+          <target id="3a1a50c6-21ce-4caf-b953-c2484b3f851b" name="IntegrationTriggering" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3a1a50c6-21ce-4caf-b953-c2484b3f851b</parentFolderId>
@@ -139,7 +139,7 @@
             <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="37417a52-5846-4606-be7f-fb05038b60e4" name="Value" type="element" specialization="Attribute" />
+              <target id="37417a52-5846-4606-be7f-fb05038b60e4" name="Value" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>a7ee3e64-6007-4405-8eba-8dc64d61a03c</parentFolderId>
@@ -172,7 +172,7 @@
         <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="3a1a50c6-21ce-4caf-b953-c2484b3f851b" name="IntegrationTriggering" type="element" specialization="Class" />
+          <target id="3a1a50c6-21ce-4caf-b953-c2484b3f851b" name="IntegrationTriggering" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3a1a50c6-21ce-4caf-b953-c2484b3f851b</parentFolderId>
@@ -202,7 +202,7 @@
             <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="37417a52-5846-4606-be7f-fb05038b60e4" name="Value" type="element" specialization="Attribute" />
+              <target id="37417a52-5846-4606-be7f-fb05038b60e4" name="Value" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>21e3d94a-ffce-4bae-b78c-2e79f75e43e0</parentFolderId>

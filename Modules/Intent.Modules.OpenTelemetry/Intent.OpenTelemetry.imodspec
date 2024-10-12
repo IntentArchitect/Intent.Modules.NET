@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.OpenTelemetry</id>
-  <version>2.2.0</version>
+  <version>2.2.2</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces an open framework for collecting and exporting telemetry data.</summary>
   <description>Introduces an open framework for collecting and exporting telemetry data.</description>
@@ -123,6 +123,13 @@ return getProperty(Export).value != AzureMonitorOpenTelemetryDistro &amp;&amp;
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->
+    <!-- Remove after 1 January 2025 -->
+    <detect id="Intent.Eventing.MassTransit">
+      <install>
+          <package id="Intent.Eventing.MassTransit" version="6.2.6" />
+      </install>
+    </detect>
+    <!-- Remove after 1 January 2025 -->
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.5.0" />

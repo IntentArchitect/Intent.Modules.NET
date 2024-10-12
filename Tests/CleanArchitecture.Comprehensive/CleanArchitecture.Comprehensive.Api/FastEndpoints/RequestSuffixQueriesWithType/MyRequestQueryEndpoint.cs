@@ -32,6 +32,7 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.RequestSuffixQueries
                 b.Produces<int>(StatusCodes.Status200OK);
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
+            AllowAnonymous();
         }
 
         public override async Task HandleAsync(CancellationToken ct)
