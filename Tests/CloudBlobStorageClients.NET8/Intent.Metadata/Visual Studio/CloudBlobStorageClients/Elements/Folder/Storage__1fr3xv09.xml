@@ -85,5 +85,33 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="00085237-9f1e-4591-be0c-3f72df04e698" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Google.CloudStorage.BulkCloudObjectItem</name>
+      <display>Intent.Google.CloudStorage.BulkCloudObjectItem</display>
+      <externalReference>Intent.Google.CloudStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0193e214-8621-4bdb-b032-31c24280f219</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="448c7061-7bbf-4784-9143-65e6b6130c97" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Google.CloudStorage.CloudStorageInterface</name>
+      <display>Intent.Google.CloudStorage.CloudStorageInterface</display>
+      <externalReference>Intent.Google.CloudStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0193e214-8621-4bdb-b032-31c24280f219</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

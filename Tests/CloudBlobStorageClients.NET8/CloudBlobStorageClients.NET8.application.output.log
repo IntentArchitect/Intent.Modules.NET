@@ -244,10 +244,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>0193e214-8621-4bdb-b032-31c24280f219</ProjectId>
+      <CorrelationId>Intent.Google.CloudStorage.BulkCloudObjectItem</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CloudBlobStorageClients.Application/Common/Storage/BulkCloudObjectItem.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BulkCloudObjectItem.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0193e214-8621-4bdb-b032-31c24280f219</ProjectId>
       <CorrelationId>Intent.Azure.BlobStorage.BlobStorageInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CloudBlobStorageClients.Application/Common/Storage/IBlobStorage.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IBlobStorage.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0193e214-8621-4bdb-b032-31c24280f219</ProjectId>
+      <CorrelationId>Intent.Google.CloudStorage.CloudStorageInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CloudBlobStorageClients.Application/Common/Storage/ICloudStorage.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICloudStorage.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -371,11 +387,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>af9cac0f-fdae-44ef-9273-23825860b66f</ProjectId>
+      <CorrelationId>Intent.Google.CloudStorage.GoogleCloudStorageImplementation</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CloudBlobStorageClients.Infrastructure/CloudStorage/GoogleCloudStorage.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GoogleCloudStorage.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>bd3e6c19-f94b-4564-9dfc-fc8857416d8f</ProjectId>
       <CorrelationId>Intent.AmazonS3.ObjectStorage.AmazonS3ObjectStorageConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CloudBlobStorageClients.Infrastructure/Configuration/AmazonS3ObjectStorageConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AmazonS3ObjectStorageConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bd3e6c19-f94b-4564-9dfc-fc8857416d8f</ProjectId>
+      <CorrelationId>Intent.Google.CloudStorage.GoogleCloudStorageConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CloudBlobStorageClients.Infrastructure/Configuration/GoogleCloudStorageConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GoogleCloudStorageConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

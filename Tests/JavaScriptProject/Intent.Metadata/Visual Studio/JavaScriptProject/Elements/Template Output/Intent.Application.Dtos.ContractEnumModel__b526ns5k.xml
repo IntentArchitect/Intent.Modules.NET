@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1efc0e93-a991-4c81-b32a-03d532821c4a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.Application.Dtos.ContractEnumModel</name>
+  <display>Intent.Application.Dtos.ContractEnumModel</display>
+  <externalReference>Intent.Application.Dtos</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c6f345ee-fcf0-4fe5-9b3f-e4c8e039f1b8</parentFolderId>
+  <stereotypes />
+  <metadata>
+    <entry key="status" value="unassigned" />
+  </metadata>
+  <childElements />
+</class>

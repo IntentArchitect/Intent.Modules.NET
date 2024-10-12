@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a3c89c7e-f39d-4856-b9da-59e6909d99ca" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.Application.Dtos.DtoModel</name>
+  <display>Intent.Application.Dtos.DtoModel</display>
+  <externalReference>Intent.Application.Dtos</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>04c2be5e-475a-4ba2-b4ce-7d0b4b2a3a54</parentFolderId>
+  <stereotypes />
+  <metadata>
+    <entry key="status" value="unassigned" />
+  </metadata>
+  <childElements />
+</class>
