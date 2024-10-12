@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9fa838f5-f742-4a27-8092-714898290493" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
+  <comment>this line is supposed to wrap and you should see the rest of this sentence.</comment>
+  <name>Check that comments wrap lines and that you see this.</name>
+  <display>Check that comments wrap lines and that you see this.</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e5ed367e-aea5-4a03-890f-dd671a48d907</parentFolderId>
+  <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
