@@ -1,60 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
-  <id>Intent.Google.CloudStorage</id>
-  <version>1.0.0-beta.0</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
-  <summary>A custom module for Intent.Modules.NET.</summary>
-  <description>A custom module for Intent.Modules.NET.</description>
-  <authors>Intent.Modules.NET</authors>
-  <iconUrl>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAz9JREFUeF7t3E1rE1EUBuBzJ1PaNE0wpUZrUVu1oIUKVUFQEF25Ej9w4b8puPGvuNHahYKlWDd+QFxViAvBjQoqrRVDBOmEkWMb0Mm9yemcyaR03tlmTm7vkzM3N5M3NYRDJWBU1SgmACqbAIAAVAooy9GBAFQKKMvRgQBUCijL0YEAVAooy9GBAFQKKMudHXh3sTG39sN7YXv+M8fM9+KQCZRj76ry9XroP6gG49b5Hvev3bs99MT2mBvw8a/zn77Qa1vRxekcFfN76+pfq4d0/9Vm23SNIbp00tyYv1VYBGCHnncBlvKG5iYJgN3WCxfg6Iih2cMA7OZHLsAjYx5N7Q/Rgd0EXYAnDno0UQZgNz9rB+4rGBormuwAVkqGZiZyVC78v0PYaIRU+9ykbz9DJ6StAycrHvkeZQOQ8S5M+8TbDtsRhkQv3wdOxCggw/H652UF8PIpv63zopDcic/f2ff/UcDCoKHx8tarkeoaePX0QNf1ZicnPF1t39za6m+ek4278Mb+fFHA0rAh7urUAaUTkSK6Jhytl44rBZyqeJTztkZJtQOlE9nNgAzHgK0jVcArM77URnTeSk12z0L6wkk6kC9dvoT7AihS6cFJSb6JHCobGh7MGGBS2xjetvD2hbcxmepAnmwSG2mG4w30v0eqa2APrs5UnrK1jeGPbvwRDoA7ZG8B8s2D6IEOFGAy4MPq5t/1D4ACsOgpDLj0NiC+gQrAmIDPagHxLXwAxgSsfmha7+bEWwMf/Z5drzeXbX/L2aO5ryN5I/uUH2My/SjZaIQDqx+bB2xjj5bMnfnr+RXbY3vru8k+yANQiQ5AACoFlOXoQAAqBZTlSGdtAyKdpewkpLN6BIh0lhAW6SwhlOs0pLN6BIh0lhDW1oFIZ23jIZ0l6KKkvtZsDYV0lgUd6awOnZhktIOHQTrLgS3JxnAp0lkKQKSzOlzqkg5EOssBKH0TQTrLAigNmSOdpfyZA9JZgk237RSks2LCtcqQzkoAEOksBSLSWQo8LmVApLMUiAyIdJYCEOksBZ6mFNEOjR4R/gWo0g+AANQKKOuxBgJQKaAsRwcCUCmgLEcHAlApoCxHBwJQKaAs/wOwZSx+rac1AgAAAABJRU5ErkJggg==</iconUrl>
-  <templates>
-    <template id="Intent.Google.CloudStorage.BulkCloudObjectItem" externalReference="2a5bbf39-8674-4ca7-84d1-b4fa3367715b">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Storage.CloudStorageInterface</role>
-      <location>Common/Storage</location>
-    </template>
-    <template id="Intent.Google.CloudStorage.CloudStorageInterface" externalReference="c3374951-99bc-49e6-9d60-eacb550ee9d2">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Storage.CloudStorageInterface</role>
-      <location>Common/Storage</location>
-    </template>
-    <template id="Intent.Google.CloudStorage.GoogleCloudStorageConfiguration" externalReference="cd64f158-be0a-48a3-944c-9f61dfdc2983">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Configuration.GoogleCloudtStorageConfiguration</role>
-      <location>Configuration</location>
-    </template>
-    <template id="Intent.Google.CloudStorage.GoogleCloudStorageImplementation" externalReference="7bbc6e9c-c0bc-4cb5-9d23-10b7b1bf974c">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.Storage.GoogleCloudStorage</role>
-      <location>CloudStorage</location>
-    </template>
-  </templates>
-  <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
-  <moduleSettings></moduleSettings>
-  <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.8.2-pre.1" />
-    <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
-  </dependencies>
-  <files>
-    <file src="$outDir$/$id$.dll" />
-    <file src="$outDir$/$id$.pdb" />
-  </files>
-  <tags />
-  <moduleSettingsExtensions />
-  <metadata />
+	<id>Intent.Google.CloudStorage</id>
+	<version>1.0.0-beta.0</version>
+	<supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+	<summary>Introduces a Object storage client that can link with Google Cloud Storage.</summary>
+	<description>Introduces a Object storage client that can link with Google Cloud Storage.</description>
+	<authors>Intent Architect</authors>
+	<tags>csharp dotnet google gcp cloud objectstorage cloudstorage</tags>
+	<projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Google.CloudStorage/README.md</projectUrl>
+	<iconUrl>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAz9JREFUeF7t3E1rE1EUBuBzJ1PaNE0wpUZrUVu1oIUKVUFQEF25Ej9w4b8puPGvuNHahYKlWDd+QFxViAvBjQoqrRVDBOmEkWMb0Mm9yemcyaR03tlmTm7vkzM3N5M3NYRDJWBU1SgmACqbAIAAVAooy9GBAFQKKMvRgQBUCijL0YEAVAooy9GBAFQKKMudHXh3sTG39sN7YXv+M8fM9+KQCZRj76ry9XroP6gG49b5Hvev3bs99MT2mBvw8a/zn77Qa1vRxekcFfN76+pfq4d0/9Vm23SNIbp00tyYv1VYBGCHnncBlvKG5iYJgN3WCxfg6Iih2cMA7OZHLsAjYx5N7Q/Rgd0EXYAnDno0UQZgNz9rB+4rGBormuwAVkqGZiZyVC78v0PYaIRU+9ykbz9DJ6StAycrHvkeZQOQ8S5M+8TbDtsRhkQv3wdOxCggw/H652UF8PIpv63zopDcic/f2ff/UcDCoKHx8tarkeoaePX0QNf1ZicnPF1t39za6m+ek4278Mb+fFHA0rAh7urUAaUTkSK6Jhytl44rBZyqeJTztkZJtQOlE9nNgAzHgK0jVcArM77URnTeSk12z0L6wkk6kC9dvoT7AihS6cFJSb6JHCobGh7MGGBS2xjetvD2hbcxmepAnmwSG2mG4w30v0eqa2APrs5UnrK1jeGPbvwRDoA7ZG8B8s2D6IEOFGAy4MPq5t/1D4ACsOgpDLj0NiC+gQrAmIDPagHxLXwAxgSsfmha7+bEWwMf/Z5drzeXbX/L2aO5ryN5I/uUH2My/SjZaIQDqx+bB2xjj5bMnfnr+RXbY3vru8k+yANQiQ5AACoFlOXoQAAqBZTlSGdtAyKdpewkpLN6BIh0lhAW6SwhlOs0pLN6BIh0lhDW1oFIZ23jIZ0l6KKkvtZsDYV0lgUd6awOnZhktIOHQTrLgS3JxnAp0lkKQKSzOlzqkg5EOssBKH0TQTrLAigNmSOdpfyZA9JZgk237RSks2LCtcqQzkoAEOksBSLSWQo8LmVApLMUiAyIdJYCEOksBZ6mFNEOjR4R/gWo0g+AANQKKOuxBgJQKaAsRwcCUCmgLEcHAlApoCxHBwJQKaAs/wOwZSx+rac1AgAAAABJRU5ErkJggg==</iconUrl>
+	<releaseNotes>release-notes.md</releaseNotes>
+	<templates>
+		<template id="Intent.Google.CloudStorage.BulkCloudObjectItem" externalReference="2a5bbf39-8674-4ca7-84d1-b4fa3367715b">
+			<config>
+				<add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+				<add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+			</config>
+			<role>Application.Storage.CloudStorageInterface</role>
+			<location>Common/Storage</location>
+		</template>
+		<template id="Intent.Google.CloudStorage.CloudStorageInterface" externalReference="c3374951-99bc-49e6-9d60-eacb550ee9d2">
+			<config>
+				<add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+				<add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+			</config>
+			<role>Application.Storage.CloudStorageInterface</role>
+			<location>Common/Storage</location>
+		</template>
+		<template id="Intent.Google.CloudStorage.GoogleCloudStorageConfiguration" externalReference="cd64f158-be0a-48a3-944c-9f61dfdc2983">
+			<config>
+				<add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+				<add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+			</config>
+			<role>Infrastructure.Configuration.GoogleCloudtStorageConfiguration</role>
+			<location>Configuration</location>
+		</template>
+		<template id="Intent.Google.CloudStorage.GoogleCloudStorageImplementation" externalReference="7bbc6e9c-c0bc-4cb5-9d23-10b7b1bf974c">
+			<config>
+				<add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+				<add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+			</config>
+			<role>Infrastructure.Storage.GoogleCloudStorage</role>
+			<location>CloudStorage</location>
+		</template>
+	</templates>
+	<decorators></decorators>
+	<factoryExtensions></factoryExtensions>
+	<moduleSettings></moduleSettings>
+	<dependencies>
+		<dependency id="Intent.Common" version="3.6.0" />
+		<dependency id="Intent.Common.CSharp" version="3.8.2-pre.1" />
+		<dependency id="Intent.Common.Types" version="3.4.0" />
+		<dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+	</dependencies>
+	<files>
+		<file src="$outDir$/$id$.dll" />
+		<file src="$outDir$/$id$.pdb" />
+	</files>
+	<tags />
+	<moduleSettingsExtensions />
+	<metadata />
 </package>

@@ -38,7 +38,25 @@ namespace Intent.Modules.Google.CloudStorage.Templates.BulkCloudObjectItem
                                 prm.IntroduceProperty(p => p.Init());
                                 prm.WithDefaultValue("null");
                             });
+
+                        ctor.WithComments(
+                            [
+                            "/// <summary>",
+                            "/// Constructor for the object which represents a single item used for bulk uploads to object storage",
+                            "/// </summary>",
+                            "/// <param name=\"Name\">The name of the object.</param>",
+                            "/// <param name=\"DataStream\">The stream of data to upload.</param>",
+                            "/// <param name=\"ContentType\">The content type of the object. This should be a MIME type. Can be null.</param>",
+                        ]);
                     });
+
+                    @record.WithComments(
+               [
+                        "/// <summary>",
+                        "/// Represents a single item used for bulk uploads to object storage.",
+                        "/// </summary>"
+                    ]);
+
                 });
         }
 
