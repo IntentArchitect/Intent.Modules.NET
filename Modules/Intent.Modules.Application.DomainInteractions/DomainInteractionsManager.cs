@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Xml.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -363,7 +364,18 @@ public class DomainInteractionsManager
 
 		foreach (var entity in entitiesReturningPk.Where(x => x.IsNew).GroupBy(x => x.ElementModel.Id).Select(x => x.First()))
 		{
-			statements.Add($"{entity.DataAccessProvider.SaveChangesAsync()}");
+            if (entity.ElementModel.IsClassModel())
+            {
+                var primaryKeys = entity.ElementModel.AsClassModel().Attributes.Where(a => a.IsPrimaryKey());
+                if (primaryKeys.Any(p => HasDBGeneratedPk(p)))
+                {
+                    statements.Add($"{entity.DataAccessProvider.SaveChangesAsync()}");
+                }
+            }
+            else
+            {
+                statements.Add($"{entity.DataAccessProvider.SaveChangesAsync()}");
+            }
 		}
 
 		if (TrackedEntities.Any() && returnType.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
@@ -426,7 +438,12 @@ public class DomainInteractionsManager
 			.ToList();
 	}
 
-	public IEnumerable<CSharpStatement> CreateEntity(CSharpClass handlerClass, CreateEntityActionTargetEndModel createAction)
+    private bool HasDBGeneratedPk(AttributeModel attribute)
+    {
+        return attribute.IsPrimaryKey() && attribute.GetStereotypeProperty("Primary Key", "Data source", "Default") == "Default";
+    }
+
+    public IEnumerable<CSharpStatement> CreateEntity(CSharpClass handlerClass, CreateEntityActionTargetEndModel createAction)
     {
         try
         {
