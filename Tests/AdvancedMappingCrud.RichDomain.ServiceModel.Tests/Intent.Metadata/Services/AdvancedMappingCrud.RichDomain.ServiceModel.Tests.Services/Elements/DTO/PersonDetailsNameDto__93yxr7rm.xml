@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="d67532d7-c927-4a81-84b9-486e9dea4445" name="Names" type="element" specialization="Value Object" />
+      <target id="d67532d7-c927-4a81-84b9-486e9dea4445" name="Names" type="element" specialization="Value Object" specializationId="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>fb8eff71-e251-496a-af0c-356b853a33f4</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="83022d65-f0a3-48c4-9008-1ab808481015" name="First" type="element" specialization="Attribute" />
+          <target id="83022d65-f0a3-48c4-9008-1ab808481015" name="First" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>66b91284-fbb5-4a0e-83eb-f16fe8659ced</parentFolderId>
@@ -96,7 +96,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="16008c63-57be-44f6-9f49-eb80c0421af5" name="Last" type="element" specialization="Attribute" />
+          <target id="16008c63-57be-44f6-9f49-eb80c0421af5" name="Last" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>66b91284-fbb5-4a0e-83eb-f16fe8659ced</parentFolderId>

@@ -24,7 +24,7 @@ namespace ProxyServiceTests.Proxy.TMS.Domain.Common
         /// <returns>A <see cref="ComparisonResult{TChanged, TOriginal}"/> object that describes the differences between the two collections.</returns>
         public static ComparisonResult<TChanged, TOriginal> CompareCollections<TChanged, TOriginal>(
             this ICollection<TOriginal> baseCollection,
-            ICollection<TChanged> changedCollection,
+            IEnumerable<TChanged> changedCollection,
             Func<TOriginal, TChanged, bool> equalityCheck)
         {
             changedCollection ??= new List<TChanged>();

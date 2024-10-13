@@ -366,7 +366,7 @@ public class DomainInteractionsManager
 		{
             if (entity.ElementModel.IsClassModel())
             {
-                var primaryKeys = entity.ElementModel.AsClassModel().Attributes.Where(a => a.IsPrimaryKey());
+                var primaryKeys = entity.ElementModel.AsClassModel().GetTypesInHierarchy().SelectMany(c => c.Attributes.Where(a => a.IsPrimaryKey()));
                 if (primaryKeys.Any(p => HasDBGeneratedPk(p)))
                 {
                     statements.Add($"{entity.DataAccessProvider.SaveChangesAsync()}");

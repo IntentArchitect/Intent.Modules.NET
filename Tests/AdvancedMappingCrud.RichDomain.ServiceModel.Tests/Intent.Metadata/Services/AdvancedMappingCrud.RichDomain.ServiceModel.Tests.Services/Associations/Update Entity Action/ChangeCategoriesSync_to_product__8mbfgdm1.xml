@@ -22,6 +22,9 @@
     <name>product</name>
     <display>[update] product: ChangeCategoriesSync</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="03e369a2-b293-449e-ba19-363ae3d46bfc">
       <typeId>697d9c8a-57d4-4db3-b11b-8111172a2e6f</typeId>
       <isNavigable>true</isNavigable>

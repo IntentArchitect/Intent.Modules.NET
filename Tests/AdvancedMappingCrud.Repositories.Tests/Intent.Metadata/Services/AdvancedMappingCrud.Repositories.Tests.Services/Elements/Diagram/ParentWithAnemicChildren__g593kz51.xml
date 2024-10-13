@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="65fc09cd-f3c2-4808-bf2d-ac58251f6eef" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>ParentWithAnemicChildren</name>
+  <display>ParentWithAnemicChildren</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c6a0f90b-a793-4255-9f3a-8a9260b2c949</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>65fc09cd-f3c2-4808-bf2d-ac58251f6eef</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

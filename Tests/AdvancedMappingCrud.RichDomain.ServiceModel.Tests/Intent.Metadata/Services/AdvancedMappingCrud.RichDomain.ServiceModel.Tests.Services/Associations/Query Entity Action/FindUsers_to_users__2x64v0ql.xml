@@ -22,6 +22,9 @@
     <name>users</name>
     <display>[query] users: User[*]</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="88dce5ae-aa39-4898-8f9b-c0c21707bf31">
       <typeId>fb6bd8bf-0a84-43dd-83f9-3ad81eb99dbe</typeId>
       <isNavigable>true</isNavigable>

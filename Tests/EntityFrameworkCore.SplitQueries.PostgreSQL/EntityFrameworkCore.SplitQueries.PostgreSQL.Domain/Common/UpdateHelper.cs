@@ -28,7 +28,7 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Domain.Common
         /// </remarks>
         public static ICollection<TOriginal> CreateOrUpdateCollection<TChanged, TOriginal>(
             ICollection<TOriginal> baseCollection,
-            ICollection<TChanged>? changedCollection,
+            IEnumerable<TChanged>? changedCollection,
             Func<TOriginal, TChanged, bool> equalityCheck,
             Func<TOriginal?, TChanged, TOriginal> assignmentAction)
         {

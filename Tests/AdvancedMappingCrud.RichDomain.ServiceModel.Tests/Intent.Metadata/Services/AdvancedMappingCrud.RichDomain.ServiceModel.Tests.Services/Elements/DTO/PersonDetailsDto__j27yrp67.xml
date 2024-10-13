@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="f4184aa7-ffdc-4d69-9e44-6af6704fd16c" name="PersonDetails" type="element" specialization="Value Object" />
+      <target id="f4184aa7-ffdc-4d69-9e44-6af6704fd16c" name="PersonDetails" type="element" specialization="Value Object" specializationId="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>fb8eff71-e251-496a-af0c-356b853a33f4</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="aa9121de-f0f5-4f56-9e7e-306aad90644b" name="Name" type="element" specialization="Attribute" />
+          <target id="aa9121de-f0f5-4f56-9e7e-306aad90644b" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>05468fe8-f3cf-43b0-bdaa-98dd01fe2268</parentFolderId>

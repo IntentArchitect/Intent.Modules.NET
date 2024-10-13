@@ -3,11 +3,13 @@ using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Basics
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Customers;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Optionals;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Orders;
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.ParentWithAnemicChildren;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Basics;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Customers;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Optionals;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Orders;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.PagingTS;
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.ParentWithAnemicChildren;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Products;
 using AutoFixture;
 using Intent.RoslynWeaver.Attributes;
@@ -102,6 +104,16 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests
             var orderItemId = await client.CreateOrderOrderItemAsync(command);
             _idTracker["OrderItemId"] = orderItemId;
             return (orderId, orderItemId);
+        }
+
+        public async Task<Guid> CreateParentWithAnemicChild()
+        {
+            var client = new ParentWithAnemicChildrenHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateParentWithAnemicChildCommand>();
+            var parentWithAnemicChildId = await client.CreateParentWithAnemicChildAsync(command);
+            _idTracker["ParentWithAnemicChildId"] = parentWithAnemicChildId;
+            return parentWithAnemicChildId;
         }
 
         public async Task<Guid> CreatePagingTS()

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1924dfc2-20e0-46d7-a021-eaf6f4fa2991" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>OrdersService</name>
+  <display>OrdersService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</parentFolderId>
+  <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="638ea47a-7b50-4a7c-986b-fd4edc4a66f1" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateOrder</name>
+      <display>CreateOrder(dto: OrderCreateDto): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="802bfff4-3481-45c5-821c-0c4cb6dd0c6d">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1924dfc2-20e0-46d7-a021-eaf6f4fa2991</parentFolderId>
+      <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="6abdf7a2-6c5e-43db-b140-f49c4a44883b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: OrderCreateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ca37d1bd-bb6a-4305-a612-1775080424dc">
+            <typeId>00525543-cdf8-4610-bab8-02f0e7ff15d1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+            <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>638ea47a-7b50-4a7c-986b-fd4edc4a66f1</parentFolderId>
+          <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1e2565dd-95df-4741-8ace-2e145fe64ca8" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindOrderById</name>
+      <display>FindOrderById(id: guid): OrderDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="c51a114d-9500-4f47-9953-f7c3154d26e2">
+        <typeId>001df374-41ac-4eb0-bfc4-0597b0492403</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+        <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1924dfc2-20e0-46d7-a021-eaf6f4fa2991</parentFolderId>
+      <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="ef2ab4b7-febb-4d08-adec-a6eb1e2d4ade" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7b56c4fd-f21c-47fe-98c1-7bfd08098ef7">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1e2565dd-95df-4741-8ace-2e145fe64ca8</parentFolderId>
+          <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="4172d1b7-3bd2-4d0d-8db4-081d5a2da5aa" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindOrders</name>
+      <display>FindOrders(): OrderDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7536effe-4e75-4745-bbe5-7cb5b303d437">
+        <typeId>001df374-41ac-4eb0-bfc4-0597b0492403</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+        <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1924dfc2-20e0-46d7-a021-eaf6f4fa2991</parentFolderId>
+      <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b936aae2-0ebb-4f29-a6c8-3e4d56fc77e7" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteOrder</name>
+      <display>DeleteOrder(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="c1b825f4-baed-483d-b481-2acc825fb971">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1924dfc2-20e0-46d7-a021-eaf6f4fa2991</parentFolderId>
+      <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="3055e5ad-3939-43cc-8bd4-11b4f50db951" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7052906f-0495-4bbe-a63c-3b30ee6e3eee">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>b936aae2-0ebb-4f29-a6c8-3e4d56fc77e7</parentFolderId>
+          <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="fd4ab6d4-5d16-4243-a095-75ea3581650a" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateOrderItems</name>
+      <display>UpdateOrderItems(id: guid, dto: UpdateOrderItemsDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="a7550760-7bb7-4e88-a810-f9c1c6e53430">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1924dfc2-20e0-46d7-a021-eaf6f4fa2991</parentFolderId>
+      <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="cda7a2c0-eea8-4970-821c-bab32b8532f5" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ff69da5d-2bfb-4afc-8bc8-4e4ac207aa02">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>fd4ab6d4-5d16-4243-a095-75ea3581650a</parentFolderId>
+          <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a2524c0d-8421-49f5-b1b1-b95f51d5503f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: UpdateOrderItemsDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="97ea701e-81fc-48fe-b846-5ce6e5b75d4f">
+            <typeId>c629eaf5-173b-4c62-8414-b14c5ad723f3</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</typePackageName>
+            <typePackageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>fd4ab6d4-5d16-4243-a095-75ea3581650a</parentFolderId>
+          <packageId>fca5a012-5b2c-4181-bcd6-8797ef9b7a9e</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
