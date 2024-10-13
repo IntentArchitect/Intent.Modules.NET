@@ -26,7 +26,7 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.CRUD
 
         public EnumWithoutDefaultLiteral EnumType3 { get; set; }
 
-        public virtual ICollection<CompositeManyB> Composites { get; set; } = new List<CompositeManyB>();
+        public virtual ICollection<CompositeManyB> Composites { get; set; } = null;
 
         public virtual CompositeSingleA? Composite { get; set; }
 

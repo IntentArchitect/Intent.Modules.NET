@@ -14,7 +14,7 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.CRUD
 
         public string Attribute { get; set; }
 
-        public virtual CompositeOfAggrLong? CompositeOfAggrLong { get; set; }
+        public virtual CompositeOfAggrLong? CompositeOfAggrLong { get; set; } = new();
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

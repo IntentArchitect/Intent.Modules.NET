@@ -92,11 +92,6 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
             property.TryAddXmlDocComments(element);
             property.AddMetadata("model", model);
             property.RepresentsModel(model);
-            /*
-            if (typeReference.Element.IsClassModel()) // not the most robust. Needed for lazy loading proxies (so should move to EF).
-            {
-                property.Virtual();
-            }*/
 
             if (isPrivateSetterCollection)
             {
@@ -134,10 +129,16 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
             {
                 property.WithInitialValue(attribute.Value);
             }
+            else if (model is AssociationEndModel associationEnd && !string.IsNullOrWhiteSpace(associationEnd.Value))
+            {
+                property.WithInitialValue(associationEnd.Value);
+            }
             else if (typeReference.IsCollection)
             {
                 property.WithInitialValue($"new {AsListType()}()");
             }
+
+            return;
 
             string AsListType()
             {
@@ -167,40 +168,6 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
                 ? $"{propertyName.ToPascalCase()}.{UseStaticMethod(CollectionWrapperTemplate.TemplateId, "CreateWrapper")}<{InterfaceTemplate.GetTypeName((IElement)typeReference.Element)}, {GetTypeName((IElement)typeReference.Element)}>()"
                 : $"{propertyName.ToPascalCase()}");
         });
-
-        //if (typeReference.IsCollection &&
-        //    !ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
-        //{
-        //    @class.AddMethod("void",
-        //        $"{this.GetDomainEntityInterfaceName()}.Add{propertyName.ToPascalCase().Singularize()}",
-        //        method =>
-        //        {
-        //            if (@class.TryGetMetadata<bool>(IsMerged, out var isMerged) && isMerged)
-        //            {
-        //                method.AddAttribute($"IntentManaged(Mode.Fully)");
-        //            }
-
-        //            method.WithoutAccessModifier();
-        //            method.AddParameter(InterfaceTemplate.GetTypeName((IElement)typeReference.Element),
-        //                $"{propertyName.ToCamelCase().Singularize()}");
-        //            method.AddStatement(
-        //                $"{propertyName.ToPascalCase()}.Add(({GetTypeName((IElement)typeReference.Element)}){propertyName.ToCamelCase().Singularize()});");
-        //        });
-        //    @class.AddMethod("void",
-        //        $"{this.GetDomainEntityInterfaceName()}.Remove{propertyName.ToPascalCase().Singularize()}",
-        //        method =>
-        //        {
-        //            if (@class.TryGetMetadata<bool>(IsMerged, out var isMerged) && isMerged)
-        //            {
-        //                method.AddAttribute($"IntentManaged(Mode.Fully)");
-        //            }
-        //            method.WithoutAccessModifier();
-        //            method.AddParameter(InterfaceTemplate.GetTypeName((IElement)typeReference.Element),
-        //                $"{propertyName.ToCamelCase().Singularize()}");
-        //            method.AddStatement(
-        //                $"{propertyName.ToPascalCase()}.Remove(({GetTypeName((IElement)typeReference.Element)}){propertyName.ToCamelCase().Singularize()});");
-        //        });
-        //}
     }
 
     protected void AddInterfaceQualifiedMethod(CSharpClass @class, OperationModel operation)
