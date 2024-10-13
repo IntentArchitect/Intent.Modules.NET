@@ -60,7 +60,7 @@ namespace Intent.Modules.Entities.Templates.CollectionExtensions
                     "al}\"/> object that describes the differences between the two collections.</retur" +
                     "ns>\r\n        public static ComparisonResult<TChanged, TOriginal> CompareCollecti" +
                     "ons<TChanged, TOriginal>(\r\n            this ICollection<TOriginal> baseCollectio" +
-                    "n,\r\n            ICollection<TChanged> changedCollection, \r\n            Func<TOri" +
+                    "n,\r\n            IEnumerable<TChanged> changedCollection, \r\n            Func<TOri" +
                     "ginal, TChanged, bool> equalityCheck)\r\n        {\r\n            changedCollection " +
                     "??= new List<TChanged>();\r\n\r\n            var toRemove = baseCollection.Where(bas" +
                     "eElement => changedCollection.All(changedElement => !equalityCheck(baseElement, " +

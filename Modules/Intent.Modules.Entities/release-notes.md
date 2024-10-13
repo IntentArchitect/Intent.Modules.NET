@@ -1,6 +1,7 @@
 ### Version 5.1.5
 
 - Improvement: General code clean up to remove several code warning.
+- Improvement: Relaxed some implementations from `ICollection` to `IEnumerable` to make them more accessible (`CompareCollections` and `CreateOrUpdateCollection`).
 
 ### Version 5.1.4
 
