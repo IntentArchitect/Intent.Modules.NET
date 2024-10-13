@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -6,6 +7,7 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Modules.Common.VisualStudio;
+using Serilog;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates
 {
@@ -192,7 +194,21 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
                 return;
             }
 
-            var itemGroupElement = doc.XPathSelectElement("Project/ItemGroup[ProjectReference]");
+            var frameworkReferences = references.OfType<FrameworkReference>().Cast<IAssemblyReference>().ToList();
+            var projectReferences = references.Where(a => !(a is FrameworkReference)).ToList();
+            if (frameworkReferences.Any())
+            {
+                UpdateReferences(doc, "Framework" , frameworkReferences);
+            }
+            if (projectReferences.Any())
+            {
+                UpdateReferences(doc, "Project", projectReferences);
+            }
+        }
+
+        private static void UpdateReferences(XDocument doc, string referenceType, List<IAssemblyReference> references)
+        {
+            var itemGroupElement = doc.XPathSelectElement($"Project/ItemGroup[{referenceType}Reference]");
             if (itemGroupElement == null)
             {
                 itemGroupElement = new XElement("ItemGroup");
@@ -209,22 +225,17 @@ namespace Intent.Modules.VisualStudio.Projects.Templates
 
             foreach (var reference in references)
             {
+                var includeUrl = reference.Library.Replace('/', '\\');
 
-                var projectUrl = reference.Library.Replace('/', '\\'); 
-                    
-                var projectReferenceItem = doc.XPathSelectElement($"/Project/ItemGroup/ProjectReference[@Include='{projectUrl}']");
+                var projectReferenceItem = doc.XPathSelectElement($"/Project/ItemGroup/{referenceType}Reference[@Include='{includeUrl}']");
                 if (projectReferenceItem != null)
                 {
                     continue;
                 }
 
-                /*
-                <ProjectReference Include="..\Intent.SoftwareFactory\Intent.SoftwareFactory.csproj"/>
-                */
-
-                var item = new XElement(XName.Get("ProjectReference"));
-                item.Add(new XAttribute("Include", projectUrl));
-                if (reference.HintPath != null) 
+                var item = new XElement(XName.Get($"{referenceType}Reference"));
+                item.Add(new XAttribute("Include", includeUrl));
+                if (reference.HintPath != null)
                 {
                     item.Add(new XAttribute("HintPath", reference.HintPath));
                 }
