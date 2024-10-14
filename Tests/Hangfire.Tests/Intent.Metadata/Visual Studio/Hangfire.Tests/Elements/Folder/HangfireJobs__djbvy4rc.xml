@@ -9,10 +9,10 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="62d736c7-9387-433f-8713-088b1f66a384" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Hangfire.HangfireJobs</name>
-      <display>Intent.Modules.Hangfire.HangfireJobs</display>
-      <externalReference>Intent.Modules.Hangfire</externalReference>
+    <childElement id="ac4ab030-18be-4b4a-ab8a-937de6e9c907" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Hangfire.HangfireJobs</name>
+      <display>Intent.Hangfire.HangfireJobs</display>
+      <externalReference>Intent.Hangfire</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

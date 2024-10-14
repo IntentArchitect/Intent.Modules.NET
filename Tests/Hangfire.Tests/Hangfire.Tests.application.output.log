@@ -36,7 +36,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c8111f10-784e-47c2-842f-6f7b29f03a34</ProjectId>
-      <CorrelationId>Intent.Modules.Hangfire.HangfireConfiguration</CorrelationId>
+      <CorrelationId>Intent.Hangfire.HangfireConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Hangfire.Tests.Api/Configuration/HangfireConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HangfireConfiguration.cs</ProjectRelativeFilePath>
@@ -84,7 +84,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>0e2b340a-ff02-42a7-96e9-e519747747b8</ProjectId>
-      <CorrelationId>Intent.Modules.Hangfire.HangfireDashboardAuthFilter</CorrelationId>
+      <CorrelationId>Intent.Hangfire.HangfireDashboardAuthFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Hangfire.Tests.Api/Filters/HangfireDashboardAuthFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HangfireDashboardAuthFilter.cs</ProjectRelativeFilePath>
@@ -108,7 +108,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b4e642b5-3e39-4cfa-b77f-b2623dab2381</ProjectId>
-      <CorrelationId>Intent.Modules.Hangfire.HangfireJobs#f83699ef-e281-4f24-ac60-b7081bacc2a3</CorrelationId>
+      <CorrelationId>Intent.Hangfire.HangfireJobs#f83699ef-e281-4f24-ac60-b7081bacc2a3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Hangfire.Tests.Api/HangfireJobs/Delayed.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Delayed.cs</ProjectRelativeFilePath>
@@ -116,7 +116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b4e642b5-3e39-4cfa-b77f-b2623dab2381</ProjectId>
-      <CorrelationId>Intent.Modules.Hangfire.HangfireJobs#938af280-a18d-44f5-8e03-386a28dc22bd</CorrelationId>
+      <CorrelationId>Intent.Hangfire.HangfireJobs#938af280-a18d-44f5-8e03-386a28dc22bd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Hangfire.Tests.Api/HangfireJobs/FireAndForget.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>FireAndForget.cs</ProjectRelativeFilePath>
@@ -124,7 +124,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b4e642b5-3e39-4cfa-b77f-b2623dab2381</ProjectId>
-      <CorrelationId>Intent.Modules.Hangfire.HangfireJobs#8824f057-df3c-42fa-a565-566a9f439897</CorrelationId>
+      <CorrelationId>Intent.Hangfire.HangfireJobs#8824f057-df3c-42fa-a565-566a9f439897</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Hangfire.Tests.Api/HangfireJobs/PriorityRecurring.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PriorityRecurring.cs</ProjectRelativeFilePath>
@@ -132,7 +132,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b4e642b5-3e39-4cfa-b77f-b2623dab2381</ProjectId>
-      <CorrelationId>Intent.Modules.Hangfire.HangfireJobs#3ff3cb37-8e6c-451d-b780-cae9fa1f1b5b</CorrelationId>
+      <CorrelationId>Intent.Hangfire.HangfireJobs#3ff3cb37-8e6c-451d-b780-cae9fa1f1b5b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Hangfire.Tests.Api/HangfireJobs/PublishCommandJob.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PublishCommandJob.cs</ProjectRelativeFilePath>
@@ -140,7 +140,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>b4e642b5-3e39-4cfa-b77f-b2623dab2381</ProjectId>
-      <CorrelationId>Intent.Modules.Hangfire.HangfireJobs#79f1421d-3ff6-4b12-a205-4cd020f29f1b</CorrelationId>
+      <CorrelationId>Intent.Hangfire.HangfireJobs#79f1421d-3ff6-4b12-a205-4cd020f29f1b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Hangfire.Tests.Api/HangfireJobs/Recurring.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Recurring.cs</ProjectRelativeFilePath>

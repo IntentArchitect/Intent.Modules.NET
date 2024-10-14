@@ -4,7 +4,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Modules.Hangfire.HangfireJobs", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Hangfire.HangfireJobs", Version = "1.0")]
 
 namespace Hangfire.Tests.Api.HangfireJobs
 {

@@ -4,7 +4,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Modules.Hangfire.HangfireDashboardAuthFilter", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Hangfire.HangfireDashboardAuthFilter", Version = "1.0")]
 
 namespace Hangfire.Tests.Api.Filters
 {

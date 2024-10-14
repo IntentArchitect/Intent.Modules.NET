@@ -43,8 +43,8 @@ namespace Hangfire.Tests.Api
             services.ConfigureHealthChecks(Configuration);
             services.ConfigureProblemDetails();
             services.ConfigureApiVersioning();
-            services.AddInfrastructure(Configuration);
             services.ConfigureHangfire(Configuration);
+            services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
         }
 
@@ -66,7 +66,7 @@ namespace Hangfire.Tests.Api
                 endpoints.MapDefaultHealthChecks();
                 endpoints.MapControllers();
             });
-            app.UseHangfire();
+            app.UseHangfire(Configuration);
             app.UseSwashbuckle(Configuration);
         }
     }

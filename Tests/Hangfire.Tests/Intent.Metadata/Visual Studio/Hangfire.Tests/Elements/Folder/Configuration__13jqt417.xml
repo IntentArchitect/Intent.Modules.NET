@@ -93,10 +93,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="663f4ed9-0799-4ba1-97d3-73b0818761b6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.Hangfire.HangfireConfiguration</name>
-      <display>Intent.Modules.Hangfire.HangfireConfiguration</display>
-      <externalReference>Intent.Modules.Hangfire</externalReference>
+    <childElement id="85bf0010-ddb5-4e57-bc1d-0ea3512603ec" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Hangfire.HangfireConfiguration</name>
+      <display>Intent.Hangfire.HangfireConfiguration</display>
+      <externalReference>Intent.Hangfire</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

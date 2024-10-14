@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Modules.Hangfire.HangfireConfiguration", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Hangfire.HangfireConfiguration", Version = "1.0")]
 
 namespace Hangfire.Tests.Api.Configuration
 {
@@ -30,7 +30,7 @@ namespace Hangfire.Tests.Api.Configuration
             return services;
         }
 
-        public static IApplicationBuilder UseHangfire(this IApplicationBuilder app)
+        public static IApplicationBuilder UseHangfire(this IApplicationBuilder app, IConfiguration configuration)
         {
             var dashboardOptions = new DashboardOptions
             {
@@ -40,9 +40,9 @@ namespace Hangfire.Tests.Api.Configuration
             app.UseHangfireDashboard("/hfjobs", dashboardOptions);
             app.ApplicationServices.GetService<IBackgroundJobClient>().Schedule<Delayed>(j => j.ExecuteAsync(), TimeSpan.FromMinutes(5));
             app.ApplicationServices.GetService<IBackgroundJobClient>().Enqueue<FireAndForget>(j => j.ExecuteAsync());
-            app.ApplicationServices.GetService<IRecurringJobManager>().AddOrUpdate<PriorityRecurring>("PriorityRecurring", "priority", j => j.ExecuteAsync(), "* * * * *");
-            app.ApplicationServices.GetService<IRecurringJobManager>().AddOrUpdate<PublishCommandJob>("PublishCommandJob", j => j.ExecuteAsync(), "* * * * *");
-            app.ApplicationServices.GetService<IRecurringJobManager>().AddOrUpdate<Recurring>("Recurring", j => j.ExecuteAsync(), "* * * * *");
+            app.ApplicationServices.GetService<IRecurringJobManager>().AddOrUpdate<PriorityRecurring>("PriorityRecurring", "priority", j => j.ExecuteAsync(), configuration.GetValue<string?>($"Hangfire:Jobs:PriorityRecurring:CronSchedule") ?? "* * * * *");
+            app.ApplicationServices.GetService<IRecurringJobManager>().AddOrUpdate<PublishCommandJob>("PublishCommandJob", j => j.ExecuteAsync(), configuration.GetValue<string?>($"Hangfire:Jobs:PublishCommandJob:CronSchedule") ?? "* * * * *");
+            app.ApplicationServices.GetService<IRecurringJobManager>().AddOrUpdate<Recurring>("Recurring", j => j.ExecuteAsync(), configuration.GetValue<string?>($"Hangfire:Jobs:Recurring:CronSchedule") ?? "* * * * *");
             return app;
         }
     }
