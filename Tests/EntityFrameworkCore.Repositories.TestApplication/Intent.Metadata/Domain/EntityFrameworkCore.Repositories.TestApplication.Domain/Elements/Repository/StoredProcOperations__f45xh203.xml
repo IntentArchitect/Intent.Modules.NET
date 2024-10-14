@@ -95,5 +95,75 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="3ddf0bfd-69fc-46e8-a8a1-2e3d932170bf" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>WithBidrectionalParam</name>
+      <display>WithBidrectionalParam(birectionalTest: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="39e2a5a3-2cd1-4de5-a8af-12a8476e75b0">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a5130ebe-8193-4498-be4f-83ae4a19f8f8</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="f40ff84c-68ad-405f-bda0-1237dd15fc92" name="Stored Procedure">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.Modelers.Domain.StoredProcedures</definitionPackageName>
+          <definitionPackageId>e3eb7873-c66f-4636-a7c8-8cb1f7b34d71</definitionPackageId>
+          <properties>
+            <property name="4e2a3f58-6b6e-43c5-9398-f9c3fde593f6" display="Name in Schema" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="6761b5f2-e8a9-4cb5-8943-5c93bca51b58" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>birectionalTest</name>
+          <display>in : birectionalTest: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5f65a03d-eca9-428f-9ea0-c74673ec2cac">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>3ddf0bfd-69fc-46e8-a8a1-2e3d932170bf</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="6ac91fd5-206c-49da-b4a2-b6ea2cad11f7" name="Stored Procedure Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Modules.Modelers.Domain.StoredProcedures</definitionPackageName>
+              <definitionPackageId>e3eb7873-c66f-4636-a7c8-8cb1f7b34d71</definitionPackageId>
+              <properties>
+                <property name="714a95a6-c3ef-4117-a66c-24876c675cd5" display="Name" value="bidirectionalTest" isActive="true" />
+                <property name="39491728-8327-4b94-b9a2-9851dd4b4a01" display="Direction" value="Both" isActive="true" />
+                <property name="8ba486d3-853c-42b8-acfb-bafb1e2cdb6e" display="SQL String Type" value="Text" isActive="true" />
+                <property name="a2df34af-2fb9-49e3-ab6e-caff7a27bf99" display="Size" value="100" isActive="true" />
+                <property name="ed35ae5c-a708-457d-a22a-145b3b2f1148" display="Precision" isActive="false" />
+                <property name="38d3c607-ac3b-41ea-86b2-b43fa81e101c" display="Scale" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

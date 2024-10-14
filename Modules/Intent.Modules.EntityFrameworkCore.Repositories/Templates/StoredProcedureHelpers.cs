@@ -47,7 +47,7 @@ internal static class StoredProcedureHelpers
 
                         foreach (var parameter in storedProcedure.Parameters)
                         {
-                            if (parameter.StoredProcedureDetails != null && parameter.StoredProcedureDetails.Direction != StoredProcedureParameterDirection.In)
+                            if (parameter.StoredProcedureDetails is { Direction: StoredProcedureParameterDirection.Out })
                             {
                                 continue;
                             }
@@ -91,7 +91,7 @@ internal static class StoredProcedureHelpers
                         method.RepresentsModel(storedProcedure);
 
                         var returnTupleProperties = storedProcedure.Parameters
-                            .Where(parameter => parameter.StoredProcedureDetails?.Direction == StoredProcedureParameterDirection.Out)
+                            .Where(parameter => parameter.StoredProcedureDetails?.Direction is StoredProcedureParameterDirection.Out or StoredProcedureParameterDirection.Both)
                             .Select(parameter =>
                             {
                                 var sqlParameter = parameter.InternalElement.Name.ToCamelCase().EnsureSuffixedWith("Parameter");
@@ -120,7 +120,7 @@ internal static class StoredProcedureHelpers
 
                         foreach (var parameter in storedProcedure.Parameters)
                         {
-                            if (parameter.StoredProcedureDetails?.Direction == StoredProcedureParameterDirection.Out)
+                            if (parameter.StoredProcedureDetails?.Direction is StoredProcedureParameterDirection.Out)
                             {
                                 continue;
                             }
@@ -148,6 +148,15 @@ internal static class StoredProcedureHelpers
                                                                  $"https://github.com/IntentArchitect/Support should you need support added.")
                         };
 
+                        if (storedProcedure.Parameters.Any(x => x.StoredProcedureDetails.Direction == StoredProcedureParameterDirection.Both))
+                        {
+                            method.AddStatement($"throw new {template.UseType("System.NotSupportedException")}(\"" +
+                                                $"One or more parameters have a direction of both which is not presently supported, " +
+                                                $"please reach out to us at https://github.com/IntentArchitect/Support should you " +
+                                                $"need support added.\");");
+                            return;
+                        }
+
                         var parameters = new List<(string ParameterName, string VariableName, string Output)>();
 
                         foreach (var parameter in storedProcedure.Parameters)
@@ -157,7 +166,7 @@ internal static class StoredProcedureHelpers
                                 continue;
                             }
 
-                            var isOutputParameter = parameter.StoredProcedureDetails.Direction == StoredProcedureParameterDirection.Out;
+                            var isOutputParameter = parameter.StoredProcedureDetails.Direction is StoredProcedureParameterDirection.Out;
                             var isUserDefinedTableType = parameter.TypeReference.Element.IsDataContractModel();
                             var output = isOutputParameter ? " OUTPUT" : string.Empty;
                             var parameterName = parameter.InternalElement.Name.ToLocalVariableName();
@@ -228,8 +237,6 @@ internal static class StoredProcedureHelpers
                                 ReturnsCollection: returnsCollection,
                                 ReturnTupleProperties: returnTupleProperties));
                         }
-
-
                     });
                 }
             })
@@ -358,7 +365,7 @@ internal static class StoredProcedureHelpers
     private static IReadOnlyList<TupleEntry> GetReturnProperties(ICSharpTemplate template, GeneralizedStoredProcedure storedProcedure)
     {
         var tupleProperties = storedProcedure.Parameters
-            .Where(parameter => parameter.StoredProcedureDetails?.Direction == StoredProcedureParameterDirection.Out)
+            .Where(parameter => parameter.StoredProcedureDetails?.Direction is StoredProcedureParameterDirection.Out or StoredProcedureParameterDirection.Both)
             .Select(parameter => new TupleEntry(
                 Name: parameter.InternalElement.Name.ToPascalCase().EnsureSuffixedWith("Output"),
                 TypeName: template.GetTypeName(parameter.TypeReference)
