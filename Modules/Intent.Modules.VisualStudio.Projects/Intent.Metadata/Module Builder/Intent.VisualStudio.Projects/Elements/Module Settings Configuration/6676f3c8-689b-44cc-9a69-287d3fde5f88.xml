@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="6676f3c8-689b-44cc-9a69-287d3fde5f88" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
-  <name>Visual Studio Solution Settings</name>
-  <display>Visual Studio Solution Settings</display>
+  <name>Visual Studio Settings</name>
+  <display>Visual Studio Settings</display>
   <isAbstract>false</isAbstract>
   <sort-children>manually</sort-children>
   <genericTypes />
@@ -13,8 +13,8 @@
   <metadata />
   <childElements>
     <childElement id="707a9eec-1407-4fe3-bd32-7c1b31efa3f1" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
-      <name>Generate Git ignore file</name>
-      <display>Generate Git ignore file</display>
+      <name>Generate .gitignore file</name>
+      <display>Generate .gitignore file</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -29,7 +29,7 @@
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" isActive="true" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
-            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Generate a Visual Studio .gitignore file for the application. Will only be generate if a .gitignore file doesn't already exist." isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Generate a .NET .gitignore file if none currently exists, with the same contents as running [dotnet new gitignore](https://learn.microsoft.com/dotnet/core/tools/dotnet-new)." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
             <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />

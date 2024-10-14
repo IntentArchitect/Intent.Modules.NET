@@ -106,10 +106,10 @@
   </files>
   <tags />
   <moduleSettings>
-    <group id="6676f3c8-689b-44cc-9a69-287d3fde5f88" title="Visual Studio Solution Settings" externalReference="6676f3c8-689b-44cc-9a69-287d3fde5f88">
+    <group id="6676f3c8-689b-44cc-9a69-287d3fde5f88" title="Visual Studio Settings" externalReference="6676f3c8-689b-44cc-9a69-287d3fde5f88">
       <settings>
-        <setting id="707a9eec-1407-4fe3-bd32-7c1b31efa3f1" title="Generate Git ignore file" type="switch">
-          <hint>Generate a Visual Studio .gitignore file for the application. Will only be generate if a .gitignore file doesn't already exist.</hint>
+        <setting id="707a9eec-1407-4fe3-bd32-7c1b31efa3f1" title="Generate .gitignore file" type="switch">
+          <hint>Generate a .NET .gitignore file if none currently exists, with the same contents as running [dotnet new gitignore](https://learn.microsoft.com/dotnet/core/tools/dotnet-new).</hint>
           <defaultValue>false</defaultValue>
         </setting>
       </settings>

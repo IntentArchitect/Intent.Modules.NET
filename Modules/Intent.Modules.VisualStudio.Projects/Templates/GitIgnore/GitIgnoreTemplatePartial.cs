@@ -28,7 +28,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.GitIgnore
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public GitIgnoreTemplate(IApplication application, VisualStudioSolutionModel model)
         {
-            _canRunTemplate = application.Settings.GetVisualStudioSolutionSettings().GenerateGitIgnoreFile();
+            _canRunTemplate = application.Settings.GetVisualStudioSettings().GenerateGitignoreFile();
             _fileMetadata = new FileConfig(application.OutputRootDirectory, model.Id);
 
             Model = model;
