@@ -1,3 +1,7 @@
+### Version 5.2.1
+
+- Fixed: Bumped `Service Designer` version due to PagedResults previous re-factor.
+
 ### Version 5.2.0
 
 - Fixed: Presents a friendlier error message when an expected Header Name field is missing from the metadata.
