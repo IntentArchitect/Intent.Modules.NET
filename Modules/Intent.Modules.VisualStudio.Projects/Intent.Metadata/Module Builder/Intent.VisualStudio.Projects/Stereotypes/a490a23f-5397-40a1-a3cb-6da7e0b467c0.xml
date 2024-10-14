@@ -137,16 +137,6 @@ return applicableSdks.indexOf(properties["SDK"].value) &gt;= 0;</isActiveFunctio
       <isActiveFunction>return properties["Target Multiple Frameworks"].value == true;</isActiveFunction>
       <isRequiredFunction>true</isRequiredFunction>
     </property>
-    <property id="8ee6e435-e556-439c-9712-a3f287972813">
-      <hint />
-      <name>Runtime Identifiers</name>
-      <type>string</type>
-      <controlType>text</controlType>
-      <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
-    </property>
     <property id="c9fc7052-9557-4485-a759-fa33363472b3">
       <hint />
       <name>Configurations</name>
@@ -226,6 +216,16 @@ return applicableSdks.indexOf(properties["SDK"].value) &gt;= 0;</isActiveFunctio
         <option>disable</option>
         <option>enable</option>
       </valueOptions>
+      <lookupTypes />
+    </property>
+    <property id="8ee6e435-e556-439c-9712-a3f287972813">
+      <hint />
+      <name>Runtime Identifiers</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
       <lookupTypes />
     </property>
     <property id="575dbd4e-f038-4c92-a411-63c1e3e0d8d7">

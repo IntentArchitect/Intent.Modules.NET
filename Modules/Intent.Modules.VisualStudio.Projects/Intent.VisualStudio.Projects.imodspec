@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.VisualStudio.Projects</id>
-  <version>3.8.2-pre.1</version>
+  <version>3.8.2-pre.2</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Visual Studio solution and project layout designer</summary>
   <description>Visual Studio solution and project layout designer</description>
@@ -29,6 +29,10 @@
     <template id="Intent.VisualStudio.Projects.CoreWeb.CSProject" />
     <template id="Intent.VisualStudio.Projects.CoreWeb.LaunchSettings" />
     <template id="Intent.VisualStudio.Projects.DirectoryPackagesProps" externalReference="807ee533-3ab8-4fe6-a06c-30d45eecf014">
+      <role></role>
+      <location></location>
+    </template>
+    <template id="Intent.VisualStudio.Projects.GitIgnore" externalReference="20d3fffa-8d62-4f26-b4b7-5c9360db382b">
       <role></role>
       <location></location>
     </template>
@@ -102,6 +106,14 @@
   </files>
   <tags />
   <moduleSettings>
+    <group id="6676f3c8-689b-44cc-9a69-287d3fde5f88" title="Visual Studio Solution Settings" externalReference="6676f3c8-689b-44cc-9a69-287d3fde5f88">
+      <settings>
+        <setting id="707a9eec-1407-4fe3-bd32-7c1b31efa3f1" title="Generate Git ignore file" type="switch">
+          <hint>Generate a Visual Studio .gitignore file for the application. Will only be generate if a .gitignore file doesn't already exist.</hint>
+          <defaultValue>false</defaultValue>
+        </setting>
+      </settings>
+    </group>
     <group id="ee3f6418-ee19-4bb7-9b8e-07a4f1d94499" title="Visual Studio Designer" externalReference="ee3f6418-ee19-4bb7-9b8e-07a4f1d94499">
       <settings>
         <setting id="2dee07a2-4956-474b-b58e-ae04404ba2a3" title="Enable .NET Framework project creation" type="switch">

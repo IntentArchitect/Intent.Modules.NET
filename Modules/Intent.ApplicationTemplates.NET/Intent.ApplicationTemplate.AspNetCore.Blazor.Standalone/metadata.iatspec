@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone</id>
-  <version>1.0.2-pre.0</version>
+  <version>1.0.2-pre.1</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <displayName>Blazor Web Application (Standalone)</displayName>
   <shortDescription>Patterns and solution project structure for a standalone Blazor web application.</shortDescription>
@@ -108,6 +108,15 @@
         </setting>
       </settings>
     </group>
+    <group id="b5c4df58-f9b9-4975-aed8-3534a82bdeda" title="Visual Studio Solution Settings">
+      <settings>
+        <setting id="707a9eec-1407-4fe3-bd32-7c1b31efa3f1" title="Generate Git ignore file" type="hidden">
+          <defaultValue>true</defaultValue>
+          <isRequired>false</isRequired>
+          <options />
+        </setting>
+      </settings>
+    </group>
   </additionalSettings>
   <minimumDependencyVersions>
     <module id="Intent.AspNetCore" version="6.0.4" />
@@ -128,6 +137,6 @@
     <module id="Intent.Modelers.UI.Core" version="1.0.0-beta.2" />
     <module id="Intent.Modelers.UI.ServiceProxies" version="1.0.0-beta.0" />
     <module id="Intent.OutputManager.RoslynWeaver" version="4.8.0" />
-    <module id="Intent.VisualStudio.Projects" version="3.8.1" />
+    <module id="Intent.VisualStudio.Projects" version="3.8.2-pre.2" />
   </minimumDependencyVersions>
 </applicationTemplate>

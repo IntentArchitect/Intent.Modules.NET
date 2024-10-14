@@ -1,6 +1,7 @@
 ### Version 3.8.2
 
 - Fixed: `appsettings.json` files would not respect formatting settings from `.editorconfig` files being generated/updated by the Software Factory.
+- Improvement: Added support for .gitignore files. Existing applications upgrading to version 3.8.2 will have the setting set to `false` by default, while new applications will have the setting set to `true` by default. If the setting value is `true`, the file will be generated if it does not exist, and an existing .gitignore file will not be changed.
 
 ### Version 3.8.1
 

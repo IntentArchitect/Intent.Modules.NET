@@ -492,6 +492,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#20d3fffa-8d62-4f26-b4b7-5c9360db382b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/GitIgnore/GitIgnoreTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GitIgnore/GitIgnoreTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#20d3fffa-8d62-4f26-b4b7-5c9360db382b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/GitIgnore/GitIgnoreTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GitIgnore/GitIgnoreTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#20d3fffa-8d62-4f26-b4b7-5c9360db382b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/GitIgnore/GitIgnoreTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GitIgnore/GitIgnoreTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e71bfb0-2184-4de3-b523-7d2cb6dae9a7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#90bf72bb-3741-4c8e-8954-2a9a65d37740</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/SqlServerDatabase/SqlProject/SqlProjectTemplatePartial.cs</ApplicationRelativeFilePath>
