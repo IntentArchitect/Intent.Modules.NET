@@ -65,7 +65,7 @@ namespace Intent.Modules.Entities.Templates.UpdateHelper
                     "gword=\"null\" />, a new list of type <see cref=\"TOriginal\"/> will be created and " +
                     "used.\r\n        /// </remarks>\r\n        public static ICollection<TOriginal> Crea" +
                     "teOrUpdateCollection<TChanged, TOriginal>(\r\n            ICollection<TOriginal> b" +
-                    "aseCollection,\r\n            ICollection<TChanged>? changedCollection,\r\n         " +
+                    "aseCollection,\r\n            IEnumerable<TChanged>? changedCollection,\r\n         " +
                     "   Func<TOriginal, TChanged, bool> equalityCheck,\r\n            Func<TOriginal?, " +
                     "TChanged, TOriginal> assignmentAction)\r\n        {\r\n            if (changedCollec" +
                     "tion == null)\r\n            {\r\n                return new List<TOriginal>();\r\n   " +

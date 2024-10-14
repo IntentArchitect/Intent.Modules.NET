@@ -124,6 +124,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#c6a0f90b-a793-4255-9f3a-8a9260b2c949</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/ParentWithAnemicChildrenController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildrenController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#731bd71b-a25c-47e6-89a8-46d5d82bcdc8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/ProductsController.cs</ApplicationRelativeFilePath>
@@ -2500,6 +2508,166 @@
     </FileLog>
     <FileLog>
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#077ee1a8-3101-4237-bc5c-62ded84bccfe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/CreateParentWithAnemicChild/CreateParentWithAnemicChildCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/CreateParentWithAnemicChild/CreateParentWithAnemicChildCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#077ee1a8-3101-4237-bc5c-62ded84bccfe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/CreateParentWithAnemicChild/CreateParentWithAnemicChildCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/CreateParentWithAnemicChild/CreateParentWithAnemicChildCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#077ee1a8-3101-4237-bc5c-62ded84bccfe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/CreateParentWithAnemicChild/CreateParentWithAnemicChildCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/CreateParentWithAnemicChild/CreateParentWithAnemicChildCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#1a6764e1-2d12-421e-940a-8d1bf68a7ba2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/CreateParentWithAnemicChildAnemicChildDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/CreateParentWithAnemicChildAnemicChildDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#1a6764e1-2d12-421e-940a-8d1bf68a7ba2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/CreateParentWithAnemicChildAnemicChildDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/CreateParentWithAnemicChildAnemicChildDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#5426fc01-1ff1-4f0e-837a-6d7594afb1a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/DeleteParentWithAnemicChild/DeleteParentWithAnemicChildCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/DeleteParentWithAnemicChild/DeleteParentWithAnemicChildCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#5426fc01-1ff1-4f0e-837a-6d7594afb1a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/DeleteParentWithAnemicChild/DeleteParentWithAnemicChildCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/DeleteParentWithAnemicChild/DeleteParentWithAnemicChildCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#5426fc01-1ff1-4f0e-837a-6d7594afb1a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/DeleteParentWithAnemicChild/DeleteParentWithAnemicChildCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/DeleteParentWithAnemicChild/DeleteParentWithAnemicChildCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#797f6bdf-b72c-4add-b55d-8ea89e161aae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/GetParentWithAnemicChildById/GetParentWithAnemicChildByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/GetParentWithAnemicChildById/GetParentWithAnemicChildByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#797f6bdf-b72c-4add-b55d-8ea89e161aae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/GetParentWithAnemicChildById/GetParentWithAnemicChildByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/GetParentWithAnemicChildById/GetParentWithAnemicChildByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#797f6bdf-b72c-4add-b55d-8ea89e161aae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/GetParentWithAnemicChildById/GetParentWithAnemicChildByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/GetParentWithAnemicChildById/GetParentWithAnemicChildByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#daa4e66f-3785-4c51-8aa9-8ceb1d632bf4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/GetParentWithAnemicChildren/GetParentWithAnemicChildrenQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/GetParentWithAnemicChildren/GetParentWithAnemicChildrenQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#daa4e66f-3785-4c51-8aa9-8ceb1d632bf4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/GetParentWithAnemicChildren/GetParentWithAnemicChildrenQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/GetParentWithAnemicChildren/GetParentWithAnemicChildrenQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#daa4e66f-3785-4c51-8aa9-8ceb1d632bf4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/GetParentWithAnemicChildren/GetParentWithAnemicChildrenQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/GetParentWithAnemicChildren/GetParentWithAnemicChildrenQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#f179761a-171f-4f45-8b62-0e1e612cbb39</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/ParentWithAnemicChildDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/ParentWithAnemicChildDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#f179761a-171f-4f45-8b62-0e1e612cbb39</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/ParentWithAnemicChildDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/ParentWithAnemicChildDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#4cf249ac-7762-46e3-90dc-b0e483123c02</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/UpdateParentWithAnemicChild/UpdateParentWithAnemicChildCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/UpdateParentWithAnemicChild/UpdateParentWithAnemicChildCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#4cf249ac-7762-46e3-90dc-b0e483123c02</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/UpdateParentWithAnemicChild/UpdateParentWithAnemicChildCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/UpdateParentWithAnemicChild/UpdateParentWithAnemicChildCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#4cf249ac-7762-46e3-90dc-b0e483123c02</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/UpdateParentWithAnemicChild/UpdateParentWithAnemicChildCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/UpdateParentWithAnemicChild/UpdateParentWithAnemicChildCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#054aca24-0f77-4716-bcb2-e74ac8c7c245</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/UpdateParentWithAnemicChildCommandAnemicChildrenDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/UpdateParentWithAnemicChildCommandAnemicChildrenDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#f6adb1fa-5d30-4f23-befd-ed96b13094c2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Products/CreateProductTagDto.cs</ApplicationRelativeFilePath>
@@ -3124,6 +3292,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#03a926c1-f956-42d5-89b5-f988a5420d28</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/AnemicChild/AnemicChild.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AnemicChild/AnemicChild.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#71edc1ba-fe1a-4981-928f-a73cb89ee0e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/AnemicChild/ParentWithAnemicChild.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AnemicChild/ParentWithAnemicChild.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#73ba71c6-41c6-41ef-ba80-0d589ea75417</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Basic.cs</ApplicationRelativeFilePath>
@@ -3376,6 +3560,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/OrderStatus.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OrderStatus.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#71edc1ba-fe1a-4981-928f-a73cb89ee0e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/AnemicChild/IParentWithAnemicChildRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AnemicChild/IParentWithAnemicChildRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3748,6 +3940,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#71edc1ba-fe1a-4981-928f-a73cb89ee0e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/AnemicChild/ParentWithAnemicChildConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AnemicChild/ParentWithAnemicChildConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#73ba71c6-41c6-41ef-ba80-0d589ea75417</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/BasicConfiguration.cs</ApplicationRelativeFilePath>
@@ -3928,6 +4128,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#71edc1ba-fe1a-4981-928f-a73cb89ee0e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/AnemicChild/ParentWithAnemicChildRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AnemicChild/ParentWithAnemicChildRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4272,6 +4480,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/PagingTSServiceHttpClient.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagingTSServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#c6a0f90b-a793-4255-9f3a-8a9260b2c949</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/ParentWithAnemicChildren/IParentWithAnemicChildrenService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/IParentWithAnemicChildrenService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#c6a0f90b-a793-4255-9f3a-8a9260b2c949</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/ParentWithAnemicChildren/ParentWithAnemicChildrenHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/ParentWithAnemicChildrenHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4752,6 +4976,62 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/PagingTS/PagingTSUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/PagingTS/PagingTSUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#1a6764e1-2d12-421e-940a-8d1bf68a7ba2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/ParentWithAnemicChildren/CreateParentWithAnemicChildAnemicChildDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ParentWithAnemicChildren/CreateParentWithAnemicChildAnemicChildDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#077ee1a8-3101-4237-bc5c-62ded84bccfe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/ParentWithAnemicChildren/CreateParentWithAnemicChildCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ParentWithAnemicChildren/CreateParentWithAnemicChildCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#5426fc01-1ff1-4f0e-837a-6d7594afb1a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/ParentWithAnemicChildren/DeleteParentWithAnemicChildCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ParentWithAnemicChildren/DeleteParentWithAnemicChildCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#797f6bdf-b72c-4add-b55d-8ea89e161aae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/ParentWithAnemicChildren/GetParentWithAnemicChildByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ParentWithAnemicChildren/GetParentWithAnemicChildByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#daa4e66f-3785-4c51-8aa9-8ceb1d632bf4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/ParentWithAnemicChildren/GetParentWithAnemicChildrenQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ParentWithAnemicChildren/GetParentWithAnemicChildrenQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#f179761a-171f-4f45-8b62-0e1e612cbb39</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/ParentWithAnemicChildren/ParentWithAnemicChildDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ParentWithAnemicChildren/ParentWithAnemicChildDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#4cf249ac-7762-46e3-90dc-b0e483123c02</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/ParentWithAnemicChildren/UpdateParentWithAnemicChildCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ParentWithAnemicChildren/UpdateParentWithAnemicChildCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5264,6 +5544,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/PagingTSService/UpdatePagingTSTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagingTSService/UpdatePagingTSTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#077ee1a8-3101-4237-bc5c-62ded84bccfe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/ParentWithAnemicChildren/CreateParentWithAnemicChildTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/CreateParentWithAnemicChildTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#5426fc01-1ff1-4f0e-837a-6d7594afb1a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/ParentWithAnemicChildren/DeleteParentWithAnemicChildTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/DeleteParentWithAnemicChildTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#797f6bdf-b72c-4add-b55d-8ea89e161aae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/ParentWithAnemicChildren/GetParentWithAnemicChildByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/GetParentWithAnemicChildByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#daa4e66f-3785-4c51-8aa9-8ceb1d632bf4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/ParentWithAnemicChildren/GetParentWithAnemicChildrenTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/GetParentWithAnemicChildrenTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#4cf249ac-7762-46e3-90dc-b0e483123c02</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/ParentWithAnemicChildren/UpdateParentWithAnemicChildTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ParentWithAnemicChildren/UpdateParentWithAnemicChildTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

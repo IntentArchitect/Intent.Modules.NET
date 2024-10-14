@@ -5,11 +5,13 @@ using AdvancedMappingCrud.Repositories.Tests.Application.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.AnemicChild;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.DomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.MappingTests;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.AnemicChild;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.DomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.Indexing;
@@ -48,6 +50,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
         public DbSet<Quote> Quotes { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
+        public DbSet<ParentWithAnemicChild> ParentWithAnemicChildren { get; set; }
         public DbSet<ClassicDomainServiceTest> ClassicDomainServiceTests { get; set; }
         public DbSet<DomainServiceTest> DomainServiceTests { get; set; }
         public DbSet<BaseEntityA> BaseEntityAs { get; set; }
@@ -90,6 +93,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new QuoteConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new WarehouseConfiguration());
+            modelBuilder.ApplyConfiguration(new ParentWithAnemicChildConfiguration());
             modelBuilder.ApplyConfiguration(new ClassicDomainServiceTestConfiguration());
             modelBuilder.ApplyConfiguration(new DomainServiceTestConfiguration());
             modelBuilder.ApplyConfiguration(new BaseEntityAConfiguration());

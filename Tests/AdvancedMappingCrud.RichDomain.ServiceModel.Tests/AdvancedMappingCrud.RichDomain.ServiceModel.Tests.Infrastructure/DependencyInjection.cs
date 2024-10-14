@@ -27,6 +27,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<ICompanyRepository, CompanyRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IPersonRepository, PersonRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ISuperRepository, SuperRepository>();

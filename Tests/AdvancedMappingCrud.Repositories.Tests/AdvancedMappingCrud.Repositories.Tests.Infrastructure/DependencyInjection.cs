@@ -1,6 +1,7 @@
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.AnemicChild;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.DomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.Indexing;
@@ -8,6 +9,7 @@ using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.MappingTests;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.AnemicChild;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.DomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.Indexing;
@@ -47,6 +49,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure
             services.AddTransient<IQuoteRepository, QuoteRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IWarehouseRepository, WarehouseRepository>();
+            services.AddTransient<IParentWithAnemicChildRepository, ParentWithAnemicChildRepository>();
             services.AddTransient<IClassicDomainServiceTestRepository, ClassicDomainServiceTestRepository>();
             services.AddTransient<IDomainServiceTestRepository, DomainServiceTestRepository>();
             services.AddTransient<IBaseEntityARepository, BaseEntityARepository>();

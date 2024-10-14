@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="abe0f2b6-900e-4212-b2bc-e36d5d8cd907" name="ContactDetailsVO" type="element" specialization="Value Object" />
+      <target id="abe0f2b6-900e-4212-b2bc-e36d5d8cd907" name="ContactDetailsVO" type="element" specialization="Value Object" specializationId="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>ecfda51a-5742-4721-8d73-af47fe537024</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="d8b6ceb4-76c2-49b6-b57b-a9ed79ebd946" name="Cell" type="element" specialization="Attribute" />
+          <target id="d8b6ceb4-76c2-49b6-b57b-a9ed79ebd946" name="Cell" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>5f2b4f98-7156-4f78-9b4e-d6a43b57fdba</parentFolderId>
@@ -96,7 +96,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="e73ba1bb-d738-4110-a4bf-00360d8daf55" name="Email" type="element" specialization="Attribute" />
+          <target id="e73ba1bb-d738-4110-a4bf-00360d8daf55" name="Email" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>5f2b4f98-7156-4f78-9b4e-d6a43b57fdba</parentFolderId>

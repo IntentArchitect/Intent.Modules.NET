@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="acc745d6-ec06-41e3-9fbf-69905e229f95" type="Domain Service" typeId="07f936ea-3756-48c8-babd-24ac7271daac">
+  <name>OrderDomainService</name>
+  <display>OrderDomainService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>42d31ce9-1395-4a0a-b86c-7af2682124b9</parentFolderId>
+  <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6ec85ec2-dc5d-4933-bf61-6a93fc59d66f" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>UpdateLineItems</name>
+      <display>UpdateLineItems(orderId: guid, orderLineItems: OrderItemUpdateDC[*]): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="bdb98991-8e3f-48ec-9fac-6c95ef267355">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>acc745d6-ec06-41e3-9fbf-69905e229f95</parentFolderId>
+      <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="7c75751e-cedb-45a7-aeba-024472bfc70c" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>orderId</name>
+          <display>in : orderId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1a48d2d5-7f32-473c-ab44-765c59398705">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>6ec85ec2-dc5d-4933-bf61-6a93fc59d66f</parentFolderId>
+          <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c22ccbaa-2d6f-4b76-99e3-77c1ec691555" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>orderLineItems</name>
+          <display>in : orderLineItems: OrderItemUpdateDC[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="fc4b01e0-f2b3-4322-9da3-9870f0aeaef4">
+            <typeId>92073c93-626c-43e7-84fe-8b20c2686d98</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+            <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>6ec85ec2-dc5d-4933-bf61-6a93fc59d66f</parentFolderId>
+          <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+          <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

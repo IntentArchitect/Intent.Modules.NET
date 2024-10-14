@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c70c7a9a-b38d-47a7-971d-74d772cd11fe">
+  <sourceEnd id="740f7898-1fd1-4e92-97ac-03d930add6db" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : ParentWithAnemicChildren.CreateParentWithAnemicChildCommand</display>
+    <order>0</order>
+    <typeReference id="bb86deb7-a8e9-4079-90fe-16b867be5ef0">
+      <typeId>077ee1a8-3101-4237-bc5c-62ded84bccfe</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c70c7a9a-b38d-47a7-971d-74d772cd11fe" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>parentWithAnemicChild</name>
+    <display>[create] parentWithAnemicChild: Constructor</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="9a711218-6d1c-4c5e-8106-fded61688d6b">
+      <typeId>862c9564-bb39-47e3-bfc5-b09db3d93fb2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="077ee1a8-3101-4237-bc5c-62ded84bccfe" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CreateParentWithAnemicChildCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="71edc1ba-fe1a-4981-928f-a73cb89ee0e1" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[ParentWithAnemicChild]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateParentWithAnemicChildCommand}</expression>
+            <path>
+              <target id="71edc1ba-fe1a-4981-928f-a73cb89ee0e1" name="ParentWithAnemicChild" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="862c9564-bb39-47e3-bfc5-b09db3d93fb2" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+            </path>
+            <sources>
+              <source identifier="CreateParentWithAnemicChildCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="077ee1a8-3101-4237-bc5c-62ded84bccfe" name="CreateParentWithAnemicChildCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="71edc1ba-fe1a-4981-928f-a73cb89ee0e1" name="ParentWithAnemicChild" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="862c9564-bb39-47e3-bfc5-b09db3d93fb2" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="292ebb1f-8837-4806-b16d-33bd83a45916" name="name" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="077ee1a8-3101-4237-bc5c-62ded84bccfe" name="CreateParentWithAnemicChildCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="42b51c9c-bf02-4369-af06-83ee0817afec" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="71edc1ba-fe1a-4981-928f-a73cb89ee0e1" name="ParentWithAnemicChild" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="862c9564-bb39-47e3-bfc5-b09db3d93fb2" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="a65dfd1f-49be-403b-8335-b1a7894d0ed2" name="surname" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="077ee1a8-3101-4237-bc5c-62ded84bccfe" name="CreateParentWithAnemicChildCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d4104eda-08db-4be4-a24c-669b3e4af595" name="Surname" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AnemicChildren}</expression>
+            <path>
+              <target id="71edc1ba-fe1a-4981-928f-a73cb89ee0e1" name="ParentWithAnemicChild" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="862c9564-bb39-47e3-bfc5-b09db3d93fb2" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="b7194b86-10bc-4f5e-9cff-acf1812a24dc" name="anemicChildren" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="AnemicChildren" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="077ee1a8-3101-4237-bc5c-62ded84bccfe" name="CreateParentWithAnemicChildCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="fa468e31-5448-430d-8285-42fd5798ea9d" name="AnemicChildren" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AnemicChildren.Line1}</expression>
+            <path>
+              <target id="71edc1ba-fe1a-4981-928f-a73cb89ee0e1" name="ParentWithAnemicChild" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="862c9564-bb39-47e3-bfc5-b09db3d93fb2" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="b7194b86-10bc-4f5e-9cff-acf1812a24dc" name="anemicChildren" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+              <target id="92dac55b-9082-4650-b31c-d12f09363702" name="Line1" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="AnemicChildren.Line1" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="077ee1a8-3101-4237-bc5c-62ded84bccfe" name="CreateParentWithAnemicChildCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="fa468e31-5448-430d-8285-42fd5798ea9d" name="AnemicChildren" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="84463a18-bed5-4040-9b7a-31d0d2e1cfc4" name="Line1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AnemicChildren.Line2}</expression>
+            <path>
+              <target id="71edc1ba-fe1a-4981-928f-a73cb89ee0e1" name="ParentWithAnemicChild" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="862c9564-bb39-47e3-bfc5-b09db3d93fb2" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="b7194b86-10bc-4f5e-9cff-acf1812a24dc" name="anemicChildren" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+              <target id="1da81372-0e17-46e9-942f-f6a058615dce" name="Line2" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="AnemicChildren.Line2" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="077ee1a8-3101-4237-bc5c-62ded84bccfe" name="CreateParentWithAnemicChildCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="fa468e31-5448-430d-8285-42fd5798ea9d" name="AnemicChildren" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="f936ba13-1634-4c1c-babd-fdc731cdb11a" name="Line2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AnemicChildren.City}</expression>
+            <path>
+              <target id="71edc1ba-fe1a-4981-928f-a73cb89ee0e1" name="ParentWithAnemicChild" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="862c9564-bb39-47e3-bfc5-b09db3d93fb2" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="b7194b86-10bc-4f5e-9cff-acf1812a24dc" name="anemicChildren" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+              <target id="300fa1a1-534c-48d6-bbb6-23f13f42842d" name="City" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="AnemicChildren.City" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="077ee1a8-3101-4237-bc5c-62ded84bccfe" name="CreateParentWithAnemicChildCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="fa468e31-5448-430d-8285-42fd5798ea9d" name="AnemicChildren" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="cd0cd3e0-02a6-4940-979e-983bd78fc1f1" name="City" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="749b6572-9d8b-4350-9034-19ff12cab84e" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Countries</name>
-    <display>Countries: Country[*]   [1 --&gt; *]</display>
+    <display>Countries: Country[*]</display>
     <order>2</order>
     <typeReference id="4dbcaac3-3fe6-4c89-8cd4-37d91dc4915e">
       <typeId>8b9ff37b-2e6e-44d3-99e9-2c3cec8aeb05</typeId>

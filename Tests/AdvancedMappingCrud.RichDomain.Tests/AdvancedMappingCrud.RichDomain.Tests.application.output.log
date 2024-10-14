@@ -84,6 +84,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>add66d43-1fcb-448d-a78b-12b95984230a</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#6b659242-da15-433b-bdf6-5deb19e4988d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Api/Controllers/OrdersController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrdersController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>add66d43-1fcb-448d-a78b-12b95984230a</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#ec56f657-5708-4740-ae70-c0092adbcfd2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Api/Controllers/PeopleController.cs</ApplicationRelativeFilePath>
@@ -656,6 +664,182 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#829bd52b-52b8-46a9-b17f-07697e815929</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/CreateOrder/CreateOrderCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrder/CreateOrderCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#829bd52b-52b8-46a9-b17f-07697e815929</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/CreateOrder/CreateOrderCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrder/CreateOrderCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#829bd52b-52b8-46a9-b17f-07697e815929</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/CreateOrder/CreateOrderCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrder/CreateOrderCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e1d5c6f0-7d66-40ff-b94a-726f76defd0c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/CreateOrderOrderItemDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/CreateOrderOrderItemDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#4a516301-e303-4b69-850b-a441bb3674b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/DeleteOrder/DeleteOrderCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/DeleteOrder/DeleteOrderCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#4a516301-e303-4b69-850b-a441bb3674b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/DeleteOrder/DeleteOrderCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/DeleteOrder/DeleteOrderCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#4a516301-e303-4b69-850b-a441bb3674b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/DeleteOrder/DeleteOrderCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/DeleteOrder/DeleteOrderCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#2462cbbb-fabe-496e-aee8-b1e82fe256f0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/GetOrderById/GetOrderByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrderById/GetOrderByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#2462cbbb-fabe-496e-aee8-b1e82fe256f0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/GetOrderById/GetOrderByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrderById/GetOrderByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#2462cbbb-fabe-496e-aee8-b1e82fe256f0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/GetOrderById/GetOrderByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrderById/GetOrderByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#5e838a7a-9a75-4204-99ad-91989d2477f9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/GetOrders/GetOrdersQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrders/GetOrdersQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#5e838a7a-9a75-4204-99ad-91989d2477f9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/GetOrders/GetOrdersQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrders/GetOrdersQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#5e838a7a-9a75-4204-99ad-91989d2477f9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/GetOrders/GetOrdersQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/GetOrders/GetOrdersQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#40df10fe-fb1b-4e4f-b882-06e4f1a9dca5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/OrderDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#40df10fe-fb1b-4e4f-b882-06e4f1a9dca5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/OrderDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/OrderDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#a14e7b05-abd1-4aa0-9d0c-fae9266b1271</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/UpdateOrderItemsOrder/UpdateOrderItemsOrderCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrderItemsOrder/UpdateOrderItemsOrderCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#a14e7b05-abd1-4aa0-9d0c-fae9266b1271</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/UpdateOrderItemsOrder/UpdateOrderItemsOrderCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrderItemsOrder/UpdateOrderItemsOrderCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#a14e7b05-abd1-4aa0-9d0c-fae9266b1271</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/UpdateOrderItemsOrder/UpdateOrderItemsOrderCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrderItemsOrder/UpdateOrderItemsOrderCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#23c09521-bcf3-43ad-9b84-7567c98e2b2d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/UpdateOrderItemUpdateDCDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrderItemUpdateDCDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#f92e248c-4d79-4ca8-bb45-280d2469a46c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/UpdateOrderWithDomainService/UpdateOrderWithDomainServiceCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrderWithDomainService/UpdateOrderWithDomainServiceCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#f92e248c-4d79-4ca8-bb45-280d2469a46c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/UpdateOrderWithDomainService/UpdateOrderWithDomainServiceCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrderWithDomainService/UpdateOrderWithDomainServiceCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f92e248c-4d79-4ca8-bb45-280d2469a46c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Orders/UpdateOrderWithDomainService/UpdateOrderWithDomainServiceCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Orders/UpdateOrderWithDomainService/UpdateOrderWithDomainServiceCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1579,6 +1763,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>c640cc04-1499-4f52-9c83-d92fd938ebba</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#92073c93-626c-43e7-84fe-8b20c2686d98</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Contracts/OrderItemUpdateDC.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderItemUpdateDC.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>10a8fcaa-d4f3-4f27-bc9f-0c7f89a2bb2b</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#3ecc716a-8ede-45fe-a235-d68ce85ded79</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1616,6 +1808,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Entities/Customer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>10a8fcaa-d4f3-4f27-bc9f-0c7f89a2bb2b</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#5a61799b-65bd-41cc-a32b-5312d2dc0734</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Entities/Order.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Order.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>10a8fcaa-d4f3-4f27-bc9f-0c7f89a2bb2b</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#7480f944-740e-497a-bf40-426b648db645</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Entities/OrderItem.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderItem.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1700,6 +1908,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>4fe59f1e-4c8e-435c-a094-5d5cbd04d78a</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#5a61799b-65bd-41cc-a32b-5312d2dc0734</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Repositories/IOrderRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IOrderRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4fe59f1e-4c8e-435c-a094-5d5cbd04d78a</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
@@ -1764,10 +1980,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>5c7bf02b-05fb-47bf-bd03-86d78b8329b2</ProjectId>
+      <CorrelationId>Intent.DomainServices.DomainServiceInterface#acc745d6-ec06-41e3-9fbf-69905e229f95</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Services/IOrderDomainService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IOrderDomainService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5c7bf02b-05fb-47bf-bd03-86d78b8329b2</ProjectId>
       <CorrelationId>Intent.DomainServices.DomainServiceInterface#b7702185-6edf-4b9d-a006-8634a5e98986</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Services/ISecondService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISecondService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5c7bf02b-05fb-47bf-bd03-86d78b8329b2</ProjectId>
+      <CorrelationId>Intent.DomainServices.DomainServiceImplementation#acc745d6-ec06-41e3-9fbf-69905e229f95</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Services/OrderDomainService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderDomainService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1836,6 +2068,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9a6c2d22-cd1c-492d-a75e-836344ee753e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5a61799b-65bd-41cc-a32b-5312d2dc0734</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Persistence/Configurations/OrderConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9a6c2d22-cd1c-492d-a75e-836344ee753e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#64543361-23ff-4f7f-bcbb-0134267aa08d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Persistence/Configurations/PersonConfiguration.cs</ApplicationRelativeFilePath>
@@ -1896,6 +2136,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Repositories/CustomerRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ed259fdc-807e-4f54-a50b-e83cd127b57e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#5a61799b-65bd-41cc-a32b-5312d2dc0734</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Repositories/OrderRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -22,6 +22,9 @@
     <name>company</name>
     <display>[query] company: Company</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="2550846a-7d85-4078-912d-5585db0de5e2">
       <typeId>8251ab6c-2778-45a2-b726-6a11c7334e39</typeId>
       <isNavigable>true</isNavigable>

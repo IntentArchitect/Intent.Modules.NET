@@ -39,7 +39,7 @@ variables:
   value: '##vso[task.logissue type=error;]{@m} {@x}\n'
 
 pool:
-  name: $(BuildPool.Linux.General)
+  name: $(BuildPool.AzureManaged)
   demands:
   - 'ImageOverride -equals ubuntu-latest'
 
@@ -165,7 +165,6 @@ steps:
     projects: $(targetsToBuild)
     arguments: >
       --no-build
-      --filter Requirement!=CosmosDB
 
 - task: PowerShell@2
   displayName: 'Install Intent CLI'

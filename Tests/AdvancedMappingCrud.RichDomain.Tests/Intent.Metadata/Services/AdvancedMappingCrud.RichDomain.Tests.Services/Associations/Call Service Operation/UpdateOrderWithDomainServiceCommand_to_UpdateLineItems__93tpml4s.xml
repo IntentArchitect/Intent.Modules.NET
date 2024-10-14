@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e56b0284-4ee2-4f5b-9561-03223953c619">
+  <sourceEnd id="c935d614-ebeb-4252-82d2-156871c63f90" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Orders.UpdateOrderWithDomainServiceCommand</display>
+    <order>0</order>
+    <typeReference id="69e55dd8-8134-494d-94e5-6222c22c3137">
+      <typeId>f92e248c-4d79-4ca8-bb45-280d2469a46c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+      <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e56b0284-4ee2-4f5b-9561-03223953c619" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : UpdateLineItems(...): null</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="8098b9ae-3c6e-4f59-86ed-d93ab836179a">
+      <typeId>6ec85ec2-dc5d-4933-bf61-6a93fc59d66f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f92e248c-4d79-4ca8-bb45-280d2469a46c" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[UpdateOrderWithDomainServiceCommand]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6ec85ec2-dc5d-4933-bf61-6a93fc59d66f" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[UpdateLineItems]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="6ec85ec2-dc5d-4933-bf61-6a93fc59d66f" name="UpdateLineItems" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="7c75751e-cedb-45a7-aeba-024472bfc70c" name="orderId" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="f92e248c-4d79-4ca8-bb45-280d2469a46c" name="UpdateOrderWithDomainServiceCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="a87f3d6e-7cfd-4f02-b35b-1a9a5c88f8e3" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderItemDetails}</expression>
+            <path>
+              <target id="6ec85ec2-dc5d-4933-bf61-6a93fc59d66f" name="UpdateLineItems" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="c22ccbaa-2d6f-4b76-99e3-77c1ec691555" name="orderLineItems" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="OrderItemDetails" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="f92e248c-4d79-4ca8-bb45-280d2469a46c" name="UpdateOrderWithDomainServiceCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="31d4b020-b7f9-48e6-9d28-0d6c2d5bd316" name="OrderItemDetails" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderItemDetails.Id}</expression>
+            <path>
+              <target id="6ec85ec2-dc5d-4933-bf61-6a93fc59d66f" name="UpdateLineItems" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="c22ccbaa-2d6f-4b76-99e3-77c1ec691555" name="orderLineItems" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+              <target id="272c5040-3ab9-42e9-9361-a13552defe87" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OrderItemDetails.Id" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="f92e248c-4d79-4ca8-bb45-280d2469a46c" name="UpdateOrderWithDomainServiceCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="31d4b020-b7f9-48e6-9d28-0d6c2d5bd316" name="OrderItemDetails" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="295f4188-386a-4732-9206-5aa55f7dba71" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderItemDetails.Amount}</expression>
+            <path>
+              <target id="6ec85ec2-dc5d-4933-bf61-6a93fc59d66f" name="UpdateLineItems" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="c22ccbaa-2d6f-4b76-99e3-77c1ec691555" name="orderLineItems" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+              <target id="0a9413e0-2eed-4f79-9453-fff3440f024a" name="Amount" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OrderItemDetails.Amount" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="f92e248c-4d79-4ca8-bb45-280d2469a46c" name="UpdateOrderWithDomainServiceCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="31d4b020-b7f9-48e6-9d28-0d6c2d5bd316" name="OrderItemDetails" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="d8e9aa8e-cdc5-47fa-b33f-55ed0e081146" name="Amount" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderItemDetails.Quantity}</expression>
+            <path>
+              <target id="6ec85ec2-dc5d-4933-bf61-6a93fc59d66f" name="UpdateLineItems" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="c22ccbaa-2d6f-4b76-99e3-77c1ec691555" name="orderLineItems" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+              <target id="85ffe9e1-172c-47d7-a7f1-9a0cc29548ce" name="Quantity" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OrderItemDetails.Quantity" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="f92e248c-4d79-4ca8-bb45-280d2469a46c" name="UpdateOrderWithDomainServiceCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="31d4b020-b7f9-48e6-9d28-0d6c2d5bd316" name="OrderItemDetails" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="b8aeade2-5740-4477-9f7d-0622efb79edb" name="Quantity" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderItemDetails.ProductId}</expression>
+            <path>
+              <target id="6ec85ec2-dc5d-4933-bf61-6a93fc59d66f" name="UpdateLineItems" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="c22ccbaa-2d6f-4b76-99e3-77c1ec691555" name="orderLineItems" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+              <target id="dd6c7f82-c49c-43db-bbe9-ddb298be5116" name="ProductId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OrderItemDetails.ProductId" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="f92e248c-4d79-4ca8-bb45-280d2469a46c" name="UpdateOrderWithDomainServiceCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="31d4b020-b7f9-48e6-9d28-0d6c2d5bd316" name="OrderItemDetails" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="bee13d41-e780-438c-9ff9-9b8c3f7ed8a4" name="ProductId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

@@ -33,7 +33,6 @@ namespace AdvancedMappingCrudMongo.Tests.Application.ExternalDocs.CreateExternal
             };
 
             _externalDocRepository.Add(externalDoc);
-            await _externalDocRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return externalDoc.Id;
         }
     }
