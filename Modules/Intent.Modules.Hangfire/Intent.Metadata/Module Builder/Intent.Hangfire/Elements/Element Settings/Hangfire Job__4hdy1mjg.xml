@@ -75,7 +75,7 @@
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
             <isRequired>true</isRequired>
-            <typePackageName>Intent.Modules.Hangfire</typePackageName>
+            <typePackageName>Intent.Hangfire</typePackageName>
             <typePackageId>fda30066-088b-48e0-9189-6cad1c70af13</typePackageId>
             <stereotypes />
             <genericTypeParameters />

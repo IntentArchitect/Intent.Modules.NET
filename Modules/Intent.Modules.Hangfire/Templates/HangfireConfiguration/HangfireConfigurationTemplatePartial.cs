@@ -119,7 +119,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
             if (_hangFireConfigurationModel is not null && _hangFireConfigurationModel.GetHangfireOptions().ConfigureAsHangfireServer())
             {
                 ExecutionContext.EventDispatcher.Publish(ApplicationBuilderRegistrationRequest.ToRegister(
-                            extensionMethodName: $"UseHangfire")
+                            extensionMethodName: $"UseHangfire", ServiceConfigurationRequest.ParameterType.Configuration)
                         .WithPriority(100));
             }
         }
@@ -172,6 +172,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
 
                 method.Static();
                 method.AddParameter("IApplicationBuilder", "app", p => p.WithThisModifier());
+                method.AddParameter("IConfiguration", "configuration");
 
                 if (_hangFireConfigurationModel is not null && _hangFireConfigurationModel.HasHangfireOptions() && _hangFireConfigurationModel.GetHangfireOptions().ShowDashboard())
                 {
@@ -259,7 +260,7 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
                     addJobConfig.AddArgument($"\"{job.GetJobOptions().Queue()?.Name.ToLower()}\"");
                 }
                 addJobConfig.AddArgument(new CSharpStatement("j => j.ExecuteAsync()"));
-                addJobConfig.AddArgument($"\"{job.GetJobOptions().CronSchedule()}\"");
+                addJobConfig.AddArgument($"configuration.GetValue<string?>($\"Hangfire:Jobs:{job.Name.ToPascalCase()}:CronSchedule\") ?? \"{job.GetJobOptions().CronSchedule()}\"");
             });
         }
 
