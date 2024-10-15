@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -42,6 +43,13 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
                 .Single();
 
             return result;
+        }
+
+        public async Task<string> WithBidrectionalParam(
+            string birectionalTest,
+            CancellationToken cancellationToken = default)
+        {
+            throw new NotSupportedException("One or more parameters have a direction of both which is not presently supported, please reach out to us at https://github.com/IntentArchitect/Support should you need support added.");
         }
     }
 }

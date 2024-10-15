@@ -1,6 +1,7 @@
 ### Version 4.7.2
 
 - Fixed: Type disambiguation was incorrect under some circumstances for entity repository interfaces.
+- Fixed: Stored procedures with a direction of both wouldn't always be respected correctly for generation of interfaces and implementations.
 
 ### Version 4.7.1
 
