@@ -118,9 +118,18 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
 
             if (_hangFireConfigurationModel is not null && _hangFireConfigurationModel.GetHangfireOptions().ConfigureAsHangfireServer())
             {
-                ExecutionContext.EventDispatcher.Publish(ApplicationBuilderRegistrationRequest.ToRegister(
+                if (ExecutionContext.InstalledModules.Any(p => p.ModuleId == "Intent.AspNetCore"))
+                {
+                    ExecutionContext.EventDispatcher.Publish(ApplicationBuilderRegistrationRequest.ToRegister(
                             extensionMethodName: $"UseHangfire", ServiceConfigurationRequest.ParameterType.Configuration)
                         .WithPriority(100));
+                }
+                else
+                {
+                    ExecutionContext.EventDispatcher.Publish(ApplicationBuilderRegistrationRequest.ToRegister(
+                            extensionMethodName: $"UseHangfire")
+                        .WithPriority(100));
+                }
             }
         }
 
@@ -215,7 +224,9 @@ namespace Intent.Modules.Hangfire.Templates.HangfireConfiguration
             @class.AddMethod("IHost", "UseHangfire", method =>
             {
                 method.Static();
-                method.AddParameter("IHost", "app", p => p.WithThisModifier());
+                method.AddParameter(UseType("Microsoft.Extensions.Hosting.IHost"), "app", p => p.WithThisModifier());
+
+                method.AddObjectInitStatement("var configuration", $"app.Services.GetRequiredService<{UseType("Microsoft.Extensions.Configuration.IConfiguration")}>();");
 
                 AddHangfireJobs(method, "Services");
 
