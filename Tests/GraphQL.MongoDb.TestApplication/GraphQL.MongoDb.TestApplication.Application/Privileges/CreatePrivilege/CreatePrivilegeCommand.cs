@@ -11,7 +11,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.CreatePrivilege
 {
     public class CreatePrivilegeCommand : IRequest<PrivilegeDto>, ICommand
     {
-        public CreatePrivilegeCommand(string name, string? description)
+        public CreatePrivilegeCommand(string name, string? description = null)
         {
             Name = name;
             Description = description;

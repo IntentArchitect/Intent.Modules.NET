@@ -11,7 +11,7 @@ namespace CleanArchitecture.Comprehensive.Application.AggregateRootLongs.UpdateA
     {
         public UpdateAggregateRootLongCommand(long id,
             string attribute,
-            UpdateAggregateRootLongCompositeOfAggrLongDto? compositeOfAggrLong)
+            UpdateAggregateRootLongCompositeOfAggrLongDto? compositeOfAggrLong = null)
         {
             Id = id;
             Attribute = attribute;

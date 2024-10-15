@@ -11,7 +11,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.UploadF
 {
     public class UploadFileCommand : IRequest<Guid>, ICommand
     {
-        public UploadFileCommand(Stream content, string? filename, string? contentType, long? contentLength)
+        public UploadFileCommand(Stream content,
+            string? filename = null,
+            string? contentType = null,
+            long? contentLength = null)
         {
             Content = content;
             Filename = filename;

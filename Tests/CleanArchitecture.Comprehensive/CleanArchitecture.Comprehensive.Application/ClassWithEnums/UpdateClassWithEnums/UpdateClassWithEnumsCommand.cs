@@ -15,9 +15,9 @@ namespace CleanArchitecture.Comprehensive.Application.ClassWithEnums.UpdateClass
             EnumWithDefaultLiteral enumWithDefaultLiteral,
             EnumWithoutDefaultLiteral enumWithoutDefaultLiteral,
             EnumWithoutValues enumWithoutValues,
-            EnumWithDefaultLiteral? nullibleEnumWithDefaultLiteral,
-            EnumWithoutDefaultLiteral? nullibleEnumWithoutDefaultLiteral,
-            EnumWithoutValues? nullibleEnumWithoutValues)
+            EnumWithDefaultLiteral? nullibleEnumWithDefaultLiteral = null,
+            EnumWithoutDefaultLiteral? nullibleEnumWithoutDefaultLiteral = null,
+            EnumWithoutValues? nullibleEnumWithoutValues = null)
         {
             Id = id;
             EnumWithDefaultLiteral = enumWithDefaultLiteral;

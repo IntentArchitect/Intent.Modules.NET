@@ -16,8 +16,8 @@ namespace OpenApiImporterTest.Application.Pets.UpdatePet
             string name,
             Category? category,
             List<string> photoUrls,
-            List<Tag>? tags,
-            StatusType? status)
+            List<Tag>? tags = null,
+            StatusType? status = null)
         {
             Id = id;
             Name = name;

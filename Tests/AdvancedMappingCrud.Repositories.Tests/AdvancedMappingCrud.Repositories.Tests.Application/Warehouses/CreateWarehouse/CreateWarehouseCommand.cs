@@ -10,7 +10,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Warehouses.CreateWa
 {
     public class CreateWarehouseCommand : IRequest<Guid>, ICommand
     {
-        public CreateWarehouseCommand(string name, int size, CreateWarehouseCommandAddressDto? address)
+        public CreateWarehouseCommand(string name, int size, CreateWarehouseCommandAddressDto? address = null)
         {
             Name = name;
             Size = size;
