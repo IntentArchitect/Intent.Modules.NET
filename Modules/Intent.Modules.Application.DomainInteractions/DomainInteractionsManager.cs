@@ -871,6 +871,8 @@ public class DomainInteractionsManager
                     SubstituteServiceParameters(access.Member);
                     return;
                 }
+                default:
+                    break;
             }
 
             var invocation = statement as CSharpInvocationStatement;
@@ -907,22 +909,6 @@ public class DomainInteractionsManager
             invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldName));
         }
     }
-
-    //private void InjectAutoMapper(out string fieldName)
-    //{
-    //    var temp = default(string);
-    //    var ctor = _template.CSharpFile.Classes.First().Constructors.First();
-    //    if (ctor.Parameters.All(x => x.Type != _template.UseType("AutoMapper.IMapper")))
-    //    {
-    //        ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper",
-    //            param => param.IntroduceReadonlyField(field => temp = field.Name));
-    //        fieldName = temp;
-    //    }
-    //    else
-    //    {
-    //        fieldName = ctor.Parameters.First(x => x.Type == _template.UseType("AutoMapper.IMapper")).Name.ToPrivateMemberName();
-    //    }
-    //}
 
     private bool RequiresAggegateExplicitUpdate(EntityDetails entityDetails)
     {
