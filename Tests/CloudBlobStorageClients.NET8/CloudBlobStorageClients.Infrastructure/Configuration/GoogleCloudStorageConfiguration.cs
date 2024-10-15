@@ -22,8 +22,8 @@ namespace CloudBlobStorageClients.Infrastructure.Configuration
                 sp =>
                 {
                     var credentialFileLocation = sp.GetRequiredService<IConfiguration>().GetValue<string>("GCP:CloudStorageAuthFileLocation");
-                    var _googleCredential = GoogleCredential.FromFile(credentialFileLocation);
-                    return StorageClient.Create(_googleCredential);
+                    var googleCredential = GoogleCredential.FromFile(credentialFileLocation);
+                    return StorageClient.Create(googleCredential);
                 });
 
             return services;
