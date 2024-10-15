@@ -66,3 +66,43 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
 ```
 
 For more information on MediatR, check out their [official GitHub](https://github.com/jbogard/MediatR/).
+
+## Command nullable properties
+
+Nullable properties will have a default value set as _null_ in the Command constructor, providing there are no non-nullable properties which occur after them (as defined in the in the Intent Architect Services designer).
+
+Notice in the below example, the _name_ property, even though nullable does not have a default value set. This is due to the fact there are non-nullable properties which are declared after _name_ in the designer.
+
+```csharp
+public class CreateCustomerCommand : IRequest<Guid>, ICommand
+{
+    public CreateCustomerCommand(string? name, string surname, string email)
+    {
+        Name = name;
+        Surname = surname;
+        Email = email;
+    }
+
+    public string? Name { get; set; }
+    public string Surname { get; set; }
+    public string Email { get; set; }
+}
+```
+
+To ensure the default is set to null, in the Intent Architect Services designer the _name_ property should be moved to after all non-nullable properties, which will then result in the following code:
+
+```csharp
+public class CreateCustomerCommand : IRequest<Guid>, ICommand
+{
+    public CreateCustomerCommand(string surname, string email, string? name = null)
+    {
+        Surname = surname;
+        Email = email;
+        Name = name;
+    }
+
+    public string Surname { get; set; }
+    public string Email { get; set; }
+    public string? Name { get; set; }
+}
+```

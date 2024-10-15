@@ -1,3 +1,8 @@
+### Version 4.2.9
+
+- Improvement: Nullable `command` constructor parameters will now have a default value of `null`, providing no non-nullable parameters occur after them (as defined in the Intent Architect Services designer)
+
+
 ### Version 4.2.8
 
 - Improvement: Updated module NuGet packages infrastructure.

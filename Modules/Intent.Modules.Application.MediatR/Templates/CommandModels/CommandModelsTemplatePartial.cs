@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Application.MediatR.Api;
 using Intent.Engine;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Settings;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
@@ -11,6 +12,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -52,12 +54,22 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
 
                     @class.AddConstructor();
                     var ctor = @class.Constructors.First();
+
+                    // get the last non-nullable property. All items occuring before this cannot have a default value set in the constructor
+                    var lastNonNullable = Model.Properties.LastOrDefault(p => !p?.TypeReference?.IsNullable ?? false)?.InternalElement.Order ?? 0;
+
                     foreach (var property in Model.Properties)
                     {
                         ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), param =>
                         {
                             param.AddMetadata("model", property);
                             param.IntroduceProperty(prop => prop.RepresentsModel(property));
+
+                            // only nullable parameters AFTER the last non-nullable parameter get a default value
+                            if (property.InternalElement.Order > lastNonNullable && property.TypeReference.IsNullable)
+                            {
+                                param.WithDefaultValue("null");
+                            }
                         });
                     }
                 });
