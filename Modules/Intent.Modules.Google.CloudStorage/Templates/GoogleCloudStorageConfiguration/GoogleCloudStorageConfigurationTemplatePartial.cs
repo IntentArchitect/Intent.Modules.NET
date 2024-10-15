@@ -38,8 +38,8 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageConfigu
                             invoc.AddLambdaBlock("sp", lambda =>
                             {
                                 lambda.AddObjectInitStatement("var credentialFileLocation", "sp.GetRequiredService<IConfiguration>().GetValue<string>(\"GCP:CloudStorageAuthFileLocation\");");
-                                lambda.AddObjectInitStatement("var _googleCredential", $"{UseType("Google.Apis.Auth.OAuth2.GoogleCredential")}.FromFile(credentialFileLocation);");
-                                lambda.AddReturn($"{UseType("Google.Cloud.Storage.V1.StorageClient")}.Create(_googleCredential)");
+                                lambda.AddObjectInitStatement("var googleCredential", $"{UseType("Google.Apis.Auth.OAuth2.GoogleCredential")}.FromFile(credentialFileLocation);");
+                                lambda.AddReturn($"{UseType("Google.Cloud.Storage.V1.StorageClient")}.Create(googleCredential)");
                             });
                         });
 

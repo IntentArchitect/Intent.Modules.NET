@@ -24,37 +24,25 @@ namespace Intent.Modules.Google.CloudStorage.Templates.BulkCloudObjectItem
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddRecord("BulkCloudObjectItem", @record =>
                 {
-                    @record.AddConstructor(ctor =>
+                    @record.AddPrimaryConstructor(ctor =>
                     {
-                        ctor.AddParameter("string", "Name",
-                            prm => prm.IntroduceProperty(p => p.Init()));
-
-                        ctor.AddParameter(UseType($"System.IO.Stream"), "DataStream",
-                            prm => prm.IntroduceProperty(p => p.Init()));
-
+                        ctor.AddParameter("string", "Name");
+                        ctor.AddParameter(UseType($"System.IO.Stream"), "DataStream");
                         ctor.AddParameter(UseType($"string?"), "ContentType",
                             prm =>
                             {
-                                prm.IntroduceProperty(p => p.Init());
                                 prm.WithDefaultValue("null");
                             });
-
-                        ctor.WithComments(
-                            [
-                            "/// <summary>",
-                            "/// Constructor for the object which represents a single item used for bulk uploads to object storage",
-                            "/// </summary>",
-                            "/// <param name=\"Name\">The name of the object.</param>",
-                            "/// <param name=\"DataStream\">The stream of data to upload.</param>",
-                            "/// <param name=\"ContentType\">The content type of the object. This should be a MIME type. Can be null.</param>",
-                        ]);
                     });
 
                     @record.WithComments(
                [
                         "/// <summary>",
                         "/// Represents a single item used for bulk uploads to object storage.",
-                        "/// </summary>"
+                        "/// </summary>",
+                        "/// <param name=\"Name\">The name of the object.</param>",
+                        "/// <param name=\"DataStream\">The stream of data to upload.</param>",
+                        "/// <param name=\"ContentType\">The content type of the object. This should be a MIME type. Can be null.</param>"
                     ]);
 
                 });
