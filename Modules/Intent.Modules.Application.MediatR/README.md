@@ -67,11 +67,11 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
 
 For more information on MediatR, check out their [official GitHub](https://github.com/jbogard/MediatR/).
 
-## Command nullable properties
+## Property default values
 
-Nullable properties will have a default value set as _null_ in the Command constructor, providing there are no non-nullable properties which occur after them (as defined in the in the Intent Architect Services designer).
+When designing in the Intent Architect Services designer, Commands can be created with properties, and these properties can have default values. When a default value is supplied, it will be used in the constructor of the Command, provided the property is _not proceeded by another property which does not have a default value._.
 
-Notice in the below example, the _name_ property, even though nullable does not have a default value set. This is due to the fact there are non-nullable properties which are declared after _name_ in the designer.
+In the below example, in the Service designer, the _name_ property was set with a default value, however it is not being used in the constructor. This is due to the fact there are properties proceeding it which do not have a default value.
 
 ```csharp
 public class CreateCustomerCommand : IRequest<Guid>, ICommand
@@ -89,12 +89,12 @@ public class CreateCustomerCommand : IRequest<Guid>, ICommand
 }
 ```
 
-To ensure the default is set to null, in the Intent Architect Services designer the _name_ property should be moved to after all non-nullable properties, which will then result in the following code:
+To ensure the default is set, in the Intent Architect Services designer the _name_ property should be moved to after all properties without a default value, which will then result in the following code:
 
 ```csharp
 public class CreateCustomerCommand : IRequest<Guid>, ICommand
 {
-    public CreateCustomerCommand(string surname, string email, string? name = null)
+    public CreateCustomerCommand(string surname, string email, string? name = "my default value")
     {
         Surname = surname;
         Email = email;
@@ -106,3 +106,5 @@ public class CreateCustomerCommand : IRequest<Guid>, ICommand
     public string? Name { get; set; }
 }
 ```
+
+The designer will also raise a warning if the Command has been incorrectly configured (but will still allow the Software Factory to be executed)

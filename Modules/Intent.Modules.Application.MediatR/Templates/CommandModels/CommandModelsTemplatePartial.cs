@@ -55,8 +55,8 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                     @class.AddConstructor();
                     var ctor = @class.Constructors.First();
 
-                    // get the last non-nullable property. All items occuring before this cannot have a default value set in the constructor
-                    var lastNonNullable = Model.Properties.LastOrDefault(p => !p?.TypeReference?.IsNullable ?? false)?.InternalElement.Order ?? 0;
+                    // get the last property which has no value. All items occuring before this cannot have a default value set in the constructor
+                    var lastNonNullable = Model.Properties.LastOrDefault(p => string.IsNullOrEmpty(p.Value))?.InternalElement.Order ?? 0;
 
                     foreach (var property in Model.Properties)
                     {
@@ -65,10 +65,10 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                             param.AddMetadata("model", property);
                             param.IntroduceProperty(prop => prop.RepresentsModel(property));
 
-                            // only nullable parameters AFTER the last non-nullable parameter get a default value
-                            if (property.InternalElement.Order > lastNonNullable && property.TypeReference.IsNullable)
+                            // only parameters with a value AFTER the last parameter with a value get the value specified
+                            if (property.InternalElement.Order >= lastNonNullable && !string.IsNullOrEmpty(property.Value))
                             {
-                                param.WithDefaultValue("null");
+                                param.WithDefaultValue(property.Value);
                             }
                         });
                     }

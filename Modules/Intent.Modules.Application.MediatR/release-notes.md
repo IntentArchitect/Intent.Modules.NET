@@ -1,6 +1,6 @@
 ### Version 4.2.9
 
-- Improvement: Nullable `command` constructor parameters will now have a default value of `null`, providing no non-nullable parameters occur after them (as defined in the Intent Architect Services designer)
+- Improvement: Default values on Command properties are now used in the Command constructor, provided there are no properties which proceed it without a default value.
 
 
 ### Version 4.2.8
