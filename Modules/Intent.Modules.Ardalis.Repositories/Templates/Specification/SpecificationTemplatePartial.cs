@@ -33,12 +33,12 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.Specification
                 {
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge());
                     @class.WithBaseType($"Specification<{GetPersistenceEntityTypeName()}>");
-                    @class.AddConstructor(ctor => 
+                    @class.AddConstructor(ctor =>
                     {
                         @ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
                     });
-                }).AfterBuild(file => 
-                { 
+                }).AfterBuild(file =>
+                {
                     var @class = file.Classes.FirstOrDefault();
                     var pk = GetSurrogateKey();
                     if (pk != null)
