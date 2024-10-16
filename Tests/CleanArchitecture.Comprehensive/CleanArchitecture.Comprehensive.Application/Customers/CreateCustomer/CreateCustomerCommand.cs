@@ -10,7 +10,7 @@ namespace CleanArchitecture.Comprehensive.Application.Customers.CreateCustomer
 {
     public class CreateCustomerCommand : IRequest<Guid>, ICommand
     {
-        public CreateCustomerCommand(string name, string surname, string email, CreateCustomerAddressDto address)
+        public CreateCustomerCommand(string name, string surname, string email = "", CreateCustomerAddressDto address = null)
         {
             Name = name;
             Surname = surname;

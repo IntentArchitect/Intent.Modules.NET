@@ -10,7 +10,7 @@ namespace CleanArchitecture.Comprehensive.Application.AggregateRootLongs.CreateA
     public class CreateAggregateRootLongCommand : IRequest<long>, ICommand
     {
         public CreateAggregateRootLongCommand(string attribute,
-            CreateAggregateRootLongCompositeOfAggrLongDto? compositeOfAggrLong = null)
+            CreateAggregateRootLongCompositeOfAggrLongDto? compositeOfAggrLong)
         {
             Attribute = attribute;
             CompositeOfAggrLong = compositeOfAggrLong;

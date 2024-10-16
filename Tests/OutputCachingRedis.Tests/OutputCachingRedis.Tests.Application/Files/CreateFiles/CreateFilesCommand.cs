@@ -11,10 +11,7 @@ namespace OutputCachingRedis.Tests.Application.Files.CreateFiles
 {
     public class CreateFilesCommand : IRequest<Guid>, ICommand
     {
-        public CreateFilesCommand(Stream content,
-            string? filename = null,
-            string? contentType = null,
-            long? contentLength = null)
+        public CreateFilesCommand(Stream content, string? filename, string? contentType, long? contentLength)
         {
             Content = content;
             Filename = filename;

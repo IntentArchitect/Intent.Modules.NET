@@ -75,8 +75,9 @@
     </childElement>
     <childElement id="a5a61817-c70f-43ee-964c-0c8a41c70fc5" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Name</name>
-      <display>Name: string</display>
+      <display>Name: string = "default"</display>
       <isAbstract>false</isAbstract>
+      <value>"default"</value>
       <genericTypes />
       <typeReference id="16ddfbf0-dc9d-4256-ade3-dc3982d46f84">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>

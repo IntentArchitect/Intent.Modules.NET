@@ -10,10 +10,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.Restric
 {
     public class RestrictedUploadCommand : IRequest, ICommand
     {
-        public RestrictedUploadCommand(Stream content,
-            string? filename = null,
-            string? contentType = null,
-            long? contentLength = null)
+        public RestrictedUploadCommand(Stream content, string? filename, string? contentType, long? contentLength)
         {
             Content = content;
             Filename = filename;

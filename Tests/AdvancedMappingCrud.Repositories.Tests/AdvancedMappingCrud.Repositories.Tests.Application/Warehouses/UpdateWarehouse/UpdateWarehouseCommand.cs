@@ -10,7 +10,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Warehouses.UpdateWa
 {
     public class UpdateWarehouseCommand : IRequest, ICommand
     {
-        public UpdateWarehouseCommand(string name, int size, Guid id, UpdateWarehouseCommandAddressDto? address = null)
+        public UpdateWarehouseCommand(string name, int size, Guid id, UpdateWarehouseCommandAddressDto? address)
         {
             Name = name;
             Size = size;

@@ -10,7 +10,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.CreateQuo
 {
     public class CreateQuoteCommand : IRequest, ICommand
     {
-        public CreateQuoteCommand(string refNo, Guid personId, string? personEmail = null)
+        public CreateQuoteCommand(string refNo, Guid personId, string? personEmail)
         {
             RefNo = refNo;
             PersonId = personId;

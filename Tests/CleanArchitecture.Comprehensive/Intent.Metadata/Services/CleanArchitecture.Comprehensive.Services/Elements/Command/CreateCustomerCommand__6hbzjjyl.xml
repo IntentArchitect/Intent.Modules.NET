@@ -125,8 +125,9 @@
     </childElement>
     <childElement id="5711e79b-f008-4823-8c78-fc78e09b3e58" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Email</name>
-      <display>Email: string</display>
+      <display>Email: string = ""</display>
       <isAbstract>false</isAbstract>
+      <value>""</value>
       <genericTypes />
       <typeReference id="f5a769d6-0b6b-4f92-ad30-fbe3947e413d">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
@@ -172,8 +173,9 @@
     </childElement>
     <childElement id="a4757418-c2fb-41d1-b0b3-c33503fc5268" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Address</name>
-      <display>Address: CreateCustomerAddressDto</display>
+      <display>Address: CreateCustomerAddressDto = null</display>
       <isAbstract>false</isAbstract>
+      <value>null</value>
       <genericTypes />
       <typeReference id="5b1081aa-14f3-4e98-a47b-f7eec0e16695">
         <typeId>6d0f853c-700a-4f5b-a68c-5d7d9a756049</typeId>
