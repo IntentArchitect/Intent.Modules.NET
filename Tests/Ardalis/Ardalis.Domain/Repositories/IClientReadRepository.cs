@@ -18,8 +18,5 @@ namespace Ardalis.Domain.Repositories
     {
         [IntentManaged(Mode.Fully)]
         Task<Client?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
-
-        [IntentManaged(Mode.Fully)]
-        Task<List<Client>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }
