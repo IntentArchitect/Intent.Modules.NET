@@ -1,3 +1,7 @@
+### Version 2.2.12
+
+- Improvement: Generated code is more aligned with best practices
+
 ### Version 2.2.11
 
 - Fixed: HttpClients are able to generate into `netstandard2.*` projects.

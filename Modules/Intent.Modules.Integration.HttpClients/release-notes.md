@@ -1,6 +1,7 @@
 ### Version 5.2.1
 
 - Fixed: Bumped `Service Designer` version due to PagedResults previous re-factor.
+- Improvement: Generated code is more aligned with best practices
 
 ### Version 5.2.0
 

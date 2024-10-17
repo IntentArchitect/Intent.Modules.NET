@@ -1,3 +1,7 @@
+### Version 3.5.4
+
+- Improvement: Generated code is more aligned with best practices
+
 ### Version 3.5.3
 
 - Improvement: Updated module NuGet packages infrastructure.

@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.VisualStudio;
 using System;
 using System.Reflection.PortableExecutable;
+using System.Security.Claims;
 using System.Text.Json;
 
 namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequestException
@@ -35,6 +36,18 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                     .AddProperty("ProblemDetailsWithErrors?", "ProblemDetails", prop => prop
                         .PrivateSetter()
                     )
+                    .AddConstructor()
+                    .AddConstructor(ctor =>
+                    {
+                        ctor.AddParameter("string", "message");
+                        ctor.CallsBase(b => b.AddArgument("message"));
+                    })
+                    .AddConstructor(ctor =>
+                    {
+                        ctor.AddParameter("string", "message");
+                        ctor.AddParameter("Exception", "innerException");
+                        ctor.CallsBase(b => b.AddArgument("message").AddArgument("innerException"));
+                    })
                     .AddConstructor(c => c
                         .AddParameter("Uri", "requestUri", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
                         .AddParameter("HttpStatusCode", "statusCode", param => param.IntroduceProperty(prop => prop.PrivateSetter()))

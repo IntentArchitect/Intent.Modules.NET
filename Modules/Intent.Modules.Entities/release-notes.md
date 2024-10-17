@@ -3,6 +3,7 @@
 - Improvement: General code clean up to remove several code warnings.
 - Improvement: Relaxed some implementations from `ICollection` to `IEnumerable` to make them more accessible (`CompareCollections` and `CreateOrUpdateCollection`).
 - Fixed: Values on associations would not be generated on entities.
+- Improvement: Generated code is more aligned with best practices
 
 ### Version 5.1.4
 

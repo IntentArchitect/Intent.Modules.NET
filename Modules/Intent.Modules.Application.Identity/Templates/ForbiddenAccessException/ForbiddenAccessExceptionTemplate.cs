@@ -22,7 +22,7 @@ namespace Intent.Modules.Application.Identity.Templates.ForbiddenAccessException
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\ForbiddenAccessException\ForbiddenAccessExceptionTemplate.tt"
+    #line 1 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\ForbiddenAccessException\ForbiddenAccessExceptionTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class ForbiddenAccessExceptionTemplate : CSharpTemplateBase<object>
     {
@@ -34,20 +34,31 @@ namespace Intent.Modules.Application.Identity.Templates.ForbiddenAccessException
         {
             this.Write("using System;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\ForbiddenAccessException\ForbiddenAccessExceptionTemplate.tt"
+            #line 14 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\ForbiddenAccessException\ForbiddenAccessExceptionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\ForbiddenAccessException\ForbiddenAccessExceptionTemplate.tt"
+            #line 16 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Identity\Templates\ForbiddenAccessException\ForbiddenAccessExceptionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
-            this.Write(" : Exception\r\n    {\r\n        public ForbiddenAccessException() : base() { }\r\n    " +
-                    "}\r\n}");
+            this.Write(@" : Exception
+    {
+        public ForbiddenAccessException() : base() { }
+
+        public ForbiddenAccessException(string message) : base(message)
+        {
+        }
+
+        public ForbiddenAccessException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+    }
+}");
             return this.GenerationEnvironment.ToString();
         }
     }
