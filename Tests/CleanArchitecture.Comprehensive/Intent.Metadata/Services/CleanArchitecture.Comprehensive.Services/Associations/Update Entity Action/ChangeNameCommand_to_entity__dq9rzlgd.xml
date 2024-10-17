@@ -39,21 +39,21 @@
     <stereotypes />
     <mappings>
       <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
-        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4750a6d7-a51c-41cf-b818-c3a72dabbd07" location="[CleanArchitecture.TestApplication].[Services].[ChangeNameCommand]" />
-        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="21cdffa0-70f5-4a71-8e25-c51d99c183b9" location="[CleanArchitecture.TestApplication].[Domain].[Customer]" />
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4750a6d7-a51c-41cf-b818-c3a72dabbd07" location="[CleanArchitecture.Comprehensive].[Services].[ChangeNameCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="21cdffa0-70f5-4a71-8e25-c51d99c183b9" location="[CleanArchitecture.Comprehensive].[Services].[Customer]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{Id}</expression>
             <path>
-              <target id="21cdffa0-70f5-4a71-8e25-c51d99c183b9" name="Customer" type="element" specialization="Class" />
-              <target id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" name="base" type="association" specialization="Generalization Target End" />
-              <target id="38e61981-b663-4efb-b566-32a5fce8a2de" name="Id" type="element" specialization="Attribute" />
+              <target id="21cdffa0-70f5-4a71-8e25-c51d99c183b9" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" name="base" type="association" specialization="Generalization Target End" specializationId="4686cc1d-b4d8-4b99-b45b-f77bd5496946" />
+              <target id="38e61981-b663-4efb-b566-32a5fce8a2de" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
                 <path>
-                  <target id="4750a6d7-a51c-41cf-b818-c3a72dabbd07" name="ChangeNameCommand" type="element" specialization="Command" />
-                  <target id="a900a1de-f392-448a-8587-843d93cf81fb" name="Id" type="element" specialization="DTO-Field" />
+                  <target id="4750a6d7-a51c-41cf-b818-c3a72dabbd07" name="ChangeNameCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="a900a1de-f392-448a-8587-843d93cf81fb" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -61,20 +61,20 @@
         </mappedEnds>
       </mapping>
       <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
-        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4750a6d7-a51c-41cf-b818-c3a72dabbd07" location="[CleanArchitecture.TestApplication].[Services].[ChangeNameCommand]" />
-        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="21cdffa0-70f5-4a71-8e25-c51d99c183b9" location="[CleanArchitecture.TestApplication].[Services].[Customer]" />
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4750a6d7-a51c-41cf-b818-c3a72dabbd07" location="[CleanArchitecture.Comprehensive].[Services].[ChangeNameCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="21cdffa0-70f5-4a71-8e25-c51d99c183b9" location="[CleanArchitecture.Comprehensive].[Services].[Customer]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{ChangeNameCommand}</expression>
             <path>
-              <target id="21cdffa0-70f5-4a71-8e25-c51d99c183b9" name="Customer" type="element" specialization="Class" />
-              <target id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" name="base" type="association" specialization="Generalization Target End" />
-              <target id="91502ad2-b30a-4e70-96d9-50a54760ffc4" name="ChangeName" type="element" specialization="Operation" />
+              <target id="21cdffa0-70f5-4a71-8e25-c51d99c183b9" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" name="base" type="association" specialization="Generalization Target End" specializationId="4686cc1d-b4d8-4b99-b45b-f77bd5496946" />
+              <target id="91502ad2-b30a-4e70-96d9-50a54760ffc4" name="ChangeName" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
             </path>
             <sources>
               <source identifier="ChangeNameCommand" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
                 <path>
-                  <target id="4750a6d7-a51c-41cf-b818-c3a72dabbd07" name="ChangeNameCommand" type="element" specialization="Command" />
+                  <target id="4750a6d7-a51c-41cf-b818-c3a72dabbd07" name="ChangeNameCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                 </path>
               </source>
             </sources>
@@ -82,16 +82,16 @@
           <mappedEnd>
             <expression>{Name}</expression>
             <path>
-              <target id="21cdffa0-70f5-4a71-8e25-c51d99c183b9" name="Customer" type="element" specialization="Class" />
-              <target id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" name="base" type="association" specialization="Generalization Target End" />
-              <target id="91502ad2-b30a-4e70-96d9-50a54760ffc4" name="ChangeName" type="element" specialization="Operation" />
-              <target id="9e69a9da-95e3-4757-bb5a-f6829d968895" name="name" type="element" specialization="Parameter" />
+              <target id="21cdffa0-70f5-4a71-8e25-c51d99c183b9" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" name="base" type="association" specialization="Generalization Target End" specializationId="4686cc1d-b4d8-4b99-b45b-f77bd5496946" />
+              <target id="91502ad2-b30a-4e70-96d9-50a54760ffc4" name="ChangeName" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="9e69a9da-95e3-4757-bb5a-f6829d968895" name="name" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
             </path>
             <sources>
               <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
                 <path>
-                  <target id="4750a6d7-a51c-41cf-b818-c3a72dabbd07" name="ChangeNameCommand" type="element" specialization="Command" />
-                  <target id="663445a0-5fc3-4036-b724-ab37e7ebbe89" name="Name" type="element" specialization="DTO-Field" />
+                  <target id="4750a6d7-a51c-41cf-b818-c3a72dabbd07" name="ChangeNameCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="663445a0-5fc3-4036-b724-ab37e7ebbe89" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -99,16 +99,16 @@
           <mappedEnd>
             <expression>{Surname}</expression>
             <path>
-              <target id="21cdffa0-70f5-4a71-8e25-c51d99c183b9" name="Customer" type="element" specialization="Class" />
-              <target id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" name="base" type="association" specialization="Generalization Target End" />
-              <target id="91502ad2-b30a-4e70-96d9-50a54760ffc4" name="ChangeName" type="element" specialization="Operation" />
-              <target id="0879fc77-5600-4c64-a1e3-6502f26f7bfb" name="surname" type="element" specialization="Parameter" />
+              <target id="21cdffa0-70f5-4a71-8e25-c51d99c183b9" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d465e750-c9e8-48fa-9885-0c9a88ffcc11" name="base" type="association" specialization="Generalization Target End" specializationId="4686cc1d-b4d8-4b99-b45b-f77bd5496946" />
+              <target id="91502ad2-b30a-4e70-96d9-50a54760ffc4" name="ChangeName" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="0879fc77-5600-4c64-a1e3-6502f26f7bfb" name="surname" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
             </path>
             <sources>
               <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
                 <path>
-                  <target id="4750a6d7-a51c-41cf-b818-c3a72dabbd07" name="ChangeNameCommand" type="element" specialization="Command" />
-                  <target id="c3389722-dd8f-4558-aa4d-5f9334643c3d" name="Surname" type="element" specialization="DTO-Field" />
+                  <target id="4750a6d7-a51c-41cf-b818-c3a72dabbd07" name="ChangeNameCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="c3389722-dd8f-4558-aa4d-5f9334643c3d" name="Surname" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

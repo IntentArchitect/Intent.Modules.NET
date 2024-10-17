@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8d15313d-2de1-48cc-b2ac-3393d3b95470" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetStocksQuery</name>
+  <display>GetStocksQuery: StockDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="a9bdca8a-ff3b-4b9c-b799-a5fae0cba4b9">
+    <typeId>aad12ece-318a-4f06-b626-43f4f3db71cd</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+    <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>fb982c53-0f9c-4112-be4b-e23ebb0d14dc</parentFolderId>
+  <packageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.Tests.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="Stocks" />
+  </metadata>
+  <childElements />
+</class>

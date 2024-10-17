@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="af3116b4-4d8d-4dd1-89e1-f423eab94230">
+  <sourceEnd id="c6dc884d-8e8b-4f75-817e-629fe0eb37c6" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Stocks.DeleteStockCommand</display>
+    <order>0</order>
+    <typeReference id="554be046-9ba1-4c43-991c-b8cb76d3f13e">
+      <typeId>c09fd582-0249-4060-81fa-8ec459cf064b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+      <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="af3116b4-4d8d-4dd1-89e1-f423eab94230" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>stock</name>
+    <display>[delete] stock: Stock</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="80e9c3ec-cb92-4c6c-a864-ab4233ae2aea">
+      <typeId>324d1cb5-f694-48bb-b758-494d14ba3b6b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c09fd582-0249-4060-81fa-8ec459cf064b" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[DeleteStockCommand]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="324d1cb5-f694-48bb-b758-494d14ba3b6b" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[Stock]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Data.base.Id}</expression>
+            <path>
+              <target id="324d1cb5-f694-48bb-b758-494d14ba3b6b" name="Stock" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="32891a35-467f-47b0-b4a3-8112dee0c6d3" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Data.base.Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="c09fd582-0249-4060-81fa-8ec459cf064b" name="DeleteStockCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="014240e0-9e4a-40b9-9f33-6379fe59beb7" name="Data" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="3ee9aea4-23db-46af-8969-8f38a9449fd9" name="base" type="association" specialization="Generalization Target End" specializationId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db" />
+                  <target id="7e058cc6-66dc-4eb8-a3a4-55351fae25ec" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

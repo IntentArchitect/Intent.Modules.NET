@@ -1260,6 +1260,166 @@
     </FileLog>
     <FileLog>
       <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#4a04c139-1d24-42dc-8c3e-21f946cb2ae4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/BaseStockDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/BaseStockDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#37482929-91e3-431b-9fcb-25f10884acd5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/CreateStock/CreateStockCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/CreateStock/CreateStockCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#37482929-91e3-431b-9fcb-25f10884acd5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/CreateStock/CreateStockCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/CreateStock/CreateStockCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#37482929-91e3-431b-9fcb-25f10884acd5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/CreateStock/CreateStockCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/CreateStock/CreateStockCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#c09fd582-0249-4060-81fa-8ec459cf064b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/DeleteStock/DeleteStockCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/DeleteStock/DeleteStockCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#c09fd582-0249-4060-81fa-8ec459cf064b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/DeleteStock/DeleteStockCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/DeleteStock/DeleteStockCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#c09fd582-0249-4060-81fa-8ec459cf064b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/DeleteStock/DeleteStockCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/DeleteStock/DeleteStockCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#9ba774f1-ae2b-4326-86a5-77511026b361</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/GetStockById/GetStockByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/GetStockById/GetStockByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#9ba774f1-ae2b-4326-86a5-77511026b361</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/GetStockById/GetStockByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/GetStockById/GetStockByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#9ba774f1-ae2b-4326-86a5-77511026b361</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/GetStockById/GetStockByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/GetStockById/GetStockByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#8d15313d-2de1-48cc-b2ac-3393d3b95470</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/GetStocks/GetStocksQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/GetStocks/GetStocksQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#8d15313d-2de1-48cc-b2ac-3393d3b95470</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/GetStocks/GetStocksQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/GetStocks/GetStocksQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#8d15313d-2de1-48cc-b2ac-3393d3b95470</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/GetStocks/GetStocksQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/GetStocks/GetStocksQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#aad12ece-318a-4f06-b626-43f4f3db71cd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/StockDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/StockDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#aad12ece-318a-4f06-b626-43f4f3db71cd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/StockDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/StockDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#aad12ece-318a-4f06-b626-43f4f3db71cd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/StockDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/StockDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#9f02aea1-5b6d-46cd-9a6d-83916b208dba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/TimeDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/TimeDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#a1d2d7d4-d0ef-4095-8269-23296e148e24</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/UpdateStockLevelStock/UpdateStockLevelStockCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/UpdateStockLevelStock/UpdateStockLevelStockCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#a1d2d7d4-d0ef-4095-8269-23296e148e24</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/UpdateStockLevelStock/UpdateStockLevelStockCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/UpdateStockLevelStock/UpdateStockLevelStockCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#a1d2d7d4-d0ef-4095-8269-23296e148e24</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/UpdateStockLevelStock/UpdateStockLevelStockCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/UpdateStockLevelStock/UpdateStockLevelStockCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#cd240b13-705d-4d06-97fa-cde43537c187</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Supers/CreateSuper/CreateSuperCommand.cs</ApplicationRelativeFilePath>
@@ -1916,6 +2076,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#324d1cb5-f694-48bb-b758-494d14ba3b6b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/Stock.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stock.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#324d1cb5-f694-48bb-b758-494d14ba3b6b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/StockState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#cd227784-c6ba-4371-8113-7eb05b57c786</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/Super.cs</ApplicationRelativeFilePath>
@@ -2032,6 +2208,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a6e6fdff-adb1-4a21-9332-79bc29ca5721</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#324d1cb5-f694-48bb-b758-494d14ba3b6b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Repositories/IStockRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IStockRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2180,6 +2364,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>87c58aa5-33e0-4bd7-93c9-3fcab4113c71</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#324d1cb5-f694-48bb-b758-494d14ba3b6b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructure/Persistence/Configurations/StockConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>87c58aa5-33e0-4bd7-93c9-3fcab4113c71</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#cd227784-c6ba-4371-8113-7eb05b57c786</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructure/Persistence/Configurations/SuperConfiguration.cs</ApplicationRelativeFilePath>
@@ -2256,6 +2448,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>954e4849-a772-450e-a281-149b59ac1c8a</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#324d1cb5-f694-48bb-b758-494d14ba3b6b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructure/Repositories/StockRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

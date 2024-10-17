@@ -65,6 +65,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>OrderItem.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\StockState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Stock.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>
