@@ -28,20 +28,5 @@ namespace Ardalis.Infrastructure.Repositories
         {
             return await GetByIdAsync(id: id, cancellationToken: cancellationToken);
         }
-
-        [IntentManaged(Mode.Fully)]
-        public async Task<List<Client>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
-        {
-            return await ListAsync(specification: new FindByIdsSpecification(ids), cancellationToken: cancellationToken);
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private sealed class FindByIdsSpecification : Specification<Client>
-        {
-            public FindByIdsSpecification(Guid[] ids)
-            {
-                Query.Where(p => ids.Contains(p.Id));
-            }
-        }
     }
 }

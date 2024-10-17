@@ -50,22 +50,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>993b27f8-e854-4a3a-8f9c-3540666c3ed8</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#72e4c495-1224-491e-b1fe-35dfe364c52e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ReadRepositoryInterface/ReadRepositoryInterfaceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ReadRepositoryInterface/ReadRepositoryInterfaceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>993b27f8-e854-4a3a-8f9c-3540666c3ed8</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#72e4c495-1224-491e-b1fe-35dfe364c52e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ReadRepositoryInterface/ReadRepositoryInterfaceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ReadRepositoryInterface/ReadRepositoryInterfaceTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>993b27f8-e854-4a3a-8f9c-3540666c3ed8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#72e4c495-1224-491e-b1fe-35dfe364c52e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ReadRepositoryInterface/ReadRepositoryInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>

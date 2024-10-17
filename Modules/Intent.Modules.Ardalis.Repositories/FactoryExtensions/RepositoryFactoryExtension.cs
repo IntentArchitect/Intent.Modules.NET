@@ -1,8 +1,8 @@
 using System;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Threading;
+using System.Threading.Tasks;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Ardalis.Repositories.Templates;
@@ -18,9 +18,9 @@ using Intent.Modules.EntityFrameworkCore.Repositories.Templates;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.RepositoryBase;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Modules.Modelers.Domain.Settings;
 using static Intent.Modules.Constants.TemplateRoles.Repository;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -77,11 +77,11 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     @interface.AddMethod("void", "Remove", method => { method.AddParameter("TDomain", "entity"); });
 
                     @interface.AddMethod($"Task<List<TDomain>>", "FindAllAsync", method => { method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default")); });
-                    @interface.AddMethod($"Task<{PagedListInterfaceName(template)}<TDomain>>", "FindAllAsync", method => 
+                    @interface.AddMethod($"Task<{PagedListInterfaceName(template)}<TDomain>>", "FindAllAsync", method =>
                     {
                         method.AddParameter("int", "pageNo");
                         method.AddParameter("int", "pageSize");
-                        method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default")); 
+                        method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     });
                     @interface.AddMethod($"Task<{PagedListInterfaceName(template)}<TDomain>>", "FindAllAsync", method =>
                     {
@@ -346,35 +346,6 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                             method.AddParameter(GetSurrogateKey(template), "id")
                                 .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                             method.AddStatement($"return await GetByIdAsync(id: id, cancellationToken: cancellationToken);");
-                        });
-                        @class.AddMethod($"Task<List<{GetEntityInterfaceName(template)}>>", "FindByIdsAsync", method =>
-                        {
-                            method.AddAttribute(CSharpIntentManagedAttribute.Fully());
-                            method.Async();
-                            method.AddParameter($"{GetSurrogateKey(template)}[]", "ids")
-                                .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                            if (GetEntityStateName(template) == GetEntityInterfaceName(template))
-                            {
-                                method.AddStatement($"return await ListAsync(specification: new FindByIdsSpecification(ids), cancellationToken: cancellationToken);");
-                            }
-                            else
-                            {
-                                method.AddStatement(
-                                    $"return (await ListAsync(specification: new FindByIdsSpecification(ids), cancellationToken: cancellationToken)).Cast<{GetEntityInterfaceName(template)}>().ToList();");
-                            }
-                        });
-
-                        @class.AddNestedClass("FindByIdsSpecification", nested =>
-                        {
-                            nested.AddAttribute(CSharpIntentManagedAttribute.Fully());
-                            nested.Private();
-                            nested.Sealed();
-                            nested.ExtendsClass($"Specification<{GetEntityStateName(template)}>");
-                            nested.AddConstructor(ctor =>
-                            {
-                                ctor.AddParameter($"{GetSurrogateKey(template)}[]", "ids");
-                                ctor.AddStatement("Query.Where(p => ids.Contains(p.Id));");
-                            });
                         });
                     }
                 });
