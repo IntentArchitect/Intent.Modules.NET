@@ -1,3 +1,7 @@
+### Version 1.2.5
+
+- Fixed: NuGut packages added for lower version of .Net Framwoek..
+
 ### Version 1.2.4
 
 - Improvement: Added setting to allow enum values to be serialized to a Document as string.
