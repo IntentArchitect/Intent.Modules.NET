@@ -27,8 +27,21 @@ namespace Intent.Modules.CosmosDB
             NugetRegistry.Register(IEvangelistAzureCosmosRepositoryPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.1.7"),
-                        ( >= 7, 0) => new PackageVersion("8.1.7"),
+                        ( >= 8, 0) => new PackageVersion("8.1.7")
+                            .WithNugetDependency("Microsoft.Azure.Cosmos", "3.38.0")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "8.0.0"),
+                        ( >= 7, 0) => new PackageVersion("8.1.7")
+                            .WithNugetDependency("Microsoft.Azure.Cosmos", "3.38.0")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "8.0.0"),
+                        ( >= 2, 0) => new PackageVersion("8.1.7")
+                            .WithNugetDependency("Microsoft.Azure.Cosmos", "3.38.0")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IEvangelistAzureCosmosRepositoryPackageName}'"),
                     }
                 );
