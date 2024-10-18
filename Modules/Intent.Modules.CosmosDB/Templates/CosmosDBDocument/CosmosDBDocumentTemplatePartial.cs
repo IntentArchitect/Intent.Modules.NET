@@ -258,7 +258,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                         property.AddAttribute($"{UseType("Newtonsoft.Json.JsonProperty")}(\"{targetEnd.GetFieldSetting().Name()}\")");
                     }
                     else
-                        // Add "Id" property with JsonProperty attribute if not the PK
+                    // Add "Id" property with JsonProperty attribute if not the PK
                     {
                         if (string.Equals(entityProperty.Name, "Id", StringComparison.OrdinalIgnoreCase) && metadataModel.Id != pk.IdAttribute.Id)
                         {
@@ -276,19 +276,19 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     {
                         return;
                     }
-                    
+
                     if (classAttribute2.TypeReference?.Element?.IsEnumModel() == true &&
                         ExecutionContext.Settings.GetCosmosDb().StoreEnumsAsStrings())
                     {
                         property.AddAttribute($"{UseType("Newtonsoft.Json.JsonConverter")}(typeof({this.GetEnumJsonConverterName()}))");
                     }
-                    
+
                     if (classAttribute2.TypeReference?.Element?.SpecializationType == "Value Object")
                     {
                         AddDocumentInterfaceAccessor(@class, classAttribute2.TypeReference, entityProperty.Name);
                     }
                 });
-                
+
                 if (metadataModel is AssociationTargetEndModel targetEndModel)
                 {
                     AddDocumentInterfaceAccessor(@class, targetEndModel.TypeReference, entityProperty.Name);
@@ -332,7 +332,8 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
 
         public ICSharpFileBuilderTemplate EntityStateFileBuilder => GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, Model);
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
