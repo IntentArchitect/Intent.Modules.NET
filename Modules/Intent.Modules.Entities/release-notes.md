@@ -3,7 +3,8 @@
 - Improvement: General code clean up to remove several code warnings.
 - Improvement: Relaxed some implementations from `ICollection` to `IEnumerable` to make them more accessible (`CompareCollections` and `CreateOrUpdateCollection`).
 - Fixed: Values on associations would not be generated on entities.
-- Improvement: Generated code is more aligned with best practices
+- Improvement: Generated Exception code more aligned with best practices
+- Improvement: Domain entity collection initialization will use the simplified syntax when applicable 
 
 ### Version 5.1.4
 

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Diagnostics.SymbolStore;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -5,6 +7,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Entities.Templates.CollectionWrapper;
@@ -99,7 +102,7 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
                 @class.AddField(AsListType(), fieldName, field =>
                 {
                     field.AddMetadata("model", model);
-                    field.WithAssignment($"new {AsListType()}()");
+                    field.WithInstantiation(typeReference);
                 });
 
                 property.Getter
@@ -135,7 +138,7 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
             }
             else if (typeReference.IsCollection)
             {
-                property.WithInitialValue($"new {AsListType()}()");
+                property.WithInstantiation(typeReference);
             }
 
             return;
