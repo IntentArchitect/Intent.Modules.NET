@@ -22,7 +22,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
+    #line 1 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class AuthorizationBehaviourTemplate : CSharpTemplateBase<object>
     {
@@ -36,14 +36,14 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
                     "g System.Threading;\r\nusing System.Threading.Tasks;\r\n\r\n[assembly: DefaultIntentMa" +
                     "naged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
+            #line 19 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
+            #line 21 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -51,21 +51,21 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
             this.Write("<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>\r\n        where TRe" +
                     "quest : notnull\r\n    {\r\n        private readonly ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
+            #line 24 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceInterface()));
             
             #line default
             #line hidden
             this.Write(" _currentUserService;\r\n\r\n        public ");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
+            #line 26 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("(\r\n            ");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
+            #line 27 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceInterface()));
             
             #line default
@@ -79,12 +79,12 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
         {
             var authorizeAttributes = request.GetType().GetCustomAttributes<");
             
-            #line 34 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
+            #line 34 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetAuthorizationAttribute()));
             
             #line default
             #line hidden
-            this.Write(@">();
+            this.Write(@">().ToList();
 
             if (authorizeAttributes.Any())
             {
@@ -95,7 +95,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
                 }
 
                 // Role-based authorization
-                var authorizeAttributesWithRoles = authorizeAttributes.Where(a => !string.IsNullOrWhiteSpace(a.Roles));
+                var authorizeAttributesWithRoles = authorizeAttributes.Where(a => !string.IsNullOrWhiteSpace(a.Roles)).ToList();
 
                 if (authorizeAttributesWithRoles.Any())
                 {
@@ -117,7 +117,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
                         {
                             throw new ");
             
-            #line 65 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
+            #line 65 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetForbiddenAccessException()));
             
             #line default
@@ -128,7 +128,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
                 }
 
                 // Policy-based authorization
-                var authorizeAttributesWithPolicies = authorizeAttributes.Where(a => !string.IsNullOrWhiteSpace(a.Policy));
+                var authorizeAttributesWithPolicies = authorizeAttributes.Where(a => !string.IsNullOrWhiteSpace(a.Policy)).ToList();
                 if (authorizeAttributesWithPolicies.Any())
                 {
                     foreach(var policy in authorizeAttributesWithPolicies.Select(a => a.Policy))
@@ -139,7 +139,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
                         {
                             throw new ");
             
-            #line 80 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
+            #line 80 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetForbiddenAccessException()));
             
             #line default
