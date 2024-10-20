@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Templates\DomainEventBase\DomainEventBaseTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DomainEventBaseTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\HasDomainEventInterface\HasDomainEventInterfaceTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>HasDomainEventInterfaceTemplate.cs</LastGenOutput>
@@ -16,11 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\DomainEventBase\DomainEventBaseTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DomainEventBaseTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\HasDomainEventInterface\HasDomainEventInterfaceTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

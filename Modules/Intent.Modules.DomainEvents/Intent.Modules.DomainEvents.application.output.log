@@ -58,22 +58,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#4668477c-4627-465d-8a21-d68540ce00db</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DomainEventBase/DomainEventBaseTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEventBase/DomainEventBaseTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#4668477c-4627-465d-8a21-d68540ce00db</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DomainEventBase/DomainEventBaseTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEventBase/DomainEventBaseTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e7443c0f-c869-4cc9-bfd3-020abdfd4a7a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4668477c-4627-465d-8a21-d68540ce00db</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEventBase/DomainEventBaseTemplatePartial.cs</ApplicationRelativeFilePath>

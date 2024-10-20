@@ -33,6 +33,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d85e8472-a55c-4be0-a725-249fa0febfb0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#5682f77b-4c36-4c97-8e60-e361d94831b8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/SolutionPatcherExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SolutionPatcherExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f58bc8f7-8269-4609-b775-22808575fd1a</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#f58bc8f7-8269-4609-b775-22808575fd1a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

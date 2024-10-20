@@ -20,7 +20,7 @@ namespace Intent.Modules.DomainEvents.Templates.DomainEventServiceInterface
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.DomainEvents.DomainEventServiceInterface";
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DomainEventServiceInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())

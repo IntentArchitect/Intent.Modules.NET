@@ -1,3 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+using System.Linq;
+using System.Reflection.Metadata;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modelers.Domain.Events.Api;
 using Intent.Modules.Common;
@@ -8,12 +14,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Threading;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -71,7 +71,7 @@ namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions
                             method.Parameters[0].WithType($"{sharedKernel.ApplicationName}.Application.Common.Models.{method.Parameters[0].Type}");
                         }
 
-                    }, 10000).AfterBuild(file => 
+                    }, 10000).AfterBuild(file =>
                     {
                         if (model.HandledDomainEvents().Count == fixes.Count)
                         {
@@ -95,7 +95,7 @@ namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions
             {
                 var @class = file.Classes.First();
                 @class.ImplementsInterface($"{sharedKernel.ApplicationName}.Application.Common.Interfaces.IDomainEventService");
-                @class.AddMethod("Task", "Publish", method => 
+                @class.AddMethod("Task", "Publish", method =>
                 {
                     method
                         .Async()

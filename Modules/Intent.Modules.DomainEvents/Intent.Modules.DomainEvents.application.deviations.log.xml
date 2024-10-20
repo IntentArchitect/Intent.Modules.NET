@@ -33,12 +33,9 @@
       <count>3</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T13:47:32.4045536Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:19:08.6056373Z</approvedAt>
-      <deviationsHash>F82C2E8705084F57B44D744F3381A648178FFFFA2C2D6D509BE153E080381DC2</deviationsHash>
-      <fileHash>13E6D6FED0B27741A88412747F6534A4019380AA6F5586FAA8A03EAA6BFA6F8D</fileHash>
+      <updatedAt>2024-10-20T12:44:31.9222094Z</updatedAt>
+      <deviationsHash>60E89C4FC51B16B2E86411529628141D560A8B3B3DF29FE2A431A30D7C178494</deviationsHash>
+      <fileHash>26E15A6EB0EFA50EBBE18AACB92A1C58724FA289D1B7C8FAA481B8DE8AE1C558</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#4668477c-4627-465d-8a21-d68540ce00db</correlationId>
@@ -56,12 +53,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#13c96091-dafd-4ae7-ba4d-b31396b19956</correlationId>
       <path>Intent.Modules.DomainEvents/Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplatePartial.cs</path>
-      <count>4</count>
+      <count>3</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-10-20T10:15:15.5318902Z</updatedAt>
-      <deviationsHash>7F61F8F05CCE157EB64DBA08BD1A106ED9ABF39B6BC4EB84D04BCC6D1EAF7AD2</deviationsHash>
-      <fileHash>3D3EDC10F21916273DF2F0CE798412C89D6B62126D1716B34F4271C89882A34F</fileHash>
+      <updatedAt>2024-10-20T12:44:31.9222189Z</updatedAt>
+      <deviationsHash>D8CB1C0DAE263EA642DEA72325126784FCBCC2B15E00B455F60C88452F5F2E89</deviationsHash>
+      <fileHash>65EADC8DF35264BA00ABB98632FD468D1EF9F8FC3CF10100274E6FC06D969CFF</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#13c96091-dafd-4ae7-ba4d-b31396b19956</correlationId>

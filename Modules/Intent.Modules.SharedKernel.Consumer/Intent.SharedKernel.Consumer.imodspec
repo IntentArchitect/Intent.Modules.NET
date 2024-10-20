@@ -13,6 +13,7 @@
     <factoryExtension id="Intent.SharedKernel.Consumer.DbContextExtension" externalReference="0a2b290f-cd45-4586-92e7-e7b9cfe7a046" />
     <factoryExtension id="Intent.SharedKernel.Consumer.DependencyInjectionExtension" externalReference="9a7f3599-4cd6-47b5-81f1-e44a54e79cd0" />
     <factoryExtension id="Intent.SharedKernel.Consumer.DomainServiceExtension" externalReference="b5c1ed19-60d2-4174-b987-e307345ce03e" />
+    <factoryExtension id="Intent.SharedKernel.Consumer.SolutionPatcherExtension" externalReference="5682f77b-4c36-4c97-8e60-e361d94831b8" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
