@@ -69,9 +69,9 @@ public class ApplicationSecurityConfigurationFactoryExtension : FactoryExtension
                 .Private().Static()
                 .AddAttribute(CSharpIntentManagedAttribute.Ignore())
                 .AddParameter("AuthorizationOptions", "options")
-                .AddStatement("//Configure policies and other authorization options here. For example:")
-                .AddStatement("//options.AddPolicy(\"EmployeeOnly\", policy => policy.RequireClaim(\"role\", \"employee\"));")
-                .AddStatement("//options.AddPolicy(\"AdminOnly\", policy => policy.RequireClaim(\"role\", \"admin\"));"));
+                .AddStatement("// Configure policies and other authorization options here. For example:")
+                .AddStatement("// options.AddPolicy(\"EmployeeOnly\", policy => policy.RequireClaim(\"role\", \"employee\"));")
+                .AddStatement("// options.AddPolicy(\"AdminOnly\", policy => policy.RequireClaim(\"role\", \"admin\"));"));
         }, 1);
 
     }
