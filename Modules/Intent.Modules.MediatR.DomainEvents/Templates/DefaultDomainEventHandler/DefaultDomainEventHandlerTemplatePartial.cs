@@ -34,6 +34,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DefaultDomainEventHandle
                 .AddUsing("System.Threading.Tasks")
                 .AddClass($"{Model.Name}Handler", @class =>
                 {
+                    @class.AddMetadata("model", model);
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
                     @class.ImplementsInterface($"INotificationHandler<{GetDomainEventNotificationType()}<{GetDomainEventType()}>>");
                     @class.AddConstructor(ctor =>

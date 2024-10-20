@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0a2b290f-cd45-4586-92e7-e7b9cfe7a046" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DbContextExtension</name>
+  <display>DbContextExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>da066c7b-0de5-4488-8473-71d21921b68c</parentFolderId>
+  <packageId>da066c7b-0de5-4488-8473-71d21921b68c</packageId>
+  <packageName>Intent.SharedKernel.Consumer</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

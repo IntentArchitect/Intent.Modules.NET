@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -12,10 +12,6 @@
     <None Update="Templates\DomainEventHandler\DomainEventHandlerTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DomainEventHandlerTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\DomainEventService\DomainEventServiceTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DomainEventServiceTemplate.cs</LastGenOutput>
     </None>
     <None Update="Templates\DomainEventNotification\DomainEventNotificationTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -37,11 +33,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>DomainEventTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\DomainEventService\DomainEventServiceTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DomainEventServiceTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\DomainEventNotification\DomainEventNotificationTemplate.cs">
       <DesignTime>True</DesignTime>

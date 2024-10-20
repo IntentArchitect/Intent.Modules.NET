@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -13,10 +13,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>HasDomainEventInterfaceTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\DomainEventServiceInterface\DomainEventServiceInterfaceTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DomainEventServiceInterfaceTemplate.cs</LastGenOutput>
-    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -29,11 +25,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>HasDomainEventInterfaceTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\DomainEventServiceInterface\DomainEventServiceInterfaceTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DomainEventServiceInterfaceTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

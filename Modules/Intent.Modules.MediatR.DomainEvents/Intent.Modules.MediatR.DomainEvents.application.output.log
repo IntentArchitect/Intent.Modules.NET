@@ -130,22 +130,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#c5749322-7ef9-4947-95dd-9a9c01131077</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DomainEventService/DomainEventServiceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEventService/DomainEventServiceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#c5749322-7ef9-4947-95dd-9a9c01131077</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/DomainEventService/DomainEventServiceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DomainEventService/DomainEventServiceTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c390dd37-51fd-4002-88d2-9e4afcada55e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c5749322-7ef9-4947-95dd-9a9c01131077</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DomainEventService/DomainEventServiceTemplatePartial.cs</ApplicationRelativeFilePath>

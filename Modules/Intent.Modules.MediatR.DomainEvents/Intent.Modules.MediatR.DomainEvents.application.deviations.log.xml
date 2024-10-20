@@ -12,7 +12,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:25:22.4586444Z</approvedAt>
       <deviationsHash>2C253C394F0CE7FA2CF4F368CDB1E01895F9EFA2FC0FD827269D8E5B1BFDCDA7</deviationsHash>
-      <fileHash>B974E55C2169DB36546336C1B02515ECF8D716E2329B13E5E9FF0BE2C5C14E54</fileHash>
+      <fileHash>65716045DA3112781630B9C8CDD66B9D7F660C0A2D7A08774C4A3879E239C97A</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#34c20673-1032-4d98-baf2-a9d925038db3</correlationId>
@@ -43,15 +43,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c5749322-7ef9-4947-95dd-9a9c01131077</correlationId>
       <path>Intent.Modules.MediatR.DomainEvents/Templates/DomainEventService/DomainEventServiceTemplatePartial.cs</path>
-      <count>3</count>
+      <count>4</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T10:11:57.6145451Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:25:22.4645097Z</approvedAt>
-      <deviationsHash>23CDFC200F35FF9F3023F25D5D0678B3C2A2EF392E2F0D90D4DCA6A94097FF69</deviationsHash>
-      <fileHash>DF9DC615CCF4DFDB9F2B40FE8DEA02A7AF1A1AF75BA3240CEFD91237B3E29C95</fileHash>
+      <updatedAt>2024-10-20T10:19:53.7717198Z</updatedAt>
+      <deviationsHash>3FE476E07216EC020144A27B7212C1C09ED96F80D3571BD0EE2B55E95A61D273</deviationsHash>
+      <fileHash>262A31DDB82ABE3DF328047EE6A6606A7B878A64572A2BD28EAF7F9C92882301</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>

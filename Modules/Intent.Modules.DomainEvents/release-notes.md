@@ -1,3 +1,7 @@
+### Version 5.0.5
+
+- Improvement: Updated `DomainEventServiceInterfaceTemplate` template to `CSharpFileBuilderTemplate`.
+
 ### Version 5.0.4
 
 - Improvement: Updated module NuGet packages infrastructure.

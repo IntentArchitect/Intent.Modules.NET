@@ -56,15 +56,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#13c96091-dafd-4ae7-ba4d-b31396b19956</correlationId>
       <path>Intent.Modules.DomainEvents/Templates/DomainEventServiceInterface/DomainEventServiceInterfaceTemplatePartial.cs</path>
-      <count>3</count>
+      <count>4</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T13:47:32.4045628Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:19:08.6087029Z</approvedAt>
-      <deviationsHash>F5FA6DA5CE43EDD660CD8F10C463AAA98DBBC721B71663EB761AFC3524D609E7</deviationsHash>
-      <fileHash>18963E215D64D4B0E8410C465617DE2BAB1D0379027916CA1FD10D4571E3F7EC</fileHash>
+      <updatedAt>2024-10-20T10:15:15.5318902Z</updatedAt>
+      <deviationsHash>7F61F8F05CCE157EB64DBA08BD1A106ED9ABF39B6BC4EB84D04BCC6D1EAF7AD2</deviationsHash>
+      <fileHash>3D3EDC10F21916273DF2F0CE798412C89D6B62126D1716B34F4271C89882A34F</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#13c96091-dafd-4ae7-ba4d-b31396b19956</correlationId>
