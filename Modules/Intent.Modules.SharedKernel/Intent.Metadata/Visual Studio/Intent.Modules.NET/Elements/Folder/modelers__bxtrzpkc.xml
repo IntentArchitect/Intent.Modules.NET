@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7efe259e-ad01-4ec8-961a-4fbfc416c8ec" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>modelers</name>
+  <display>modelers</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3325522a-1d23-4f85-a16d-c90830b86b5d</parentFolderId>
+  <packageId>9e309986-b3a3-4d3b-baee-83d8ad5d0ed4</packageId>
+  <packageName>Intent.Modules.NET</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="cb390efe-0c81-4941-a5b0-d8fc84f5e5db" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.DesignerConfig</name>
+      <display>Intent.ModuleBuilder.DesignerConfig</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7efe259e-ad01-4ec8-961a-4fbfc416c8ec</parentFolderId>
+      <packageId>9e309986-b3a3-4d3b-baee-83d8ad5d0ed4</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="438c0e71-375c-4a20-b176-75a72adff65c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.DesignerSettings</name>
+      <display>Intent.ModuleBuilder.DesignerSettings</display>
+      <externalReference>Intent.ModuleBuilder</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7efe259e-ad01-4ec8-961a-4fbfc416c8ec</parentFolderId>
+      <packageId>9e309986-b3a3-4d3b-baee-83d8ad5d0ed4</packageId>
+      <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

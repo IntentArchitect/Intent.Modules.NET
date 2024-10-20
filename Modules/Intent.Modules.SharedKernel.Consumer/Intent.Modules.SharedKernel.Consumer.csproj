@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="FactoryExtensions\LocalizableStrings.Designer.cs">
+    <Compile Update="FactoryExtensions\Sln\LocalizableStrings.Designer.cs">
       <DependentUpon>LocalizableStrings.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="FactoryExtensions\LocalizableStrings.resx">
+    <EmbeddedResource Update="FactoryExtensions\Sln\LocalizableStrings.resx">
       <SubType>Designer</SubType>
       <LastGenOutput>LocalizableStrings.Designer.cs</LastGenOutput>
       <Generator>ResXFileCodeGenerator</Generator>

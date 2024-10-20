@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions {
+namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions.Sln {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Intent.Modules.SharedKernel.Consumer.FactoryExtensions.LocalizableStrings", typeof(LocalizableStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Intent.Modules.SharedKernel.Consumer.FactoryExtensions.Sln.LocalizableStrings", typeof(LocalizableStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

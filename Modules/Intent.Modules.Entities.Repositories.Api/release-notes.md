@@ -1,3 +1,7 @@
+### Version 5.1.3
+
+- Fixed: template config issue for `EntityRepositoryInterface`.
+
 ### Version 5.1.2
 
 - Improvement: Updated module NuGet packages infrastructure.

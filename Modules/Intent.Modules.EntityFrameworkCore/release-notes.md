@@ -1,3 +1,7 @@
+### Version 5.0.13
+
+- Improvement: Udpated the `DbMigrationsReadMe` template so it respects `CanRun`.
+- 
 ### Version 5.0.12
 
 - Improvement: Generated check constraints in type configurations for enums now use inline expressions to make the generated code neater.

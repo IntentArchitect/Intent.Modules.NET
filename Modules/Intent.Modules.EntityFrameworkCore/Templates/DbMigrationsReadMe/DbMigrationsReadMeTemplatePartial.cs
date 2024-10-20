@@ -38,12 +38,13 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
         public string BoundedContextName => OutputTarget.ApplicationName();
         public string MigrationProject => OutputTarget.GetProject().Name;
         //Backwards compatible
-        public string StartupProject => ExecutionContext.OutputTargets.FirstOrDefault(x =>
+        public string StartupProject => ExecutionContext.OutputTargets.Where(x => x.Type != "Folder").FirstOrDefault(x =>
         {
             if (x.Type == VisualStudioProjectTypeIds.CoreWebApp)
             {
                 return true;
             }
+
             if (x.GetProject() is IHasStereotypes stereotypes && stereotypes.HasStereotype(".NET Settings"))
             {
                 var settings = stereotypes.GetStereotype(".NET Settings");
@@ -86,7 +87,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
 
         public override bool CanRunTemplate()
         {
-            return DbContextManager.GetDbContexts(this.ExecutionContext.GetApplicationConfig().Id, ExecutionContext.MetadataManager).Any();
+            return base.CanRunTemplate() && DbContextManager.GetDbContexts(this.ExecutionContext.GetApplicationConfig().Id, ExecutionContext.MetadataManager).Any();
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]

@@ -39,7 +39,8 @@ namespace Intent.Modules.SharedKernel.Consumer.MockTemplateRegistrations
 
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
-            return  base.GetModels(new ApplicationStub(_sharedKernel.ApplicationId));
+            var models = base.GetModels(new ApplicationStub(_sharedKernel.ApplicationId));
+            return models;
         }
     }
 }

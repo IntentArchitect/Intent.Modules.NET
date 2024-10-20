@@ -144,5 +144,6 @@
     <application id="a3a8db7f-a9d5-4f17-a5c4-c8a65ad56d80" name="Intent.Modules.Hangfire" relativePath="Intent.Modules.Hangfire/Intent.Modules.Hangfire.application.config" />
     <application id="69705fd3-4f0c-449e-9b70-50f1f7f5db97" name="Intent.Modules.Google.CloudStorage" relativePath="Intent.Modules.Google.CloudStorage/Intent.Modules.Google.CloudStorage.application.config" />
     <application id="086913ce-408d-4025-acc5-58b5d97678de" name="Intent.Modules.SharedKernel.Consumer" relativePath="Intent.Modules.SharedKernel.Consumer/Intent.Modules.SharedKernel.Consumer.application.config" />
+    <application id="d4ae9915-9432-4e8f-a9cc-c8fe21e0e68d" name="Intent.Modules.SharedKernel" relativePath="Intent.Modules.SharedKernel/Intent.Modules.SharedKernel.application.config" />
   </applications>
 </solution>

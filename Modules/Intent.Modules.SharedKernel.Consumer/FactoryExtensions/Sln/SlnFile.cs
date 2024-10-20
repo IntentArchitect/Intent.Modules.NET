@@ -38,8 +38,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Microsoft.DotNet.Cli.Sln.Internal.FileManipulation;
-using Microsoft.DotNet.Tools.Common;
-using Intent.Modules.SharedKernel.Consumer.FactoryExtensions;
+using Intent.Modules.SharedKernel.Consumer.FactoryExtensions.Sln;
 
 namespace Microsoft.DotNet.Cli.Sln.Internal
 {

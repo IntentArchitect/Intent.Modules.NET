@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
-  <id>Intent.SharedKernel.Consumer</id>
+  <id>Intent.SharedKernel</id>
   <version>1.0.0-beta.0</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
-  <summary>Shared Kernel Consumer pattern</summary>
-  <description>Shared Kernel Consumer pattern</description>
+  <summary>Shared Kernel pattern</summary>
+  <description>Shared Kernel pattern</description>
   <authors>Intent Architect</authors>
   <tags>csharp dotnet shared kernel</tags>
   <iconUrl>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAA2VJREFUaEPtWE1PE1EUPffNUC3yUWo0SAFNQHcC0V/gxg0rDbowuGliWGE00QBqlIiREpckLExgYWShMbjRrVuXJcaVX4mlVFRiC0gxZfqumcQq9GvmTbFTknbZue/NOffe9849Q9jlP9rl+FEl4HYFqxWoVqDEDFREC3U8WDpoGPIyE/eC+ajJSRK9I9BLjyYmP15v/laIp+sE2sej5wBMg6g+L0jmNQgEI0Otz/I9d5XAH/BPQFQcBzND4Hw+Eq4RMNtm0zA+FMx8VroZcnVT6p1LNw593/rINQKHx2P3mPimyhlmprGFkZbbFUGgLbQ4T0C3CgEJhKPDgROuEugcfL8nWZs8rTftnwNIVyEA5rXISGuDKwQCQ2+7JaeDDPQTyK83+S3PbjY58xwsDLc1lo3AkSth3y+PuEBMQRBObn2x3uAD6ZpSAcrTQqMsAsk3pyRTkMFniWhvPpTCWwvN61UiAOBuZDhwx3YFVBSy9ep8QNaIfoAvMajDChkJAa3RZ7uNGLSS1tEZu9aybIuAHYUUkAOpRPwnM10E4wwISodSeDzQ9tXD0pUwMwnR93moZS47MXl1wL5CAun1NchUyirh258zS0l4LZgeefwN65K0KYLYdrtkFpiZF4RgPvBmTA4BZYVkhpFIACwtSUjCIjEes8DDr6GuT5kFzfe/HKghHgTJXgKOmf8zYA5zLwydJrPbpmgLOVHI9MYG5EaywCzGv4joOUnMxOqOv8IoWTO1TMW/gJwKOFFIThswVla2vZaBsABmdIHZSKgrroBJKTSHQHsougZQncou5rBoxH+AGXGwnBU6ZmKhnrDKHk5jcwmMR1ftToh/D1pFEQgtmpnrUclIRbVQWyg2RuBbKgQq6hA7ukZXEoC0vlwKXaMqim9PyCaifZB4aqnzXLqQ1fgakxDa1I574vaJaB8zTxdTSI15IJVYTpZjlHDkiVUU8v8Pc+XyxDbHac1bC6E4TpfdExc1NOYorVWioSlw/2Zbyhq/P98sWfz2dtMTZ5BlTL3m888RCSX/UHZPXCyd7Q4Uvzye2KaEO1F8ZU9sE4ujMGXFV/XEjlApLjLF0p7iK3piRRwlhdtRfCVPXBIah4tVFN/WMOcQhyvLXPu8vlNsqwR2KpNO96lWwGnmdmrdrq/AbzQB9UB3QW6xAAAAAElFTkSuQmCC</iconUrl>
   <templates></templates>
   <decorators></decorators>
   <factoryExtensions>
-    <factoryExtension id="Intent.SharedKernel.Consumer.DbContextExtension" externalReference="0a2b290f-cd45-4586-92e7-e7b9cfe7a046" />
-    <factoryExtension id="Intent.SharedKernel.Consumer.DependencyInjectionExtension" externalReference="9a7f3599-4cd6-47b5-81f1-e44a54e79cd0" />
-    <factoryExtension id="Intent.SharedKernel.Consumer.DomainServiceExtension" externalReference="b5c1ed19-60d2-4174-b987-e307345ce03e" />
-    <factoryExtension id="Intent.SharedKernel.Consumer.SolutionPatcherExtension" externalReference="5682f77b-4c36-4c97-8e60-e361d94831b8" />
+    <factoryExtension id="Intent.SharedKernel.DbContextExtension" externalReference="e92ac334-4b1a-448e-92a2-32e42f97a1c6" />
+    <factoryExtension id="Intent.SharedKernel.DisableDefaultEventHandlersExtension" externalReference="e06a7c28-6951-4fea-8793-0e9c9b16543a" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Modelers.Domain" version="3.10.0" />
-    <dependency id="Intent.Modelers.Services" version="3.8.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

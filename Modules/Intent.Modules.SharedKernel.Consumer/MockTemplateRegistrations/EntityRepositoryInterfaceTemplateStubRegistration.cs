@@ -28,14 +28,18 @@ namespace Intent.Modules.SharedKernel.Consumer.MockTemplateRegistrations
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ClassModel model)
         {
             var result = base.CreateTemplateInstance(outputTarget, model) as ICSharpFileBuilderTemplate;
-            result.CanRun = false;
+            result.CSharpFile.AfterBuild(file =>
+            {
+                file.Template.CanRun = false;
+            }, 100);
             result.CSharpFile.WithNamespace(result.CSharpFile.Namespace.Replace(outputTarget.ApplicationName(), _sharedKernel.ApplicationName));
             return result;
         }
 
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
-            return base.GetModels(new ApplicationStub(_sharedKernel.ApplicationId));
+            var models =  base.GetModels(new ApplicationStub(_sharedKernel.ApplicationId));
+            return models;
         }
     }
 }

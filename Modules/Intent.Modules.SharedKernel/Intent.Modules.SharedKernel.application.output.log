@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>d4ae9915-9432-4e8f-a9cc-c8fe21e0e68d</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#9e309986-b3a3-4d3b-baee-83d8ad5d0ed4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>45be5fa3-b1f4-49d6-834c-dcaac872ba6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#e92ac334-4b1a-448e-92a2-32e42f97a1c6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/DbContextExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DbContextExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>45be5fa3-b1f4-49d6-834c-dcaac872ba6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#e06a7c28-6951-4fea-8793-0e9c9b16543a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/DisableDefaultEventHandlersExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DisableDefaultEventHandlersExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3325522a-1d23-4f85-a16d-c90830b86b5d</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#3325522a-1d23-4f85-a16d-c90830b86b5d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.SharedKernel.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.SharedKernel.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3325522a-1d23-4f85-a16d-c90830b86b5d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.SharedKernel.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.SharedKernel.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

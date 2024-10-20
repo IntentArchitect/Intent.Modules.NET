@@ -8,7 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 //using Microsoft.DotNet.Cli.Utils;
 
-namespace Microsoft.DotNet.Tools.Common
+namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions.Sln
 {
     internal static class PathUtility
     {
@@ -185,7 +185,7 @@ namespace Microsoft.DotNet.Tools.Common
                 }
                 // Handle scenarios where folder and file have same name (only if os supports same name for file and directory)
                 // e.g. /file/name /file/name/app
-                else if ((len1 == index && len2 > index + 1) || (len1 > index && len2 == index + 1))
+                else if (len1 == index && len2 > index + 1 || len1 > index && len2 == index + 1)
                 {
                     break;
                 }

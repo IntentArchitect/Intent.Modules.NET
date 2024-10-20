@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e06a7c28-6951-4fea-8793-0e9c9b16543a" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DisableDefaultEventHandlersExtension</name>
+  <display>DisableDefaultEventHandlersExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3cb13f27-e282-4d78-aee8-605c2f395991</parentFolderId>
+  <packageId>3cb13f27-e282-4d78-aee8-605c2f395991</packageId>
+  <packageName>Intent.SharedKernel</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
