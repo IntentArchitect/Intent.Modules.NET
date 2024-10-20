@@ -1,3 +1,7 @@
+### Version 5.1.3
+
+- Improvement: Fixed small reference error in XML documentation
+
 ### Version 5.1.2
 
 - Improvement: Updated module NuGet packages infrastructure.

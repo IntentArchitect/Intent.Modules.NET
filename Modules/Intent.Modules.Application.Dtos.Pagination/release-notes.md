@@ -1,6 +1,7 @@
 ### Version 4.0.14
 
 - Improvement: Added Extension method overload for MapToPagedResult where you are just dealing with Dtos. 
+- Improvement: Small updates to XML documentation of IPagedList extension methods
 
 ### Version 4.0.13
 
