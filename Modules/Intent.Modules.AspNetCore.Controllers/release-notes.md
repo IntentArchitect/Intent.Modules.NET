@@ -1,3 +1,7 @@
+### Version 6.1.2
+
+- Improvement: Small updates to the style of generated code to be cleaner and more readible
+
 ### Version 6.1.1
 
 - Fixed: `TypeSchemaFilterExtension` class moved from `Intent.AspNetCore.Controllers` to `Intent.AspNetCore.Swashbuckle` module where it belongs as other hosting infrastructure using Swashbuckle can also benefit from it.
