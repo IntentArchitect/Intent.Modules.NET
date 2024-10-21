@@ -103,7 +103,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         method.AddParameter($"ISpecification<TDomain>", "specification");
                         method.AddParameter("int", "pageNo");
                         method.AddParameter("int", "pageSize");
-                        method.AddParameter($"Func<IQueryable<TDomain>, IQueryable<TDomain>> ", "queryOptions");
+                        method.AddParameter($"Func<IQueryable<TDomain>, IQueryable<TDomain>>?", "queryOptions");
                         method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                     });
                     @interface.AddMethod($"Task<{PagedListInterfaceName(template)}<TDomain>>", "FindAllAsync", method =>
@@ -152,14 +152,14 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     {
                         method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                         method.AddParameter("TDomain", "entity");
-                        method.AddStatement("base.AddAsync(entity).Wait();");
+                        method.AddStatement("AddAsync(entity).Wait();");
                     });
 
                     @class.AddMethod("void", "Remove", method =>
                     {
                         method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                         method.AddParameter("TDomain", "entity");
-                        method.AddStatement("base.DeleteAsync(entity).Wait();");
+                        method.AddStatement("DeleteAsync(entity).Wait();");
                     });
 
                     @class.AddMethod(
@@ -170,7 +170,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                             method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                             method.Async();
                             method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                            method.AddStatement($"return (await ListAsync(cancellationToken)).Cast<TDomain>().ToList();");
+                            method.AddStatement($"return (await ListAsync(cancellationToken)).ToList();");
                         });
 
                     @class.AddMethod(
@@ -206,7 +206,6 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         method =>
                         {
                             method.AddAttribute(CSharpIntentManagedAttribute.Fully());
-                            method.Async();
                             method
                                 .AddParameter($"Expression<Func<TDomain, bool>>", "filterExpression")
                                 .AddParameter("int", "pageNo")
@@ -216,13 +215,37 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                             method.AddStatement($"IQueryable<TDomain> queryable = _dbContext.Set<TDomain>();")
                                 .AddStatement($"queryable = queryable.Where(filterExpression);")
                                 .AddStatement($"var result = linq(queryable);")
-                                .AddStatement(new CSharpInvocationStatement($"return await ToPagedListAsync<TDomain>")
+                                .AddStatement(new CSharpInvocationStatement($"return ToPagedListAsync")
                                     .AddArgument("result")
                                     .AddArgument("pageNo")
                                     .AddArgument("pageSize")
                                     .AddArgument("cancellationToken")
                                     .WithArgumentsOnNewLines());
                         });
+
+                    @class.AddMethod($"Task<{PagedListInterfaceName(template)}<TDomain>>", "FindAllAsync", method =>
+                    {
+                        method.AddParameter($"ISpecification<TDomain>", "specification");
+                        method.AddParameter($"int", "pageNo");
+                        method.AddParameter($"int", "pageSize");
+                        method.AddParameter($"Func<IQueryable<TDomain>, IQueryable<TDomain>>?", "queryOptions");
+                        method.AddParameter($"CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                        method.AddStatement("var queryable = ApplySpecification(specification);");
+                        method.AddStatement("queryable = queryOptions == null ? queryable : queryOptions(queryable);");
+                        method.AddStatement(@"return ToPagedListAsync(
+                            queryable,
+                            pageNo,
+                            pageSize,
+                            cancellationToken);");
+                    });
+                    @class.AddMethod($"Task<{PagedListInterfaceName(template)}<TDomain>>", "FindAllAsync", method =>
+                    {
+                        method.AddParameter($"ISpecification<TDomain>", "specification");
+                        method.AddParameter($"int", "pageNo");
+                        method.AddParameter($"int", "pageSize");
+                        method.AddParameter($"CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                        method.AddStatement("return FindAllAsync(specification, pageNo, pageSize, null, cancellationToken);");
+                    });
 
                     @class.AddMethod("Task<int>", "SaveChangesAsync", method =>
                     {
@@ -243,32 +266,6 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         method.AddStatement("return base.SaveChangesAsync(cancellationToken);");
                     });
 
-                    @class.AddMethod($"{PagedListInterfaceName(template)}<TDomain>", "FindAllAsync", method =>
-                    {
-                        method.Async();
-                        method.AddParameter($"ISpecification<TDomain>", "specification");
-                        method.AddParameter($"int", "pageNo");
-                        method.AddParameter($"int", "pageSize");
-                        method.AddParameter($"Func<IQueryable<TDomain>, IQueryable<TDomain>>", "queryOptions");
-                        method.AddParameter($"CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
-                        method.AddStatement("var queryable = ApplySpecification(specification);");
-                        method.AddStatement("queryable = queryOptions == null ? queryable : queryOptions(queryable);");
-                        method.AddStatement(@"return await ToPagedListAsync<TDomain>(
-                            queryable,
-                            pageNo,
-                            pageSize,
-                            cancellationToken);");
-                    });
-                    @class.AddMethod($"{PagedListInterfaceName(template)}<TDomain>", "FindAllAsync", method =>
-                    {
-                        method.Async();
-                        method.AddParameter($"ISpecification<TDomain>", "specification");
-                        method.AddParameter($"int", "pageNo");
-                        method.AddParameter($"int", "pageSize");
-                        method.AddParameter($"CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
-                        method.AddStatement("return await FindAllAsync(specification, pageNo, pageSize, null, cancellationToken);");
-                    });
-
                     @class.AddMethod($"{PagedListInterfaceName(template)}<T>", "ToPagedListAsync<T>", method =>
                     {
                         method.Private().Static().Async();
@@ -277,7 +274,7 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         method.AddParameter($"int", "pageSize");
                         method.AddParameter($"CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
                         method.AddStatement("var count = await queryable.CountAsync(cancellationToken);");
-                        method.AddStatement("var skip = ((pageNo - 1) * pageSize);");
+                        method.AddStatement("var skip = (pageNo - 1) * pageSize;");
                         method.AddStatement(new CSharpMethodChainStatement("var results = await queryable")
                             .AddChainStatement("Skip(skip)")
                             .AddChainStatement("Take(pageSize)")
@@ -322,10 +319,8 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                     file.AddUsing("System");
                     file.AddUsing("System.Collections.Generic");
                     file.AddUsing("System.Linq");
-                    file.AddUsing("System.Linq.Expressions");
                     file.AddUsing("System.Threading");
                     file.AddUsing("System.Threading.Tasks");
-                    file.AddUsing("Ardalis.Specification");
 
                     var @class = file.Classes.First();
                     var model = @class.GetMetadata<ClassModel>("model");
@@ -342,10 +337,9 @@ namespace Intent.Modules.Ardalis.Repositories.FactoryExtensions
                         @class.AddMethod($"Task<{GetEntityInterfaceName(template)}?>", "FindByIdAsync", method =>
                         {
                             method.AddAttribute(CSharpIntentManagedAttribute.Fully());
-                            method.Async();
                             method.AddParameter(GetSurrogateKey(template), "id")
                                 .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                            method.AddStatement($"return await GetByIdAsync(id: id, cancellationToken: cancellationToken);");
+                            method.AddStatement($"return GetByIdAsync(id: id, cancellationToken: cancellationToken);");
                         });
                     }
                 });
