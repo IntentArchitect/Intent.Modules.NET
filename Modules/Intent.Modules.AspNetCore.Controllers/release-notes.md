@@ -1,6 +1,6 @@
 ### Version 6.1.2
 
-- Improvement: Small updates to the style of generated code to be cleaner and more readible
+- Improvement: Generated code more aligned with best practices
 
 ### Version 6.1.1
 
