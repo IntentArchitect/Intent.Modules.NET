@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.7.2-pre.1" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.2-pre.7" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.2-pre.8" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.11.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">
       <PrivateAssets>all</PrivateAssets>
