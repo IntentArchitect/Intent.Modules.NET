@@ -42,7 +42,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Interop.Angular", "Intent.Modules.AspNetCore.Interop.Angular\Intent.Modules.AspNetCore.Interop.Angular.csproj", "{96AC5884-36A9-4B6D-8E91-3C8D7BA75BB6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Controllers", "Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj", "{863DEDBB-B0A4-467E-96EA-F1EE97D7BD10}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Controllers", "Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj", "{863DEDBB-B0A4-467E-96EA-F1EE97D7BD10}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR", "Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.csproj", "{80081361-CC7D-430C-8861-8B2AC9D6E8A7}"
 EndProject
