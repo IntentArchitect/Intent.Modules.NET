@@ -31,10 +31,8 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Linq")
-                .AddUsing("System.Linq.Expressions")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddUsing("Ardalis.Specification")
                 .AddInterface($"I{Model.Name.ToPascalCase()}ReadRepository", @interface =>
                 {
                     @interface.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
