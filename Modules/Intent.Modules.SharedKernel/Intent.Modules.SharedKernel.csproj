@@ -18,4 +18,8 @@
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="docs\images\" />
+  </ItemGroup>
+
 </Project>
