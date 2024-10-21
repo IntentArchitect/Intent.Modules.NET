@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="3.3.70" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.EmptyVisualStudioSolution" version="4.0.0" />
   <applications>
     <application id="7decc3ee-90dc-439b-b1f1-a6652711ee7b" name="Intent.ApplicationTemplates.NET" relativePath="Intent.ApplicationTemplates.NET/Intent.ApplicationTemplates.NET.application.config" />
     <application id="3f2f8c1e-0bbc-4270-88b3-666aec19564a" name="Intent.ApplicationTemplates.NET.Metadata.FullStackWebApi" relativePath="Intent.ApplicationTemplates.NET.Metadata.FullStackWebApi/Intent.ApplicationTemplates.NET.Metadata.FullStackWebApi.application.config" />
@@ -22,5 +22,6 @@
     <application id="83e4ad01-be0c-40ea-953a-9a1acd26e2cd" name="Intent.Modules.AspNetCore.IntegrationTesting.Metadata" relativePath="Intent.Modules.AspNetCore.IntegrationTesting.Metadata/Intent.Modules.AspNetCore.IntegrationTesting.Metadata.application.config" />
     <application id="6c0933d2-4779-46ed-9096-135f2a0b10fc" name="Intent.ApplicationTemplates.NET.Metadata.WindowsServiceHost" relativePath="Intent.ApplicationTemplates.NET.Metadata.WindowsServiceHost/Intent.ApplicationTemplates.NET.Metadata.WindowsServiceHost.application.config" />
     <application id="98d63ad2-cfd2-4691-a283-5e479d4219a5" name="Intent.ApplicationTemplates.NET.Metadata.Blazor.Standalone" relativePath="Intent.ApplicationTemplates.NET.Metadata.Blazor.Standalone/Intent.ApplicationTemplates.NET.Metadata.Blazor.Standalone.application.config" />
+    <application id="b31abe4e-9ae5-42fd-bfc7-c477ae199977" name="Intent.SharedKernel.Metadata" relativePath="Intent.SharedKernel.Metadata/Intent.SharedKernel.Metadata.application.config" />
   </applications>
 </solution>

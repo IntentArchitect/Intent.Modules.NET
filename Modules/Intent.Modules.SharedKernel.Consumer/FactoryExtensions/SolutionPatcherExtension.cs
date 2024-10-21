@@ -1,15 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
+using Intent.Modules.SharedKernel.Consumer.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Microsoft.DotNet.Cli.Sln.Internal;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -24,6 +25,16 @@ namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
+
+
+        protected override void OnAfterMetadataLoad(IApplication application)
+        {
+            base.OnAfterMetadataLoad(application);
+#warning this needs to work Better
+            string sharedKernelApplicationId = application.Settings.GetSharedKernel().SharedKernelApplicationId();
+            var appConfig = application.GetApplicationConfig(sharedKernelApplicationId);
+            TemplateHelper.SharedKernelInstance = new SharedKernel(sharedKernelApplicationId, appConfig.Name);
+        }
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
@@ -96,7 +107,7 @@ namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions
 
         private bool SynchroniseSharedProjects(IApplication application, SlnFile slnFile, SharedKernel sharedKernel)
         {
-            var sharedFolder = slnFile.GetOrCreateFolder("2150E333-8FDC-42A3-9474-1A3956D46DE8", "0 - Shared Kernel");           
+            var sharedFolder = slnFile.GetOrCreateFolder("2150E333-8FDC-42A3-9474-1A3956D46DE8", "0 - Shared Kernel");
             //Only doing this once off if they not there add them
             var solutionItemsProject = slnFile.Projects.FirstOrDefault(p => p.Name == $"{sharedKernel.ApplicationName}.Domain");
             if (solutionItemsProject != null)

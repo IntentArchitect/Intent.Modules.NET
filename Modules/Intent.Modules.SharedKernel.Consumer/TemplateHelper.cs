@@ -8,9 +8,11 @@ namespace Intent.Modules.SharedKernel.Consumer
 {
     public static class TemplateHelper
     {
+        internal static SharedKernel SharedKernelInstance;
+
         public static SharedKernel GetSharedKernel()
         {
-            return new SharedKernel("7f0adaf7-dc33-4e21-bef2-085e5a45f2ab", "MicroKernelSample") ;
+            return SharedKernelInstance; //new SharedKernel("7f0adaf7-dc33-4e21-bef2-085e5a45f2ab", "MicroKernelSample") ;
         }
 
     }

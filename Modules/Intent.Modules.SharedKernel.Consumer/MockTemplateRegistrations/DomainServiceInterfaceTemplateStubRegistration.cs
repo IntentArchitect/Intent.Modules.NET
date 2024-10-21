@@ -17,25 +17,25 @@ namespace Intent.Modules.SharedKernel.Consumer.MockTemplateRegistrations
 {
     public class DomainServiceInterfaceTemplateStubRegistration : DomainServiceInterfaceTemplateRegistration
     {
-        private readonly SharedKernel _sharedKernel;
 
         public DomainServiceInterfaceTemplateStubRegistration(IMetadataManager metadataManager) : base(metadataManager)
         {
-            _sharedKernel = TemplateHelper.GetSharedKernel();
         }
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, DomainServiceModel model)
         {
+            var sharedKernel = TemplateHelper.GetSharedKernel();
             var result = base.CreateTemplateInstance(outputTarget, model) as ICSharpFileBuilderTemplate;
             result.CanRun = false;
-            result.CSharpFile.WithNamespace(result.CSharpFile.Namespace.Replace(outputTarget.ApplicationName(), _sharedKernel.ApplicationName));
+            result.CSharpFile.WithNamespace(result.CSharpFile.Namespace.Replace(outputTarget.ApplicationName(), sharedKernel.ApplicationName));
             return result;
         }
 
         public override IEnumerable<DomainServiceModel> GetModels(IApplication application)
         {
-            return base.GetModels(new ApplicationStub(_sharedKernel.ApplicationId));
+            var sharedKernel = TemplateHelper.GetSharedKernel();
+            return base.GetModels(new ApplicationStub(sharedKernel.ApplicationId));
         }
     }
 }
