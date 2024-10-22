@@ -43,15 +43,18 @@ namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions
             AddProjectReferences(application, sharedKernel);
         }
 
+
         private void AddProjectReferences(IApplication application, SharedKernel sharedKernel)
         {
+            var myConfig = application.GetApplicationConfig();
+            var kernelConfig = application.GetApplicationConfig(sharedKernel.ApplicationId);
+            var relativePath = Path.GetRelativePath(Path.Combine(myConfig.DirectoryPath, myConfig.OutputLocation, "ProjectDirectory"), System.IO.Path.Combine(kernelConfig.DirectoryPath, kernelConfig.OutputLocation));
             //Application
             {
                 var appTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Application.DependencyInjection);
                 if (appTemplate is not null)
                 {
-                    var kernelConfig = application.GetApplicationConfig(sharedKernel.ApplicationId);
-                    ((CSharpTemplateBase<object>)appTemplate).AddAssemblyReference(new ProjectReference($"{kernelConfig.OutputLocation}\\{sharedKernel.ApplicationName}.Application\\{sharedKernel.ApplicationName}.Application.csproj"));
+                    ((CSharpTemplateBase<object>)appTemplate).AddAssemblyReference(new ProjectReference($"{relativePath}\\{sharedKernel.ApplicationName}.Application\\{sharedKernel.ApplicationName}.Application.csproj"));
                 }
             }
 
@@ -60,8 +63,7 @@ namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions
                 var infraTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Infrastructure.DependencyInjection.DependencyInjection");
                 if (infraTemplate is not null)
                 {
-                    var kernelConfig = application.GetApplicationConfig(sharedKernel.ApplicationId);
-                    ((CSharpTemplateBase<object>)infraTemplate).AddAssemblyReference(new ProjectReference($"{kernelConfig.OutputLocation}\\{sharedKernel.ApplicationName}.Infrastructure\\{sharedKernel.ApplicationName}.Infrastructure.csproj"));
+                    ((CSharpTemplateBase<object>)infraTemplate).AddAssemblyReference(new ProjectReference($"{relativePath}\\{sharedKernel.ApplicationName}.Infrastructure\\{sharedKernel.ApplicationName}.Infrastructure.csproj"));
                 }
             }
 
@@ -70,8 +72,7 @@ namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions
                 var domainTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.DomainEvents.DomainEventBase");
                 if (domainTemplate is not null)
                 {
-                    var kernelConfig = application.GetApplicationConfig(sharedKernel.ApplicationId);
-                    ((CSharpTemplateBase<object>)domainTemplate).AddAssemblyReference(new ProjectReference($"{kernelConfig.OutputLocation}\\{sharedKernel.ApplicationName}.Domain\\{sharedKernel.ApplicationName}.Domain.csproj"));
+                    ((CSharpTemplateBase<object>)domainTemplate).AddAssemblyReference(new ProjectReference($"{relativePath}\\{sharedKernel.ApplicationName}.Domain\\{sharedKernel.ApplicationName}.Domain.csproj"));
                 }
             }
 
@@ -81,7 +82,7 @@ namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions
         {
             base.OnAfterCommitChanges(application);
             var sharedKernel = TemplateHelper.GetSharedKernel();
-            var rawfiles = Directory.GetFiles(Path.GetFullPath(application.OutputRootDirectory).Replace(@"\", "/"), "*.*");
+            var rawfiles = Directory.GetFiles(System.IO.Path.GetFullPath(application.OutputRootDirectory).Replace(@"\", "/"), "*.*");
 
             var slnFileNames = rawfiles.Where(f => f.EndsWith(".sln"));
             if (slnFileNames.Count() != 1)
@@ -114,11 +115,13 @@ namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions
             {
                 return false;
             }
+            var myConfig = application.GetApplicationConfig();
             var kernelConfig = application.GetApplicationConfig(sharedKernel.ApplicationId);
+            var relativePath = Path.GetRelativePath(Path.Combine(myConfig.DirectoryPath, myConfig.OutputLocation), System.IO.Path.Combine(kernelConfig.DirectoryPath, kernelConfig.OutputLocation));
 
-            CreateProject(slnFile, "BE69BA22-8613-4F7E-A3F5-EB737D31A3BA", $"{sharedKernel.ApplicationName}.Application", "9A19103F-16F7-4668-BE54-9A1E7A4F7556", $"{kernelConfig.OutputLocation.Replace(@"..\..\", @"..\")}\\{sharedKernel.ApplicationName}.Application\\{sharedKernel.ApplicationName}.Application.csproj", sharedFolder);
-            CreateProject(slnFile, "5E293F1C-FFA1-49E1-B583-4CD13E39ABE3", $"{sharedKernel.ApplicationName}.Domain", "9A19103F-16F7-4668-BE54-9A1E7A4F7556", $"{kernelConfig.OutputLocation.Replace(@"..\..\", @"..\")}\\{sharedKernel.ApplicationName}.Domain\\{sharedKernel.ApplicationName}.Domain.csproj", sharedFolder);
-            CreateProject(slnFile, "5901A0A9-37DB-4119-B149-C1F4E165883C", $"{sharedKernel.ApplicationName}.Infrastructure", "9A19103F-16F7-4668-BE54-9A1E7A4F7556", $"{kernelConfig.OutputLocation.Replace(@"..\..\", @"..\")}\\{sharedKernel.ApplicationName}.Infrastructure\\{sharedKernel.ApplicationName}.Infrastructure.csproj", sharedFolder);
+            CreateProject(slnFile, "BE69BA22-8613-4F7E-A3F5-EB737D31A3BA", $"{sharedKernel.ApplicationName}.Application", "9A19103F-16F7-4668-BE54-9A1E7A4F7556", $"{relativePath}\\{sharedKernel.ApplicationName}.Application\\{sharedKernel.ApplicationName}.Application.csproj", sharedFolder);
+            CreateProject(slnFile, "5E293F1C-FFA1-49E1-B583-4CD13E39ABE3", $"{sharedKernel.ApplicationName}.Domain", "9A19103F-16F7-4668-BE54-9A1E7A4F7556", $"{relativePath}\\{sharedKernel.ApplicationName}.Domain\\{sharedKernel.ApplicationName}.Domain.csproj", sharedFolder);
+            CreateProject(slnFile, "5901A0A9-37DB-4119-B149-C1F4E165883C", $"{sharedKernel.ApplicationName}.Infrastructure", "9A19103F-16F7-4668-BE54-9A1E7A4F7556", $"{relativePath}\\{sharedKernel.ApplicationName}.Infrastructure\\{sharedKernel.ApplicationName}.Infrastructure.csproj", sharedFolder);
 
             return true;
         }

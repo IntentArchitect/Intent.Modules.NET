@@ -5,11 +5,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\SharedKernel.Kernel.Tests\SharedKernel.Kernel.Tests.Domain\SharedKernel.Kernel.Tests.Domain.csproj" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.6" />
+  </ItemGroup>
+    <ItemGroup>
+    <ProjectReference Include="..\..\SharedKernel.Kernel.Tests\SharedKernel.Kernel.Tests.Domain\SharedKernel.Kernel.Tests.Domain.csproj" />
   </ItemGroup>
   </Project>

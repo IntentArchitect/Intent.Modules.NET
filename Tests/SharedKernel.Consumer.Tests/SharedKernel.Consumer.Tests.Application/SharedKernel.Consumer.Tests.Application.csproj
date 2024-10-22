@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SharedKernel.Kernel.Tests\SharedKernel.Kernel.Tests.Application\SharedKernel.Kernel.Tests.Application.csproj" />
     <ProjectReference Include="..\SharedKernel.Consumer.Tests.Domain\SharedKernel.Consumer.Tests.Domain.csproj" />
+    <ProjectReference Include="..\..\SharedKernel.Kernel.Tests\SharedKernel.Kernel.Tests.Application\SharedKernel.Kernel.Tests.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

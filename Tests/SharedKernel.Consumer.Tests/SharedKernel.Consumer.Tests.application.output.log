@@ -822,7 +822,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SharedKernel.Consumer.Tests.Application/SharedKernel.Consumer.Tests.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SharedKernel.Consumer.Tests.Application.csproj</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>21427d0b-5083-4188-b480-dd08a8027f6a</ProjectId>
@@ -926,7 +926,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SharedKernel.Consumer.Tests.Domain/SharedKernel.Consumer.Tests.Domain.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SharedKernel.Consumer.Tests.Domain.csproj</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>8e7757d6-9eef-4159-872d-b2a2c643627a</ProjectId>
@@ -990,7 +990,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SharedKernel.Consumer.Tests.Infrastructure/SharedKernel.Consumer.Tests.Infrastructure.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SharedKernel.Consumer.Tests.Infrastructure.csproj</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#34bd5320-22ae-4a70-b8d2-5d6984d4c8ad</CorrelationId>

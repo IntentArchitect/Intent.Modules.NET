@@ -6,9 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SharedKernel.Kernel.Tests\SharedKernel.Kernel.Tests.Infrastructure\SharedKernel.Kernel.Tests.Infrastructure.csproj" />
     <ProjectReference Include="..\SharedKernel.Consumer.Tests.Domain\SharedKernel.Consumer.Tests.Domain.csproj" />
     <ProjectReference Include="..\SharedKernel.Consumer.Tests.Application\SharedKernel.Consumer.Tests.Application.csproj" />
+    <ProjectReference Include="..\..\SharedKernel.Kernel.Tests\SharedKernel.Kernel.Tests.Infrastructure\SharedKernel.Kernel.Tests.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
