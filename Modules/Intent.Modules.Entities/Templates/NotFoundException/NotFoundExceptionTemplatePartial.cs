@@ -26,10 +26,17 @@ namespace Intent.Modules.Entities.Templates.NotFoundException
                 .AddClass($"NotFoundException", @class =>
                 {
                     @class.WithBaseType("Exception");
+                    @class.AddConstructor();
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter("string", "message");
                         ctor.CallsBase(b => b.AddArgument("message"));
+                    });
+                    @class.AddConstructor(ctor =>
+                    {
+                        ctor.AddParameter("string", "message");
+                        ctor.AddParameter("Exception", "innerException");
+                        ctor.CallsBase(b => b.AddArgument("message").AddArgument("innerException"));
                     });
                 });
         }

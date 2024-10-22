@@ -1,6 +1,7 @@
 ### Version 5.1.3
 
 - Fixed: template config issue for `EntityRepositoryInterface`.
+- Improvement: Fixed small reference error in XML documentation
 
 ### Version 5.1.2
 

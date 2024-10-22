@@ -232,7 +232,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
         //}
 
 
-        public string GetOperationReturnType(OperationModel o)
+        public string GetOperationReturnType(Intent.Modelers.Domain.Api.OperationModel o)
         {
             if (o.TypeReference.Element == null)
             {

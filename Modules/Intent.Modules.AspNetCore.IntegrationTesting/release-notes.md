@@ -1,3 +1,7 @@
+### Version 1.0.9
+
+- Improvement: Generated code is more aligned with best practices
+
 ### Version 1.0.8
 
 - Fixed: Internal change on how we model PagedResults using new 4.3 tech.

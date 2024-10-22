@@ -16,7 +16,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedListInterface
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedListInterface\PagedListInterfaceTemplate.tt"
+    #line 1 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedListInterface\PagedListInterfaceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class PagedListInterfaceTemplate : CSharpTemplateBase<object>
     {
@@ -29,23 +29,27 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.PagedListInterface
             this.Write("using System.Collections.Generic;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]" +
                     "\r\n\r\nnamespace ");
             
-            #line 9 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedListInterface\PagedListInterfaceTemplate.tt"
+            #line 9 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedListInterface\PagedListInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
-            this.Write(@"
-{
-    /// <summary>
-    /// Instead of retrieving the entire collection of elements from
-    /// a persistence store, a single <see cref=""IPagedResult{T}""/> is returned
+            this.Write("\r\n{\r\n    /// <summary>\r\n    /// Instead of retrieving the entire collection of el" +
+                    "ements from\r\n    /// a persistence store, a single <see cref=\"");
+            
+            #line 13 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedListInterface\PagedListInterfaceTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
+            
+            #line default
+            #line hidden
+            this.Write(@"{T}""/> is returned
     /// representing a single ""page"" of elements. Supplying a different <b>PageNo</b>
-    /// will return a different ""page"" of elements. 
+    /// will return a different ""page"" of elements.
     /// </summary>
-    /// <typeparam name=""T"">Type of elements</typeparam>
+    /// <typeparam name=""T"">Type of elements.</typeparam>
     public interface ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedListInterface\PagedListInterfaceTemplate.tt"
+            #line 18 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Entities.Repositories.Api\Templates\PagedListInterface\PagedListInterfaceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default

@@ -1,6 +1,7 @@
 ### Version 5.2.2
 
 - Fixed: Added NuGet dependencies for .Net Standard 2.
+- Improvement: Generated code is more aligned with best practices
 
 ### Version 5.2.1
 

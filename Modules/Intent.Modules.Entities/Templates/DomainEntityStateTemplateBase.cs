@@ -99,7 +99,7 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
                 @class.AddField(AsListType(), fieldName, field =>
                 {
                     field.AddMetadata("model", model);
-                    field.WithAssignment($"new {AsListType()}()");
+                    field.WithInstantiation();
                 });
 
                 property.Getter
@@ -135,7 +135,7 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
             }
             else if (typeReference.IsCollection)
             {
-                property.WithInitialValue($"new {AsListType()}()");
+                property.WithInstantiation();
             }
 
             return;

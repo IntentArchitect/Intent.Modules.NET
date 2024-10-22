@@ -1,3 +1,8 @@
+### Version 5.1.6
+
+- Improvement: Generated code more aligned with best practices
+- Improvement: Domain entity collection initialization will use the simplified syntax when applicable 
+
 ### Version 5.1.5
 
 - Improvement: General code clean up to remove several code warnings.

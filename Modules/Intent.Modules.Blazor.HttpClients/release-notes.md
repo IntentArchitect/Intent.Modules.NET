@@ -1,3 +1,7 @@
+### Version 4.0.1
+
+- Improvement: Generated code is more aligned with best practices
+
 ### Version 4.0.0
 
 TODO
