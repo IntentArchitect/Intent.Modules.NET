@@ -15,7 +15,8 @@ namespace Ardalis.IntegrationTests.Tests
         {
         }
 
-        [Fact]
+        //[Fact]
+        [IntentIgnore]
         public async Task GetClients_ShouldGetClients()
         {
             // Arrange

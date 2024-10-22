@@ -1,4 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#43f624db-4c27-4c63-9989-f28efb402b75</correlationId>
+      <path>Ardalis.IntegrationTests/Tests/Clients/CreateClientTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-10-22T13:35:50.4180751Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-10-22T13:35:50.4181906Z</approvedAt>
+      <deviationsHash>D2079A8D0F5C843BF3ECF04A38D7E1F0726AFA2804EEE7060D72E8D4B70F2272</deviationsHash>
+      <fileHash>A1DDFCFBB3077AEF73D6B057A7ED2CB83AB206763A5460B5A075B9B3AE3795C4</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#9bbea999-dbb8-4151-be91-81c4c9942c97</correlationId>
+      <path>Ardalis.IntegrationTests/Tests/Clients/DeleteClientTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-10-22T13:35:50.4258281Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-10-22T13:35:50.42583Z</approvedAt>
+      <deviationsHash>8C144E72095395EB4B25A59B63A117057E74A233A4BFEF3970BADE03BDDEC90C</deviationsHash>
+      <fileHash>B91A79889A3B20498A9ED67A199F2C4BB7151C8C67937415534EE9CDC542A582</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#d13fe108-1c58-4c32-a405-a9630236469c</correlationId>
+      <path>Ardalis.IntegrationTests/Tests/Clients/GetClientByIdTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-10-22T13:35:50.4272047Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-10-22T13:35:50.4272064Z</approvedAt>
+      <deviationsHash>013EDEFB52CDE9592C4847D9A88A1C4A0B934E3930CD52ABB1D48AF7DAFF8203</deviationsHash>
+      <fileHash>4AAB584584E833AA5676B9F3ECF6F3D069E9564094E74813FBF2824C1B739855</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#9826b95f-90ca-4113-a22a-89dc099ca1c2</correlationId>
+      <path>Ardalis.IntegrationTests/Tests/Clients/GetClientsPaginatedTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-10-22T13:35:50.4282677Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-10-22T13:35:50.4282707Z</approvedAt>
+      <deviationsHash>81CDF9B6CACC0B7FDCB40AED5AF4638DC17200FB926020C6D0EC3CABF893185A</deviationsHash>
+      <fileHash>22DB7D4BC33088BA31B7FB5C109AC5210C1281A689A2BBAD37066A3D0D3F473C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#a9717278-d047-4574-a2ce-b30bdc089081</correlationId>
+      <path>Ardalis.IntegrationTests/Tests/Clients/GetClientsTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-10-22T13:35:50.429355Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-10-22T13:35:50.429357Z</approvedAt>
+      <deviationsHash>07E32DD9D6E99EFC016954B087A0527186F7312BBC0146E4AC563100E7EEBD93</deviationsHash>
+      <fileHash>BA4DB28FF5C27657DA2E64D0D57F321816DF74F4A1714A90C48A8328F1E3C75C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#cf63590c-e2ef-46d3-a985-d8098660056e</correlationId>
+      <path>Ardalis.IntegrationTests/Tests/Clients/UpdateClientTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-10-22T13:35:50.4304701Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-10-22T13:35:50.430472Z</approvedAt>
+      <deviationsHash>CEBC25E86B796125C35CEAA37AE1BDA830093793833877D71D4C16442A0B52E2</deviationsHash>
+      <fileHash>6FAA4A29533D1C26856980F4978DF6F523F0DE43BF708AA1A9C8A2F4449FD9FE</fileHash>
+    </file>
+  </files>
 </deviationsLog>

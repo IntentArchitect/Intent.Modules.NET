@@ -1,3 +1,7 @@
+### Version 5.2.2
+
+- Fixed: Added NuGet dependencies for .Net Standard 2.
+
 ### Version 5.2.1
 
 - Fixed: Bumped `Service Designer` version due to PagedResults previous re-factor.

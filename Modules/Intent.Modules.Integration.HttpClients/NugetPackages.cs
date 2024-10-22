@@ -24,6 +24,7 @@ namespace Intent.Modules.Integration.HttpClients
                         ( >= 6, 0) => new PackageVersion("4.3.0")
                             .WithNugetDependency("IdentityModel", "6.0.0")
                             .WithNugetDependency("Microsoft.AspNetCore.Authentication.OpenIdConnect", "6.0.0"),
+                        ( >= 2, 0) => new PackageVersion("2.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IdentityModelAspNetCorePackageName}'"),
                     }
                 );
@@ -61,6 +62,7 @@ namespace Intent.Modules.Integration.HttpClients
                             .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0"),
+                        ( >= 2, 0) => new PackageVersion("8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsHttpPackageName}'"),
                     }
                 );
@@ -74,6 +76,7 @@ namespace Intent.Modules.Integration.HttpClients
                         ( >= 6, 0) => new PackageVersion("8.0.4")
                             .WithNugetDependency("System.Runtime.CompilerServices.Unsafe", "6.0.0")
                             .WithNugetDependency("System.Text.Encodings.Web", "8.0.0"),
+                        ( >= 2, 0) => new PackageVersion("8.0.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SystemTextJsonPackageName}'"),
                     }
                 );
