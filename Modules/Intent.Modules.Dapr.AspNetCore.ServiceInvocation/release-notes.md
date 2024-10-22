@@ -1,3 +1,7 @@
+### Version 2.2.12
+
+- Fixed: Removes Proxy Package template, as its being added by another modules.
+
 ### Version 2.2.11
 
 - Fixed: HttpClients are able to generate into `netstandard2.*` projects.
