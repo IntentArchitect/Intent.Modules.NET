@@ -32,7 +32,7 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
             .AddUsing("Microsoft.AspNetCore.Mvc.Filters")
             .AddClass($"ExceptionFilter", @class =>
             {
-                @class.ImplementsInterface("Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter");
+                @class.ImplementsInterface(UseType("Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter"));
                 @class.AddMethod("void", "OnException", method =>
                 {
                     method.AddParameter("ExceptionContext", "context");
@@ -50,6 +50,7 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
                     method.AddParameter("ExceptionContext", "context");
                     method.AddIfStatement("objectResult.Value is not ProblemDetails problemDetails", stmt => stmt
                         .AddStatement("return objectResult;"));
+                    method.AddStatement("");
                     method.AddStatements($@"
                         problemDetails.Extensions.Add(""traceId"", Activity.Current?.Id ?? context.HttpContext.TraceIdentifier);
                         problemDetails.Type = ""https://httpstatuses.io/"" + (objectResult.StatusCode ?? problemDetails.Status);
@@ -73,7 +74,7 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
             file.AddUsing("FluentValidation");
             switchStatement.AddCase("ValidationException exception", block => block
                 .AddForEachStatement("error", "exception.Errors", stmt => stmt
-                    .AddStatement("context.ModelState.AddModelError(error.PropertyName, error.ErrorMessage);"))
+                    .AddStatement("context.ModelState.AddModelError(error.PropertyName, error.ErrorMessage);").SeparatedFromNext())
                 .AddInvocationStatement("context.Result = new BadRequestObjectResult", invoke => invoke
                     .AddArgument("new ValidationProblemDetails(context.ModelState)")
                     .WithoutSemicolon())
@@ -110,6 +111,11 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
                 .AddStatement("context.ExceptionHandled = true;")
                 .WithBreak());
         }
+
+        switchStatement.AddDefault(block =>
+        {
+            block.WithBreak();
+        });
     }
 
     private static CSharpSwitchStatement GetExceptionSwitchStatement(CSharpClass priClass)
