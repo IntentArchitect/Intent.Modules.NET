@@ -22,6 +22,9 @@
     <name>client</name>
     <display>[create] client: Constructor</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="cafcf3d8-44c6-4505-b0b6-b8cd7d88b459">
       <typeId>9e32b580-9772-4e88-8169-0ce3406c461d</typeId>
       <isNavigable>true</isNavigable>

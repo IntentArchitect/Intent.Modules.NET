@@ -37,19 +37,19 @@ namespace Ardalis.Infrastructure.Repositories
         [IntentManaged(Mode.Fully)]
         public void Add(TDomain entity)
         {
-            base.AddAsync(entity).Wait();
+            AddAsync(entity).Wait();
         }
 
         [IntentManaged(Mode.Fully)]
         public void Remove(TDomain entity)
         {
-            base.DeleteAsync(entity).Wait();
+            DeleteAsync(entity).Wait();
         }
 
         [IntentManaged(Mode.Fully)]
         public async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default)
         {
-            return (await ListAsync(cancellationToken)).Cast<TDomain>().ToList();
+            return (await ListAsync(cancellationToken)).ToList();
         }
 
         [IntentManaged(Mode.Fully)]
@@ -72,7 +72,7 @@ namespace Ardalis.Infrastructure.Repositories
         }
 
         [IntentManaged(Mode.Fully)]
-        public async Task<IPagedList<TDomain>> FindAllAsync(
+        public Task<IPagedList<TDomain>> FindAllAsync(
             Expression<Func<TDomain, bool>> filterExpression,
             int pageNo,
             int pageSize,
@@ -82,11 +82,27 @@ namespace Ardalis.Infrastructure.Repositories
             IQueryable<TDomain> queryable = _dbContext.Set<TDomain>();
             queryable = queryable.Where(filterExpression);
             var result = linq(queryable);
-            return await ToPagedListAsync<TDomain>(
+            return ToPagedListAsync(
                 result,
                 pageNo,
                 pageSize,
                 cancellationToken);
+        }
+
+        public Task<IPagedList<TDomain>> FindAllAsync(
+            ISpecification<TDomain> specification,
+            int pageNo,
+            int pageSize,
+            Func<IQueryable<TDomain>, IQueryable<TDomain>>? queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = ApplySpecification(specification);
+            queryable = queryOptions == null ? queryable : queryOptions(queryable);
+            return ToPagedListAsync(
+                            queryable,
+                            pageNo,
+                            pageSize,
+                            cancellationToken);
         }
 
         // To avoid escalating db locks early, we are not going to perform saving changes on every operation.
@@ -104,29 +120,13 @@ namespace Ardalis.Infrastructure.Repositories
             return base.SaveChangesAsync(cancellationToken);
         }
 
-        public async Task<IPagedList<TDomain>> FindAllAsync(
-            ISpecification<TDomain> specification,
-            int pageNo,
-            int pageSize,
-            Func<IQueryable<TDomain>, IQueryable<TDomain>> queryOptions,
-            CancellationToken cancellationToken = default)
-        {
-            var queryable = ApplySpecification(specification);
-            queryable = queryOptions == null ? queryable : queryOptions(queryable);
-            return await ToPagedListAsync<TDomain>(
-                            queryable,
-                            pageNo,
-                            pageSize,
-                            cancellationToken);
-        }
-
-        public async Task<IPagedList<TDomain>> FindAllAsync(
+        public Task<IPagedList<TDomain>> FindAllAsync(
             ISpecification<TDomain> specification,
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
         {
-            return await FindAllAsync(specification, pageNo, pageSize, null, cancellationToken);
+            return FindAllAsync(specification, pageNo, pageSize, null, cancellationToken);
         }
 
         private static async Task<IPagedList<T>> ToPagedListAsync<T>(
@@ -136,7 +136,7 @@ namespace Ardalis.Infrastructure.Repositories
             CancellationToken cancellationToken = default)
         {
             var count = await queryable.CountAsync(cancellationToken);
-            var skip = ((pageNo - 1) * pageSize);
+            var skip = (pageNo - 1) * pageSize;
 
             var results = await queryable
                 .Skip(skip)

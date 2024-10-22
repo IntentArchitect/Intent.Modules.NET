@@ -22,7 +22,7 @@ namespace Ardalis.Domain.Repositories
         Task<IPagedList<TDomain>> FindAllAsync(int pageNo, int pageSize, CancellationToken cancellationToken = default);
         Task<IPagedList<TDomain>> FindAllAsync(Expression<Func<TDomain, bool>> filterExpression, int pageNo, int pageSize, CancellationToken cancellationToken = default);
         Task<IPagedList<TDomain>> FindAllAsync(Expression<Func<TDomain, bool>> filterExpression, int pageNo, int pageSize, Func<IQueryable<TDomain>, IQueryable<TDomain>> linq, CancellationToken cancellationToken = default);
-        Task<IPagedList<TDomain>> FindAllAsync(ISpecification<TDomain> specification, int pageNo, int pageSize, Func<IQueryable<TDomain>, IQueryable<TDomain>> queryOptions, CancellationToken cancellationToken = default);
+        Task<IPagedList<TDomain>> FindAllAsync(ISpecification<TDomain> specification, int pageNo, int pageSize, Func<IQueryable<TDomain>, IQueryable<TDomain>>? queryOptions, CancellationToken cancellationToken = default);
         Task<IPagedList<TDomain>> FindAllAsync(ISpecification<TDomain> specification, int pageNo, int pageSize, CancellationToken cancellationToken = default);
     }
 }
