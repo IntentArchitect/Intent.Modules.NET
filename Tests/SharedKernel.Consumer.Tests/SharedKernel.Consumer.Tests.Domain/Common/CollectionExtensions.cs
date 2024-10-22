@@ -24,13 +24,10 @@ namespace SharedKernel.Consumer.Tests.Domain.Common
         /// <returns>A <see cref="ComparisonResult{TChanged, TOriginal}"/> object that describes the differences between the two collections.</returns>
         public static ComparisonResult<TChanged, TOriginal> CompareCollections<TChanged, TOriginal>(
             this ICollection<TOriginal> baseCollection,
-            ICollection<TChanged> changedCollection,
+            IEnumerable<TChanged> changedCollection,
             Func<TOriginal, TChanged, bool> equalityCheck)
         {
-            if (changedCollection == null)
-            {
-                changedCollection = new List<TChanged>();
-            }
+            changedCollection ??= new List<TChanged>();
 
             var toRemove = baseCollection.Where(baseElement => changedCollection.All(changedElement => !equalityCheck(baseElement, changedElement))).ToList();
             var toAdd = changedCollection.Where(changedElement => baseCollection.All(baseElement => !equalityCheck(baseElement, changedElement))).ToList();
@@ -39,7 +36,7 @@ namespace SharedKernel.Consumer.Tests.Domain.Common
             foreach (var changedElement in changedCollection)
             {
                 var match = baseCollection.FirstOrDefault(baseElement => equalityCheck(baseElement, changedElement));
-                if (match != null)
+                if (match is not null)
                 {
                     possibleEdits.Add(new Match<TChanged, TOriginal>(changedElement, match));
                 }

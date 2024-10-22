@@ -27,7 +27,7 @@ namespace SharedKernel.Consumer.Tests.Application.Currencies.GetDefaultCurrency
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<CurrencyDto> Handle(GetDefaultCurrencyQuery request, CancellationToken cancellationToken)
         {
-            var result = await _currencyService.GetDefaultCurrencyAsync(request.CountryId);
+            var result = await _currencyService.GetDefaultCurrencyAsync(request.CountryId, cancellationToken);
             return result.MapToCurrencyDto(_mapper);
         }
     }

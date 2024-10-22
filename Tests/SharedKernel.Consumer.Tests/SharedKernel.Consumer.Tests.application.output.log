@@ -590,7 +590,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SharedKernel.Consumer.Tests.Application/Currencies/GetDefaultCurrency/GetDefaultCurrencyQueryHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Currencies/GetDefaultCurrency/GetDefaultCurrencyQueryHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>108d6dba-b155-4093-94dc-14bbde10fb17</ProjectId>

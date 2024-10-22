@@ -27,7 +27,11 @@ namespace Intent.Modules.SharedKernel.Consumer.MockTemplateRegistrations
         {
             var sharedKernel = TemplateHelper.GetSharedKernel();
             var result = base.CreateTemplateInstance(outputTarget, model) as ICSharpFileBuilderTemplate;
-            result.CanRun = false;
+            //Want the template to construct for CRUD inspection but not to actually run
+            result.CSharpFile.AfterBuild(file =>
+            {
+                file.Template.CanRun = false;
+            }, 100);
             result.CSharpFile.WithNamespace(result.CSharpFile.Namespace.Replace(outputTarget.ApplicationName(), sharedKernel.ApplicationName));
             return result;
         }
