@@ -1,6 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Collections.Generic;
+using Path = Intent.IArchitect.CrossPlatform.IO.Path;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
@@ -48,7 +49,7 @@ namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions
         {
             var myConfig = application.GetApplicationConfig();
             var kernelConfig = application.GetApplicationConfig(sharedKernel.ApplicationId);
-            var relativePath = Path.GetRelativePath(Path.Combine(myConfig.DirectoryPath, myConfig.OutputLocation, "ProjectDirectory"), System.IO.Path.Combine(kernelConfig.DirectoryPath, kernelConfig.OutputLocation));
+            var relativePath = Path.GetRelativePath(Path.Combine(myConfig.DirectoryPath, myConfig.OutputLocation, "ProjectDirectory"), Path.Combine(kernelConfig.DirectoryPath, kernelConfig.OutputLocation));
             //Application
             {
                 var appTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Application.DependencyInjection);
@@ -82,7 +83,7 @@ namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions
         {
             base.OnAfterCommitChanges(application);
             var sharedKernel = TemplateHelper.GetSharedKernel();
-            var rawfiles = Directory.GetFiles(System.IO.Path.GetFullPath(application.OutputRootDirectory).Replace(@"\", "/"), "*.*");
+            var rawfiles = Directory.GetFiles(Path.GetFullPath(application.OutputRootDirectory).Replace(@"\", "/"), "*.*");
 
             var slnFileNames = rawfiles.Where(f => f.EndsWith(".sln"));
             if (slnFileNames.Count() != 1)
@@ -117,7 +118,7 @@ namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions
             }
             var myConfig = application.GetApplicationConfig();
             var kernelConfig = application.GetApplicationConfig(sharedKernel.ApplicationId);
-            var relativePath = Path.GetRelativePath(Path.Combine(myConfig.DirectoryPath, myConfig.OutputLocation), System.IO.Path.Combine(kernelConfig.DirectoryPath, kernelConfig.OutputLocation));
+            var relativePath = Path.GetRelativePath(Path.Combine(myConfig.DirectoryPath, myConfig.OutputLocation), Path.Combine(kernelConfig.DirectoryPath, kernelConfig.OutputLocation));
 
             CreateProject(slnFile, "BE69BA22-8613-4F7E-A3F5-EB737D31A3BA", $"{sharedKernel.ApplicationName}.Application", "9A19103F-16F7-4668-BE54-9A1E7A4F7556", $"{relativePath}\\{sharedKernel.ApplicationName}.Application\\{sharedKernel.ApplicationName}.Application.csproj", sharedFolder);
             CreateProject(slnFile, "5E293F1C-FFA1-49E1-B583-4CD13E39ABE3", $"{sharedKernel.ApplicationName}.Domain", "9A19103F-16F7-4668-BE54-9A1E7A4F7556", $"{relativePath}\\{sharedKernel.ApplicationName}.Domain\\{sharedKernel.ApplicationName}.Domain.csproj", sharedFolder);

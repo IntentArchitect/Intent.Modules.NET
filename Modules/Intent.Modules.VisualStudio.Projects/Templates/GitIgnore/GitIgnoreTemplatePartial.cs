@@ -57,7 +57,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.GitIgnore
             public string GetFullLocationPath() => Path.GetFullPath(_fullLocationPath).Replace(@"\", "/");
             public string GetRelativeFilePath() => string.Empty;
             public string CodeGenType => Common.CodeGenType.UserControlledWeave;
-            public string FileExtension => "gitIgnore";
+            public string FileExtension => "gitignore";
             public OverwriteBehaviour OverwriteBehaviour => OverwriteBehaviour.OverwriteDisabled;
             public string FileName { get; set; } = string.Empty;
             public string LocationInProject { get; set; } = string.Empty;

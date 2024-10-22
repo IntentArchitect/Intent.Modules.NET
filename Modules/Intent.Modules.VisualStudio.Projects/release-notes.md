@@ -1,3 +1,7 @@
+### Version 3.8.3
+
+- Fixed: Changed `.gitIgnore` file to `.gitignore`.
+
 ### Version 3.8.2
 
 - Fixed: `appsettings.json` files would not respect formatting settings from `.editorconfig` files being generated/updated by the Software Factory.
