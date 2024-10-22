@@ -32,7 +32,7 @@ public partial class ExceptionFilterTemplate : CSharpTemplateBase<object>, ICSha
             .AddUsing("Microsoft.AspNetCore.Mvc.Filters")
             .AddClass($"ExceptionFilter", @class =>
             {
-                @class.ImplementsInterface(UseType("Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter"));
+                @class.ImplementsInterface("Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter");
                 @class.AddMethod("void", "OnException", method =>
                 {
                     method.AddParameter("ExceptionContext", "context");
