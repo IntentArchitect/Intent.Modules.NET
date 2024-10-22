@@ -29,9 +29,6 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface
             AddNugetDependency(NugetPackages.ArdalisSpecification(OutputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
-                .AddUsing("System.Collections.Generic")
-                .AddUsing("System.Linq")
-                .AddUsing("System.Linq.Expressions")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Ardalis.Specification")

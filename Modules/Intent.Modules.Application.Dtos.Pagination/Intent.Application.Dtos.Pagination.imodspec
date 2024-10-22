@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos.Pagination</id>
-  <version>4.0.14-pre.1</version>
+  <version>4.0.14</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Enable Service Operations to expose a paginated interface for a DTO type</summary>
   <description>Enable Service Operations to expose a paginated interface for a DTO type</description>

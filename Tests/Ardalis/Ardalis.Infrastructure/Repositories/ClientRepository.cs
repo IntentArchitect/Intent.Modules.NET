@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Ardalis.Domain.Entities;
 using Ardalis.Domain.Repositories;
 using Ardalis.Infrastructure.Persistence;
-using Ardalis.Specification;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 
@@ -24,9 +22,9 @@ namespace Ardalis.Infrastructure.Repositories
         }
 
         [IntentManaged(Mode.Fully)]
-        public async Task<Client?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public Task<Client?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            return await GetByIdAsync(id: id, cancellationToken: cancellationToken);
+            return GetByIdAsync(id: id, cancellationToken: cancellationToken);
         }
     }
 }
