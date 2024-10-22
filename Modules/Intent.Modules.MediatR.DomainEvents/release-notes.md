@@ -1,3 +1,7 @@
+### Version 5.0.18
+
+- Improvement: Converted T4 template to CSharpFileBuilder paradigm.
+
 ### Version 5.0.17
 
 - Improvement: `Primary Key`s with Data source set to `User supplied` or `Auto-generated` no longer explicItly call `UnitOfWork` save changes. `Default` still does and should be used if you have Database generated primary keys.
