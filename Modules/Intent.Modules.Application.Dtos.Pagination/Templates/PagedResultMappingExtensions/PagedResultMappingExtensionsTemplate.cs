@@ -22,7 +22,7 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+    #line 1 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class PagedResultMappingExtensionsTemplate : CSharpTemplateBase<IList<Intent.Modelers.Services.Api.DTOModel>>
     {
@@ -35,14 +35,14 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
             this.Write("using System;\r\nusing System.Linq;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]" +
                     "\r\n\r\nnamespace ");
             
-            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            #line 15 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public static class ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            #line 17 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -50,12 +50,12 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
             this.Write("\r\n    {\r\n        /// <summary>\r\n        /// For mapping a paged-list of Domain el" +
                     "ements into a page of DTO elements. See <see cref=\"");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            #line 20 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetPagedListInterfaceName()));
             
             #line default
             #line hidden
-            this.Write(@"{T}""/>. 
+            this.Write(@"{T}""/>.
         /// </summary>
         /// <param name=""pagedList"">A single page retrieved from a persistence store.</param>
         /// <param name=""mapFunc"">
@@ -65,19 +65,19 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
         /// <example>results.MapToPagedResult(x => x.MapToItemDTO(_mapper));</example>
         /// <example>results.MapToPagedResult(x => ItemDTO.Create(x.ItemName));</example>
         /// </param>
-        /// <typeparam name=""TDomain"">Domain element type</typeparam>
-        /// <typeparam name=""TDto"">DTO element type</typeparam>
-        /// <returns>A single page of DTO elements</returns>
+        /// <typeparam name=""TDomain"">Domain element type.</typeparam>
+        /// <typeparam name=""TDto"">DTO element type.</typeparam>
+        /// <returns>A single page of DTO elements.</returns>
         public static ");
             
-            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            #line 33 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetPagedResultName()));
             
             #line default
             #line hidden
             this.Write("<TDto> MapToPagedResult<TDomain, TDto>(this ");
             
-            #line 33 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            #line 33 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetPagedListInterfaceName()));
             
             #line default
@@ -85,7 +85,7 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
             this.Write("<TDomain> pagedList, Func<TDomain, TDto> mapFunc)\r\n        { \r\n            var da" +
                     "ta = pagedList.Select(mapFunc).ToList();\r\n\r\n            return ");
             
-            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            #line 37 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetPagedResultName()));
             
             #line default
@@ -101,7 +101,7 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
         /// <summary>
         /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref=""");
             
-            #line 46 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            #line 46 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetPagedListInterfaceName()));
             
             #line default
@@ -109,25 +109,25 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
             this.Write(@"{T}""/>. 
         /// </summary>
         /// <param name=""pagedList"">A single page retrieved from a persistence store.</param>
-        /// <typeparam name=""TDto"">DTO element type</typeparam>
-        /// <returns>A single page of DTO elements</returns>
+        /// <typeparam name=""TDto"">DTO element type.</typeparam>
+        /// <returns>A single page of DTO elements.</returns>
         public static ");
             
-            #line 51 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            #line 51 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetPagedResultName()));
             
             #line default
             #line hidden
             this.Write("<TDto> MapToPagedResult<TDto>(this ");
             
-            #line 51 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            #line 51 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetPagedListInterfaceName()));
             
             #line default
             #line hidden
             this.Write("<TDto> pagedList)\r\n        { \r\n            return ");
             
-            #line 53 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
+            #line 53 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.Dtos.Pagination\Templates\PagedResultMappingExtensions\PagedResultMappingExtensionsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetPagedResultName()));
             
             #line default

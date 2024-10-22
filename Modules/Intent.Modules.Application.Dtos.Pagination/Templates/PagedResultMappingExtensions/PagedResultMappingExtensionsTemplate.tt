@@ -17,7 +17,7 @@ namespace <#= Namespace #>
     public static class <#= ClassName #>
     {
         /// <summary>
-        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref="<#= GetPagedListInterfaceName() #>{T}"/>. 
+        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref="<#= GetPagedListInterfaceName() #>{T}"/>.
         /// </summary>
         /// <param name="pagedList">A single page retrieved from a persistence store.</param>
         /// <param name="mapFunc">
@@ -27,9 +27,9 @@ namespace <#= Namespace #>
         /// <example>results.MapToPagedResult(x => x.MapToItemDTO(_mapper));</example>
         /// <example>results.MapToPagedResult(x => ItemDTO.Create(x.ItemName));</example>
         /// </param>
-        /// <typeparam name="TDomain">Domain element type</typeparam>
-        /// <typeparam name="TDto">DTO element type</typeparam>
-        /// <returns>A single page of DTO elements</returns>
+        /// <typeparam name="TDomain">Domain element type.</typeparam>
+        /// <typeparam name="TDto">DTO element type.</typeparam>
+        /// <returns>A single page of DTO elements.</returns>
         public static <#= this.GetPagedResultName() #><TDto> MapToPagedResult<TDomain, TDto>(this <#= GetPagedListInterfaceName() #><TDomain> pagedList, Func<TDomain, TDto> mapFunc)
         { 
             var data = pagedList.Select(mapFunc).ToList();
@@ -46,8 +46,8 @@ namespace <#= Namespace #>
         /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref="<#= GetPagedListInterfaceName() #>{T}"/>. 
         /// </summary>
         /// <param name="pagedList">A single page retrieved from a persistence store.</param>
-        /// <typeparam name="TDto">DTO element type</typeparam>
-        /// <returns>A single page of DTO elements</returns>
+        /// <typeparam name="TDto">DTO element type.</typeparam>
+        /// <returns>A single page of DTO elements.</returns>
         public static <#= this.GetPagedResultName() #><TDto> MapToPagedResult<TDto>(this <#= GetPagedListInterfaceName() #><TDto> pagedList)
         { 
             return <#= this.GetPagedResultName() #><TDto>.Create(
