@@ -1,4 +1,8 @@
-﻿### Version 4.2.16
+﻿### Version 4.2.17
+
+- Improvement: ToList IEnumerable to prevent possible multiple emunerations
+
+### Version 4.2.16
 
 - Improvement: Transformed the `UnhandledExceptionBehaviour` template from T4 to File Builder for easier extensibility.
 

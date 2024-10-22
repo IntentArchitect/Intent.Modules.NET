@@ -31,7 +31,7 @@ namespace <#= Namespace #>
 
         public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
-            var authorizeAttributes = request.GetType().GetCustomAttributes<<#= this.GetAuthorizationAttribute() #>>();
+            var authorizeAttributes = request.GetType().GetCustomAttributes<<#= this.GetAuthorizationAttribute() #>>().ToList();
 
             if (authorizeAttributes.Any())
             {
@@ -42,7 +42,7 @@ namespace <#= Namespace #>
                 }
 
                 // Role-based authorization
-                var authorizeAttributesWithRoles = authorizeAttributes.Where(a => !string.IsNullOrWhiteSpace(a.Roles));
+                var authorizeAttributesWithRoles = authorizeAttributes.Where(a => !string.IsNullOrWhiteSpace(a.Roles)).ToList();
 
                 if (authorizeAttributesWithRoles.Any())
                 {
@@ -68,7 +68,7 @@ namespace <#= Namespace #>
                 }
 
                 // Policy-based authorization
-                var authorizeAttributesWithPolicies = authorizeAttributes.Where(a => !string.IsNullOrWhiteSpace(a.Policy));
+                var authorizeAttributesWithPolicies = authorizeAttributes.Where(a => !string.IsNullOrWhiteSpace(a.Policy)).ToList();
                 if (authorizeAttributesWithPolicies.Any())
                 {
                     foreach(var policy in authorizeAttributesWithPolicies.Select(a => a.Policy))
