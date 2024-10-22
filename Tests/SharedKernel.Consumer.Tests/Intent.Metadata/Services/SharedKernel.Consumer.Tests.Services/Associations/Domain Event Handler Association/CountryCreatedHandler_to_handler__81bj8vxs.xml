@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="76dd6074-39e8-48c9-a7d5-5079aaabe151">
+  <sourceEnd id="ed75ecd3-0b49-474f-8011-cdc7b009986b" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+    <display>: CountryCreatedHandler</display>
+    <order>0</order>
+    <typeReference id="f610f05e-cdc1-4a9b-a0e7-972816f34187">
+      <typeId>a461d437-a1ca-4d0d-b267-11f0658938bc</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Consumer.Tests.Services</typePackageName>
+      <typePackageId>adb83b4a-b4b2-44d5-9fe9-04221603811c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="76dd6074-39e8-48c9-a7d5-5079aaabe151" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+    <name>handler</name>
+    <display>handles : CountryCreated</display>
+    <order>0</order>
+    <typeReference id="6f3cb00a-cdbb-441b-9d87-3ae5461270a2">
+      <typeId>02602f81-58e3-48f3-93bb-0ed3bb6418fb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+      <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Handler Association</associationType>
+  <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+  <stereotypes />
+</association>

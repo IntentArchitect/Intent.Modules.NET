@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c81d60cb-b250-48d8-8f33-4cf7058e5abe">
+  <sourceEnd id="7b4ed186-770f-4ec0-8437-09ce9709aa7c" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+    <display>: CurrencyCreatedHandler</display>
+    <order>0</order>
+    <typeReference id="e0fc1f59-9060-4588-bef6-f78dec11dd6b">
+      <typeId>18204415-bd22-47b5-a91c-6e4410c2022d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Kernel.Tests.Services</typePackageName>
+      <typePackageId>65203c73-c0ce-418f-ad06-0f5e8b76d3a2</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c81d60cb-b250-48d8-8f33-4cf7058e5abe" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+    <name>handler</name>
+    <display>handles : CurrencyCreated</display>
+    <order>0</order>
+    <typeReference id="2a19cbb1-02f3-49fe-b096-da112adcdbea">
+      <typeId>281c98f9-0221-47c8-aa85-b50210ac002e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+      <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Handler Association</associationType>
+  <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+  <stereotypes />
+</association>

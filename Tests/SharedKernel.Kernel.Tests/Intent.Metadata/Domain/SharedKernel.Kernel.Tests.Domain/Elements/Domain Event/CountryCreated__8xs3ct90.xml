@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="02602f81-58e3-48f3-93bb-0ed3bb6418fb" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>CountryCreated</name>
+  <display>CountryCreated</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</parentFolderId>
+  <packageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</packageId>
+  <packageName>SharedKernel.Kernel.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6aab1974-2d84-45c4-8a80-0b66a8ccc994" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Country</name>
+      <display>Country: Country</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="9e49980f-645c-4f66-8694-8d0e7812d352">
+        <typeId>4e3412e9-50e5-4801-a45b-004c869795a1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+        <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>02602f81-58e3-48f3-93bb-0ed3bb6418fb</parentFolderId>
+      <packageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</packageId>
+      <packageName>SharedKernel.Kernel.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

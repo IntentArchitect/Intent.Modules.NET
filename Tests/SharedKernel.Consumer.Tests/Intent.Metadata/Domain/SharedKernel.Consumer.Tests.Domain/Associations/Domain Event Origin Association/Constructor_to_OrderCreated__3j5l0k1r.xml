@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1a9cf532-42bf-4ef8-8af7-17b1059e8365">
+  <sourceEnd id="d8c0ff2c-279f-4682-b0c7-a193e8a8e725" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <display>published by : Order.Constructor</display>
+    <order>1</order>
+    <typeReference id="aba1a0bf-4e4a-4b72-b877-6d416b8a9588">
+      <typeId>67c2d6fc-20ef-472c-ac69-27769e787405</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Consumer.Tests.Domain</typePackageName>
+      <typePackageId>9b284605-17ec-4101-b14d-ae7fc4bdf993</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1a9cf532-42bf-4ef8-8af7-17b1059e8365" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <display>publishes : OrderCreated</display>
+    <order>3</order>
+    <typeReference id="3063e89b-31e4-4228-91a5-32256bcafeed">
+      <typeId>cd50a3e3-8409-438f-8d73-28eb2f7b9261</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Consumer.Tests.Domain</typePackageName>
+      <typePackageId>9b284605-17ec-4101-b14d-ae7fc4bdf993</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
+        <source applicationId="308319b1-d886-4593-8cba-2be4c6795f85" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b9fcab2e-f9b8-4ea5-9ab3-2e8b43758925" location="[SharedKernel.Consumer.Tests].[Domain].[Order]" />
+        <target applicationId="308319b1-d886-4593-8cba-2be4c6795f85" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="cd50a3e3-8409-438f-8d73-28eb2f7b9261" location="[SharedKernel.Consumer.Tests].[Domain].[OrderCreated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Order}</expression>
+            <path>
+              <target id="cd50a3e3-8409-438f-8d73-28eb2f7b9261" name="OrderCreated" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
+              <target id="693ec8db-5a08-4cc1-8789-1421af39cee4" name="Order" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+            </path>
+            <sources>
+              <source identifier="Order" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="b9fcab2e-f9b8-4ea5-9ab3-2e8b43758925" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

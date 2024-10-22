@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="07984e87-1023-4c47-be0d-979940acebf9">
+  <sourceEnd id="a24469bd-d7e8-4475-b65d-cb891afd5c55" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Orders</name>
+    <display>Orders: Order[*]</display>
+    <order>0</order>
+    <typeReference id="baa071e7-6ead-4653-9a59-c7d4be3c92f7">
+      <typeId>b9fcab2e-f9b8-4ea5-9ab3-2e8b43758925</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Consumer.Tests.Domain</typePackageName>
+      <typePackageId>9b284605-17ec-4101-b14d-ae7fc4bdf993</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="07984e87-1023-4c47-be0d-979940acebf9" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Currency</name>
+    <display>Currency: Currency</display>
+    <order>6</order>
+    <typeReference id="7c88f735-c42f-4c4d-98ef-bfe251ebfacd">
+      <typeId>3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+      <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

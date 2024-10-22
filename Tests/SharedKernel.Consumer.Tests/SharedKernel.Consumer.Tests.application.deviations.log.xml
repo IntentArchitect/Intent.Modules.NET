@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.MediatR.DomainEvents.DomainEventHandler#a461d437-a1ca-4d0d-b267-11f0658938bc</correlationId>
+      <path>SharedKernel.Consumer.Tests.Application/EventHandlers/Countries/CountryCreatedHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-10-22T11:10:29.0589929Z</updatedAt>
+      <deviationsHash>2E9D0DE516F68E9027F39927B92AC2699F5A8F7487B013B2A52074B80BFFF75C</deviationsHash>
+      <fileHash>F2C7C2358D8BF86F05538300A91348912DED0A379E91E847C52A05BD5A3BD345</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.MediatR.DomainEvents.DomainEventHandler#770108a3-abe8-46e4-924d-a829bf47b7ee</correlationId>
+      <path>SharedKernel.Consumer.Tests.Application/EventHandlers/Orders/OrderCreatedHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-10-22T11:14:11.2311426Z</updatedAt>
+      <deviationsHash>527DD70D8188052BF1266447D04F761FEB04E7AF72E33788ED9AA5C2616B1449</deviationsHash>
+      <fileHash>A80F48E43CC71B273125EC74C8FA45C60CCF4CC5B8C73E19E12CE6B580B3B5DB</fileHash>
+    </file>
+  </files>
+</deviationsLog>

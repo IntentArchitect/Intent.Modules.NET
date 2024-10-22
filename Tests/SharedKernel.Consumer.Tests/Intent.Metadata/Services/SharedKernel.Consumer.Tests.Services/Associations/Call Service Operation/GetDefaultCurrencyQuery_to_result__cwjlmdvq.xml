@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="574003ac-2c98-4859-a9dc-b92fcf7266b9">
+  <sourceEnd id="f6d0f90a-bdb1-4fa1-8fd5-26b807032e63" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Currencies.GetDefaultCurrencyQuery</display>
+    <order>0</order>
+    <typeReference id="4b93567b-5555-4a86-8030-a8bcc9895711">
+      <typeId>3c7b818c-14d7-4a79-990c-4ec13a159625</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Consumer.Tests.Services</typePackageName>
+      <typePackageId>adb83b4a-b4b2-44d5-9fe9-04221603811c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="574003ac-2c98-4859-a9dc-b92fcf7266b9" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: GetDefaultCurrencyAsync(...): Currency</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="b612eae6-1497-4fac-bb95-6bfd690b09b7">
+      <typeId>16e0be82-a155-4ecb-81eb-67974991124e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+      <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="308319b1-d886-4593-8cba-2be4c6795f85" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3c7b818c-14d7-4a79-990c-4ec13a159625" location="[SharedKernel.Consumer.Tests].[Services].[GetDefaultCurrencyQuery]" />
+        <target applicationId="75640d0d-5a5b-47b7-9de3-70df70bbfe74" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="16e0be82-a155-4ecb-81eb-67974991124e" location="[SharedKernel.Consumer.Tests].[Services].[GetDefaultCurrencyAsync]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{GetDefaultCurrencyQuery}</expression>
+            <path>
+              <target id="16e0be82-a155-4ecb-81eb-67974991124e" name="GetDefaultCurrencyAsync" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+            </path>
+            <sources>
+              <source identifier="GetDefaultCurrencyQuery" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="3c7b818c-14d7-4a79-990c-4ec13a159625" name="GetDefaultCurrencyQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{CountryId}</expression>
+            <path>
+              <target id="16e0be82-a155-4ecb-81eb-67974991124e" name="GetDefaultCurrencyAsync" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="ec41bc03-5071-453f-81a5-c8d0852fd565" name="countryId" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="CountryId" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="3c7b818c-14d7-4a79-990c-4ec13a159625" name="GetDefaultCurrencyQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="1395ef39-3cb4-4467-bfea-c1291b65f647" name="CountryId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

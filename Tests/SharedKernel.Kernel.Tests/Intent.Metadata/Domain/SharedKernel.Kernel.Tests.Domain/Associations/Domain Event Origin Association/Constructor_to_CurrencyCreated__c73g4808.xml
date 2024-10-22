@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d2d77aa2-c729-4c69-86f3-a81572b639d2">
+  <sourceEnd id="73a938e4-5135-4c1d-9114-935e242a2fcc" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <display>published by : Currency.Constructor</display>
+    <order>1</order>
+    <typeReference id="3170ed9a-0a5e-4da8-966a-03857711efb5">
+      <typeId>d4b383cd-4fde-4a5d-ba48-60b705d8fbe7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+      <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d2d77aa2-c729-4c69-86f3-a81572b639d2" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <display>publishes : CurrencyCreated</display>
+    <order>3</order>
+    <typeReference id="62ddb880-88e8-41bb-b802-1bd88fe53fe7">
+      <typeId>281c98f9-0221-47c8-aa85-b50210ac002e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+      <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
+        <source applicationId="75640d0d-5a5b-47b7-9de3-70df70bbfe74" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f" location="[SharedKernel.Kernel.Tests].[Domain].[Currency]" />
+        <target applicationId="75640d0d-5a5b-47b7-9de3-70df70bbfe74" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="281c98f9-0221-47c8-aa85-b50210ac002e" location="[SharedKernel.Kernel.Tests].[Domain].[CurrencyCreated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Currency}</expression>
+            <path>
+              <target id="281c98f9-0221-47c8-aa85-b50210ac002e" name="CurrencyCreated" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
+              <target id="ad0e18a3-91d1-4992-b1a9-3d926222df7e" name="Currency" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+            </path>
+            <sources>
+              <source identifier="Currency" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f" name="Currency" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

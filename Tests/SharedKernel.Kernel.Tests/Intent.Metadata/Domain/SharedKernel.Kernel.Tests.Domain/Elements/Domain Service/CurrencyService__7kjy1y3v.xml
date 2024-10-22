@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f245796d-91ac-4f1e-9d25-25c3a6450c0b" type="Domain Service" typeId="07f936ea-3756-48c8-babd-24ac7271daac">
+  <name>CurrencyService</name>
+  <display>CurrencyService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</parentFolderId>
+  <packageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</packageId>
+  <packageName>SharedKernel.Kernel.Tests.Domain</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="fe69572d-735f-4e0b-8f97-c252323f8e47" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>GetDefaultCurrency</name>
+      <display>GetDefaultCurrency(countryId: guid): Currency</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="562e83bb-a0e3-42fe-8928-f60648c320be">
+        <typeId>3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+        <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f245796d-91ac-4f1e-9d25-25c3a6450c0b</parentFolderId>
+      <packageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</packageId>
+      <packageName>SharedKernel.Kernel.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="de37146e-0fd3-47e2-aa06-dcb67f64357c" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>countryId</name>
+          <display>in : countryId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="561cd3ec-f861-4bfe-a3c8-3b96825dafdf">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>fe69572d-735f-4e0b-8f97-c252323f8e47</parentFolderId>
+          <packageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</packageId>
+          <packageName>SharedKernel.Kernel.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="16e0be82-a155-4ecb-81eb-67974991124e" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>GetDefaultCurrencyAsync</name>
+      <display>GetDefaultCurrencyAsync(countryId: guid): Currency</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="2d3fbe2a-6de1-433c-bfcf-20d1f47d3cdf">
+        <typeId>3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+        <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f245796d-91ac-4f1e-9d25-25c3a6450c0b</parentFolderId>
+      <packageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</packageId>
+      <packageName>SharedKernel.Kernel.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="ec41bc03-5071-453f-81a5-c8d0852fd565" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>countryId</name>
+          <display>in : countryId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ba644d02-6f6a-453c-b518-1039ab450095">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>16e0be82-a155-4ecb-81eb-67974991124e</parentFolderId>
+          <packageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</packageId>
+          <packageName>SharedKernel.Kernel.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

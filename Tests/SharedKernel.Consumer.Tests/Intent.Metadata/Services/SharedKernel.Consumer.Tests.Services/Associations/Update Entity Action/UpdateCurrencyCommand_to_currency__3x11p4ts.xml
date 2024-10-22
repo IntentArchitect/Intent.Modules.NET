@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b0017e38-6ad5-4b57-b155-4793d9c6bd24">
+  <sourceEnd id="d471b302-da7f-4b81-94c2-4ff3b67ad482" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Currencies.UpdateCurrencyCommand</display>
+    <order>0</order>
+    <typeReference id="e3a0264d-c466-4e3b-ac06-fc4ee0e62207">
+      <typeId>a2985c05-7720-4dc9-8c5c-6e4795f2fc8a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Consumer.Tests.Services</typePackageName>
+      <typePackageId>adb83b4a-b4b2-44d5-9fe9-04221603811c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b0017e38-6ad5-4b57-b155-4793d9c6bd24" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>currency</name>
+    <display>[update] currency: Currency</display>
+    <order>5</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="a0542bd0-7559-4452-aedc-dec798ffb344">
+      <typeId>3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+      <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="308319b1-d886-4593-8cba-2be4c6795f85" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a2985c05-7720-4dc9-8c5c-6e4795f2fc8a" location="[SharedKernel.Consumer.Tests].[Services].[UpdateCurrencyCommand]" />
+        <target applicationId="75640d0d-5a5b-47b7-9de3-70df70bbfe74" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f" location="[SharedKernel.Consumer.Tests].[Services].[Currency]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f" name="Currency" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="41709fb8-56d9-4de0-9ae8-9c7f3c92271c" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="a2985c05-7720-4dc9-8c5c-6e4795f2fc8a" name="UpdateCurrencyCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="07cb6771-6e9f-41af-a852-16d76fb2bd46" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="308319b1-d886-4593-8cba-2be4c6795f85" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a2985c05-7720-4dc9-8c5c-6e4795f2fc8a" location="[SharedKernel.Consumer.Tests].[Services].[UpdateCurrencyCommand]" />
+        <target applicationId="75640d0d-5a5b-47b7-9de3-70df70bbfe74" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f" location="[SharedKernel.Consumer.Tests].[Services].[Currency]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CountryId}</expression>
+            <path>
+              <target id="3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f" name="Currency" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="83cf5810-d7ed-4901-8ced-4425aae4b7f0" name="CountryId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="CountryId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a2985c05-7720-4dc9-8c5c-6e4795f2fc8a" name="UpdateCurrencyCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="13aae122-c7f9-49d7-8b42-beb5c6a8aa07" name="CountryId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f" name="Currency" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="0cf70a1b-d9f5-4abb-8eaf-2ab3b6545bf7" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a2985c05-7720-4dc9-8c5c-6e4795f2fc8a" name="UpdateCurrencyCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="1866838d-e9de-411b-876d-1942800b02d5" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Symbol}</expression>
+            <path>
+              <target id="3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f" name="Currency" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="acdcb098-4c54-4d16-8f8d-a72dea8321fe" name="Symbol" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Symbol" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a2985c05-7720-4dc9-8c5c-6e4795f2fc8a" name="UpdateCurrencyCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7d9f87e0-b2a2-4798-9d2a-c6712e3f858d" name="Symbol" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Description}</expression>
+            <path>
+              <target id="3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f" name="Currency" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ff32eb1e-575f-407d-8c57-bc1a5219def8" name="Description" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Description" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="a2985c05-7720-4dc9-8c5c-6e4795f2fc8a" name="UpdateCurrencyCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="adbaa369-f277-46df-a150-f4218a6ee088" name="Description" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ffc2fd1b-9cae-4301-b858-66c252445d65">
+  <sourceEnd id="99fa1051-f20e-4f89-889d-27966597a9af" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+    <display>: OrderCreatedHandler</display>
+    <order>0</order>
+    <typeReference id="3340724a-820a-403c-b8ec-1f49d8409775">
+      <typeId>770108a3-abe8-46e4-924d-a829bf47b7ee</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Consumer.Tests.Services</typePackageName>
+      <typePackageId>adb83b4a-b4b2-44d5-9fe9-04221603811c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ffc2fd1b-9cae-4301-b858-66c252445d65" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+    <name>handler</name>
+    <display>handles : OrderCreated</display>
+    <order>0</order>
+    <typeReference id="a72e153b-e598-45d0-b4c0-5b55ad57bedc">
+      <typeId>cd50a3e3-8409-438f-8d73-28eb2f7b9261</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Consumer.Tests.Domain</typePackageName>
+      <typePackageId>9b284605-17ec-4101-b14d-ae7fc4bdf993</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Handler Association</associationType>
+  <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+  <stereotypes />
+</association>

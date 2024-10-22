@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a9c22fa2-6844-4c5b-bd27-3b9df54ce70d">
+  <sourceEnd id="a2e79428-f5e8-49d7-b0a0-572c98f18b16" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCurrenciesQuery</display>
+    <order>0</order>
+    <typeReference id="a6ea1671-70f0-424b-8bb4-e453d1bdcf97">
+      <typeId>2dda7d1c-9b75-4203-82b4-240457aecce8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Consumer.Tests.Services</typePackageName>
+      <typePackageId>adb83b4a-b4b2-44d5-9fe9-04221603811c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a9c22fa2-6844-4c5b-bd27-3b9df54ce70d" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>currencies</name>
+    <display>[query] currencies: Currency[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="6032b144-4840-49c8-94be-f13932f15102">
+      <typeId>3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+      <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="308319b1-d886-4593-8cba-2be4c6795f85" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2dda7d1c-9b75-4203-82b4-240457aecce8" location="[SharedKernel.Consumer.Tests].[Services].[GetCurrenciesQuery]" />
+        <target applicationId="75640d0d-5a5b-47b7-9de3-70df70bbfe74" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f" location="[SharedKernel.Consumer.Tests].[Services].[Currency]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

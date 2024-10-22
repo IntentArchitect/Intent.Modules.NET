@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="63efa755-8203-48b2-87bc-9b46b4f04e10">
+  <sourceEnd id="e9ccf6ae-b801-41e2-8d58-c8dd7a684e12" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <display>published by : Country.Constructor</display>
+    <order>1</order>
+    <typeReference id="ee1e7cd1-1a84-4910-86be-248f11969293">
+      <typeId>b14e20d9-050b-4778-acf1-2ce89b343eb4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+      <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="63efa755-8203-48b2-87bc-9b46b4f04e10" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <display>publishes : CountryCreated</display>
+    <order>2</order>
+    <typeReference id="8940a97e-f88d-4903-b845-d69030137bf1">
+      <typeId>02602f81-58e3-48f3-93bb-0ed3bb6418fb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+      <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
+        <source applicationId="75640d0d-5a5b-47b7-9de3-70df70bbfe74" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="4e3412e9-50e5-4801-a45b-004c869795a1" location="[SharedKernel.Kernel.Tests].[Domain].[Country]" />
+        <target applicationId="75640d0d-5a5b-47b7-9de3-70df70bbfe74" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="02602f81-58e3-48f3-93bb-0ed3bb6418fb" location="[SharedKernel.Kernel.Tests].[Domain].[CountryCreated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Country}</expression>
+            <path>
+              <target id="02602f81-58e3-48f3-93bb-0ed3bb6418fb" name="CountryCreated" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
+              <target id="6aab1974-2d84-45c4-8a80-0b66a8ccc994" name="Country" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+            </path>
+            <sources>
+              <source identifier="Country" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="4e3412e9-50e5-4801-a45b-004c869795a1" name="Country" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

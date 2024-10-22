@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8bd43aab-7eff-404a-8a45-8aeaba81194e" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default</name>
+  <display>Default</display>
+  <externalReference>dd325196-608f-4047-8e61-6970b17594e1</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</parentFolderId>
+  <packageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</packageId>
+  <packageName>SharedKernel.Kernel.Tests.Domain</packageName>
+  <diagram>
+    <targetPackageId>dd325196-608f-4047-8e61-6970b17594e1</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a461d437-a1ca-4d0d-b267-11f0658938bc" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>CountryCreatedHandler</name>
+  <display>CountryCreatedHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3409af62-e620-4293-bc10-b7676e7a3fd9</parentFolderId>
+  <packageId>adb83b4a-b4b2-44d5-9fe9-04221603811c</packageId>
+  <packageName>SharedKernel.Consumer.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

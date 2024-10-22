@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="38b30eed-5f30-460b-b42a-2a0b4fc30cac">
+  <sourceEnd id="99cc3a4d-d7b4-4da7-a801-0f9e2f65096e" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Orders.UpdateOrderCommand</display>
+    <order>0</order>
+    <typeReference id="513bbc90-ba7a-4d7d-8faa-35d48e312631">
+      <typeId>e3734cb7-e112-417b-a475-b6e4445fc70f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Consumer.Tests.Services</typePackageName>
+      <typePackageId>adb83b4a-b4b2-44d5-9fe9-04221603811c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="38b30eed-5f30-460b-b42a-2a0b4fc30cac" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>order</name>
+    <display>[update] order: Order</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="541f307b-de3b-4bdc-aa5d-528781d3440d">
+      <typeId>b9fcab2e-f9b8-4ea5-9ab3-2e8b43758925</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Consumer.Tests.Domain</typePackageName>
+      <typePackageId>9b284605-17ec-4101-b14d-ae7fc4bdf993</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="308319b1-d886-4593-8cba-2be4c6795f85" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e3734cb7-e112-417b-a475-b6e4445fc70f" location="[SharedKernel.Consumer.Tests].[Services].[UpdateOrderCommand]" />
+        <target applicationId="308319b1-d886-4593-8cba-2be4c6795f85" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b9fcab2e-f9b8-4ea5-9ab3-2e8b43758925" location="[SharedKernel.Consumer.Tests].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="b9fcab2e-f9b8-4ea5-9ab3-2e8b43758925" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="0a97c1d7-433a-4619-958e-86dbdea0ea7f" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="e3734cb7-e112-417b-a475-b6e4445fc70f" name="UpdateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7608e90d-74d0-4655-ab69-94d570e1ad1d" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="308319b1-d886-4593-8cba-2be4c6795f85" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e3734cb7-e112-417b-a475-b6e4445fc70f" location="[SharedKernel.Consumer.Tests].[Services].[UpdateOrderCommand]" />
+        <target applicationId="308319b1-d886-4593-8cba-2be4c6795f85" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b9fcab2e-f9b8-4ea5-9ab3-2e8b43758925" location="[SharedKernel.Consumer.Tests].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{RefNo}</expression>
+            <path>
+              <target id="b9fcab2e-f9b8-4ea5-9ab3-2e8b43758925" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="47fc0412-ea08-4624-b4d2-44061c7bbc09" name="RefNo" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="RefNo" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="e3734cb7-e112-417b-a475-b6e4445fc70f" name="UpdateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="a846d856-847c-4115-9518-80a2bf1127d3" name="RefNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{CountryId}</expression>
+            <path>
+              <target id="b9fcab2e-f9b8-4ea5-9ab3-2e8b43758925" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="9c93e038-c14c-4736-8e26-ef0cce322c2d" name="CountryId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="CountryId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="e3734cb7-e112-417b-a475-b6e4445fc70f" name="UpdateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="2aac61fb-22ec-4257-a540-80a7c54eff33" name="CountryId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0afd9582-ed1f-4420-b85a-9731d431bf90" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Currencies</name>
+  <display>Currencies</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cb5478bf-75af-4b91-8f6b-040a05f7667b</parentFolderId>
+  <packageId>adb83b4a-b4b2-44d5-9fe9-04221603811c</packageId>
+  <packageName>SharedKernel.Consumer.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>0afd9582-ed1f-4420-b85a-9731d431bf90</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

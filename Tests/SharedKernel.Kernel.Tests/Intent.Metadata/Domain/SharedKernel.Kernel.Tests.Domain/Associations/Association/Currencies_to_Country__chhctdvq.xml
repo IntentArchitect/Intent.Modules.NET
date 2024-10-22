@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7db464a6-ff64-4dcd-9d99-b0942901c8c1">
+  <sourceEnd id="beeafe9a-6d71-411c-b8de-a5304f7f31bd" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Currencies</name>
+    <display>Currencies: Currency[*]</display>
+    <order>0</order>
+    <typeReference id="6b7e3475-6201-4ed9-9cd8-95b4df7cb340">
+      <typeId>3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+      <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7db464a6-ff64-4dcd-9d99-b0942901c8c1" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Country</name>
+    <display>Country: Country</display>
+    <order>6</order>
+    <typeReference id="cb6bfce5-97ec-43ad-b9c1-bee4cb005d6a">
+      <typeId>4e3412e9-50e5-4801-a45b-004c869795a1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+      <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

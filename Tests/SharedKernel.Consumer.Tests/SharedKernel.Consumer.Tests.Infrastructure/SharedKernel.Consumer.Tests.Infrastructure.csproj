@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SharedKernel.Kernel.Tests\SharedKernel.Kernel.Tests.Infrastructure\SharedKernel.Kernel.Tests.Infrastructure.csproj" />
+    <ProjectReference Include="..\SharedKernel.Consumer.Tests.Domain\SharedKernel.Consumer.Tests.Domain.csproj" />
+    <ProjectReference Include="..\SharedKernel.Consumer.Tests.Application\SharedKernel.Consumer.Tests.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.7" />
+  </ItemGroup>
+  </Project>

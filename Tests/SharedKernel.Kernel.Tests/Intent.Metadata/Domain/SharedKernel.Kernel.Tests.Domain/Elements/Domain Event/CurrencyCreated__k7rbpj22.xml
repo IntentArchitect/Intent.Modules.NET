@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="281c98f9-0221-47c8-aa85-b50210ac002e" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>CurrencyCreated</name>
+  <display>CurrencyCreated</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</parentFolderId>
+  <packageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</packageId>
+  <packageName>SharedKernel.Kernel.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ad0e18a3-91d1-4992-b1a9-3d926222df7e" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Currency</name>
+      <display>Currency: Currency</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5c237624-8cde-4844-a87d-d79ffb1b770e">
+        <typeId>3fa52fa2-7bc3-4a6f-8488-4d1f7e52707f</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>SharedKernel.Kernel.Tests.Domain</typePackageName>
+        <typePackageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>281c98f9-0221-47c8-aa85-b50210ac002e</parentFolderId>
+      <packageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</packageId>
+      <packageName>SharedKernel.Kernel.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

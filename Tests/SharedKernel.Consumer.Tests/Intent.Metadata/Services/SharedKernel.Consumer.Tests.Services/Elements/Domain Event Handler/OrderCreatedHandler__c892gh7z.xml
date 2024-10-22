@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="770108a3-abe8-46e4-924d-a829bf47b7ee" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>OrderCreatedHandler</name>
+  <display>OrderCreatedHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>68e1c721-2623-4552-ae22-266443e841eb</parentFolderId>
+  <packageId>adb83b4a-b4b2-44d5-9fe9-04221603811c</packageId>
+  <packageName>SharedKernel.Consumer.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

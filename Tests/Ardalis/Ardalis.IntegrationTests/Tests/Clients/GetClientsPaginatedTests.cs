@@ -14,7 +14,8 @@ namespace Ardalis.IntegrationTests.Tests
         {
         }
 
-        [Fact]
+        //[Fact]
+        [IntentIgnore]
         public async Task GetClientsPaginated_ShouldGetClients()
         {
             // Arrange

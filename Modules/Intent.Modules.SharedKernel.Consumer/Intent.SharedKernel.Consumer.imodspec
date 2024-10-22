@@ -38,6 +38,18 @@
     <dependency id="Intent.Modelers.Domain.Events" version="4.2.0" />
     <dependency id="Intent.Modelers.Services" version="3.8.0" />
   </dependencies>
+  <interoperability>
+    <detect id="Intent.Application.MediatR.CRUD">
+      <install>
+        <package id="Intent.Application.MediatR.CRUD" version="6.0.20" />
+      </install>
+    </detect>
+    <detect id="Intent.Application.ServiceImplementations.Conventions.CRUD">
+      <install>
+        <package id="Intent.Application.ServiceImplementations.Conventions.CRUD" version="5.0.17" />
+      </install>
+    </detect>
+  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
