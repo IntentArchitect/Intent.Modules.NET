@@ -1,3 +1,7 @@
+### Version 3.5.4
+
+- Improvement: Additional constructors added to ForbiddenAccessException to more aligned with best practices
+
 ### Version 3.5.3
 
 - Improvement: Updated module NuGet packages infrastructure.
