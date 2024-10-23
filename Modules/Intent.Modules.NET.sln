@@ -318,8 +318,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.SharedKernel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.SharedKernel", "Intent.Modules.SharedKernel\Intent.Modules.SharedKernel.csproj", "{3325522A-1D23-4F85-A16D-C90830B86B5D}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Dapr.Shared", "Intent.Modules.Dapr.Shared\Intent.Modules.Dapr.Shared.shproj", "{757AC2B8-DD19-4DC1-A30B-3AA8C9545848}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1038,7 +1036,6 @@ Global
 		{8EA4DE74-862A-41DC-BDCA-CCC5693E3410} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{F58BC8F7-8269-4609-B775-22808575FD1A} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{3325522A-1D23-4F85-A16D-C90830B86B5D} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
-		{757AC2B8-DD19-4DC1-A30B-3AA8C9545848} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
@@ -1063,7 +1060,6 @@ Global
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{677abc38-c23b-4ca4-9117-f470dd3ea997}*SharedItemsImports = 5
 		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{677abc38-c23b-4ca4-9117-f470dd3ea997}*SharedItemsImports = 5
 		Intent.Modules.Application.DomainInteractions\Intent.Modules.Application.DomainInteractions.projitems*{6eec0527-206c-4437-b8d7-8e1d6ede530f}*SharedItemsImports = 13
-		Intent.Modules.Dapr.Shared\Intent.Modules.Dapr.Shared.projitems*{757ac2b8-dd19-4dc1-a30b-3aa8c9545848}*SharedItemsImports = 13
 		Intent.Modules.Dapr.Shared\Intent.Modules.Dapr.Shared.projitems*{84b0552e-7c31-4f40-9023-c2afb16304e2}*SharedItemsImports = 5
 		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{84b0552e-7c31-4f40-9023-c2afb16304e2}*SharedItemsImports = 5
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{8857d329-9cb0-449a-9c01-94eb3dfb73e0}*SharedItemsImports = 5

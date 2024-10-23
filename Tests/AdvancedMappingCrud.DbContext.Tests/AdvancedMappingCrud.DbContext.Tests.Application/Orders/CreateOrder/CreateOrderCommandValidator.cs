@@ -23,6 +23,10 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Orders.CreateOrder
             RuleFor(v => v.OrderStatus)
                 .NotNull()
                 .IsInEnum();
+
+            RuleFor(v => v.EntityStatus)
+                .NotNull()
+                .IsInEnum();
         }
     }
 }

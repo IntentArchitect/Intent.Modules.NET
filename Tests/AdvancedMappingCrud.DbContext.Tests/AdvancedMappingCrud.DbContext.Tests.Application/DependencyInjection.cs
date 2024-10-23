@@ -1,6 +1,8 @@
 using System.Reflection;
 using AdvancedMappingCrud.DbContext.Tests.Application.Common.Behaviours;
 using AdvancedMappingCrud.DbContext.Tests.Application.Common.Validation;
+using AdvancedMappingCrud.DbContext.Tests.Application.Implementation;
+using AdvancedMappingCrud.DbContext.Tests.Application.Interfaces;
 using AutoMapper;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -29,6 +31,8 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<IUsersService, UsersService>();
             return services;
         }
     }

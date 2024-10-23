@@ -22,6 +22,9 @@
     <name>product</name>
     <display>[create] product: Product</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="d9952544-c3eb-4487-8416-05a7522612aa">
       <typeId>49d6ee32-7e2b-4082-85cc-dda03e2eb756</typeId>
       <isNavigable>true</isNavigable>
