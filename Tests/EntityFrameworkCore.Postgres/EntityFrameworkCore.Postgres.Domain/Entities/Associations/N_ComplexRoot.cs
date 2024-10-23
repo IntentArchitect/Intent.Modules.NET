@@ -16,6 +16,6 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.Associations
 
         public virtual N_CompositeTwo N_CompositeTwo { get; set; }
 
-        public virtual ICollection<N_CompositeMany> N_CompositeManies { get; set; } = new List<N_CompositeMany>();
+        public virtual ICollection<N_CompositeMany> N_CompositeManies { get; set; } = [];
     }
 }

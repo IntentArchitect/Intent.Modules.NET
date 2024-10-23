@@ -10,7 +10,7 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities.Aggregational
 {
     public class ManyToOneDest
     {
-        private List<ManyToOneSource> _manyToOneSources = new List<ManyToOneSource>();
+        private List<ManyToOneSource> _manyToOneSources = [];
 
         public ManyToOneDest(string attribute)
         {

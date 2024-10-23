@@ -13,7 +13,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Entiti
 
         public string Number { get; set; }
 
-        public virtual ICollection<BasketItem> BasketItems { get; set; } = new List<BasketItem>();
+        public virtual ICollection<BasketItem> BasketItems { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

@@ -24,6 +24,8 @@ namespace OpenTelemetry.AzureAppInsights.Api.Filters
                     context.Result = new UnauthorizedResult();
                     context.ExceptionHandled = true;
                     break;
+                default:
+                    break;
             }
         }
     }

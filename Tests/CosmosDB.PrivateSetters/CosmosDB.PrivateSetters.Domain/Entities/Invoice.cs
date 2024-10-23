@@ -10,7 +10,7 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
 {
     public class Invoice : IHasDomainEvent, IAuditable
     {
-        private List<LineItem> _lineItems = new List<LineItem>();
+        private List<LineItem> _lineItems = [];
         private string? _id;
 
         public Invoice(string clientIdentifier, DateTime date, string number)

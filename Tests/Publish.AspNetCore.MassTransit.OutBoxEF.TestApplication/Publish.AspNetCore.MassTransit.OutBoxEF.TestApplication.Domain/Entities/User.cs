@@ -16,6 +16,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entitie
 
         public UserType Type { get; set; }
 
-        public virtual ICollection<Preference> Preferences { get; set; } = new List<Preference>();
+        public virtual ICollection<Preference> Preferences { get; set; } = [];
     }
 }

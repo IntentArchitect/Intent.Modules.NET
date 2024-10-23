@@ -12,6 +12,6 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPH.Polymorphic
 
         public string TopField { get; set; }
 
-        public virtual ICollection<TPH_Poly_RootAbstract> RootAbstracts { get; set; } = new List<TPH_Poly_RootAbstract>();
+        public virtual ICollection<TPH_Poly_RootAbstract> RootAbstracts { get; set; } = [];
     }
 }

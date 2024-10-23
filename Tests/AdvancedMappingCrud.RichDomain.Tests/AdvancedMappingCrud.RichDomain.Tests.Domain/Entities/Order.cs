@@ -10,7 +10,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
 {
     public class Order : IHasDomainEvent
     {
-        private List<OrderItem> _orderItems = new List<OrderItem>();
+        private List<OrderItem> _orderItems = [];
 
         public Order(string refNo, DateTime orderDate, IEnumerable<OrderItem> orderItems)
         {

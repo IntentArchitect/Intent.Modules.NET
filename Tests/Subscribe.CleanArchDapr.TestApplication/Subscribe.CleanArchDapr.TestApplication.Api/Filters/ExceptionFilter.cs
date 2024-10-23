@@ -33,6 +33,8 @@ namespace Subscribe.CleanArchDapr.TestApplication.Api.Filters
                     .AddContextInformation(context);
                     context.ExceptionHandled = true;
                     break;
+                default:
+                    break;
             }
         }
     }

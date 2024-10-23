@@ -10,6 +10,6 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.Associations
     {
         public Guid Id { get; set; }
 
-        public virtual ICollection<O_DestNameDiffDependent> DestNameDiff { get; set; } = new List<O_DestNameDiffDependent>();
+        public virtual ICollection<O_DestNameDiffDependent> DestNameDiff { get; set; } = [];
     }
 }

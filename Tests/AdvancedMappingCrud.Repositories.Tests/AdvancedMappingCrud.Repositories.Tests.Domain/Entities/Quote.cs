@@ -34,7 +34,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 
         public string? PersonEmail { get; set; }
 
-        public virtual ICollection<QuoteLine> QuoteLines { get; set; } = new List<QuoteLine>();
+        public virtual ICollection<QuoteLine> QuoteLines { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 

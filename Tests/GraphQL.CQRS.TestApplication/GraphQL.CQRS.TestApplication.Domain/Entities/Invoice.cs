@@ -17,7 +17,7 @@ namespace GraphQL.CQRS.TestApplication.Domain.Entities
 
         public Guid CustomerId { get; set; }
 
-        public virtual ICollection<InvoiceLine> InvoiceLines { get; set; } = new List<InvoiceLine>();
+        public virtual ICollection<InvoiceLine> InvoiceLines { get; set; } = [];
 
         public virtual Customer Customer { get; set; }
     }

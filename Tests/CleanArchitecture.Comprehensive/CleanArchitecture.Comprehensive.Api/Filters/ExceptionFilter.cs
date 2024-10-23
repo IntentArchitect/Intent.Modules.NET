@@ -23,6 +23,7 @@ public class ExceptionFilter : Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter
                 {
                     context.ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
                 }
+
                 context.Result = new BadRequestObjectResult(new ValidationProblemDetails(context.ModelState))
                 .AddContextInformation(context);
                 context.ExceptionHandled = true;
@@ -42,6 +43,8 @@ public class ExceptionFilter : Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter
                 })
                 .AddContextInformation(context);
                 context.ExceptionHandled = true;
+                break;
+            default:
                 break;
         }
     }

@@ -19,7 +19,7 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
 
         public string Description { get; set; }
 
-        public ICollection<CosmosLine> CosmosLines { get; set; } = new List<CosmosLine>();
+        public ICollection<CosmosLine> CosmosLines { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

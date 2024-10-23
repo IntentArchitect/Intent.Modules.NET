@@ -13,6 +13,6 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.ValueObjects
 
         public string Title { get; set; }
 
-        public ICollection<KeyValuePairSerialized> KeyValuePairSerializeds { get; set; } = new List<KeyValuePairSerialized>();
+        public ICollection<KeyValuePairSerialized> KeyValuePairSerializeds { get; set; } = [];
     }
 }

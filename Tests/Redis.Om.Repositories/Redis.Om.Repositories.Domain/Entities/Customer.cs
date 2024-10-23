@@ -18,7 +18,7 @@ namespace Redis.Om.Repositories.Domain.Entities
 
         public string Name { get; set; }
 
-        public ICollection<string>? Tags { get; set; } = new List<string>();
+        public ICollection<string>? Tags { get; set; } = [];
 
         public Address DeliveryAddress { get; set; }
 

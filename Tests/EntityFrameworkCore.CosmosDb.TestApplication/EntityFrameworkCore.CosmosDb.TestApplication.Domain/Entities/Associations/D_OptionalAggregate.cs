@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 
         public string OptionalAggregateAttr { get; set; }
 
-        public virtual ICollection<D_MultipleDependent> D_MultipleDependents { get; set; } = new List<D_MultipleDependent>();
+        public virtual ICollection<D_MultipleDependent> D_MultipleDependents { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

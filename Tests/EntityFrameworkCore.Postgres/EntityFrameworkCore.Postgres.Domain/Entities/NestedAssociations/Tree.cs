@@ -12,6 +12,6 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.NestedAssociations
 
         public string TreeAttribute { get; set; }
 
-        public virtual ICollection<Branch> Branches { get; set; } = new List<Branch>();
+        public virtual ICollection<Branch> Branches { get; set; } = [];
     }
 }

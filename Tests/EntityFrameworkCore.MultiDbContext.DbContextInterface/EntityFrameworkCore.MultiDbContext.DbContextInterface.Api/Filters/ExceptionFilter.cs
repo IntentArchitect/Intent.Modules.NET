@@ -33,6 +33,8 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Api.Filters
                     .AddContextInformation(context);
                     context.ExceptionHandled = true;
                     break;
+                default:
+                    break;
             }
         }
     }

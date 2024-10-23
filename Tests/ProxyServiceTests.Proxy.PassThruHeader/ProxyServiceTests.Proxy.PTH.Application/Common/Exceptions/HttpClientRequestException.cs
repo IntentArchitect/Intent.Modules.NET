@@ -15,6 +15,17 @@ namespace ProxyServiceTests.Proxy.PTH.Application.Common.Exceptions
 {
     public class HttpClientRequestException : Exception
     {
+        public HttpClientRequestException()
+        {
+        }
+
+        public HttpClientRequestException(string message) : base(message)
+        {
+        }
+
+        public HttpClientRequestException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
         public HttpClientRequestException(Uri requestUri,
             HttpStatusCode statusCode,
             IReadOnlyDictionary<string, IEnumerable<string>> responseHeaders,

@@ -23,7 +23,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
 
         public string Name { get; set; }
 
-        public ICollection<ContactDetailsVO> ContactDetailsVOS { get; set; } = new List<ContactDetailsVO>();
+        public ICollection<ContactDetailsVO> ContactDetailsVOS { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

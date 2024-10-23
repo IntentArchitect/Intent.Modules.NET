@@ -19,7 +19,7 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
 
         public string Description { get; set; }
 
-        public ICollection<DaprLine> DaprLines { get; set; } = new List<DaprLine>();
+        public ICollection<DaprLine> DaprLines { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

@@ -19,7 +19,7 @@ namespace CleanArchitecture.Dapr.Domain.Entities
 
         public string Name { get; set; }
 
-        public ICollection<string> TagsIds { get; set; } = new List<string>();
+        public ICollection<string> TagsIds { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

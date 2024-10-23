@@ -12,6 +12,6 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPT.Polymorphic
 
         public string SecondField { get; set; }
 
-        public virtual ICollection<TPT_Poly_BaseClassNonAbstract> BaseClassNonAbstracts { get; set; } = new List<TPT_Poly_BaseClassNonAbstract>();
+        public virtual ICollection<TPT_Poly_BaseClassNonAbstract> BaseClassNonAbstracts { get; set; } = [];
     }
 }

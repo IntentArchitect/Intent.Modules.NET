@@ -13,6 +13,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Indexes
 
         public string SomeField { get; set; }
 
-        public ICollection<CompoundIndexEntityMultiChild> CompoundIndexEntityMultiChild { get; set; } = new List<CompoundIndexEntityMultiChild>();
+        public ICollection<CompoundIndexEntityMultiChild> CompoundIndexEntityMultiChild { get; set; } = [];
     }
 }

@@ -12,6 +12,6 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Associations
 
         public string ReqCompNavAttr { get; set; }
 
-        public virtual ICollection<G_MultipleDependent> G_MultipleDependents { get; set; } = new List<G_MultipleDependent>();
+        public virtual ICollection<G_MultipleDependent> G_MultipleDependents { get; set; } = [];
     }
 }

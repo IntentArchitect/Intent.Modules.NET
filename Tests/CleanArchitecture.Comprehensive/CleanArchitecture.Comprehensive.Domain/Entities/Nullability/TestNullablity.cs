@@ -57,7 +57,7 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.Nullability
 
         public DefaultLiteralEnum DefaultLiteralEnum { get; set; }
 
-        public virtual ICollection<TestNullablityChild> TestNullablityChildren { get; set; } = new List<TestNullablityChild>();
+        public virtual ICollection<TestNullablityChild> TestNullablityChildren { get; set; } = [];
 
         public virtual NullabilityPeer NullabilityPeer { get; set; }
 

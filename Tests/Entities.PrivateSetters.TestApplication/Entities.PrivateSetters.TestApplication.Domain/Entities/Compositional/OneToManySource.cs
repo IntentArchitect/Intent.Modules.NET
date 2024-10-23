@@ -8,7 +8,7 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities.Compositional
 {
     public class OneToManySource
     {
-        private List<OneToManyDest> _owneds = new List<OneToManyDest>();
+        private List<OneToManyDest> _owneds = [];
 
         public OneToManySource(string attribute, IEnumerable<OneToManyDest> owneds)
         {

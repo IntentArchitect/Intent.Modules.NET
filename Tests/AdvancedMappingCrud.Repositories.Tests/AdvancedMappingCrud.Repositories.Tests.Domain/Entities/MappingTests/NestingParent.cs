@@ -13,7 +13,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.MappingTests
 
         public string Name { get; set; }
 
-        public virtual ICollection<NestingChild> NestingChildren { get; set; } = new List<NestingChild>();
+        public virtual ICollection<NestingChild> NestingChildren { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

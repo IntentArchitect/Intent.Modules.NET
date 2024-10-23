@@ -21,7 +21,7 @@ namespace TrainingModel.Tests.Domain.Entities
 
         public virtual Preferences? Preferences { get; set; }
 
-        public virtual ICollection<Address> Address { get; set; } = new List<Address>();
+        public virtual ICollection<Address> Address { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

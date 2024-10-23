@@ -12,6 +12,6 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Associations
 
         public string OptionalAggrAttr { get; set; }
 
-        public virtual ICollection<D_MultipleDependent> D_MultipleDependents { get; set; } = new List<D_MultipleDependent>();
+        public virtual ICollection<D_MultipleDependent> D_MultipleDependents { get; set; } = [];
     }
 }

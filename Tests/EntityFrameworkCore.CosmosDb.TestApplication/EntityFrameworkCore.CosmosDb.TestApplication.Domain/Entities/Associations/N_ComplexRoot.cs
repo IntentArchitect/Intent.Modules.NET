@@ -19,7 +19,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 
         public virtual N_CompositeTwo N_CompositeTwo { get; set; }
 
-        public virtual ICollection<N_CompositeMany> N_CompositeManies { get; set; } = new List<N_CompositeMany>();
+        public virtual ICollection<N_CompositeMany> N_CompositeManies { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

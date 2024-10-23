@@ -30,7 +30,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
 
         public DateTime OrderDate { get; set; }
 
-        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+        public ICollection<OrderItem> OrderItems { get; set; } = [];
 
         ICollection<IOrderItem> IOrder.OrderItems
         {

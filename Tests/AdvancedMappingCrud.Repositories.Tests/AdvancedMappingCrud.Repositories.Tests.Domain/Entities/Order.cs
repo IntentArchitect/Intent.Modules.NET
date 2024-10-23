@@ -21,7 +21,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 
         public virtual Customer Customer { get; set; }
 
-        public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+        public virtual ICollection<OrderItem> OrderItems { get; set; } = [];
 
         public Address DeliveryAddress { get; set; }
 

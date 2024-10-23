@@ -13,6 +13,6 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.ValueObjects
 
         public string Title { get; set; }
 
-        public ICollection<KeyValuePairNormal> KeyValuePairNormals { get; set; } = new List<KeyValuePairNormal>();
+        public ICollection<KeyValuePairNormal> KeyValuePairNormals { get; set; } = [];
     }
 }

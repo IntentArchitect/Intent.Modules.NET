@@ -12,6 +12,6 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.TPH.Polymorphic
 
         public string SecondField { get; set; }
 
-        public virtual ICollection<TPH_Poly_BaseClassNonAbstract> BaseClassNonAbstracts { get; set; } = new List<TPH_Poly_BaseClassNonAbstract>();
+        public virtual ICollection<TPH_Poly_BaseClassNonAbstract> BaseClassNonAbstracts { get; set; } = [];
     }
 }

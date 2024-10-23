@@ -33,6 +33,8 @@ namespace EntityFrameworkCore.SqlServer.EF7.Api.Filters
                     .AddContextInformation(context);
                     context.ExceptionHandled = true;
                     break;
+                default:
+                    break;
             }
         }
     }

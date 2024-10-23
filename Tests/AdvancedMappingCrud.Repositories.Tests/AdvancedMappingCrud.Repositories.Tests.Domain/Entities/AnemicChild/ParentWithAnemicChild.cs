@@ -31,7 +31,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.AnemicChild
 
         public string Surname { get; set; }
 
-        public virtual ICollection<AnemicChild> AnemicChildren { get; set; } = new List<AnemicChild>();
+        public virtual ICollection<AnemicChild> AnemicChildren { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

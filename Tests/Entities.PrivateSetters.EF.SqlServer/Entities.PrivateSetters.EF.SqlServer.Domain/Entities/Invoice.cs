@@ -11,8 +11,8 @@ namespace Entities.PrivateSetters.EF.SqlServer.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Invoice
     {
-        private List<Line> _lines = new List<Line>();
-        private List<Tag> _tags = new List<Tag>();
+        private List<Line> _lines = [];
+        private List<Tag> _tags = [];
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public Invoice(DateTime date, IEnumerable<Tag> tags, IEnumerable<LineDataContract> lines)

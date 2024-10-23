@@ -33,6 +33,8 @@ namespace Application.Identity.MSAL.TestApplication.Api.Filters
                     .AddContextInformation(context);
                     context.ExceptionHandled = true;
                     break;
+                default:
+                    break;
             }
         }
     }

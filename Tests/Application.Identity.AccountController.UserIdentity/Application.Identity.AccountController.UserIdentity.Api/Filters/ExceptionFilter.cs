@@ -33,6 +33,8 @@ namespace Application.Identity.AccountController.UserIdentity.Api.Filters
                     .AddContextInformation(context);
                     context.ExceptionHandled = true;
                     break;
+                default:
+                    break;
             }
         }
     }

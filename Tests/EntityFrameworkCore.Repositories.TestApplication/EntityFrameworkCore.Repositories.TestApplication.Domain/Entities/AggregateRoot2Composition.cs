@@ -15,7 +15,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
 
         public virtual AggregateRoot2Nullable? AggregateRoot2Nullable { get; set; }
 
-        public virtual ICollection<AggregateRoot2Collection> AggregateRoot2Collections { get; set; } = new List<AggregateRoot2Collection>();
+        public virtual ICollection<AggregateRoot2Collection> AggregateRoot2Collections { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

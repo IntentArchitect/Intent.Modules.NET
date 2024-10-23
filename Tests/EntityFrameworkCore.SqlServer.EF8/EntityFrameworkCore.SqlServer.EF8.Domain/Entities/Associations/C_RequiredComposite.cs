@@ -12,6 +12,6 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Associations
 
         public string RequiredCompAttr { get; set; }
 
-        public virtual ICollection<C_MultipleDependent> C_MultipleDependents { get; set; } = new List<C_MultipleDependent>();
+        public virtual ICollection<C_MultipleDependent> C_MultipleDependents { get; set; } = [];
     }
 }

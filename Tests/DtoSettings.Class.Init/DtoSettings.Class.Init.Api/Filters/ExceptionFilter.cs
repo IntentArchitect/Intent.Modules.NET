@@ -28,6 +28,8 @@ namespace DtoSettings.Class.Init.Api.Filters
                     .AddContextInformation(context);
                     context.ExceptionHandled = true;
                     break;
+                default:
+                    break;
             }
         }
     }

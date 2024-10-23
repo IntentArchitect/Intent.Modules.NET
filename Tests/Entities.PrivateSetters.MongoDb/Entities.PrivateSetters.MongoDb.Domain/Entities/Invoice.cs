@@ -11,8 +11,8 @@ namespace Entities.PrivateSetters.MongoDb.Domain.Entities
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Invoice
     {
-        private List<string> _tagsIds = new List<string>();
-        private List<Line> _lines = new List<Line>();
+        private List<string> _tagsIds = [];
+        private List<Line> _lines = [];
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public Invoice(DateTime date, IEnumerable<LineDataContract> lines, IEnumerable<Tag> tags)

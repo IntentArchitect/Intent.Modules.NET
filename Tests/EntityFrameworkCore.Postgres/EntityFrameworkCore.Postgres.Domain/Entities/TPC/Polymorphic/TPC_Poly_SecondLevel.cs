@@ -12,6 +12,6 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.TPC.Polymorphic
 
         public string SecondField { get; set; }
 
-        public virtual ICollection<TPC_Poly_BaseClassNonAbstract> BaseClassNonAbstracts { get; set; } = new List<TPC_Poly_BaseClassNonAbstract>();
+        public virtual ICollection<TPC_Poly_BaseClassNonAbstract> BaseClassNonAbstracts { get; set; } = [];
     }
 }

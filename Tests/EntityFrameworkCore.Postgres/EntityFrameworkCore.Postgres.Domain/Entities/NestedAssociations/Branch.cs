@@ -20,9 +20,9 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.NestedAssociations
 
         public virtual Internode Internode { get; set; }
 
-        public virtual ICollection<Inhabitant> Inhabitants { get; set; } = new List<Inhabitant>();
+        public virtual ICollection<Inhabitant> Inhabitants { get; set; } = [];
 
-        public virtual ICollection<Leaf> Leaves { get; set; } = new List<Leaf>();
+        public virtual ICollection<Leaf> Leaves { get; set; } = [];
 
         public virtual Tree Tree { get; set; }
     }

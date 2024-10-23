@@ -15,6 +15,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritan
 
         public virtual Associated Associated { get; set; }
 
-        public virtual ICollection<Composite> Composites { get; set; } = new List<Composite>();
+        public virtual ICollection<Composite> Composites { get; set; } = [];
     }
 }

@@ -16,6 +16,6 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Associations
 
         public virtual M_SelfReferenceBiNav? M_SelfReferenceBiNavDst { get; set; }
 
-        public virtual ICollection<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; } = new List<M_SelfReferenceBiNav>();
+        public virtual ICollection<M_SelfReferenceBiNav> M_SelfReferenceBiNavs { get; set; } = [];
     }
 }

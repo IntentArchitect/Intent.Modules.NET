@@ -33,6 +33,8 @@ namespace MyCustomNamespace.Filters
                     .AddContextInformation(context);
                     context.ExceptionHandled = true;
                     break;
+                default:
+                    break;
             }
         }
     }

@@ -24,6 +24,6 @@ namespace CosmosDB.EnumStrings.Domain.Entities
 
         public EmbeddedObject Embedded { get; set; }
 
-        public ICollection<NestedEntity> NestedEntities { get; set; } = new List<NestedEntity>();
+        public ICollection<NestedEntity> NestedEntities { get; set; } = [];
     }
 }

@@ -14,7 +14,7 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.BasicMappingMapToValue
 
         public string SubmissionType { get; set; }
 
-        public ICollection<Item> Items { get; set; } = new List<Item>();
+        public ICollection<Item> Items { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

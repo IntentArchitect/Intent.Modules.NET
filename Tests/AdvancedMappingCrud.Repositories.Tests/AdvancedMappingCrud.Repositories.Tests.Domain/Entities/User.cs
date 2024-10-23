@@ -31,7 +31,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 
         public virtual Quote Quote { get; set; }
 
-        public virtual ICollection<UserAddress> Addresses { get; set; } = new List<UserAddress>();
+        public virtual ICollection<UserAddress> Addresses { get; set; } = [];
 
         public virtual UserDefaultAddress DefaultDeliveryAddress { get; set; }
 

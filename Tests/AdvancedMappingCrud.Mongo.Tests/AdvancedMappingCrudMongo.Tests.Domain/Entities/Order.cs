@@ -19,7 +19,7 @@ namespace AdvancedMappingCrudMongo.Tests.Domain.Entities
 
         public string ExternalRef { get; set; }
 
-        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+        public ICollection<OrderItem> OrderItems { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

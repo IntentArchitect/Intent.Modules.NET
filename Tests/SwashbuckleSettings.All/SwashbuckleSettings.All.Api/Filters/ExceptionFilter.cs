@@ -19,6 +19,8 @@ namespace SwashbuckleSettings.All.Api.Filters
                     context.Result = new UnauthorizedResult();
                     context.ExceptionHandled = true;
                     break;
+                default:
+                    break;
             }
         }
     }

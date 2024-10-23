@@ -13,7 +13,7 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.ODataQuery
 
         public string Name { get; set; }
 
-        public virtual ICollection<ODataChild> ODataChildren { get; set; } = new List<ODataChild>();
+        public virtual ICollection<ODataChild> ODataChildren { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

@@ -33,6 +33,8 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Api.Filters
                     .AddContextInformation(context);
                     context.ExceptionHandled = true;
                     break;
+                default:
+                    break;
             }
         }
     }

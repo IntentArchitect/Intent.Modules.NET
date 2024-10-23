@@ -13,7 +13,7 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
 
         public string Description { get; set; }
 
-        public ICollection<MongoLine> MongoLines { get; set; } = new List<MongoLine>();
+        public ICollection<MongoLine> MongoLines { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

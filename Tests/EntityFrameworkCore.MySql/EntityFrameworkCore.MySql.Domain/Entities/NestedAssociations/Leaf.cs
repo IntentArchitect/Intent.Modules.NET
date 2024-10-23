@@ -16,7 +16,7 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.NestedAssociations
 
         public Guid BranchId { get; set; }
 
-        public virtual ICollection<Worm> Worms { get; set; } = new List<Worm>();
+        public virtual ICollection<Worm> Worms { get; set; } = [];
 
         public virtual Sun Sun { get; set; }
     }

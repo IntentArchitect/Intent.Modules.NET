@@ -8,7 +8,7 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities.Mapping
 {
     public class MappingRoot
     {
-        private List<MappingCompositeMultiple> _mappingCompositeMultiples = new List<MappingCompositeMultiple>();
+        private List<MappingCompositeMultiple> _mappingCompositeMultiples = [];
 
         public MappingRoot(IEnumerable<MappingCompositeMultiple> mappingCompositeMultiples,
             MappingCompositeSingle mappingCompositeSingle)

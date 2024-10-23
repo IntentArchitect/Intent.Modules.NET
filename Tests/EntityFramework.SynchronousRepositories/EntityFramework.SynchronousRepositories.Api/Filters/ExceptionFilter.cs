@@ -33,6 +33,8 @@ namespace EntityFramework.SynchronousRepositories.Api.Filters
                     .AddContextInformation(context);
                     context.ExceptionHandled = true;
                     break;
+                default:
+                    break;
             }
         }
     }

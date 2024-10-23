@@ -12,6 +12,6 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.Associations
 
         public string SelfRefMultipleAttr { get; set; }
 
-        public virtual ICollection<L_SelfReferenceMultiple> L_SelfReferenceMultiplesDst { get; set; } = new List<L_SelfReferenceMultiple>();
+        public virtual ICollection<L_SelfReferenceMultiple> L_SelfReferenceMultiplesDst { get; set; } = [];
     }
 }

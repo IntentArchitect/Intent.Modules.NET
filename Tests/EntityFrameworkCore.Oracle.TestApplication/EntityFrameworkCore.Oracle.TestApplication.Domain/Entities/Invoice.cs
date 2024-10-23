@@ -13,7 +13,7 @@ namespace EntityFrameworkCore.Oracle.TestApplication.Domain.Entities
 
         public string Number { get; set; }
 
-        public virtual ICollection<LineItem> LineItems { get; set; } = new List<LineItem>();
+        public virtual ICollection<LineItem> LineItems { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

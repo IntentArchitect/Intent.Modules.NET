@@ -10,7 +10,7 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities.Aggregational
 {
     public class OptionalToManySource
     {
-        private List<OptionalToManyDest> _optionalOneToManyDests = new List<OptionalToManyDest>();
+        private List<OptionalToManyDest> _optionalOneToManyDests = [];
 
         public OptionalToManySource(string attribute, IEnumerable<OptionalToManyDest> optionalOneToManyDests)
         {

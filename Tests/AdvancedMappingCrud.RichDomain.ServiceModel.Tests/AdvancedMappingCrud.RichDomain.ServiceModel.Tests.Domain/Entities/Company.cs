@@ -9,7 +9,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
 {
     public class Company : IHasDomainEvent
     {
-        private List<ContactDetailsVO> _contactDetailsVOS = new List<ContactDetailsVO>();
+        private List<ContactDetailsVO> _contactDetailsVOS = [];
 
         public Company(string name, IEnumerable<ContactDetailsVO> contactDetailsVOS)
         {

@@ -13,7 +13,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 
         public string Name { get; set; }
 
-        public ICollection<Tag> Tags { get; set; } = new List<Tag>();
+        public ICollection<Tag> Tags { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

@@ -9,7 +9,7 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
 {
     public class Customer : IHasDomainEvent
     {
-        private List<string> _tags = new List<string>();
+        private List<string> _tags = [];
         private string? _id;
 
         public string Id

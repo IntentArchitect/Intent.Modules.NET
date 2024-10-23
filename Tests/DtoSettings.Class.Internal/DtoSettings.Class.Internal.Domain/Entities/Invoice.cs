@@ -12,6 +12,6 @@ namespace DtoSettings.Class.Internal.Domain.Entities
 
         public string Number { get; set; }
 
-        public virtual ICollection<InvoiceLine> InvoiceLines { get; set; } = new List<InvoiceLine>();
+        public virtual ICollection<InvoiceLine> InvoiceLines { get; set; } = [];
     }
 }

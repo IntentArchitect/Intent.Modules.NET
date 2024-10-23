@@ -23,8 +23,8 @@ namespace EntityFramework.SynchronousRepositories.Domain.Common
         /// <param name="assignmentAction">A delegate that defines how to update an item from the base collection using an item from the changed collection.</param>
         /// <returns>The updated base collection.</returns>
         /// <remarks>
-        /// If the changed collection is <see langword="null" />, an empty list of type <see cref="TOriginal"/> will be returned.
-        /// If the base collection is <see langword="null" />, a new list of type <see cref="TOriginal"/> will be created and used.
+        /// If the changed collection is <see langword="null" />, an empty list of type <typeparamref name="TOriginal"/> will be returned.
+        /// If the base collection is <see langword="null" />, a new list of type <typeparamref name="TOriginal"/> will be created and used.
         /// </remarks>
         public static ICollection<TOriginal> CreateOrUpdateCollection<TChanged, TOriginal>(
             ICollection<TOriginal> baseCollection,

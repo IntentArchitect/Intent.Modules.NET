@@ -13,6 +13,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
 
         public string Attribute { get; set; }
 
-        public ICollection<G_MultipleDependent> G_MultipleDependents { get; set; } = new List<G_MultipleDependent>();
+        public ICollection<G_MultipleDependent> G_MultipleDependents { get; set; } = [];
     }
 }

@@ -17,7 +17,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.ValueObje
 
         public string Title { get; set; }
 
-        public ICollection<KeyValuePairSerialized> KeyValuePairSerializeds { get; set; } = new List<KeyValuePairSerialized>();
+        public ICollection<KeyValuePairSerialized> KeyValuePairSerializeds { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

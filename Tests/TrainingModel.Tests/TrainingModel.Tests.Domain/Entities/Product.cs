@@ -42,9 +42,9 @@ namespace TrainingModel.Tests.Domain.Entities
 
         public virtual Brand Brand { get; set; }
 
-        public virtual ICollection<Category> Categories { get; set; } = new List<Category>();
+        public virtual ICollection<Category> Categories { get; set; } = [];
 
-        public virtual ICollection<Price> Prices { get; set; } = new List<Price>();
+        public virtual ICollection<Price> Prices { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
 

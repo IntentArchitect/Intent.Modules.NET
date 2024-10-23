@@ -9,7 +9,7 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
 {
     public class Region : IHasDomainEvent
     {
-        private List<Country> _countries = new List<Country>();
+        private List<Country> _countries = [];
         private string? _id;
 
         public string Id

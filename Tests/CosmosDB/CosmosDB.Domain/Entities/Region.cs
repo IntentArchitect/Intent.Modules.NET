@@ -18,7 +18,7 @@ namespace CosmosDB.Domain.Entities
 
         public string Name { get; set; }
 
-        public ICollection<Country> Countries { get; set; } = new List<Country>();
+        public ICollection<Country> Countries { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

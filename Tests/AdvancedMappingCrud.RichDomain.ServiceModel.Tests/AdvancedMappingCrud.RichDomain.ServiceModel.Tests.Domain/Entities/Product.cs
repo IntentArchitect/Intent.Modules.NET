@@ -12,7 +12,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
 {
     public class Product : IHasDomainEvent
     {
-        private List<Category> _categories = new List<Category>();
+        private List<Category> _categories = [];
 
         public Product(string name, IEnumerable<string> categoryNames, ICategoriesService categoryService)
         {

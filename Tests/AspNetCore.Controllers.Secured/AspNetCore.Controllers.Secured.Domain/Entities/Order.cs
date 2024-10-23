@@ -16,6 +16,6 @@ namespace AspNetCore.Controllers.Secured.Domain.Entities
 
         public virtual Buyer Buyer { get; set; }
 
-        public virtual ICollection<OrderLine> OrderLines { get; set; } = new List<OrderLine>();
+        public virtual ICollection<OrderLine> OrderLines { get; set; } = [];
     }
 }

@@ -12,6 +12,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Domain.Entities
 
         public string Name { get; set; }
 
-        public virtual ICollection<Priviledge> Priviledges { get; set; } = new List<Priviledge>();
+        public virtual ICollection<Priviledge> Priviledges { get; set; } = [];
     }
 }

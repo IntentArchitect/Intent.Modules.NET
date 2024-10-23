@@ -13,7 +13,7 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
 
         public string Description { get; set; }
 
-        public virtual ICollection<EfLine> EfLines { get; set; } = new List<EfLine>();
+        public virtual ICollection<EfLine> EfLines { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

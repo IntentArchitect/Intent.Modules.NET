@@ -22,6 +22,7 @@ namespace MongoDb.TestApplication.Api.Filters
                     {
                         context.ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
                     }
+
                     context.Result = new BadRequestObjectResult(new ValidationProblemDetails(context.ModelState))
                     .AddContextInformation(context);
                     context.ExceptionHandled = true;
@@ -37,6 +38,8 @@ namespace MongoDb.TestApplication.Api.Filters
                     })
                     .AddContextInformation(context);
                     context.ExceptionHandled = true;
+                    break;
+                default:
                     break;
             }
         }

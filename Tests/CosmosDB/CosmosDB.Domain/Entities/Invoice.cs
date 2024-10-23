@@ -49,7 +49,7 @@ namespace CosmosDB.Domain.Entities
 
         public DateTimeOffset? UpdatedDate { get; set; }
 
-        public ICollection<LineItem> LineItems { get; set; } = new List<LineItem>();
+        public ICollection<LineItem> LineItems { get; set; } = [];
 
         public InvoiceLogo InvoiceLogo { get; set; }
 

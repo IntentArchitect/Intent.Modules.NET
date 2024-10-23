@@ -28,6 +28,8 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Api.Filters
                     .AddContextInformation(context);
                     context.ExceptionHandled = true;
                     break;
+                default:
+                    break;
             }
         }
     }

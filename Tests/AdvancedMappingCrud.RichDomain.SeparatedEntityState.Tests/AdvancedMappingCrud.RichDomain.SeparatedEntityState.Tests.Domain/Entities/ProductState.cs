@@ -23,7 +23,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
 
         public string Name { get; set; }
 
-        public virtual ICollection<Category> Categories { get; set; } = new List<Category>();
+        public virtual ICollection<Category> Categories { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

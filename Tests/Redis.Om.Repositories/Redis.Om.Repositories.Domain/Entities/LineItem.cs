@@ -20,7 +20,7 @@ namespace Redis.Om.Repositories.Domain.Entities
 
         public int Quantity { get; set; }
 
-        public ICollection<string> Tags { get; set; } = new List<string>();
+        public ICollection<string> Tags { get; set; } = [];
 
         public Product Product { get; set; }
     }

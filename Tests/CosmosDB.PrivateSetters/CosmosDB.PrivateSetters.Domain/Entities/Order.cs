@@ -9,7 +9,7 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
 {
     public class Order : IHasDomainEvent
     {
-        private List<OrderItem> _orderItems = new List<OrderItem>();
+        private List<OrderItem> _orderItems = [];
         private string? _id;
         private string? _warehouseId;
 

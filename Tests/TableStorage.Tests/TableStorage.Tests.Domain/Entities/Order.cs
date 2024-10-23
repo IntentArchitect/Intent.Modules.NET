@@ -18,7 +18,7 @@ namespace TableStorage.Tests.Domain.Entities
 
         public Customer Customer { get; set; }
 
-        public ICollection<OrderLine> OrderLines { get; set; } = new List<OrderLine>();
+        public ICollection<OrderLine> OrderLines { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }

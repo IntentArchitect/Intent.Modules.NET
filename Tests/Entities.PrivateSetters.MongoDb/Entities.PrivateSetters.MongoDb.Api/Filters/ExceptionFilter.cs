@@ -28,6 +28,8 @@ namespace Entities.PrivateSetters.MongoDb.Api.Filters
                     .AddContextInformation(context);
                     context.ExceptionHandled = true;
                     break;
+                default:
+                    break;
             }
         }
     }

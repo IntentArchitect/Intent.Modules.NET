@@ -12,7 +12,7 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.Indexes
 
         public string Name { get; set; }
 
-        public virtual ICollection<MultiChildIndex> MultiChildIndices { get; set; } = new List<MultiChildIndex>();
+        public virtual ICollection<MultiChildIndex> MultiChildIndices { get; set; } = [];
 
         public virtual SingleChildIndex? SingleChildIndex { get; set; }
     }

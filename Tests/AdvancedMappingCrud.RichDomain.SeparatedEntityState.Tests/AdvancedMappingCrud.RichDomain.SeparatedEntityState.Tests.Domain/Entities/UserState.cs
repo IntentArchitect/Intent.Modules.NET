@@ -26,7 +26,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
 
         public virtual Company Company { get; set; }
 
-        public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
+        public virtual ICollection<Address> Addresses { get; set; } = [];
 
         public ContactDetailsVO ContactDetails { get; set; }
 

@@ -10,6 +10,6 @@ namespace Redis.Om.Repositories.Domain.Entities
     {
         public string Name { get; set; }
 
-        public ICollection<Category> Categories { get; set; } = new List<Category>();
+        public ICollection<Category> Categories { get; set; } = [];
     }
 }

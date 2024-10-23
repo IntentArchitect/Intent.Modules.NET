@@ -15,7 +15,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
 
         public virtual AggregateRoot4Single AggregateRoot4Single { get; set; }
 
-        public virtual ICollection<AggregateRoot4Collection> AggregateRoot4Collections { get; set; } = new List<AggregateRoot4Collection>();
+        public virtual ICollection<AggregateRoot4Collection> AggregateRoot4Collections { get; set; } = [];
 
         public Guid? AggregateRoot4NullableId { get; set; }
 

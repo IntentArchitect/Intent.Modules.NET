@@ -17,6 +17,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.NestedCom
 
         public virtual ClassC ClassC { get; set; }
 
-        public virtual ICollection<ClassD> ClassDS { get; set; } = new List<ClassD>();
+        public virtual ICollection<ClassD> ClassDS { get; set; } = [];
     }
 }

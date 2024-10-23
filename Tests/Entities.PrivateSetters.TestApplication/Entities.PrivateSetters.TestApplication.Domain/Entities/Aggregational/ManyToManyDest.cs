@@ -10,7 +10,7 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities.Aggregational
 {
     public class ManyToManyDest
     {
-        private List<ManyToManySource> _manyToManySources = new List<ManyToManySource>();
+        private List<ManyToManySource> _manyToManySources = [];
 
         public ManyToManyDest(string attribute)
         {

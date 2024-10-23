@@ -20,6 +20,6 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.CRUD
 
         public virtual CompositeSingleBB? Composite { get; set; }
 
-        public virtual ICollection<CompositeManyBB> Composites { get; set; } = new List<CompositeManyBB>();
+        public virtual ICollection<CompositeManyBB> Composites { get; set; } = [];
     }
 }

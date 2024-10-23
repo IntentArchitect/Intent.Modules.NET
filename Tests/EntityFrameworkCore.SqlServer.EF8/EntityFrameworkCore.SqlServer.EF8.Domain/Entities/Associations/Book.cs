@@ -12,6 +12,6 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Associations
 
         public string Name { get; set; }
 
-        public virtual ICollection<Author> Authors { get; set; } = new List<Author>();
+        public virtual ICollection<Author> Authors { get; set; } = [];
     }
 }

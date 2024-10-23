@@ -10,7 +10,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
 {
     public class User : IHasDomainEvent
     {
-        private List<Address> _addresses = new List<Address>();
+        private List<Address> _addresses = [];
 
         public User(Guid companyId, ContactDetailsVO contactDetailsVO, IEnumerable<AddressDC> addresses)
         {
