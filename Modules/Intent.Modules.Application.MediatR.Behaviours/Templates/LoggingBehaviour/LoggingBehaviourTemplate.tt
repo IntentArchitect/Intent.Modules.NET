@@ -34,7 +34,8 @@ namespace <#= Namespace #>
             var userId = _currentUserService.UserId;
             var userName = _currentUserService.UserName;
 
-            _logger.LogInformation("<#= ExecutionContext.GetApplicationConfig().Name #> Request: {Name} {@UserId} {@UserName} {@Request}",
+            _logger.LogInformation(
+                "<#= ExecutionContext.GetApplicationConfig().Name #> Request: {Name} {@UserId} {@UserName} {@Request}",
                 requestName, userId, userName, request);
             return Task.CompletedTask;
         }

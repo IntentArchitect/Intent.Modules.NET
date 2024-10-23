@@ -1,6 +1,7 @@
 ﻿### Version 4.2.17
 
 - Improvement: ToList IEnumerable to prevent possible multiple emunerations
+- Improvement: Small updated to improve readibility of `LoggingBehaviour`
 
 ### Version 4.2.16
 
