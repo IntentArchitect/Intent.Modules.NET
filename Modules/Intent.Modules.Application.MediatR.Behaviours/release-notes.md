@@ -1,6 +1,7 @@
 ﻿### Version 4.2.17
 
-- Improvement: ToList IEnumerable to prevent possible multiple emunerations
+- Improvement: ToList IEnumerable to prevent possible multiple enumerations.
+- Fixed: Cleaned up some warnings on `UnhandledExceptionBehaviour` .
 
 ### Version 4.2.16
 

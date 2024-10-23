@@ -28,7 +28,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.FactoryExtentions
                 file.Classes.First()
                     .FindMethod("Handle")
                     ?.FindStatement(s => s is CSharpCatchBlock { ExceptionType: "Exception" })
-                    ?.InsertAbove(new CSharpCatchBlock(template.UseType("FluentValidation.ValidationException"), "ex")
+                    ?.InsertAbove(new CSharpCatchBlock(template.UseType("FluentValidation.ValidationException"), null)
                         .AddStatement("// Do not log Fluent Validation Exceptions")
                         .AddStatement("throw;"));
             });

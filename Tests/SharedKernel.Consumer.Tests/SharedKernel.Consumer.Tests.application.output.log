@@ -5,7 +5,7 @@
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#34bd5320-22ae-4a70-b8d2-5d6984d4c8ad</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>.gitIgnore</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
