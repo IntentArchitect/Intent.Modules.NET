@@ -1,5 +1,6 @@
 ### Version 2.2.12
 
+- Fixed: Removes Proxy Package template, as its being added by another modules.
 - Improvement: Generated code is more aligned with best practices
 
 ### Version 2.2.11
