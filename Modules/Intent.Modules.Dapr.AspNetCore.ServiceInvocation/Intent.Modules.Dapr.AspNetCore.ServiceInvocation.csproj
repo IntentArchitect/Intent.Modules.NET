@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.Contracts.Clients\Intent.Modules.Application.Contracts.Clients.csproj" />
-    <ProjectReference Include="..\Intent.Modules.Dapr.AspNetCore\Intent.Modules.Dapr.AspNetCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,5 +27,6 @@
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems" Label="Shared" />
+  <Import Project="..\Intent.Modules.Dapr.Shared\Intent.Modules.Dapr.Shared.projitems" Label="Shared" />
 
 </Project>

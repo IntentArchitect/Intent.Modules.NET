@@ -2,7 +2,7 @@
 using Intent.Engine;
 using Intent.Modules.Common.Templates;
 
-namespace Intent.Modules.Dapr.AspNetCore
+namespace Intent.Modules.Dapr.Shared
 {
     public static class ExtensionMethods
     {

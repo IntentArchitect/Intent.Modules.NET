@@ -18,6 +18,7 @@ using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientHeaderDe
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using JetBrains.Annotations;
+using Intent.Modules.Dapr.Shared;
 using static System.Net.WebRequestMethods;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
