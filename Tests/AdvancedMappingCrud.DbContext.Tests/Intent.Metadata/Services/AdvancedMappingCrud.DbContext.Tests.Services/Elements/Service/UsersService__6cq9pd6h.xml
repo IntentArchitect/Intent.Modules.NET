@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="99f7485c-17b9-45da-8405-1bb5782967be" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>UsersService</name>
+  <display>UsersService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</parentFolderId>
+  <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+  <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="27ccfb9b-683f-4a3d-be38-5e24ae15e31c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateUser</name>
+      <display>CreateUser(dto: UserCreateDto): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="3d3061ea-52c8-4ad0-bf79-39fd68163a9d">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>99f7485c-17b9-45da-8405-1bb5782967be</parentFolderId>
+      <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="ad186562-a4e6-42d5-b565-26e2ad4dc05e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: UserCreateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2a64f000-c708-49a1-810c-5f452d0de64b">
+            <typeId>91085527-979f-46df-8e2a-2776b4f291f5</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.DbContext.Tests.Services</typePackageName>
+            <typePackageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>27ccfb9b-683f-4a3d-be38-5e24ae15e31c</parentFolderId>
+          <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+          <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="e23531ce-6d42-4079-b0cf-695634c55bb0" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindUserById</name>
+      <display>FindUserById(id: guid): UserDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="fee7b8a4-78df-4895-8d7d-6ea38785c7b0">
+        <typeId>729f34cd-d287-40c7-bbe8-19c405970e41</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.DbContext.Tests.Services</typePackageName>
+        <typePackageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>99f7485c-17b9-45da-8405-1bb5782967be</parentFolderId>
+      <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="341d270e-dd1d-45ad-b8e3-cf07df7dd6ec" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1de1a2e9-33be-4080-93f1-347b2e318748">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>e23531ce-6d42-4079-b0cf-695634c55bb0</parentFolderId>
+          <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+          <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="802a2ead-1415-41bc-8596-254c3690daee" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindUsers</name>
+      <display>FindUsers(): UserDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="54e9f728-db44-4fb0-baae-83198b8e768f">
+        <typeId>729f34cd-d287-40c7-bbe8-19c405970e41</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.DbContext.Tests.Services</typePackageName>
+        <typePackageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>99f7485c-17b9-45da-8405-1bb5782967be</parentFolderId>
+      <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a9f3627c-1942-42bb-b9fc-5c1874172fcc" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateUser</name>
+      <display>UpdateUser(id: guid, dto: UserUpdateDto, addresses: NewDTO[*]): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="604093f4-da86-44cc-98bd-fe52cd4ad3dd">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>99f7485c-17b9-45da-8405-1bb5782967be</parentFolderId>
+      <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="499dbb79-068f-4bab-91cf-3742cf3ae9c5" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="63d5dacb-cd31-405c-8e92-75b8b6139094">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a9f3627c-1942-42bb-b9fc-5c1874172fcc</parentFolderId>
+          <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+          <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e975aa8a-fb80-44b5-a42e-45c7c2564ea8" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: UserUpdateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="b3dd5924-5421-44b1-b0e2-135ac94665cc">
+            <typeId>13267faa-2141-4646-9ae2-a4aa79d42007</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.DbContext.Tests.Services</typePackageName>
+            <typePackageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a9f3627c-1942-42bb-b9fc-5c1874172fcc</parentFolderId>
+          <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+          <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8c8ba1ac-4ad2-49d3-89b6-2277500b82a0" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>addresses</name>
+          <display>in : addresses: NewDTO[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4b8d9b9d-2404-49b5-9bb3-300c544eccc9">
+            <typeId>bb31c368-9bde-43f1-9759-9062216c9ec5</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a9f3627c-1942-42bb-b9fc-5c1874172fcc</parentFolderId>
+          <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+          <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="96c447bd-77ec-48a1-b54b-484913ff41e3" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteUser</name>
+      <display>DeleteUser(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="d7d973fa-2a3a-49ff-ac96-c6b98836a249">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>99f7485c-17b9-45da-8405-1bb5782967be</parentFolderId>
+      <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+      <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="e6464585-6dd2-4292-96ff-bbbed788674f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="daccb54b-8898-4855-97d4-846ff77d3928">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>96c447bd-77ec-48a1-b54b-484913ff41e3</parentFolderId>
+          <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
+          <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
