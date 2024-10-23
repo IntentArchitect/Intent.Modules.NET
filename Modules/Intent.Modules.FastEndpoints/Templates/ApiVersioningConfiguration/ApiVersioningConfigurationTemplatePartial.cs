@@ -58,12 +58,15 @@ namespace Intent.Modules.FastEndpoints.Templates.ApiVersioningConfiguration
                                 .AddArgument(new CSharpLambdaBlock("v").WithExpressionBody(version))));
                         }
 
-                        method.AddInvocationStatement("services.AddApiVersioning", stmt => stmt
+                        method.AddInvocationStatement("services.AddVersioning", stmt => stmt
                             .AddArgument(new CSharpLambdaBlock("options")
                                 .AddStatement($@"options.AssumeDefaultVersionWhenUnspecified = true;")
                                 .AddStatement($@"options.ReportApiVersions = true;")
-                                .AddStatement($@"options.ApiVersionReader = ApiVersionReader.Combine(new UrlSegmentApiVersionReader());"))
-                            .WithoutSemicolon());
+                                .AddStatement($@"options.ApiVersionReader = ApiVersionReader.Combine(new UrlSegmentApiVersionReader());")));
+
+                        method.AddInvocationStatement("services.AddApiVersioning", stmt => stmt
+                            .WithoutSemicolon()
+                            .SeparatedFromPrevious());
                         method.AddInvocationStatement(".AddApiExplorer", stmt => stmt
                             .AddArgument(new CSharpLambdaBlock("options")
                                 .AddStatement($@"options.GroupNameFormat = ""'v'VVV"";")
