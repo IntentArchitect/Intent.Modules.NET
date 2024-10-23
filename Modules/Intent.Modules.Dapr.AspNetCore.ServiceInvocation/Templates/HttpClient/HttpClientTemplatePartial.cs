@@ -11,7 +11,6 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Dapr.AspNetCore.Events;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientRequestException;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.JsonResponse;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;

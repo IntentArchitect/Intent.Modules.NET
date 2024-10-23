@@ -11,6 +11,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
 {
     public class NugetPackages : INugetPackages
     {
+        public const string DaprClientPackageName = "Dapr.Client";
         public const string IdentityModelAspNetCorePackageName = "IdentityModel.AspNetCore";
         public const string MicrosoftAspNetCoreWebUtilitiesPackageName = "Microsoft.AspNetCore.WebUtilities";
         public const string MicrosoftExtensionsHttpPackageName = "Microsoft.Extensions.Http";
@@ -18,6 +19,14 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
 
         public void RegisterPackages()
         {
+            NugetRegistry.Register(DaprClientPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 8, 0) => new PackageVersion("1.13.1"),
+                        ( >= 6, 0) => new PackageVersion("1.13.1"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{DaprClientPackageName}'"),
+                    }
+                );
             NugetRegistry.Register(IdentityModelAspNetCorePackageName,
                 (framework) => framework switch
                     {
@@ -78,6 +87,8 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
                     }
                 );
         }
+
+        public static NugetPackageInfo DaprClient(IOutputTarget outputTarget) => NugetRegistry.GetVersion(DaprClientPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo IdentityModelAspNetCore(IOutputTarget outputTarget) => NugetRegistry.GetVersion(IdentityModelAspNetCorePackageName, outputTarget.GetMaxNetAppVersion());
 

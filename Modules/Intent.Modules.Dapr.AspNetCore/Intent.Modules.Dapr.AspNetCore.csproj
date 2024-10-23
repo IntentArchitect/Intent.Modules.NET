@@ -18,5 +18,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
+  <Import Project="..\Intent.Modules.Dapr.Shared\Intent.Modules.Dapr.Shared.projitems" Label="Shared" />
 
 </Project>

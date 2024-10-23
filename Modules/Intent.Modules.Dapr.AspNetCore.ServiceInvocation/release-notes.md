@@ -1,5 +1,6 @@
 ### Version 2.2.12
 
+- Improvement: Removed direct dependency on `Intent.Dapr.AspNetCore`, so it can be used for Stand-alone proxy generation.
 - Fixed: Removes Proxy Package template, as its being added by another modules.
 - Improvement: Generated code is more aligned with best practices
 
