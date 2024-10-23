@@ -4,7 +4,7 @@ using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly:IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate",Version= "1.0")]
+[assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate", Version = "1.0")]
 
 namespace Intent.Modules.ValueObjects.Templates.ValueObjectBase
 {
@@ -24,6 +24,7 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObjectBase
         public override string TransformText()
         {
             var sameTypeImplementation = UsingEF ? GetEFSameType() : GetDefaultSameType();
+            var privateSameTypeImplementation = UsingEF ? GetPrivateEFSameType() : string.Empty;
             return $@"
 using System.Collections.Generic;
 using System.Linq;
@@ -34,11 +35,10 @@ namespace {Namespace}
 {{
     /// <summary>
     /// Value Object implementation based on Microsoft's documentation:
-    /// <see href=""https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/implement-value-objects#value-object-implementation-in-c""/>
+    /// <see href=""https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/implement-value-objects#value-object-implementation-in-c""/>.
     /// </summary>
     public abstract class ValueObject
     {{
-
         public static bool operator ==(ValueObject one, ValueObject two)
         {{
             return EqualOperator(one, two);
@@ -86,6 +86,8 @@ namespace {Namespace}
         }}
 
         protected abstract IEnumerable<object?> GetEqualityComponents();
+
+        {privateSameTypeImplementation}
     }}
 }}";
         }
@@ -114,14 +116,16 @@ namespace {Namespace}
             }
 
             return type1 == type2;
+        }";
+
         }
 
-        private static bool IsEFProxy(Type type)
+        private string GetPrivateEFSameType()
         {
-            return type.Namespace == ""Castle.Proxies"";
-        }
-";
-
+            return @" private static bool IsEFProxy(Type type)
+            {
+                return type.Namespace == ""Castle.Proxies"";
+            }";
         }
 
         private string GetDefaultSameType()
@@ -137,8 +141,7 @@ namespace {Namespace}
             var type2 = obj2.GetType();
 
             return type1 == type2;
-        }
-";
+        }";
 
         }
 

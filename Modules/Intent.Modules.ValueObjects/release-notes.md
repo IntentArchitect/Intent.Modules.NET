@@ -1,3 +1,7 @@
+### Version 4.2.3
+
+- Reorder of methods in `ValueObject` according to access level to align with best practices
+
 ### Version 4.2.2
 
 - Improvement: Cleaned up various code warnings.

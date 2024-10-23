@@ -9,7 +9,7 @@ namespace CosmosDB.EntityInterfaces.Domain
 {
     /// <summary>
     /// Value Object implementation based on Microsoft's documentation:
-    /// <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/implement-value-objects#value-object-implementation-in-c"/>
+    /// <see href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/implement-value-objects#value-object-implementation-in-c"/>.
     /// </summary>
     public abstract class ValueObject
     {
