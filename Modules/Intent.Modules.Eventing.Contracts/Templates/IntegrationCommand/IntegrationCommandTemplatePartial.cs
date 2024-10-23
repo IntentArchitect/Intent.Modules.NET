@@ -34,7 +34,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand
             AddTypeSource(IntegrationEventEnumTemplate.TemplateId);
             AddTypeSource(TemplateRoles.Domain.Enum);
 
-            var classNamespace = Model.InternalElement.Package.Name.ToPascalCase();
+            var classNamespace = Model.InternalElement.Package.Name.ToCSharpNamespace();
             var extendedNamespace = Model.GetParentFolders().Where(x =>
             {
                 if (string.IsNullOrWhiteSpace(x.Name))

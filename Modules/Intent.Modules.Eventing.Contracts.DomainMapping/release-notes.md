@@ -1,3 +1,7 @@
+### Version 4.1.7
+
+- Fixed: Integration messages pascal-casing namespaces.
+
 ### Version 4.1.6
 
 - Improvement: Updated module NuGet packages infrastructure.
