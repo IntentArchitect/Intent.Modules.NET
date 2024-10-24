@@ -106,7 +106,7 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.PagedResultMappin
             
             #line default
             #line hidden
-            this.Write(@"{T}""/>. 
+            this.Write(@"{T}""/>.
         /// </summary>
         /// <param name=""pagedList"">A single page retrieved from a persistence store.</param>
         /// <typeparam name=""TDto"">DTO element type.</typeparam>
