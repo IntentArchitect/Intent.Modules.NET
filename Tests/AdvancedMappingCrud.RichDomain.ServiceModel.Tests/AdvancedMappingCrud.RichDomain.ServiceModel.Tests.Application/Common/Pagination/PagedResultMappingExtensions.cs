@@ -37,7 +37,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Common.P
         }
 
         /// <summary>
-        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref="IPagedList{T}"/>. 
+        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref="IPagedList{T}"/>.
         /// </summary>
         /// <param name="pagedList">A single page retrieved from a persistence store.</param>
         /// <typeparam name="TDto">DTO element type.</typeparam>
