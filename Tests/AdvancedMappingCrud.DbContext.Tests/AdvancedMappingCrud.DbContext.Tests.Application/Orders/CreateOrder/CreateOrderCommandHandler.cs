@@ -30,7 +30,8 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Orders.CreateOrder
                 RefNo = request.RefNo,
                 OrderDate = request.OrderDate,
                 OrderStatus = request.OrderStatus,
-                CustomerId = request.CustomerId
+                CustomerId = request.CustomerId,
+                EntityStatus = request.EntityStatus
             };
 
             _dbContext.Orders.Add(order);

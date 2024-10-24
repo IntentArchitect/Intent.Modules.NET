@@ -1,3 +1,7 @@
+### Version 5.1.2
+
+- Fixed: Integration messages pascal-casing namespaces.
+
 ### Version 5.1.1
 
 - Improvement: Updated module NuGet packages infrastructure.

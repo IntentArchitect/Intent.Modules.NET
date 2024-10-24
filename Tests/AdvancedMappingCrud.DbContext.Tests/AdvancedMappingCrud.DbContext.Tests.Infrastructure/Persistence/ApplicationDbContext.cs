@@ -25,6 +25,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.Infrastructure.Persistence
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,
@@ -48,6 +49,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

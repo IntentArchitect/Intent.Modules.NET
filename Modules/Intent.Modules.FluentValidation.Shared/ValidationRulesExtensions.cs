@@ -672,7 +672,7 @@ public static class ValidationRulesExtensions
     }
 
     private static bool TryGetMappedAttribute(DTOFieldModel field, out AttributeModel attribute) => TryGetMappedAttribute(field.InternalElement, out attribute);
-    private static bool TryGetMappedAttribute(IElement field, out AttributeModel attribute)
+    private static bool TryGetMappedAttribute(IElement field, out AttributeModel attribute, bool checkAdvancedMappings = true)
     {
         var mappedElement = field.MappedElement?.Element as IElement;
         // The loop is not needed on the service side where a Command/Query/DTO is mapped
@@ -685,9 +685,9 @@ public static class ValidationRulesExtensions
                 return true;
             }
 
-            if (mappedElement.MappedElement?.Element is null)
+            if (checkAdvancedMappings && mappedElement.MappedElement?.Element is null)
             {
-                return TryGetAdvancedMappedAttribute(mappedElement, out attribute);
+                return TryGetAdvancedMappedAttribute(mappedElement, out attribute, checkBasicMappings: false);
             }
             mappedElement = mappedElement.MappedElement?.Element as IElement;
         }
@@ -697,7 +697,7 @@ public static class ValidationRulesExtensions
     }
 
     private static bool TryGetAdvancedMappedAttribute(DTOFieldModel field, out AttributeModel attribute) => TryGetAdvancedMappedAttribute(field.InternalElement, out attribute);
-    private static bool TryGetAdvancedMappedAttribute(IElement field, out AttributeModel attribute)
+    private static bool TryGetAdvancedMappedAttribute(IElement field, out AttributeModel attribute, bool checkBasicMappings = true)
     {
         var mappedEnd = field.MappedToElements.FirstOrDefault(p => p.MappingType == "Data Mapping");
         if (mappedEnd != null)
@@ -708,7 +708,7 @@ public static class ValidationRulesExtensions
                 return true;
             }
 
-            if (TryGetMappedAttribute((IElement)mappedEnd.TargetElement, out attribute))
+            if (checkBasicMappings && TryGetMappedAttribute((IElement)mappedEnd.TargetElement, out attribute, checkAdvancedMappings: false))
             {
                 return true;
             }

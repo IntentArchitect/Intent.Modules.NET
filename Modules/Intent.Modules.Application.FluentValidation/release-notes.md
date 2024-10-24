@@ -1,3 +1,7 @@
+### Version 3.9.4
+
+- Fixed: Stackoverflow occuring in rare circumstances where Advanced Mappings and Basic Mappings are interconnected.
+
 ### Version 3.9.3
 
 - TODO

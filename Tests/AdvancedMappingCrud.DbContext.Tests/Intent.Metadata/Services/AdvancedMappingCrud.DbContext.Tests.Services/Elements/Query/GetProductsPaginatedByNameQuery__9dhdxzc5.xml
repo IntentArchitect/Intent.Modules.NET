@@ -11,8 +11,8 @@
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.Modelers.Services</typePackageName>
-    <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
+    <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+    <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
     <stereotypes />
     <genericTypeParameters>
       <genericTypeParameter id="2f663c19-3a44-40a0-925c-e7e4add0e650">
@@ -33,6 +33,10 @@
   <parentFolderId>2262014b-21f6-451e-b3a8-e942df338cc8</parentFolderId>
   <packageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</packageId>
   <packageName>AdvancedMappingCrud.DbContext.Tests.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
       <addedByDefault>false</addedByDefault>
@@ -42,6 +46,7 @@
         <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
         <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/product/paged-by-name" isActive="true" />
         <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+        <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
