@@ -1,5 +1,6 @@
 ### Version 4.7.1
 
+- Improvement: Updated `ValidationBehaviour` template to use the Builder pattern. Updated styling to more align with best practices
 - Fixed: Fixed warning around `catch (ValidationException ex)` where `ex` is not used in `UnnhandledExceptionHandler` .
 
 ### Version 4.7.0

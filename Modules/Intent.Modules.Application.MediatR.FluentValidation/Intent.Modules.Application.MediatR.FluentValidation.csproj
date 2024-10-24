@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -33,10 +33,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>QueryValidatorTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ValidationBehaviourTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\ValidationException\ValidationExceptionTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ValidationExceptionTemplate.cs</LastGenOutput>
@@ -48,11 +44,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>QueryValidatorTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\ValidationBehaviour\ValidationBehaviourTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ValidationBehaviourTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\ValidationException\ValidationExceptionTemplate.cs">
       <DesignTime>True</DesignTime>

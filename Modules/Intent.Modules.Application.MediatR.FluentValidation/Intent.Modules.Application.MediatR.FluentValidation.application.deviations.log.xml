@@ -66,5 +66,15 @@
       <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
       <fileHash>B899EDD30195AF96186D3D870CFDBB9B556D00EAA805FBF564685007EC39E3A3</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fe0ca012-306a-407d-9622-4ccbdca8706d</correlationId>
+      <path>Intent.Modules.Application.MediatR.FluentValidation/Templates/ValidationBehaviour/ValidationBehaviourTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2024-10-24T13:38:16.4118793Z</updatedAt>
+      <deviationsHash>E4C400ECD55937E62526EE1083CAABFC3A9733509F0CBD292CBF1C2BC68352CA</deviationsHash>
+      <fileHash>66F76EBE4A5581F676D4CDA4C3F80AFECF0E4B236A18402416622493D9FF9E26</fileHash>
+    </file>
   </files>
 </deviationsLog>
