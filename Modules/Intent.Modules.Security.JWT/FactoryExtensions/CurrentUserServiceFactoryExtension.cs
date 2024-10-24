@@ -55,7 +55,11 @@ namespace Intent.Modules.Security.JWT.FactoryExtensions
 
                 var authMethod = priClass.FindMethod("AuthorizeAsync");
                 authMethod.Statements.Clear();
-                authMethod.Statements.Add("if (_claimsPrincipal == null) return false;");
+                authMethod.Statements.Add(@"if (_claimsPrincipal == null)
+                {
+                    return false;
+                }");
+                authMethod.Statements.Add("");
                 authMethod.Statements.Add("return (await _authorizationService.AuthorizeAsync(_claimsPrincipal, policy)).Succeeded;");
 
                 var roleMethod = priClass.FindMethod("IsInRoleAsync");
