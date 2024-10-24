@@ -48,7 +48,8 @@ namespace Intent.Modules.Application.Identity.Templates.ForbiddenAccessException
             #line hidden
             this.Write(@" : Exception
     {
-        public ForbiddenAccessException() : base() { }
+        public ForbiddenAccessException() 
+            : base() { }
 
         public ForbiddenAccessException(string message) 
             : base(message)

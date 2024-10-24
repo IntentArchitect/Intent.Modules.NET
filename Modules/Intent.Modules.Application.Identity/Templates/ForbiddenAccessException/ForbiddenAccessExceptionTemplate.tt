@@ -15,7 +15,8 @@ namespace <#= Namespace #>
 {
     public class <#= ClassName #> : Exception
     {
-        public ForbiddenAccessException() : base() { }
+        public ForbiddenAccessException() 
+            : base() { }
 
         public ForbiddenAccessException(string message) 
             : base(message)
