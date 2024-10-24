@@ -1,3 +1,7 @@
+### Version 6.0.5
+
+- Improvement: Added braces to ProblemDetailsConfiguration template to better align with best practices
+
 ### Version 6.0.4
 
 - Improvement: Updated module NuGet packages infrastructure.
