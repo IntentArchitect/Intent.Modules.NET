@@ -22,6 +22,13 @@ namespace SqlServerImporterTests.Infrastructure.Repositories.Dbo
         {
         }
 
+        public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(
+            (string UserId, string LoginProvider, string Name) id,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindProjectToAsync<TProjection>(x => x.UserId == id.UserId && x.LoginProvider == id.LoginProvider && x.Name == id.Name, cancellationToken);
+        }
+
         public async Task<AspNetUserToken?> FindByIdAsync(
             (string UserId, string LoginProvider, string Name) id,
             CancellationToken cancellationToken = default)

@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Polym
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IPoly_ConcreteARepository : IEFRepository<Poly_ConcreteA, Poly_ConcreteA>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
 
         [IntentManaged(Mode.Fully)]
         Task<Poly_ConcreteA?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

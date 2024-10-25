@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Domain.Repositories
     public interface INewClassRepository : IEFRepository<NewClass, NewClass>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<NewClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<NewClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

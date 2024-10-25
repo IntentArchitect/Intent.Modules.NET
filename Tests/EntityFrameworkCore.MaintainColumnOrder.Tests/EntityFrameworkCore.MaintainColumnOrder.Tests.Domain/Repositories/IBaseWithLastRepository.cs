@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Domain.Repositories
     public interface IBaseWithLastRepository : IEFRepository<BaseWithLast, BaseWithLast>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<BaseWithLast?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<BaseWithLast>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

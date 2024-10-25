@@ -14,6 +14,8 @@ namespace ProxyServiceTests.OriginalServices.Domain.Repositories
     public interface IClientRepository : IEFRepository<Client, Client>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Client?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Client>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

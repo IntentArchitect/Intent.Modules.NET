@@ -14,6 +14,8 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Repositories.Compositio
     public interface IOneToOneSourceRepository : IEFRepository<OneToOneSource, OneToOneSource>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<OneToOneSource?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<OneToOneSource>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

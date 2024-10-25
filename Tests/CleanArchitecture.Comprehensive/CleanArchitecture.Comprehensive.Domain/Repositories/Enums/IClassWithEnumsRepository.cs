@@ -14,6 +14,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.Enums
     public interface IClassWithEnumsRepository : IEFRepository<ClassWithEnums, ClassWithEnums>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<ClassWithEnums?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<ClassWithEnums>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

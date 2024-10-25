@@ -14,6 +14,8 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Repos
     public interface IStockRepository : IEFRepository<Stock, Stock>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Stock?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Stock>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

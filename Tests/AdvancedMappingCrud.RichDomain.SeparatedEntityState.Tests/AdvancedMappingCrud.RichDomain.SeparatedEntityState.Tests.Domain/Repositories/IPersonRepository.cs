@@ -14,6 +14,8 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Repos
     public interface IPersonRepository : IEFRepository<Person, Person>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Person?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Person>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

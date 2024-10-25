@@ -25,6 +25,13 @@ namespace Solace.Tests.Infrastructure.Repositories
         {
         }
 
+        public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(
+            Guid id,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindProjectToAsync<TProjection>(x => x.Id == id, cancellationToken);
+        }
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<List<Customer>> SearchDapperAsync(CancellationToken cancellationToken = default)
         {

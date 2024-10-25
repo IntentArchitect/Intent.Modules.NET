@@ -14,6 +14,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories
     public interface ITypeNameRepository : IEFRepository<Entities.TypeName, Entities.TypeName>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Entities.TypeName?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Entities.TypeName>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

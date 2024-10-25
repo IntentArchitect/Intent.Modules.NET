@@ -14,6 +14,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.UniqueIndexConstra
     public interface IAggregateWithUniqueConstraintIndexStereotypeRepository : IEFRepository<AggregateWithUniqueConstraintIndexStereotype, AggregateWithUniqueConstraintIndexStereotype>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<AggregateWithUniqueConstraintIndexStereotype?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AggregateWithUniqueConstraintIndexStereotype>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

@@ -14,6 +14,8 @@ namespace ValueObjects.Record.Domain.Repositories
     public interface ITestEntityRepository : IEFRepository<TestEntity, TestEntity>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<TestEntity?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TestEntity>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

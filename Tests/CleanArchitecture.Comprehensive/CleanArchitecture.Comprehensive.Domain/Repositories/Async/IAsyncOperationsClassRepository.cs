@@ -15,6 +15,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.Async
     public interface IAsyncOperationsClassRepository : IEFRepository<AsyncOperationsClass, AsyncOperationsClass>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<AsyncOperationsClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AsyncOperationsClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

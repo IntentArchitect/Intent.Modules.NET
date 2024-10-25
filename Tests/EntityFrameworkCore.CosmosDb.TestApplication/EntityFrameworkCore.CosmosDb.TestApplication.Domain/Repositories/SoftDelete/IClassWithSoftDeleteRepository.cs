@@ -15,6 +15,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.SoftD
     public interface IClassWithSoftDeleteRepository : IEFRepository<ClassWithSoftDelete, ClassWithSoftDelete>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<ClassWithSoftDelete?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<ClassWithSoftDelete>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

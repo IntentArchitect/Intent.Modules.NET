@@ -14,6 +14,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.Indexing
     public interface IFilteredIndexRepository : IEFRepository<FilteredIndex, FilteredIndex>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<FilteredIndex?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<FilteredIndex>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

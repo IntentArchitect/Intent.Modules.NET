@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain.Reposit
     public interface IEntityAppDefaultRepository : IEFRepository<EntityAppDefault, EntityAppDefault>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<EntityAppDefault?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<EntityAppDefault>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

@@ -14,6 +14,8 @@ namespace IntegrationTesting.Tests.Domain.Repositories
     public interface IHasDateOnlyFieldRepository : IEFRepository<HasDateOnlyField, HasDateOnlyField>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<HasDateOnlyField?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<HasDateOnlyField>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

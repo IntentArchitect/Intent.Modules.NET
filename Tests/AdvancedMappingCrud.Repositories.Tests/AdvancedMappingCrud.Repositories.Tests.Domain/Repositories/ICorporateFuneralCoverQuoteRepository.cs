@@ -14,6 +14,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Repositories
     public interface ICorporateFuneralCoverQuoteRepository : IEFRepository<CorporateFuneralCoverQuote, CorporateFuneralCoverQuote>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<CorporateFuneralCoverQuote?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<CorporateFuneralCoverQuote>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

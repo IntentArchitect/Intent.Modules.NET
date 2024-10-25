@@ -14,6 +14,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.CRUD
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IAggregateRootLongRepository : IEFRepository<AggregateRootLong, AggregateRootLong>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(long id, CancellationToken cancellationToken = default);
 
         [IntentManaged(Mode.Fully)]
         Task<AggregateRootLong?> FindByIdAsync(long id, CancellationToken cancellationToken = default);

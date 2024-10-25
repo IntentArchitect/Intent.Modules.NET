@@ -14,6 +14,8 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Repositories
     public interface ISuperRepository : IEFRepository<Super, Super>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Super?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Super>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

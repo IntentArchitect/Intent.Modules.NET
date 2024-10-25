@@ -14,6 +14,8 @@ namespace AspNetCore.Controllers.Secured.Domain.Repositories
     public interface IBuyerRepository : IEFRepository<Buyer, Buyer>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Buyer?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Buyer>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

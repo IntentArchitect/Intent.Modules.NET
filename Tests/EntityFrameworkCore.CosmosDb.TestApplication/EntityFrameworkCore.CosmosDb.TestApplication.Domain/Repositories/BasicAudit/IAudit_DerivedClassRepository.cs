@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Basic
     public interface IAudit_DerivedClassRepository : IEFRepository<Audit_DerivedClass, Audit_DerivedClass>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Audit_DerivedClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Audit_DerivedClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

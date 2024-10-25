@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Neste
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IClassARepository : IEFRepository<ClassA, ClassA>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
 
         [IntentManaged(Mode.Fully)]
         Task<ClassA?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

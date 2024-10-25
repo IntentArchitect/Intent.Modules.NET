@@ -14,6 +14,8 @@ namespace AspNetCore.Controllers.Secured.Domain.Repositories
     public interface IOrderRepository : IEFRepository<Order, Order>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Order?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Order>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

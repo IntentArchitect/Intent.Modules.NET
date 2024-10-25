@@ -15,6 +15,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.DefaultDiagram
     public interface IClassWithDefaultRepository : IEFRepository<ClassWithDefault, ClassWithDefault>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<ClassWithDefault?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<ClassWithDefault>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

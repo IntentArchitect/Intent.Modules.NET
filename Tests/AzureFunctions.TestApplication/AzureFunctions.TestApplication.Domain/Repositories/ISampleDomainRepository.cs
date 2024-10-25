@@ -15,6 +15,8 @@ namespace AzureFunctions.TestApplication.Domain.Repositories
     public interface ISampleDomainRepository : IEFRepository<SampleDomain, SampleDomain>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<SampleDomain> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<SampleDomain>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

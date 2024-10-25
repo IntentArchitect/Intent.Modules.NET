@@ -1,6 +1,6 @@
 ### Version 5.1.4
 
-- Improvement: Added additional `ProjectTo` operations on EF repository.
+- Improvement: Added additional `ProjectTo` operations on EF repositories.
 
 ### Version 5.1.3
 

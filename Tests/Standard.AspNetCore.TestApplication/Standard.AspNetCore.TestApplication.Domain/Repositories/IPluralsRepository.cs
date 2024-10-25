@@ -14,6 +14,8 @@ namespace Standard.AspNetCore.TestApplication.Domain.Repositories
     public interface IPluralsRepository : IEFRepository<Plurals, Plurals>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Plurals?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Plurals>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
