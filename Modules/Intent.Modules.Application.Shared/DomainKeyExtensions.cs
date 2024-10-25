@@ -27,7 +27,7 @@ internal static class DomainKeyExtensions
         {
             throw new ElementException(entity.InternalElement, $"{entity.Name} has multiple owners ({string.Join(",", aggregateRootClass.Select(a => a.Name))}). Owned entities can only have 1 owner.");
         }
-        return aggregateRootClass.First();
+        return aggregateRootClass.SingleOrDefault();
     }
 
     // This is duplicated in Intent.Modules.Application.MediatR.CRUD
