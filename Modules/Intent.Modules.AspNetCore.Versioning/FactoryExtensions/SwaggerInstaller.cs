@@ -49,7 +49,7 @@ public class SwaggerInstaller : FactoryExtensionBase
         method.Statements.Insert(0, $"services.AddTransient<IConfigureOptions<SwaggerGenOptions>, {apiVersionSwaggerGenOptionsName}>();");
         var addSwaggerGen = (CSharpInvocationStatement)method.FindStatement(p => p.HasMetadata("AddSwaggerGen"));
         var addSwaggerGenOptions = (CSharpLambdaBlock)addSwaggerGen?.Statements.FirstOrDefault();
-        addSwaggerGenOptions?.FindStatement(p => p.GetText("").Contains("options.SwaggerDoc")).Remove();
+        addSwaggerGenOptions?.FindStatement(p => p.GetText("").Contains("options.SwaggerDoc"))?.Remove();
     }
 
     private static void UpdateUseSwashbuckleMethod(CSharpClass priClass)

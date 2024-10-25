@@ -49,7 +49,7 @@ namespace Intent.Modules.FastEndpoints.FactoryExtensions
             method.Statements.Insert(0, $"services.AddTransient<IConfigureOptions<SwaggerGenOptions>, {apiVersionSwaggerGenOptionsName}>();");
             var addSwaggerGen = (CSharpInvocationStatement)method.FindStatement(p => p.HasMetadata("AddSwaggerGen"));
             var addSwaggerGenOptions = (CSharpLambdaBlock)addSwaggerGen?.Statements.FirstOrDefault();
-            addSwaggerGenOptions?.FindStatement(p => p.GetText("").Contains("options.SwaggerDoc")).Remove();
+            addSwaggerGenOptions?.FindStatement(p => p.GetText("").Contains("options.SwaggerDoc"))?.Remove();
         }
 
         private static void UpdateUseSwashbuckleMethod(CSharpClass priClass)
@@ -57,7 +57,7 @@ namespace Intent.Modules.FastEndpoints.FactoryExtensions
             var method = priClass.FindMethod("UseSwashbuckle");
             var useSwaggerUi = (CSharpInvocationStatement)method.FindStatement(p => p.HasMetadata("UseSwaggerUI"));
             var useSwaggerUiOptions = (CSharpLambdaBlock)useSwaggerUi?.Statements.FirstOrDefault();
-            useSwaggerUiOptions?.FindStatement(p => p.GetText("").Contains("options.SwaggerEndpoint")).Remove();
+            useSwaggerUiOptions?.FindStatement(p => p.GetText("").Contains("options.SwaggerEndpoint"))?.Remove();
 
             useSwaggerUiOptions.AddInvocationStatement("AddSwaggerEndpoints", stmt => stmt
                 .AddArgument("app")

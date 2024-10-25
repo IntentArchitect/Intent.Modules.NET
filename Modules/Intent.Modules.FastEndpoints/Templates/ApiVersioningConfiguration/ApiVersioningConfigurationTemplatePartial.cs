@@ -58,6 +58,7 @@ namespace Intent.Modules.FastEndpoints.Templates.ApiVersioningConfiguration
                                 .AddArgument(new CSharpLambdaBlock("v").WithExpressionBody(version))));
                         }
 
+                        AddUsing("FastEndpoints.AspVersioning");
                         method.AddInvocationStatement("services.AddVersioning", stmt => stmt
                             .AddArgument(new CSharpLambdaBlock("options")
                                 .AddStatement($@"options.AssumeDefaultVersionWhenUnspecified = true;")
