@@ -8,7 +8,7 @@ migration name when executing these commands.
 Create a new migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 From the Visual Studio Package Manager Console:
-Add-Migration -Name {ChangeName} -StartupProject "SharedKernel.Consumer.Tests.Api" -Project "SharedKernel.Consumer.Tests.Infrastructure"
+Add-Migration -Name {ChangeName} -StartupProject "SharedKernel.Consumer.Tests.Api" -Project "SharedKernel.Consumer.Tests.Infrastructure" 
 
 CLI:
 dotnet ef migrations add {ChangeName} --startup-project "SharedKernel.Consumer.Tests.Api" --project "SharedKernel.Consumer.Tests.Infrastructure"

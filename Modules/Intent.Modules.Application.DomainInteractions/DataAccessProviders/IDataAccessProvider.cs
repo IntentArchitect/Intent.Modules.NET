@@ -12,6 +12,7 @@ namespace Intent.Modules.Application.DomainInteractions;
 
 public interface IDataAccessProvider
 {
+    bool IsUsingProjections { get; }
     CSharpStatement SaveChangesAsync();
     CSharpStatement AddEntity(string entityName);
     CSharpStatement Update(string entityName);

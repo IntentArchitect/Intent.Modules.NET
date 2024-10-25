@@ -30,6 +30,8 @@ public class DbContextDataAccessProvider : IDataAccessProvider
         _pks = entityTemplate.CSharpFile.Classes.First().GetPropertiesWithPrimaryKey();
     }
 
+    public bool IsUsingProjections => false;
+
     public CSharpStatement SaveChangesAsync()
     {
         return $"await {_dbContextField}.SaveChangesAsync(cancellationToken);";
