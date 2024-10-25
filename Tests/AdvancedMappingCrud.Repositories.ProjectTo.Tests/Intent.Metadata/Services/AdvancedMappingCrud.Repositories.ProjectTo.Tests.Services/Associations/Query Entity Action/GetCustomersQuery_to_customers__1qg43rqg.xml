@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d94af318-ab91-41e0-8960-d738b98e9e50">
+  <sourceEnd id="63206d18-8964-4894-a008-b2b15e4d820d" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomersQuery</display>
+    <order>0</order>
+    <typeReference id="24209d53-2a7f-43bf-a5de-7d42948eda93">
+      <typeId>fd1ec1e8-6c5f-4944-8606-451ae075e55f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests.Services</typePackageName>
+      <typePackageId>6cda8d2b-f433-48b9-a3f8-19090003f024</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d94af318-ab91-41e0-8960-d738b98e9e50" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customers</name>
+    <display>[query] customers: Customer[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="75dd4486-bd7f-4467-9be0-58952afbe445">
+      <typeId>ce9175d2-d5af-4cfb-9d1a-7661abe0002c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests.Domain</typePackageName>
+      <typePackageId>3558a6c2-8c9f-4aed-abf5-9af90ba06fc4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="e931eb22-645c-475d-91b2-4e37a92b5f77" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="fd1ec1e8-6c5f-4944-8606-451ae075e55f" location="[AdvancedMappingCrud.Repositories.ProjectTo.Tests].[Services].[GetCustomersQuery]" />
+        <target applicationId="e931eb22-645c-475d-91b2-4e37a92b5f77" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ce9175d2-d5af-4cfb-9d1a-7661abe0002c" location="[AdvancedMappingCrud.Repositories.ProjectTo.Tests].[Services].[Customer]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

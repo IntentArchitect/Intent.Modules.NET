@@ -88,8 +88,6 @@ public class DomainInteractionsManager
 
             foreach (var updateAction in model.UpdateEntityActions())
             {
-                //var entity = updateAction.Element.AsClassModel() ?? OperationModelExtensions.AsOperationModel(updateAction.Element).ParentClass;
-
                 statements.AddRange(domainInteractionManager.QueryEntity(new QueryActionContext(_template, handlerClass, ActionType.Update, updateAction.InternalAssociationEnd)));
 
                 statements.Add(string.Empty);
@@ -259,7 +257,7 @@ public class DomainInteractionsManager
 
             }
 
-            TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity.InternalElement, entityVariableName, dataAccess, false, queryContext.ImplementWithProjections() ? queryContext.GetDtoReturnType() : null, associationEnd.TypeReference.IsCollection));
+            TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity.InternalElement, entityVariableName, dataAccess, false, queryContext.ImplementWithProjections() ? queryContext.GetDtoProjectionReturnType() : null, associationEnd.TypeReference.IsCollection));
 
             return statements;
         }
@@ -717,9 +715,9 @@ public class DomainInteractionsManager
         }
     }
 
-    private IDataAccessProvider InjectDataAccessProvider(CSharpClass handlerClass, ClassModel foundEntity, QueryActionContext context = null)
+    private IDataAccessProvider InjectDataAccessProvider(CSharpClass handlerClass, ClassModel foundEntity, QueryActionContext queryContext = null)
     {
-        if (TryInjectRepositoryForEntity(handlerClass, foundEntity, context, out var dataAccess))
+        if (TryInjectRepositoryForEntity(handlerClass, foundEntity, queryContext, out var dataAccess))
         {
             return dataAccess;
         }

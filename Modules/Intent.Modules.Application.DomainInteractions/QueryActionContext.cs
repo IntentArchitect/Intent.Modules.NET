@@ -98,7 +98,7 @@ namespace Intent.Modules.Application.DomainInteractions
 
         public bool ImplementWithProjections()
         {
-            return IsConfiguredForProjections() && QueryIsOnlyAction() && ReturnTypeIsMappableFromEntity();
+            return ActionType == ActionType.Query && IsConfiguredForProjections() && QueryIsOnlyAction() && ReturnTypeIsMappableFromEntity();
         }
 
         public bool QueryIsOnlyAction()

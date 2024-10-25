@@ -26,7 +26,6 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
     private readonly ClassModel _entity;
     private readonly bool _isUsingProjections;
     private IQueryImplementation _queryImplementation;
-    private QueryActionContext _queryContext;
 
     public RepositoryDataAccessProvider(string repositoryFieldName, ICSharpFileBuilderTemplate template, CSharpClassMappingManager mappingManager, bool hasUnitOfWork, QueryActionContext queryContext, ClassModel entity)
     {
@@ -37,7 +36,6 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         var entityTemplate = _template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, entity);
         _pks = entityTemplate.CSharpFile.Classes.First().GetPropertiesWithPrimaryKey();
         _entity = entity;
-        _queryContext = queryContext;
         if (_template.TryGetTypeName(TemplateRoles.Domain.Specification, _entity, out var specificationType))
         {
             _queryImplementation = new SpecificationImplementation(this, _repositoryFieldName, queryContext, specificationType);
@@ -274,14 +272,14 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
 
         public virtual CSharpStatement FindByIdAsync(List<PrimaryKeyFilterMapping> pkMaps)
         {
-            return new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindByIdProjectToAsync<{_queryContext!.GetDtoReturnType()}>" : $"FindByIdAsync")
+            return new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindByIdProjectToAsync<{_queryContext!.GetDtoProjectionReturnType()}>" : $"FindByIdAsync")
                 .AddArgument(pkMaps.Select(x => x.ValueExpression).AsSingleOrTuple())
                 .AddArgument("cancellationToken");
         }
 
         public virtual CSharpStatement FindByIdsAsync(List<PrimaryKeyFilterMapping> pkMaps)
         {
-            return new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindByIdsProjectToAsync<{_queryContext!.GetDtoReturnType()}>" : $"FindByIdsAsync")
+            return new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindByIdsProjectToAsync<{_queryContext!.GetDtoProjectionReturnType()}>" : $"FindByIdsAsync")
                 .AddArgument($"{pkMaps.Select(x => x.ValueExpression).AsSingleOrTuple()}.ToArray()")
                 .AddArgument("cancellationToken");
         }
@@ -289,7 +287,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         public virtual CSharpStatement FindAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements)
         {
             var expression = _provider.CreateQueryFilterExpression(queryMapping, out prerequisiteStatements);
-            var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindProjectToAsync<{_queryContext!.GetDtoReturnType()}>" : $"FindAsync");
+            var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindProjectToAsync<{_queryContext!.GetDtoProjectionReturnType()}>" : $"FindAsync");
             if (expression.Statement is not null)
             {
                 invocation.AddArgument(expression.Statement);
@@ -301,7 +299,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
 
         public virtual CSharpStatement FindAsync(CSharpStatement? expression)
         {
-            var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindProjectToAsync<{_queryContext!.GetDtoReturnType()}>" : $"FindAsync");
+            var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindProjectToAsync<{_queryContext!.GetDtoProjectionReturnType()}>" : $"FindAsync");
             if (expression != null)
             {
                 invocation.AddArgument(expression);
@@ -314,7 +312,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         public virtual CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements)
         {
             var expression = _provider.CreateQueryFilterExpression(queryMapping, out prerequisiteStatements);
-            var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindAllProjectToAsync<{_queryContext!.GetDtoReturnType()}>" : $"FindAllAsync");
+            var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindAllProjectToAsync<{_queryContext!.GetDtoProjectionReturnType()}>" : $"FindAllAsync");
             if (expression.Statement is not null)
             {
                 invocation.AddArgument(expression.Statement);
@@ -326,7 +324,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
 
         public virtual CSharpStatement FindAllAsync(CSharpStatement? expression)
         {
-            var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindAllProjectToAsync<{_queryContext!.GetDtoReturnType()}>" : $"FindAllAsync");
+            var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindAllProjectToAsync<{_queryContext!.GetDtoProjectionReturnType()}>" : $"FindAllAsync");
             if (expression != null)
             {
                 invocation.AddArgument(expression);
@@ -340,7 +338,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         {
             var expressionResult = _provider.CreateQueryFilterExpression(queryMapping, out prerequisiteStatements);
             var expression = expressionResult.Statement;
-            var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindAllProjectToAsync<{_queryContext!.GetDtoReturnType()}>" : $"FindAllAsync");
+            var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindAllProjectToAsync<{_queryContext!.GetDtoProjectionReturnType()}>" : $"FindAllAsync");
             if (expression is not null && !expressionResult.UsesFilterMethod)
             {
                 // When passing in Expression<Func<TDomain, boolean>> (predicate):
@@ -370,7 +368,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         public virtual CSharpStatement FindAllAsync(CSharpStatement? expression, string pageNo, string pageSize, string? orderBy, bool orderByIsNullable, out IList<CSharpStatement> prerequisiteStatements)
         {
             prerequisiteStatements = null;
-            var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindAllProjectToAsync<{_queryContext!.GetDtoReturnType()}>" : $"FindAllAsync");
+            var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindAllProjectToAsync<{_queryContext!.GetDtoProjectionReturnType()}>" : $"FindAllAsync");
             if (expression?.ToString().StartsWith("x =>") == true) // a bit rudimentary
             {
                 // pass in Expression<Func<TDomain, boolean>> (predicate):
