@@ -45,7 +45,8 @@ namespace CleanArchitecture.Comprehensive.Api.FastEndpoints.ServiceDispatch.Serv
 
         public override async Task HandleAsync(CancellationToken ct)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.MutationNoImpl2Async(ct);

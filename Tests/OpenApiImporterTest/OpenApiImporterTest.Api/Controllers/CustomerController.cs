@@ -51,7 +51,8 @@ namespace OpenApiImporterTest.Api.Controllers
             await _validationService.Handle(dto, cancellationToken);
             var result = default(Guid);
 
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 result = await _appService.CreateCustomer(dto, cancellationToken);
@@ -87,7 +88,8 @@ namespace OpenApiImporterTest.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteCustomer([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.DeleteCustomer(id, cancellationToken);
@@ -114,7 +116,8 @@ namespace OpenApiImporterTest.Api.Controllers
         {
             await _validationService.Handle(dto, cancellationToken);
 
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.UpdateCustomer(dto, id, cancellationToken);
@@ -163,7 +166,8 @@ namespace OpenApiImporterTest.Api.Controllers
             await _validationService.Handle(dto, cancellationToken);
             var result = default(Guid);
 
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 result = await _appService.CreateOrder(dto, customerId, cancellationToken);
@@ -208,7 +212,8 @@ namespace OpenApiImporterTest.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.DeleteOrder(customerId, id, cancellationToken);
@@ -236,7 +241,8 @@ namespace OpenApiImporterTest.Api.Controllers
         {
             await _validationService.Handle(dto, cancellationToken);
 
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.UpdateOrder(dto, customerId, id, cancellationToken);

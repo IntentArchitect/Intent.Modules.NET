@@ -29,7 +29,11 @@ namespace CosmosDB.Api.Services
 
         public async Task<bool> AuthorizeAsync(string policy)
         {
-            if (_claimsPrincipal == null) return false;
+            if (_claimsPrincipal == null)
+            {
+                return false;
+            }
+
             return (await _authorizationService.AuthorizeAsync(_claimsPrincipal, policy)).Succeeded;
         }
 

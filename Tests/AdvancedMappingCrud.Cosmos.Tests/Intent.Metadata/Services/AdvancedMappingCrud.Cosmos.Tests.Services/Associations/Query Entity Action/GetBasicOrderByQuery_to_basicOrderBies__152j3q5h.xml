@@ -22,6 +22,9 @@
     <name>basicOrderBies</name>
     <display>[query] basicOrderBies: BasicOrderBy[*]</display>
     <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="1dd691f3-f4e2-47b3-95cb-70410f5f376e">
       <typeId>ba238544-c312-43a9-8e6c-65010bd8d715</typeId>
       <isNavigable>true</isNavigable>

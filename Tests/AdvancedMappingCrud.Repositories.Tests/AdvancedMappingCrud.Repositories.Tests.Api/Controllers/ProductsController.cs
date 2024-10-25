@@ -54,7 +54,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         {
             await _validationService.Handle(dto, cancellationToken);
             var result = default(Guid);
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 result = await _appService.CreateProduct(dto, cancellationToken);
@@ -113,7 +114,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             await _validationService.Handle(dto, cancellationToken);
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.UpdateProduct(id, dto, cancellationToken);
@@ -136,7 +138,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteProduct([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.DeleteProduct(id, cancellationToken);

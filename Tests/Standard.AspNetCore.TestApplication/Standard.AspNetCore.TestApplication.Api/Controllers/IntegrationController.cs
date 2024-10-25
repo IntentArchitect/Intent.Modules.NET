@@ -78,7 +78,8 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             [FromHeader(Name = "MY-HEADER")] string param1,
             CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.HeaderParamOp(param1, cancellationToken);
@@ -105,7 +106,8 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             [FromForm] int param2,
             CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.FormParamOp(param1, param2, cancellationToken);
@@ -131,7 +133,8 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             [FromRoute] string param1,
             CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.RouteParamOp(param1, cancellationToken);
@@ -158,7 +161,8 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             await _validationService.Handle(param1, cancellationToken);
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.BodyParamOp(param1, cancellationToken);
@@ -180,7 +184,8 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> ThrowsException(CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.ThrowsException(cancellationToken);

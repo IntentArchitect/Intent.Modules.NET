@@ -22,6 +22,9 @@
     <name>order</name>
     <display>[create] order: Order</display>
     <order>6</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="f2dceaea-828e-4f71-905b-20635b644e88">
       <typeId>40a608b5-7171-4e71-99b3-6bce641aa33b</typeId>
       <isNavigable>true</isNavigable>

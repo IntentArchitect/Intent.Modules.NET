@@ -47,7 +47,8 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         {
             await _validationService.Handle(dto, cancellationToken);
             var result = default(Guid);
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 result = await _appService.CreateInvoice(dto, cancellationToken);
@@ -105,7 +106,8 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             await _validationService.Handle(dto, cancellationToken);
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.UpdateInvoice(id, dto, cancellationToken);
@@ -127,7 +129,8 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteInvoice([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.DeleteInvoice(id, cancellationToken);
