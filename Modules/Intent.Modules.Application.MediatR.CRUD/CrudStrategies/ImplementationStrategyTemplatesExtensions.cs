@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
@@ -92,8 +94,12 @@ public static class ImplementationStrategyTemplatesExtensions
                         p.IsSourceEnd() && !p.IsCollection && !p.IsNullable)
             .Select(s => s.Class)
             .Distinct()
-            .SingleOrDefault();
-        return aggregateRootClass;
+            .ToList();
+        if (aggregateRootClass.Count > 1)
+        {
+            throw new ElementException(entity.InternalElement, $"{entity.Name} has multiple owners ({string.Join(",", aggregateRootClass.Select(a => a.Name))}). Owned entities can only have 1 owner.");
+        }
+        return aggregateRootClass.First();
     }
 
     // This is duplicated in Intent.Modules.Application.Shared

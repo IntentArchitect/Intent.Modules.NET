@@ -1,6 +1,7 @@
 ### Version 5.0.18
 
 - Improvement: Converted T4 template to CSharpFileBuilder paradigm.
+- Improvement: CRUD for Compositional entities now throws a clearer exceptions if you have modeled multiple owners(which is not valid).
 
 ### Version 5.0.17
 
