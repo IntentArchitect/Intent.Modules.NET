@@ -68,6 +68,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.PagedList
                             .AddParameter("int", "totalCount");
                         method.AddStatement(new CSharpStatementBlock("if (pageSize == 0)")
                             .AddStatement("return 0;"));
+                        method.AddStatement("");
                         method.AddStatements($@"
                             var remainder = totalCount % pageSize;
                             return (totalCount / pageSize) + (remainder == 0 ? 0 : 1);");
