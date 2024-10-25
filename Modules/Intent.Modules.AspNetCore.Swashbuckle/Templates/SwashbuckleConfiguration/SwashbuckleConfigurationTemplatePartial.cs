@@ -70,7 +70,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
 
                                 lambdaBlock.AddStatement(useSimpleSchemaIdentifiers
                                     ? "options.CustomSchemaIds(GetFriendlyName);"
-                                    : "options.CustomSchemaIds(x => x.FullName?.Replace(\"+\", \"_\"));");
+                                    : "options.CustomSchemaIds(x => x.FullName?.Replace(\"+\", \"_\", StringComparison.OrdinalIgnoreCase));");
 
                                 lambdaBlock.AddStatement(
                                     "var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $\"{Assembly.GetExecutingAssembly().GetName().Name}.xml\");",
@@ -80,7 +80,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                                     @if
                                         .AddStatement("options.IncludeXmlComments(apiXmlFile);")
                                         .SeparatedFromPrevious(false);
-                                });
+                                }).SeparatedFromNext();
 
                                 if (TryGetTemplate<ICSharpTemplate>("Intent.Application.DependencyInjection.DependencyInjection", out _))
                                 {
@@ -94,6 +94,7 @@ public partial class SwashbuckleConfigurationTemplate : CSharpTemplateBase<objec
                                             .AddStatement("options.IncludeXmlComments(applicationXmlFile);")
                                             .SeparatedFromPrevious(false);
                                     });
+                                    lambdaBlock.AddStatement("");
                                 }
                             })
                             .WithArgumentsOnNewLines()
