@@ -41,6 +41,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeChec
                         method.AddIfStatement("!HasAuthorize(context)", block =>
                         {
                             block.AddStatement("return;");
+                            block.SeparatedFromNext();
                         });
 
                         method.AddStatement(@$"operation.Security.Add(new OpenApiSecurityRequirement
@@ -65,6 +66,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeChec
                         method.AddIfStatement("context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any()", block =>
                         {
                             block.AddStatement("return true;");
+                            block.SeparatedFromNext();
                         });
 
                         method.AddStatement(@"return context.MethodInfo.DeclaringType != null
