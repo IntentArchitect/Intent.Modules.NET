@@ -38,11 +38,11 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.Validati
                             constraint.AddType("notnull");
                         });
 
-                    @class.ImplementsInterface("IPipelineBehavior<TRequest, TResponse>");
+                    @class.ImplementsInterface(UseType("MediatR.IPipelineBehavior<TRequest, TResponse>"));
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("IEnumerable<IValidator<TRequest>>", "validators", paramConfig =>
+                        ctor.AddParameter(UseType($"System.Collections.Generic.IEnumerable<{UseType("FluentValidation.IValidator<TRequest>")}>"), "validators", paramConfig =>
                         {
                             paramConfig.IntroduceReadonlyField();
                         });
