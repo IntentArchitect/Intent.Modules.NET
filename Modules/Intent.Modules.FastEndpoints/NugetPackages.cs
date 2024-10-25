@@ -13,6 +13,7 @@ namespace Intent.Modules.FastEndpoints
     {
         public const string FastEndpointsPackageName = "FastEndpoints";
         public const string FastEndpointsAspVersioningPackageName = "FastEndpoints.AspVersioning";
+        public const string FastEndpointsAttributesPackageName = "FastEndpoints.Attributes";
         public const string FastEndpointsSwaggerSwashbucklePackageName = "FastEndpoints.Swagger.Swashbuckle";
 
         public void RegisterPackages()
@@ -38,6 +39,13 @@ namespace Intent.Modules.FastEndpoints
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FastEndpointsAspVersioningPackageName}'"),
                     }
                 );
+            NugetRegistry.Register(FastEndpointsAttributesPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("5.30.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FastEndpointsAttributesPackageName}'"),
+                    }
+                );
             NugetRegistry.Register(FastEndpointsSwaggerSwashbucklePackageName,
                 (framework) => framework switch
                     {
@@ -53,6 +61,8 @@ namespace Intent.Modules.FastEndpoints
         public static NugetPackageInfo FastEndpoints(IOutputTarget outputTarget) => NugetRegistry.GetVersion(FastEndpointsPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo FastEndpointsAspVersioning(IOutputTarget outputTarget) => NugetRegistry.GetVersion(FastEndpointsAspVersioningPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo FastEndpointsAttributes(IOutputTarget outputTarget) => NugetRegistry.GetVersion(FastEndpointsAttributesPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo FastEndpointsSwaggerSwashbuckle(IOutputTarget outputTarget) => NugetRegistry.GetVersion(FastEndpointsSwaggerSwashbucklePackageName, outputTarget.GetMaxNetAppVersion());
     }

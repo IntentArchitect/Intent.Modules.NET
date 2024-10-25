@@ -44,7 +44,7 @@ namespace Intent.Modules.FastEndpoints.Templates.ApiVersioningConfiguration
                         if (apiVersionModel is not null)
                         {
                             AddUsing("FastEndpoints.AspVersioning");
-                            
+
                             foreach (var versionModel in apiVersionModel.Versions)
                             {
                                 version = version.AddInvocation("HasApiVersion",

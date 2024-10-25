@@ -108,7 +108,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
 
         private void AddHttpAttributeInputsToRequestTemplate(ICSharpFileBuilderTemplate requestTemplate)
         {
-            requestTemplate.CSharpFile.AfterBuild(file =>
+            requestTemplate.CSharpFile.OnBuild(file =>
             {
                 foreach (var parameter in Model.Parameters)
                 {
@@ -383,18 +383,20 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
         {
             if (parameter.Source is HttpInputSource.FromHeader)
             {
-                property.AddAttribute(new CSharpAttribute($"FromHeader").AddArgument($@"""{parameter.HeaderName}"""));
+                property.File.Template.AddNugetDependency(NugetPackages.FastEndpointsAttributes(property.File.Template.OutputTarget));
+                property.AddAttribute(property.File.Template.UseType($"FastEndpoints.FromHeader"), attr => attr.AddArgument($@"""{parameter.HeaderName}"""));
             }
 
             if (parameter.Source is null or HttpInputSource.FromQuery)
             {
-                var attr = new CSharpAttribute("FromQueryParams");
-                if (!string.IsNullOrWhiteSpace(parameter.QueryStringName))
+                property.File.Template.AddNugetDependency(NugetPackages.FastEndpointsAttributes(property.File.Template.OutputTarget));
+                property.AddAttribute(property.File.Template.UseType("FastEndpoints.FromQueryParams"), attr =>
                 {
-                    attr.AddArgument($@"""{parameter.QueryStringName}""");
-                }
-
-                property.AddAttribute(attr);
+                    if (!string.IsNullOrWhiteSpace(parameter.QueryStringName))
+                    {
+                        attr.AddArgument($@"""{parameter.QueryStringName}""");
+                    }
+                });
             }
         }
 

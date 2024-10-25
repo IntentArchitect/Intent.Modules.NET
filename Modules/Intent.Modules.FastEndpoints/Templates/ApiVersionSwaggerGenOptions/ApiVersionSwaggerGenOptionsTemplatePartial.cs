@@ -22,7 +22,7 @@ namespace Intent.Modules.FastEndpoints.Templates.ApiVersionSwaggerGenOptions
         public ApiVersionSwaggerGenOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.FastEndpointsAspVersioning(OutputTarget));
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Asp.Versioning")
                 .AddUsing("Asp.Versioning.ApiExplorer")
