@@ -29,9 +29,6 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
     {
         public const string TemplateId = "Intent.FastEndpoints.EndpointTemplate";
 
-        //private CSharpClass? _requestModelClass; // For handling inputs without body payloads
-        //private IElement? _requestPayload; // Request Model + Body Payload
-
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public EndpointTemplate(IOutputTarget outputTarget, IEndpointModel model = null) : base(TemplateId, outputTarget, model)
         {
@@ -48,7 +45,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
 
             AddKnownType("FastEndpoints.IEventBus");
 
-            Versions = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id).GetApiVersionModels().FirstOrDefault();
+            var versions = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id).GetApiVersionModels().FirstOrDefault();
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -72,7 +69,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                             AddDescriptionConfiguration(method, requestModelClassName);
                             AddValidator(method, payloadModel);
                             AddSecurity(method);
-                            AddVersioning(method);
+                            AddVersioning(method, versions);
                         });
 
                         @class.AddMethod("Task", "HandleAsync", method =>
@@ -96,7 +93,17 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             if (requestTemplate != null)
             {
                 AddUsing(requestTemplate.Namespace);
-                AddHttpAttributeInputsToRequestTemplate(requestTemplate);
+                requestTemplate.CSharpFile.OnBuild(file =>
+                {
+                    foreach (var parameter in Model.Parameters)
+                    {
+                        if (file.Classes.First().TryGetReferenceForModel(parameter, out var reference)
+                            && reference is CSharpProperty property)
+                        {
+                            AddHttpInputAttributesToProperty(property, parameter);
+                        }
+                    }
+                });
             }
 
             requestModelClassName = requestTemplate != null
@@ -105,23 +112,6 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
 
             return requestModelClassName != null;
         }
-
-        private void AddHttpAttributeInputsToRequestTemplate(ICSharpFileBuilderTemplate requestTemplate)
-        {
-            requestTemplate.CSharpFile.OnBuild(file =>
-            {
-                foreach (var parameter in Model.Parameters)
-                {
-                    if (file.Classes.First().TryGetReferenceForModel(parameter, out var reference)
-                        && reference is CSharpProperty property)
-                    {
-                        AddHttpInputAttributesToProperty(property, parameter);
-                    }
-                }
-            });
-        }
-
-        private ApiVersionModel? Versions { get; set; }
 
         public override void AfterTemplateRegistration()
         {
@@ -353,9 +343,9 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             }
         }
 
-        private void AddVersioning(CSharpClassMethod method)
+        private void AddVersioning(CSharpClassMethod method, ApiVersionModel? versionModels)
         {
-            if (Versions is null)
+            if (versionModels is null)
             {
                 return;
             }
