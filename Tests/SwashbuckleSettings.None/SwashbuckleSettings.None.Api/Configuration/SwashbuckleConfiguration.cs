@@ -29,7 +29,7 @@ namespace SwashbuckleSettings.None.Api.Configuration
             services.AddSwaggerGen(
                 options =>
                 {
-                    options.CustomSchemaIds(x => x.FullName?.Replace("+", "_"));
+                    options.CustomSchemaIds(x => x.FullName?.Replace("+", "_", StringComparison.OrdinalIgnoreCase));
 
                     var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
                     if (File.Exists(apiXmlFile))
