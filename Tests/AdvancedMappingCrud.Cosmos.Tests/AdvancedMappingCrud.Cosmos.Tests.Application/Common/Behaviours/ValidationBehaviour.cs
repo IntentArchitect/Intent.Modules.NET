@@ -9,7 +9,7 @@ using MediatR;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.FluentValidation.ValidationBehaviour", Version = "1.0")]
 
-namespace IntegrationTesting.Tests.Application.Common.Behaviours
+namespace AdvancedMappingCrud.Cosmos.Tests.Application.Common.Behaviours
 {
     public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : notnull
@@ -29,7 +29,6 @@ namespace IntegrationTesting.Tests.Application.Common.Behaviours
             if (_validators.Any())
             {
                 var context = new ValidationContext<TRequest>(request);
-
                 var validationResults = await Task.WhenAll(_validators.Select(v => v.ValidateAsync(context, cancellationToken)));
                 var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
 
@@ -38,6 +37,7 @@ namespace IntegrationTesting.Tests.Application.Common.Behaviours
                     throw new ValidationException(failures);
                 }
             }
+
             return await next();
         }
     }
