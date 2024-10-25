@@ -1,3 +1,7 @@
+### Version 4.2.10
+
+- Improvement: `IQuery` and `ICommand` using CSharpFileBuilder paradigm.
+
 ### Version 4.2.9
 
 - Improvement: Default values on Command properties are now used in the Command constructor, provided there are no properties which proceed it without a default value.
