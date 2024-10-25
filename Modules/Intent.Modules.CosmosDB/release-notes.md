@@ -1,6 +1,10 @@
+### Version 1.2.6
+
+- Improvement: Small updated to more align code styling with best practices
+
 ### Version 1.2.5
 
-- Fixed: NuGut packages added for lower version of .Net Framwoek..
+- Fixed: NuGut packages added for lower version of .Net Framework.
 
 ### Version 1.2.4
 

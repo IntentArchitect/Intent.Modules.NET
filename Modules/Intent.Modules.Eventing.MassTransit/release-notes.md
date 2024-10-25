@@ -1,3 +1,7 @@
+### Version 6.2.7
+
+- Improvement: Small updated to more align code styling with best practices
+
 ### Version 6.2.6
 
 - Fixed: Disabled TelemetryConfigurationExtension due to new CSharpInvocationStatements representable as method chaining statements. Quick fix applied in `Intent.Eventing.MassTransit` module.

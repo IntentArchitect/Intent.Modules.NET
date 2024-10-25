@@ -1,3 +1,7 @@
+### Version 5.2.9
+
+- Improvement: Small updated to more align code styling with best practices
+
 ### Version 5.2.8
 
 - Improvement: Updated module NuGet packages infrastructure.

@@ -1,3 +1,7 @@
+### Version 1.1.2
+
+- Improvement: Small updated to more align code styling with best practices
+
 ### Version 1.1.1
 
 - Improvement: Updated module NuGet packages infrastructure.
