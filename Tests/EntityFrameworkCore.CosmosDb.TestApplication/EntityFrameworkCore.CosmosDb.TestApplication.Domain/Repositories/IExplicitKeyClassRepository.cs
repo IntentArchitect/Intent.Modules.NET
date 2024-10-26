@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IExplicitKeyClassRepository : IEFRepository<ExplicitKeyClass, ExplicitKeyClass>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
 
         [IntentManaged(Mode.Fully)]
         Task<ExplicitKeyClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

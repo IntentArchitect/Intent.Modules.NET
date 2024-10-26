@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Domain.Repositories
     public interface IInLineVoRepository : IEFRepository<InLineVo, InLineVo>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<InLineVo?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<InLineVo>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

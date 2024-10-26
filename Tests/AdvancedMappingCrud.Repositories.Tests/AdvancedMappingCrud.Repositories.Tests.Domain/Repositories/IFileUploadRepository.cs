@@ -14,6 +14,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Repositories
     public interface IFileUploadRepository : IEFRepository<FileUpload, FileUpload>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<FileUpload?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<FileUpload>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Assoc
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IJ_MultipleAggregateRepository : IEFRepository<J_MultipleAggregate, J_MultipleAggregate>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
 
         [IntentManaged(Mode.Fully)]
         Task<J_MultipleAggregate?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

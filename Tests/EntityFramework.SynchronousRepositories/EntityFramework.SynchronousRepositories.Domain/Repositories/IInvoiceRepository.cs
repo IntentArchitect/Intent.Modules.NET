@@ -14,6 +14,10 @@ namespace EntityFramework.SynchronousRepositories.Domain.Repositories
     public interface IInvoiceRepository : IEFRepository<Invoice, Invoice>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        TProjection? FindByIdProjectTo<TProjection>(Guid id);
+        [IntentManaged(Mode.Fully)]
         Task<Invoice?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Invoice>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

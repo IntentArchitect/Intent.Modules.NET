@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Assoc
     public interface IO_DestNameDiffRepository : IEFRepository<O_DestNameDiff, O_DestNameDiff>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<O_DestNameDiff?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<O_DestNameDiff>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

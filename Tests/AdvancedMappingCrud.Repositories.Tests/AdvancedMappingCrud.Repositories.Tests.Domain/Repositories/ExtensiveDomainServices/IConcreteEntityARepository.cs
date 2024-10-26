@@ -14,6 +14,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.ExtensiveDo
     public interface IConcreteEntityARepository : IEFRepository<ConcreteEntityA, ConcreteEntityA>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<ConcreteEntityA?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<ConcreteEntityA>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

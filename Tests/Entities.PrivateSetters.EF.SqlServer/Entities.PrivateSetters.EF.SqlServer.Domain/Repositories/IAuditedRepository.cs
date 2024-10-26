@@ -14,6 +14,8 @@ namespace Entities.PrivateSetters.EF.SqlServer.Domain.Repositories
     public interface IAuditedRepository : IEFRepository<Audited, Audited>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Audited?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Audited>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

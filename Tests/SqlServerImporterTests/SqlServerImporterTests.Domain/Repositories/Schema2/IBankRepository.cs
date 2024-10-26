@@ -14,6 +14,8 @@ namespace SqlServerImporterTests.Domain.Repositories.Schema2
     public interface IBankRepository : IEFRepository<Bank, Bank>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Bank?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Bank>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

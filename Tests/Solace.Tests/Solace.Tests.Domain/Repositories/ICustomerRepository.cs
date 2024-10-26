@@ -14,6 +14,8 @@ namespace Solace.Tests.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface ICustomerRepository : IEFRepository<Customer, Customer>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         Task<List<Customer>> SearchDapperAsync(CancellationToken cancellationToken = default);
         Task<List<Customer>> SearchSqlEFAsync(CancellationToken cancellationToken = default);
         Task<List<CustomerCustom>> SearchCustomResultAsync(CancellationToken cancellationToken = default);

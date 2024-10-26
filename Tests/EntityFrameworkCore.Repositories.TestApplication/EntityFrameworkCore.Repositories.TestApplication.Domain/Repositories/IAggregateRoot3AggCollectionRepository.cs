@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IAggregateRoot3AggCollectionRepository : IEFRepository<AggregateRoot3AggCollection, AggregateRoot3AggCollection>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
 
         [IntentManaged(Mode.Fully)]
         Task<AggregateRoot3AggCollection?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

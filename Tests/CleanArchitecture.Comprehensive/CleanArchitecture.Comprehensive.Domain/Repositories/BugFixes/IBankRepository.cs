@@ -14,6 +14,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.BugFixes
     public interface IBankRepository : IEFRepository<Bank, Bank>
     {
         [IntentManaged(Mode.Fully)]
+        System.Threading.Tasks.Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Bank?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Bank>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

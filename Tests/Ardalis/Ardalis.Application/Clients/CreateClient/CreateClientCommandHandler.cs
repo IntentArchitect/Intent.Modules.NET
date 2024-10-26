@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Ardalis.Domain.Entities;
 using Ardalis.Domain.Repositories;
+using Ardalis.Domain.Specifications;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 

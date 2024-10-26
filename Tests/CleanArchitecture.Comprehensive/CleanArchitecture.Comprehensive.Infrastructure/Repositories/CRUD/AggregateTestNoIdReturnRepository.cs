@@ -23,6 +23,13 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Repositories.CRUD
         {
         }
 
+        public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(
+            Guid id,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindProjectToAsync<TProjection>(x => x.Id == id, cancellationToken);
+        }
+
         public async Task<AggregateTestNoIdReturn?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);

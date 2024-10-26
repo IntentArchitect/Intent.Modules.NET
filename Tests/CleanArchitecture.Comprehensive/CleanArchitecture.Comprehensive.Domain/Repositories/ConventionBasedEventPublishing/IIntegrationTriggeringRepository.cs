@@ -14,6 +14,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.ConventionBasedEve
     public interface IIntegrationTriggeringRepository : IEFRepository<IntegrationTriggering, IntegrationTriggering>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<IntegrationTriggering?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<IntegrationTriggering>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

@@ -14,6 +14,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.AnemicChild
     public interface IParentWithAnemicChildRepository : IEFRepository<ParentWithAnemicChild, ParentWithAnemicChild>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<ParentWithAnemicChild?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<ParentWithAnemicChild>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

@@ -14,6 +14,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.OperationAndConstr
     public interface IOpAndCtorMapping3Repository : IEFRepository<OpAndCtorMapping3, OpAndCtorMapping3>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<OpAndCtorMapping3?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<OpAndCtorMapping3>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

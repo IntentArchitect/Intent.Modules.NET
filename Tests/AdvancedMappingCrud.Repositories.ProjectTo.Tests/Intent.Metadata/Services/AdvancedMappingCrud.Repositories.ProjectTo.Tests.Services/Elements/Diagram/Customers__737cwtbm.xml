@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1aa1cb66-d290-49f4-b93e-516487023cf5" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Customers</name>
+  <display>Customers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cb2377e7-3a32-4b43-9b56-6229f5f8b03c</parentFolderId>
+  <packageId>6cda8d2b-f433-48b9-a3f8-19090003f024</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>1aa1cb66-d290-49f4-b93e-516487023cf5</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

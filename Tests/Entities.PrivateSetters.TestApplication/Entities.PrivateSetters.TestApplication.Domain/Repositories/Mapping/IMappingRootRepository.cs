@@ -14,6 +14,8 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Repositories.Mapping
     public interface IMappingRootRepository : IEFRepository<MappingRoot, MappingRoot>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<MappingRoot?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<MappingRoot>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

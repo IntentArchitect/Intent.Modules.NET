@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Inher
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IConcreteBaseClassRepository : IEFRepository<ConcreteBaseClass, ConcreteBaseClass>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
 
         [IntentManaged(Mode.Fully)]
         Task<ConcreteBaseClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

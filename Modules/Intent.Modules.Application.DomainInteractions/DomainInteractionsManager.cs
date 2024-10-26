@@ -1,6 +1,7 @@
 using System;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -77,7 +78,7 @@ public class DomainInteractionsManager
                 }
                 
                 var foundEntity = queryAction.Element.AsClassModel();
-                statements.AddRange(domainInteractionManager.QueryEntity(handlerClass, foundEntity, queryAction.InternalAssociationEnd));
+                statements.AddRange(domainInteractionManager.QueryEntity(new QueryActionContext(_template, handlerClass, ActionType.Query, queryAction.InternalAssociationEnd)));
             }
 
             foreach (var createAction in model.CreateEntityActions())
@@ -87,9 +88,7 @@ public class DomainInteractionsManager
 
             foreach (var updateAction in model.UpdateEntityActions())
             {
-                var entity = updateAction.Element.AsClassModel() ?? OperationModelExtensions.AsOperationModel(updateAction.Element).ParentClass;
-
-                statements.AddRange(domainInteractionManager.QueryEntity(handlerClass, entity, updateAction.InternalAssociationEnd));
+                statements.AddRange(domainInteractionManager.QueryEntity(new QueryActionContext(_template, handlerClass, ActionType.Update, updateAction.InternalAssociationEnd)));
 
                 statements.Add(string.Empty);
                 statements.AddRange(domainInteractionManager.UpdateEntity(handlerClass, updateAction));
@@ -102,8 +101,7 @@ public class DomainInteractionsManager
 
             foreach (var deleteAction in model.DeleteEntityActions())
             {
-                var foundEntity = deleteAction.Element.AsClassModel();
-                statements.AddRange(domainInteractionManager.QueryEntity(handlerClass, foundEntity, deleteAction.InternalAssociationEnd));
+                statements.AddRange(domainInteractionManager.QueryEntity(new QueryActionContext(_template, handlerClass, ActionType.Delete, deleteAction.InternalAssociationEnd)));
                 statements.AddRange(domainInteractionManager.DeleteEntity(deleteAction));
             }
 
@@ -149,14 +147,16 @@ public class DomainInteractionsManager
         }
     }
     
-    public List<CSharpStatement> QueryEntity(CSharpClass handlerClass, ClassModel foundEntity, IAssociationEnd associationEnd)
+    public List<CSharpStatement> QueryEntity(QueryActionContext queryContext)
     {
         try
         {
-            var queryMapping = associationEnd.Mappings.GetQueryEntityMapping();
+            var associationEnd = queryContext.AssociationEnd;
+            var foundEntity = queryContext.FoundEntity;
+            var queryMapping = queryContext.AssociationEnd.Mappings.GetQueryEntityMapping();
             if (queryMapping == null)
             {
-                throw new ElementException(associationEnd, "Query Entity Mapping has not been specified.");
+                throw new ElementException(queryContext.AssociationEnd, "Query Entity Mapping has not been specified.");
             }
 
             var entityVariableName = associationEnd.Name;
@@ -166,13 +166,13 @@ public class DomainInteractionsManager
             _csharpMapping.SetToReplacement(foundEntity, entityVariableName);
             _csharpMapping.SetToReplacement(associationEnd, entityVariableName);
 
-            var dataAccess = InjectDataAccessProvider(handlerClass, foundEntity);
+            var dataAccess = InjectDataAccessProvider(queryContext.HandlerClass, foundEntity, queryContext);
             CSharpStatement queryInvocation = null;
             var prerequisiteStatement = new List<CSharpStatement>();
 
             if (MustAccessEntityThroughAggregate(dataAccess))
             {
-                if (!TryGetFindAggregateStatements(handlerClass, queryMapping, foundEntity, out var findAggStatements))
+                if (!TryGetFindAggregateStatements(queryContext.HandlerClass, queryMapping, foundEntity, out var findAggStatements))
                 {
                     return new List<CSharpStatement>();
                 }
@@ -257,7 +257,7 @@ public class DomainInteractionsManager
 
             }
 
-            TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity.InternalElement, entityVariableName, dataAccess, false, associationEnd.TypeReference.IsCollection));
+            TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity.InternalElement, entityVariableName, dataAccess, false, queryContext.ImplementWithProjections() ? queryContext.GetDtoProjectionReturnType() : null, associationEnd.TypeReference.IsCollection));
 
             return statements;
         }
@@ -267,7 +267,7 @@ public class DomainInteractionsManager
         }
         catch (Exception ex)
         {
-            throw new ElementException(associationEnd, "An error occurred while generating the domain interactions logic", ex);
+            throw new ElementException(queryContext.AssociationEnd, "An error occurred while generating the domain interactions logic", ex);
         }
     }
 
@@ -329,7 +329,7 @@ public class DomainInteractionsManager
         return false;
     }
     
-    public bool TryInjectRepositoryForEntity(CSharpClass handlerClass, ClassModel foundEntity, out IDataAccessProvider dataAccessProvider)
+    public bool TryInjectRepositoryForEntity(CSharpClass handlerClass, ClassModel foundEntity, QueryActionContext context, out IDataAccessProvider dataAccessProvider)
     {
 
         if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, foundEntity, out var repositoryInterface))
@@ -341,7 +341,8 @@ public class DomainInteractionsManager
         //This is being done for Dapper
         bool hasUnitOfWork = _template.TryGetTemplate<ITemplate>(TemplateRoles.Domain.UnitOfWork, out _);
 
-		dataAccessProvider = new RepositoryDataAccessProvider(InjectService(repositoryInterface, handlerClass), _template, _csharpMapping, hasUnitOfWork, foundEntity);
+
+        dataAccessProvider = new RepositoryDataAccessProvider(InjectService(repositoryInterface, handlerClass), _template, _csharpMapping, hasUnitOfWork, context, foundEntity);
         return true;
     }
 
@@ -383,15 +384,30 @@ public class DomainInteractionsManager
 		{
 			var mappedElementId = returnType.Element.AsDTOModel().Mapping.ElementId;
 			var entityDetails = TrackedEntities.Values.First(x => x.ElementModel?.Id == mappedElementId);
-			var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"), handlerClass);
-			string nullable = returnType.IsNullable ? "?" : "";
-			statements.Add($"return {entityDetails.VariableName}{nullable}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");
+
+            if (entityDetails.ProjectedType == returnDto)
+            {
+                statements.Add($"return {entityDetails.VariableName};");
+            }
+            else
+            {
+                var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"), handlerClass);
+                string nullable = returnType.IsNullable ? "?" : "";
+                statements.Add($"return {entityDetails.VariableName}{nullable}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");
+            }
 		}
 		else if (TrackedEntities.Any() && IsResultPaginated(returnType) && returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))
 		{
 			var entityDetails = TrackedEntities.Values.First(x => x.ElementModel.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId);
-			var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"), handlerClass);
-			statements.Add($"return {entityDetails.VariableName}.MapToPagedResult(x => x.MapTo{returnDto}({autoMapperFieldName}));");
+            if (entityDetails.ProjectedType == returnDto)
+            {
+                statements.Add($"return {entityDetails.VariableName}.MapToPagedResult();");
+            }
+            else
+            {
+                var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"), handlerClass);
+                statements.Add($"return {entityDetails.VariableName}.MapToPagedResult(x => x.MapTo{returnDto}({autoMapperFieldName}));");
+            }
 		}
 		else if (returnType.Element.IsTypeDefinitionModel() && entitiesReturningPk.Count == 1) // No need for TrackedEntities thus no check for it
 		{
@@ -576,7 +592,7 @@ public class DomainInteractionsManager
 					}
 				}
 
-				TrackedEntities.Add(invocation.TargetElement.Id, new EntityDetails((IElement)invocation.TargetElement.TypeReference.Element, variableName, null, false, invocation.TargetElement.TypeReference.IsCollection));
+				TrackedEntities.Add(invocation.TargetElement.Id, new EntityDetails((IElement)invocation.TargetElement.TypeReference.Element, variableName, null, false, null, invocation.TargetElement.TypeReference.IsCollection));
             }
 		}
 	}
@@ -649,7 +665,7 @@ public class DomainInteractionsManager
                 statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(variableName), invoke));
 
 
-				TrackedEntities.Add(callServiceOperation.Id, new EntityDetails((IElement)operationModel.TypeReference.Element, variableName, null, false, operationModel.TypeReference.IsCollection));
+				TrackedEntities.Add(callServiceOperation.Id, new EntityDetails((IElement)operationModel.TypeReference.Element, variableName, null, false, null, operationModel.TypeReference.IsCollection));
             }
             else if (invStatement?.Expression.Reference is ICSharpMethodDeclaration methodDeclaration &&
                      (methodDeclaration.ReturnTypeInfo.GetTaskGenericType() is CSharpTypeTuple || methodDeclaration.ReturnTypeInfo is CSharpTypeTuple))
@@ -699,9 +715,9 @@ public class DomainInteractionsManager
         }
     }
 
-    private IDataAccessProvider InjectDataAccessProvider(CSharpClass handlerClass, ClassModel foundEntity)
+    private IDataAccessProvider InjectDataAccessProvider(CSharpClass handlerClass, ClassModel foundEntity, QueryActionContext queryContext = null)
     {
-        if (TryInjectRepositoryForEntity(handlerClass, foundEntity, out var dataAccess))
+        if (TryInjectRepositoryForEntity(handlerClass, foundEntity, queryContext, out var dataAccess))
         {
             return dataAccess;
         }
@@ -1117,7 +1133,7 @@ public class DomainInteractionsManager
     }
 }
 
-public record EntityDetails(IElement ElementModel, string VariableName, IDataAccessProvider DataAccessProvider, bool IsNew, bool IsCollection = false);
+public record EntityDetails(IElement ElementModel, string VariableName, IDataAccessProvider DataAccessProvider, bool IsNew, string ProjectedType = null, bool IsCollection = false);
 
 internal static class AttributeModelExtensions
 {

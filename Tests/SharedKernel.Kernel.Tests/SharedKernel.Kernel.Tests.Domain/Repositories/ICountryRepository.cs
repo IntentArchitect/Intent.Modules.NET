@@ -14,6 +14,8 @@ namespace SharedKernel.Kernel.Tests.Domain.Repositories
     public interface ICountryRepository : IEFRepository<Country, Country>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Country?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Country>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

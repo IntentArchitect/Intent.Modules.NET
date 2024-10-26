@@ -14,6 +14,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.DomainServi
     public interface IDomainServiceTestRepository : IEFRepository<DomainServiceTest, DomainServiceTest>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<DomainServiceTest?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<DomainServiceTest>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

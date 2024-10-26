@@ -1,3 +1,7 @@
+### Version 5.1.4
+
+- Improvement: Added additional `ProjectTo` operations on EF repositories.
+
 ### Version 5.1.3
 
 - Improvement: Updated module NuGet packages infrastructure.

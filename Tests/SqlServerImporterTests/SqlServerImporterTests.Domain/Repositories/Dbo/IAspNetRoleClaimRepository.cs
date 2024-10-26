@@ -14,6 +14,8 @@ namespace SqlServerImporterTests.Domain.Repositories.Dbo
     public interface IAspNetRoleClaimRepository : IEFRepository<AspNetRoleClaim, AspNetRoleClaim>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(int id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<AspNetRoleClaim?> FindByIdAsync(int id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AspNetRoleClaim>> FindByIdsAsync(int[] ids, CancellationToken cancellationToken = default);

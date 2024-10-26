@@ -15,6 +15,8 @@ namespace CleanArchitecture.SingleFiles.Domain.Repositories
     public interface IEfInvoiceRepository : IEFRepository<EfInvoice, EfInvoice>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<EfInvoice?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<EfInvoice>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

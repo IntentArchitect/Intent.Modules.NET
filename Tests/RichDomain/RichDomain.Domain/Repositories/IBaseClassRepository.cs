@@ -14,6 +14,8 @@ namespace RichDomain.Domain.Repositories
     public interface IBaseClassRepository : IEFRepository<IBaseClass, BaseClass>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<IBaseClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<IBaseClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

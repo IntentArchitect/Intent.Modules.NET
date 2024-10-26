@@ -14,6 +14,8 @@ namespace MassTransit.RabbitMQ.Domain.Repositories
     public interface IAnimalRepository : IEFRepository<Animal, Animal>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Animal?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Animal>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

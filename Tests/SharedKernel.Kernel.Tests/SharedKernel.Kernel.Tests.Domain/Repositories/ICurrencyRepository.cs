@@ -14,6 +14,8 @@ namespace SharedKernel.Kernel.Tests.Domain.Repositories
     public interface ICurrencyRepository : IEFRepository<Currency, Currency>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Currency?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Currency>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

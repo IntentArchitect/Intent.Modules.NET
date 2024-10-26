@@ -257,6 +257,13 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Repositories
             return await projection.ToListAsync(cancellationToken);
         }
 
+        public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal((Expression<Func<TPersistence, bool>>)null);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await projection.ToListAsync(cancellationToken);
+        }
+
         public async Task<IPagedList<TProjection>> FindAllProjectToAsync<TProjection>(
             int pageNo,
             int pageSize,
@@ -277,6 +284,15 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Repositories
             CancellationToken cancellationToken = default)
         {
             var queryable = QueryInternal(queryOptions);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await projection.FirstOrDefaultAsync(cancellationToken);
+        }
+
+        public async Task<TProjection?> FindProjectToAsync<TProjection>(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(filterExpression);
             var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
             return await projection.FirstOrDefaultAsync(cancellationToken);
         }

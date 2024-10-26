@@ -13,5 +13,7 @@ namespace RichDomain.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IDerivedClassRepository : IEFRepository<IDerivedClass, DerivedClass>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
     }
 }

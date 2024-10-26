@@ -14,6 +14,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.CompositeKeys
     public interface IWithCompositeKeyRepository : IEFRepository<WithCompositeKey, WithCompositeKey>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>((Guid Key1Id, Guid Key2Id) id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<WithCompositeKey?> FindByIdAsync((Guid Key1Id, Guid Key2Id) id, CancellationToken cancellationToken = default);
     }
 }

@@ -14,6 +14,8 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Reposit
     public interface IClassWithVORepository : IEFRepository<ClassWithVO, ClassWithVO>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<ClassWithVO?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<ClassWithVO>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

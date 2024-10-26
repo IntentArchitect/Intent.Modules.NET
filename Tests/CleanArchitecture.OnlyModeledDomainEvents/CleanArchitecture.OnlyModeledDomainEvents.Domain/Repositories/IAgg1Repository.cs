@@ -14,6 +14,8 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Domain.Repositories
     public interface IAgg1Repository : IEFRepository<Agg1, Agg1>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Agg1?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Agg1>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

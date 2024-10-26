@@ -14,6 +14,8 @@ namespace SqlServerImporterTests.Domain.Repositories.Schema2
     public interface ICustomersRepository : IEFRepository<Customers, Customers>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Customers?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Customers>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

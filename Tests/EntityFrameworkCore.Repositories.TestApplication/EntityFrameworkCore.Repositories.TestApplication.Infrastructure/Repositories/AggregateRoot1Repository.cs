@@ -25,6 +25,13 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             _dbContext = dbContext;
         }
 
+        public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(
+            Guid id,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindProjectToAsync<TProjection>(x => x.Id == id, cancellationToken);
+        }
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void Operation_Params0_ReturnsV_Collection0()
         {

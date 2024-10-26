@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.P
     public interface INewClassFloatRepository : IEFRepository<NewClassFloat, NewClassFloat>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(float id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<NewClassFloat?> FindByIdAsync(float id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<NewClassFloat>> FindByIdsAsync(float[] ids, CancellationToken cancellationToken = default);

@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Domain.Repositories
     public interface IVOAssociationRepository : IEFRepository<VOAssociation, VOAssociation>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<VOAssociation?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<VOAssociation>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

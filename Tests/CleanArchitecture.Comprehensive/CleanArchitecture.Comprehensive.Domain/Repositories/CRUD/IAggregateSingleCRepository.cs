@@ -14,6 +14,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.CRUD
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IAggregateSingleCRepository : IEFRepository<AggregateSingleC, AggregateSingleC>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
 
         [IntentManaged(Mode.Fully)]
         Task<AggregateSingleC?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

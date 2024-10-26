@@ -24,6 +24,13 @@ namespace RichDomain.Infrastructure.Repositories
             _dbContext = dbContext;
         }
 
+        public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(
+            Guid id,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindProjectToAsync<TProjection>(x => x.Id == id, cancellationToken);
+        }
+
         public void Add(IDerivedClass entity)
         {
             _dbContext.Database.ExecuteSqlInterpolated($"INSERT INTO DerivedClasses (DerivedAttribute) VALUES({entity.DerivedAttribute})");

@@ -14,6 +14,8 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Repositories
     public interface ICustomerAnemicRepository : IEFRepository<CustomerAnemic, CustomerAnemic>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<CustomerAnemic?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<CustomerAnemic>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
