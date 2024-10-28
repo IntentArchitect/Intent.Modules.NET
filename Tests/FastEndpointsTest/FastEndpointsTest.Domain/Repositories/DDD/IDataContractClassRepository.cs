@@ -14,6 +14,8 @@ namespace FastEndpointsTest.Domain.Repositories.DDD
     public interface IDataContractClassRepository : IEFRepository<DataContractClass, DataContractClass>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<DataContractClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<DataContractClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

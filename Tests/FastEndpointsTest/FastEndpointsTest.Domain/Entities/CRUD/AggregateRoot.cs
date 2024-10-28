@@ -26,7 +26,7 @@ namespace FastEndpointsTest.Domain.Entities.CRUD
 
         public Guid? AggregateId { get; set; }
 
-        public virtual ICollection<CompositeManyB> Composites { get; set; } = new List<CompositeManyB>();
+        public virtual ICollection<CompositeManyB> Composites { get; set; } = null;
 
         public virtual CompositeSingleA? Composite { get; set; }
 

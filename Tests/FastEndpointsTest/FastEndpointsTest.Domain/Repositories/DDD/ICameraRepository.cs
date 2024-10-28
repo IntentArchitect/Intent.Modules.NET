@@ -14,6 +14,8 @@ namespace FastEndpointsTest.Domain.Repositories.DDD
     public interface ICameraRepository : IEFRepository<Camera, Camera>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Camera?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Camera>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

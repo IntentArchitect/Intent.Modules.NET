@@ -14,6 +14,8 @@ namespace FastEndpointsTest.Domain.Repositories.DDD
     public interface IAccountHolderRepository : IEFRepository<AccountHolder, AccountHolder>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<AccountHolder?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AccountHolder>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

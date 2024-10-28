@@ -11,7 +11,7 @@ namespace FastEndpointsTest.Application.Common.Pagination
     public static class PagedResultMappingExtensions
     {
         /// <summary>
-        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref="IPagedList{T}"/>. 
+        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref="IPagedList{T}"/>.
         /// </summary>
         /// <param name="pagedList">A single page retrieved from a persistence store.</param>
         /// <param name="mapFunc">
@@ -21,10 +21,12 @@ namespace FastEndpointsTest.Application.Common.Pagination
         /// <example>results.MapToPagedResult(x => x.MapToItemDTO(_mapper));</example>
         /// <example>results.MapToPagedResult(x => ItemDTO.Create(x.ItemName));</example>
         /// </param>
-        /// <typeparam name="TDomain">Domain element type</typeparam>
-        /// <typeparam name="TDto">DTO element type</typeparam>
-        /// <returns>A single page of DTO elements</returns>
-        public static PagedResult<TDto> MapToPagedResult<TDomain, TDto>(this IPagedList<TDomain> pagedList, Func<TDomain, TDto> mapFunc)
+        /// <typeparam name="TDomain">Domain element type.</typeparam>
+        /// <typeparam name="TDto">DTO element type.</typeparam>
+        /// <returns>A single page of DTO elements.</returns>
+        public static PagedResult<TDto> MapToPagedResult<TDomain, TDto>(
+            this IPagedList<TDomain> pagedList,
+            Func<TDomain, TDto> mapFunc)
         {
             var data = pagedList.Select(mapFunc).ToList();
 
@@ -34,6 +36,22 @@ namespace FastEndpointsTest.Application.Common.Pagination
                 pageSize: pagedList.PageSize,
                 pageNumber: pagedList.PageNo,
                 data: data);
+        }
+
+        /// <summary>
+        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref="IPagedList{T}"/>.
+        /// </summary>
+        /// <param name="pagedList">A single page retrieved from a persistence store.</param>
+        /// <typeparam name="TDto">DTO element type.</typeparam>
+        /// <returns>A single page of DTO elements.</returns>
+        public static PagedResult<TDto> MapToPagedResult<TDto>(this IPagedList<TDto> pagedList)
+        {
+            return PagedResult<TDto>.Create(
+                totalCount: pagedList.TotalCount,
+                pageCount: pagedList.PageCount,
+                pageSize: pagedList.PageSize,
+                pageNumber: pagedList.PageNo,
+                data: pagedList);
         }
     }
 

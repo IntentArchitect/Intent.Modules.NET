@@ -14,6 +14,8 @@ namespace FastEndpointsTest.Domain.Repositories.UniqueIndexConstraint
     public interface IAggregateWithUniqueConstraintIndexElementRepository : IEFRepository<AggregateWithUniqueConstraintIndexElement, AggregateWithUniqueConstraintIndexElement>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<AggregateWithUniqueConstraintIndexElement?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AggregateWithUniqueConstraintIndexElement>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

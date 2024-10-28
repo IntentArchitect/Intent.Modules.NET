@@ -14,6 +14,8 @@ namespace FastEndpointsTest.Domain.Repositories.CRUD
     public interface IAggregateTestNoIdReturnRepository : IEFRepository<AggregateTestNoIdReturn, AggregateTestNoIdReturn>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<AggregateTestNoIdReturn?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AggregateTestNoIdReturn>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

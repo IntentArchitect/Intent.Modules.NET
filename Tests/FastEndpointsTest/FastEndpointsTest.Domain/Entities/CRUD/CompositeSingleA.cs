@@ -14,6 +14,6 @@ namespace FastEndpointsTest.Domain.Entities.CRUD
 
         public virtual CompositeSingleAA? Composite { get; set; }
 
-        public virtual ICollection<CompositeManyAA> Composites { get; set; } = new List<CompositeManyAA>();
+        public virtual ICollection<CompositeManyAA> Composites { get; set; } = [];
     }
 }

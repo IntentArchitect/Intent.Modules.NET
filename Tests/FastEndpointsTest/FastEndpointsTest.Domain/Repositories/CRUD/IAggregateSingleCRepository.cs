@@ -14,6 +14,8 @@ namespace FastEndpointsTest.Domain.Repositories.CRUD
     public interface IAggregateSingleCRepository : IEFRepository<AggregateSingleC, AggregateSingleC>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<AggregateSingleC?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AggregateSingleC>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

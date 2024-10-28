@@ -10,8 +10,8 @@ namespace FastEndpointsTest.Domain.Entities.UniqueIndexConstraint
     public class AggregateWithUniqueConstraintIndexElement : IHasDomainEvent
     {
         public AggregateWithUniqueConstraintIndexElement(string singleUniqueField,
-    string compUniqueFieldA,
-    string compUniqueFieldB)
+            string compUniqueFieldA,
+            string compUniqueFieldB)
         {
             SingleUniqueField = singleUniqueField;
             CompUniqueFieldA = compUniqueFieldA;

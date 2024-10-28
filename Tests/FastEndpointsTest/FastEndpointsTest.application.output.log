@@ -5,7 +5,7 @@
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.GitIgnore#ae7e9cce-5d79-48b9-94ed-b23e7b14311e</CorrelationId>
       <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>.gitIgnore</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>.gitignore</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -250,10 +250,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
+      <CorrelationId>Intent.FastEndpoints.EndpointTemplate#669199dd-04ae-4cb2-abe9-8411956066b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/Headers/HeaderFieldCommandEndpoint.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Headers/HeaderFieldCommandEndpoint.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
+      <CorrelationId>Intent.FastEndpoints.EndpointTemplate#f0f116fa-91b3-43b7-b74f-1aa7ad0fc809</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/Headers/ServiceWithHeaderField/DoHeaderFieldEndpoint.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Headers/ServiceWithHeaderField/DoHeaderFieldEndpoint.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
       <CorrelationId>Intent.FastEndpoints.EndpointTemplate#e629ab82-3481-41ff-b05b-af2869221b79</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/NamedQueryStrings/NamedQueryStringsCommandEndpoint.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NamedQueryStrings/NamedQueryStringsCommandEndpoint.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
+      <CorrelationId>Intent.FastEndpoints.EndpointTemplate#0d3662e2-2c3e-48a8-9acf-5deb92a23dd9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/NamedQueryStrings/ServiceWithNamedQueryString/DoNamedQueryStringEndpoint.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamedQueryStrings/ServiceWithNamedQueryString/DoNamedQueryStringEndpoint.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -294,6 +318,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
+      <CorrelationId>Intent.FastEndpoints.EndpointTemplate#7a9422de-0648-481e-a8f6-4f32fd091aae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/ScalarCollectionReturnType/CommandWithCollectionReturnEndpoint.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScalarCollectionReturnType/CommandWithCollectionReturnEndpoint.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
+      <CorrelationId>Intent.FastEndpoints.EndpointTemplate#9060256f-29f5-473e-afce-e53a7b6896c5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/ScalarCollectionReturnType/QueryWithCollectionReturnEndpoint.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScalarCollectionReturnType/QueryWithCollectionReturnEndpoint.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
+      <CorrelationId>Intent.FastEndpoints.EndpointTemplate#1f7441e2-c2df-4569-988e-ad3c2ebbd329</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/ScalarCollectionReturnType/ServiceWithScalarWithCollectionReturn/DoScalarWithCollectionReturnEndpoint.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScalarCollectionReturnType/ServiceWithScalarWithCollectionReturn/DoScalarWithCollectionReturnEndpoint.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1825,11 +1873,83 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#669199dd-04ae-4cb2-abe9-8411956066b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/Headers/HeaderField/HeaderFieldCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Headers/HeaderField/HeaderFieldCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#669199dd-04ae-4cb2-abe9-8411956066b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/Headers/HeaderField/HeaderFieldCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Headers/HeaderField/HeaderFieldCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#669199dd-04ae-4cb2-abe9-8411956066b0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/Headers/HeaderField/HeaderFieldCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Headers/HeaderField/HeaderFieldCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>23f2ddca-94c2-43ee-b345-9900b0f7ba93</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#430e9e10-e33a-4502-882a-21290b884c00</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/Implementation/Headers/ServiceWithHeaderFieldService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Headers/ServiceWithHeaderFieldService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>23f2ddca-94c2-43ee-b345-9900b0f7ba93</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#dc083b2f-95a3-42a9-bf2a-1bde3edf1fa4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/Implementation/NamedQueryStrings/ServiceWithNamedQueryStringService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamedQueryStrings/ServiceWithNamedQueryStringService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>23f2ddca-94c2-43ee-b345-9900b0f7ba93</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#c3e75b57-ff96-4625-bb4c-544be243f337</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/Implementation/ScalarCollectionReturnType/ServiceWithScalarWithCollectionReturnService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScalarCollectionReturnType/ServiceWithScalarWithCollectionReturnService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>23f2ddca-94c2-43ee-b345-9900b0f7ba93</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#11455aa5-0c08-4824-9c8e-d44560c4f4ce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.Application/Implementation/ServiceDispatch/ServiceDispatchService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ServiceDispatch/ServiceDispatchService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>82ede5c6-b095-4302-9a9b-d3d2bd086514</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#430e9e10-e33a-4502-882a-21290b884c00</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/Interfaces/Headers/IServiceWithHeaderFieldService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Headers/IServiceWithHeaderFieldService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>82ede5c6-b095-4302-9a9b-d3d2bd086514</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#dc083b2f-95a3-42a9-bf2a-1bde3edf1fa4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/Interfaces/NamedQueryStrings/IServiceWithNamedQueryStringService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamedQueryStrings/IServiceWithNamedQueryStringService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>82ede5c6-b095-4302-9a9b-d3d2bd086514</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#c3e75b57-ff96-4625-bb4c-544be243f337</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/Interfaces/ScalarCollectionReturnType/IServiceWithScalarWithCollectionReturnService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScalarCollectionReturnType/IServiceWithScalarWithCollectionReturnService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

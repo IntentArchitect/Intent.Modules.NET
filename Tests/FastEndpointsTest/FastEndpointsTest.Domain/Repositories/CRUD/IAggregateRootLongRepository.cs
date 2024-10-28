@@ -14,6 +14,8 @@ namespace FastEndpointsTest.Domain.Repositories.CRUD
     public interface IAggregateRootLongRepository : IEFRepository<AggregateRootLong, AggregateRootLong>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(long id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<AggregateRootLong?> FindByIdAsync(long id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AggregateRootLong>> FindByIdsAsync(long[] ids, CancellationToken cancellationToken = default);
