@@ -380,13 +380,13 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             if (parameter.Source is null or HttpInputSource.FromQuery)
             {
                 property.File.Template.AddNugetDependency(NugetPackages.FastEndpointsAttributes(property.File.Template.OutputTarget));
-                property.AddAttribute(property.File.Template.UseType("FastEndpoints.FromQueryParams"), attr =>
+                property.AddAttribute(property.File.Template.UseType("FastEndpoints.FromQueryParams"));
+                
+                if (!string.IsNullOrWhiteSpace(parameter.QueryStringName))
                 {
-                    if (!string.IsNullOrWhiteSpace(parameter.QueryStringName))
-                    {
-                        attr.AddArgument($@"""{parameter.QueryStringName}""");
-                    }
-                });
+                    property.AddAttribute(property.File.Template.UseType("FastEndpoints.BindFrom"), 
+                        attr => attr.AddArgument($@"""{parameter.QueryStringName}"""));
+                }
             }
         }
 
