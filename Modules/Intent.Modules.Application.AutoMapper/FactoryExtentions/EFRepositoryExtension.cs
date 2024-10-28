@@ -53,7 +53,7 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
             foreach (var entityRepositoryTemplate in entityRepositoryTemplates)
             {
                 var classModel = ((IIntentTemplate<ClassModel>)entityRepositoryTemplate).Model;
-                if (classModel.Attributes.Any(a => a.HasStereotype("Primary Key")))
+                if (GetPrimaryKey(classModel).Any())
                 {
                     AppendEntityRespository(application, entityRepositoryTemplate);
                     var entityRepositoryInterfaceTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Entities.Repositories.Api.EntityRepositoryInterface", ((ITemplateWithModel)entityRepositoryTemplate).Model);
