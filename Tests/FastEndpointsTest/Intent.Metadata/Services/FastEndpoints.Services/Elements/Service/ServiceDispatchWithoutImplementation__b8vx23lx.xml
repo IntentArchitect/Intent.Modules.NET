@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ea9cd494-9a00-4c36-a4b7-50673655ff92" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>ServiceDispatchWithoutImplementation</name>
+  <display>ServiceDispatchWithoutImplementation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>93eecc94-0008-4eb4-a270-b3ef9626e8ff</parentFolderId>
+  <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+  <packageName>FastEndpoints.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="api/service-dispatch-without-implementation" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="f7a2e653-d654-48d6-9a44-18cf49c9233e" name="Contract Only">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Application.ServiceImplementations</definitionPackageName>
+      <definitionPackageId>2d61b3f1-47a2-4d3f-b8cf-308a4e3ed4d7</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="d1b72787-ee62-41e5-aedd-97924c2389b1" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>MutationNoImpl1</name>
+      <display>MutationNoImpl1(param: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="4a8036b2-b997-40b1-816e-f5c98d5c7d2f">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ea9cd494-9a00-4c36-a4b7-50673655ff92</parentFolderId>
+      <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+      <packageName>FastEndpoints.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="mutation-param" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="2db1104b-ca3c-47a6-ad82-a0d2ee915c06" name="Synchronous">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Application.Contracts</definitionPackageName>
+          <definitionPackageId>b258d75f-f895-43b9-bb91-6500664716f9</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d6494316-fdcf-4707-b04a-f34b734ce093" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4887d791-c9be-4cd4-9833-3d65d5289e31">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>d1b72787-ee62-41e5-aedd-97924c2389b1</parentFolderId>
+          <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+          <packageName>FastEndpoints.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="6199608a-9b99-42fd-a158-b2e92147628d" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>MutationNoImpl2Async</name>
+      <display>MutationNoImpl2Async(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3c7df52a-f5c3-45dc-949d-55a4fb613e7b">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ea9cd494-9a00-4c36-a4b7-50673655ff92</parentFolderId>
+      <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+      <packageName>FastEndpoints.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="mutation-async" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="61f4de5b-8257-4be4-a10b-55b127cde9e8" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>MutationNoImpl3Async</name>
+      <display>MutationNoImpl3Async(param: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="132b0ab2-00fd-4588-bbb5-bade92d8c7d1">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ea9cd494-9a00-4c36-a4b7-50673655ff92</parentFolderId>
+      <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+      <packageName>FastEndpoints.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="mutation-async-param" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="a6f10558-8fa9-408a-a821-c03593b2b8c3" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9241eca5-af8e-40c7-b59e-365bffe4fabb">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>61f4de5b-8257-4be4-a10b-55b127cde9e8</parentFolderId>
+          <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+          <packageName>FastEndpoints.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="0a1d29a9-3d3a-42f7-8ff2-f9ba59392589" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>QueryNoImpl4</name>
+      <display>QueryNoImpl4(param: string): string</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="618571c2-fb2d-4c33-bce7-154c601c7478">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ea9cd494-9a00-4c36-a4b7-50673655ff92</parentFolderId>
+      <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+      <packageName>FastEndpoints.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="query-param" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="2db1104b-ca3c-47a6-ad82-a0d2ee915c06" name="Synchronous">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Application.Contracts</definitionPackageName>
+          <definitionPackageId>b258d75f-f895-43b9-bb91-6500664716f9</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d00cd2f8-9875-4981-a31f-7a1992c7823a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1d2a12d4-75ad-416e-86f0-e3c9d6a23415">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0a1d29a9-3d3a-42f7-8ff2-f9ba59392589</parentFolderId>
+          <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+          <packageName>FastEndpoints.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="2302c14a-467d-407b-b0d4-e599fcd67d03" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>QueryNoImpl5</name>
+      <display>QueryNoImpl5(): string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f0cacc12-a359-4325-b406-2ea09753430d">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ea9cd494-9a00-4c36-a4b7-50673655ff92</parentFolderId>
+      <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+      <packageName>FastEndpoints.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="query" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="2db1104b-ca3c-47a6-ad82-a0d2ee915c06" name="Synchronous">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Application.Contracts</definitionPackageName>
+          <definitionPackageId>b258d75f-f895-43b9-bb91-6500664716f9</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="0ccc08fe-da82-4f87-806f-1b9afb406c98" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>QueryNoImpl6Async</name>
+      <display>QueryNoImpl6Async(): string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="88aaf50f-5b2c-4bb1-8d78-2a6fca5938b2">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ea9cd494-9a00-4c36-a4b7-50673655ff92</parentFolderId>
+      <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+      <packageName>FastEndpoints.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="query-async" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="9bf6f47f-4ebd-4bb8-9b2a-0afa62ce9208" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>QueryNoImpl7Async</name>
+      <display>QueryNoImpl7Async(param: string): string</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="4099ba83-70ca-4fc4-944c-61f28311c971">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ea9cd494-9a00-4c36-a4b7-50673655ff92</parentFolderId>
+      <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+      <packageName>FastEndpoints.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="query-async-param" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="cf5fdee5-2bc0-472b-8702-e48fb01ff800" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="efee6d56-29d4-448c-822c-3934f8adade6">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>9bf6f47f-4ebd-4bb8-9b2a-0afa62ce9208</parentFolderId>
+          <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+          <packageName>FastEndpoints.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="3e32ffb6-b721-40d5-9a0c-47f520ca519c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>MutationNoImpl8</name>
+      <display>MutationNoImpl8(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b72eb5c6-7a6d-4148-9e5e-ea6202be70b1">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ea9cd494-9a00-4c36-a4b7-50673655ff92</parentFolderId>
+      <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+      <packageName>FastEndpoints.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="mutation" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="2db1104b-ca3c-47a6-ad82-a0d2ee915c06" name="Synchronous">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Application.Contracts</definitionPackageName>
+          <definitionPackageId>b258d75f-f895-43b9-bb91-6500664716f9</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

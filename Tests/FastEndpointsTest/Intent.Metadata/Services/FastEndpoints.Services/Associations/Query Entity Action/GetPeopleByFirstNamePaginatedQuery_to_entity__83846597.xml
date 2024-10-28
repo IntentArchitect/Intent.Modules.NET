@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="aea04675-1429-48ef-8ca5-887b5566bd28">
+  <sourceEnd id="8c981381-3943-46e3-84f9-f34417f5a297" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetPeopleByFirstNamePaginatedQuery</display>
+    <order>0</order>
+    <typeReference id="d78ba813-74ae-4d66-bf66-9137a5116ef0">
+      <typeId>9158f623-4a10-4be6-bcde-a96f0608bf83</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Services</typePackageName>
+      <typePackageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="aea04675-1429-48ef-8ca5-887b5566bd28" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>entity</name>
+    <display>[query] entity: PersonEntry</display>
+    <order>5</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="54918bf4-efbc-4a6c-84c2-97758bd62a2d">
+      <typeId>378da10d-6d01-4dde-aeb6-b98710441715</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9158f623-4a10-4be6-bcde-a96f0608bf83" location="[FastEndpointsTest].[Services].[GetPeopleByFirstNamePaginatedQuery]" />
+        <target applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="378da10d-6d01-4dde-aeb6-b98710441715" location="[FastEndpointsTest].[Services].[PersonEntry]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{FirstName}</expression>
+            <path>
+              <target id="378da10d-6d01-4dde-aeb6-b98710441715" name="PersonEntry" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="79166623-4362-4e0f-a006-36064a2d3ad0" name="FirstName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="FirstName" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="9158f623-4a10-4be6-bcde-a96f0608bf83" name="GetPeopleByFirstNamePaginatedQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="deb724b0-70e8-4a3f-9f42-f24ce4c3e92b" name="FirstName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

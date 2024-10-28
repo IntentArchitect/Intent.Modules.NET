@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="18a2a2c7-42db-4782-87a3-4f5ce2fd73b1">
+  <sourceEnd id="1bd6977d-ad36-47a7-ac8d-89a47e091198" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Customer</name>
+    <display>Customer: Customer</display>
+    <order>0</order>
+    <typeReference id="0e67357b-8fa4-4ca9-b8da-de181d132457">
+      <typeId>7ac3a955-1b9c-454e-ac23-c367f63cb64c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="18a2a2c7-42db-4782-87a3-4f5ce2fd73b1" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Address</name>
+    <display>Address: Address</display>
+    <order>2</order>
+    <typeReference id="2703d69e-fe87-424b-9b3f-f0b6f1e08da2">
+      <typeId>02816e9d-0ebd-438f-ad57-4e7784e2edaa</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

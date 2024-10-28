@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="76b538b3-3caa-4f6f-b8b4-65606ea86f1f">
+  <sourceEnd id="83ecdc6b-100e-42ff-8dc2-c25d975139cd" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AggregateRootLong</name>
+    <display>AggregateRootLong: AggregateRootLong</display>
+    <order>0</order>
+    <typeReference id="cf143680-96b0-4955-8003-de947dfe98ae">
+      <typeId>c1958976-f942-4826-a25b-0644cf76e985</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="76b538b3-3caa-4f6f-b8b4-65606ea86f1f" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>CompositeOfAggrLong</name>
+    <value>new()</value>
+    <display>CompositeOfAggrLong: CompositeOfAggrLong? = new()</display>
+    <order>2</order>
+    <typeReference id="5c6b69c0-b7a0-4869-987d-2a9c3b2ab6ed">
+      <typeId>67fd00c7-0b53-4d20-b4fc-9851f2951d8f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CleanArchitecture.Comprehensive.Api.Configuration;
-using CleanArchitecture.Comprehensive.Api.FastEndpoints;
 using CleanArchitecture.Comprehensive.Api.Filters;
 using CleanArchitecture.Comprehensive.Application;
 using CleanArchitecture.Comprehensive.Infrastructure;
-using FastEndpoints;
-using FastEndpoints.ApiExplorer;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -20,7 +17,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NetTopologySuite.IO.Converters;
 using Serilog;
-using Mode = Intent.RoslynWeaver.Attributes.Mode;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Startup", Version = "1.0")]
@@ -59,11 +55,6 @@ namespace CleanArchitecture.Comprehensive.Api
             services.ConfigureProblemDetails();
             services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);
-            services.AddFastEndpoints(opt =>
-            {
-                opt.Assemblies = [typeof(Program).Assembly];
-            });
-            services.AddFastEndpointsApiExplorer();
             services.ConfigureSwagger(Configuration);
         }
 
@@ -87,10 +78,6 @@ namespace CleanArchitecture.Comprehensive.Api
                 endpoints.MapDefaultHealthChecks();
                 endpoints.MapDefaultHealthChecksUI();
                 endpoints.MapControllers();
-                endpoints.MapFastEndpoints(c => c.Endpoints.Configurator = ep =>
-                {
-                    ep.PostProcessors(0, new ExceptionProcessor());
-                });
             });
             app.UseSwashbuckle(Configuration);
         }

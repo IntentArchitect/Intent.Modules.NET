@@ -136,5 +136,6 @@
     <application id="407767b0-b856-43cd-9935-6bfee08058c9" name="Hangfire.Tests" relativePath="Hangfire.Tests/Hangfire.Tests.application.config" />
     <application id="75640d0d-5a5b-47b7-9de3-70df70bbfe74" name="SharedKernel.Kernel.Tests" relativePath="SharedKernel.Kernel.Tests/SharedKernel.Kernel.Tests.application.config" />
     <application id="308319b1-d886-4593-8cba-2be4c6795f85" name="SharedKernel.Consumer.Tests" relativePath="SharedKernel.Consumer.Tests/SharedKernel.Consumer.Tests.application.config" />
+    <application id="3a41b4eb-4b1f-4028-91a4-9225b2873c35" name="FastEndpointsTest" relativePath="FastEndpointsTest/FastEndpointsTest.application.config" />
   </applications>
 </solution>

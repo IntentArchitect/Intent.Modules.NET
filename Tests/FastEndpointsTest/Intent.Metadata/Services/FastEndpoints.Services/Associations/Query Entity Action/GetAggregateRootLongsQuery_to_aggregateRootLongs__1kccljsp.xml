@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1b399316-ba2a-4c9a-9be0-6ee6fa448de9">
+  <sourceEnd id="97da462e-283f-40c2-8437-a39f15422a45" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetAggregateRootLongsQuery</display>
+    <order>0</order>
+    <typeReference id="b8b4d0bb-dd9c-4540-9634-c0816ca48e60">
+      <typeId>cfa91f72-09f4-4ff4-853b-4d374b34efac</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Services</typePackageName>
+      <typePackageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1b399316-ba2a-4c9a-9be0-6ee6fa448de9" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>aggregateRootLongs</name>
+    <display>[query] aggregateRootLongs: AggregateRootLong[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="bc70de79-8191-4516-afc0-94318c964942">
+      <typeId>c1958976-f942-4826-a25b-0644cf76e985</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="cfa91f72-09f4-4ff4-853b-4d374b34efac" location="[FastEndpoints].[Services].[GetAggregateRootLongsQuery]" />
+        <target applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c1958976-f942-4826-a25b-0644cf76e985" location="[FastEndpoints].[Services].[AggregateRootLong]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

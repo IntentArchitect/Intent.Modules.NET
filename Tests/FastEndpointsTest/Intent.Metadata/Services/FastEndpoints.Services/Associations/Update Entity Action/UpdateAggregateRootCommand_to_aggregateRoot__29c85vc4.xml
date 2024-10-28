@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d1004f21-fa95-4d65-912c-fc9472868640">
+  <sourceEnd id="72a73a13-89c2-4058-bef7-d1d2687a8eb2" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : AggregateRoots.UpdateAggregateRootCommand</display>
+    <order>0</order>
+    <typeReference id="a64e34a9-d708-454d-a0c2-c7e5dd2e9d2e">
+      <typeId>68010576-e6db-4f7e-b0bb-872021d9a523</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Services</typePackageName>
+      <typePackageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d1004f21-fa95-4d65-912c-fc9472868640" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>aggregateRoot</name>
+    <display>[update] aggregateRoot: AggregateRoot</display>
+    <order>9</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="5e8127d8-e4ea-4f29-913d-0a402584afd5">
+      <typeId>ad76bd26-8854-4edb-9cce-e044e33aa061</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="68010576-e6db-4f7e-b0bb-872021d9a523" location="[FastEndpoints].[Services].[UpdateAggregateRootCommand]" />
+        <target applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ad76bd26-8854-4edb-9cce-e044e33aa061" location="[FastEndpoints].[Services].[AggregateRoot]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d8770350-cdc3-4f3b-aeb1-ab7b48d0652f" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="68010576-e6db-4f7e-b0bb-872021d9a523" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="b1229884-051b-4ec3-aee8-7c8c5c8d15b5" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="68010576-e6db-4f7e-b0bb-872021d9a523" location="[FastEndpoints].[Services].[UpdateAggregateRootCommand]" />
+        <target applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ad76bd26-8854-4edb-9cce-e044e33aa061" location="[FastEndpoints].[Services].[AggregateRoot]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{AggregateAttr}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="795df90c-77b1-4d46-81fa-edc578e9b4ae" name="AggregateAttr" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="AggregateAttr" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="68010576-e6db-4f7e-b0bb-872021d9a523" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="bb0c8af2-e6e6-44cf-a49a-f528f0d384c9" name="AggregateAttr" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{LimitedDomain}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="e8b88d5f-cda0-43f2-83cc-9fafa925cdad" name="LimitedDomain" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="LimitedDomain" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="68010576-e6db-4f7e-b0bb-872021d9a523" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="8f6d040b-aef0-4e7d-b34e-dae0ae66b80e" name="LimitedDomain" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{LimitedService}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d555631b-3b1c-46d2-b20b-ac4143fecbeb" name="LimitedService" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="LimitedService" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="68010576-e6db-4f7e-b0bb-872021d9a523" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="a0b80d1d-1389-4b4e-ba85-8ed2bf1aa665" name="LimitedService" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{EnumType1}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a2480ae4-aa72-4296-9849-76b75f4f4057" name="EnumType1" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="EnumType1" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="68010576-e6db-4f7e-b0bb-872021d9a523" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="63cb31a4-005b-4270-9d95-410f9266fcb5" name="EnumType1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{EnumType2}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="920460fa-4bee-4ff1-9f2a-e7a8ea92320f" name="EnumType2" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="EnumType2" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="68010576-e6db-4f7e-b0bb-872021d9a523" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f6064fa4-a85e-4fd3-b54b-d3b1352e524d" name="EnumType2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{EnumType3}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c6a890f8-2224-4fa5-9eef-2dfdfbb7558e" name="EnumType3" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="EnumType3" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="68010576-e6db-4f7e-b0bb-872021d9a523" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="754ca434-37d4-4d07-9065-53cdb2a0841a" name="EnumType3" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AggregateId}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="9c407f70-1e40-4d5b-8de5-b68b8bebe39b" name="AggregateId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="AggregateId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="68010576-e6db-4f7e-b0bb-872021d9a523" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="278546ae-41f4-41d6-a9b2-f4792f9ab004" name="AggregateId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Composites}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a37dbe55-d346-424d-a779-37a78d4bba0e" name="Composites" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+            </path>
+            <sources>
+              <source identifier="Composites" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="68010576-e6db-4f7e-b0bb-872021d9a523" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6c20db08-8355-4150-9e6a-8ba2dbc20416" name="Composites" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Composites.Id}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a37dbe55-d346-424d-a779-37a78d4bba0e" name="Composites" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="47c42416-226f-4115-b486-2d3c229a05a6" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Composites.Id" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="68010576-e6db-4f7e-b0bb-872021d9a523" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6c20db08-8355-4150-9e6a-8ba2dbc20416" name="Composites" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="2b5e13eb-cddc-4b53-889e-67691c088070" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Composites.CompositeAttr}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a37dbe55-d346-424d-a779-37a78d4bba0e" name="Composites" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="22dcdc6f-f690-45f5-8f21-0b3569baeb16" name="CompositeAttr" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Composites.CompositeAttr" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="68010576-e6db-4f7e-b0bb-872021d9a523" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6c20db08-8355-4150-9e6a-8ba2dbc20416" name="Composites" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="c114fb84-5f18-4e9f-a2d1-02414e73b563" name="CompositeAttr" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Composites.SomeDate}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a37dbe55-d346-424d-a779-37a78d4bba0e" name="Composites" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="e06ed5f1-5e9e-462c-8675-1c4f9d7a983c" name="SomeDate" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Composites.SomeDate" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="68010576-e6db-4f7e-b0bb-872021d9a523" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6c20db08-8355-4150-9e6a-8ba2dbc20416" name="Composites" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="cfe796a1-66a9-4ca0-9fdb-5bc9067b4a2a" name="SomeDate" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Composites.Composites}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a37dbe55-d346-424d-a779-37a78d4bba0e" name="Composites" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="65c6dcf2-04c3-4d5d-9704-8f214b656bf8" name="Composites" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+            </path>
+            <sources>
+              <source identifier="Composites.Composites" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="68010576-e6db-4f7e-b0bb-872021d9a523" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6c20db08-8355-4150-9e6a-8ba2dbc20416" name="Composites" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="23ac981a-dbe0-438d-94c2-e72791c4b8a7" name="Composites" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Composites.Composites.Id}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a37dbe55-d346-424d-a779-37a78d4bba0e" name="Composites" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="65c6dcf2-04c3-4d5d-9704-8f214b656bf8" name="Composites" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="1771f988-d27a-4191-939f-0af1a58c7764" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Composites.Composites.Id" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="68010576-e6db-4f7e-b0bb-872021d9a523" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6c20db08-8355-4150-9e6a-8ba2dbc20416" name="Composites" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="23ac981a-dbe0-438d-94c2-e72791c4b8a7" name="Composites" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="884cd8e6-e997-4c44-bdf4-1744d6b98b2d" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Composites.Composites.CompositeAttr}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a37dbe55-d346-424d-a779-37a78d4bba0e" name="Composites" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="65c6dcf2-04c3-4d5d-9704-8f214b656bf8" name="Composites" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="cfd6a9ca-e7e3-4665-b95e-e64b1af0df4e" name="CompositeAttr" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Composites.Composites.CompositeAttr" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="68010576-e6db-4f7e-b0bb-872021d9a523" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6c20db08-8355-4150-9e6a-8ba2dbc20416" name="Composites" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="23ac981a-dbe0-438d-94c2-e72791c4b8a7" name="Composites" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="382a4a55-51a1-44fd-a7a3-916a3af6568f" name="CompositeAttr" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

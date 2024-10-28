@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="333cb130-7b9f-4aa3-982e-2f3eaf22f024" type="Domain Service" typeId="07f936ea-3756-48c8-babd-24ac7271daac">
+  <name>ContractOnlyDomainService</name>
+  <display>ContractOnlyDomainService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0c891e18-3c26-45aa-b7e8-dfa6200e7a7e</parentFolderId>
+  <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+  <packageName>FastEndpoints.Domain</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="12fc5683-f818-43ea-a3c7-c843d4a40352" name="Contract Only">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.DomainServices</definitionPackageName>
+      <definitionPackageId>4dd5ea09-bece-4f26-bfeb-2904a26e2895</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="eb87567e-55c7-43c3-93f7-eb81ed326381" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation</name>
+      <display>Operation(param: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="6caee99b-50a6-4e8d-ab13-d021f6f3f9d7">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>333cb130-7b9f-4aa3-982e-2f3eaf22f024</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="757392de-94b0-4e38-a9f6-bdd1b4cfa4ae" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param</name>
+          <display>in : param: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2ccae98f-9aa5-47c4-bb7b-1d6649d62c09">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>eb87567e-55c7-43c3-93f7-eb81ed326381</parentFolderId>
+          <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+          <packageName>FastEndpoints.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

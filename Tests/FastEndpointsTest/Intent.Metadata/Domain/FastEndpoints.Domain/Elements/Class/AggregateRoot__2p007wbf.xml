@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ad76bd26-8854-4edb-9cce-e044e33aa061" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>AggregateRoot</name>
+  <display>AggregateRoot</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>34232621-1953-4dda-b368-0a34be068b3b</parentFolderId>
+  <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+  <packageName>FastEndpoints.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="d8770350-cdc3-4f3b-aeb1-ab7b48d0652f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="13f01dac-9bc1-48b6-a7c3-e080b96d7fda">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ad76bd26-8854-4edb-9cce-e044e33aa061</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="795df90c-77b1-4d46-81fa-edc578e9b4ae" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>AggregateAttr</name>
+      <display>AggregateAttr: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0b41b18c-5261-489e-8d7b-f1c7c8fe3b51">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ad76bd26-8854-4edb-9cce-e044e33aa061</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e8b88d5f-cda0-43f2-83cc-9fafa925cdad" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>LimitedDomain</name>
+      <display>LimitedDomain: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5f834ea5-3339-4b89-b877-649210c40f84">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ad76bd26-8854-4edb-9cce-e044e33aa061</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" value="10" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d555631b-3b1c-46d2-b20b-ac4143fecbeb" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>LimitedService</name>
+      <display>LimitedService: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="68ee13b2-b700-4adb-9293-c68dc5c8bbcc">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ad76bd26-8854-4edb-9cce-e044e33aa061</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a2480ae4-aa72-4296-9849-76b75f4f4057" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>EnumType1</name>
+      <display>EnumType1: EnumWithoutValues</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="fe27f039-dd23-4272-82ec-9c45c08c9e13">
+        <typeId>71af6e14-b260-46df-9fae-097e5cd89393</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>FastEndpoints.Domain</typePackageName>
+        <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ad76bd26-8854-4edb-9cce-e044e33aa061</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="920460fa-4bee-4ff1-9f2a-e7a8ea92320f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>EnumType2</name>
+      <display>EnumType2: EnumWithDefaultLiteral</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0ce0e5da-9ac7-401b-a783-d9dab159fb39">
+        <typeId>d07a199a-b0f3-4c4d-9ddd-9cd5720e7727</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>FastEndpoints.Domain</typePackageName>
+        <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ad76bd26-8854-4edb-9cce-e044e33aa061</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="c6a890f8-2224-4fa5-9eef-2dfdfbb7558e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>EnumType3</name>
+      <display>EnumType3: EnumWithoutDefaultLiteral</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="bd11439c-7f56-420a-900d-6907a252d9c4">
+        <typeId>bed1c7cc-2f34-43f6-9c30-2464cd33c32b</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>FastEndpoints.Domain</typePackageName>
+        <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ad76bd26-8854-4edb-9cce-e044e33aa061</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="9c407f70-1e40-4d5b-8de5-b68b8bebe39b" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>AggregateId</name>
+      <display>AggregateId: guid?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="64d189b9-a735-41dd-a69b-546b2853920d">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>ad76bd26-8854-4edb-9cce-e044e33aa061</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="d5fbae8a-f75c-4717-9466-5121319f79c7" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="AggregateId" />
+        <entry key="association" value="d5fbae8a-f75c-4717-9466-5121319f79c7" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

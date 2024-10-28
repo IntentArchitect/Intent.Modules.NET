@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7a9422de-0648-481e-a8f6-4f32fd091aae" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>CommandWithCollectionReturn</name>
+  <display>CommandWithCollectionReturn: string[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="9e5b6d39-ede4-4377-ae7e-ba4710788ac8">
+    <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>d423ce7a-be13-472c-a41e-6548289191b4</parentFolderId>
+  <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+  <packageName>FastEndpoints.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

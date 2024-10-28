@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d07a199a-b0f3-4c4d-9ddd-9cd5720e7727" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>EnumWithDefaultLiteral</name>
+  <display>EnumWithDefaultLiteral</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>62ef5521-5a36-494e-bb38-ab404a0156d1</parentFolderId>
+  <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+  <packageName>FastEndpoints.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="4d1388f9-7433-4618-a441-63ba6992f058" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>DefaultLiteral</name>
+      <display>DefaultLiteral = 0</display>
+      <isAbstract>false</isAbstract>
+      <value>0</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d07a199a-b0f3-4c4d-9ddd-9cd5720e7727</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5b5f4c5f-2c42-4341-b7fe-52bf38325716" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>FirstLiteral</name>
+      <display>FirstLiteral = 1</display>
+      <isAbstract>false</isAbstract>
+      <value>1</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d07a199a-b0f3-4c4d-9ddd-9cd5720e7727</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="63fa192b-2a0f-4d98-bceb-dd06733d76c4" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>SecondLiteral</name>
+      <display>SecondLiteral = 2</display>
+      <isAbstract>false</isAbstract>
+      <value>2</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d07a199a-b0f3-4c4d-9ddd-9cd5720e7727</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f43b7dfa-f0b0-41d4-86c8-456aa191e684" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>ThirdLiteral</name>
+      <display>ThirdLiteral = 3</display>
+      <isAbstract>false</isAbstract>
+      <value>3</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d07a199a-b0f3-4c4d-9ddd-9cd5720e7727</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

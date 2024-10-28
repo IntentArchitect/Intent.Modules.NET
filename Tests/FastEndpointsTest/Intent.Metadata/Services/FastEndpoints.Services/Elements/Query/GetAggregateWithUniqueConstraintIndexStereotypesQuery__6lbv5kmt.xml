@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9d2c615f-d85f-4d6c-8198-511179ca3021" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetAggregateWithUniqueConstraintIndexStereotypesQuery</name>
+  <display>GetAggregateWithUniqueConstraintIndexStereotypesQuery: AggregateWithUniqueConstraintIndexStereotypeDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="c1994120-8434-4dc8-84ec-bd330026c3fb">
+    <typeId>7de77c28-39df-4f12-84c8-8fd1387acb58</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>FastEndpoints.Services</typePackageName>
+    <typePackageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>82706c51-844b-45f7-956f-13210602a21f</parentFolderId>
+  <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+  <packageName>FastEndpoints.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/aggregate-with-unique-constraint-index-stereotypes" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+        <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="AggregateWithUniqueConstraintIndexStereotypes" />
+  </metadata>
+  <childElements />
+</class>

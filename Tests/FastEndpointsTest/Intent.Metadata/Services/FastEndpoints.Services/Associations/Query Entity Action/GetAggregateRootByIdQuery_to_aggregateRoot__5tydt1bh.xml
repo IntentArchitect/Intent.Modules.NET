@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f70d7554-bf39-4668-94ee-f917eb2d0aa3">
+  <sourceEnd id="7a5f6c9c-5c69-4f84-8d07-e4a718ce60b9" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetAggregateRootByIdQuery</display>
+    <order>0</order>
+    <typeReference id="732e56ad-41ba-4fe9-a4a5-952fb681a975">
+      <typeId>b2f52a8b-cd66-4199-8de7-5e710bdfd1c9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Services</typePackageName>
+      <typePackageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f70d7554-bf39-4668-94ee-f917eb2d0aa3" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>aggregateRoot</name>
+    <display>[query] aggregateRoot: AggregateRoot</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="b8d7aa6e-7972-4be7-858d-975bb93a9c9d">
+      <typeId>ad76bd26-8854-4edb-9cce-e044e33aa061</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b2f52a8b-cd66-4199-8de7-5e710bdfd1c9" location="[FastEndpoints].[Services].[GetAggregateRootByIdQuery]" />
+        <target applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ad76bd26-8854-4edb-9cce-e044e33aa061" location="[FastEndpoints].[Services].[AggregateRoot]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="ad76bd26-8854-4edb-9cce-e044e33aa061" name="AggregateRoot" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d8770350-cdc3-4f3b-aeb1-ab7b48d0652f" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="b2f52a8b-cd66-4199-8de7-5e710bdfd1c9" name="GetAggregateRootByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="2f50b5a7-905d-4f35-9265-a8a2b249dcb0" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

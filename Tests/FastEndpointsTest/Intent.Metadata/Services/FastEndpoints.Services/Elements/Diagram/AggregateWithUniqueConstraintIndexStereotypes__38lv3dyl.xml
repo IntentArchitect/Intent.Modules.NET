@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="90d36c2f-0b90-45d6-ad1a-0cea2e5ec93b" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>AggregateWithUniqueConstraintIndexStereotypes</name>
+  <display>AggregateWithUniqueConstraintIndexStereotypes</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>82706c51-844b-45f7-956f-13210602a21f</parentFolderId>
+  <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+  <packageName>FastEndpoints.Services</packageName>
+  <diagram>
+    <targetPackageId>90d36c2f-0b90-45d6-ad1a-0cea2e5ec93b</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bc7d128e-60dc-4578-9020-f51620074ec8" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>ClassWithEnums</name>
+  <display>ClassWithEnums</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>62ef5521-5a36-494e-bb38-ab404a0156d1</parentFolderId>
+  <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+  <packageName>FastEndpoints.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="8c30d902-ee21-46c9-abef-33d1f3c9cf28" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b7c9ab5b-4f2c-4cbf-acab-de1e1cb2ddd3">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bc7d128e-60dc-4578-9020-f51620074ec8</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a43123b6-6351-49c1-9790-ffc8515cc358" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>EnumWithDefaultLiteral</name>
+      <display>EnumWithDefaultLiteral: EnumWithDefaultLiteral</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="dbf2be9a-d026-49b5-8db3-80a328bd9939">
+        <typeId>d07a199a-b0f3-4c4d-9ddd-9cd5720e7727</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>FastEndpoints.Domain</typePackageName>
+        <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bc7d128e-60dc-4578-9020-f51620074ec8</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="9cc25fe1-aa50-4add-9375-1c97df17a793" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>EnumWithoutDefaultLiteral</name>
+      <display>EnumWithoutDefaultLiteral: EnumWithoutDefaultLiteral</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="add2ad9c-038b-4a80-be9e-0e1d03f5334e">
+        <typeId>bed1c7cc-2f34-43f6-9c30-2464cd33c32b</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>FastEndpoints.Domain</typePackageName>
+        <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bc7d128e-60dc-4578-9020-f51620074ec8</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b9c21c62-f530-405a-a014-87b157eb1a13" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>EnumWithoutValues</name>
+      <display>EnumWithoutValues: EnumWithoutValues</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="370f90df-4608-4355-b1b1-be9d54eef3a9">
+        <typeId>71af6e14-b260-46df-9fae-097e5cd89393</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>FastEndpoints.Domain</typePackageName>
+        <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bc7d128e-60dc-4578-9020-f51620074ec8</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e5592ba5-2fea-42a9-9c08-03a7d4632f0a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>NullibleEnumWithDefaultLiteral</name>
+      <display>NullibleEnumWithDefaultLiteral: EnumWithDefaultLiteral?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="63d53af7-483e-4301-b448-d16c948683b5">
+        <typeId>d07a199a-b0f3-4c4d-9ddd-9cd5720e7727</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>FastEndpoints.Domain</typePackageName>
+        <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bc7d128e-60dc-4578-9020-f51620074ec8</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="ab186055-6c24-4c80-aedd-560f2b2d922c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>NullibleEnumWithoutDefaultLiteral</name>
+      <display>NullibleEnumWithoutDefaultLiteral: EnumWithoutDefaultLiteral?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b51ce395-2051-461d-8cce-7ddd15268d06">
+        <typeId>bed1c7cc-2f34-43f6-9c30-2464cd33c32b</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>FastEndpoints.Domain</typePackageName>
+        <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bc7d128e-60dc-4578-9020-f51620074ec8</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="917fcdd2-3e52-42be-ade9-3c28ea6484df" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>NullibleEnumWithoutValues</name>
+      <display>NullibleEnumWithoutValues: EnumWithoutValues?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="cec23f92-717e-454c-994a-4ded926d50bd">
+        <typeId>71af6e14-b260-46df-9fae-097e5cd89393</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>FastEndpoints.Domain</typePackageName>
+        <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bc7d128e-60dc-4578-9020-f51620074ec8</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
