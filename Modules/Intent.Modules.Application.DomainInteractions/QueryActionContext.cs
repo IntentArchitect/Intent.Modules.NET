@@ -1,4 +1,5 @@
-﻿using Intent.Metadata.Models;
+﻿using Intent.Exceptions;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
@@ -51,6 +52,32 @@ namespace Intent.Modules.Application.DomainInteractions
                 _isPaginated = true;
                 _returnType = _serviceEndPoint.TypeReference.GenericTypeParameters.FirstOrDefault()?.Element as IElement;
             }
+            if (IsConfiguredForProjections())
+            {
+                //We doing this because the CRUD modules are generally compatible with AutoMapper module v4 this Feature requires V5.
+                //Because this feature may need a major version update not forcing the dependency for everyone (in 'imod' spec)
+                AssertAutoMapperVersion();
+            }
+        }
+
+        private void AssertAutoMapperVersion()
+        {
+            var autoMapperModule = _template.ExecutionContext.InstalledModules.FirstOrDefault(m => m.ModuleId == "Intent.Application.AutoMapper");
+            if (autoMapperModule == null) 
+            {
+                throw new ElementException(_associationEnd,"Default Query Implementation - 'Project To' install module 'Intent.Application.AutoMapper' v 5.1.4-pre.0 or higher");
+            }
+
+            var verionText = autoMapperModule.Version.Split('.');
+            if (verionText.Length >= 3) 
+            {
+                var current = new Version(int.Parse(verionText[0]), int.Parse(verionText[1]), int.Parse(verionText[2][0].ToString()));
+                if (current >= new Version(5, 1, 4))
+                {
+                    return;
+                }
+            }
+            throw new ElementException(_associationEnd, "Default Query Implementation - 'Project To' update module 'Intent.Application.AutoMapper' to v 5.1.4-pre.0 or higher");
         }
 
         public ActionType ActionType { get { return _actionType; } }
