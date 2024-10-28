@@ -1,5 +1,10 @@
+### Version 4.4.2
+
+- Fixed : Fixed issue where DTOs with inheritance did not generate correct code.
+
 ### Version 4.4.1
-- Bug: Fixed issue of duplicate constructors if no fields are added to the DTO
+
+- Fixed: Fixed issue of duplicate constructors if no fields are added to the DTO
 
 ### Version 4.4.0
 

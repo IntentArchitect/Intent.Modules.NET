@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
@@ -17,6 +18,7 @@ using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -61,7 +63,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                     {
                         // if there are no fields, and the second constructor is added
                         // there are conflicts
-                        if (Model.Fields.Any())
+                        if (GetFieldsHierarchally(Model).Any())
                         {
                             @class.AddConstructor(protectedCtor =>
                             {
@@ -75,12 +77,27 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                                 }
                                 PopulateDefaultCtor(protectedCtor);
                             });
-                        }
 
-                        foreach (var field in Model.Fields)
-                        {
-                            ctor.AddParameter(GetTypeName(field.TypeReference), field.Name.ToParameterName());
-                            ctor.AddStatement($"{field.Name.ToPascalCase()} = {field.Name.ToParameterName()};");
+                            foreach (var field in GetFieldsHierarchally(Model))
+                            {
+                                ctor.AddParameter(GetTypeName(field.TypeReference), field.Name.ToParameterName());
+                            }
+                            foreach (var field in Model.Fields)
+                            {
+                                ctor.AddStatement($"{field.Name.ToPascalCase()} = {field.Name.ToParameterName()};");
+                            }
+
+                            var inheritedFields = GetInheritedFields(Model);
+                            if (inheritedFields.Any())
+                            {
+                                ctor.CallsBase(c =>
+                                {
+                                    foreach (var x in inheritedFields)
+                                    {
+                                        c.AddArgument(x.Name.ToParameterName());
+                                    }
+                                });
+                            }
                         }
                     }
                     else
@@ -96,7 +113,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                         @class.AddMethod($"{base.GetTypeName(this)}{genericTypes}", "Create", method =>
                         {
                             method.Static();
-                            foreach (var field in Model.Fields)
+                            foreach (var field in GetFieldsHierarchally(Model))
                             {
                                 method.AddParameter(base.GetTypeName(field.TypeReference), field.Name.ToParameterName());
                             }
@@ -105,7 +122,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                             {
                                 method.AddInvocationStatement($"return new {base.GetTypeName(this)}{genericTypes}", block =>
                                 {
-                                    foreach (var field in Model.Fields)
+                                    foreach (var field in GetFieldsHierarchally(Model))
                                     {
                                         block.AddArgument(field.Name.ToParameterName());
                                     }
@@ -115,7 +132,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                             {
                                 method.AddObjectInitializerBlock($"return new {base.GetTypeName(this)}{genericTypes}", block =>
                                 {
-                                    foreach (var field in Model.Fields)
+                                    foreach (var field in GetFieldsHierarchally(Model))
                                     {
                                         block.AddInitStatement(field.Name.ToPascalCase(), field.Name.ToParameterName());
                                     }
@@ -148,6 +165,32 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                 }));
             CSharpFile = csharpFile;
         }
+
+        private IEnumerable<DTOFieldModel> GetFieldsHierarchally(DTOModel model)
+        {
+            if (model.ParentDtoTypeReference?.Element.IsDTOModel() == true)
+            {
+                return GetFieldsHierarchally(model.ParentDtoTypeReference.Element.AsDTOModel()).Concat(model.Fields);
+            }
+            return model.Fields;
+        }
+
+        private IEnumerable<DTOFieldModel> GetInheritedFields(DTOModel model, bool first = true)
+        {
+            if (model.ParentDtoTypeReference?.Element.IsDTOModel() == true)
+            {
+                return GetInheritedFields(model.ParentDtoTypeReference.Element.AsDTOModel(), false);
+            }
+            if (!first)
+            {
+                return model.Fields;
+            }
+            else
+            {
+                return new List<DTOFieldModel>();
+            }
+        }
+
 
         private bool IsNonPublicPropertyAccessors()
         {
