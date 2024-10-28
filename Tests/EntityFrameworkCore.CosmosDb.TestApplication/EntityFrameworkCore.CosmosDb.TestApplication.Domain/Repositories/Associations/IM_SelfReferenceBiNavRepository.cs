@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Assoc
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IM_SelfReferenceBiNavRepository : IEFRepository<M_SelfReferenceBiNav, M_SelfReferenceBiNav>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
 
         [IntentManaged(Mode.Fully)]
         Task<M_SelfReferenceBiNav?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

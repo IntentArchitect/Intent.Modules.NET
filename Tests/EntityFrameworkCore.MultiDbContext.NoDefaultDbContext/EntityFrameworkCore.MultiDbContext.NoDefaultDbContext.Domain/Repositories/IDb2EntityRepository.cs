@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain.Repositor
     public interface IDb2EntityRepository : IEFRepository<Db2Entity, Db2Entity>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Db2Entity?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Db2Entity>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

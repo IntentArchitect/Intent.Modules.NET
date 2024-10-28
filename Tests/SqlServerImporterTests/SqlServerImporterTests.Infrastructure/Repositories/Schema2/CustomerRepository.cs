@@ -22,6 +22,13 @@ namespace SqlServerImporterTests.Infrastructure.Repositories.Schema2
         {
         }
 
+        public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(
+            Guid id,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindProjectToAsync<TProjection>(x => x.Id == id, cancellationToken);
+        }
+
         public async Task<Customer?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);

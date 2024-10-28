@@ -13,7 +13,7 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Application.Common.Secur
     public class AuthorizeAttribute : Attribute
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthorizeAttribute"/> class. 
+        /// Initializes a new instance of the <see cref="AuthorizeAttribute"/> class.
         /// </summary>
         public AuthorizeAttribute()
         {

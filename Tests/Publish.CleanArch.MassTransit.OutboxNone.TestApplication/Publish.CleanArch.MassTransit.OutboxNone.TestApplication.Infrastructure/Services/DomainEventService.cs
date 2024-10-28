@@ -35,7 +35,9 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
             var result = Activator.CreateInstance(
                 typeof(DomainEventNotification<>).MakeGenericType(domainEvent.GetType()), domainEvent);
             if (result == null)
+            {
                 throw new Exception($"Unable to create DomainEventNotification<{domainEvent.GetType().Name}>");
+            }
 
             return (INotification)result;
         }

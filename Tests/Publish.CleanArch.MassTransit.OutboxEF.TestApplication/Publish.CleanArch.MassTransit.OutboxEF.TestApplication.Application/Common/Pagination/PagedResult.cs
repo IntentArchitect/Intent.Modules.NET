@@ -14,12 +14,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Com
             Data = null!;
         }
 
-        public static PagedResult<T> Create(
-            int totalCount,
-            int pageCount,
-            int pageSize,
-            int pageNumber,
-            IEnumerable<T> data)
+        public static PagedResult<T> Create(int totalCount, int pageCount, int pageSize, int pageNumber, IEnumerable<T> data)
         {
             return new PagedResult<T>
             {

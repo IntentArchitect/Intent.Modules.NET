@@ -30,9 +30,11 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Domain.Repositories
         Task<IPagedList<TDomain>> FindAllAsync(int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions, CancellationToken cancellationToken = default);
         Task<int> CountAsync(Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default, CancellationToken cancellationToken = default);
         Task<bool> AnyAsync(Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default, CancellationToken cancellationToken = default);
+        Task<List<TProjection>> FindAllProjectToAsync<TProjection>(CancellationToken cancellationToken = default);
         Task<List<TProjection>> FindAllProjectToAsync<TProjection>(Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default, CancellationToken cancellationToken = default);
         Task<IPagedList<TProjection>> FindAllProjectToAsync<TProjection>(int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default, CancellationToken cancellationToken = default);
         Task<TProjection?> FindProjectToAsync<TProjection>(Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions, CancellationToken cancellationToken = default);
+        Task<TProjection?> FindProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task BulkInsertAsync(IEnumerable<TDomain> entities, CancellationToken cancellationToken = default);
         Task BulkUpdateAsync(IEnumerable<TDomain> entities, CancellationToken cancellationToken = default);
         Task BulkMergeAsync(IEnumerable<TDomain> entities, CancellationToken cancellationToken = default);

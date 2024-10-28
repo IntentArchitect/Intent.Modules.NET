@@ -39,7 +39,7 @@
       <childElements>
         <childElement id="72d6d5ab-0719-4047-a67d-0a5792048b89" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>guid</name>
-          <display>guid</display>
+          <display>guid = guid</display>
           <isAbstract>false</isAbstract>
           <value>guid</value>
           <genericTypes />
@@ -53,7 +53,7 @@
         </childElement>
         <childElement id="5892347e-7653-4015-9d10-0ae150300a99" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>int</name>
-          <display>int</display>
+          <display>int = int</display>
           <isAbstract>false</isAbstract>
           <value>int</value>
           <genericTypes />
@@ -67,7 +67,7 @@
         </childElement>
         <childElement id="ab3d803d-3967-4c25-b48c-de0ad4298bf6" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>long</name>
-          <display>long</display>
+          <display>long = long</display>
           <isAbstract>false</isAbstract>
           <value>long</value>
           <genericTypes />
@@ -81,7 +81,7 @@
         </childElement>
         <childElement id="7fcb69f3-da7b-49c9-851e-081cef6e26b7" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>string</name>
-          <display>string</display>
+          <display>string = string</display>
           <isAbstract>false</isAbstract>
           <value>string</value>
           <genericTypes />

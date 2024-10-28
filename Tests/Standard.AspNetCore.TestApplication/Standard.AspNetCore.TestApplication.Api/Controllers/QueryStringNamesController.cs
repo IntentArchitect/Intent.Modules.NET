@@ -42,7 +42,8 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
             [FromQuery(Name = "custom-name")] string par1,
             CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.Operation(par1, cancellationToken);

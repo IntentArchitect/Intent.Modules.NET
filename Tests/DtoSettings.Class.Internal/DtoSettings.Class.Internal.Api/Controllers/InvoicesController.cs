@@ -43,7 +43,8 @@ namespace DtoSettings.Class.Internal.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = default(Guid);
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 result = await _appService.CreateInvoice(dto, cancellationToken);
@@ -100,7 +101,8 @@ namespace DtoSettings.Class.Internal.Api.Controllers
             [FromBody] InvoiceUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.UpdateInvoice(id, dto, cancellationToken);
@@ -122,7 +124,8 @@ namespace DtoSettings.Class.Internal.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteInvoice([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.DeleteInvoice(id, cancellationToken);

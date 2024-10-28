@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.P
     public interface INewClassLongRepository : IEFRepository<NewClassLong, NewClassLong>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(long id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<NewClassLong?> FindByIdAsync(long id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<NewClassLong>> FindByIdsAsync(long[] ids, CancellationToken cancellationToken = default);

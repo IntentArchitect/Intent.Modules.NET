@@ -1,6 +1,7 @@
 ### Version 4.0.15
 
 - Improvement: Small updates to XML documentation of IPagedList extension methods
+- Improvement: Converted `PagedResult` and `PagedResultMappingExtensions` to use the Builder Pattern paradigm with small coding best practice updates
 
 ### Version 4.0.14
 

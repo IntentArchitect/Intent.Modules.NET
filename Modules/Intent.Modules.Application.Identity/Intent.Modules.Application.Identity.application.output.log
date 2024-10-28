@@ -50,22 +50,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>dc679d96-e52c-4347-8e1d-2771cac060fb</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#4d5052dc-6360-46f0-a1e2-e4b81d90424e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/AuthorizeAttribute/AuthorizeAttributeTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AuthorizeAttribute/AuthorizeAttributeTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>dc679d96-e52c-4347-8e1d-2771cac060fb</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#4d5052dc-6360-46f0-a1e2-e4b81d90424e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/AuthorizeAttribute/AuthorizeAttributeTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AuthorizeAttribute/AuthorizeAttributeTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>dc679d96-e52c-4347-8e1d-2771cac060fb</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4d5052dc-6360-46f0-a1e2-e4b81d90424e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AuthorizeAttribute/AuthorizeAttributeTemplatePartial.cs</ApplicationRelativeFilePath>

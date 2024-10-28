@@ -21,6 +21,18 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
         {
         }
 
+        public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(
+            Guid id,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindProjectToAsync<TProjection>(x => x.Id == id, cancellationToken);
+        }
+
+        public TProjection? FindByIdProjectTo<TProjection>(Guid id)
+        {
+            return FindProjectTo<TProjection>(x => x.Id == id);
+        }
+
         public async Task<Invoice?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);

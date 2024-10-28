@@ -17,15 +17,22 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests.Services.Orders
         public DateTime OrderDate { get; set; }
         public OrderStatus OrderStatus { get; set; }
         public Guid CustomerId { get; set; }
+        public EntityStatus EntityStatus { get; set; }
 
-        public static CreateOrderCommand Create(string refNo, DateTime orderDate, OrderStatus orderStatus, Guid customerId)
+        public static CreateOrderCommand Create(
+            string refNo,
+            DateTime orderDate,
+            OrderStatus orderStatus,
+            Guid customerId,
+            EntityStatus entityStatus)
         {
             return new CreateOrderCommand
             {
                 RefNo = refNo,
                 OrderDate = orderDate,
                 OrderStatus = orderStatus,
-                CustomerId = customerId
+                CustomerId = customerId,
+                EntityStatus = entityStatus
             };
         }
     }

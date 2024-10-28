@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Assoc
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IG_RequiredCompositeNavRepository : IEFRepository<G_RequiredCompositeNav, G_RequiredCompositeNav>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
 
         [IntentManaged(Mode.Fully)]
         Task<G_RequiredCompositeNav?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

@@ -90,22 +90,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>28b31a70-d908-49af-9450-1052b29f8a3c</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#fe0ca012-306a-407d-9622-4ccbdca8706d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ValidationBehaviour/ValidationBehaviourTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationBehaviour/ValidationBehaviourTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>28b31a70-d908-49af-9450-1052b29f8a3c</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#fe0ca012-306a-407d-9622-4ccbdca8706d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ValidationBehaviour/ValidationBehaviourTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationBehaviour/ValidationBehaviourTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>28b31a70-d908-49af-9450-1052b29f8a3c</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fe0ca012-306a-407d-9622-4ccbdca8706d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ValidationBehaviour/ValidationBehaviourTemplatePartial.cs</ApplicationRelativeFilePath>

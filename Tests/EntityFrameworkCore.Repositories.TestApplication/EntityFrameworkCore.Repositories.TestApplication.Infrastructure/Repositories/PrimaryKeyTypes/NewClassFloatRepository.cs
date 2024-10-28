@@ -22,6 +22,13 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
         {
         }
 
+        public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(
+            float id,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindProjectToAsync<TProjection>(x => x.Id == id, cancellationToken);
+        }
+
         public async Task<NewClassFloat?> FindByIdAsync(float id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);

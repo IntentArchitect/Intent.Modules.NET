@@ -24,13 +24,13 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.Common.Be
         public async Task<TResponse> Handle(
             TRequest request,
             RequestHandlerDelegate<TResponse> next,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             try
             {
                 return await next();
             }
-            catch (ValidationException ex)
+            catch (ValidationException)
             {
                 // Do not log Fluent Validation Exceptions
                 throw;

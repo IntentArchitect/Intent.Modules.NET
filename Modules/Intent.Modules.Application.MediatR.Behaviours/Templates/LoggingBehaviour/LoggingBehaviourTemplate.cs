@@ -22,7 +22,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehavio
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
+    #line 1 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class LoggingBehaviourTemplate : CSharpTemplateBase<object>
     {
@@ -36,14 +36,14 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehavio
                     "ing;\r\nusing System.Threading.Tasks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Full" +
                     "y)]\r\n\r\nnamespace ");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
+            #line 17 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
+            #line 19 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -51,21 +51,21 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehavio
             this.Write("<TRequest> : IRequestPreProcessor<TRequest>\r\n        where TRequest : notnull\r\n  " +
                     "  {\r\n        private readonly ILogger _logger;\r\n        private readonly ");
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
+            #line 23 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceInterface()));
             
             #line default
             #line hidden
             this.Write(" _currentUserService;\r\n\r\n        public ");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
+            #line 25 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("(ILogger<TRequest> logger, ");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
+            #line 25 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceInterface()));
             
             #line default
@@ -82,9 +82,10 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehavio
             var userId = _currentUserService.UserId;
             var userName = _currentUserService.UserName;
 
-            _logger.LogInformation(""");
+            _logger.LogInformation(
+                """);
             
-            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
+            #line 38 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ExecutionContext.GetApplicationConfig().Name));
             
             #line default

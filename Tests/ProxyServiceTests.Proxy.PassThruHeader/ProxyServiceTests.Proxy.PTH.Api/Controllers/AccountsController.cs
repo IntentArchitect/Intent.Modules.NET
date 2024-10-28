@@ -49,7 +49,8 @@ namespace ProxyServiceTests.Proxy.PTH.Api.Controllers
             await _validationService.Handle(command, cancellationToken);
             var result = default(Guid);
 
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 result = await _appService.CreateAccountCommand(command, cancellationToken);
@@ -76,7 +77,8 @@ namespace ProxyServiceTests.Proxy.PTH.Api.Controllers
         {
             await _validationService.Handle(command, cancellationToken);
 
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.UpdateAccountCommand(id, command, cancellationToken);

@@ -13,7 +13,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.
     public class AuthorizeAttribute : Attribute
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthorizeAttribute"/> class. 
+        /// Initializes a new instance of the <see cref="AuthorizeAttribute"/> class.
         /// </summary>
         public AuthorizeAttribute()
         {

@@ -65,7 +65,10 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventService
                         method.AddStatement(@$"var result = Activator.CreateInstance(
                 typeof({GetDomainEventNotificationType()}<>).MakeGenericType(domainEvent.GetType()), domainEvent);");
                         method.AddStatement(@"if (result == null)
-                throw new Exception($""Unable to create DomainEventNotification<{domainEvent.GetType().Name}>"");");
+            {
+                throw new Exception($""Unable to create DomainEventNotification<{domainEvent.GetType().Name}>"");
+            }");
+                        method.AddStatement("");
                         method.AddStatement("return (INotification)result;");
                     });
                 });

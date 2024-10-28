@@ -82,22 +82,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#373cd97c-cf6b-4864-94f5-a0931bf01bb6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CommandInterface/CommandInterfaceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CommandInterface/CommandInterfaceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#373cd97c-cf6b-4864-94f5-a0931bf01bb6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CommandInterface/CommandInterfaceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CommandInterface/CommandInterfaceTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#373cd97c-cf6b-4864-94f5-a0931bf01bb6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CommandInterface/CommandInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -150,22 +134,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryHandler/QueryHandlerTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryHandler/QueryHandlerTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#0ae43d40-1942-4fe1-8bc3-5d8c6ab9da32</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/QueryInterface/QueryInterfaceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>QueryInterface/QueryInterfaceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>04e55e05-cd40-4c9e-8ec4-24b504076ca8</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#0ae43d40-1942-4fe1-8bc3-5d8c6ab9da32</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/QueryInterface/QueryInterfaceTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>QueryInterface/QueryInterfaceTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -14,6 +14,8 @@ namespace SqlServerImporterTests.Domain.Repositories.Dbo
     public interface IAspNetUserRepository : IEFRepository<AspNetUser, AspNetUser>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(string id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<AspNetUser?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AspNetUser>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);

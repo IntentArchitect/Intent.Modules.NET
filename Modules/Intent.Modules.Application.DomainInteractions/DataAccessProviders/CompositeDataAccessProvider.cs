@@ -30,6 +30,7 @@ public class CompositeDataAccessProvider : IDataAccessProvider
         _accessor = accessor;
     }
 
+    public bool IsUsingProjections => false;
     public bool RequiresExplicitUpdate()
     {
         return _explicitUpdateStatement != null;

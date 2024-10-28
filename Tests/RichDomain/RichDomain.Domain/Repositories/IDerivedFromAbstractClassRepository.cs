@@ -14,6 +14,8 @@ namespace RichDomain.Domain.Repositories
     public interface IDerivedFromAbstractClassRepository : IEFRepository<IDerivedFromAbstractClass, DerivedFromAbstractClass>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<IDerivedFromAbstractClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<IDerivedFromAbstractClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

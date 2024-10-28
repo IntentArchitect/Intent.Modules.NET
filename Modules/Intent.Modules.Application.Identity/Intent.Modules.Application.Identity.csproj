@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -26,10 +26,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ForbiddenAccessExceptionTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\AuthorizeAttribute\AuthorizeAttributeTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>AuthorizeAttributeTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\ResultModel\ResultModelTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ResultModelTemplate.cs</LastGenOutput>
@@ -56,11 +52,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>ForbiddenAccessExceptionTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\AuthorizeAttribute\AuthorizeAttributeTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AuthorizeAttributeTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\ResultModel\ResultModelTemplate.cs">
       <DesignTime>True</DesignTime>

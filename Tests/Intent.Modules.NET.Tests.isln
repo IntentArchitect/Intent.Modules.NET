@@ -137,5 +137,6 @@
     <application id="75640d0d-5a5b-47b7-9de3-70df70bbfe74" name="SharedKernel.Kernel.Tests" relativePath="SharedKernel.Kernel.Tests/SharedKernel.Kernel.Tests.application.config" />
     <application id="308319b1-d886-4593-8cba-2be4c6795f85" name="SharedKernel.Consumer.Tests" relativePath="SharedKernel.Consumer.Tests/SharedKernel.Consumer.Tests.application.config" />
     <application id="3a41b4eb-4b1f-4028-91a4-9225b2873c35" name="FastEndpointsTest" relativePath="FastEndpointsTest/FastEndpointsTest.application.config" />
+    <application id="e931eb22-645c-475d-91b2-4e37a92b5f77" name="AdvancedMappingCrud.Repositories.ProjectTo.Tests" relativePath="AdvancedMappingCrud.Repositories.ProjectTo.Tests/AdvancedMappingCrud.Repositories.ProjectTo.Tests.application.config" />
   </applications>
 </solution>

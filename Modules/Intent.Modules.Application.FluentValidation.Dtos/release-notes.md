@@ -1,3 +1,7 @@
+### Version 3.10.1
+
+- Fixed: Stackoverflow occuring in rare circumstances where Advanced Mappings and Basic Mappings are interconnected.
+ 
 ### Version 3.10.0
 
 - Fixed: Domain constraints not being propagated into validators when the data graph is more than two levels deep.

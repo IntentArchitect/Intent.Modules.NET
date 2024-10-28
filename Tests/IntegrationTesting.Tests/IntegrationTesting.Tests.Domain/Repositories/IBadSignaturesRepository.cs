@@ -14,6 +14,8 @@ namespace IntegrationTesting.Tests.Domain.Repositories
     public interface IBadSignaturesRepository : IEFRepository<BadSignatures, BadSignatures>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<BadSignatures?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<BadSignatures>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

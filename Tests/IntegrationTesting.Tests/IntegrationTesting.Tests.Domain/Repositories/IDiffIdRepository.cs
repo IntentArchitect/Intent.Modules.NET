@@ -14,6 +14,8 @@ namespace IntegrationTesting.Tests.Domain.Repositories
     public interface IDiffIdRepository : IEFRepository<DiffId, DiffId>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<DiffId?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<DiffId>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

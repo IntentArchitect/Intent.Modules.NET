@@ -14,6 +14,8 @@ namespace RichDomain.Domain.Repositories
     public interface IDepartmentRepository : IEFRepository<IDepartment, Department>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<IDepartment?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<IDepartment>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

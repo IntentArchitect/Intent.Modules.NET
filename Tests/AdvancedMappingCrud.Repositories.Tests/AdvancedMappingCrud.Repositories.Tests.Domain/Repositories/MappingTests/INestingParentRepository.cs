@@ -14,6 +14,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.MappingTest
     public interface INestingParentRepository : IEFRepository<NestingParent, NestingParent>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<NestingParent?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<NestingParent>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

@@ -14,6 +14,8 @@ namespace IntegrationTesting.Tests.Domain.Repositories
     public interface IPartialCrudRepository : IEFRepository<PartialCrud, PartialCrud>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<PartialCrud?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<PartialCrud>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

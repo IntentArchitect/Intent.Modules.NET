@@ -14,6 +14,8 @@ namespace IntegrationTesting.Tests.Domain.Repositories
     public interface IRichProductRepository : IEFRepository<RichProduct, RichProduct>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<RichProduct?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<RichProduct>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

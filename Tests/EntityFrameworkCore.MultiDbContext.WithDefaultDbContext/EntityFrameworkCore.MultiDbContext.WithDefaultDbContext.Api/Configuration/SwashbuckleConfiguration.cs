@@ -31,7 +31,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api.Configurat
                 {
                     options.SchemaFilter<RequireNonNullablePropertiesSchemaFilter>();
                     options.SupportNonNullableReferenceTypes();
-                    options.CustomSchemaIds(x => x.FullName?.Replace("+", "_"));
+                    options.CustomSchemaIds(x => x.FullName?.Replace("+", "_", StringComparison.OrdinalIgnoreCase));
 
                     var apiXmlFile = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
                     if (File.Exists(apiXmlFile))

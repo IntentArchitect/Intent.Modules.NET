@@ -14,6 +14,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Common.Interfaces
         DbSet<Customer> Customers { get; }
         DbSet<Order> Orders { get; }
         DbSet<Product> Products { get; }
+        DbSet<User> Users { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

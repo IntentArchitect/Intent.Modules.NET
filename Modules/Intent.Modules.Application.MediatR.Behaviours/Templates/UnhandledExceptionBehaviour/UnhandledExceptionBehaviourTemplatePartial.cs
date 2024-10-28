@@ -45,7 +45,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
                         method.Async();
                         method.AddParameter(TRequest, "request");
                         method.AddParameter($"RequestHandlerDelegate<{TResponse}>", "next");
-                        method.AddOptionalCancellationTokenParameter();
+                        method.AddParameter("CancellationToken", "cancellationToken");
                         method.AddTryBlock(t =>
                         {
                             t.AddStatement("return await next();");

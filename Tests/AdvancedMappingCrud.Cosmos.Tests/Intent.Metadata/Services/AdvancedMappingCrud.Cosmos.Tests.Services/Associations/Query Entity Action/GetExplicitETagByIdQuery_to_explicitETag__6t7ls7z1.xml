@@ -22,6 +22,9 @@
     <name>explicitETag</name>
     <display>[query] explicitETag: ExplicitETag</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="92951569-171c-4d95-a106-ee0084029c00">
       <typeId>70f0a999-14c1-4507-af61-899454a66c1c</typeId>
       <isNavigable>true</isNavigable>

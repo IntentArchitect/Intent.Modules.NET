@@ -15,6 +15,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Value
     public interface IDictionaryWithKvPSerializedRepository : IEFRepository<DictionaryWithKvPSerialized, DictionaryWithKvPSerialized>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<DictionaryWithKvPSerialized?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<DictionaryWithKvPSerialized>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

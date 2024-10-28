@@ -14,6 +14,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.BugFixes
     public interface ITaskRepository : IEFRepository<Entities.BugFixes.Task, Entities.BugFixes.Task>
     {
         [IntentManaged(Mode.Fully)]
+        System.Threading.Tasks.Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Entities.BugFixes.Task?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Entities.BugFixes.Task>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

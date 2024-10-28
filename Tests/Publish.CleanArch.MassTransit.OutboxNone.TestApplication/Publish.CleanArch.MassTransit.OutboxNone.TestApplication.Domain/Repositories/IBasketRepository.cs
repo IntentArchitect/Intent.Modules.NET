@@ -14,6 +14,8 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Reposi
     public interface IBasketRepository : IEFRepository<Basket, Basket>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Basket?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Basket>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

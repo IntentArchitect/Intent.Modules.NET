@@ -21,6 +21,13 @@ namespace IntegrationTesting.Tests.Infrastructure.Repositories
         {
         }
 
+        public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(
+            string id,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindProjectToAsync<TProjection>(x => x.Id == id, cancellationToken);
+        }
+
         public async Task<DiffPk?> FindByIdAsync(string id, CancellationToken cancellationToken = default)
         {
             return await FindAsync(x => x.Id == id, cancellationToken);

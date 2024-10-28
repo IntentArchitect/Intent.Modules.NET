@@ -14,6 +14,8 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Repositories
     public interface ICompanyRepository : IEFRepository<Company, Company>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Company?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Company>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

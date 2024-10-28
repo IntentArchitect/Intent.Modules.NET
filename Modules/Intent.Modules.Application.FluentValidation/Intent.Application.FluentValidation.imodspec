@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.FluentValidation</id>
-  <version>3.9.3</version>
+  <version>3.9.4-0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides support for specifying fluent validation on Services</summary>
   <description>Provides support for specifying fluent validation on Services</description>

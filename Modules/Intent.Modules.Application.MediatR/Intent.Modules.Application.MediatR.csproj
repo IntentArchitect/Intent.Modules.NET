@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>4.2.9</Version>
+    <Version>4.2.10-pre.0</Version>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -34,14 +34,6 @@
     <None Update="Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>UnhandledExceptionBehaviourTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\CommandInterface\CommandInterfaceTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CommandInterfaceTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\QueryInterface\QueryInterfaceTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>QueryInterfaceTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -75,16 +67,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>UnhandledExceptionBehaviourTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\CommandInterface\CommandInterfaceTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>CommandInterfaceTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\QueryInterface\QueryInterfaceTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>QueryInterfaceTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

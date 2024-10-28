@@ -14,6 +14,8 @@ namespace IntegrationTesting.Tests.Domain.Repositories
     public interface IMissingDepRepository : IEFRepository<MissingDep, MissingDep>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<MissingDep?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<MissingDep>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

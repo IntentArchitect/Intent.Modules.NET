@@ -14,6 +14,8 @@ namespace OutputCachingRedis.Tests.Domain.Repositories
     public interface IFilesRepository : IEFRepository<Files, Files>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Files?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Files>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

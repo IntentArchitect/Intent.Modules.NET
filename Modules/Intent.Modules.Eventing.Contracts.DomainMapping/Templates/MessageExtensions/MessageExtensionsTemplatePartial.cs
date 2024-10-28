@@ -38,7 +38,7 @@ namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates.MessageExten
             AddTypeSource(TemplateRoles.Domain.Entity.Primary);
             AddTypeSource(TemplateRoles.Domain.Events);
 
-            CSharpFile = new CSharpFile($"{Model.InternalElement.Package.Name.ToPascalCase()}", this.GetFolderPath())
+            CSharpFile = new CSharpFile($"{Model.InternalElement.Package.Name.ToCSharpNamespace()}", this.GetFolderPath())
                 .AddClass($"{Model.Name.RemoveSuffix("Event")}EventExtensions", @class =>
                 {
                     @class.Static();

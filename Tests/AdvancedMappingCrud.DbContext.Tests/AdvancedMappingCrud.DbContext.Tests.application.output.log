@@ -324,10 +324,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>e693d0cc-8a09-4fda-8193-36fb175f6b24</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e693d0cc-8a09-4fda-8193-36fb175f6b24</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e693d0cc-8a09-4fda-8193-36fb175f6b24</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -480,6 +496,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>238956a8-b624-4255-98fe-0878c0b55dff</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#99f7485c-17b9-45da-8405-1bb5782967be</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Implementation/UsersService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UsersService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a60285bf-e8f8-4f57-a4ef-01982782e22e</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#99f7485c-17b9-45da-8405-1bb5782967be</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Interfaces/IUsersService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IUsersService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#bb31c368-9bde-43f1-9759-9062216c9ec5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/NewDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NewDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#bb31c368-9bde-43f1-9759-9062216c9ec5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/NewDTOValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NewDTOValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1035,6 +1083,54 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#91085527-979f-46df-8e2a-2776b4f291f5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Users/UserCreateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#91085527-979f-46df-8e2a-2776b4f291f5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Users/UserCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserCreateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#729f34cd-d287-40c7-bbe8-19c405970e41</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Users/UserDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#729f34cd-d287-40c7-bbe8-19c405970e41</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Users/UserDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#13267faa-2141-4646-9ae2-a4aa79d42007</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Users/UserUpdateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3c50f867-88d1-419e-8a2e-eed8d12e80f2</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#13267faa-2141-4646-9ae2-a4aa79d42007</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Application/Users/UserUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Users/UserUpdateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>333ebc43-e65e-482f-9772-db8f55cacfa2</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#333ebc43-e65e-482f-9772-db8f55cacfa2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1084,6 +1180,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9bf770e6-af08-4557-bfa0-6caf130405ea</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#bf7282df-6d2e-4c30-86c6-b15c6cac1aca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Domain/Entities/Address.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Address.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bf770e6-af08-4557-bfa0-6caf130405ea</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#efc7e5ea-e31d-496b-b6a9-5c6bd8f455b3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Domain/Entities/Customer.cs</ApplicationRelativeFilePath>
@@ -1112,6 +1216,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Domain/Entities/Product.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Product.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bf770e6-af08-4557-bfa0-6caf130405ea</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#371407a7-2f7c-4745-ab4a-6670a3422c68</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Domain/Entities/User.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>User.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1179,6 +1291,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1c1e74c1-9aac-436d-8c97-141bd859d031</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#371407a7-2f7c-4745-ab4a-6670a3422c68</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.Infrastructure/Persistence/Configurations/UserConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UserConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b2c6d4c4-6e5f-4bd2-8e3e-209786e55c39</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1216,6 +1336,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/EFContainerFixture.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EFContainerFixture.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d2049e4c-ea02-43c8-9986-8749080e35ec</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.EnumContract#6e24d900-4e8d-4bf4-ba74-c7273ca45ee0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.Tests.IntegrationTests/EntityStatus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityStatus.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

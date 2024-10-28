@@ -14,6 +14,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Repositories
     public interface IPagingTSRepository : IEFRepository<PagingTS, PagingTS>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<PagingTS?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<PagingTS>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

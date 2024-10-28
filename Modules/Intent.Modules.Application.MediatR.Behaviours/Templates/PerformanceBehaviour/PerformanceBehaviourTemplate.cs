@@ -22,7 +22,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
+    #line 1 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class PerformanceBehaviourTemplate : CSharpTemplateBase<object>
     {
@@ -36,14 +36,14 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
                     "sing System.Threading;\r\nusing System.Threading.Tasks;\r\n\r\n[assembly: DefaultInten" +
                     "tManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
+            #line 18 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 20 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
+            #line 20 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -52,21 +52,21 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
                     "quest : notnull\r\n    {\r\n        private readonly Stopwatch _timer;\r\n        priv" +
                     "ate readonly ILogger<TRequest> _logger;\r\n        private readonly ");
             
-            #line 25 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
+            #line 25 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceInterface()));
             
             #line default
             #line hidden
             this.Write(" _currentUserService;\r\n\r\n        public ");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
+            #line 27 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("(\r\n            ILogger<TRequest> logger, \r\n            ");
             
-            #line 29 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
+            #line 29 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetCurrentUserServiceInterface()));
             
             #line default
@@ -95,9 +95,10 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
                 var userId = _currentUserService.UserId;
                 var userName = _currentUserService.UserName;
 
-                _logger.LogWarning(""");
+                _logger.LogWarning(
+                    """);
             
-            #line 53 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
+            #line 54 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ExecutionContext.GetApplicationConfig().Name));
             
             #line default

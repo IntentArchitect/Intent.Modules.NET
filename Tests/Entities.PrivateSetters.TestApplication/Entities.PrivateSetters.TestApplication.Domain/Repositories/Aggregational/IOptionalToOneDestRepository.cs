@@ -14,6 +14,8 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Repositories.Aggregatio
     public interface IOptionalToOneDestRepository : IEFRepository<OptionalToOneDest, OptionalToOneDest>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<OptionalToOneDest?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<OptionalToOneDest>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

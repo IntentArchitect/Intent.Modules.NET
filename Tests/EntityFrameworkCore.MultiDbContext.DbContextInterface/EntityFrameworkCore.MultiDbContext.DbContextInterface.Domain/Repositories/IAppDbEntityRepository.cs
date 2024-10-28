@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain.Repositor
     public interface IAppDbEntityRepository : IEFRepository<AppDbEntity, AppDbEntity>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<AppDbEntity?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AppDbEntity>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

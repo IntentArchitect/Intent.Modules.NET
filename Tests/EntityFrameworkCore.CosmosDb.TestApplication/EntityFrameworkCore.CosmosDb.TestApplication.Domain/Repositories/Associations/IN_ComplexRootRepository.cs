@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Assoc
     public interface IN_ComplexRootRepository : IEFRepository<N_ComplexRoot, N_ComplexRoot>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<N_ComplexRoot?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<N_ComplexRoot>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

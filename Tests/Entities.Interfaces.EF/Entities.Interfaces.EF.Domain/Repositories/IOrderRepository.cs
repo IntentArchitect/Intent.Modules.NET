@@ -14,6 +14,8 @@ namespace Entities.Interfaces.EF.Domain.Repositories
     public interface IOrderRepository : IEFRepository<IOrder, Order>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<IOrder?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<IOrder>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

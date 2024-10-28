@@ -1,5 +1,6 @@
 ### Version 3.5.4
 
+- Improvement: Upgraded AuthorizeAttribute template to use Builder Pattern paradigm
 - Improvement: Additional constructors added to ForbiddenAccessException to more aligned with best practices
 
 ### Version 3.5.3

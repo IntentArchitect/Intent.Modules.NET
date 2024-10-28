@@ -22,6 +22,9 @@
     <name>simpleOdata</name>
     <display>[query] simpleOdata: SimpleOdata[*]</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="d1ce2254-68a3-416c-9141-2a6cf740709b">
       <typeId>67c1fc69-6c78-4b42-a090-4b1c06e719ec</typeId>
       <isNavigable>true</isNavigable>

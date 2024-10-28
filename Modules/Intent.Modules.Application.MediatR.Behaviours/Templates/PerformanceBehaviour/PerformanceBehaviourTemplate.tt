@@ -50,7 +50,8 @@ namespace <#= Namespace #>
                 var userId = _currentUserService.UserId;
                 var userName = _currentUserService.UserName;
 
-                _logger.LogWarning("<#= ExecutionContext.GetApplicationConfig().Name #> Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
+                _logger.LogWarning(
+                    "<#= ExecutionContext.GetApplicationConfig().Name #> Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
                     requestName, elapsedMilliseconds, userId, userName, request);
             }
 

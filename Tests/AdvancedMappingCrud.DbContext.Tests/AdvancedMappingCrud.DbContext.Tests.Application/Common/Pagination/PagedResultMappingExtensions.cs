@@ -23,7 +23,9 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Common.Pagination
         /// <typeparam name="TDomain">Domain element type.</typeparam>
         /// <typeparam name="TDto">DTO element type.</typeparam>
         /// <returns>A single page of DTO elements.</returns>
-        public static PagedResult<TDto> MapToPagedResult<TDomain, TDto>(this PagedList<TDomain> pagedList, Func<TDomain, TDto> mapFunc)
+        public static PagedResult<TDto> MapToPagedResult<TDomain, TDto>(
+            this PagedList<TDomain> pagedList,
+            Func<TDomain, TDto> mapFunc)
         {
             var data = pagedList.Select(mapFunc).ToList();
 
@@ -36,7 +38,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Common.Pagination
         }
 
         /// <summary>
-        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref="PagedList{T}"/>. 
+        /// For mapping a paged-list of Domain elements into a page of DTO elements. See <see cref="PagedList{T}"/>.
         /// </summary>
         /// <param name="pagedList">A single page retrieved from a persistence store.</param>
         /// <typeparam name="TDto">DTO element type.</typeparam>

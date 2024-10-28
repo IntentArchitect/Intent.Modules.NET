@@ -35,7 +35,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage
             AddTypeSource(TemplateRoles.Application.Contracts.Enum);
 
             CSharpFile = new CSharpFile(
-                    @namespace: Model.InternalElement.Package.Name.ToPascalCase(),
+                    @namespace: Model.InternalElement.Package.Name.ToCSharpNamespace(),
                     relativeLocation: this.GetFolderPath())
                 .AddRecord($"{Model.Name.RemoveSuffix("Event")}Event", record =>
                 {

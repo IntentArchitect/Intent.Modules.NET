@@ -14,6 +14,8 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Repositories
     public interface ICategoryRepository : IEFRepository<Category, Category>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Category?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Category>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

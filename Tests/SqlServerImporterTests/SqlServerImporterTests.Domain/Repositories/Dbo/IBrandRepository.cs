@@ -14,6 +14,8 @@ namespace SqlServerImporterTests.Domain.Repositories.Dbo
     public interface IBrandRepository : IEFRepository<Brand, Brand>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Brand?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Brand>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

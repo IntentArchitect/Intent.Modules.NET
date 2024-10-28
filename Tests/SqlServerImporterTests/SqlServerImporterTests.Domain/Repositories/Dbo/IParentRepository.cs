@@ -14,6 +14,8 @@ namespace SqlServerImporterTests.Domain.Repositories.Dbo
     public interface IParentRepository : IEFRepository<Parent, Parent>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>((Guid Id, Guid Id2) id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Parent?> FindByIdAsync((Guid Id, Guid Id2) id, CancellationToken cancellationToken = default);
     }
 }

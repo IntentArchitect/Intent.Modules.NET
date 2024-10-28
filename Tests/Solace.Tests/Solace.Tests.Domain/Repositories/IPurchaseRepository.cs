@@ -14,6 +14,8 @@ namespace Solace.Tests.Domain.Repositories
     public interface IPurchaseRepository : IEFRepository<Purchase, Purchase>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Purchase?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Purchase>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

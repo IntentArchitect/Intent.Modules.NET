@@ -37,7 +37,8 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Create(CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.Create(cancellationToken);
@@ -59,7 +60,8 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> Update([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.Update(id, cancellationToken);

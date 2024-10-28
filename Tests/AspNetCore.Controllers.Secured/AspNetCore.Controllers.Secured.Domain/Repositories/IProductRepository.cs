@@ -14,6 +14,8 @@ namespace AspNetCore.Controllers.Secured.Domain.Repositories
     public interface IProductRepository : IEFRepository<Product, Product>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Product?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Product>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

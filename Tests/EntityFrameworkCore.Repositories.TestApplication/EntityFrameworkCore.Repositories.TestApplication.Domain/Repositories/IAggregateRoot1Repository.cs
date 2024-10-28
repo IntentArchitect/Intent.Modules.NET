@@ -15,6 +15,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IAggregateRoot1Repository : IEFRepository<AggregateRoot1, AggregateRoot1>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         void Operation_Params0_ReturnsV_Collection0();
         SpResult Operation_Params0_ReturnsD_Collection0();
         List<SpResult> Operation_Params0_ReturnsD_Collection1();

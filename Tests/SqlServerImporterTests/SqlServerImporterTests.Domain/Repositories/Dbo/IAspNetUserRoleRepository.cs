@@ -14,6 +14,8 @@ namespace SqlServerImporterTests.Domain.Repositories.Dbo
     public interface IAspNetUserRoleRepository : IEFRepository<AspNetUserRole, AspNetUserRole>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>((string UserId, string RoleId) id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<AspNetUserRole?> FindByIdAsync((string UserId, string RoleId) id, CancellationToken cancellationToken = default);
     }
 }

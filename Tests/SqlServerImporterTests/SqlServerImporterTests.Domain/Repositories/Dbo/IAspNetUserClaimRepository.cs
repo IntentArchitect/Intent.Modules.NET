@@ -14,6 +14,8 @@ namespace SqlServerImporterTests.Domain.Repositories.Dbo
     public interface IAspNetUserClaimRepository : IEFRepository<AspNetUserClaim, AspNetUserClaim>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(int id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<AspNetUserClaim?> FindByIdAsync(int id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AspNetUserClaim>> FindByIdsAsync(int[] ids, CancellationToken cancellationToken = default);

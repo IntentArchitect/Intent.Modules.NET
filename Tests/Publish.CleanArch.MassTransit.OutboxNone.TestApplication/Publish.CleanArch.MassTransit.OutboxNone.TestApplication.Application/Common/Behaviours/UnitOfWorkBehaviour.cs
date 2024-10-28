@@ -39,7 +39,8 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.C
             // locks are released, while write-locks are maintained for the duration of the
             // transaction). Learn more on this approach for EF Core:
             // https://docs.microsoft.com/en-us/ef/core/saving/transactions#using-systemtransactions
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(
+                TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 var response = await next();

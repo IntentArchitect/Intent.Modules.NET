@@ -14,6 +14,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.Inheritance
     public interface IBaseClassRepository : IEFRepository<BaseClass, BaseClass>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<BaseClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<BaseClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="df8b22ee-4a1f-4ae9-9665-3cc345cb070c" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Repositories</name>
+  <display>Repositories</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>82e8b6b7-334d-4c4d-9aee-fda5e1903d69</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="0f108aa2-824f-4797-9849-daf4aa734c7c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.EntityRepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.EntityRepositoryInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>df8b22ee-4a1f-4ae9-9665-3cc345cb070c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="8440d4e8-7ed6-4ac3-a11e-b0f9b174f16b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.PagedListInterface</name>
+      <display>Intent.Entities.Repositories.Api.PagedListInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>df8b22ee-4a1f-4ae9-9665-3cc345cb070c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d0b0a853-fc90-4506-b029-35722089460f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.RepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.RepositoryInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>df8b22ee-4a1f-4ae9-9665-3cc345cb070c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="4de41483-5d68-480d-95aa-f90396cd160a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</name>
+      <display>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</display>
+      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>df8b22ee-4a1f-4ae9-9665-3cc345cb070c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f90dc60e-289c-4014-91f0-291c0f0fbc8c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
+      <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
+      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>df8b22ee-4a1f-4ae9-9665-3cc345cb070c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

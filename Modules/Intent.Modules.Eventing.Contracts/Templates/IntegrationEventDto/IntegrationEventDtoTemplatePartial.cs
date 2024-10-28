@@ -32,7 +32,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventDto
             AddTypeSource(TemplateRoles.Domain.Enum);
 
             CSharpFile = new CSharpFile(
-                    @namespace: Model.InternalElement.Package.Name.ToPascalCase(),
+                    @namespace: Model.InternalElement.Package.Name.ToCSharpNamespace(),
                     relativeLocation: this.GetFolderPath())
                 .AddClass($"{Model.Name}", @class =>
                 {

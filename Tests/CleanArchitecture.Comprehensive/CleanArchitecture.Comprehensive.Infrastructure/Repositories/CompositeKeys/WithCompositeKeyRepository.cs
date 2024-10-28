@@ -22,6 +22,13 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Repositories.CompositeK
         {
         }
 
+        public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(
+            (Guid Key1Id, Guid Key2Id) id,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindProjectToAsync<TProjection>(x => x.Key1Id == id.Key1Id && x.Key2Id == id.Key2Id, cancellationToken);
+        }
+
         public async Task<WithCompositeKey?> FindByIdAsync(
             (Guid Key1Id, Guid Key2Id) id,
             CancellationToken cancellationToken = default)

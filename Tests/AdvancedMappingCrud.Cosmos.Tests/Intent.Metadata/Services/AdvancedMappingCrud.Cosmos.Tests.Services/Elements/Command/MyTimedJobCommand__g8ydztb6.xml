@@ -16,6 +16,10 @@
   <parentFolderId>d001fa4b-fbd8-42e7-9f58-d89c0d3a52bd</parentFolderId>
   <packageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</packageId>
   <packageName>AdvancedMappingCrud.Cosmos.Tests.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements />

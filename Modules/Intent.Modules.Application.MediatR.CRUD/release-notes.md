@@ -1,3 +1,8 @@
+### Version 6.0.21
+
+- Improvement: CRUD for Compositional entities now throws a clearer exceptions if you have modeled multiple owners(which is not valid).
+- Improvement: Added support for ProjectTo query implementations.
+
 ### Version 6.0.20
 
 - Improvement: `Primary Key`s with Data source set to `User supplied` or `Auto-generated` no longer explicItly call `UnitOfWork` save changes. `Default` still does and should be used if you have Database generated primary keys.

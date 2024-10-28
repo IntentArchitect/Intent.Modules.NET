@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="49d6ee32-7e2b-4082-85cc-dda03e2eb756" name="Product" type="element" specialization="Class" />
+      <target id="49d6ee32-7e2b-4082-85cc-dda03e2eb756" name="Product" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>2262014b-21f6-451e-b3a8-e942df338cc8</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="ec4af997-8ed0-419f-9559-c34d5a2a1b3b" name="Id" type="element" specialization="Attribute" />
+          <target id="ec4af997-8ed0-419f-9559-c34d5a2a1b3b" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>f46645db-5a6a-4031-8ab7-d5ab87a71c56</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="a3408e8e-adbf-4be6-8f37-012baad9cb13" name="Name" type="element" specialization="Attribute" />
+          <target id="a3408e8e-adbf-4be6-8f37-012baad9cb13" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>f46645db-5a6a-4031-8ab7-d5ab87a71c56</parentFolderId>
@@ -152,7 +152,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="60c5f582-2743-4797-9034-a91d93bbcead" name="Price" type="element" specialization="Attribute" />
+          <target id="60c5f582-2743-4797-9034-a91d93bbcead" name="Price" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>f46645db-5a6a-4031-8ab7-d5ab87a71c56</parentFolderId>

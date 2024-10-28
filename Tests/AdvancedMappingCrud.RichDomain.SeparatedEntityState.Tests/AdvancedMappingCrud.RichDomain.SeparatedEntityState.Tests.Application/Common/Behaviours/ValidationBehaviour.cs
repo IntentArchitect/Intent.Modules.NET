@@ -21,7 +21,10 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.
             _validators = validators;
         }
 
-        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+        public async Task<TResponse> Handle(
+            TRequest request,
+            RequestHandlerDelegate<TResponse> next,
+            CancellationToken cancellationToken)
         {
             if (_validators.Any())
             {
@@ -31,7 +34,9 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.
                 var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
 
                 if (failures.Count != 0)
+                {
                     throw new ValidationException(failures);
+                }
             }
             return await next();
         }

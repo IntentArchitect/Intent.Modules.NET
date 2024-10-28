@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
@@ -21,10 +22,14 @@ internal static class DomainKeyExtensions
                         p.IsSourceEnd() && !p.IsCollection && !p.IsNullable)
             .Select(s => s.Class)
             .Distinct()
-            .SingleOrDefault();
-        return aggregateRootClass;
+            .ToList();
+        if (aggregateRootClass.Count > 1)
+        {
+            throw new ElementException(entity.InternalElement, $"{entity.Name} has multiple owners ({string.Join(",", aggregateRootClass.Select(a => a.Name))}). Owned entities can only have 1 owner.");
+        }
+        return aggregateRootClass.SingleOrDefault();
     }
-    
+
     // This is duplicated in Intent.Modules.Application.MediatR.CRUD
     // Once we go through the Intent 4.1 we will need to upgrade and reconcile.
     public static EntityIdAttribute GetEntityPkAttribute(this ClassModel entity, ISoftwareFactoryExecutionContext executionContext)

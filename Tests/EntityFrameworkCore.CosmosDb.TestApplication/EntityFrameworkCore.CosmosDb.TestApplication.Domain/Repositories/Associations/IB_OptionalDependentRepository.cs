@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Assoc
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IB_OptionalDependentRepository : IEFRepository<B_OptionalDependent, B_OptionalDependent>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
 
         [IntentManaged(Mode.Fully)]
         Task<B_OptionalDependent?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IAggregateRoot5EntityWithRepoRepository : IEFRepository<AggregateRoot5EntityWithRepo, AggregateRoot5EntityWithRepo>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
 
         [IntentManaged(Mode.Fully)]
         Task<AggregateRoot5EntityWithRepo?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

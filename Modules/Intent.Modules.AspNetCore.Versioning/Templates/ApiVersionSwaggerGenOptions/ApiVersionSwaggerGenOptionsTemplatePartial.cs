@@ -52,6 +52,7 @@ namespace Intent.Modules.AspNetCore.Versioning.Templates.ApiVersionSwaggerGenOpt
                             .WithSemicolon());
                         method.AddIfStatement("description.IsDeprecated", stmt => stmt
                             .AddStatement(@"info.Description = ""This API version has been deprecated."";"));
+                        method.AddStatement("");
                         method.AddStatement("return info;");
                     });
                 });

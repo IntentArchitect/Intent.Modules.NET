@@ -15,6 +15,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Inher
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IStandaloneDerivedRepository : IEFRepository<StandaloneDerived, StandaloneDerived>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
 
         [IntentManaged(Mode.Fully)]
         Task<StandaloneDerived?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

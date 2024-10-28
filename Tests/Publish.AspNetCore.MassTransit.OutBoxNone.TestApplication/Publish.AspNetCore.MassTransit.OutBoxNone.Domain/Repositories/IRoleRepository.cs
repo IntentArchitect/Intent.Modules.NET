@@ -14,6 +14,8 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Domain.Repositories
     public interface IRoleRepository : IEFRepository<Role, Role>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<Role?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Role>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

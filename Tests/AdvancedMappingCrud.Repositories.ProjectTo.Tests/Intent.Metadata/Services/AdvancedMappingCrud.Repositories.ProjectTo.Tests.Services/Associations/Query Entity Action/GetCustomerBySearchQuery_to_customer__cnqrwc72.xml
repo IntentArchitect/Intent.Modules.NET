@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1b9fd6a8-2442-4562-ae05-7803ff5bc572">
+  <sourceEnd id="fbd6e441-be78-497d-946e-6f5e0079e126" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomerBySearchQuery</display>
+    <order>0</order>
+    <typeReference id="63e21872-ed5b-414a-a559-b8ee97a6db2d">
+      <typeId>990ca7d1-8799-485a-aae8-6925d6c6a474</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests.Services</typePackageName>
+      <typePackageId>6cda8d2b-f433-48b9-a3f8-19090003f024</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1b9fd6a8-2442-4562-ae05-7803ff5bc572" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customer</name>
+    <display>[query] customer: Customer</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="dc413749-a1b9-43d1-bdc0-b0cb7f3ed7b7">
+      <typeId>ce9175d2-d5af-4cfb-9d1a-7661abe0002c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.ProjectTo.Tests.Domain</typePackageName>
+      <typePackageId>3558a6c2-8c9f-4aed-abf5-9af90ba06fc4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="e931eb22-645c-475d-91b2-4e37a92b5f77" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="990ca7d1-8799-485a-aae8-6925d6c6a474" location="[AdvancedMappingCrud.Repositories.ProjectTo.Tests].[Services].[GetCustomerBySearchQuery]" />
+        <target applicationId="e931eb22-645c-475d-91b2-4e37a92b5f77" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ce9175d2-d5af-4cfb-9d1a-7661abe0002c" location="[AdvancedMappingCrud.Repositories.ProjectTo.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="ce9175d2-d5af-4cfb-9d1a-7661abe0002c" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c1afda8e-bb40-405d-8fb3-2c806904e8aa" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="990ca7d1-8799-485a-aae8-6925d6c6a474" name="GetCustomerBySearchQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="b6718cdd-4e7e-476e-9b35-31bd9a9b33a8" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Email}</expression>
+            <path>
+              <target id="ce9175d2-d5af-4cfb-9d1a-7661abe0002c" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="f5ca112c-9ae0-4293-9488-cf3fb37dcdb9" name="Email" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Email" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="990ca7d1-8799-485a-aae8-6925d6c6a474" name="GetCustomerBySearchQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="073245a0-11d4-4af6-afe1-232bf61be048" name="Email" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

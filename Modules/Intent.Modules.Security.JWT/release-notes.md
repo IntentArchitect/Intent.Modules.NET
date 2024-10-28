@@ -1,6 +1,6 @@
 ### Version 4.2.3
 
-- Improvement: Small updated to code comments
+- Improvement: Small updated to code comments and styling
 
 ### Version 4.2.2
 

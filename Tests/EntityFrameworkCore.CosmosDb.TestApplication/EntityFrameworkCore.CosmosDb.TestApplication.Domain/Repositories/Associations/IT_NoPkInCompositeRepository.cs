@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Assoc
     public interface IT_NoPkInCompositeRepository : IEFRepository<T_NoPkInComposite, T_NoPkInComposite>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<T_NoPkInComposite?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<T_NoPkInComposite>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

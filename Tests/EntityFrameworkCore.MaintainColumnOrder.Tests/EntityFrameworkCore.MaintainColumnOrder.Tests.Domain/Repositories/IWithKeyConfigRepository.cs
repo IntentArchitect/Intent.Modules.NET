@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Domain.Repositories
     public interface IWithKeyConfigRepository : IEFRepository<WithKeyConfig, WithKeyConfig>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<WithKeyConfig?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<WithKeyConfig>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

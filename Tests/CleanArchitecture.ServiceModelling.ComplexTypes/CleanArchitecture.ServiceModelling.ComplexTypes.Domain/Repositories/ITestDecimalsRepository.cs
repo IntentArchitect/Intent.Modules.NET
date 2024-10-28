@@ -14,6 +14,8 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Repositories
     public interface ITestDecimalsRepository : IEFRepository<TestDecimals, TestDecimals>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<TestDecimals?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TestDecimals>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);

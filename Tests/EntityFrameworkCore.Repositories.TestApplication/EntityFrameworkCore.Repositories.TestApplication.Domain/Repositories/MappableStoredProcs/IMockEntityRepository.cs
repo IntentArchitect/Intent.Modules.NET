@@ -13,6 +13,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.M
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IMockEntityRepository : IEFRepository<MockEntity, MockEntity>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         Task<MockEntity> GetMockEntityById(Guid id, CancellationToken cancellationToken = default);
         Task<IReadOnlyCollection<MockEntity>> GetMockEntities(CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]

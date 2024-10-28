@@ -23,7 +23,7 @@ namespace Standard.AspNetCore.Serilog.Application.Common.Behaviours
         public async Task<TResponse> Handle(
             TRequest request,
             RequestHandlerDelegate<TResponse> next,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             try
             {

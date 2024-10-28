@@ -14,6 +14,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.CRUD
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IAggregateTestNoIdReturnRepository : IEFRepository<AggregateTestNoIdReturn, AggregateTestNoIdReturn>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
 
         [IntentManaged(Mode.Fully)]
         Task<AggregateTestNoIdReturn?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);

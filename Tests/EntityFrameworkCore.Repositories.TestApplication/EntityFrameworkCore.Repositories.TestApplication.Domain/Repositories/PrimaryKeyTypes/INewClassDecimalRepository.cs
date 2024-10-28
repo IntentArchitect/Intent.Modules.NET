@@ -14,6 +14,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.P
     public interface INewClassDecimalRepository : IEFRepository<NewClassDecimal, NewClassDecimal>
     {
         [IntentManaged(Mode.Fully)]
+        Task<TProjection?> FindByIdProjectToAsync<TProjection>(decimal id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<NewClassDecimal?> FindByIdAsync(decimal id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<NewClassDecimal>> FindByIdsAsync(decimal[] ids, CancellationToken cancellationToken = default);
