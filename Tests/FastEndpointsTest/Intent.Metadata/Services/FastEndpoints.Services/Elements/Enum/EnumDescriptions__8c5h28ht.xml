@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4250f878-1d81-4a02-954f-8661bbd4e805" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>EnumDescriptions</name>
+  <display>EnumDescriptions</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c07aeab3-3f0d-48db-9259-55f2439c4f34</parentFolderId>
+  <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+  <packageName>FastEndpoints.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="e65e617e-75e6-4f39-ba0f-7f528deea5fa" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Option1</name>
+      <display>Option1</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4250f878-1d81-4a02-954f-8661bbd4e805</parentFolderId>
+      <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+      <packageName>FastEndpoints.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6d95bcb3-896e-49b2-89e4-82cf71141777" name="Description">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+          <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+          <properties>
+            <property name="f58aec6a-90a4-4993-961e-08dc45d1cf90" display="Value" value="My First Option" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a47d749b-c618-41fe-aa31-ac664ff7bbe5" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Option2</name>
+      <display>Option2 = 2</display>
+      <isAbstract>false</isAbstract>
+      <value>2</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4250f878-1d81-4a02-954f-8661bbd4e805</parentFolderId>
+      <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+      <packageName>FastEndpoints.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6d95bcb3-896e-49b2-89e4-82cf71141777" name="Description">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+          <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+          <properties>
+            <property name="f58aec6a-90a4-4993-961e-08dc45d1cf90" display="Value" value="My Second Option" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

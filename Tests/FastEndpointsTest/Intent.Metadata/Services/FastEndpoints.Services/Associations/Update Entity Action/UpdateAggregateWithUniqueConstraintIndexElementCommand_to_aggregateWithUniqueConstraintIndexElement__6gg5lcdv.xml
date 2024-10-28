@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6e15905d-ce72-44ab-a448-4f3bebb688ba">
+  <sourceEnd id="5575d27e-6d98-4a70-8380-3fb119226fb0" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : AggregateWithUniqueConstraintIndexElements.UpdateAggregateWithUniqueConstraintIndexElementCommand</display>
+    <order>0</order>
+    <typeReference id="57c74012-9bd7-471d-8a27-8adeb65cec86">
+      <typeId>29b27911-54af-414c-ac81-6c0e604fb1cc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Services</typePackageName>
+      <typePackageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="6e15905d-ce72-44ab-a448-4f3bebb688ba" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>aggregateWithUniqueConstraintIndexElement</name>
+    <display>[update] aggregateWithUniqueConstraintIndexElement: AggregateWithUniqueConstraintIndexElement</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="03d1f567-dab4-4a22-8ecd-fb42e3f2be09">
+      <typeId>6b5cb410-be35-4532-91ea-452dfc3882f4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="29b27911-54af-414c-ac81-6c0e604fb1cc" location="[FastEndpointsTest].[Services].[UpdateAggregateWithUniqueConstraintIndexElementCommand]" />
+        <target applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6b5cb410-be35-4532-91ea-452dfc3882f4" location="[FastEndpointsTest].[Services].[AggregateWithUniqueConstraintIndexElement]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="6b5cb410-be35-4532-91ea-452dfc3882f4" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="06ed2b5d-68df-4a7f-ad3b-02eec1f551e3" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="29b27911-54af-414c-ac81-6c0e604fb1cc" name="UpdateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d006bb6f-1cb5-4e3d-9a42-b181cb9011b9" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="29b27911-54af-414c-ac81-6c0e604fb1cc" location="[FastEndpointsTest].[Services].[UpdateAggregateWithUniqueConstraintIndexElementCommand]" />
+        <target applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6b5cb410-be35-4532-91ea-452dfc3882f4" location="[FastEndpointsTest].[Services].[AggregateWithUniqueConstraintIndexElement]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{SingleUniqueField}</expression>
+            <path>
+              <target id="6b5cb410-be35-4532-91ea-452dfc3882f4" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="35f7a636-0bfe-4039-aeef-1dc9861f7c8b" name="SingleUniqueField" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="SingleUniqueField" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="29b27911-54af-414c-ac81-6c0e604fb1cc" name="UpdateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="e56f1054-3850-4e9e-a433-62b4c658d511" name="SingleUniqueField" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{CompUniqueFieldA}</expression>
+            <path>
+              <target id="6b5cb410-be35-4532-91ea-452dfc3882f4" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="6efda7d3-036f-4aad-89f7-85083bc04eee" name="CompUniqueFieldA" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="CompUniqueFieldA" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="29b27911-54af-414c-ac81-6c0e604fb1cc" name="UpdateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="4592e2e3-8937-4b2d-8815-4a34fee2e035" name="CompUniqueFieldA" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{CompUniqueFieldB}</expression>
+            <path>
+              <target id="6b5cb410-be35-4532-91ea-452dfc3882f4" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="08132ed7-6f93-4d1f-97c0-19b7cc911867" name="CompUniqueFieldB" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="CompUniqueFieldB" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="29b27911-54af-414c-ac81-6c0e604fb1cc" name="UpdateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="c00311f4-8dd1-42a7-92d8-7d3cf3f43f47" name="CompUniqueFieldB" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

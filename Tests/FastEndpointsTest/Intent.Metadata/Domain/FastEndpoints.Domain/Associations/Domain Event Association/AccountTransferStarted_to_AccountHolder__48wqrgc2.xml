@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4c33073e-9f9b-49a1-8c98-891adbd7f0d8">
+  <sourceEnd id="2732a58b-8afb-4042-8791-42ff7384717a" type="Domain Event Association Source End" typeId="ad8998ec-ee85-4544-9267-8ec150a2f257">
+    <display>handles event : AccountTransferStarted</display>
+    <order>6</order>
+    <typeReference id="37fe7945-89fb-4d21-8a03-72d9baefbc4b">
+      <typeId>e589fc7f-0fb3-4db1-83dd-e4c5b29e54de</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4c33073e-9f9b-49a1-8c98-891adbd7f0d8" type="Domain Event Association Target End" typeId="fe0d0f78-fb7e-4685-ab2d-bae88054a78e">
+    <display>handled by : AccountHolder</display>
+    <order>3</order>
+    <typeReference id="bcd9db6a-af34-42f0-be24-185a433ffbc8">
+      <typeId>a893b893-0782-4407-897a-57bb1305b67c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Association</associationType>
+  <associationTypeId>8014b71d-627b-4349-b6d7-5011dfa1bb09</associationTypeId>
+  <stereotypes />
+</association>

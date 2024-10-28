@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="df0325a2-3b51-4688-8620-677bc063fb29" type="Domain Service" typeId="07f936ea-3756-48c8-babd-24ac7271daac">
+  <name>DataContractDomainService</name>
+  <display>DataContractDomainService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0c891e18-3c26-45aa-b7e8-dfa6200e7a7e</parentFolderId>
+  <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+  <packageName>FastEndpoints.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="a704c512-2c3b-42ee-b7da-4d34e9e573fc" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>Operation</name>
+      <display>Operation(): DataContractObject</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="358755d8-1c22-4425-b136-1ccb98f8cf71">
+        <typeId>3da08631-a932-4807-a84d-8b2c88e31c45</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>FastEndpoints.Domain</typePackageName>
+        <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>df0325a2-3b51-4688-8620-677bc063fb29</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

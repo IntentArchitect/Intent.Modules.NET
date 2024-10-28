@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="073f3840-d212-4cea-98be-7ed0e01edb5c">
+  <sourceEnd id="c96ca354-95a8-4adc-82d2-363ee8bc8640" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : AggregateWithUniqueConstraintIndexElements.CreateAggregateWithUniqueConstraintIndexElementCommand</display>
+    <order>0</order>
+    <typeReference id="9d3a7bb1-b026-4e3d-8fb7-6c6ae14d5655">
+      <typeId>13e69952-2366-48e0-87dc-a0bc8b136933</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Services</typePackageName>
+      <typePackageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="073f3840-d212-4cea-98be-7ed0e01edb5c" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>aggregateWithUniqueConstraintIndexElement</name>
+    <display>[create] aggregateWithUniqueConstraintIndexElement: Constructor</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="0f1884aa-f841-44b3-bda1-d3a7b259f6ce">
+      <typeId>88147656-c997-408e-8a8a-5343b2755274</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="13e69952-2366-48e0-87dc-a0bc8b136933" location="[FastEndpointsTest].[Services].[CreateAggregateWithUniqueConstraintIndexElementCommand]" />
+        <target applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="6b5cb410-be35-4532-91ea-452dfc3882f4" location="[FastEndpointsTest].[Services].[AggregateWithUniqueConstraintIndexElement]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateAggregateWithUniqueConstraintIndexElementCommand}</expression>
+            <path>
+              <target id="6b5cb410-be35-4532-91ea-452dfc3882f4" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="88147656-c997-408e-8a8a-5343b2755274" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+            </path>
+            <sources>
+              <source identifier="CreateAggregateWithUniqueConstraintIndexElementCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="13e69952-2366-48e0-87dc-a0bc8b136933" name="CreateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{SingleUniqueField}</expression>
+            <path>
+              <target id="6b5cb410-be35-4532-91ea-452dfc3882f4" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="88147656-c997-408e-8a8a-5343b2755274" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="c229225d-88fc-4e23-874b-144501189ccd" name="singleUniqueField" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="SingleUniqueField" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="13e69952-2366-48e0-87dc-a0bc8b136933" name="CreateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="201883b1-3d41-4e72-8f29-05f354c4ea64" name="SingleUniqueField" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{CompUniqueFieldA}</expression>
+            <path>
+              <target id="6b5cb410-be35-4532-91ea-452dfc3882f4" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="88147656-c997-408e-8a8a-5343b2755274" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="811c8177-c692-4af7-853d-1adf649f113e" name="compUniqueFieldA" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="CompUniqueFieldA" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="13e69952-2366-48e0-87dc-a0bc8b136933" name="CreateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="8cf54ca3-9bf6-447d-87e9-43b5063eeb52" name="CompUniqueFieldA" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{CompUniqueFieldB}</expression>
+            <path>
+              <target id="6b5cb410-be35-4532-91ea-452dfc3882f4" name="AggregateWithUniqueConstraintIndexElement" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="88147656-c997-408e-8a8a-5343b2755274" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="774b8ac4-ec3a-4c16-9a84-3264a7f1c084" name="compUniqueFieldB" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="CompUniqueFieldB" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="13e69952-2366-48e0-87dc-a0bc8b136933" name="CreateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="09dc5de5-649f-4686-b91b-ea45ca68ffe0" name="CompUniqueFieldB" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

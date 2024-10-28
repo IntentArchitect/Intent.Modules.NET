@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9c6a38db-58b3-4403-9549-c6be50f710cb">
+  <sourceEnd id="66b79099-434a-4079-9887-e3c6d54e391a" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : AggregateRootLongs.CreateAggregateRootLongCommand</display>
+    <order>0</order>
+    <typeReference id="d2188baf-3f17-43d0-a5db-69ae6cdac6e4">
+      <typeId>1d41c926-a559-4aeb-bb53-5144a4d0f309</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Services</typePackageName>
+      <typePackageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9c6a38db-58b3-4403-9549-c6be50f710cb" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>aggregateRootLong</name>
+    <display>[create] aggregateRootLong: AggregateRootLong</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="3d507082-a1cf-4782-908c-55b996d8a5a5">
+      <typeId>c1958976-f942-4826-a25b-0644cf76e985</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1d41c926-a559-4aeb-bb53-5144a4d0f309" location="[FastEndpoints].[Services].[CreateAggregateRootLongCommand]" />
+        <target applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c1958976-f942-4826-a25b-0644cf76e985" location="[FastEndpoints].[Services].[AggregateRootLong]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateAggregateRootLongCommand}</expression>
+            <path>
+              <target id="c1958976-f942-4826-a25b-0644cf76e985" name="AggregateRootLong" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateAggregateRootLongCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="1d41c926-a559-4aeb-bb53-5144a4d0f309" name="CreateAggregateRootLongCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Attribute}</expression>
+            <path>
+              <target id="c1958976-f942-4826-a25b-0644cf76e985" name="AggregateRootLong" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="4801be66-ee47-456f-b502-2d613eb4283b" name="Attribute" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Attribute" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="1d41c926-a559-4aeb-bb53-5144a4d0f309" name="CreateAggregateRootLongCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="226524c6-115c-4b5c-8c26-eaca2b140bde" name="Attribute" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{CompositeOfAggrLong.Attribute}</expression>
+            <path>
+              <target id="c1958976-f942-4826-a25b-0644cf76e985" name="AggregateRootLong" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="76b538b3-3caa-4f6f-b8b4-65606ea86f1f" name="CompositeOfAggrLong" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="20a3069f-11d2-4e1f-acd8-d1ba365f60c3" name="Attribute" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="CompositeOfAggrLong.Attribute" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="1d41c926-a559-4aeb-bb53-5144a4d0f309" name="CreateAggregateRootLongCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f13c193b-e97c-4e44-817f-42f4091e756d" name="CompositeOfAggrLong" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="4dbb4bff-525f-4d10-b47c-f35a319fab60" name="Attribute" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

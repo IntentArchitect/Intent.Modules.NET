@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9d03b925-b63f-47b2-8643-0e907d8837bd">
+  <sourceEnd id="624580fd-0fdd-406b-9778-190b44237a4f" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : AggregateRootLongs.UpdateAggregateRootLongCommand</display>
+    <order>0</order>
+    <typeReference id="f8c04d73-ab85-4604-8236-0289d5afe4ec">
+      <typeId>9b6b5f96-3d79-4212-a13d-2eb3d82c91b6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Services</typePackageName>
+      <typePackageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9d03b925-b63f-47b2-8643-0e907d8837bd" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>aggregateRootLong</name>
+    <display>[update] aggregateRootLong: AggregateRootLong</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="8261e054-7dd1-44d2-983d-f98cea087bae">
+      <typeId>c1958976-f942-4826-a25b-0644cf76e985</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9b6b5f96-3d79-4212-a13d-2eb3d82c91b6" location="[FastEndpoints].[Services].[UpdateAggregateRootLongCommand]" />
+        <target applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c1958976-f942-4826-a25b-0644cf76e985" location="[FastEndpoints].[Services].[AggregateRootLong]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="c1958976-f942-4826-a25b-0644cf76e985" name="AggregateRootLong" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="10233ee7-846e-4e71-98ed-84f1aba8bea6" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="9b6b5f96-3d79-4212-a13d-2eb3d82c91b6" name="UpdateAggregateRootLongCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6250629e-f8c8-44ab-ba59-cdb7e4dde895" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9b6b5f96-3d79-4212-a13d-2eb3d82c91b6" location="[FastEndpoints].[Services].[UpdateAggregateRootLongCommand]" />
+        <target applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c1958976-f942-4826-a25b-0644cf76e985" location="[FastEndpoints].[Services].[AggregateRootLong]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Attribute}</expression>
+            <path>
+              <target id="c1958976-f942-4826-a25b-0644cf76e985" name="AggregateRootLong" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="4801be66-ee47-456f-b502-2d613eb4283b" name="Attribute" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Attribute" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="9b6b5f96-3d79-4212-a13d-2eb3d82c91b6" name="UpdateAggregateRootLongCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="a70537ff-a2cb-4144-905a-4ce3f9927a0d" name="Attribute" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{CompositeOfAggrLong.Attribute}</expression>
+            <path>
+              <target id="c1958976-f942-4826-a25b-0644cf76e985" name="AggregateRootLong" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="76b538b3-3caa-4f6f-b8b4-65606ea86f1f" name="CompositeOfAggrLong" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="20a3069f-11d2-4e1f-acd8-d1ba365f60c3" name="Attribute" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="CompositeOfAggrLong.Attribute" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="9b6b5f96-3d79-4212-a13d-2eb3d82c91b6" name="UpdateAggregateRootLongCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="1d1f233d-958a-4f98-86a2-27d3e0683d1c" name="CompositeOfAggrLong" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="3bf29d62-a9a1-49a6-b44b-6d181ed51afe" name="Attribute" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

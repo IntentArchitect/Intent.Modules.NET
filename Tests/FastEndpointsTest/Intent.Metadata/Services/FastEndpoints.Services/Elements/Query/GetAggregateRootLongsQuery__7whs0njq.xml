@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cfa91f72-09f4-4ff4-853b-4d374b34efac" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetAggregateRootLongsQuery</name>
+  <display>GetAggregateRootLongsQuery: AggregateRootLongDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="44c695d0-d26d-42ec-bf9b-ca94c8004fe5">
+    <typeId>be2eee50-3f24-4e57-b0d5-07af358621df</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>FastEndpoints.Services</typePackageName>
+    <typePackageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>4180edaa-dcd7-44a8-ac7f-84cab9a77d07</parentFolderId>
+  <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+  <packageName>FastEndpoints.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="AggregateRootLongs" />
+  </metadata>
+  <childElements />
+</class>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e589fc7f-0fb3-4db1-83dd-e4c5b29e54de" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>AccountTransferStarted</name>
+  <display>AccountTransferStarted</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0c891e18-3c26-45aa-b7e8-dfa6200e7a7e</parentFolderId>
+  <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+  <packageName>FastEndpoints.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="55c03f95-dbb7-48a6-b7d9-ccfa376efb5f" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>ToAccNumber</name>
+      <display>ToAccNumber: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="6fbaa500-2eea-4cc5-91e7-df34c348c218">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e589fc7f-0fb3-4db1-83dd-e4c5b29e54de</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d7b4060c-0a5f-4324-89bb-953bdf5a6562" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Description</name>
+      <display>Description: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ba361bb6-4935-4410-a0f8-e2a2aee34146">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e589fc7f-0fb3-4db1-83dd-e4c5b29e54de</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="90b38116-3168-40ca-8a56-798ab8f1e537" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Amount</name>
+      <display>Amount: Money</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="580f9d06-9508-4757-81b3-f3c4bcd50010">
+        <typeId>79662ddd-e24d-434c-96db-54cdf8716a9b</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>FastEndpoints.Domain</typePackageName>
+        <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e589fc7f-0fb3-4db1-83dd-e4c5b29e54de</parentFolderId>
+      <packageId>aed8e754-17fc-48c7-8f7c-d521812022bc</packageId>
+      <packageName>FastEndpoints.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

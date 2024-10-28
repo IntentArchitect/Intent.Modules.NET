@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="628b0b61-acae-45bb-81bf-37c734e3674a">
+  <sourceEnd id="6320d42b-2697-4764-9b1a-144f290e8884" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AccountHolder</name>
+    <display>AccountHolder: AccountHolder</display>
+    <order>0</order>
+    <typeReference id="9c3e9de5-da7a-4a85-bf0f-6503412e4ade">
+      <typeId>a893b893-0782-4407-897a-57bb1305b67c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="628b0b61-acae-45bb-81bf-37c734e3674a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Accounts</name>
+    <display>Accounts: Account[*]</display>
+    <order>5</order>
+    <typeReference id="8fb70c57-58e6-4976-95de-dae764e5fa0e">
+      <typeId>7505760a-2db9-4384-b26b-6b711365a5b3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f91732ac-3881-481e-a7a6-947d4a601a8c" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ae7e9cce-5d79-48b9-94ed-b23e7b14311e</parentFolderId>
+  <packageId>ae7e9cce-5d79-48b9-94ed-b23e7b14311e</packageId>
+  <packageName>FastEndpointsTest</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

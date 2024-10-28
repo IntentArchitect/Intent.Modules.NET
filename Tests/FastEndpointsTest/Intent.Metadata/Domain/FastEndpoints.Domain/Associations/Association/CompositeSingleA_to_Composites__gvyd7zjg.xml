@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="156225d7-6887-43ab-8f7a-9e6e4570c89a">
+  <sourceEnd id="10cc06ad-8472-43e6-98d2-467eb0396bb4" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>CompositeSingleA</name>
+    <display>CompositeSingleA: CompositeSingleA</display>
+    <order>0</order>
+    <typeReference id="9d851dc5-a5a7-492a-9a7f-4bfa1eacdcba">
+      <typeId>c76e5f76-a103-4c55-a044-69aebbc7baf2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="156225d7-6887-43ab-8f7a-9e6e4570c89a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Composites</name>
+    <display>Composites: CompositeManyAA[*]</display>
+    <order>3</order>
+    <typeReference id="1030fb41-e165-4e67-91f2-672f4d41cf2c">
+      <typeId>db6a4ba7-a9d8-4076-afa0-5e0c49b5603f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

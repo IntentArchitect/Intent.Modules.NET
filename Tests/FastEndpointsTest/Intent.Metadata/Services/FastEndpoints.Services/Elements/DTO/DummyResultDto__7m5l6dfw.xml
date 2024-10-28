@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c07f3c6e-c0dd-49c1-baa7-d4e994dec183" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>DummyResultDto</name>
+  <display>DummyResultDto</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c07aeab3-3f0d-48db-9259-55f2439c4f34</parentFolderId>
+  <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
+  <packageName>FastEndpoints.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

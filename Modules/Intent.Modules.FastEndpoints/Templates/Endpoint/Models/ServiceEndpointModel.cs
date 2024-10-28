@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Metadata.WebApi.Models;
@@ -41,12 +42,17 @@ public class ServiceEndpointModel : IEndpointModel
         Comment = operationModel.Comment;
         TypeReference = operationModel.TypeReference;
         Verb = httpEndpoint.Verb;
-        Route = httpEndpoint.Route;
+        Route = httpEndpoint.SubRoute;
         MediaType = httpEndpoint.MediaType;
         Parameters = httpEndpoint.Inputs.Select(GetInput).ToList();
         RequiresAuthorization = httpEndpoint.RequiresAuthorization;
         AllowAnonymous = httpEndpoint.AllowAnonymous;
         Authorization = authorizationModel;
+        ApplicableVersions = serviceModel.GetApiVersionSettings()
+            ?.ApplicableVersions()
+            .Select(s => new EndpointApiVersionModel(s))
+            .Cast<IApiVersionModel>()
+            .ToList() ?? new List<IApiVersionModel>();
     }
 
     public string Id { get; }
@@ -63,6 +69,7 @@ public class ServiceEndpointModel : IEndpointModel
     public bool RequiresAuthorization { get; }
     public bool AllowAnonymous { get; }
     public IAuthorizationModel? Authorization { get; }
+    public IList<IApiVersionModel> ApplicableVersions { get; }
     public FolderModel? Folder => new FolderModel(Container.InternalElement, Container.InternalElement.SpecializationType);
 
     private static IEndpointParameterModel GetInput(IHttpEndpointInputModel model)

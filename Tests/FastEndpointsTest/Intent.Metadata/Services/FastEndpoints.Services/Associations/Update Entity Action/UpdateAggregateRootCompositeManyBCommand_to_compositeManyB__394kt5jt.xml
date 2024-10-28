@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e351ad2f-f9a0-4d8f-b755-6dc791c7b651">
+  <sourceEnd id="9d2c5c85-232e-47b6-b011-1169f984f2cd" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : AggregateRoots.UpdateAggregateRootCompositeManyBCommand</display>
+    <order>0</order>
+    <typeReference id="987e0cdc-de38-4e21-8827-ec11e27ebf3d">
+      <typeId>f6d2c4f4-fe7a-433c-8cf1-84499b3401e4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Services</typePackageName>
+      <typePackageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e351ad2f-f9a0-4d8f-b755-6dc791c7b651" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>compositeManyB</name>
+    <display>[update] compositeManyB: CompositeManyB</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="20fc9888-d18c-4328-a047-b1cbbab883be">
+      <typeId>a9aac0e5-7eb6-4825-8c13-bdcc6b029a72</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f6d2c4f4-fe7a-433c-8cf1-84499b3401e4" location="[FastEndpoints].[Services].[UpdateAggregateRootCompositeManyBCommand]" />
+        <target applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a9aac0e5-7eb6-4825-8c13-bdcc6b029a72" location="[FastEndpoints].[Services].[CompositeManyB]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="a9aac0e5-7eb6-4825-8c13-bdcc6b029a72" name="CompositeManyB" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="47c42416-226f-4115-b486-2d3c229a05a6" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="f6d2c4f4-fe7a-433c-8cf1-84499b3401e4" name="UpdateAggregateRootCompositeManyBCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7841c8fb-3d64-4c73-b7b9-b79bf51ae093" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f6d2c4f4-fe7a-433c-8cf1-84499b3401e4" location="[FastEndpoints].[Services].[UpdateAggregateRootCompositeManyBCommand]" />
+        <target applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a9aac0e5-7eb6-4825-8c13-bdcc6b029a72" location="[FastEndpoints].[Services].[CompositeManyB]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CompositeAttr}</expression>
+            <path>
+              <target id="a9aac0e5-7eb6-4825-8c13-bdcc6b029a72" name="CompositeManyB" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="22dcdc6f-f690-45f5-8f21-0b3569baeb16" name="CompositeAttr" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="CompositeAttr" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="f6d2c4f4-fe7a-433c-8cf1-84499b3401e4" name="UpdateAggregateRootCompositeManyBCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="28217a45-b6ae-4aef-bf75-a4ecc2289402" name="CompositeAttr" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{SomeDate}</expression>
+            <path>
+              <target id="a9aac0e5-7eb6-4825-8c13-bdcc6b029a72" name="CompositeManyB" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="e06ed5f1-5e9e-462c-8675-1c4f9d7a983c" name="SomeDate" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="SomeDate" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="f6d2c4f4-fe7a-433c-8cf1-84499b3401e4" name="UpdateAggregateRootCompositeManyBCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="68b6e624-daac-4acf-8915-58b48ee9162a" name="SomeDate" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{AggregateRootId}</expression>
+            <path>
+              <target id="a9aac0e5-7eb6-4825-8c13-bdcc6b029a72" name="CompositeManyB" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="8574016a-206b-45be-856b-667e885b51b4" name="AggregateRootId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="AggregateRootId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="f6d2c4f4-fe7a-433c-8cf1-84499b3401e4" name="UpdateAggregateRootCompositeManyBCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="c42a87e9-20b4-4f9f-885f-ab578d491d73" name="AggregateRootId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>
