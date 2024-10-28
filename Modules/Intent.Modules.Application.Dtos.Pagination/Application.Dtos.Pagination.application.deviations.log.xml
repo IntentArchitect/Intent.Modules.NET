@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9d3fa7ac-3146-4995-8af1-c3b204065b4e</correlationId>
+      <path>Intent.Modules.Application.Dtos.Pagination/Templates/PagedResult/PagedResultTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2024-10-27T10:42:45.3804024Z</updatedAt>
+      <deviationsHash>CE00C3CD19B657EBE2E96ADB5FAACC4E912751808810BA5995E2A48DC319F067</deviationsHash>
+      <fileHash>454010C605AF95B310183E783B9FC1DB2CB69C1AE589420E2EA08504B9F4F141</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#55b20827-bbff-4c99-bbbc-928b198ba9c6</correlationId>
+      <path>Intent.Modules.Application.Dtos.Pagination/Templates/PagedResultMappingExtensions/PagedResultMappingExtensionsTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2024-10-28T05:29:06.6751381Z</updatedAt>
+      <deviationsHash>629715EF67780BE23CC20B01B7431FB5EE4D370648C17F23D17CC1A5AABC83FD</deviationsHash>
+      <fileHash>F7B54188041E08366F137439A1EBE24F85A3C8E7D08EDEBE9A69882CAC20EBB7</fileHash>
+    </file>
+  </files>
 </deviationsLog>

@@ -58,22 +58,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>08d002d7-2682-431e-a332-b2317a15d68a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#9d3fa7ac-3146-4995-8af1-c3b204065b4e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/PagedResult/PagedResultTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedResult/PagedResultTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>08d002d7-2682-431e-a332-b2317a15d68a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#9d3fa7ac-3146-4995-8af1-c3b204065b4e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/PagedResult/PagedResultTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedResult/PagedResultTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>08d002d7-2682-431e-a332-b2317a15d68a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9d3fa7ac-3146-4995-8af1-c3b204065b4e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PagedResult/PagedResultTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -86,22 +70,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PagedResult/PagedResultTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult/PagedResultTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>08d002d7-2682-431e-a332-b2317a15d68a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#55b20827-bbff-4c99-bbbc-928b198ba9c6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/PagedResultMappingExtensions/PagedResultMappingExtensionsTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedResultMappingExtensions/PagedResultMappingExtensionsTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>08d002d7-2682-431e-a332-b2317a15d68a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#55b20827-bbff-4c99-bbbc-928b198ba9c6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/PagedResultMappingExtensions/PagedResultMappingExtensionsTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedResultMappingExtensions/PagedResultMappingExtensionsTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
