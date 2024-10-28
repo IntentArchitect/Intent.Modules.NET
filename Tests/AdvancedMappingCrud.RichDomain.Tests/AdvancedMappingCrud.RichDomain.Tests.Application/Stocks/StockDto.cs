@@ -1,3 +1,4 @@
+using System;
 using AdvancedMappingCrud.RichDomain.Tests.Application.Common.Mappings;
 using AdvancedMappingCrud.RichDomain.Tests.Domain.Entities;
 using AutoMapper;
@@ -18,10 +19,13 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Stocks
         public string Name { get; set; }
         public int Total { get; set; }
 
-        public static StockDto Create(string name, int total)
+        public static StockDto Create(DateTime currentDateTime, Guid id, string user, string name, int total)
         {
             return new StockDto
             {
+                CurrentDateTime = currentDateTime,
+                Id = id,
+                User = user,
                 Name = name,
                 Total = total
             };

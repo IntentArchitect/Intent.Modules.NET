@@ -156,6 +156,118 @@
     </FileLog>
     <FileLog>
       <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#52fee53c-8387-4ea5-9d9e-308136124fef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Customers/CreateCustomer/CreateCustomerCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CreateCustomer/CreateCustomerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#52fee53c-8387-4ea5-9d9e-308136124fef</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Customers/CreateCustomer/CreateCustomerCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CreateCustomer/CreateCustomerCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#d49179be-3e48-44fe-8a27-95e3d9006c5d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Customers/CustomerDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#d49179be-3e48-44fe-8a27-95e3d9006c5d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Customers/CustomerDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomerDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#c4894fce-807a-46af-8feb-cbc51557a853</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Customers/DeleteCustomer/DeleteCustomerCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/DeleteCustomer/DeleteCustomerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#c4894fce-807a-46af-8feb-cbc51557a853</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/DeleteCustomer/DeleteCustomerCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#75aba077-0e9f-48e5-a7a3-6235d8f3d12d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Customers/GetCustomerById/GetCustomerByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomerById/GetCustomerByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#75aba077-0e9f-48e5-a7a3-6235d8f3d12d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Customers/GetCustomerById/GetCustomerByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomerById/GetCustomerByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#8c468f45-a71d-4389-a3fb-96039ff7a16c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Customers/GetCustomers/GetCustomersQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomers/GetCustomersQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#8c468f45-a71d-4389-a3fb-96039ff7a16c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/GetCustomers/GetCustomersQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#7abcb2d2-2890-4911-be7e-2685ac7d84c0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Customers/PersonDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/PersonDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#7abcb2d2-2890-4911-be7e-2685ac7d84c0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Customers/PersonDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/PersonDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#a32684ed-3b40-400f-87b9-d82127423f4d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Customers/UpdateCustomer/UpdateCustomerCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/UpdateCustomer/UpdateCustomerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#a32684ed-3b40-400f-87b9-d82127423f4d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/UpdateCustomer/UpdateCustomerCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1af1e709-41f3-481a-bae4-96b4190516e4</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -412,6 +524,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>52942bdc-403b-423c-b177-c38cae3305a5</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#903959ee-06fa-4831-854d-531bb8ad9b4d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Domain/Entities/Customer.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>52942bdc-403b-423c-b177-c38cae3305a5</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#4db32430-16e4-4d67-90cc-5b283932c4fd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Domain/Entities/Invoice.cs</ApplicationRelativeFilePath>
@@ -424,6 +544,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Domain/Entities/InvoiceLine.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>InvoiceLine.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>52942bdc-403b-423c-b177-c38cae3305a5</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#84642d15-ee70-43ee-b5b2-0b06fa78079b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Domain/Entities/Person.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Person.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>10008be3-2f5a-43fb-9528-ddf8c2114b08</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#903959ee-06fa-4831-854d-531bb8ad9b4d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICustomerRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -484,6 +620,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b8c5377f-05be-4c95-b7f1-688f47e61175</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#903959ee-06fa-4831-854d-531bb8ad9b4d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b8c5377f-05be-4c95-b7f1-688f47e61175</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#4db32430-16e4-4d67-90cc-5b283932c4fd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Infrastructure/Persistence/Configurations/InvoiceConfiguration.cs</ApplicationRelativeFilePath>
@@ -496,6 +640,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e637978-ddc4-476d-a58f-a45c85807f11</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#903959ee-06fa-4831-854d-531bb8ad9b4d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Infrastructure/Repositories/CustomerRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomerRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

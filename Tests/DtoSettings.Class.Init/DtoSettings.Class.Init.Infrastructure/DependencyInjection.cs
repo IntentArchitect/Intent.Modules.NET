@@ -22,6 +22,7 @@ namespace DtoSettings.Class.Init.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IInvoiceRepository, InvoiceRepository>();
             return services;
         }

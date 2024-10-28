@@ -15,6 +15,8 @@ namespace DtoSettings.Class.Private.Infrastructure.Persistence
         {
         }
 
+        public DbSet<Customer> Customers { get; set; }
+
         public DbSet<Invoice> Invoices { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -22,6 +24,7 @@ namespace DtoSettings.Class.Private.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new InvoiceConfiguration());
         }
 

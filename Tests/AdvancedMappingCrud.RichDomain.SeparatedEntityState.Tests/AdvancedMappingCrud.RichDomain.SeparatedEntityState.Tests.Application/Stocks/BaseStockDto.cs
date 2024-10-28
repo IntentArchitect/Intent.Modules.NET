@@ -16,10 +16,11 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.
         public Guid Id { get; set; }
         public string User { get; set; }
 
-        public static BaseStockDto Create(Guid id, string user)
+        public static BaseStockDto Create(DateTime currentDateTime, Guid id, string user)
         {
             return new BaseStockDto
             {
+                CurrentDateTime = currentDateTime,
                 Id = id,
                 User = user
             };
