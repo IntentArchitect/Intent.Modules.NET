@@ -13,12 +13,7 @@ namespace AdvancedMappingCrud.Repositories.ProjectTo.Tests.Application.Common.Pa
             Data = null!;
         }
 
-        public static PagedResult<T> Create(
-            int totalCount,
-            int pageCount,
-            int pageSize,
-            int pageNumber,
-            IEnumerable<T> data)
+        public static PagedResult<T> Create(int totalCount, int pageCount, int pageSize, int pageNumber, IEnumerable<T> data)
         {
             return new PagedResult<T>
             {

@@ -14,12 +14,7 @@ namespace CleanArchitecture.Comprehensive.Application.Common.Pagination
             Data = null!;
         }
 
-        public static PagedResult<T> Create(
-            int totalCount,
-            int pageCount,
-            int pageSize,
-            int pageNumber,
-            IEnumerable<T> data)
+        public static PagedResult<T> Create(int totalCount, int pageCount, int pageSize, int pageNumber, IEnumerable<T> data)
         {
             return new PagedResult<T>
             {
