@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7e7f4d8a-d2a0-45fd-997d-74c5a27e235e" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>1f28e28f-41b5-453c-ac71-809c984c86cb</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>dd3f3e5c-e812-46db-af89-f630a56fa304</parentFolderId>
+  <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+  <packageName>AzureFunctions.NET8</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

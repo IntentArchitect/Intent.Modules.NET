@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fc3b319b-351b-471f-ac44-e86381258b89" type="Azure Function" typeId="702f57ca-3b5a-413b-a084-9f2d154154e7">
+  <comment />
+  <name>MappedAzureFunction</name>
+  <display>MappedAzureFunction(request: SampleMappedRequest): string</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="f7ccfcb4-3bb2-405e-a930-1e3edf430166">
+    <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>859f5adf-c40e-40fb-9e68-e41da908d768</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>95923466-5e26-49ce-8824-db29d0d2d8b0</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="4385c794-36f4-478f-a96f-17c1244c650b" name="SampleDomainsService" type="element" specialization="Service" specializationId="b16578a5-27b1-4047-a8df-f0b783d706bd" />
+      <target id="668f5ee5-516d-4f41-996d-ee046d587834" name="MappedAzureFunction" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>d334321a-377b-4cd9-ae64-2aec501e2a55</parentFolderId>
+  <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+  <packageName>AzureFunctions.NET8.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+      <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+      <properties>
+        <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Http Trigger" isActive="true" />
+        <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="true" />
+        <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" isActive="false" />
+        <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+        <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+        <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="false" />
+        <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+        <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+        <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+        <property name="38ed3faa-6770-484e-8bb9-84ae9db0153b" display="Include Message Envelope" value="false" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="mapped-azure-function" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+        <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="b6197544-7e0e-4900-a6e2-9747fb7e4ac4" name="OpenAPI Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="670baa81-b5c9-4272-a2e0-db1d167dcda4" display="Ignore" value="false" isActive="true" />
+        <property name="c6b0e60f-000b-4afb-a226-e3622119e996" display="OperationId" value="CustomOnAzureFunction" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="0b4fa5f6-11d3-4997-95d8-8649fdde0497" type="Azure Function Parameter" typeId="b6d4f537-eebe-4c56-8cb0-7687cf5bbe16">
+      <name>request</name>
+      <display>request: SampleMappedRequest</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1e320f61-4ea9-4aee-af72-e71bab684bfd">
+        <typeId>ee7d194f-7f63-4bff-9412-f080d620a5b4</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AzureFunctions.NET6.Services</typePackageName>
+        <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>95923466-5e26-49ce-8824-db29d0d2d8b0</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="300a520f-1178-4856-9863-79e71bc31d63" name="request" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>fc3b319b-351b-471f-ac44-e86381258b89</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.NET8.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
