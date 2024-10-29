@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f6473758-23e3-4651-9cda-8d8994de2261">
+  <sourceEnd id="4cb72b72-bb8b-441e-84da-cd9810243ef3" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindSampleDomainsByName</display>
+    <order>0</order>
+    <typeReference id="713ee624-9590-4136-9c21-af1f5af6f780">
+      <typeId>a99328ad-c23e-4aac-b589-90b798e94bac</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.NET6.Services</typePackageName>
+      <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f6473758-23e3-4651-9cda-8d8994de2261" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>entity</name>
+    <display>[query] entity: SampleDomain[*]</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="81fd8c1b-632a-4547-ab71-bb18b9e799ca">
+      <typeId>35c4b661-3c5e-433c-9ec8-0a5d86e594fc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.NET6.Domain</typePackageName>
+      <typePackageId>0e55483e-a292-48d7-8851-88928666394f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="859f5adf-c40e-40fb-9e68-e41da908d768" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a99328ad-c23e-4aac-b589-90b798e94bac" location="[AzureFunctions.TestApplication].[Services].[FindSampleDomainsByName]" />
+        <target applicationId="859f5adf-c40e-40fb-9e68-e41da908d768" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="35c4b661-3c5e-433c-9ec8-0a5d86e594fc" location="[AzureFunctions.TestApplication].[Services].[SampleDomain]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{name}</expression>
+            <path>
+              <target id="35c4b661-3c5e-433c-9ec8-0a5d86e594fc" name="SampleDomain" type="element" specialization="Class" />
+              <target id="885fcae5-d68a-482a-aa81-07b38b1570e6" name="Name" type="element" specialization="Attribute" />
+            </path>
+            <sources>
+              <source identifier="name" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="a99328ad-c23e-4aac-b589-90b798e94bac" name="FindSampleDomainsByName" type="element" specialization="Operation" />
+                  <target id="2483e25a-deba-4f97-96d8-5e6ed3631c04" name="name" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

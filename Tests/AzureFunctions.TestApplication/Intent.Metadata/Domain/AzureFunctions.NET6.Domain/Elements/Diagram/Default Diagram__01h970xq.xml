@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6173b200-04a2-4ce8-96e4-2c872ce68868" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>65792618-171d-4fb9-a0e3-cf2a06efc463</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0e55483e-a292-48d7-8851-88928666394f</parentFolderId>
+  <packageId>0e55483e-a292-48d7-8851-88928666394f</packageId>
+  <packageName>AzureFunctions.NET6.Domain</packageName>
+  <diagram>
+    <targetPackageId>0e55483e-a292-48d7-8851-88928666394f</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
