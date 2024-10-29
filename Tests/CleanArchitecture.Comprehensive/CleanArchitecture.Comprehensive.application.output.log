@@ -5772,6 +5772,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#4cd1e21b-b7f0-42fb-8a3b-bea39b6e2e81</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/DataContracts/DerivedDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataContracts/DerivedDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#4cd1e21b-b7f0-42fb-8a3b-bea39b6e2e81</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/DataContracts/DerivedDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataContracts/DerivedDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#42c4c89f-862d-4ae7-b219-b42028c06505</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/DDD/AccountTransfer/AccountTransfer.cs</ApplicationRelativeFilePath>
@@ -9400,6 +9416,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dbe409ec-7ee3-4862-a375-d383c2224419</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#710a8b28-4c78-4166-824e-00bfb722bfe6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Contracts/DataContracts/BaseDataContract.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataContracts/BaseDataContract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dbe409ec-7ee3-4862-a375-d383c2224419</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#0a2b0707-3c6c-4682-ab01-f597761fa179</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Contracts/DataContracts/DerivedDataContract.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataContracts/DerivedDataContract.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
