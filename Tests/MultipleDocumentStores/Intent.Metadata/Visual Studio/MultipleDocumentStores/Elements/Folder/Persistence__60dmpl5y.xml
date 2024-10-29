@@ -123,5 +123,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="45e84c31-c48a-4dbc-bc38-2d5c74906692" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.MongoDbConnectionFactory</name>
+      <display>Intent.MongoDb.MongoDbConnectionFactory</display>
+      <externalReference>Intent.MongoDb</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>024f0157-0fc4-425d-9f1a-d1f98b9fc874</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>
