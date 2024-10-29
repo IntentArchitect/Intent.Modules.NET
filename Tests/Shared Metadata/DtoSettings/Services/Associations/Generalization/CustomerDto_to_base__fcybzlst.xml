@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2ed1acc1-7ad4-4834-a135-01bb21e7873f">
+  <sourceEnd id="ed7d5f5a-a105-43a3-ae52-9067826bdcdd" type="Generalization Source End" typeId="5ce8666c-89d2-4c9c-b30c-6e5fe42e1766">
+    <display>: CustomerDto</display>
+    <order>0</order>
+    <typeReference id="fec3fd0f-1127-4490-ba46-0622ea736ac6">
+      <typeId>d49179be-3e48-44fe-8a27-95e3d9006c5d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DtoSettings.Services</typePackageName>
+      <typePackageId>24958345-ec60-4d20-9c08-de1c4255fc5d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2ed1acc1-7ad4-4834-a135-01bb21e7873f" type="Generalization Target End" typeId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db">
+    <name>base</name>
+    <display>extends PersonDto</display>
+    <order>2</order>
+    <typeReference id="2a573a03-d4ea-4eee-8a68-acf42590933e">
+      <typeId>7abcb2d2-2890-4911-be7e-2685ac7d84c0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DtoSettings.Services</typePackageName>
+      <typePackageId>24958345-ec60-4d20-9c08-de1c4255fc5d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5ba12bbf-122f-4c3e-af3c-4a88dc554597</associationTypeId>
+  <stereotypes />
+</association>
