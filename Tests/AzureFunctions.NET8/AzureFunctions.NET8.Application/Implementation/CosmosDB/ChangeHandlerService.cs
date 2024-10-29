@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using AzureFunctions.NET6.Application.CosmosDB;
-using AzureFunctions.NET6.Application.Interfaces.CosmosDB;
 using AzureFunctions.NET8.Application.CosmosDB;
 using AzureFunctions.NET8.Application.Interfaces.CosmosDB;
 using Intent.RoslynWeaver.Attributes;

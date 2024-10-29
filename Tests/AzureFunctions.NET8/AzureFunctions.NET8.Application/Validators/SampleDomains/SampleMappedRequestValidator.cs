@@ -1,5 +1,4 @@
 using System;
-using AzureFunctions.NET6.Application.SampleDomains;
 using AzureFunctions.NET8.Application.SampleDomains;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;

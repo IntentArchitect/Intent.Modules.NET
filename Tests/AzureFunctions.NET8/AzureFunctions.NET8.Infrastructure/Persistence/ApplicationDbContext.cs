@@ -1,6 +1,3 @@
-using AzureFunctions.NET6.Domain.Common.Interfaces;
-using AzureFunctions.NET6.Domain.Entities;
-using AzureFunctions.NET6.Infrastructure.Persistence.Configurations;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using AzureFunctions.NET8.Domain.Entities;
 using AzureFunctions.NET8.Infrastructure.Persistence.Configurations;

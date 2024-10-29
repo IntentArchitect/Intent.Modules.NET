@@ -1,6 +1,5 @@
 using System.Threading;
 using System.Threading.Tasks;
-using AzureFunctions.NET6.Application.Common.Interfaces;
 using AzureFunctions.NET8.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR.Pipeline;

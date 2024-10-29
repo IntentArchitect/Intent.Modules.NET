@@ -1,5 +1,3 @@
-using AzureFunctions.NET6.Application.Common.Interfaces;
-using AzureFunctions.NET6.Application.Customers;
 using AzureFunctions.NET8.Application.Common.Interfaces;
 using AzureFunctions.NET8.Application.Customers;
 using Intent.RoslynWeaver.Attributes;

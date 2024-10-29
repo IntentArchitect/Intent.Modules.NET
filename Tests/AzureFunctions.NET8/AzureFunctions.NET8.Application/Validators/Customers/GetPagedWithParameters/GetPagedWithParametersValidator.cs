@@ -1,5 +1,4 @@
 using System;
-using AzureFunctions.NET6.Application.Customers.GetPagedWithParameters;
 using AzureFunctions.NET8.Application.Customers.GetPagedWithParameters;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;

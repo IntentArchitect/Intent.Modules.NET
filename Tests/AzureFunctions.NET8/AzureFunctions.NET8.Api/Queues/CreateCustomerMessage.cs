@@ -6,8 +6,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using Azure.Storage.Queues.Models;
-using AzureFunctions.NET6.Application.Queues.CreateCustomerMessage;
-using AzureFunctions.NET6.Domain.Common.Interfaces;
 using AzureFunctions.NET8.Application.Queues.CreateCustomerMessage;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;

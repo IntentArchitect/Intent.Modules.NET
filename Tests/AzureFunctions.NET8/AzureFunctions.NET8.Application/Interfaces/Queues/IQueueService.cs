@@ -1,7 +1,6 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using AzureFunctions.NET6.Application.Customers;
 using AzureFunctions.NET8.Application.Customers;
 using Intent.RoslynWeaver.Attributes;
 

@@ -6,9 +6,6 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
-using AzureFunctions.NET6.Application.Customers.CreateCustomer;
-using AzureFunctions.NET6.Domain.Common.Exceptions;
-using AzureFunctions.NET6.Domain.Common.Interfaces;
 using AzureFunctions.NET8.Application.Customers.CreateCustomer;
 using AzureFunctions.NET8.Domain.Common.Exceptions;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
@@ -17,8 +14,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.OpenApi.Models;
 
@@ -38,7 +34,7 @@ namespace AzureFunctions.NET8.Api.Customers
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("Customers_CreateCustomer")]
+        [Function("Customers_CreateCustomer")]
         [OpenApiOperation("CustomOnCommand", tags: new[] { "Customers" }, Description = "Line 1\nLine 2\nTab \t\nSlash \\")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(CreateCustomerCommand))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(Guid))]

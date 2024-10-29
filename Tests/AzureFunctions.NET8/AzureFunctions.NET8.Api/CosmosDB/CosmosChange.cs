@@ -5,12 +5,11 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
-using AzureFunctions.NET6.Application.CosmosDB.CosmosChange;
-using AzureFunctions.NET6.Domain.Common.Interfaces;
 using AzureFunctions.NET8.Application.CosmosDB.CosmosChange;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

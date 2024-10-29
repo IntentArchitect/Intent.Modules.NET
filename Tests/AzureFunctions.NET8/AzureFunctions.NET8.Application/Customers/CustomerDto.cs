@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using AutoMapper;
-using AzureFunctions.NET6.Application.Common.Mappings;
-using AzureFunctions.NET6.Domain.Entities;
 using AzureFunctions.NET8.Application.Common.Mappings;
 using AzureFunctions.NET8.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;

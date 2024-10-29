@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AzureFunctions.NET6.Domain.Entities;
 using AzureFunctions.NET8.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 

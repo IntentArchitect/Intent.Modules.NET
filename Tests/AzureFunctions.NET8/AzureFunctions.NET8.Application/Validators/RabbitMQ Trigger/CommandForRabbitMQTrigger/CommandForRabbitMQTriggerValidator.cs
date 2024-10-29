@@ -1,4 +1,3 @@
-using AzureFunctions.NET6.Application.RabbitMQTrigger.CommandForRabbitMQTrigger;
 using AzureFunctions.NET8.Application.RabbitMQTrigger.CommandForRabbitMQTrigger;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;

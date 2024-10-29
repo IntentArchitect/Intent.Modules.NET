@@ -1,5 +1,4 @@
 using System;
-using AzureFunctions.NET6.Application.CosmosDB.CosmosChange;
 using AzureFunctions.NET8.Application.CosmosDB.CosmosChange;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;

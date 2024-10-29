@@ -1,17 +1,5 @@
 using System.Reflection;
 using AutoMapper;
-using AzureFunctions.NET6.Application.Common.Behaviours;
-using AzureFunctions.NET6.Application.Common.Validation;
-using AzureFunctions.NET6.Application.Implementation;
-using AzureFunctions.NET6.Application.Implementation.CosmosDB;
-using AzureFunctions.NET6.Application.Implementation.Enums;
-using AzureFunctions.NET6.Application.Implementation.Queues;
-using AzureFunctions.NET6.Application.Implementation.Queues.Bindings;
-using AzureFunctions.NET6.Application.Interfaces;
-using AzureFunctions.NET6.Application.Interfaces.CosmosDB;
-using AzureFunctions.NET6.Application.Interfaces.Enums;
-using AzureFunctions.NET6.Application.Interfaces.Queues;
-using AzureFunctions.NET6.Application.Interfaces.Queues.Bindings;
 using AzureFunctions.NET8.Application.Common.Behaviours;
 using AzureFunctions.NET8.Application.Common.Validation;
 using AzureFunctions.NET8.Application.Implementation;

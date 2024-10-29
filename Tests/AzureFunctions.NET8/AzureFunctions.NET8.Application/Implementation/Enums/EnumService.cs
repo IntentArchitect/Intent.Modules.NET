@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using AzureFunctions.NET6.Application.Enums;
-using AzureFunctions.NET6.Application.Interfaces.Enums;
 using AzureFunctions.NET8.Application.Enums;
 using AzureFunctions.NET8.Application.Interfaces.Enums;
 using Intent.RoslynWeaver.Attributes;

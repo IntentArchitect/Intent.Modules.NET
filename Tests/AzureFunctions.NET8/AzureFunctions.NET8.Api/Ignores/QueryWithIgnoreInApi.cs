@@ -4,8 +4,6 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using AzureFunctions.NET6.Application.Ignores.QueryWithIgnoreInApi;
-using AzureFunctions.NET6.Domain.Common.Exceptions;
 using AzureFunctions.NET8.Application.Ignores.QueryWithIgnoreInApi;
 using AzureFunctions.NET8.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;

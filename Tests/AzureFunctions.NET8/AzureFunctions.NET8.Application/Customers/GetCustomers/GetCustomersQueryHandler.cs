@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using AzureFunctions.NET6.Domain.Repositories;
 using AzureFunctions.NET8.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;

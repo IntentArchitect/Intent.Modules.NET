@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using AzureFunctions.NET6.Application.Common.Pagination;
-using AzureFunctions.NET6.Application.SampleDomains;
 using AzureFunctions.NET8.Application.Common.Pagination;
 using AzureFunctions.NET8.Application.SampleDomains;
 using Intent.RoslynWeaver.Attributes;

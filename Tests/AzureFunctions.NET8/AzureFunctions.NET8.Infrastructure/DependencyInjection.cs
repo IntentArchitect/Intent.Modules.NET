@@ -1,10 +1,5 @@
 using System.Reflection;
 using AutoMapper;
-using AzureFunctions.NET6.Domain.Common.Interfaces;
-using AzureFunctions.NET6.Domain.Repositories;
-using AzureFunctions.NET6.Infrastructure.Configuration;
-using AzureFunctions.NET6.Infrastructure.Persistence;
-using AzureFunctions.NET6.Infrastructure.Repositories;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using AzureFunctions.NET8.Domain.Repositories;
 using AzureFunctions.NET8.Infrastructure.Configuration;

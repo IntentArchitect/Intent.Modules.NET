@@ -1,4 +1,3 @@
-using AzureFunctions.NET6.Application.Validation.InboundQueVal;
 using AzureFunctions.NET8.Application.Validation.InboundQueVal;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;

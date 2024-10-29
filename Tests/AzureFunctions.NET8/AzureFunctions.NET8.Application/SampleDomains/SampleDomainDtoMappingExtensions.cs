@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using AutoMapper;
-using AzureFunctions.NET6.Domain.Entities;
 using AzureFunctions.NET8.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 

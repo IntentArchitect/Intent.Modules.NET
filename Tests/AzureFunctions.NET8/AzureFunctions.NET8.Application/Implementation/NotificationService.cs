@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using AzureFunctions.NET6.Application.Interfaces;
-using AzureFunctions.NET6.Domain;
 using AzureFunctions.NET8.Application.Interfaces;
 using AzureFunctions.NET8.Domain;
 using Intent.RoslynWeaver.Attributes;

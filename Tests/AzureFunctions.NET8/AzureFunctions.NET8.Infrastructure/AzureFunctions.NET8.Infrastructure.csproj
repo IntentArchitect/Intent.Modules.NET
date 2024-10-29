@@ -5,8 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AzureFunctions.NET6.Domain\AzureFunctions.NET6.Domain.csproj" />
-    <ProjectReference Include="..\AzureFunctions.NET6.Application\AzureFunctions.NET6.Application.csproj" />
     <ProjectReference Include="..\AzureFunctions.NET8.Domain\AzureFunctions.NET8.Domain.csproj" />
     <ProjectReference Include="..\AzureFunctions.NET8.Application\AzureFunctions.NET8.Application.csproj" />
   </ItemGroup>
@@ -29,7 +27,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
   </ItemGroup>
 
 </Project>

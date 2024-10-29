@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using AzureFunctions.NET6.Application.Customers;
-using AzureFunctions.NET6.Application.Interfaces.Queues.Bindings;
 using AzureFunctions.NET8.Application.Customers;
 using AzureFunctions.NET8.Application.Interfaces.Queues.Bindings;
 using Intent.RoslynWeaver.Attributes;

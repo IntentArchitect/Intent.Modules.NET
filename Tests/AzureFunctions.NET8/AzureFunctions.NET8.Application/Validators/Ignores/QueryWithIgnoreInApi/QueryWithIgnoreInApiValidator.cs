@@ -1,4 +1,3 @@
-using AzureFunctions.NET6.Application.Ignores.QueryWithIgnoreInApi;
 using AzureFunctions.NET8.Application.Ignores.QueryWithIgnoreInApi;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;

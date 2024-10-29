@@ -1,5 +1,4 @@
 using System;
-using AzureFunctions.NET6.Application.Customers.CreateCustomer;
 using AzureFunctions.NET8.Application.Customers.CreateCustomer;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;

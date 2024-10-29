@@ -1,17 +1,16 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using Azure.Storage.Queues;
-using AzureFunctions.NET6.Application.Queues.Bindings.Bind;
-using AzureFunctions.NET6.Domain.Common.Interfaces;
+using AzureFunctions.NET8.Application.Customers;
 using AzureFunctions.NET8.Application.Queues.Bindings.Bind;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -30,14 +29,14 @@ namespace AzureFunctions.NET8.Api.Queues.Bindings
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("Queues_Bindings_Bind")]
-        public async Task Run(
+        [Function("Queues_Bindings_Bind")]
+        [QueueOutput("out-queue")]
+        public async Task<CustomerDto?> Run(
             [QueueTrigger("in-queue")] BindCommand bindCommand,
-            [Queue("out-queue")] QueueClient queueClient,
             CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(bindCommand, cancellationToken);
-            await queueClient.SendMessageAsync(JsonSerializer.Serialize(result), cancellationToken);
+            return result;
         }
     }
 }

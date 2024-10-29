@@ -1,5 +1,4 @@
 using System;
-using AzureFunctions.NET6.Application.Queues.CreateCustomerWrappedMessage;
 using AzureFunctions.NET8.Application.Queues.CreateCustomerWrappedMessage;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;

@@ -1,5 +1,4 @@
 using System;
-using AzureFunctions.NET6.Application.Params.GetByIdsHeadersTest;
 using AzureFunctions.NET8.Application.Params.GetByIdsHeadersTest;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;

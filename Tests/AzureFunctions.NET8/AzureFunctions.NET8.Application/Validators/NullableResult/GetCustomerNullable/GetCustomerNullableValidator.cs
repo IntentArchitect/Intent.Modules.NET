@@ -1,5 +1,4 @@
 using System;
-using AzureFunctions.NET6.Application.NullableResult.GetCustomerNullable;
 using AzureFunctions.NET8.Application.NullableResult.GetCustomerNullable;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;

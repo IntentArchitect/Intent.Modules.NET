@@ -1,7 +1,5 @@
 using System;
 using System.Net.Http;
-using AzureFunctions.NET6.Application.IntegrationServices;
-using AzureFunctions.NET6.Infrastructure.HttpClients;
 using AzureFunctions.NET8.Application.IntegrationServices;
 using AzureFunctions.NET8.Infrastructure.HttpClients;
 using Intent.RoslynWeaver.Attributes;

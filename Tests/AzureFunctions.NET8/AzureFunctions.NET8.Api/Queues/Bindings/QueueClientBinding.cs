@@ -5,11 +5,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using Azure.Storage.Queues;
-using AzureFunctions.NET6.Application.Queues.CreateCustomerMessage;
-using AzureFunctions.NET6.Domain.Common.Interfaces;
+using AzureFunctions.NET8.Application.Customers;
 using AzureFunctions.NET8.Application.Queues.CreateCustomerMessage;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -26,12 +26,12 @@ namespace AzureFunctions.NET8.Api.Queues.Bindings
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("Queues_Bindings_QueueClientBinding")]
-        public async Task Run(
+        [Function("Queues_Bindings_QueueClientBinding")]
+        public async Task<CustomerDto> Run(
             [QueueTrigger("queue1")] Application.Queues.CreateCustomerMessage.CreateCustomerMessage message,
-            [Queue("out-queue")] QueueClient queueClient,
             CancellationToken cancellationToken)
         {
+
         }
     }
 }

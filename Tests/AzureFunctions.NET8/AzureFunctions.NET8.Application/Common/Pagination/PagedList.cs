@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AzureFunctions.NET6.Domain.Repositories;
 using AzureFunctions.NET8.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 

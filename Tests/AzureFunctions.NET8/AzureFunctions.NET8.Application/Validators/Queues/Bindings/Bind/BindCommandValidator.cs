@@ -1,5 +1,4 @@
 using System;
-using AzureFunctions.NET6.Application.Queues.Bindings.Bind;
 using AzureFunctions.NET8.Application.Queues.Bindings.Bind;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;

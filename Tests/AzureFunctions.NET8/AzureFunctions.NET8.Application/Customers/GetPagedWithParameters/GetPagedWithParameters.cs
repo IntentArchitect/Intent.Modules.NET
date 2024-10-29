@@ -1,6 +1,4 @@
 using System;
-using AzureFunctions.NET6.Application.Common.Interfaces;
-using AzureFunctions.NET6.Application.Common.Pagination;
 using AzureFunctions.NET8.Application.Common.Interfaces;
 using AzureFunctions.NET8.Application.Common.Pagination;
 using Intent.RoslynWeaver.Attributes;

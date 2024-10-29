@@ -4,8 +4,6 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
-using AzureFunctions.NET6.Application.RabbitMQTrigger.CommandForRabbitMQTrigger;
-using AzureFunctions.NET6.Domain.Common.Interfaces;
 using AzureFunctions.NET8.Application.RabbitMQTrigger.CommandForRabbitMQTrigger;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;

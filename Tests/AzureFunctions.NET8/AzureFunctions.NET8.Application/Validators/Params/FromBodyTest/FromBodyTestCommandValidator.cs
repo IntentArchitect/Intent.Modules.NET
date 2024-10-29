@@ -1,5 +1,4 @@
 using System;
-using AzureFunctions.NET6.Application.Params.FromBodyTest;
 using AzureFunctions.NET8.Application.Params.FromBodyTest;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;

@@ -1,5 +1,4 @@
 using System;
-using AzureFunctions.NET6.Application.Customers.DeleteCustomer;
 using AzureFunctions.NET8.Application.Customers.DeleteCustomer;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;

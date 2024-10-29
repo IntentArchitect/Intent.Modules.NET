@@ -1,4 +1,3 @@
-using AzureFunctions.NET6.Domain.Entities;
 using AzureFunctions.NET8.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;

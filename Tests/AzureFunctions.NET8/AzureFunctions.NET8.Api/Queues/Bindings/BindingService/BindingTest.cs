@@ -6,13 +6,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using Azure.Storage.Queues;
-using AzureFunctions.NET6.Application.Customers;
-using AzureFunctions.NET6.Application.Interfaces.Queues.Bindings;
-using AzureFunctions.NET6.Domain.Common.Interfaces;
 using AzureFunctions.NET8.Application.Customers;
 using AzureFunctions.NET8.Application.Interfaces.Queues.Bindings;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -31,10 +29,10 @@ namespace AzureFunctions.NET8.Api.Queues.Bindings.BindingService
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("Queues_Bindings_BindingService_BindingTest")]
-        public async Task Run(
+        [Function("Queues_Bindings_BindingService_BindingTest")]
+        [QueueOutput("out-queue")]
+        public async Task<CustomerDto?> Run(
             [QueueTrigger("in-queue")] CustomerDto dto,
-            [Queue("out-queue")] QueueClient queueClient,
             CancellationToken cancellationToken)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
@@ -43,7 +41,7 @@ namespace AzureFunctions.NET8.Api.Queues.Bindings.BindingService
                 var result = await _appService.BindingTest(dto, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
-                await queueClient.SendMessageAsync(JsonSerializer.Serialize(result), cancellationToken);
+                return result;
             }
         }
     }
