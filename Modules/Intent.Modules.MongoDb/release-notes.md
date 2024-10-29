@@ -1,5 +1,6 @@
 ### Version 1.0.17
 
+- New Feature: Added mutli-tenancy support with Finbuckle for `Seperate Databases` option.
 - Improvement: Small updated to more align code styling with best practices
 
 ### Version 1.0.16

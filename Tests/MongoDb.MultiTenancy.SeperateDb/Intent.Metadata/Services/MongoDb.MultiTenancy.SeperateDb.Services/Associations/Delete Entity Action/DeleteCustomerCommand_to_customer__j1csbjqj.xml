@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="998726e8-d596-446c-9f02-2ef99623bee4">
+  <sourceEnd id="8cf23934-ca1f-4d82-a30f-b9005cc129ee" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Customers.DeleteCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="631883f2-2cd2-4b17-a5b9-93cebb8bb996">
+      <typeId>492c617d-fcd7-4dde-b2a4-257cd2d85914</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MongoDb.MultiTenancy.SeperateDb.Services</typePackageName>
+      <typePackageId>53df074c-9268-4de3-a248-fb88209752d9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="998726e8-d596-446c-9f02-2ef99623bee4" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>customer</name>
+    <display>[delete] customer: Customer</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="261e10b3-4dd5-46db-9fa4-1cb6ef8c3f95">
+      <typeId>7241012b-20e5-4aa3-94cc-0dc46cdb427f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MongoDb.MultiTenancy.SeperateDb.Domain</typePackageName>
+      <typePackageId>28f20a71-e384-4fb2-af77-7f67c2acd8d8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="53c3cfa0-1a1c-4f2f-be99-0b1c3f52f2a1" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="492c617d-fcd7-4dde-b2a4-257cd2d85914" location="[MongoDb.MultiTenancy.SeperateDb].[Services].[DeleteCustomerCommand]" />
+        <target applicationId="53c3cfa0-1a1c-4f2f-be99-0b1c3f52f2a1" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7241012b-20e5-4aa3-94cc-0dc46cdb427f" location="[MongoDb.MultiTenancy.SeperateDb].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="7241012b-20e5-4aa3-94cc-0dc46cdb427f" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="e33c335a-d711-4435-b51e-919a12806bcf" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="492c617d-fcd7-4dde-b2a4-257cd2d85914" name="DeleteCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="78ad91f0-e440-47f9-a29e-f49b6c6478c6" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

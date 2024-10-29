@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4e89c8b5-0acb-4dd8-a23e-e3f8157dae50" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Customers</name>
+  <display>Customers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>731ac48a-dab7-4ab7-9184-4fe093bf9558</parentFolderId>
+  <packageId>53df074c-9268-4de3-a248-fb88209752d9</packageId>
+  <packageName>MongoDb.MultiTenancy.SeperateDb.Services</packageName>
+  <diagram>
+    <targetPackageId>4e89c8b5-0acb-4dd8-a23e-e3f8157dae50</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
