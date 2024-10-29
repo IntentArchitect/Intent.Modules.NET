@@ -11,9 +11,9 @@ This module does the following
 ## Dapper Repository method example 
 
 ```csharp
-		public async Task<List<Customer>> GetWithDapperQuery(CancellationToken cancellationToken)
-		{
-			var customers = await GetConnection().QueryAsync<Customer>("Select * from [dbo].[Customers]");
-			return customers.ToList();
-		}
+public async Task<List<Customer>> GetWithDapperQuery(CancellationToken cancellationToken)
+{
+    var customers = await GetConnection().QueryAsync<Customer>("Select * from [dbo].[Customers]");
+    return customers.ToList();
+}
 ```
