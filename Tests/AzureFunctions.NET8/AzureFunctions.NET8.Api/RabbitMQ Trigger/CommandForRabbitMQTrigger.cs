@@ -8,6 +8,7 @@ using AzureFunctions.NET8.Application.RabbitMQTrigger.CommandForRabbitMQTrigger;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -26,9 +27,9 @@ namespace AzureFunctions.NET8.Api.RabbitMQTrigger
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("RabbitMQ Trigger_CommandForRabbitMQTrigger")]
+        [Function("RabbitMQ Trigger_CommandForRabbitMQTrigger")]
         public async Task Run(
-            [Microsoft.Azure.WebJobs.RabbitMQTrigger("rabbit-queue")] Application.RabbitMQTrigger.CommandForRabbitMQTrigger.CommandForRabbitMQTrigger commandForRabbitMQTrigger,
+            [RabbitMQTrigger("rabbit-queue")] Application.RabbitMQTrigger.CommandForRabbitMQTrigger.CommandForRabbitMQTrigger commandForRabbitMQTrigger,
             CancellationToken cancellationToken)
         {
             await _mediator.Send(commandForRabbitMQTrigger, cancellationToken);

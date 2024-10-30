@@ -8,6 +8,7 @@ using System.Transactions;
 using AzureFunctions.NET8.Application.RabbitMQTrigger.CommandForRabbitMQTrigger;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs;
 using RabbitMQ.Client.Events;
 
@@ -25,9 +26,9 @@ namespace AzureFunctions.NET8.Api.RabbitMQTrigger
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("RabbitMQ Trigger_RabbitMQTriggerFunction")]
+        [Function("RabbitMQ Trigger_RabbitMQTriggerFunction")]
         public async Task Run(
-            [Microsoft.Azure.WebJobs.RabbitMQTrigger("rabbit-queue")] BasicDeliverEventArgs args,
+            [RabbitMQTrigger("rabbit-queue")] BasicDeliverEventArgs args,
             CancellationToken cancellationToken)
         {
             var command = JsonSerializer.Deserialize<Application.RabbitMQTrigger.CommandForRabbitMQTrigger.CommandForRabbitMQTrigger>(args.Body.ToArray());

@@ -31,7 +31,7 @@ namespace AzureFunctions.NET8.Api.Queues.Bindings
             [QueueTrigger("queue1")] Application.Queues.CreateCustomerMessage.CreateCustomerMessage message,
             CancellationToken cancellationToken)
         {
-
+            return default;
         }
     }
 }

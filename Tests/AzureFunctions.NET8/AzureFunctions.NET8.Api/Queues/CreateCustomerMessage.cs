@@ -10,6 +10,7 @@ using AzureFunctions.NET8.Application.Queues.CreateCustomerMessage;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -28,7 +29,7 @@ namespace AzureFunctions.NET8.Api.Queues
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("Queues_CreateCustomerMessage")]
+        [Function("Queues_CreateCustomerMessage")]
         public async Task Run([QueueTrigger("customers")] QueueMessage rawMessage, CancellationToken cancellationToken)
         {
             var createCustomerMessage = JsonSerializer.Deserialize<Application.Queues.CreateCustomerMessage.CreateCustomerMessage>(rawMessage.Body.ToString(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
