@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5136972e-ca30-47f6-ba5b-c451b48236a8">
+  <sourceEnd id="c6759a59-2a55-4c7d-b98d-f12117cb091a" type="Data Contract Generalization Source End" typeId="12c2ffdc-9a54-4e99-9e09-a441fa260bef">
+    <display>: DerivedDataContract</display>
+    <order>0</order>
+    <typeReference id="42ec18b4-588f-44a7-8bff-33d40f37018b">
+      <typeId>0a2b0707-3c6c-4682-ab01-f597761fa179</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5136972e-ca30-47f6-ba5b-c451b48236a8" type="Data Contract Generalization Target End" typeId="4ea029c6-e963-46c7-8d2f-e4ea73e05a07">
+    <name>base</name>
+    <display>extends BaseDataContract</display>
+    <order>0</order>
+    <typeReference id="0546c67a-9701-4b0f-9835-d5a80d6f3122">
+      <typeId>710a8b28-4c78-4166-824e-00bfb722bfe6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Data Contract Generalization</associationType>
+  <associationTypeId>4199ae15-0ecc-4086-82f3-bfa885c9d3e8</associationTypeId>
+  <stereotypes />
+</association>

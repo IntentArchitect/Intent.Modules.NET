@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos.AutoMapper</id>
-  <version>4.0.10</version>
+  <version>4.0.11-pre.0</version>
   <supportedClientVersions>[4.1.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Generates mapping specifications using AutoMapper for DTOs that are mapped from Domain Entities</summary>
   <description>Generates mapping specifications using AutoMapper for DTOs that are mapped from Domain Entities</description>

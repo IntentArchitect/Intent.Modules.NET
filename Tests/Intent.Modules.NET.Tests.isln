@@ -139,5 +139,6 @@
     <application id="3a41b4eb-4b1f-4028-91a4-9225b2873c35" name="FastEndpointsTest" relativePath="FastEndpointsTest/FastEndpointsTest.application.config" />
     <application id="e931eb22-645c-475d-91b2-4e37a92b5f77" name="AdvancedMappingCrud.Repositories.ProjectTo.Tests" relativePath="AdvancedMappingCrud.Repositories.ProjectTo.Tests/AdvancedMappingCrud.Repositories.ProjectTo.Tests.application.config" />
     <application id="edb0ac72-6958-4f39-b46c-858b07b49b46" name="AzureFunctions.NET8" relativePath="AzureFunctions.NET8/AzureFunctions.NET8.application.config" />
+    <application id="53c3cfa0-1a1c-4f2f-be99-0b1c3f52f2a1" name="MongoDb.MultiTenancy.SeperateDb" relativePath="MongoDb.MultiTenancy.SeperateDb/MongoDb.MultiTenancy.SeperateDb.application.config" />
   </applications>
 </solution>

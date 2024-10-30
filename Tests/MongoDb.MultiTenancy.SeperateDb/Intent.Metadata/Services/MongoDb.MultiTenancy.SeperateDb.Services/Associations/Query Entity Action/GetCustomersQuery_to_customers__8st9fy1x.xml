@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1409567f-0e4e-4516-8257-8c70454d7740">
+  <sourceEnd id="f01c74c3-9e8a-47c8-a065-e389b7ee51b5" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomersQuery</display>
+    <order>0</order>
+    <typeReference id="81bbc36b-ae85-4665-b395-5b9cb7124d70">
+      <typeId>af74f4cc-aeea-4d40-bba7-c9e608151df5</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MongoDb.MultiTenancy.SeperateDb.Services</typePackageName>
+      <typePackageId>53df074c-9268-4de3-a248-fb88209752d9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1409567f-0e4e-4516-8257-8c70454d7740" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customers</name>
+    <display>[query] customers: Customer[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="f1de46da-7634-40d0-ae93-0a507256408c">
+      <typeId>7241012b-20e5-4aa3-94cc-0dc46cdb427f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MongoDb.MultiTenancy.SeperateDb.Domain</typePackageName>
+      <typePackageId>28f20a71-e384-4fb2-af77-7f67c2acd8d8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="53c3cfa0-1a1c-4f2f-be99-0b1c3f52f2a1" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="af74f4cc-aeea-4d40-bba7-c9e608151df5" location="[MongoDb.MultiTenancy.SeperateDb].[Services].[GetCustomersQuery]" />
+        <target applicationId="53c3cfa0-1a1c-4f2f-be99-0b1c3f52f2a1" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7241012b-20e5-4aa3-94cc-0dc46cdb427f" location="[MongoDb.MultiTenancy.SeperateDb].[Services].[Customer]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

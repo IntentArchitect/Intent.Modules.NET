@@ -25,6 +25,27 @@ When designing domain models for MongoDB your domain package must be annotated w
 
 ![Configure MongoDB provider](./docs/images/db-provider-mongo-db.png)
 
+## Multi-Tenancy Support
+
+The module can work in conjunction with the `Intent.Modules.AspNetCore.MultiTenancy`. This module currently only support the `Seperate Databases` Data Isolation option.
+
+In this setup each tenant will connection to their own MongoDB, you simply need to configure your connection strings per tenant.
+
+Here is a sample configuration for the `In Memory` tenant store.
+
+```csharp
+
+public static void InitializeStore(IServiceProvider sp)
+{
+    var scopeServices = sp.CreateScope().ServiceProvider;
+    var store = scopeServices.GetRequiredService<IMultiTenantStore<TenantInfo>>();
+
+    store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", ConnectionString = "mongodb://localhost/MongoMultiTenant1" }).Wait();
+    store.TryAddAsync(new TenantInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", ConnectionString = "mongodb://localhost/MongoMultiTenant2" }).Wait();
+}
+
+```
+
 ## Related Modules
 
 ### Intent.Metadata.DocumentDB

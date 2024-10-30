@@ -1,3 +1,7 @@
+### Version 1.2.3
+
+- Improvement: Module version bumps from MongoDb Module Dependency.
+
 ### Version 1.2.2
 
 - Improvement: Updated module NuGet packages infrastructure.

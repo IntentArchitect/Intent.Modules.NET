@@ -1,3 +1,7 @@
+### Version 4.0.11
+
+- Fixed: Mapping profiles for attributes on generalized _Domain Data Contract_ types would gave `.Base` in their path.
+
 ### Version 4.0.10
 
 - Improvement: Updated module NuGet packages infrastructure.

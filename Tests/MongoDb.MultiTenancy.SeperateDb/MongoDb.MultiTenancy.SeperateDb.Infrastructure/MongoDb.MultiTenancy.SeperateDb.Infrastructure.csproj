@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MongoDb.MultiTenancy.SeperateDb.Domain\MongoDb.MultiTenancy.SeperateDb.Domain.csproj" />
+    <ProjectReference Include="..\MongoDb.MultiTenancy.SeperateDb.Application\MongoDb.MultiTenancy.SeperateDb.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Finbuckle.MultiTenant" Version="6.13.1" />
+    <PackageReference Include="MongoFramework" Version="0.29.0" />
+  </ItemGroup>
+  </Project>

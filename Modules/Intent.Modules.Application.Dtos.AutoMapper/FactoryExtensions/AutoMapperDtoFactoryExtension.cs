@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -14,11 +13,11 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using GeneralizationModel = Intent.Modelers.Domain.Api.GeneralizationModel;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
+using DataContractGeneralizationModel = Intent.Modelers.Domain.Api.DataContractGeneralizationModel;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -205,7 +204,10 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtensions
         private static (string Path, MethodName MethodName) GetPath(IEnumerable<IElementMappingPathTarget> pathTargets)
         {
             var path = string.Join(".", pathTargets
-                .Where(pathTarget => pathTarget.Specialization != "Generalization Target End" && pathTarget.Specialization != GeneralizationModel.SpecializationType)
+                .Where(pathTarget => pathTarget.Specialization != "Generalization Target End" &&
+                                     pathTarget.Specialization != GeneralizationModel.SpecializationType &&
+                                     pathTarget.Specialization != "Data Contract Generalization Target End" &&
+                                     pathTarget.Specialization != DataContractGeneralizationModel.SpecializationType)
                 .Select(pathTarget =>
                 {
                     // Can't just .ToPascalCase(), since it turns string like "Count(x => x.IsAssigned())" into "Count(x => X.IsAssigned())"

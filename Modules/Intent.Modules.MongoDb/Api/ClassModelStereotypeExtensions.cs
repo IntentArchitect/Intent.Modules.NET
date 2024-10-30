@@ -15,14 +15,14 @@ namespace Intent.MongoDb.Api
     {
         public static Collection GetCollection(this ClassModel model)
         {
-            var stereotype = model.GetStereotype("4638b965-dd58-4734-87e3-edd263f3910c");
+            var stereotype = model.GetStereotype(Collection.DefinitionId);
             return stereotype != null ? new Collection(stereotype) : null;
         }
 
 
         public static bool HasCollection(this ClassModel model)
         {
-            return model.HasStereotype("4638b965-dd58-4734-87e3-edd263f3910c");
+            return model.HasStereotype(Collection.DefinitionId);
         }
 
         public static bool TryGetCollection(this ClassModel model, out Collection stereotype)
@@ -33,13 +33,14 @@ namespace Intent.MongoDb.Api
                 return false;
             }
 
-            stereotype = new Collection(model.GetStereotype("4638b965-dd58-4734-87e3-edd263f3910c"));
+            stereotype = new Collection(model.GetStereotype(Collection.DefinitionId));
             return true;
         }
 
         public class Collection
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "4638b965-dd58-4734-87e3-edd263f3910c";
 
             public Collection(IStereotype stereotype)
             {

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0544a50b-8c0b-4820-af70-5ff5bafab86f">
+  <sourceEnd id="b6c022b0-50e0-4abe-8f54-50838fc09ce2" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Customers.UpdateCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="f0ce8da9-a52a-480a-bdd8-504aca0f8b58">
+      <typeId>094ba351-b3ca-47c4-93c7-98360e883b18</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MongoDb.MultiTenancy.SeperateDb.Services</typePackageName>
+      <typePackageId>53df074c-9268-4de3-a248-fb88209752d9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0544a50b-8c0b-4820-af70-5ff5bafab86f" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>customer</name>
+    <display>[update] customer: Customer</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="1130e789-50e0-419b-9bbd-f386af385262">
+      <typeId>7241012b-20e5-4aa3-94cc-0dc46cdb427f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MongoDb.MultiTenancy.SeperateDb.Domain</typePackageName>
+      <typePackageId>28f20a71-e384-4fb2-af77-7f67c2acd8d8</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="53c3cfa0-1a1c-4f2f-be99-0b1c3f52f2a1" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="094ba351-b3ca-47c4-93c7-98360e883b18" location="[MongoDb.MultiTenancy.SeperateDb].[Services].[UpdateCustomerCommand]" />
+        <target applicationId="53c3cfa0-1a1c-4f2f-be99-0b1c3f52f2a1" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7241012b-20e5-4aa3-94cc-0dc46cdb427f" location="[MongoDb.MultiTenancy.SeperateDb].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="7241012b-20e5-4aa3-94cc-0dc46cdb427f" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="e33c335a-d711-4435-b51e-919a12806bcf" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="094ba351-b3ca-47c4-93c7-98360e883b18" name="UpdateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="e72e31cc-7ca6-4cac-9d3e-b9cfeceffcb8" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="53c3cfa0-1a1c-4f2f-be99-0b1c3f52f2a1" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="094ba351-b3ca-47c4-93c7-98360e883b18" location="[MongoDb.MultiTenancy.SeperateDb].[Services].[UpdateCustomerCommand]" />
+        <target applicationId="53c3cfa0-1a1c-4f2f-be99-0b1c3f52f2a1" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="7241012b-20e5-4aa3-94cc-0dc46cdb427f" location="[MongoDb.MultiTenancy.SeperateDb].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="7241012b-20e5-4aa3-94cc-0dc46cdb427f" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="9e746fe1-fd18-4678-b4b4-e642826942ce" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="094ba351-b3ca-47c4-93c7-98360e883b18" name="UpdateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="9f54d807-4d4b-44c6-a214-9361f3a59b13" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>
