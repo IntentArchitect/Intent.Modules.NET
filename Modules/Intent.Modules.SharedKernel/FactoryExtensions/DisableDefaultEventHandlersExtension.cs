@@ -30,7 +30,7 @@ namespace Intent.Modules.SharedKernel.FactoryExtensions
 
             var readme = application.FindTemplateInstance<IntentTemplateBase>("Intent.EntityFrameworkCore.DbMigrationsReadMe");
             readme.CanRun = false;
-            
+
         }
     }
 }
