@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="41d3c98b-9b72-4d1f-a157-5923d431e209">
+  <sourceEnd id="fa47c62e-4e0c-4ce1-a145-a5af0ac57322" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Threes</name>
+    <display>Threes: Three[*]</display>
+    <order>0</order>
+    <typeReference id="3bbc6839-eb65-4f42-bd35-670840f810f6">
+      <typeId>7cee95cf-8e4e-4aa1-aa97-c46c94d716ab</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="41d3c98b-9b72-4d1f-a157-5923d431e209" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Finals</name>
+    <display>Finals: Final[*]</display>
+    <order>4</order>
+    <typeReference id="866983bc-4017-442d-97f6-362895fa8706">
+      <typeId>6d90ef54-b929-438e-b6dd-5db8237ecaa3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

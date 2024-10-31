@@ -29,9 +29,11 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="How the tenant is determined." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="header" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -39,7 +41,7 @@
       <childElements>
         <childElement id="7b1cd76c-3922-418a-810f-2cfad870ac7a" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Header Strategy</name>
-          <display>Header Strategy</display>
+          <display>Header Strategy = header</display>
           <isAbstract>false</isAbstract>
           <value>header</value>
           <genericTypes />
@@ -53,7 +55,7 @@
         </childElement>
         <childElement id="b2a6a3f1-0c4e-4ea7-8088-b4999c98d9f8" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Claim Strategy</name>
-          <display>Claim Strategy</display>
+          <display>Claim Strategy = claim</display>
           <isAbstract>false</isAbstract>
           <value>claim</value>
           <genericTypes />
@@ -67,9 +69,23 @@
         </childElement>
         <childElement id="06aa040a-ac95-46ab-966f-dd4015abfa9c" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Host Strategy</name>
-          <display>Host Strategy</display>
+          <display>Host Strategy = host</display>
           <isAbstract>false</isAbstract>
           <value>host</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e15fe0fb-be28-4cc5-8b85-37a07b7ca160</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fc029e6a-20ea-4313-bead-6998128111c7" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Route Strategy</name>
+          <display>Route Strategy = route</display>
+          <isAbstract>false</isAbstract>
+          <value>route</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e15fe0fb-be28-4cc5-8b85-37a07b7ca160</parentFolderId>
@@ -98,9 +114,11 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Store for tenant information." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="in-memory" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -108,7 +126,7 @@
       <childElements>
         <childElement id="bb464b86-aaa7-471f-a048-ec33966ce7b2" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Configuration</name>
-          <display>Configuration</display>
+          <display>Configuration = configuration</display>
           <isAbstract>false</isAbstract>
           <value>configuration</value>
           <genericTypes />
@@ -122,7 +140,7 @@
         </childElement>
         <childElement id="95b1c642-b8f4-47f1-8a83-69653c335fb5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Entity Framework Core</name>
-          <display>Entity Framework Core</display>
+          <display>Entity Framework Core = efcore</display>
           <isAbstract>false</isAbstract>
           <value>efcore</value>
           <genericTypes />
@@ -136,7 +154,7 @@
         </childElement>
         <childElement id="697b7c80-6e38-44b5-96bf-bbf4c7cc50b9" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>HTTP Remote</name>
-          <display>HTTP Remote</display>
+          <display>HTTP Remote = http-remote</display>
           <isAbstract>false</isAbstract>
           <value>http-remote</value>
           <genericTypes />
@@ -150,7 +168,7 @@
         </childElement>
         <childElement id="81d428a8-e606-4707-8998-c76baa5a26a1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>In-Memory</name>
-          <display>In-Memory</display>
+          <display>In-Memory = in-memory</display>
           <isAbstract>false</isAbstract>
           <value>in-memory</value>
           <genericTypes />
@@ -182,9 +200,11 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Set the data isolation." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="separate-database" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -192,7 +212,7 @@
       <childElements>
         <childElement id="f92037d9-3aea-4f9c-afca-848b0c71c4f5" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Separate Databases</name>
-          <display>Separate Databases</display>
+          <display>Separate Databases = separate-database</display>
           <isAbstract>false</isAbstract>
           <value>separate-database</value>
           <genericTypes />
@@ -206,7 +226,7 @@
         </childElement>
         <childElement id="acbfd22c-a9fc-4055-99a7-447012feba00" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Shared Database</name>
-          <display>Shared Database</display>
+          <display>Shared Database = shared-database</display>
           <isAbstract>false</isAbstract>
           <value>shared-database</value>
           <genericTypes />
@@ -237,9 +257,11 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Automatically configure Aggregate entities for Multi Tenancy. Only applicable when &quot;Data Isolation&quot; is set to &quot;Shared Database&quot;." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="automatically" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -247,7 +269,7 @@
       <childElements>
         <childElement id="6c5155b4-881f-409d-840f-1af25db14c25" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Automatically</name>
-          <display>Automatically</display>
+          <display>Automatically = automatically</display>
           <isAbstract>false</isAbstract>
           <value>automatically</value>
           <genericTypes />
@@ -261,7 +283,7 @@
         </childElement>
         <childElement id="4e526f89-c350-449c-b03a-256bfb8a76e1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Manually</name>
-          <display>Manually</display>
+          <display>Manually = manually</display>
           <isAbstract>false</isAbstract>
           <value>manually</value>
           <genericTypes />
@@ -274,6 +296,33 @@
           <childElements />
         </childElement>
       </childElements>
+    </childElement>
+    <childElement id="c8ff4af6-68b6-4e31-a291-43ada6a0008a" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Route Strategy Parameter</name>
+      <display>Route Strategy Parameter</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>41ae5a02-3eb2-42a6-ade2-322b3c1f1115</parentFolderId>
+      <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+      <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Text Box" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="The parameter name in the route to be used to  determine the tenant." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="__tenant__" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="return getProperty(&quot;Strategy&quot;).value == &quot;route&quot;;" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
     </childElement>
   </childElements>
 </class>

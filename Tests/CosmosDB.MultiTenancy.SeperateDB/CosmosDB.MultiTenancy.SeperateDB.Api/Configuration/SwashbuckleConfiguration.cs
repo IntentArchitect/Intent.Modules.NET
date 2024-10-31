@@ -45,7 +45,6 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Api.Configuration
                     {
                         options.IncludeXmlComments(applicationXmlFile);
                     }
-                    options.OperationFilter<TenantHeaderOperationFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

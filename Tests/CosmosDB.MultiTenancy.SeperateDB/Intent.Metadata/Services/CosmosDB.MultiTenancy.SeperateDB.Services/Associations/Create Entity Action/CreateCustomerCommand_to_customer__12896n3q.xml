@@ -22,6 +22,9 @@
     <name>customer</name>
     <display>[create] customer: Customer</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="6d4887dd-b182-4755-8156-69a9400a3aba">
       <typeId>d7916913-fc81-4c07-94d9-75ad6f612166</typeId>
       <isNavigable>true</isNavigable>
@@ -42,12 +45,12 @@
           <mappedEnd>
             <expression>{CreateCustomerCommand}</expression>
             <path>
-              <target id="d7916913-fc81-4c07-94d9-75ad6f612166" name="Customer" type="element" specialization="Class" />
+              <target id="d7916913-fc81-4c07-94d9-75ad6f612166" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
             </path>
             <sources>
               <source identifier="CreateCustomerCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
                 <path>
-                  <target id="79ca6718-0f8b-461b-a129-edb0cc893cfe" name="CreateCustomerCommand" type="element" specialization="Command" />
+                  <target id="79ca6718-0f8b-461b-a129-edb0cc893cfe" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                 </path>
               </source>
             </sources>
@@ -55,14 +58,14 @@
           <mappedEnd>
             <expression>{Name}</expression>
             <path>
-              <target id="d7916913-fc81-4c07-94d9-75ad6f612166" name="Customer" type="element" specialization="Class" />
-              <target id="6e7d2814-cff5-4f59-afb0-5a65fd1cc664" name="Name" type="element" specialization="Attribute" />
+              <target id="d7916913-fc81-4c07-94d9-75ad6f612166" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="6e7d2814-cff5-4f59-afb0-5a65fd1cc664" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="79ca6718-0f8b-461b-a129-edb0cc893cfe" name="CreateCustomerCommand" type="element" specialization="Command" />
-                  <target id="0f2415f0-cc08-48a1-9b61-4cd34e206238" name="Name" type="element" specialization="DTO-Field" />
+                  <target id="79ca6718-0f8b-461b-a129-edb0cc893cfe" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="0f2415f0-cc08-48a1-9b61-4cd34e206238" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

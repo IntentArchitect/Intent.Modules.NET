@@ -63,6 +63,10 @@ namespace CleanArchitecture.Comprehensive.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IFinalRepository, FinalRepository>();
+            services.AddTransient<IOneRepository, OneRepository>();
+            services.AddTransient<ISecondRepository, SecondRepository>();
+            services.AddTransient<IThreeRepository, ThreeRepository>();
             services.AddTransient<ITypeNameRepository, TypeNameRepository>();
             services.AddTransient<IAsyncOperationsClassRepository, AsyncOperationsClassRepository>();
             services.AddTransient<ISubmissionRepository, SubmissionRepository>();

@@ -10,6 +10,7 @@ using CosmosDB.MultiTenancy.SeperateDB.Application.Customers.DeleteCustomer;
 using CosmosDB.MultiTenancy.SeperateDB.Application.Customers.GetCustomerById;
 using CosmosDB.MultiTenancy.SeperateDB.Application.Customers.GetCustomers;
 using CosmosDB.MultiTenancy.SeperateDB.Application.Customers.UpdateCustomer;
+using Finbuckle.MultiTenant;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -37,17 +38,18 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Api.Controllers
         /// </summary>
         /// <response code="201">Successfully created.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpPost("api/customer")]
+        [HttpPost("{__tenant__}/api/customer")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<string>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<JsonResponse<string>>> CreateCustomer(
             [FromBody] CreateCustomerCommand command,
+            ITenantInfo tenantInfo,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
-            return CreatedAtAction(nameof(GetCustomerById), new { id = result }, new JsonResponse<string>(result));
+            return CreatedAtAction(nameof(GetCustomerById), new { id = result, tenant = tenantInfo.Id }, new JsonResponse<string>(result));
         }
 
         /// <summary>
@@ -55,7 +57,7 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Api.Controllers
         /// <response code="200">Successfully deleted.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
-        [HttpDelete("api/customer/{id}")]
+        [HttpDelete("{__tenant__}/api/customer/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -73,7 +75,7 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Api.Controllers
         /// <response code="204">Successfully updated.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
-        [HttpPut("api/customer/{id}")]
+        [HttpPut("{__tenant__}/api/customer/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -102,7 +104,7 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Api.Controllers
         /// <response code="200">Returns the specified CustomerDto.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         /// <response code="404">No CustomerDto could be found with the provided parameters.</response>
-        [HttpGet("api/customer/{id}")]
+        [HttpGet("{__tenant__}/api/customer/{id}")]
         [ProducesResponseType(typeof(CustomerDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -118,7 +120,7 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Api.Controllers
         /// <summary>
         /// </summary>
         /// <response code="200">Returns the specified List&lt;CustomerDto&gt;.</response>
-        [HttpGet("api/customer")]
+        [HttpGet("{__tenant__}/api/customer")]
         [ProducesResponseType(typeof(List<CustomerDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<CustomerDto>>> GetCustomers(CancellationToken cancellationToken = default)

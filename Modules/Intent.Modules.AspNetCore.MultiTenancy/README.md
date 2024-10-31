@@ -26,6 +26,7 @@ The available strategies are :
 * `Header Strategy`, identifies the tenant from a HTTP request header.
 * `Claim Strategy`, identifies the tenant from a Claim.
 * `Host Strategy`, identifies the tenant from the host name.
+* `Route Strategy`, identifies the tenant from the `Route Strategy Parameter` in the URL.
 
 For more information on [MultiTenant Strategies](https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Strategies).
 
@@ -57,6 +58,12 @@ The available options are :
 
 * `Automatically`, Each newly added `Class` in the domain designer will have the `Multi Tenant` stereotype applied.
 * `Manually`, the `Multi Tenant` must be manually applied where required.
+
+### Route Strategy Parameter
+
+The route paramter name which can be used in the `Services Designer` to define where and how the tenant information is included in the route. Default value is `__tenant__`.
+
+For example, having the _Strategy_ set to `Route Strategy` with a _Route Strategy Parameter_ value of `__tenant__`, allows `Route` values on _Commands, Queries and Services_ to contain the `{__tenant__}` placeholder.
 
 ## DI Container wiring
 

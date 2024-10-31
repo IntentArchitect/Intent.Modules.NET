@@ -83,6 +83,10 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                                         methodChainStatement.AddChainStatement(
                                             "WithHostStrategy(); // default pattern is __tenant__.* (e.g. https://tenantidentifier.example.com). See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Strategies#host-strategy");
                                         break;
+                                    case MultitenancySettings.StrategyOptionsEnum.Route:
+                                        methodChainStatement.AddChainStatement(
+                                            $"WithRouteStrategy(\"{this.ExecutionContext.GetSettings().GetMultitenancySettings().RouteStrategyParameter()}\"); // example https://www.example.com/tenantidentifier/home/). See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Strategies#route-strategy");
+                                        break;
                                     default:
                                         throw new ArgumentOutOfRangeException();
                                 }

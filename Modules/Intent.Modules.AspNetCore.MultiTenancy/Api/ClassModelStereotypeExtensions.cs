@@ -15,14 +15,14 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Api
     {
         public static MultiTenant GetMultiTenant(this ClassModel model)
         {
-            var stereotype = model.GetStereotype("586eb05b-d647-4430-ac05-8d096fe3f79e");
+            var stereotype = model.GetStereotype(MultiTenant.DefinitionId);
             return stereotype != null ? new MultiTenant(stereotype) : null;
         }
 
 
         public static bool HasMultiTenant(this ClassModel model)
         {
-            return model.HasStereotype("586eb05b-d647-4430-ac05-8d096fe3f79e");
+            return model.HasStereotype(MultiTenant.DefinitionId);
         }
 
         public static bool TryGetMultiTenant(this ClassModel model, out MultiTenant stereotype)
@@ -33,13 +33,14 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Api
                 return false;
             }
 
-            stereotype = new MultiTenant(model.GetStereotype("586eb05b-d647-4430-ac05-8d096fe3f79e"));
+            stereotype = new MultiTenant(model.GetStereotype(MultiTenant.DefinitionId));
             return true;
         }
 
         public class MultiTenant
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "586eb05b-d647-4430-ac05-8d096fe3f79e";
 
             public MultiTenant(IStereotype stereotype)
             {

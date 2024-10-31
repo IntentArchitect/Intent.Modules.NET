@@ -92,7 +92,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.ServiceImplementations.Conventions.CRUD", "Intent.Modules.Application.ServiceImplementations.CRUD\Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.csproj", "{CEDD643A-7070-4D08-B59A-2636AFB1FB6B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.MultiTenancy", "Intent.Modules.AspNetCore.MultiTenancy\Intent.Modules.AspNetCore.MultiTenancy.csproj", "{4FAF05B4-370F-4929-9631-C0DD42A63C8B}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.MultiTenancy", "Intent.Modules.AspNetCore.MultiTenancy\Intent.Modules.AspNetCore.MultiTenancy.csproj", "{4FAF05B4-370F-4929-9631-C0DD42A63C8B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.HotChocolate.GraphQL", "Intent.Modules.HotChocolate.GraphQL\Intent.Modules.HotChocolate.GraphQL.csproj", "{5EEC3E89-9696-474C-85F9-D992298E8BA2}"
 EndProject

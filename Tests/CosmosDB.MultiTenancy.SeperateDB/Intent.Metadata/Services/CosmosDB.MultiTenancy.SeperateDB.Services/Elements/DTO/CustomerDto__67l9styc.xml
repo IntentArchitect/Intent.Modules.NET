@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="d7916913-fc81-4c07-94d9-75ad6f612166" name="Customer" type="element" specialization="Class" />
+      <target id="d7916913-fc81-4c07-94d9-75ad6f612166" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>0fc7ae67-ef44-426e-afd6-8c0df9dcb087</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="98fa1cd9-de04-417a-a88f-ca137a1cd8b4" name="Id" type="element" specialization="Attribute" />
+          <target id="98fa1cd9-de04-417a-a88f-ca137a1cd8b4" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>619d5b5a-19fb-45a8-b04b-89f3cf64435f</parentFolderId>
@@ -63,6 +63,7 @@
             <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="true" />
             <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
             <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" isActive="true" />
             <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
             <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
             <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="true" />
@@ -97,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="6e7d2814-cff5-4f59-afb0-5a65fd1cc664" name="Name" type="element" specialization="Attribute" />
+          <target id="6e7d2814-cff5-4f59-afb0-5a65fd1cc664" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>619d5b5a-19fb-45a8-b04b-89f3cf64435f</parentFolderId>
@@ -116,6 +117,7 @@
             <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="true" />
             <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
             <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" isActive="true" />
             <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
             <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
             <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="true" />

@@ -1,5 +1,6 @@
 ### Version 6.1.2
 
+- Improvement: Added support for multitenancy `route strategy`
 - Improvement: Generated code more aligned with best practices
 
 ### Version 6.1.1

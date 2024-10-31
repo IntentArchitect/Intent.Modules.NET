@@ -1,3 +1,7 @@
+### Version 5.1.5
+
+- Improvement: Added support for multitenancy `route strategy`
+
 ### Version 5.1.4
 
 - Improvement: Updated module NuGet packages infrastructure.

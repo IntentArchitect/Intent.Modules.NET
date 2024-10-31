@@ -196,6 +196,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#e06d5ace-4c92-418d-ac56-16e5fa7cf782</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/OnesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OnesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#daa794cc-5bd6-4c7f-aa7c-6f95e4524d22</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/OpenApiIgnoreAllImplicitController.cs</ApplicationRelativeFilePath>
@@ -6796,6 +6804,86 @@
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#9b18acde-9508-472c-b1a0-258e1e7eba86</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Ones/CreateOne/CreateOneCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ones/CreateOne/CreateOneCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#9b18acde-9508-472c-b1a0-258e1e7eba86</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Ones/CreateOne/CreateOneCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ones/CreateOne/CreateOneCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#9b18acde-9508-472c-b1a0-258e1e7eba86</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Ones/CreateOne/CreateOneCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ones/CreateOne/CreateOneCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#5d322750-4031-4a9a-8e88-19c4aba9df39</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Ones/CreateOneCommandFinalsDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ones/CreateOneCommandFinalsDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#be31490c-4b23-4291-aa49-ef9e5b6103c6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Ones/CreateOneCommandThreesDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ones/CreateOneCommandThreesDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#be31490c-4b23-4291-aa49-ef9e5b6103c6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Ones/CreateOneCommandThreesDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ones/CreateOneCommandThreesDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#5d85682e-d0e3-4e93-9787-53a051e1e0e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Ones/CreateOneCommandTwosDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ones/CreateOneCommandTwosDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#5d85682e-d0e3-4e93-9787-53a051e1e0e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Ones/CreateOneCommandTwosDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ones/CreateOneCommandTwosDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#65fd58ed-ba36-4617-a76c-a75ef7db69a0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Ones/OneDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ones/OneDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#65fd58ed-ba36-4617-a76c-a75ef7db69a0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Ones/OneDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Ones/OneDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#b415ba86-5087-42ec-8413-93867889c744</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/OpenApiIgnoreAllImplicit/OperationA/OperationA.cs</ApplicationRelativeFilePath>
@@ -9676,6 +9764,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#6d90ef54-b929-438e-b6dd-5db8237ecaa3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Entities/Final.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Final.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#4c90f590-66a5-4eee-b96e-974fed985b78</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Entities/General/CustomMapping.cs</ApplicationRelativeFilePath>
@@ -9748,6 +9844,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#afc6d94c-f129-48a2-83fb-5f5c5041c3ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Entities/One.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>One.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#201b4869-b344-474e-b507-f1ccd638e16c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Entities/OperationAndConstructorMapping/OpAndCtorMapping1.cs</ApplicationRelativeFilePath>
@@ -9792,6 +9896,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Entities/Pagination/PersonEntry.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pagination/PersonEntry.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#99953c3a-c190-41c8-8e71-cf71e0f302a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Entities/Second.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Second.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#7cee95cf-8e4e-4aa1-aa97-c46c94d716ab</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Entities/Three.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Three.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -10052,6 +10172,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#6d90ef54-b929-438e-b6dd-5db8237ecaa3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Repositories/IFinalRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IFinalRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#506bade0-2acf-41ce-8373-3e73fb7e1b83</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Repositories/Inheritance/IBaseClassRepository.cs</ApplicationRelativeFilePath>
@@ -10068,6 +10196,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#afc6d94c-f129-48a2-83fb-5f5c5041c3ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Repositories/IOneRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IOneRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
@@ -10080,6 +10216,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#99953c3a-c190-41c8-8e71-cf71e0f302a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Repositories/ISecondRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ISecondRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feffff61-d1c3-45c8-bb22-a64e0942d77b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#7cee95cf-8e4e-4aa1-aa97-c46c94d716ab</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Repositories/IThreeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IThreeRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -10572,6 +10724,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#6d90ef54-b929-438e-b6dd-5db8237ecaa3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Persistence/Configurations/FinalConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinalConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#4c90f590-66a5-4eee-b96e-974fed985b78</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Persistence/Configurations/General/CustomMappingConfiguration.cs</ApplicationRelativeFilePath>
@@ -10628,6 +10788,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#afc6d94c-f129-48a2-83fb-5f5c5041c3ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Persistence/Configurations/OneConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OneConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#cbf005eb-63da-48a4-8b4d-a2a04cabda62</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Persistence/Configurations/OperationAndConstructorMapping/OpAndCtorMapping2Configuration.cs</ApplicationRelativeFilePath>
@@ -10664,6 +10832,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Persistence/Configurations/Pagination/PersonEntryConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pagination/PersonEntryConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#99953c3a-c190-41c8-8e71-cf71e0f302a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Persistence/Configurations/SecondConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecondConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5435616f-c3d8-48b2-8b51-9399302d8c1f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#7cee95cf-8e4e-4aa1-aa97-c46c94d716ab</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Persistence/Configurations/ThreeConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ThreeConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -10852,6 +11036,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#6d90ef54-b929-438e-b6dd-5db8237ecaa3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Repositories/FinalRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FinalRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#4c90f590-66a5-4eee-b96e-974fed985b78</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Repositories/General/CustomMappingRepository.cs</ApplicationRelativeFilePath>
@@ -10908,6 +11100,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#afc6d94c-f129-48a2-83fb-5f5c5041c3ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Repositories/OneRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OneRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#cbf005eb-63da-48a4-8b4d-a2a04cabda62</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Repositories/OperationAndConstructorMapping/OpAndCtorMapping2Repository.cs</ApplicationRelativeFilePath>
@@ -10952,6 +11152,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#99953c3a-c190-41c8-8e71-cf71e0f302a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Repositories/SecondRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecondRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a53bdea-6ab0-4f2e-8e24-a4baef2e2bad</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#7cee95cf-8e4e-4aa1-aa97-c46c94d716ab</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Infrastructure/Repositories/ThreeRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ThreeRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

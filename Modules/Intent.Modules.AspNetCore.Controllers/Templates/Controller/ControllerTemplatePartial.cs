@@ -106,6 +106,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                                 });
                             }
 
+                            if (Utils.IsRouteMultiTenancyConfigured(this, operation) && operation.Verb == HttpVerb.Post)
+                            {
+                                method.AddParameter(UseType("Finbuckle.MultiTenant.ITenantInfo"), "tenantInfo");
+                            }
+
                             method.AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"));
                         });
                     }

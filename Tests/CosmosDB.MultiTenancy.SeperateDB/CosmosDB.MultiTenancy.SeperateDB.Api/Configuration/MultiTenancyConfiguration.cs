@@ -19,7 +19,7 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Api.Configuration
         {
             services.AddMultiTenant<TenantInfo>()
                 .WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#in-memory-store
-                .WithHeaderStrategy("X-Tenant-Identifier"); // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Strategies#header-strategy
+                .WithRouteStrategy("__tenant__"); // example https://www.example.com/tenantidentifier/home/). See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Strategies#route-strategy
             return services;
         }
 

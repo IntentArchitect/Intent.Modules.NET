@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="80cb6dee-a0f1-4cb1-9fae-600b7d2895f5">
+  <sourceEnd id="f7b03b9a-a6ff-48e7-ba62-149b87713d18" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Twos</name>
+    <display>Twos: Second[*]</display>
+    <order>0</order>
+    <typeReference id="f0e04aff-c2e0-478c-84f1-1b04cd457726">
+      <typeId>99953c3a-c190-41c8-8e71-cf71e0f302a1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="80cb6dee-a0f1-4cb1-9fae-600b7d2895f5" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Threes</name>
+    <display>Threes: Three[*]</display>
+    <order>3</order>
+    <typeReference id="8e01c68d-b30a-4f4b-b540-60bcbe64dc38">
+      <typeId>7cee95cf-8e4e-4aa1-aa97-c46c94d716ab</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

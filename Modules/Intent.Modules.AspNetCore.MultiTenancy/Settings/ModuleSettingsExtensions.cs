@@ -57,6 +57,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
                     "header" => StrategyOptionsEnum.Header,
                     "claim" => StrategyOptionsEnum.Claim,
                     "host" => StrategyOptionsEnum.Host,
+                    "route" => StrategyOptionsEnum.Route,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -75,13 +76,19 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
             {
                 return Value == "host";
             }
+
+            public bool IsRoute()
+            {
+                return Value == "route";
+            }
         }
 
         public enum StrategyOptionsEnum
         {
             Header,
             Claim,
-            Host
+            Host,
+            Route
         }
 
         public StoreOptions Store() => new StoreOptions(_groupSettings.GetSetting("e430d7bc-fac3-4528-93e8-e3f38bc0b925")?.Value);
@@ -210,5 +217,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Settings
             Automatically,
             Manually,
         }
+
+        public string RouteStrategyParameter() => _groupSettings.GetSetting("c8ff4af6-68b6-4e31-a291-43ada6a0008a")?.Value;
     }
 }

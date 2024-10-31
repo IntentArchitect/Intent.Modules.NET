@@ -40,4 +40,5 @@ if (element.getStereotype(multiTenantId) == null) {
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
+  <scripts />
 </settings>

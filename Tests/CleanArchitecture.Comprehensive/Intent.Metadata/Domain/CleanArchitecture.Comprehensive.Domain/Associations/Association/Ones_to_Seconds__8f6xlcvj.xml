@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="bbd2ec79-38f1-4a50-bfb1-44bb422c7f37">
+  <sourceEnd id="bde6c72e-4a47-498a-8fa9-df0b351751b6" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Ones</name>
+    <display>Ones: One[*]</display>
+    <order>0</order>
+    <typeReference id="35255bda-32ff-49c5-bd29-d7845d6c334b">
+      <typeId>afc6d94c-f129-48a2-83fb-5f5c5041c3ec</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="bbd2ec79-38f1-4a50-bfb1-44bb422c7f37" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Seconds</name>
+    <display>Seconds: Second[*]</display>
+    <order>2</order>
+    <typeReference id="074af8c6-ac4e-4c0c-a462-9ec3c49cdc30">
+      <typeId>99953c3a-c190-41c8-8e71-cf71e0f302a1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

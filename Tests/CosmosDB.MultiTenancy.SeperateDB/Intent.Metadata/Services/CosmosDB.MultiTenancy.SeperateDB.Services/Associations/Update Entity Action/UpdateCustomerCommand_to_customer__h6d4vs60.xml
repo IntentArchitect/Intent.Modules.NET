@@ -22,6 +22,9 @@
     <name>customer</name>
     <display>[update] customer: Customer</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="cf139cd9-f3af-4dec-8f14-6c668ea22149">
       <typeId>d7916913-fc81-4c07-94d9-75ad6f612166</typeId>
       <isNavigable>true</isNavigable>
@@ -42,14 +45,14 @@
           <mappedEnd>
             <expression>{Id}</expression>
             <path>
-              <target id="d7916913-fc81-4c07-94d9-75ad6f612166" name="Customer" type="element" specialization="Class" />
-              <target id="98fa1cd9-de04-417a-a88f-ca137a1cd8b4" name="Id" type="element" specialization="Attribute" />
+              <target id="d7916913-fc81-4c07-94d9-75ad6f612166" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="98fa1cd9-de04-417a-a88f-ca137a1cd8b4" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
                 <path>
-                  <target id="15513a69-5ef7-4275-95b6-dd239217c8be" name="UpdateCustomerCommand" type="element" specialization="Command" />
-                  <target id="d27310b8-7f1a-46ab-bbd2-21f7c73b248d" name="Id" type="element" specialization="DTO-Field" />
+                  <target id="15513a69-5ef7-4275-95b6-dd239217c8be" name="UpdateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d27310b8-7f1a-46ab-bbd2-21f7c73b248d" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -63,14 +66,14 @@
           <mappedEnd>
             <expression>{Name}</expression>
             <path>
-              <target id="d7916913-fc81-4c07-94d9-75ad6f612166" name="Customer" type="element" specialization="Class" />
-              <target id="6e7d2814-cff5-4f59-afb0-5a65fd1cc664" name="Name" type="element" specialization="Attribute" />
+              <target id="d7916913-fc81-4c07-94d9-75ad6f612166" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="6e7d2814-cff5-4f59-afb0-5a65fd1cc664" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
                 <path>
-                  <target id="15513a69-5ef7-4275-95b6-dd239217c8be" name="UpdateCustomerCommand" type="element" specialization="Command" />
-                  <target id="eafbd51a-9581-496f-916f-3196b88e0cfb" name="Name" type="element" specialization="DTO-Field" />
+                  <target id="15513a69-5ef7-4275-95b6-dd239217c8be" name="UpdateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="eafbd51a-9581-496f-916f-3196b88e0cfb" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
