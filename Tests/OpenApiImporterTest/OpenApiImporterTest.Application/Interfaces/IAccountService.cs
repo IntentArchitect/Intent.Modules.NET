@@ -10,7 +10,7 @@ using OpenApiImporterTest.Application.Accounts;
 
 namespace OpenApiImporterTest.Application.Interfaces
 {
-    public interface IAccountService : IDisposable
+    public interface IAccountService
     {
         Task<Guid> CreateAccount(CreateAccountCommand dto, CancellationToken cancellationToken = default);
         Task<List<AccountDto>> GetAccounts(CancellationToken cancellationToken = default);

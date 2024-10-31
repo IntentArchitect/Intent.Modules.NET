@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Interfaces.Customers
 {
-    public interface IPersonService : IDisposable
+    public interface IPersonService
     {
         Task<PersonDto> GetPersonById(Guid personId, CancellationToken cancellationToken = default);
     }

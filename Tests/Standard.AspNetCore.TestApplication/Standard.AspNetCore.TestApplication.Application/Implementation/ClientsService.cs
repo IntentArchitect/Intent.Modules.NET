@@ -95,9 +95,5 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
             }
             _clientRepository.Remove(existingClient);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

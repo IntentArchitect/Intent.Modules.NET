@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Entities.PrivateSetters.EF.CosmosDb.Application.Interfaces
 {
 
-    public interface ITagService : IDisposable
+    public interface ITagService
     {
         Task Create(CreateTagDto dto, CancellationToken cancellationToken = default);
         Task<List<TagDto>> GetAll(CancellationToken cancellationToken = default);

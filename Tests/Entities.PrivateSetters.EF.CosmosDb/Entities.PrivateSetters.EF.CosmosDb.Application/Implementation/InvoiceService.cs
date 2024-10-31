@@ -60,9 +60,5 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Application.Implementation
 
             return results.MapToInvoiceDtoList(_mapper);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

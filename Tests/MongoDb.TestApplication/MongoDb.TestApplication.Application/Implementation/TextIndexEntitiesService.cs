@@ -93,9 +93,5 @@ namespace MongoDb.TestApplication.Application.Implementation
             }
             _textIndexEntityRepository.Remove(existingTextIndexEntity);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

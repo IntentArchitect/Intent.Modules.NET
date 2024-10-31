@@ -10,7 +10,7 @@ using Standard.AspNetCore.TestApplication.Application.Plurals;
 
 namespace Standard.AspNetCore.TestApplication.Application.Interfaces
 {
-    public interface IPluralsService : IDisposable
+    public interface IPluralsService
     {
         Task<Guid> CreatePlurals(PluralsCreateDto dto, CancellationToken cancellationToken = default);
         Task<PluralsDto> FindPluralsById(Guid id, CancellationToken cancellationToken = default);

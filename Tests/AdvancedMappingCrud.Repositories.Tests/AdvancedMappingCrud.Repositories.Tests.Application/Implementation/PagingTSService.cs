@@ -89,9 +89,5 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
 
             _pagingTSRepository.Remove(pagingTS);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

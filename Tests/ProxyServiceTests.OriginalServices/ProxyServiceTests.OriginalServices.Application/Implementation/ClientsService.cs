@@ -83,9 +83,5 @@ namespace ProxyServiceTests.OriginalServices.Application.Implementation
 
             _clientRepository.Remove(client);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

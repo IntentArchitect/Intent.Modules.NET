@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Interfaces
 {
-    public interface IUploadDownloadService : IDisposable
+    public interface IUploadDownloadService
     {
         Task<Guid> Upload(Stream content, string? filename, string? contentType, long? contentLength, CancellationToken cancellationToken = default);
         Task<FileDownloadDto> Download(Guid id, CancellationToken cancellationToken = default);

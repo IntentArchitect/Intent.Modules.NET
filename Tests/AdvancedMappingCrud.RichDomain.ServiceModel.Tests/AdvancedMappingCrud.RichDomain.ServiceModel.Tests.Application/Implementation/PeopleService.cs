@@ -88,9 +88,5 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Implemen
                     first: dto.Details.Name.First,
                     last: dto.Details.Name.Last)));
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

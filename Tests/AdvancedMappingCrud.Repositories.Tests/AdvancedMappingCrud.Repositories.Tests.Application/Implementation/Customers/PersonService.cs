@@ -24,9 +24,5 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation.Cust
         {
             throw new NotImplementedException("Write your implementation for this service here...");
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

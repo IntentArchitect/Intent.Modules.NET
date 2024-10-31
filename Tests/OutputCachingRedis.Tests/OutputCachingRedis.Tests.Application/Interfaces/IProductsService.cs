@@ -10,7 +10,7 @@ using OutputCachingRedis.Tests.Application.Products;
 
 namespace OutputCachingRedis.Tests.Application.Interfaces
 {
-    public interface IProductsService : IDisposable
+    public interface IProductsService
     {
         Task<Guid> CreateProduct(ProductCreateDto dto, CancellationToken cancellationToken = default);
         /// <summary>

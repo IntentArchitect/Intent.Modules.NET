@@ -91,9 +91,5 @@ namespace MongoDb.TestApplication.Application.Implementation
             }
             _idTypeOjectIdStrRepository.Remove(existingIdTypeOjectIdStr);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

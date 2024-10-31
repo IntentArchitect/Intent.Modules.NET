@@ -31,9 +31,5 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
             // TODO: Implement OperationB (OpenApiIgnoreSingleService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -8,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Standard.AspNetCore.TestApplication.Application.Interfaces
 {
-    public interface IMultiVersionService : IDisposable
+    public interface IMultiVersionService
     {
         Task OperationForVersionOne(CancellationToken cancellationToken = default);
         Task OperationForVersionTwo(CancellationToken cancellationToken = default);

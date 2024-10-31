@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Interfaces
 {
-    public interface ICompaniesService : IDisposable
+    public interface ICompaniesService
     {
         Task<Guid> CreateCompany(CompanyCreateDto dto, CancellationToken cancellationToken = default);
         Task<CompanyDto> FindCompanyById(Guid id, CancellationToken cancellationToken = default);

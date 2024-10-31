@@ -95,9 +95,5 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Implemen
                     productId: id.ProductId))
                 .ToList());
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

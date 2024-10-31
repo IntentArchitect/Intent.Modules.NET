@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace GraphQL.AzureFunction.TestApplication.Application.Interfaces
 {
-    public interface ICustomersService : IDisposable
+    public interface ICustomersService
     {
         Task<CustomerDto> CreateCustomer(CustomerCreateDto dto, CancellationToken cancellationToken = default);
         Task<CustomerDto> FindCustomerById(Guid id, CancellationToken cancellationToken = default);

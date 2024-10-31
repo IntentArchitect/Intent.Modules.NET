@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Interfaces
 {
-    public interface IClassicDomainServiceTestsService : IDisposable
+    public interface IClassicDomainServiceTestsService
     {
         Task<Guid> CreateClassicDomainServiceTest(ClassicDomainServiceTestCreateDto dto, CancellationToken cancellationToken = default);
         Task<ClassicDomainServiceTestDto> FindClassicDomainServiceTestById(Guid id, CancellationToken cancellationToken = default);

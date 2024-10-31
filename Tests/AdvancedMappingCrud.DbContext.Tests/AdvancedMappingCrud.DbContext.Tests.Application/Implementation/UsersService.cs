@@ -96,10 +96,6 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Implementation
             _dbContext.Users.Remove(user);
         }
 
-        public void Dispose()
-        {
-        }
-
         [IntentManaged(Mode.Fully)]
         private static Address CreateOrUpdateAddress(Address? entity, NewDTO dto)
         {

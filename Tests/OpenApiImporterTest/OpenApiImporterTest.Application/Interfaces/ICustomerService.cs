@@ -10,7 +10,7 @@ using OpenApiImporterTest.Application.Customers;
 
 namespace OpenApiImporterTest.Application.Interfaces
 {
-    public interface ICustomerService : IDisposable
+    public interface ICustomerService
     {
         Task<Guid> CreateCustomer(CreateCustomerCommand dto, CancellationToken cancellationToken = default);
         Task<List<CustomerDto>> GetCustomers(CancellationToken cancellationToken = default);

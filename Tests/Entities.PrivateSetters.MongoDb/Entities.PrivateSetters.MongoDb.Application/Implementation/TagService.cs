@@ -43,9 +43,5 @@ namespace Entities.PrivateSetters.MongoDb.Application.Implementation
 
             return results.MapToTagDtoList(_mapper);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

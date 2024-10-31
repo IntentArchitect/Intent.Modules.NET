@@ -23,9 +23,5 @@ namespace BugSnagTest.AspNetCore.Application.Implementation
         {
             throw new Exception("Breaking the application on purpose for testing purposes");
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

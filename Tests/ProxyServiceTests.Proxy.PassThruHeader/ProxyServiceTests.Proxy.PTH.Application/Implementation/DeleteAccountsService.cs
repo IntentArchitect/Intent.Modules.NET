@@ -28,9 +28,5 @@ namespace ProxyServiceTests.Proxy.PTH.Application.Implementation
         {
             await _ntegrationServicesIDeleteAccountsService.DeleteAccountAsync(id, cancellationToken);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +9,7 @@ using MongoDb.TestApplication.Application.SingleIndexEntitySingleParents;
 
 namespace MongoDb.TestApplication.Application.Interfaces
 {
-    public interface ISingleIndexEntitySingleParentsService : IDisposable
+    public interface ISingleIndexEntitySingleParentsService
     {
         Task<string> CreateSingleIndexEntitySingleParent(SingleIndexEntitySingleParentCreateDto dto, CancellationToken cancellationToken = default);
         Task<SingleIndexEntitySingleParentDto> FindSingleIndexEntitySingleParentById(string id, CancellationToken cancellationToken = default);

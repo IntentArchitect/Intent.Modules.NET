@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace ProxyServiceTests.Proxy.TMS.Application.Interfaces
 {
-    public interface IDeleteAccountsService : IDisposable
+    public interface IDeleteAccountsService
     {
         Task DeleteAccountCommand(Guid id, CancellationToken cancellationToken = default);
     }

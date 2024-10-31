@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Interfaces
 {
-    public interface IProductsService : IDisposable
+    public interface IProductsService
     {
         Task<Guid> CreateProduct(ProductCreateDto dto, CancellationToken cancellationToken = default);
         Task<ProductDto> FindProductById(Guid id, CancellationToken cancellationToken = default);

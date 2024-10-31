@@ -93,9 +93,5 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
 
             _classicDomainServiceTestRepository.Remove(classicDomainServiceTest);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

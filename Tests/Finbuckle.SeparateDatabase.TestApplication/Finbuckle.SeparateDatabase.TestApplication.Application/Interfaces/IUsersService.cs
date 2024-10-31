@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace Finbuckle.SeparateDatabase.TestApplication.Application.Interfaces
 {
 
-    public interface IUsersService : IDisposable
+    public interface IUsersService
     {
         Task<Guid> Create(UserCreateDto dto, CancellationToken cancellationToken = default);
         Task<UserDto> FindById(Guid id, CancellationToken cancellationToken = default);

@@ -94,10 +94,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Implementation
             _eventBus.Publish(existingRole.MapToRoleDeletedEvent());
         }
 
-        public void Dispose()
-        {
-        }
-
         [IntentManaged(Mode.Fully)]
         private Priviledge CreatePriviledge(Roles.PriviledgeDto dto)
         {

@@ -11,7 +11,7 @@ using ProxyServiceTests.Proxy.PTH.Application.IntegrationServices.Contracts.Orig
 
 namespace ProxyServiceTests.Proxy.PTH.Application.Interfaces
 {
-    public interface IAccountsService : IDisposable
+    public interface IAccountsService
     {
         Task<Guid> CreateAccountCommand(AccountsServices.CreateAccountCommand command, CancellationToken cancellationToken = default);
         Task UpdateAccountCommand(Guid id, AccountsServices.UpdateAccountCommand command, CancellationToken cancellationToken = default);

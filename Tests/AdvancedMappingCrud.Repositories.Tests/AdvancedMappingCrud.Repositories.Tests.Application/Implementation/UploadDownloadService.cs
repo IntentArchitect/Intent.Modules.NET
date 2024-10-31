@@ -60,9 +60,5 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
             }
             return new FileDownloadDto() { Content = new MemoryStream(file.Content), ContentType = file.ContentType };
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

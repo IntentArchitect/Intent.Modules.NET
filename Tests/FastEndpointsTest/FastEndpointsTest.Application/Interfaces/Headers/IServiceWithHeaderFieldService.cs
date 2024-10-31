@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.Interfaces.Headers
 {
-    public interface IServiceWithHeaderFieldService : IDisposable
+    public interface IServiceWithHeaderFieldService
     {
         Task DoHeaderField(string param, CancellationToken cancellationToken = default);
     }

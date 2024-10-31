@@ -83,9 +83,5 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Implemen
 
             _customerRepository.Remove(customer);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

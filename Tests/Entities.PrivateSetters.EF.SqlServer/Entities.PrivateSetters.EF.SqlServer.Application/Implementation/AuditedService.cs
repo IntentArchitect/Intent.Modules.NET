@@ -38,9 +38,5 @@ namespace Entities.PrivateSetters.EF.SqlServer.Application.Implementation
 
             audited.UpdateAttribute(Guid.NewGuid());
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

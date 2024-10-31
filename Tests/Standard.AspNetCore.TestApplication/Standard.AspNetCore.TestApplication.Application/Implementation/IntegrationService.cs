@@ -126,9 +126,5 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
             var intersect = items.Where(p => ids.Contains(p.ReferenceNumber)).ToList();
             return intersect;
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

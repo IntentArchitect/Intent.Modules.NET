@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +9,7 @@ using MongoDb.TestApplication.Application.Deriveds;
 
 namespace MongoDb.TestApplication.Application.Interfaces
 {
-    public interface IDerivedsService : IDisposable
+    public interface IDerivedsService
     {
         Task<string> CreateDerived(DerivedCreateDto dto, CancellationToken cancellationToken = default);
         Task<DerivedDto> FindDerivedById(string id, CancellationToken cancellationToken = default);

@@ -103,9 +103,5 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Implementation
             var existingCustomers = await _customerRepository.FindAllAsync(pageNo, pageCount, cancellationToken);
             return existingCustomers.MapToPagedResult(customer => customer.MapToCustomerDto(_mapper));
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

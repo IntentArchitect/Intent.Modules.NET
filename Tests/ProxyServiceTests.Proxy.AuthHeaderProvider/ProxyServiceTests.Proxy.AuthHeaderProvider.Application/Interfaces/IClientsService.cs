@@ -11,7 +11,7 @@ using ProxyServiceTests.Proxy.AuthHeaderProvider.Application.IntegrationServices
 
 namespace ProxyServiceTests.Proxy.AuthHeaderProvider.Application.Interfaces
 {
-    public interface IClientsService : IDisposable
+    public interface IClientsService
     {
         Task<Guid> CreateClient(ClientsServices.ClientCreateDto dto, CancellationToken cancellationToken = default);
         Task<ClientDto> FindClientById(Guid id, CancellationToken cancellationToken = default);

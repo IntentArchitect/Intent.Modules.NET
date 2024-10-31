@@ -24,9 +24,5 @@ namespace FastEndpointsTest.Application.Implementation.NamedQueryStrings
             // TODO: Implement DoNamedQueryString (ServiceWithNamedQueryStringService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

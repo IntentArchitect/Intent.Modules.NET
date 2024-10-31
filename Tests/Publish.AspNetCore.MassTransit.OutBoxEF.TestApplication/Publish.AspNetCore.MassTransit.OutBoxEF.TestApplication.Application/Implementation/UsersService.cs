@@ -96,10 +96,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Im
             _eventBus.Publish(existingUser.MapToUserDeletedEvent());
         }
 
-        public void Dispose()
-        {
-        }
-
         [IntentManaged(Mode.Fully)]
         private Preference CreatePreference(Users.PreferenceDto dto)
         {

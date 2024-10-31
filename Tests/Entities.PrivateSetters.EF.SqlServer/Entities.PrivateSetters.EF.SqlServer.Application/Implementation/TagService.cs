@@ -43,9 +43,5 @@ namespace Entities.PrivateSetters.EF.SqlServer.Application.Implementation
 
             return results.MapToTagDtoList(_mapper);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

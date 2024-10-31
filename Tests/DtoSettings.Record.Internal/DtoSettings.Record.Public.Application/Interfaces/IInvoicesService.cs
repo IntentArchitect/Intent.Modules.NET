@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace DtoSettings.Record.Public.Application.Interfaces
 {
-    public interface IInvoicesService : IDisposable
+    public interface IInvoicesService
     {
         Task<Guid> CreateInvoice(InvoiceCreateDto dto, CancellationToken cancellationToken = default);
         Task<InvoiceDto> FindInvoiceById(Guid id, CancellationToken cancellationToken = default);

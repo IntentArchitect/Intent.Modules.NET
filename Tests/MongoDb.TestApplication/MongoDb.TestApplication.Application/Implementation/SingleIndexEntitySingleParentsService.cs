@@ -94,10 +94,6 @@ namespace MongoDb.TestApplication.Application.Implementation
             _singleIndexEntitySingleParentRepository.Remove(existingSingleIndexEntitySingleParent);
         }
 
-        public void Dispose()
-        {
-        }
-
         [IntentManaged(Mode.Fully)]
         private SingleIndexEntitySingleChild CreateSingleIndexEntitySingleChild(SingleIndexEntitySingleChildDto dto)
         {

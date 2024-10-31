@@ -121,10 +121,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
             return products.MapToPagedResult(x => x.MapToProductDto(_mapper));
         }
 
-        public void Dispose()
-        {
-        }
-
         [IntentManaged(Mode.Fully)]
         private static Tag CreateOrUpdateTag(Tag? valueObject, UpdateProductTagDto dto)
         {

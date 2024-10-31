@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,7 +10,7 @@ using MongoDb.TestApplication.Application.IdTypeOjectIdStrs;
 namespace MongoDb.TestApplication.Application.Interfaces
 {
 
-    public interface IIdTypeOjectIdStrsService : IDisposable
+    public interface IIdTypeOjectIdStrsService
     {
         Task<string> CreateIdTypeOjectIdStr(IdTypeOjectIdStrCreateDto dto, CancellationToken cancellationToken = default);
         Task<IdTypeOjectIdStrDto> FindIdTypeOjectIdStrById(string id, CancellationToken cancellationToken = default);

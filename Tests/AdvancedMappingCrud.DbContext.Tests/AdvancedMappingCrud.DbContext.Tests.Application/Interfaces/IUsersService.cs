@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.DbContext.Tests.Application.Interfaces
 {
-    public interface IUsersService : IDisposable
+    public interface IUsersService
     {
         Task<Guid> CreateUser(UserCreateDto dto, CancellationToken cancellationToken = default);
         Task<UserDto> FindUserById(Guid id, CancellationToken cancellationToken = default);

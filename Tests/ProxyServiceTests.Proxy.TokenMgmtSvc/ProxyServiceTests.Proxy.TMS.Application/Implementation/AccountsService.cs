@@ -75,9 +75,5 @@ namespace ProxyServiceTests.Proxy.TMS.Application.Implementation
             var result = await _ntegrationServicesIAccountsService.GetAccountsAsync(cancellationToken);
             return result;
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

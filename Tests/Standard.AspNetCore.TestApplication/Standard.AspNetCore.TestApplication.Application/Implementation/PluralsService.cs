@@ -81,9 +81,5 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
             }
             _pluralsRepository.Remove(existingPlurals);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

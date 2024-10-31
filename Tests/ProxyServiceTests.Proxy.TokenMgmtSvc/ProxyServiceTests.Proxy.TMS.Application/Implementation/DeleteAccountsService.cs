@@ -28,9 +28,5 @@ namespace ProxyServiceTests.Proxy.TMS.Application.Implementation
         {
             await _ntegrationServicesIDeleteAccountsService.DeleteAccountAsync(id, cancellationToken);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

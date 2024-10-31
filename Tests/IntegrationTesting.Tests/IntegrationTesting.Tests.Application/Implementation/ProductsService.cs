@@ -83,9 +83,5 @@ namespace IntegrationTesting.Tests.Application.Implementation
 
             _productRepository.Remove(product);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

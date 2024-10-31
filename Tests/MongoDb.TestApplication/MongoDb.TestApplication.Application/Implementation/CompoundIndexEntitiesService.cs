@@ -95,9 +95,5 @@ namespace MongoDb.TestApplication.Application.Implementation
             }
             _compoundIndexEntityRepository.Remove(existingCompoundIndexEntity);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.Interfaces.ScalarCollectionReturnType
 {
-    public interface IServiceWithScalarWithCollectionReturnService : IDisposable
+    public interface IServiceWithScalarWithCollectionReturnService
     {
         Task<List<string>> DoScalarWithCollectionReturn(CancellationToken cancellationToken = default);
     }

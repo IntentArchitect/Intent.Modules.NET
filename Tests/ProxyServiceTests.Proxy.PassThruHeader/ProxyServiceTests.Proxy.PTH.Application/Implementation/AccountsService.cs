@@ -75,9 +75,5 @@ namespace ProxyServiceTests.Proxy.PTH.Application.Implementation
             var result = await _ntegrationServicesIAccountsService.GetAccountsAsync(cancellationToken);
             return result;
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

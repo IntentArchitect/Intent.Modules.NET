@@ -10,7 +10,7 @@ using Publish.AspNetCore.MassTransit.OutBoxNone.Application.Roles;
 
 namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Interfaces
 {
-    public interface IRolesService : IDisposable
+    public interface IRolesService
     {
         Task<Guid> CreateRole(RoleCreateDto dto, CancellationToken cancellationToken = default);
         Task<RoleDto> FindRoleById(Guid id, CancellationToken cancellationToken = default);

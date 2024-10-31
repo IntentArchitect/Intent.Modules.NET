@@ -84,9 +84,5 @@ namespace MongoDb.TestApplication.Application.Implementation
             }
             _idTypeGuidRepository.Remove(existingIdTypeGuid);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

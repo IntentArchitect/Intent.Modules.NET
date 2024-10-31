@@ -87,10 +87,6 @@ namespace DtoSettings.Record.Public.Application.Implementation
             _invoiceRepository.Remove(existingInvoice);
         }
 
-        public void Dispose()
-        {
-        }
-
         [IntentManaged(Mode.Fully)]
         private InvoiceLine CreateInvoiceLine(InvoiceLineCreateDto dto)
         {

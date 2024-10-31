@@ -94,10 +94,6 @@ namespace MongoDb.TestApplication.Application.Implementation
             _compoundIndexEntityMultiParentRepository.Remove(existingCompoundIndexEntityMultiParent);
         }
 
-        public void Dispose()
-        {
-        }
-
         [IntentManaged(Mode.Fully)]
         private CompoundIndexEntityMultiChild CreateCompoundIndexEntityMultiChild(CompoundIndexEntityMultiChildDto dto)
         {

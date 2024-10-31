@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -11,7 +10,7 @@ namespace CleanArchitecture.Comprehensive.Application.Interfaces.Comments
     /// <summary>
     /// My Service Comments
     /// </summary>
-    public interface ICommentTestService : IDisposable
+    public interface ICommentTestService
     {
         /// <summary>
         /// My Op Comments

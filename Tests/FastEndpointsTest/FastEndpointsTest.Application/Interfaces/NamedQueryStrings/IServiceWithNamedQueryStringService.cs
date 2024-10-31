@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.Interfaces.NamedQueryStrings
 {
-    public interface IServiceWithNamedQueryStringService : IDisposable
+    public interface IServiceWithNamedQueryStringService
     {
         Task DoNamedQueryString(string customName, CancellationToken cancellationToken = default);
     }

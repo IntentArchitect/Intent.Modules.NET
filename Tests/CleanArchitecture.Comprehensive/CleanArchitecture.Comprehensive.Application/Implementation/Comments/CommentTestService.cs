@@ -30,9 +30,5 @@ namespace CleanArchitecture.Comprehensive.Application.Implementation.Comments
         {
             throw new NotImplementedException("Write your implementation for this service here...");
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

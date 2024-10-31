@@ -83,9 +83,5 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
             }
             _invoiceRepository.Remove(existingInvoice);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

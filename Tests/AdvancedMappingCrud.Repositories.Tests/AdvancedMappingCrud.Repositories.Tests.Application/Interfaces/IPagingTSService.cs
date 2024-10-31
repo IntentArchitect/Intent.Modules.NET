@@ -10,7 +10,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Interfaces
 {
-    public interface IPagingTSService : IDisposable
+    public interface IPagingTSService
     {
         Task<Guid> CreatePagingTS(PagingTSCreateDto dto, CancellationToken cancellationToken = default);
         Task<PagingTSDto> FindPagingTSById(Guid id, CancellationToken cancellationToken = default);

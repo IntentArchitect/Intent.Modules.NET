@@ -69,9 +69,5 @@ namespace ProxyServiceTests.Proxy.AuthHeaderProvider.Application.Implementation
         {
             await _ntegrationServicesIClientsService.DeleteClientAsync(id, cancellationToken);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

@@ -55,9 +55,5 @@ namespace Entities.PrivateSetters.EF.SqlServer.Application.Implementation
 
             return results.MapToInvoiceDtoList(_mapper);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

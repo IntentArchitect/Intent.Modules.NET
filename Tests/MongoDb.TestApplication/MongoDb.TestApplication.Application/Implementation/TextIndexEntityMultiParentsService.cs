@@ -94,10 +94,6 @@ namespace MongoDb.TestApplication.Application.Implementation
             _textIndexEntityMultiParentRepository.Remove(existingTextIndexEntityMultiParent);
         }
 
-        public void Dispose()
-        {
-        }
-
         [IntentManaged(Mode.Fully)]
         private TextIndexEntityMultiChild CreateTextIndexEntityMultiChild(TextIndexEntityMultiChildDto dto)
         {

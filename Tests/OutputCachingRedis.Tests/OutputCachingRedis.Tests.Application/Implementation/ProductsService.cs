@@ -86,9 +86,5 @@ namespace OutputCachingRedis.Tests.Application.Implementation
 
             _productRepository.Remove(product);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

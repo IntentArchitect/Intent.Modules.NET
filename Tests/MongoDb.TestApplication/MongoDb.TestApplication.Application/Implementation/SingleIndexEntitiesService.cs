@@ -93,9 +93,5 @@ namespace MongoDb.TestApplication.Application.Implementation
             }
             _singleIndexEntityRepository.Remove(existingSingleIndexEntity);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

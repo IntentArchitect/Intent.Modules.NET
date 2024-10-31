@@ -90,10 +90,6 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Implementation
             return existingUser.MapToUserDto(_mapper);
         }
 
-        public void Dispose()
-        {
-        }
-
         [IntentManaged(Mode.Fully)]
         private Role CreateRole(CreateUserRoleDto dto)
         {

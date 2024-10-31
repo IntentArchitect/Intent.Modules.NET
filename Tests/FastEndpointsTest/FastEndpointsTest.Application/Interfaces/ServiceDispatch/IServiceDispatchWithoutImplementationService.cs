@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.Interfaces.ServiceDispatch
 {
-    public interface IServiceDispatchWithoutImplementationService : IDisposable
+    public interface IServiceDispatchWithoutImplementationService
     {
         void MutationNoImpl1(string param);
         Task MutationNoImpl2Async(CancellationToken cancellationToken = default);

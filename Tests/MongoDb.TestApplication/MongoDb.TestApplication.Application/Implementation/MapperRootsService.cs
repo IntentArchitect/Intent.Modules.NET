@@ -90,9 +90,5 @@ namespace MongoDb.TestApplication.Application.Implementation
             }
             _mapperRootRepository.Remove(existingMapperRoot);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

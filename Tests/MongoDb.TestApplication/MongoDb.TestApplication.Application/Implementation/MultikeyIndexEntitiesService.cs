@@ -93,9 +93,5 @@ namespace MongoDb.TestApplication.Application.Implementation
             }
             _multikeyIndexEntityRepository.Remove(existingMultikeyIndexEntity);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

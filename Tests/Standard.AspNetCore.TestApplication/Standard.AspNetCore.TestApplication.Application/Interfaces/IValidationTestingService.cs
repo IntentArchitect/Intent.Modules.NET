@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -9,7 +8,7 @@ using Standard.AspNetCore.TestApplication.Application.Validation;
 
 namespace Standard.AspNetCore.TestApplication.Application.Interfaces
 {
-    public interface IValidationTestingService : IDisposable
+    public interface IValidationTestingService
     {
         Task InboundValidationDtoAction(InboundValidationDto dto, CancellationToken cancellationToken = default);
     }

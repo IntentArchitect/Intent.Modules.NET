@@ -26,9 +26,5 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
         {
             Assert.Equal(ReferenceNumber, param);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

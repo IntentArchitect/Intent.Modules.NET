@@ -24,9 +24,5 @@ namespace FastEndpointsTest.Application.Implementation.Headers
             // TODO: Implement DoHeaderField (ServiceWithHeaderFieldService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

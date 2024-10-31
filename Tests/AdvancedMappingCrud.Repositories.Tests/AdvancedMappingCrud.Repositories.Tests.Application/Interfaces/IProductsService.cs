@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Interfaces
 {
-    public interface IProductsService : IDisposable
+    public interface IProductsService
     {
         Task<Guid> CreateProduct(ProductCreateDto dto, CancellationToken cancellationToken = default);
         Task<ProductDto> FindProductById(Guid id, CancellationToken cancellationToken = default);

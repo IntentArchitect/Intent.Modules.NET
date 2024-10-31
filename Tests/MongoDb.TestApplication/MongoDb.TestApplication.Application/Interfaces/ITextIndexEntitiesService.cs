@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +9,7 @@ using MongoDb.TestApplication.Application.TextIndexEntities;
 
 namespace MongoDb.TestApplication.Application.Interfaces
 {
-    public interface ITextIndexEntitiesService : IDisposable
+    public interface ITextIndexEntitiesService
     {
         Task<string> CreateTextIndexEntity(TextIndexEntityCreateDto dto, CancellationToken cancellationToken = default);
         Task<TextIndexEntityDto> FindTextIndexEntityById(string id, CancellationToken cancellationToken = default);

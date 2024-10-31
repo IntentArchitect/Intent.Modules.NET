@@ -10,7 +10,7 @@ using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Users;
 
 namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Interfaces
 {
-    public interface IUsersService : IDisposable
+    public interface IUsersService
     {
         Task<Guid> CreateUser(UserCreateDto dto, CancellationToken cancellationToken = default);
         Task<UserDto> FindUserById(Guid id, CancellationToken cancellationToken = default);

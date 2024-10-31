@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.NET6.Application.Interfaces.Enums
 {
-    public interface IEnumService : IDisposable
+    public interface IEnumService
     {
         Task TestRouteEnum(Company testEnum, CancellationToken cancellationToken = default);
         Task TestQueryEnum(Company testEnum, CancellationToken cancellationToken = default);

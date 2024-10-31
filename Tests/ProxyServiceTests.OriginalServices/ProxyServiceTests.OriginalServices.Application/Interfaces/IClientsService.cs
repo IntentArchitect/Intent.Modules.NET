@@ -10,7 +10,7 @@ using ProxyServiceTests.OriginalServices.Application.Clients;
 
 namespace ProxyServiceTests.OriginalServices.Application.Interfaces
 {
-    public interface IClientsService : IDisposable
+    public interface IClientsService
     {
         Task<Guid> CreateClient(ClientCreateDto dto, CancellationToken cancellationToken = default);
         Task<ClientDto> FindClientById(Guid id, CancellationToken cancellationToken = default);

@@ -151,9 +151,5 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Implemen
                     email: c.Email))
                 .ToList());
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

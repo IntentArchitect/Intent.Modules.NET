@@ -73,9 +73,5 @@ namespace CleanArchitecture.Comprehensive.Application.Implementation.ServiceDisp
             // TODO: Implement Query8Async (ServiceDispatchService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

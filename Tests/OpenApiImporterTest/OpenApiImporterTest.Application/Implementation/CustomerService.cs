@@ -95,9 +95,5 @@ namespace OpenApiImporterTest.Application.Implementation
             // TODO: Implement GetOrder (CustomerService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

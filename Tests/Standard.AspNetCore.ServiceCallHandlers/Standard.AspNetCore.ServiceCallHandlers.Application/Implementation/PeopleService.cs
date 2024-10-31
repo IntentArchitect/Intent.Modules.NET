@@ -61,9 +61,5 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Implementation
             var sch = (DeletePersonSCH)_serviceProvider.GetRequiredService(typeof(DeletePersonSCH));
             await sch.Handle(id, cancellationToken);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

@@ -53,9 +53,5 @@ namespace OpenApiImporterTest.Application.Implementation
             // TODO: Implement GetAccount (AccountService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

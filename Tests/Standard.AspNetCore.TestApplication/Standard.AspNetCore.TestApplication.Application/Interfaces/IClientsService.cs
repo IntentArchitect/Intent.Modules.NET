@@ -11,7 +11,7 @@ using Standard.AspNetCore.TestApplication.Application.Common.Pagination;
 
 namespace Standard.AspNetCore.TestApplication.Application.Interfaces
 {
-    public interface IClientsService : IDisposable
+    public interface IClientsService
     {
         Task<Guid> CreateClient(ClientCreate dto, CancellationToken cancellationToken = default);
         Task<Client> FindClientById(Guid id, CancellationToken cancellationToken = default);

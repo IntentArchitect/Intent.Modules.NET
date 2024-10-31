@@ -86,9 +86,5 @@ namespace MongoDb.TestApplication.Application.Implementation
             }
             _derivedRepository.Remove(existingDerived);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

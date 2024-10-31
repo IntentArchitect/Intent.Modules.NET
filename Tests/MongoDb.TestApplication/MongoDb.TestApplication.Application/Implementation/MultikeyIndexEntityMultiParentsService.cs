@@ -94,10 +94,6 @@ namespace MongoDb.TestApplication.Application.Implementation
             _multikeyIndexEntityMultiParentRepository.Remove(existingMultikeyIndexEntityMultiParent);
         }
 
-        public void Dispose()
-        {
-        }
-
         [IntentManaged(Mode.Fully)]
         private MultikeyIndexEntityMultiChild CreateMultikeyIndexEntityMultiChild(MultikeyIndexEntityMultiChildDto dto)
         {

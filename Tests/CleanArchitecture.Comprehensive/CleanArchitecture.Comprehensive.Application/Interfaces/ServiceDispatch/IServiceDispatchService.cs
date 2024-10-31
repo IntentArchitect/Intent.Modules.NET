@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -8,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Comprehensive.Application.Interfaces.ServiceDispatch
 {
-    public interface IServiceDispatchService : IDisposable
+    public interface IServiceDispatchService
     {
         void Mutation1();
         void Mutation2(string param);

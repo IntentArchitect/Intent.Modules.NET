@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +9,7 @@ using MongoDb.TestApplication.Application.MapperRoots;
 
 namespace MongoDb.TestApplication.Application.Interfaces
 {
-    public interface IMapperRootsService : IDisposable
+    public interface IMapperRootsService
     {
         Task<string> CreateMapperRoot(MapperRootCreateDto dto, CancellationToken cancellationToken = default);
         Task<MapperRootDto> FindMapperRootById(string id, CancellationToken cancellationToken = default);

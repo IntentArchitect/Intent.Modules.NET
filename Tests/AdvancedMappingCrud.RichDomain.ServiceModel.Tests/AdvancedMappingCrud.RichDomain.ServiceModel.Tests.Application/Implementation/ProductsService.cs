@@ -104,9 +104,5 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Implemen
 
             product.ChangeCategoriesSync(dto.CategoryNames, _categoriesService);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

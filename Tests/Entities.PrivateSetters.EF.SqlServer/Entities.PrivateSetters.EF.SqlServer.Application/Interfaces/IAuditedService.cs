@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.EF.SqlServer.Application.Interfaces
 {
-    public interface IAuditedService : IDisposable
+    public interface IAuditedService
     {
         Task Create(CancellationToken cancellationToken = default);
         Task Update(Guid id, CancellationToken cancellationToken = default);

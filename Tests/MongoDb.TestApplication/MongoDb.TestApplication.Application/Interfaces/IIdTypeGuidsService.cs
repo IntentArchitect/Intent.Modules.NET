@@ -11,7 +11,7 @@ using MongoDb.TestApplication.Application.IdTypeGuids;
 namespace MongoDb.TestApplication.Application.Interfaces
 {
 
-    public interface IIdTypeGuidsService : IDisposable
+    public interface IIdTypeGuidsService
     {
         Task<Guid> CreateIdTypeGuid(IdTypeGuidCreateDto dto, CancellationToken cancellationToken = default);
         Task<IdTypeGuidDto> FindIdTypeGuidById(Guid id, CancellationToken cancellationToken = default);

@@ -93,9 +93,5 @@ namespace GraphQL.CQRS.TestApplication.Application.Implementation
             _productRepository.Remove(existingProduct);
             return existingProduct.MapToProductDto(_mapper);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

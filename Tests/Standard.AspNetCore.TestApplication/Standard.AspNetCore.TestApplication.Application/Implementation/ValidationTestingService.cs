@@ -26,9 +26,5 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
         {
             throw new NotImplementedException("Write your implementation for this service here...");
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

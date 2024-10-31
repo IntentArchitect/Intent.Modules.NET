@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -8,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace BugSnagTest.AspNetCore.Application.Interfaces
 {
-    public interface ITestService : IDisposable
+    public interface ITestService
     {
         Task TestError(RequestDto dto, CancellationToken cancellationToken = default);
     }

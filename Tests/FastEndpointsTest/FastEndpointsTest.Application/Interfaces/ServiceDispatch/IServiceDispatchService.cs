@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace FastEndpointsTest.Application.Interfaces.ServiceDispatch
 {
-    public interface IServiceDispatchService : IDisposable
+    public interface IServiceDispatchService
     {
         void Mutation1();
         void Mutation2(string param);

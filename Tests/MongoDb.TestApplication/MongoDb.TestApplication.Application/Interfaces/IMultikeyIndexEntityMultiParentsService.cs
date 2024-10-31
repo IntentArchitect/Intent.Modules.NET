@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +9,7 @@ using MongoDb.TestApplication.Application.MultikeyIndexEntityMultiParents;
 
 namespace MongoDb.TestApplication.Application.Interfaces
 {
-    public interface IMultikeyIndexEntityMultiParentsService : IDisposable
+    public interface IMultikeyIndexEntityMultiParentsService
     {
         Task<string> CreateMultikeyIndexEntityMultiParent(MultikeyIndexEntityMultiParentCreateDto dto, CancellationToken cancellationToken = default);
         Task<MultikeyIndexEntityMultiParentDto> FindMultikeyIndexEntityMultiParentById(string id, CancellationToken cancellationToken = default);

@@ -29,9 +29,5 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
         {
 
         }
-
-        public void Dispose()
-        {
-        }
     }
 }
