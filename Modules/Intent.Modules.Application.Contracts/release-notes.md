@@ -1,3 +1,7 @@
+### Version 5.0.9
+
+- Improvement: Removed unnecessary implementation of IDisposable 
+
 ### Version 5.0.8
 
 - Improvement: Updated module NuGet packages infrastructure.

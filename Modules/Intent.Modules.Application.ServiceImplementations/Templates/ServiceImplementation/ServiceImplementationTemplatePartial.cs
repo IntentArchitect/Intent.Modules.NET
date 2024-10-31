@@ -94,7 +94,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                             method.AddStatement($@"throw new NotImplementedException(""Write your implementation for this service here..."");");
                         });
                     }
-                    priClass.AddMethod("void", "Dispose");
                 })
                 .AfterBuild(file =>
                 {

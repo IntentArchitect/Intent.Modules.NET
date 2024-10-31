@@ -39,7 +39,6 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
             .AddInterface($"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service", @interface =>
             {
                 @interface.RepresentsModel(Model);
-                @interface.ImplementsInterfaces([UseType("System.IDisposable")]);
                 @interface.TryAddXmlDocComments(Model.InternalElement);
                 foreach (var operation in Model.Operations)
                 {
