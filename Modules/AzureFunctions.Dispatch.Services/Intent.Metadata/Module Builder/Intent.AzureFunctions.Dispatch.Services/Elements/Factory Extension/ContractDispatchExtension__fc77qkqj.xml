@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="549d57c1-113f-45c3-85a7-460bc18872f5" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ContractDispatchExtension</name>
+  <display>ContractDispatchExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>10a41da0-aa10-463f-9181-7fb429e19068</parentFolderId>
+  <packageId>10a41da0-aa10-463f-9181-7fb429e19068</packageId>
+  <packageName>Intent.AzureFunctions.Dispatch.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

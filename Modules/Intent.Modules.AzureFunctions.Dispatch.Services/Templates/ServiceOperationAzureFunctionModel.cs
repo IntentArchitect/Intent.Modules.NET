@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Metadata.Models;
-using Intent.Modelers.Services.Api;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common.Types.Api;
+using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
-namespace Intent.Modules.AzureFunctions.Interop.Contracts.Templates;
+namespace Intent.Modules.AzureFunctions.Dispatch.Services.Templates;
 
 public class ServiceOperationAzureFunctionModel : IAzureFunctionModel
 {

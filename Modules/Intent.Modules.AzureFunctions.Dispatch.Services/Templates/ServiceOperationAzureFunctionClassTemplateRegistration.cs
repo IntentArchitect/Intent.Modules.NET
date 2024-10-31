@@ -3,6 +3,7 @@ using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.AzureFunctions.Dispatch.Services.Templates;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;

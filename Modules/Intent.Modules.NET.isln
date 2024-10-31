@@ -145,5 +145,6 @@
     <application id="69705fd3-4f0c-449e-9b70-50f1f7f5db97" name="Intent.Modules.Google.CloudStorage" relativePath="Intent.Modules.Google.CloudStorage/Intent.Modules.Google.CloudStorage.application.config" />
     <application id="086913ce-408d-4025-acc5-58b5d97678de" name="Intent.Modules.SharedKernel.Consumer" relativePath="Intent.Modules.SharedKernel.Consumer/Intent.Modules.SharedKernel.Consumer.application.config" />
     <application id="d4ae9915-9432-4e8f-a9cc-c8fe21e0e68d" name="Intent.Modules.SharedKernel" relativePath="Intent.Modules.SharedKernel/Intent.Modules.SharedKernel.application.config" />
+    <application id="dd606e23-930e-465c-bad1-9922641967b0" name="AzureFunctions.Dispatch.Services" relativePath="AzureFunctions.Dispatch.Services/AzureFunctions.Dispatch.Services.application.config" />
   </applications>
 </solution>

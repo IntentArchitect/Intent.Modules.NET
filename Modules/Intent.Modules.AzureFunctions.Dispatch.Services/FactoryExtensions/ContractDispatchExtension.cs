@@ -8,35 +8,39 @@ using Intent.Modules.AzureFunctions.Templates;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
-using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using IHasCSharpStatements = Intent.Modules.Common.CSharp.Builder.IHasCSharpStatements;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.AzureFunctions.Interop.Contracts.FactoryExtensions
+namespace Intent.Modules.AzureFunctions.Dispatch.Services.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class ContractDispatchExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.AzureFunctions.Interop.Contracts.ContractDispatchExtension";
+        public override string Id => "Intent.AzureFunctions.Dispatch.Services.ContractDispatchExtension";
 
-        [IntentManaged(Mode.Ignore)] public override int Order => 0;
+        [IntentManaged(Mode.Ignore)]
+        public override int Order => 0;
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var templates = application.FindTemplateInstances<AzureFunctionClassTemplate>(TemplateDependency.OnTemplate(AzureFunctionClassTemplate.TemplateId));
             foreach (var template in templates)
             {
-                var mappedOperation = template.Model.InternalElement.AsOperationModel() ??
-                                      (template.Model.IsMapped ? template.Model.Mapping.Element.AsOperationModel() : null);
+                var mappedOperation = OperationModelExtensions.AsOperationModel(template.Model.InternalElement) ??
+                                      (template.Model.IsMapped ? OperationModelExtensions.AsOperationModel(template.Model.Mapping.Element) : null);
                 if (mappedOperation == null)
+                {
+                    continue;
+                }
+
+                var parentService = mappedOperation.InternalElement.ParentElement.AsServiceModel();
+                if (parentService == null)
                 {
                     continue;
                 }
@@ -44,7 +48,7 @@ namespace Intent.Modules.AzureFunctions.Interop.Contracts.FactoryExtensions
                 template.CSharpFile.OnBuild(file =>
                 {
                     var @class = file.Classes.Single();
-                    @class.Constructors.First().AddParameter(template.GetServiceContractName(mappedOperation.ParentService), "appService",
+                    @class.Constructors.First().AddParameter(template.GetServiceContractName(parentService), "appService",
                         param => { param.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
                     var runMethod = FindServiceInvokePoint(@class, out var hostMethod)

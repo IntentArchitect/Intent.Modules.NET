@@ -9,14 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>db35eca2-849c-4653-aa25-ee698ec8338d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#dbb1b9f1-ca60-48ec-a690-1dad563df45d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/ContractDispatchExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ContractDispatchExtension.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>a1f01b33-0de7-4217-804d-34a1e991397b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
