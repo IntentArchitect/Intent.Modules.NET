@@ -39,7 +39,6 @@ public class CqrsAzureFunctionModel : IAzureFunctionModel
         Mapping = command.InternalElement.MappedElement;
         Folder = command.Folder;
         Stereotypes = command.InternalElement.Stereotypes;
-
     }
 
     public CqrsAzureFunctionModel(QueryModel query)

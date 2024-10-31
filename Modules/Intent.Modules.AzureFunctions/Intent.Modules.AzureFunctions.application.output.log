@@ -218,6 +218,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4cc2b906-6a28-4d05-9721-548e8a541abd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InProcess/Startup/StartupTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InProcess/Startup/StartupTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#4cc2b906-6a28-4d05-9721-548e8a541abd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InProcess/Startup/StartupTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InProcess/Startup/StartupTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3bb69eff-0d9c-43f6-b15d-72022316574e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Isolated/Program/ProgramTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Isolated/Program/ProgramTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#3bb69eff-0d9c-43f6-b15d-72022316574e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Isolated/Program/ProgramTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Isolated/Program/ProgramTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#6be4e869-4171-4d7f-babf-4163b0a5de0f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ReturnTypes/JsonResponse/JsonResponseTemplate.cs</ApplicationRelativeFilePath>
@@ -278,22 +310,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ReturnTypes/ResourceLocationClass/ResourceLocationClassTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ReturnTypes/ResourceLocationClass/ResourceLocationClassTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4cc2b906-6a28-4d05-9721-548e8a541abd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Startup/StartupTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Startup/StartupTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>51504bed-31ac-460a-a37f-35f377951a6d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#4cc2b906-6a28-4d05-9721-548e8a541abd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Startup/StartupTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Startup/StartupTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

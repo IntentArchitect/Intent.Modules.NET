@@ -118,4 +118,5 @@ if (element.getStereotype(comsmosDBTriggerId) == null) {
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
+  <scripts />
 </settings>

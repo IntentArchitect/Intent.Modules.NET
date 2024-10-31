@@ -6,6 +6,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -13,12 +14,12 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.AzureFunctions.Templates.Startup
+namespace Intent.Modules.AzureFunctions.Templates.InProcess.Startup
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class StartupTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.AzureFunctions.Startup";
+        public const string TemplateId = "Intent.AzureFunctions.InProcess.Startup";
 
         private readonly IList<ServiceConfigurationRequest> _serviceConfigurations =
             new List<ServiceConfigurationRequest>();
@@ -72,6 +73,11 @@ namespace Intent.Modules.AzureFunctions.Templates.Startup
                         }
                     }
                 });
+        }
+
+        public override bool CanRunTemplate()
+        {
+            return OutputTarget.GetProject().IsNetApp(6);
         }
 
         private void HandleServiceConfigurationRequest(ServiceConfigurationRequest request)

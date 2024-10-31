@@ -15,14 +15,14 @@ namespace Intent.AzureFunctions.Api
     {
         public static AzureFunction GetAzureFunction(this QueryModel model)
         {
-            var stereotype = model.GetStereotype("7c1128f6-fdef-4bf9-8f15-acb54b5bfa89");
+            var stereotype = model.GetStereotype(AzureFunction.DefinitionId);
             return stereotype != null ? new AzureFunction(stereotype) : null;
         }
 
 
         public static bool HasAzureFunction(this QueryModel model)
         {
-            return model.HasStereotype("7c1128f6-fdef-4bf9-8f15-acb54b5bfa89");
+            return model.HasStereotype(AzureFunction.DefinitionId);
         }
 
         public static bool TryGetAzureFunction(this QueryModel model, out AzureFunction stereotype)
@@ -33,13 +33,14 @@ namespace Intent.AzureFunctions.Api
                 return false;
             }
 
-            stereotype = new AzureFunction(model.GetStereotype("7c1128f6-fdef-4bf9-8f15-acb54b5bfa89"));
+            stereotype = new AzureFunction(model.GetStereotype(AzureFunction.DefinitionId));
             return true;
         }
 
         public class AzureFunction
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "7c1128f6-fdef-4bf9-8f15-acb54b5bfa89";
 
             public AzureFunction(IStereotype stereotype)
             {

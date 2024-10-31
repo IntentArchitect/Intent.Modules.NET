@@ -16,6 +16,7 @@ using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using ModelHasFolderTemplateExtensionsV2 = Intent.Modules.Common.ModelHasFolderTemplateExtensionsV2;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -83,7 +84,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 
         private string GetRelativeLocation()
         {
-            return ((IIntentTemplate<IAzureFunctionModel>)this).GetFolderPath();
+            var path = string.Join("/", Model.GetParentFolderNames());
+            return path;
         }
 
         string GetNamespace(

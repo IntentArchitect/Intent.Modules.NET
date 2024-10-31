@@ -364,7 +364,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>9466369f-8619-418f-972f-413e1ba6cf0e</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.Startup</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.InProcess.Startup</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../AzureFunctions.NET6/AzureFunctions.NET6.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
