@@ -12,7 +12,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:04:30.0895507Z</approvedAt>
       <deviationsHash>BB7D9A01994B4AC151B724B0DF4854C7206B574B07703AB73E68A643DC7BA438</deviationsHash>
-      <fileHash>17029DEF5C03E2BBAD8B143B2092046B578C51F9E6B2BBA953D8724F874EC648</fileHash>
+      <fileHash>36F1BA4AA05BE2E772BEBAD438FA7EC3E75F134071DF950EFE34C34E05316D25</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0010a2e5-2a3a-4c32-a2c3-b125afe9f750</correlationId>
@@ -28,6 +28,16 @@
       <fileHash>A46E98A5A4A4A4DA279A2D1236213E39E3703502ED0A4DC740A460C22E70CEEC</fileHash>
     </file>
     <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c51b6146-73a7-4724-a229-d8d9fed6bed4</correlationId>
+      <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/Swashbuckle/TenantHeaderOperationFilter/TenantHeaderOperationFilterTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-11-01T09:30:24.347878Z</updatedAt>
+      <deviationsHash>F04BC5A92FB4777AF3E7D8FB6FF303B640A01B4A09CBAEBCDF11D7487AA86742</deviationsHash>
+      <fileHash>B402AFA51904F809B954965050809F49D3CC7EA58932C2B69C12AD6846CEA7D1</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
       <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/TemplateExtensions.cs</path>
       <count>1</count>
@@ -38,7 +48,17 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:04:30.0915167Z</approvedAt>
       <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
-      <fileHash>7070EB74BDEF65D624CD54DFCC149F4820ED004757B6022150403DDEB2B3FA3F</fileHash>
+      <fileHash>881E3F20ACCD0D0AA739DA664183BBC60A8EAEC5EC9D32D3694611984D0FC6EF</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#864465e9-a139-4208-9ae8-10786191fa07</correlationId>
+      <path>Intent.Modules.AspNetCore.MultiTenancy/Templates/TenantExtendedInfo/TenantExtendedInfoTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-10-31T14:51:42.7110358Z</updatedAt>
+      <deviationsHash>D132540BE60254A82663589407E6390C320B1CE7A59F297814F594EE111B24D4</deviationsHash>
+      <fileHash>20E096D7082B43675CBC0A7FD33CD2B1EC57F9C63618EF9CB412F351A2EC0503</fileHash>
     </file>
   </files>
 </deviationsLog>

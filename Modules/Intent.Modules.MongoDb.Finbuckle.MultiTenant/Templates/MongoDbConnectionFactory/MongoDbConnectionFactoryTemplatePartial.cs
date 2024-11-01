@@ -1,22 +1,24 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.MultiTenancy.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.MongoDb.Finbuckle.MultiTenant.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.MongoDb.Templates.MongoDbConnectionFactory
+namespace Intent.Modules.MongoDb.Finbuckle.MultiTenant.Templates.MongoDbConnectionFactory
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class MongoDbConnectionFactoryTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.MongoDb.MongoDbConnectionFactory";
+        public const string TemplateId = "Intent.MongoDb.Finbuckle.MultiTenant.MongoDbConnectionFactory";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MongoDbConnectionFactoryTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -77,7 +79,7 @@ namespace Intent.Modules.MongoDb.Templates.MongoDbConnectionFactory
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && DocumentTemplateHelpers.IsSeparateDatabaseMultiTenancy(ExecutionContext.Settings);
+            return base.CanRunTemplate() && ExecutionContext.Settings.GetMultitenancySettings().MongoDbDataIsolation().IsSeparateDatabase();
         }
 
         [IntentManaged(Mode.Fully)]

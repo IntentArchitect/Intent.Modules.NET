@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="6137a03f-b3af-4a41-8518-133793948164" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>MongoDbConnectionFactory</name>
-  <display>MongoDbConnectionFactory: Single File</display>
+  <name>MongoDbMultiTenantConnectionFactory</name>
+  <display>MongoDbMultiTenantConnectionFactory: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="38ceb078-49fe-4f73-9cf0-b7b0a47da61d">

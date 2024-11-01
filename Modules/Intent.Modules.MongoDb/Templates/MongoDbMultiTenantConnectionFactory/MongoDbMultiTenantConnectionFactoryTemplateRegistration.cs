@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.MongoDb.Templates.MongoDbConnectionFactory
+namespace Intent.Modules.MongoDb.Templates.MongoDbMultiTenantConnectionFactory
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class MongoDbConnectionFactoryTemplateRegistration : SingleFileTemplateRegistration
+    public class MongoDbMultiTenantConnectionFactoryTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => MongoDbConnectionFactoryTemplate.TemplateId;
+        public override string TemplateId => MongoDbMultiTenantConnectionFactoryTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new MongoDbConnectionFactoryTemplate(outputTarget);
+            return new MongoDbMultiTenantConnectionFactoryTemplate(outputTarget);
         }
     }
 }

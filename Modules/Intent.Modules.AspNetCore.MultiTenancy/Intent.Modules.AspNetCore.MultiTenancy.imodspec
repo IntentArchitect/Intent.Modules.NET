@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.AspNetCore.MultiTenancy</id>
-  <version>5.1.5-pre.0</version>
+  <version>6.0.0-pre.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</summary>
   <description>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</description>
@@ -34,6 +34,14 @@
       </config>
       <role>Startup</role>
       <location>Filters</location>
+    </template>
+    <template id="Intent.Modules.AspNetCore.MultiTenancy.TenantConnectionsInterfaceTemplate" externalReference="0e91aa8d-143e-49d7-85d6-7855d7331248">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure</role>
+      <location>MultiTenant</location>
     </template>
     <template id="Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo" externalReference="864465e9-a139-4208-9ae8-10786191fa07">
       <config>
@@ -111,8 +119,8 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.AspNetCore" version="6.0.0" />
-    <dependency id="Intent.Common" version="3.7.2-pre.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.6-pre.1" />
+    <dependency id="Intent.Common" version="3.7.3-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.8.3-pre.10" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Domain" version="3.4.6" />
     <dependency id="Intent.Modelers.Services" version="3.8.2" />

@@ -19,7 +19,7 @@
       <role>Infrastructure.Data.DbContext.MongoDb</role>
       <location>Persistence</location>
     </template>
-    <template id="Intent.MongoDb.MongoDbConnectionFactory" externalReference="6137a03f-b3af-4a41-8518-133793948164">
+    <template id="Intent.MongoDb.MongoDbMultiTenantConnectionFactory" externalReference="6137a03f-b3af-4a41-8518-133793948164">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -42,7 +42,6 @@
     <factoryExtension id="Intent.MongoDb.DomainEventsFactoryExtension" externalReference="f269765c-a166-4830-acfb-5fbfc038e4ef" />
     <factoryExtension id="Intent.MongoDb.DtoAutoMapperFactoryExtension" externalReference="1ff06ef6-6838-40ec-9ffe-8e69965781a2" />
     <factoryExtension id="Intent.MongoDb.EntityFactoryExtension" externalReference="fbce7f40-2eba-4a2a-90f8-8edde9ba6b07" />
-    <factoryExtension id="Intent.MongoDb.MultiTenanctFactoryExtension" externalReference="352577ea-3236-4571-9fa0-183b10f0bdaf" />
   </factoryExtensions>
   <moduleSettings />
   <interoperability>
@@ -60,11 +59,13 @@
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.7.2-pre.0" />
-    <dependency id="Intent.Common.CSharp" version="3.8.1" />
+    <dependency id="Intent.AspNetCore" version="6.0.2" />
+    <dependency id="Intent.Common" version="3.7.3-pre.0" />
+    <dependency id="Intent.Common.CSharp" version="3.8.3-pre.10" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.DocumentDB" version="1.2.0" />
     <dependency id="Intent.Modelers.Domain" version="3.5.1" />
+    <!--<dependency id="Intent.Modules.AspNetCore.MultiTenancy" version="5.1.4" /> Dont want this hard dependency-->
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
@@ -75,5 +76,18 @@
     <install target="Domain" src="Intent.Metadata/Module Builder/Intent.MongoDb/Intent.MongoDb.pkg.config" externalReference="3f385f6e-90c2-4071-bde2-7d8943252fd5" />
     <install target="Domain" src="modelers/MongoDb Types.designer.settings" externalReference="c1f5fb5e-a1fc-47f2-99f2-c377c4714d88" />
   </metadata>
-  <moduleSettingsExtensions />
+  <moduleSettingsExtensions>
+    <groupExtension id="06ff6b72-3ce6-48bb-b997-50886045dfd0" groupId="41ae5a02-3eb2-42a6-ade2-322b3c1f1115" externalReference="06ff6b72-3ce6-48bb-b997-50886045dfd0">
+      <settings>
+        <setting id="135d48e9-87cb-4380-8a3b-82e4f7553f58" title="MongoDb Data Isolation" type="select">
+          <isRequired>false</isRequired>
+          <defaultValue>separate-database</defaultValue>
+          <options>
+            <option value="none" description="None" />
+            <option value="separate-database" description="Separate Database" />
+          </options>
+        </setting>
+      </settings>
+    </groupExtension>
+  </moduleSettingsExtensions>
 </package>

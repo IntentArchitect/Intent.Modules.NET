@@ -7,8 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.AspNetCore" Version="6.0.0" />
-    <PackageReference Include="Intent.Modules.Common" Version="3.7.2-pre.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.7.6" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.3-pre.10" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.4.6" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.8.2" />
     <PackageReference Include="Intent.Packager" Version="3.4.3">
@@ -24,35 +23,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    
-    
-    
-    <None Update="Templates\TenantExtendedInfo\TenantExtendedInfoTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>TenantExtendedInfoTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\Swagger\TenantHeaderOperationFilter\TenantHeaderOperationFilterTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>TenantHeaderOperationFilterTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\Swashbuckle\TenantHeaderOperationFilter\TenantHeaderOperationFilterTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>TenantHeaderOperationFilterTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\TenantExtendedInfo\TenantExtendedInfoTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>TenantExtendedInfoTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\Swagger\TenantHeaderOperationFilter\TenantHeaderOperationFilterTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>TenantHeaderOperationFilterTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\Swashbuckle\TenantHeaderOperationFilter\TenantHeaderOperationFilterTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>TenantHeaderOperationFilterTemplate.tt</DependentUpon>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="43811f2f-8a99-4fbd-b464-97231f39231a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo</name>
+  <display>Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo</display>
+  <externalReference>Intent.Modules.AspNetCore.MultiTenancy</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4be273e9-cf57-4c71-80a3-711d6cf1f8f5</parentFolderId>
+  <stereotypes />
+  <metadata>
+    <entry key="status" value="unassigned" />
+  </metadata>
+  <childElements />
+</class>

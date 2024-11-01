@@ -4,10 +4,12 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
+using Intent.Modules.Common.CSharp.Multitenancy;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.MongoDb.Settings;
 using Intent.Modules.MongoDb.Templates;
 using Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext;
 using Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface;
@@ -48,14 +50,20 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 var method = file.Classes.First().FindMethod("AddInfrastructure");
                 method.AddStatement($"services.AddScoped<{dependencyInjection.GetTypeName(dbContext.Id)}>();");
 
-                if (DocumentTemplateHelpers.IsSeparateDatabaseMultiTenancy(application.Settings))
+                if (application.Settings.GetMultitenancySettings()?.MongoDbDataIsolation()?.IsSeparateDatabase() == true)
                 {
                     dependencyInjection.AddNugetDependency(NugetPackages.FinbuckleMultiTenant(dependencyInjection.OutputTarget));
-                    method.AddStatement($"services.AddSingleton<{dependencyInjection.GetMongoDbConnectionFactoryName()}>();");
+                    method.AddStatement($"services.AddSingleton<{dependencyInjection.GetMongoDbMultiTenantConnectionFactoryName()}>();");
+
+                    var teneantConnectionsTemplate = dependencyInjection.GetTemplate<ICSharpFileBuilderTemplate>("Intent.Modules.AspNetCore.MultiTenancy.TenantConnectionsInterfaceTemplate");
                     method.AddStatement(@$"services.AddScoped<IMongoDbConnection>(provider =>
                     {{
-                        var tenantInfo = provider.GetService<{dependencyInjection.UseType("Finbuckle.MultiTenant.ITenantInfo")}>() ?? throw new Finbuckle.MultiTenant.MultiTenantException(""Failed to resolve tenant info."");
-                        return provider.GetRequiredService<{dependencyInjection.GetMongoDbConnectionFactoryName()}>().GetConnection(tenantInfo);
+                        var tenantConnections = provider.GetService<{dependencyInjection.GetTypeName(teneantConnectionsTemplate)}>();
+                        if (tenantConnections is null || tenantConnections.MongoDbConnection is null)
+                        {{
+                            throw new Finbuckle.MultiTenant.MultiTenantException(""Failed to resolve tenant MongoDb connection information"");
+                        }}
+                        return provider.GetRequiredService<{dependencyInjection.GetMongoDbMultiTenantConnectionFactoryName()}>().GetConnection(tenantConnections.MongoDbConnection);
                     }});");
                 }
                 else
@@ -64,10 +72,11 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                 }
             });
 
-            if (DocumentTemplateHelpers.IsSeparateDatabaseMultiTenancy(application.Settings))
+            if (application.Settings.GetMultitenancySettings()?.MongoDbDataIsolation()?.IsSeparateDatabase() == true)
             {
+                application.EventDispatcher.Publish(new MultitenantConnectionStringRegistrationRequest("MongoDbConnection", $"mongodb://localhost/{application.Name.ToCSharpIdentifier()}-{{tenant}}"));
             }
-            else // No Multitenancy
+            else
             {
                 application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest("MongoDbConnection", $"mongodb://localhost/{application.Name.ToCSharpIdentifier()}", string.Empty));
 

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfiguration;
 using Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenantStoreDbContext;
 using Intent.Modules.AspNetCore.MultiTenancy.Templates.Swashbuckle.TenantHeaderOperationFilter;
+using Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantConnectionsInterface;
 using Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantExtendedInfo;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -31,6 +32,11 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates
         public static string GetTenantHeaderOperationFilterName(this IIntentTemplate template)
         {
             return template.GetTypeName(TenantHeaderOperationFilterTemplate.TemplateId);
+        }
+
+        public static string GetTenantConnectionsInterfaceTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(TenantConnectionsInterfaceTemplate.TemplateId);
         }
 
     }

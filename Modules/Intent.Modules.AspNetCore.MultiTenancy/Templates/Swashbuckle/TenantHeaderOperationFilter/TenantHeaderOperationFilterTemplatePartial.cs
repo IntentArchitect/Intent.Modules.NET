@@ -15,14 +15,39 @@ using Intent.Templates;
 namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.Swashbuckle.TenantHeaderOperationFilter
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class TenantHeaderOperationFilterTemplate : CSharpTemplateBase<object>
+    public partial class TenantHeaderOperationFilterTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Modules.AspNetCore.MultiTenancy.Swashbuckle.TenantHeaderOperationFilter";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public TenantHeaderOperationFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("Microsoft.OpenApi.Models")
+                .AddUsing("Swashbuckle.AspNetCore.SwaggerGen")
+                .AddClass("TenantHeaderOperationFilter", @class =>
+                {
+                    @class.ImplementsInterface("IOperationFilter");
+                    @class.AddMethod("void", "Apply", method => 
+                    {
+                        method
+                            .AddParameter("OpenApiOperation", "operation")
+                            .AddParameter("OperationFilterContext", "context");
+                        method.AddStatement("operation.Parameters ??= new List<OpenApiParameter>();");
+                        method.AddStatement(@"operation.Parameters.Add(new OpenApiParameter 
+            {
+                Name = ""X-Tenant-Identifier"",
+                In = ParameterLocation.Header,
+                Description = ""Tenant Id"",
+                Required = false
+            });", s => s.SeparatedFromPrevious());
+                    });
+                });
         }
+
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
@@ -31,6 +56,12 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.Swashbuckle.TenantHea
                 className: $"TenantHeaderOperationFilter",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
+        }
+
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
         }
 
         public override void BeforeTemplateExecution()

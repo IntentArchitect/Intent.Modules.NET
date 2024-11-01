@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1a800dd9-7e25-4c80-9199-26dac05900dd" type="Module Settings Extension" typeId="72044cdf-1f96-4ad2-86be-8d5468725e67">
+  <name>Multitenancy Settings Extensions</name>
+  <display>Multitenancy Settings Extensions: Multitenancy Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="5b6ab595-8a88-40d1-9f79-cf9040a13f7a">
+    <typeId>41ae5a02-3eb2-42a6-ade2-322b3c1f1115</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modules.AspNetCore.MultiTenancy</typePackageName>
+    <typePackageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>db3001e8-616b-49ac-8d87-01ea0c2d4eaa</parentFolderId>
+  <packageId>db3001e8-616b-49ac-8d87-01ea0c2d4eaa</packageId>
+  <packageName>Intent.MongoDb.Finbuckle.MultiTenant</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2224fa66-e2dc-467f-83a6-33abcd233a46" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>MongoDb Data Isolation</name>
+      <display>MongoDb Data Isolation</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1a800dd9-7e25-4c80-9199-26dac05900dd</parentFolderId>
+      <packageId>db3001e8-616b-49ac-8d87-01ea0c2d4eaa</packageId>
+      <packageName>Intent.MongoDb.Finbuckle.MultiTenant</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="separate-database" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="7f7cabe3-80d4-465a-96f6-e0802f185eba" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>None</name>
+          <display>None = none</display>
+          <isAbstract>false</isAbstract>
+          <value>none</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2224fa66-e2dc-467f-83a6-33abcd233a46</parentFolderId>
+          <packageId>db3001e8-616b-49ac-8d87-01ea0c2d4eaa</packageId>
+          <packageName>Intent.MongoDb.Finbuckle.MultiTenant</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9e641919-025e-4401-8796-d656eb2eb2aa" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Separate Databases</name>
+          <display>Separate Databases = separate-database</display>
+          <isAbstract>false</isAbstract>
+          <value>separate-database</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2224fa66-e2dc-467f-83a6-33abcd233a46</parentFolderId>
+          <packageId>db3001e8-616b-49ac-8d87-01ea0c2d4eaa</packageId>
+          <packageName>Intent.MongoDb.Finbuckle.MultiTenant</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

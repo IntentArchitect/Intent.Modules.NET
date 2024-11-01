@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="aff1c7b4-0680-40be-ade6-6675f91c3b1d" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
   <name>Finbuckle.MultiTenant.EntityFrameworkCore</name>
-  <display>Finbuckle.MultiTenant.EntityFrameworkCore [locked]</display>
+  <display>Finbuckle.MultiTenant.EntityFrameworkCore</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
@@ -16,7 +16,7 @@
       <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
-        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="true" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
         <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
         <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
@@ -24,10 +24,106 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="23bf7519-333c-4069-a745-bbe3240547b5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>6.13.1</name>
-      <display>6.13.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+    <childElement id="1373fec0-a6e2-4c16-914c-8a9570cdd8c7" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>6.9.1</name>
+      <display>6.9.1 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>aff1c7b4-0680-40be-ade6-6675f91c3b1d</parentFolderId>
+      <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+      <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="3769089d-f1ca-42ee-8404-c589b653d1be" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Finbuckle.MultiTenant</name>
+          <display>Finbuckle.MultiTenant (6.9.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.9.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1373fec0-a6e2-4c16-914c-8a9570cdd8c7</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ffba570d-8774-43d0-8e7b-4b5adb9e0697" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Identity.EntityFrameworkCore</name>
+          <display>Microsoft.AspNetCore.Identity.EntityFrameworkCore (3.1.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.1.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1373fec0-a6e2-4c16-914c-8a9570cdd8c7</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="dd0f8bc3-e090-473a-8c12-2593b0e88d95" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.CSharp</name>
+          <display>Microsoft.CSharp (4.7.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.7.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1373fec0-a6e2-4c16-914c-8a9570cdd8c7</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8f7d1b80-4d4a-453c-80d4-01ca47875921" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (3.1.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.1.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1373fec0-a6e2-4c16-914c-8a9570cdd8c7</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="54307491-7494-43d8-b429-19ce44b5f619" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Stores</name>
+          <display>Microsoft.Extensions.Identity.Stores (3.1.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.1.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1373fec0-a6e2-4c16-914c-8a9570cdd8c7</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="23bf7519-333c-4069-a745-bbe3240547b5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.0.0</name>
+      <display>8.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>aff1c7b4-0680-40be-ade6-6675f91c3b1d</parentFolderId>
@@ -45,7 +141,226 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="527f46a7-9e7f-48a5-a359-35da8beb66f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Finbuckle.MultiTenant</name>
+          <display>Finbuckle.MultiTenant (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>23bf7519-333c-4069-a745-bbe3240547b5</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b996d6bb-c3a0-4072-8634-f2492ba69de7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Identity.EntityFrameworkCore</name>
+          <display>Microsoft.AspNetCore.Identity.EntityFrameworkCore (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>23bf7519-333c-4069-a745-bbe3240547b5</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9dfd019a-de72-4286-aacb-27b992d3f4ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>23bf7519-333c-4069-a745-bbe3240547b5</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="03a49e9a-9d07-4557-9148-db508a97d1e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Stores</name>
+          <display>Microsoft.Extensions.Identity.Stores (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>23bf7519-333c-4069-a745-bbe3240547b5</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="3aab11f3-3422-4b64-b719-b643c5993237" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.0.0</name>
+      <display>8.0.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>aff1c7b4-0680-40be-ade6-6675f91c3b1d</parentFolderId>
+      <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+      <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="31bd6918-e390-4fd7-8412-30b0f2058636" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Finbuckle.MultiTenant</name>
+          <display>Finbuckle.MultiTenant (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3aab11f3-3422-4b64-b719-b643c5993237</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9c81c3a0-89b3-4655-a1d9-aa217e4f012e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Identity.EntityFrameworkCore</name>
+          <display>Microsoft.AspNetCore.Identity.EntityFrameworkCore (6.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3aab11f3-3422-4b64-b719-b643c5993237</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="729443aa-a224-4797-9a8e-f261850da876" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (6.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3aab11f3-3422-4b64-b719-b643c5993237</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8c4a7909-65f9-4d54-b508-a8ff94c8113f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Stores</name>
+          <display>Microsoft.Extensions.Identity.Stores (6.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3aab11f3-3422-4b64-b719-b643c5993237</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="cd41a8b1-1e9b-4e20-b943-30aa6563778c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.0.0</name>
+      <display>8.0.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>aff1c7b4-0680-40be-ade6-6675f91c3b1d</parentFolderId>
+      <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+      <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="9bc7f216-ce55-4cd7-bd5e-a2477b66fd78" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Finbuckle.MultiTenant</name>
+          <display>Finbuckle.MultiTenant (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>cd41a8b1-1e9b-4e20-b943-30aa6563778c</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b060d444-79d5-4707-9685-426ea749e605" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Identity.EntityFrameworkCore</name>
+          <display>Microsoft.AspNetCore.Identity.EntityFrameworkCore (7.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>cd41a8b1-1e9b-4e20-b943-30aa6563778c</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2aa192f1-48d5-402e-8eaa-f933c033ea32" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (7.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>cd41a8b1-1e9b-4e20-b943-30aa6563778c</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="efbd4a05-d6a1-4680-8ab0-77891a55c5c8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Stores</name>
+          <display>Microsoft.Extensions.Identity.Stores (7.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>cd41a8b1-1e9b-4e20-b943-30aa6563778c</parentFolderId>
+          <packageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</packageId>
+          <packageName>Intent.Modules.AspNetCore.MultiTenancy</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

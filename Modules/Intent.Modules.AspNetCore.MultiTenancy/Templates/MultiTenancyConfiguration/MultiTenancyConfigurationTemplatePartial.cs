@@ -1,15 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.MultiTenancy.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.CSharp.Multitenancy;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Microsoft.Win32.SafeHandles;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -21,6 +25,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration";
+        private readonly List<MultitenantConnectionStringRegistrationRequest> _connectionRequests = [];
 
         [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public MultiTenancyConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -44,7 +49,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                             .Static()
                             .AddParameter("IServiceCollection", "services", p => p.WithThisModifier())
                             .AddParameter("IConfiguration", "configuration")
-                            .AddStatement(new CSharpMethodChainStatement("services.AddMultiTenant<TenantInfo>()"), statement =>
+                            .AddStatement(new CSharpMethodChainStatement($"services.AddMultiTenant<{GetTenantClass()}>()"), statement =>
                             {
                                 var methodChainStatement = (CSharpMethodChainStatement)statement;
                                 methodChainStatement.AddMetadata("add-multi-tenant", true);
@@ -56,7 +61,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                                         methodChainStatement.AddChainStatement("WithInMemoryStore(SetupInMemoryStore) // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#in-memory-store");
                                         break;
                                     case MultitenancySettings.StoreOptionsEnum.Efcore:
-                                        methodChainStatement.AddChainStatement($"WithEFCoreStore<{this.GetMultiTenantStoreDbContextName()}, TenantInfo>() // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#efcore-store", s =>
+                                        methodChainStatement.AddChainStatement($"WithEFCoreStore<{this.GetMultiTenantStoreDbContextName()}, {GetTenantClass()}>() // See https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#efcore-store", s =>
                                             s.AddMetadata("with-ef-core-store", true));
                                         break;
                                     case MultitenancySettings.StoreOptionsEnum.Configuration:
@@ -113,7 +118,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                                 .AddAttribute("[IntentManaged(Mode.Fully, Body = Mode.Ignore)]")
                                 .Private()
                                 .Static()
-                                .AddParameter("InMemoryStoreOptions<TenantInfo>", "options")
+                                .AddParameter($"InMemoryStoreOptions<{GetTenantClass()}>", "options")
                                 .AddStatement("// configure in memory store:")
                                 .AddStatement("options.IsCaseSensitive = false;")
                             );
@@ -122,21 +127,51 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                     if (!ExecutionContext.Settings.GetMultitenancySettings().Store().IsConfiguration())
                     {
                         @class
-                            .AddMethod("void", "InitializeStore", method => method
-                                .AddAttribute("[IntentManaged(Mode.Fully, Body = Mode.Ignore)]")
-                                .Static()
-                                .AddParameter("IServiceProvider", "sp")
-                                .AddStatement("var scopeServices = sp.CreateScope().ServiceProvider;")
-                                .AddStatement("var store = scopeServices.GetRequiredService<IMultiTenantStore<TenantInfo>>();", s => s
-                                    .AddMetadata("get-multi-tenant-store", true))
-                                .AddStatement("store.TryAddAsync(new TenantInfo() { Id = \"sample-tenant-1\", Identifier = \"tenant1\", Name = \"Tenant 1\", ConnectionString = \"Tenant1Connection\" }).Wait();", s => s
-                                    .SeparatedFromPrevious()
-                                    .AddMetadata("add-tenant1", true))
-                                .AddStatement("store.TryAddAsync(new TenantInfo() { Id = \"sample-tenant-2\", Identifier = \"tenant2\", Name = \"Tenant 2\", ConnectionString = \"Tenant2Connection\" }).Wait();", s => s
-                                    .AddMetadata("add-tenant2", true))
-                            );
+                            .AddMethod("void", "InitializeStore", method =>
+                            {
+                                method
+                                    .AddAttribute("[IntentManaged(Mode.Fully, Body = Mode.Ignore)]")
+                                    .Static()
+                                    .AddParameter("IServiceProvider", "sp")
+                                    .AddStatement("var scopeServices = sp.CreateScope().ServiceProvider;")
+                                    .AddStatement($"var store = scopeServices.GetRequiredService<IMultiTenantStore<{GetTenantClass()}>>();", s => s
+                                        .AddMetadata("get-multi-tenant-store", true)
+                                        .SeparatedFromNext());
+
+                                var tenantList = GetDefaultTenants();
+                                foreach (var tenant in tenantList.Tenants)
+                                {
+                                    method
+                                        .AddStatement($"store.TryAddAsync(new {GetTenantClass()}() {{ {string.Join(",", tenant.Select(kvp => $"{kvp.Key} = \"{kvp.Value}\""))} }}).Wait();", s => s
+                                            .AddMetadata($"add-{tenant["Identifier"]}", true));
+                                }
+                                /*
+                                method
+                                    .AddStatement($"store.TryAddAsync(new {GetTenantClass()}() {{ Id = \"sample-tenant-1\", Identifier = \"tenant1\", Name = \"Tenant 1\" {GetConnectionStrings("tenant1")} }}).Wait();", s => s
+                                        .AddMetadata("add-tenant1", true))
+                                    .AddStatement($"store.TryAddAsync(new {GetTenantClass()}() {{ Id = \"sample-tenant-2\", Identifier = \"tenant2\", Name = \"Tenant 2\" {GetConnectionStrings("tenant2")} }}).Wait();", s => s
+                                        .AddMetadata("add-tenant2", true))*/
+                            });
                     }
                 });
+            ExecutionContext.EventDispatcher.Subscribe<MultitenantConnectionStringRegistrationRequest>(Handle);
+        }
+
+        private string GetTenantClass()
+        {
+            if (_connectionRequests.Any())
+            {
+                return this.GetTenantExtendedInfoName();
+            }
+            else
+            {
+                return "TenantInfo";
+            }
+        }
+
+        private void Handle(MultitenantConnectionStringRegistrationRequest @event)
+        {
+            _connectionRequests.Add(@event);
         }
 
         public override void BeforeTemplateExecution()
@@ -145,7 +180,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
             switch (ExecutionContext.Settings.GetMultitenancySettings().Store().AsEnum())
             {
                 case MultitenancySettings.StoreOptionsEnum.Configuration:
-                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("Finbuckle:MultiTenant:Stores:ConfigurationStore", DefaultTenants));
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("Finbuckle:MultiTenant:Stores:ConfigurationStore", GetDefaultTenants()));
                     break;
                 case MultitenancySettings.StoreOptionsEnum.Efcore:
                     break;
@@ -159,26 +194,39 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
             }
         }
 
-        public object DefaultTenants { get; set; } = new
+        private TenantList GetDefaultTenants()
         {
-            Tenants = new[]
+            var result = new TenantList(
+                new[]
+                {
+                    new Dictionary<string, string>
+                    {
+                        { "Id" , "sample-tenant-1" },
+                        { "Identifier" , "tenant1" },
+                        { "Name" , "Tenant 1" }
+                    },
+                    new Dictionary<string, string>
+                    {
+                        { "Id" , "sample-tenant-2" },
+                        { "Identifier" , "tenant2" },
+                        { "Name" , "Tenant 2" }
+                    }
+                });
+            if (_connectionRequests.Any())
             {
-                new
+                foreach (var tenant in result.Tenants)
                 {
-                    Id = "sample-tenant-1",
-                    Identifier = "tenant1",
-                    Name = "Tenant 1",
-                    ConnectionString = "Tenant1Connection"
-                },
-                new
-                {
-                    Id = "sample-tenant-2",
-                    Identifier = "tenant2",
-                    Name = "Tenant 2",
-                    ConnectionString = "Tenant2Connection"
+                    foreach (var connection in _connectionRequests)
+                    {
+                        tenant.Add(connection.Name.ToCSharpIdentifier(), connection.ConnectionStringTemplate.Replace("{tenant}", tenant["Identifier"]));
+                    }
                 }
             }
-        };
+
+            return result;
+        }
+
+        internal record TenantList(IEnumerable<Dictionary<string, string>> Tenants);
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

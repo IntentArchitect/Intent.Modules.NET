@@ -89,14 +89,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>57cc933c-af8a-4d15-b1bd-eecd770e5324</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#352577ea-3236-4571-9fa0-183b10f0bdaf</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/MultiTenanctFactoryExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MultiTenanctFactoryExtension.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -110,7 +102,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.MongoDb.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.MongoDb.imodspec</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>b42cb104-9697-4b78-873e-ca5602b25497</ProjectId>
@@ -126,6 +118,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NugetPackages.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>98610761-3a2a-49fd-b906-2b487d042698</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#3f385f6e-90c2-4071-bde2-7d8943252fd5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -148,16 +148,16 @@
       <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6137a03f-b3af-4a41-8518-133793948164</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MongoDbConnectionFactory/MongoDbConnectionFactoryTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoDbConnectionFactory/MongoDbConnectionFactoryTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/MongoDbMultiTenantConnectionFactory/MongoDbMultiTenantConnectionFactoryTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDbMultiTenantConnectionFactory/MongoDbMultiTenantConnectionFactoryTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>e0fcc11c-af8d-4e2d-a3ba-7786b8cdc634</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#6137a03f-b3af-4a41-8518-133793948164</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MongoDbConnectionFactory/MongoDbConnectionFactoryTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoDbConnectionFactory/MongoDbConnectionFactoryTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/MongoDbMultiTenantConnectionFactory/MongoDbMultiTenantConnectionFactoryTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDbMultiTenantConnectionFactory/MongoDbMultiTenantConnectionFactoryTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="06ff6b72-3ce6-48bb-b997-50886045dfd0" type="Module Settings Extension" typeId="72044cdf-1f96-4ad2-86be-8d5468725e67">
+  <name>New Module Settings Group</name>
+  <display>New Module Settings Group: Multitenancy Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="afe18795-ccce-415d-96e9-d28865b6c963">
+    <typeId>41ae5a02-3eb2-42a6-ade2-322b3c1f1115</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modules.AspNetCore.MultiTenancy</typePackageName>
+    <typePackageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>3f385f6e-90c2-4071-bde2-7d8943252fd5</parentFolderId>
+  <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+  <packageName>Intent.MongoDb</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="135d48e9-87cb-4380-8a3b-82e4f7553f58" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>MongoDb Data Isolation</name>
+      <display>MongoDb Data Isolation</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>06ff6b72-3ce6-48bb-b997-50886045dfd0</parentFolderId>
+      <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+      <packageName>Intent.MongoDb</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="separate-database" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="53c9e9de-fd32-4b79-bee3-6dfe7f6bab95" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>None</name>
+          <display>None = none</display>
+          <isAbstract>false</isAbstract>
+          <value>none</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>135d48e9-87cb-4380-8a3b-82e4f7553f58</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6f1a43f4-e4f2-4de5-ac65-ad855415e67c" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Separate Database</name>
+          <display>Separate Database = separate-database</display>
+          <isAbstract>false</isAbstract>
+          <value>separate-database</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>135d48e9-87cb-4380-8a3b-82e4f7553f58</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

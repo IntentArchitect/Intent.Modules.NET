@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f69b2b5c-80f3-4410-9639-97f38f16c0fe" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>db3001e8-616b-49ac-8d87-01ea0c2d4eaa</parentFolderId>
+  <packageId>db3001e8-616b-49ac-8d87-01ea0c2d4eaa</packageId>
+  <packageName>Intent.MongoDb.Finbuckle.MultiTenant</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

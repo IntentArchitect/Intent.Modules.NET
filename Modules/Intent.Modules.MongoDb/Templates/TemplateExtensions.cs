@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext;
-using Intent.Modules.MongoDb.Templates.MongoDbConnectionFactory;
+using Intent.Modules.MongoDb.Templates.MongoDbMultiTenantConnectionFactory;
 using Intent.Modules.MongoDb.Templates.MongoDbUnitOfWorkInterface;
 using Intent.RoslynWeaver.Attributes;
 
@@ -18,9 +18,9 @@ namespace Intent.Modules.MongoDb.Templates
             return template.GetTypeName(ApplicationMongoDbContextTemplate.TemplateId);
         }
 
-        public static string GetMongoDbConnectionFactoryName(this IIntentTemplate template)
+        public static string GetMongoDbMultiTenantConnectionFactoryName(this IIntentTemplate template)
         {
-            return template.GetTypeName(MongoDbConnectionFactoryTemplate.TemplateId);
+            return template.GetTypeName(MongoDbMultiTenantConnectionFactoryTemplate.TemplateId);
         }
 
         public static string GetMongoDbUnitOfWorkInterfaceName(this IIntentTemplate template)
