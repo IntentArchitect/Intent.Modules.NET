@@ -14,7 +14,7 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.Custom", Version = "1.0")]
 
-namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Templates.DbInitializationService
+namespace Intent.Modules.AzureFunctions.EntityFrameworkCore.Templates.DbInitializationService
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class DbInitializationServiceTemplateRegistration : ITemplateRegistration

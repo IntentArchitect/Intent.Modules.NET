@@ -14,12 +14,12 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.FactoryExtensions
+namespace Intent.Modules.AzureFunctions.EntityFrameworkCore.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class AzureFunctionExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.AzureFunctions.Interop.EntityFrameworkCore.AzureFunctionExtension";
+        public override string Id => "Intent.AzureFunctions.EntityFrameworkCore.AzureFunctionExtension";
 
         [IntentManaged(Mode.Ignore)] public override int Order => 0;
 

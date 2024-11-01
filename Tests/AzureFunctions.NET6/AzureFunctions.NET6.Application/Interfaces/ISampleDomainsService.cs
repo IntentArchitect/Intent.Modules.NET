@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.NET6.Application.Interfaces
 {
-    public interface ISampleDomainsService : IDisposable
+    public interface ISampleDomainsService
     {
         Task<Guid> CreateSampleDomain(SampleDomainCreateDto dto, CancellationToken cancellationToken = default);
         Task<SampleDomainDto> FindSampleDomainById(Guid id, CancellationToken cancellationToken = default);

@@ -45,9 +45,5 @@ namespace AzureFunctions.NET6.Application.Implementation.Queues
             };
             _customerRepository.Add(newCustomer);
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

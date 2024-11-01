@@ -145,9 +145,5 @@ namespace AzureFunctions.NET6.Application.Implementation
             // TODO: Implement FindSampleDomainByAttribute (SampleDomainsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

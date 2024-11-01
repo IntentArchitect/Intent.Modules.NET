@@ -18,7 +18,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>e3120171-ff1e-45b5-abf2-4de6c5feb36f</parentFolderId>
   <packageId>e3120171-ff1e-45b5-abf2-4de6c5feb36f</packageId>
-  <packageName>Intent.AzureFunctions.Interop.EntityFrameworkCore</packageName>
+  <packageName>Intent.AzureFunctions.EntityFrameworkCore</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>

@@ -146,5 +146,6 @@
     <application id="086913ce-408d-4025-acc5-58b5d97678de" name="Intent.Modules.SharedKernel.Consumer" relativePath="Intent.Modules.SharedKernel.Consumer/Intent.Modules.SharedKernel.Consumer.application.config" />
     <application id="d4ae9915-9432-4e8f-a9cc-c8fe21e0e68d" name="Intent.Modules.SharedKernel" relativePath="Intent.Modules.SharedKernel/Intent.Modules.SharedKernel.application.config" />
     <application id="dd606e23-930e-465c-bad1-9922641967b0" name="AzureFunctions.Dispatch.Services" relativePath="AzureFunctions.Dispatch.Services/AzureFunctions.Dispatch.Services.application.config" />
+    <application id="64c2d3e6-16f0-4df3-978c-fd75c0a0dd3e" name="AzureFunctions.EntityFrameworkCore" relativePath="AzureFunctions.EntityFrameworkCore/AzureFunctions.EntityFrameworkCore.application.config" />
   </applications>
 </solution>

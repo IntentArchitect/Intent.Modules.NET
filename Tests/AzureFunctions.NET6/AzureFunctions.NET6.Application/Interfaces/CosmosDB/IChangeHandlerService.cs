@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.NET6.Application.Interfaces.CosmosDB
 {
-    public interface IChangeHandlerService : IDisposable
+    public interface IChangeHandlerService
     {
         Task AcceptChanges(List<CosmosChangeDto> changes, CancellationToken cancellationToken = default);
     }

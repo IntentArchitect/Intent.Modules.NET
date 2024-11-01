@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.NET6.Application.Customers;
@@ -9,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.NET6.Application.Interfaces.Queues
 {
-    public interface IQueueService : IDisposable
+    public interface IQueueService
     {
         Task CreateCustomerOp(CustomerDto dto, CancellationToken cancellationToken = default);
         Task CreateCustomerOpWrapped(CustomerDto dto, CancellationToken cancellationToken = default);

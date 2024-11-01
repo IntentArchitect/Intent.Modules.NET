@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -8,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.NET6.Application.Interfaces
 {
-    public interface IListedUnlistedServicesService : IDisposable
+    public interface IListedUnlistedServicesService
     {
         Task ListedServiceFunc(string param, CancellationToken cancellationToken = default);
         Task UnlistedServiceFunc(CancellationToken cancellationToken = default);

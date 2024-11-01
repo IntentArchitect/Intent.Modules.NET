@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Templates.DbInitializationService;
+using Intent.Modules.AzureFunctions.EntityFrameworkCore.Templates.DbInitializationService;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateExtensions", Version = "1.0")]
 
-namespace Intent.Modules.AzureFunctions.Interop.EntityFrameworkCore.Templates
+namespace Intent.Modules.AzureFunctions.EntityFrameworkCore.Templates
 {
     public static class TemplateExtensions
     {

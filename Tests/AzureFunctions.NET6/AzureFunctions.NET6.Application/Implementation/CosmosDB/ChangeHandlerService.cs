@@ -24,9 +24,5 @@ namespace AzureFunctions.NET6.Application.Implementation.CosmosDB
         {
             throw new NotImplementedException("Write your implementation for this service here...");
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

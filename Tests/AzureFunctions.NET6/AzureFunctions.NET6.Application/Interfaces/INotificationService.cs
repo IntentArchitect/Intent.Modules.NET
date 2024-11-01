@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.NET6.Application.Interfaces
 {
-    public interface INotificationService : IDisposable
+    public interface INotificationService
     {
         Task SendNotification<T>(Guid entityId, string subject, string template, T model, DomainNotificationType type, CancellationToken cancellationToken = default);
     }
