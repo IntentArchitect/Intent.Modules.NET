@@ -61,7 +61,7 @@ namespace Application.Identity.AccountController.UserIdentity.Infrastructure.Rep
 
         public virtual async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default)
         {
-            return await QueryInternal(x => true).ToListAsync<TDomain>(cancellationToken);
+            return await QueryInternal(filterExpression: null).ToListAsync<TDomain>(cancellationToken);
         }
 
         public virtual async Task<List<TDomain>> FindAllAsync(
@@ -84,7 +84,7 @@ namespace Application.Identity.AccountController.UserIdentity.Infrastructure.Rep
             int pageSize,
             CancellationToken cancellationToken = default)
         {
-            var query = QueryInternal(x => true);
+            var query = QueryInternal(filterExpression: null);
             return await ToPagedListAsync<TDomain>(
                 query,
                 pageNo,
@@ -126,11 +126,6 @@ namespace Application.Identity.AccountController.UserIdentity.Infrastructure.Rep
             CancellationToken cancellationToken = default)
         {
             return await QueryInternal(filterExpression).CountAsync(cancellationToken);
-        }
-
-        public bool Any(Expression<Func<TPersistence, bool>> filterExpression)
-        {
-            return QueryInternal(filterExpression).Any();
         }
 
         public virtual async Task<bool> AnyAsync(
@@ -220,11 +215,6 @@ namespace Application.Identity.AccountController.UserIdentity.Infrastructure.Rep
         protected virtual DbSet<TPersistence> GetSet()
         {
             return _dbContext.Set<TPersistence>();
-        }
-
-        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-        {
-            return await _dbContext.SaveChangesAsync(cancellationToken);
         }
 
         private static async Task<IPagedList<T>> ToPagedListAsync<T>(

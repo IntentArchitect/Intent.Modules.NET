@@ -46,14 +46,26 @@ namespace EntityFramework.SynchronousRepositories.Domain.Repositories
         int Count(Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default);
         bool Any(Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default);
         Task<List<TProjection>> FindAllProjectToAsync<TProjection>(CancellationToken cancellationToken = default);
-        Task<List<TProjection>> FindAllProjectToAsync<TProjection>(Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default, CancellationToken cancellationToken = default);
-        Task<IPagedList<TProjection>> FindAllProjectToAsync<TProjection>(int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default, CancellationToken cancellationToken = default);
+        Task<List<TProjection>> FindAllProjectToAsync<TProjection>(Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions, CancellationToken cancellationToken = default);
+        Task<List<TProjection>> FindAllProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
+        Task<List<TProjection>> FindAllProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions, CancellationToken cancellationToken = default);
+        Task<IPagedList<TProjection>> FindAllProjectToAsync<TProjection>(int pageNo, int pageSize, CancellationToken cancellationToken = default);
+        Task<IPagedList<TProjection>> FindAllProjectToAsync<TProjection>(int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions, CancellationToken cancellationToken = default);
+        Task<IPagedList<TProjection>> FindAllProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, CancellationToken cancellationToken = default);
+        Task<IPagedList<TProjection>> FindAllProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions, CancellationToken cancellationToken = default);
         Task<TProjection?> FindProjectToAsync<TProjection>(Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions, CancellationToken cancellationToken = default);
         Task<TProjection?> FindProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>> filterExpression, CancellationToken cancellationToken = default);
+        Task<TProjection?> FindProjectToAsync<TProjection>(Expression<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions, CancellationToken cancellationToken = default);
         List<TProjection> FindAllProjectTo<TProjection>();
-        List<TProjection> FindAllProjectTo<TProjection>(Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default);
-        IPagedList<TProjection> FindAllProjectTo<TProjection>(int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default);
+        List<TProjection> FindAllProjectTo<TProjection>(Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions);
+        List<TProjection> FindAllProjectTo<TProjection>(Expression<Func<TPersistence, bool>> filterExpression);
+        List<TProjection> FindAllProjectTo<TProjection>(Expression<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions);
+        IPagedList<TProjection> FindAllProjectTo<TProjection>(int pageNo, int pageSize);
+        IPagedList<TProjection> FindAllProjectTo<TProjection>(int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions);
+        IPagedList<TProjection> FindAllProjectTo<TProjection>(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize);
+        IPagedList<TProjection> FindAllProjectTo<TProjection>(Expression<Func<TPersistence, bool>> filterExpression, int pageNo, int pageSize, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions);
         TProjection? FindProjectTo<TProjection>(Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions);
         TProjection? FindProjectTo<TProjection>(Expression<Func<TPersistence, bool>> filterExpression);
+        TProjection? FindProjectTo<TProjection>(Expression<Func<TPersistence, bool>> filterExpression, Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions);
     }
 }

@@ -322,7 +322,7 @@ public class GeneralEFTests
         
         var repo = new S_NoPkInCompositeRepository(DbContext, null);
         repo.Add(root);
-        await repo.SaveChangesAsync();
+        await repo.UnitOfWork.SaveChangesAsync();
 
         var receivedRoot = await repo.FindByIdAsync(root.Id);
         Assert.NotNull(receivedRoot);
@@ -342,7 +342,7 @@ public class GeneralEFTests
         
         var repo = new T_NoPkInCompositeRepository(DbContext, null);
         repo.Add(root);
-        await repo.SaveChangesAsync();
+        await repo.UnitOfWork.SaveChangesAsync();
 
         var receivedRoot = await repo.FindByIdAsync(root.Id);
         Assert.NotNull(receivedRoot);

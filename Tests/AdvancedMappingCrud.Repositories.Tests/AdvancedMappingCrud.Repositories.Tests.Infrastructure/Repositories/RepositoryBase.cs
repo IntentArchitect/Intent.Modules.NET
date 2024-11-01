@@ -66,7 +66,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
 
         public virtual async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default)
         {
-            return await QueryInternal(x => true).ToListAsync<TDomain>(cancellationToken);
+            return await QueryInternal(filterExpression: null).ToListAsync<TDomain>(cancellationToken);
         }
 
         public virtual async Task<List<TDomain>> FindAllAsync(
@@ -89,7 +89,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             int pageSize,
             CancellationToken cancellationToken = default)
         {
-            var query = QueryInternal(x => true);
+            var query = QueryInternal(filterExpression: null);
             return await ToPagedListAsync<TDomain>(
                 query,
                 pageNo,
@@ -131,11 +131,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             CancellationToken cancellationToken = default)
         {
             return await QueryInternal(filterExpression).CountAsync(cancellationToken);
-        }
-
-        public bool Any(Expression<Func<TPersistence, bool>> filterExpression)
-        {
-            return QueryInternal(filterExpression).Any();
         }
 
         public virtual async Task<bool> AnyAsync(
@@ -227,13 +222,15 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             return _dbContext.Set<TPersistence>();
         }
 
-        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(CancellationToken cancellationToken = default)
         {
-            return await _dbContext.SaveChangesAsync(cancellationToken);
+            var queryable = QueryInternal(filterExpression: null);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await projection.ToListAsync(cancellationToken);
         }
 
         public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(
-            Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default,
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
             CancellationToken cancellationToken = default)
         {
             var queryable = QueryInternal(queryOptions);
@@ -241,9 +238,21 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             return await projection.ToListAsync(cancellationToken);
         }
 
-        public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(CancellationToken cancellationToken = default)
+        public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            CancellationToken cancellationToken = default)
         {
-            var queryable = QueryInternal((Expression<Func<TPersistence, bool>>)null);
+            var queryable = QueryInternal(filterExpression);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await projection.ToListAsync(cancellationToken);
+        }
+
+        public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(filterExpression, queryOptions);
             var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
             return await projection.ToListAsync(cancellationToken);
         }
@@ -251,10 +260,55 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
         public async Task<IPagedList<TProjection>> FindAllProjectToAsync<TProjection>(
             int pageNo,
             int pageSize,
-            Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(filterExpression: null);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await ToPagedListAsync(
+                projection,
+                pageNo,
+                pageSize,
+                cancellationToken);
+        }
+
+        public async Task<IPagedList<TProjection>> FindAllProjectToAsync<TProjection>(
+            int pageNo,
+            int pageSize,
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
             CancellationToken cancellationToken = default)
         {
             var queryable = QueryInternal(queryOptions);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await ToPagedListAsync(
+                projection,
+                pageNo,
+                pageSize,
+                cancellationToken);
+        }
+
+        public async Task<IPagedList<TProjection>> FindAllProjectToAsync<TProjection>(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            int pageNo,
+            int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(filterExpression);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await ToPagedListAsync(
+                projection,
+                pageNo,
+                pageSize,
+                cancellationToken);
+        }
+
+        public async Task<IPagedList<TProjection>> FindAllProjectToAsync<TProjection>(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            int pageNo,
+            int pageSize,
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(filterExpression, queryOptions);
             var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
             return await ToPagedListAsync(
                 projection,
@@ -277,6 +331,16 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             CancellationToken cancellationToken = default)
         {
             var queryable = QueryInternal(filterExpression);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await projection.FirstOrDefaultAsync(cancellationToken);
+        }
+
+        public async Task<TProjection?> FindProjectToAsync<TProjection>(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(filterExpression, queryOptions);
             var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
             return await projection.FirstOrDefaultAsync(cancellationToken);
         }
