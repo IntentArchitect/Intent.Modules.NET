@@ -34,7 +34,7 @@ public static class ValidationRulesExtensions
             dtoModel: dtoModel,
             dtoTemplateId: dtoTemplateId,
             dtoValidatorTemplateId: dtoValidatorTemplateId,
-            indexFields: indexFields, 
+            indexFields: indexFields,
             customValidationEnabled: customValidationEnabled,
             associationedElements: associationedElements).Any();
     }
@@ -76,6 +76,38 @@ public static class ValidationRulesExtensions
                 @class.AddMethod("void", "ConfigureValidationRules", method =>
                 {
                     method.Private();
+
+                    if (dtoModel.ParentDtoTypeReference?.Element?.AsDTOModel() != null)
+                    {
+                        var parentDto = dtoModel.ParentDtoTypeReference?.Element?.AsDTOModel();
+
+                        // get the DTO validator for the base DTO type
+                        var baseValidatorTemplate = template
+                            .ExecutionContext
+                            .FindTemplateInstances("Intent.Application.FluentValidation.Dtos.DTOValidator")
+                            .FirstOrDefault(t =>
+                            {
+                                // should never be null at this point
+                                if (t is not CSharpTemplateBase<DTOModel> parentTemplate)
+                                {
+                                    return false;
+                                }
+
+                                return parentTemplate.Model.Name == parentDto?.Name;
+                            });
+
+                        if(baseValidatorTemplate != null)
+                        {
+                            // this check should always pass, but just being safe
+                            if (baseValidatorTemplate is CSharpTemplateBase<DTOModel> templateBaseValidator)
+                            {
+                                method.AddInvocationStatement("Include", invoc =>
+                                {
+                                    invoc.AddArgument($"new {template.UseType($"{templateBaseValidator.Namespace}.{templateBaseValidator.ClassName}()")}");
+                                });
+                            }
+                        }
+                    }
 
                     var validationRuleStatements = template.GetValidationRulesStatements(
                         dtoModel: dtoModel,
@@ -145,8 +177,8 @@ public static class ValidationRulesExtensions
                     if (indexFields.Any(p => p.FieldName == field.Name && p.GroupCount == 1))
                     {
                         if (!TryGetMappedAttribute(field, out var mappedAttribute) && !TryGetAdvancedMappedAttribute(field, out mappedAttribute))
-                        { 
-                            continue; 
+                        {
+                            continue;
                         }
 
                         @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}<bool>", $"CheckUniqueConstraint_{field.Name.ToPascalCase()}", method =>
@@ -230,7 +262,7 @@ public static class ValidationRulesExtensions
 
         foreach (var field in dtoModel.Fields)
         {
-            if ((!TryGetMappedAttribute(field, out var mappedAttribute) && !TryGetAdvancedMappedAttribute(field, out mappedAttribute)) || 
+            if ((!TryGetMappedAttribute(field, out var mappedAttribute) && !TryGetAdvancedMappedAttribute(field, out mappedAttribute)) ||
                 constraintFields.All(p => p.FieldName != mappedAttribute.Name))
             {
                 continue;

@@ -1,6 +1,7 @@
 ### Version 3.10.1
 
 - Fixed: Stackoverflow occuring in rare circumstances where Advanced Mappings and Basic Mappings are interconnected.
+- Fixed: Validator now generated for a base DTO, with the child DTO validator calling the base validator
  
 ### Version 3.10.0
 

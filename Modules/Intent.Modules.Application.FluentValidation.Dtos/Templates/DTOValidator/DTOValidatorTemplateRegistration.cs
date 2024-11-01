@@ -65,6 +65,32 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
                 })
                 .ToArray();
 
+            // for each model, check if they have a base model which also has validations and add them to the models collection
+            var inheritedModels = models.Where(m =>
+            {
+                if(m.ParentDtoTypeReference == null || m.ParentDtoTypeReference?.Element?.AsDTOModel() == null)
+                {
+                    return false;
+                }
+
+                if(models.Contains(m.ParentDtoTypeReference.Element.AsDTOModel()))
+                {
+                    return false;
+                }
+
+                IElement advancedMappingSource = GetAdvancedMappings(dtoFields, m);
+
+                return ValidationRulesExtensions.HasValidationRules(
+                        dtoModel: m,
+                        dtoTemplateId: TemplateRoles.Application.Contracts.Dto,
+                        dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
+                        uniqueConstraintValidationEnabled: applicationManager.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
+                        customValidationEnabled: true,
+                        associationedElements: advancedMappingSource?.AssociatedElements);
+
+            }).Select(m => m.ParentDtoTypeReference.Element.AsDTOModel()).ToArray();
+            models = models.Union(inheritedModels).ToArray();
+
             foreach (var model in models)
             {
                 IElement advancedMappingSource = GetAdvancedMappings(dtoFields, model);

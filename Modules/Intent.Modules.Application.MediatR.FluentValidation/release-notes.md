@@ -2,6 +2,7 @@
 
 - Improvement: Updated `ValidationBehaviour` template to use the Builder pattern. Updated styling to more align with best practices
 - Fixed: Fixed warning around `catch (ValidationException ex)` where `ex` is not used in `UnnhandledExceptionHandler` .
+- Fixed: Validator now generated for a base DTO, with the child DTO validator calling the base validator
 
 ### Version 4.7.0
 
