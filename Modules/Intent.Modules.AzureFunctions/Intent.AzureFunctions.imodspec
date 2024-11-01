@@ -64,7 +64,7 @@
   <interoperability>
     <detect id="Intent.Application.Contracts">
       <install>
-        <package id="Intent.AzureFunctions.Interop.Contracts" version="4.2.0" />
+        <package id="Intent.AzureFunctions.Dispatch.Services" version="5.0.0-pre.0" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR">
