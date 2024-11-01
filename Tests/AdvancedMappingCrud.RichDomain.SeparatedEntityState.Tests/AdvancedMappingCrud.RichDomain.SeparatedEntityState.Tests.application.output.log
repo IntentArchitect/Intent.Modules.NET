@@ -1268,6 +1268,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#4a04c139-1d24-42dc-8c3e-21f946cb2ae4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/BaseStockDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stocks/BaseStockDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9bd68bf6-e3ec-4ebb-af7b-19f287dd5a21</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#37482929-91e3-431b-9fcb-25f10884acd5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application/Stocks/CreateStock/CreateStockCommand.cs</ApplicationRelativeFilePath>

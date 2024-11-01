@@ -7,19 +7,17 @@ using Intent.RoslynWeaver.Attributes;
 namespace AdvancedMappingCrud.RichDomain.Tests.Application.Stocks
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class StockDtoValidator : AbstractValidator<StockDto>
+    public class BaseStockDtoValidator : AbstractValidator<BaseStockDto>
     {
         [IntentManaged(Mode.Merge)]
-        public StockDtoValidator()
+        public BaseStockDtoValidator()
         {
             ConfigureValidationRules();
         }
 
         private void ConfigureValidationRules()
         {
-            Include(new BaseStockDtoValidator());
-
-            RuleFor(v => v.Name)
+            RuleFor(v => v.User)
                 .NotNull();
         }
     }

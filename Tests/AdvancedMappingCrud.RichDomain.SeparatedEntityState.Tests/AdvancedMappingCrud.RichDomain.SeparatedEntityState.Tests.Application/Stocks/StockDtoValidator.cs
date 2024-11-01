@@ -17,6 +17,8 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.
 
         private void ConfigureValidationRules()
         {
+            Include(new BaseStockDtoValidator());
+
             RuleFor(v => v.Name)
                 .NotNull();
         }
