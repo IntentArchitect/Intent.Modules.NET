@@ -178,6 +178,7 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
                     : template.GetTypeName(TemplateRoles.Repository.Interface.PagedResult); // for backward compatibility
 #pragma warning restore CS0618 // Type or member is obsolete
                 AddInterfaceMethods(@interface, nullableChar, pagedListInterface, true);
+
                 if (template.ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
                 {
                     AddInterfaceMethods(@interface, nullableChar, pagedListInterface, false);
@@ -188,44 +189,156 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
         private static void AddInterfaceMethods(CSharpInterface @interface, string nullableChar, string pagedListInterface, bool asAsync)
         {
             var postFix = asAsync ? "Async" : "";
+
+            // FindAll (without paging)
             @interface.AddMethod("List<TProjection>", $"FindAllProjectTo{postFix}", method =>
             {
                 method.AddGenericParameter("TProjection");
-                if (asAsync) AsyncAdjust(method);
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
             });
+
             @interface.AddMethod("List<TProjection>", $"FindAllProjectTo{postFix}", method =>
             {
-                method
-                    .AddGenericParameter("TProjection")
-                    .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"));
-                if (asAsync) AsyncAdjust(method);
+                method.AddGenericParameter("TProjection");
+                AddQueryOptionsParameter(method);
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
             });
+
+            @interface.AddMethod("List<TProjection>", $"FindAllProjectTo{postFix}", method =>
+            {
+                method.AddGenericParameter("TProjection");
+                AddFilterExpressionParameter(method);
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            @interface.AddMethod("List<TProjection>", $"FindAllProjectTo{postFix}", method =>
+            {
+                method.AddGenericParameter("TProjection");
+                AddFilterExpressionParameter(method);
+                AddQueryOptionsParameter(method);
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            // FindAll (with paging)
             @interface.AddMethod($"{pagedListInterface}<TProjection>", $"FindAllProjectTo{postFix}", method =>
             {
+                method.AddGenericParameter("TProjection");
+                AddPagingParameters(method);
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            @interface.AddMethod($"{pagedListInterface}<TProjection>", $"FindAllProjectTo{postFix}", method =>
+            {
+                method.AddGenericParameter("TProjection");
+                AddPagingParameters(method);
+                AddQueryOptionsParameter(method);
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            @interface.AddMethod($"{pagedListInterface}<TProjection>", $"FindAllProjectTo{postFix}", method =>
+            {
+                method.AddGenericParameter("TProjection");
+                AddFilterExpressionParameter(method);
+                AddPagingParameters(method);
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            @interface.AddMethod($"{pagedListInterface}<TProjection>", $"FindAllProjectTo{postFix}", method =>
+            {
+                method.AddGenericParameter("TProjection");
+                AddFilterExpressionParameter(method);
+                AddPagingParameters(method);
+                AddQueryOptionsParameter(method);
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            // Find
+            @interface.AddMethod($"TProjection{nullableChar}", $"FindProjectTo{postFix}", method =>
+            {
+                method.AddGenericParameter("TProjection");
+                AddFilterExpressionParameter(method);
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            @interface.AddMethod($"TProjection{nullableChar}", $"FindProjectTo{postFix}", method =>
+            {
+                method.AddGenericParameter("TProjection");
+                AddFilterExpressionParameter(method);
+                AddQueryOptionsParameter(method);
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            @interface.AddMethod($"TProjection{nullableChar}", $"FindProjectTo{postFix}", method =>
+            {
+                method.AddGenericParameter("TProjection");
+                AddQueryOptionsParameter(method);
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            return;
+
+            static void AddPagingParameters(CSharpInterfaceMethod method)
+            {
                 method
-                    .AddGenericParameter("TProjection")
                     .AddParameter("int", "pageNo")
-                    .AddParameter("int", "pageSize")
-                    .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"))
-                    ;
-                if (asAsync) AsyncAdjust(method);
-            });
-            @interface.AddMethod($"TProjection{nullableChar}", $"FindProjectTo{postFix}", method =>
+                    .AddParameter("int", "pageSize");
+            }
+
+            static void AddQueryOptionsParameter(CSharpInterfaceMethod method)
             {
-                method
-                    .AddGenericParameter("TProjection")
-                    .AddParameter("Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions")
-                    ;
-                if (asAsync) AsyncAdjust(method);
-            });
-            @interface.AddMethod($"TProjection{nullableChar}", $"FindProjectTo{postFix}", method =>
+                method.AddParameter(
+                    type: "Func<IQueryable<TPersistence>, IQueryable<TPersistence>>",
+                    name: "queryOptions");
+            }
+
+            static void AddFilterExpressionParameter(CSharpInterfaceMethod method)
             {
-                method
-                    .AddGenericParameter("TProjection")
-                    .AddParameter("Expression<Func<TPersistence, bool>>", "filterExpression")
-                    ;
-                if (asAsync) AsyncAdjust(method);
-            });
+                method.AddParameter("Expression<Func<TPersistence, bool>>", "filterExpression");
+            }
         }
 
         private static void AsyncAdjust(CSharpInterfaceMethod method)
@@ -290,11 +403,29 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
         {
             var postFix = asAsync ? "Async" : "";
 
+            // FindAll (without paging)
             @class.AddMethod("List<TProjection>", $"FindAllProjectTo{postFix}", method =>
             {
+                method.AddGenericParameter("TProjection");
+
                 method
-                    .AddGenericParameter("TProjection")
-                    .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"));
+                    .AddStatement("var queryable = QueryInternal(filterExpression: null);")
+                    .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);");
+
+                method.AddStatement(asAsync
+                    ? "return await projection.ToListAsync(cancellationToken);"
+                    : "return projection.ToList();");
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            @class.AddMethod("List<TProjection>", $"FindAllProjectTo{postFix}", method =>
+            {
+                method.AddGenericParameter("TProjection");
+                AddQueryOptionsParameter(method);
 
                 method
                     .AddStatement("var queryable = QueryInternal(queryOptions);")
@@ -309,13 +440,14 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
                     AsyncAdjust(method);
                 }
             });
+
             @class.AddMethod("List<TProjection>", $"FindAllProjectTo{postFix}", method =>
             {
-                method
-                    .AddGenericParameter("TProjection");
+                method.AddGenericParameter("TProjection");
+                AddFilterExpressionParameter(method);
 
                 method
-                    .AddStatement("var queryable = QueryInternal((Expression<Func<TPersistence, bool>>)null);")
+                    .AddStatement("var queryable = QueryInternal(filterExpression);")
                     .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);");
 
                 method.AddStatement(asAsync
@@ -327,13 +459,63 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
                     AsyncAdjust(method);
                 }
             });
+
+            @class.AddMethod("List<TProjection>", $"FindAllProjectTo{postFix}", method =>
+            {
+                method.AddGenericParameter("TProjection");
+                AddFilterExpressionParameter(method);
+                AddQueryOptionsParameter(method);
+
+                method
+                    .AddStatement("var queryable = QueryInternal(filterExpression, queryOptions);")
+                    .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);");
+
+                method.AddStatement(asAsync
+                    ? "return await projection.ToListAsync(cancellationToken);"
+                    : "return projection.ToList();");
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            // FindAll (with paging)
             @class.AddMethod($"{pagedListInterface}<TProjection>", $"FindAllProjectTo{postFix}", method =>
             {
+                method.AddGenericParameter("TProjection");
+                AddPagingParameters(method);
+
                 method
-                    .AddGenericParameter("TProjection")
-                    .AddParameter("int", "pageNo")
-                    .AddParameter("int", "pageSize")
-                    .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>{nullableChar}", "queryOptions", p => p.WithDefaultValue("default"));
+                    .AddStatement("var queryable = QueryInternal(filterExpression: null);")
+                    .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);");
+
+                method.AddStatement(asAsync
+                    ? """
+                      return await ToPagedListAsync(
+                                      projection,
+                                      pageNo,
+                                      pageSize,
+                                      cancellationToken);
+                      """
+                    : """
+                      return ToPagedList(
+                                      projection,
+                                      pageNo,
+                                      pageSize);
+                      """);
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            @class.AddMethod($"{pagedListInterface}<TProjection>", $"FindAllProjectTo{postFix}", method =>
+            {
+                method.AddGenericParameter("TProjection");
+                AddPagingParameters(method);
+                AddQueryOptionsParameter(method);
 
                 method
                     .AddStatement("var queryable = QueryInternal(queryOptions);")
@@ -360,11 +542,114 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
                 }
             });
 
+            @class.AddMethod($"{pagedListInterface}<TProjection>", $"FindAllProjectTo{postFix}", method =>
+            {
+                method.AddGenericParameter("TProjection");
+                AddFilterExpressionParameter(method);
+                AddPagingParameters(method);
+
+                method
+                    .AddStatement("var queryable = QueryInternal(filterExpression);")
+                    .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);");
+
+                method.AddStatement(asAsync
+                    ? """
+                      return await ToPagedListAsync(
+                                      projection,
+                                      pageNo,
+                                      pageSize,
+                                      cancellationToken);
+                      """
+                    : """
+                      return ToPagedList(
+                                      projection,
+                                      pageNo,
+                                      pageSize);
+                      """);
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            @class.AddMethod($"{pagedListInterface}<TProjection>", $"FindAllProjectTo{postFix}", method =>
+            {
+                method.AddGenericParameter("TProjection");
+                AddFilterExpressionParameter(method);
+                AddPagingParameters(method);
+                AddQueryOptionsParameter(method);
+
+                method
+                    .AddStatement("var queryable = QueryInternal(filterExpression, queryOptions);")
+                    .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);");
+
+                method.AddStatement(asAsync
+                    ? """
+                      return await ToPagedListAsync(
+                                      projection,
+                                      pageNo,
+                                      pageSize,
+                                      cancellationToken);
+                      """
+                    : """
+                      return ToPagedList(
+                                      projection,
+                                      pageNo,
+                                      pageSize);
+                      """);
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            // Find
             @class.AddMethod($"TProjection{nullableChar}", $"FindProjectTo{postFix}", method =>
             {
+                method.AddGenericParameter("TProjection");
+                AddFilterExpressionParameter(method);
+
                 method
-                    .AddGenericParameter("TProjection")
-                    .AddParameter("Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions");
+                    .AddStatement("var queryable = QueryInternal(filterExpression);")
+                    .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);");
+
+                method.AddStatement(asAsync
+                    ? "return await projection.FirstOrDefaultAsync(cancellationToken);"
+                    : "return projection.FirstOrDefault();");
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            @class.AddMethod($"TProjection{nullableChar}", $"FindProjectTo{postFix}", method =>
+            {
+                method.AddGenericParameter("TProjection");
+                AddFilterExpressionParameter(method);
+                AddQueryOptionsParameter(method);
+
+                method
+                    .AddStatement("var queryable = QueryInternal(filterExpression, queryOptions);")
+                    .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);");
+
+                method.AddStatement(asAsync
+                    ? "return await projection.FirstOrDefaultAsync(cancellationToken);"
+                    : "return projection.FirstOrDefault();");
+
+                if (asAsync)
+                {
+                    AsyncAdjust(method);
+                }
+            });
+
+            @class.AddMethod($"TProjection{nullableChar}", $"FindProjectTo{postFix}", method =>
+            {
+                method.AddGenericParameter("TProjection");
+                AddQueryOptionsParameter(method);
+
                 method
                     .AddStatement("var queryable = QueryInternal(queryOptions);")
                     .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);");
@@ -379,24 +664,26 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
                 }
             });
 
-            @class.AddMethod($"TProjection{nullableChar}", $"FindProjectTo{postFix}", method =>
+            return;
+
+            static void AddPagingParameters(CSharpClassMethod method)
             {
                 method
-                    .AddGenericParameter("TProjection")
-                    .AddParameter("Expression<Func<TPersistence, bool>>", "filterExpression");
-                method
-                    .AddStatement("var queryable = QueryInternal(filterExpression);")
-                    .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);");
+                    .AddParameter("int", "pageNo")
+                    .AddParameter("int", "pageSize");
+            }
 
-                method.AddStatement(asAsync
-                    ? "return await projection.FirstOrDefaultAsync(cancellationToken);"
-                    : "return projection.FirstOrDefault();");
+            static void AddQueryOptionsParameter(CSharpClassMethod method)
+            {
+                method.AddParameter(
+                    type: "Func<IQueryable<TPersistence>, IQueryable<TPersistence>>",
+                    name: "queryOptions");
+            }
 
-                if (asAsync)
-                {
-                    AsyncAdjust(method);
-                }
-            });
+            static void AddFilterExpressionParameter(CSharpClassMethod method)
+            {
+                method.AddParameter("Expression<Func<TPersistence, bool>>", "filterExpression");
+            }
         }
 
         private static void AsyncAdjust(CSharpClassMethod method)

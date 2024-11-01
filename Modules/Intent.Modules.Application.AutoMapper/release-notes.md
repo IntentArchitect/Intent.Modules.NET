@@ -1,3 +1,7 @@
+### Version 5.1.5
+
+- Fixed: Some ProjectTo overloads were not being generated on repositories.
+
 ### Version 5.1.4
 
 - Improvement: Added additional `ProjectTo` operations on EF repositories.
