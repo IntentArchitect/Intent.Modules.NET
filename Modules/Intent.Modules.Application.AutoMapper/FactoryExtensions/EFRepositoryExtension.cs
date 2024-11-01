@@ -1,11 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Reflection.Metadata;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -17,12 +12,11 @@ using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using static Intent.Modules.Constants.TemplateRoles.Repository;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
+namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class EFRepositoryExtension : FactoryExtensionBase
@@ -46,46 +40,48 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
             if (baseEFRepositoryInterfaceTemplate == null)
                 return;
 
-            AppendEFRepositoryInterface(application, baseEFRepositoryInterfaceTemplate);
+            AppendEFRepositoryInterface(baseEFRepositoryInterfaceTemplate);
 
             var entityRepositoryTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.EntityFrameworkCore.Repositories.Repository");
 
             foreach (var entityRepositoryTemplate in entityRepositoryTemplates)
             {
                 var classModel = ((IIntentTemplate<ClassModel>)entityRepositoryTemplate).Model;
-                if (GetPrimaryKey(classModel).Any())
+                if (!GetPrimaryKey(classModel).Any())
                 {
-                    AppendEntityRespository(application, entityRepositoryTemplate);
-                    var entityRepositoryInterfaceTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Entities.Repositories.Api.EntityRepositoryInterface", ((ITemplateWithModel)entityRepositoryTemplate).Model);
-                    AppendEntityRespositoryInterface(application, entityRepositoryInterfaceTemplate);
+                    continue;
                 }
+
+                AppendEntityRepository(entityRepositoryTemplate);
+                var entityRepositoryInterfaceTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Entities.Repositories.Api.EntityRepositoryInterface", ((ITemplateWithModel)entityRepositoryTemplate).Model);
+                AppendEntityRepositoryInterface(entityRepositoryInterfaceTemplate);
             }
         }
 
-        private void AppendEntityRespositoryInterface(IApplication application, ICSharpFileBuilderTemplate template)
+        private static void AppendEntityRepositoryInterface(ICSharpFileBuilderTemplate template)
         {
             template.CSharpFile.OnBuild(file =>
             {
-                string nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
+                var nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
                 var @interface = file.Interfaces.First();
-                AddEntityRespositoryInterfaceMethods(template, @interface, nullableChar, true);
+                AddEntityRepositoryInterfaceMethods(template, @interface, nullableChar, true);
                 if (template.ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
                 {
-                    AddEntityRespositoryInterfaceMethods(template, @interface, nullableChar, false);
+                    AddEntityRepositoryInterfaceMethods(template, @interface, nullableChar, false);
                 }
             });
         }
 
-        private void AddEntityRespositoryInterfaceMethods(ICSharpFileBuilderTemplate template, CSharpInterface @interface, string nullableChar, bool asAsync)
+        private static void AddEntityRepositoryInterfaceMethods(ICSharpFileBuilderTemplate template, CSharpInterface @interface, string nullableChar, bool asAsync)
         {
             var classModel = ((IIntentTemplate<ClassModel>)template).Model;
-            var pks = GetPrimaryKey(classModel);
-            string postFix = asAsync ? "Async" : "";
+            var pks = GetPrimaryKey(classModel).ToArray();
+            var postFix = asAsync ? "Async" : "";
             @interface.AddMethod($"TProjection{nullableChar}", $"FindByIdProjectTo{postFix}", method =>
             {
                 method.AddAttribute("[IntentManaged(Mode.Fully)]");
                 string parameterType;
-                if (pks.Count() == 1)
+                if (pks.Length == 1)
                 {
                     var pk = pks.First();
                     parameterType = template.GetTypeName(pk.TypeReference);
@@ -103,30 +99,30 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
             });
         }
 
-        private void AppendEntityRespository(IApplication application, ICSharpFileBuilderTemplate template)
+        private static void AppendEntityRepository(ICSharpFileBuilderTemplate template)
         {
             template.CSharpFile.OnBuild(file =>
             {
-                string nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
+                var nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
                 var @class = file.Classes.First();
-                AddEntityRespositoryMethods(template, @class, nullableChar, true);
+                AddEntityRepositoryMethods(template, @class, nullableChar, true);
                 if (template.ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
                 {
-                    AddEntityRespositoryMethods(template, @class, nullableChar, false);
+                    AddEntityRepositoryMethods(template, @class, nullableChar, false);
                 }
             });
         }
 
-        private void AddEntityRespositoryMethods(ICSharpFileBuilderTemplate template, CSharpClass @class, string nullableChar, bool asAsync)
+        private static void AddEntityRepositoryMethods(ICSharpFileBuilderTemplate template, CSharpClass @class, string nullableChar, bool asAsync)
         {
             var classModel = ((IIntentTemplate<ClassModel>)template).Model;
-            var pks = GetPrimaryKey(classModel);
-            string postFix = asAsync ? "Async" : "";
+            var pks = GetPrimaryKey(classModel).ToArray();
+            var postFix = asAsync ? "Async" : "";
             @class.AddMethod($"TProjection{nullableChar}", $"FindByIdProjectTo{postFix}", method =>
             {
                 string parameterType;
                 string filter;
-                if (pks.Count() == 1)
+                if (pks.Length == 1)
                 {
                     var pk = pks.First();
                     parameterType = template.GetTypeName(pk.TypeReference);
@@ -142,23 +138,22 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
                     .AddGenericParameter("TProjection")
                     .AddParameter(parameterType, "id");
 
+                method.AddStatement(asAsync
+                    ? $"return await FindProjectToAsync<TProjection>(x => {filter}, cancellationToken);"
+                    : $"return FindProjectTo<TProjection>(x => {filter});");
+
                 if (asAsync)
                 {
-                    method.AddStatement($"return await FindProjectToAsync<TProjection>(x => {filter}, cancellationToken);");
+                    AsyncAdjust(method);
                 }
-                else
-                {
-                    method.AddStatement($"return FindProjectTo<TProjection>(x => {filter});");
-                }
-                if (asAsync) AsyncAdjust(method);
             });
         }
 
-        private IEnumerable<AttributeModel> GetPrimaryKey(ClassModel classModel)
+        private static IEnumerable<AttributeModel> GetPrimaryKey(ClassModel classModel)
         {
             while (classModel.ParentClass != null)
             {
-                foreach (var pk in  classModel.Attributes.Where(a => a.HasStereotype("Primary Key")))
+                foreach (var pk in classModel.Attributes.Where(a => a.HasStereotype("Primary Key")))
                 {
                     yield return pk;
                 }
@@ -171,15 +166,17 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
             }
         }
 
-        private void AppendEFRepositoryInterface(IApplication application, ICSharpFileBuilderTemplate template)
+        private static void AppendEFRepositoryInterface(ICSharpFileBuilderTemplate template)
         {
             template.CSharpFile.OnBuild(file =>
             {
-                string nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
+                var nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
                 var @interface = file.Interfaces.First();
+#pragma warning disable CS0618 // Type or member is obsolete
                 var pagedListInterface = template.TryGetTypeName(TemplateRoles.Repository.Interface.PagedList, out var name)
                     ? name
                     : template.GetTypeName(TemplateRoles.Repository.Interface.PagedResult); // for backward compatibility
+#pragma warning restore CS0618 // Type or member is obsolete
                 AddInterfaceMethods(@interface, nullableChar, pagedListInterface, true);
                 if (template.ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
                 {
@@ -188,9 +185,9 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
             });
         }
 
-        private void AddInterfaceMethods(CSharpInterface @interface, string nullableChar, string pagedListInterface, bool asAsync)
+        private static void AddInterfaceMethods(CSharpInterface @interface, string nullableChar, string pagedListInterface, bool asAsync)
         {
-            string postFix = asAsync ? "Async" : "";
+            var postFix = asAsync ? "Async" : "";
             @interface.AddMethod("List<TProjection>", $"FindAllProjectTo{postFix}", method =>
             {
                 method.AddGenericParameter("TProjection");
@@ -217,7 +214,7 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
             {
                 method
                     .AddGenericParameter("TProjection")
-                    .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions")
+                    .AddParameter("Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions")
                     ;
                 if (asAsync) AsyncAdjust(method);
             });
@@ -225,19 +222,19 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
             {
                 method
                     .AddGenericParameter("TProjection")
-                    .AddParameter($"Expression<Func<TPersistence, bool>>", "filterExpression")
+                    .AddParameter("Expression<Func<TPersistence, bool>>", "filterExpression")
                     ;
                 if (asAsync) AsyncAdjust(method);
             });
         }
 
-        private void AsyncAdjust(CSharpInterfaceMethod method)
+        private static void AsyncAdjust(CSharpInterfaceMethod method)
         {
             method.Async();
             method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
         }
 
-        private void AppendEFRepository(IApplication application, ICSharpFileBuilderTemplate template)
+        private static void AppendEFRepository(IApplication application, ICSharpFileBuilderTemplate template)
         {
             var entityRepositories = application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.EntityFrameworkCore.Repositories.Repository");
             foreach (var entityRepositoryTemplate in entityRepositories)
@@ -250,26 +247,29 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
 
                     entityRepositoryTemplate.AddUsing("AutoMapper");
 
-                    if (!constructor.Parameters.Any(p => p.Type.EndsWith("IMapper")))
+                    if (constructor.Parameters.Any(p => p.Type.EndsWith("IMapper")))
                     {
-                        constructor
-                            .AddParameter("IMapper", "mapper");
-                        constructor.ConstructorCall.AddArgument("mapper");
+                        return;
                     }
+
+                    constructor.AddParameter("IMapper", "mapper");
+                    constructor.ConstructorCall.AddArgument("mapper");
                 });
             }
 
             template.CSharpFile.OnBuild(file =>
             {
+#pragma warning disable CS0618 // Type or member is obsolete
                 var pagedListInterface = template.TryGetTypeName(TemplateRoles.Repository.Interface.PagedList, out var name)
                     ? name
                     : template.GetTypeName(TemplateRoles.Repository.Interface.PagedResult); // for backward compatibility
+#pragma warning restore CS0618 // Type or member is obsolete
                 template.AddNugetDependency(NugetPackages.AutoMapper(template.OutputTarget));
                 var @class = file.Classes.First();
                 var constructor = @class.Constructors.First();
                 if (constructor == null) return;
 
-                string nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
+                var nullableChar = template.OutputTarget.GetProject().NullableEnabled ? "?" : "";
                 template.AddUsing("AutoMapper");
                 template.AddUsing("AutoMapper.QueryableExtensions");
 
@@ -286,9 +286,9 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
             });
         }
 
-        private void AddImplementationMethods(CSharpClass @class, string nullableChar, string pagedListInterface, bool asAsync)
+        private static void AddImplementationMethods(CSharpClass @class, string nullableChar, string pagedListInterface, bool asAsync)
         {
-            string postFix = asAsync ? "Async" : "";
+            var postFix = asAsync ? "Async" : "";
 
             @class.AddMethod("List<TProjection>", $"FindAllProjectTo{postFix}", method =>
             {
@@ -300,15 +300,14 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
                     .AddStatement("var queryable = QueryInternal(queryOptions);")
                     .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);");
 
+                method.AddStatement(asAsync
+                    ? "return await projection.ToListAsync(cancellationToken);"
+                    : "return projection.ToList();");
+
                 if (asAsync)
                 {
-                    method.AddStatement("return await projection.ToListAsync(cancellationToken);");
+                    AsyncAdjust(method);
                 }
-                else
-                {
-                    method.AddStatement("return projection.ToList();");
-                }
-                if (asAsync) AsyncAdjust(method);
             });
             @class.AddMethod("List<TProjection>", $"FindAllProjectTo{postFix}", method =>
             {
@@ -319,15 +318,14 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
                     .AddStatement("var queryable = QueryInternal((Expression<Func<TPersistence, bool>>)null);")
                     .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);");
 
+                method.AddStatement(asAsync
+                    ? "return await projection.ToListAsync(cancellationToken);"
+                    : "return projection.ToList();");
+
                 if (asAsync)
                 {
-                    method.AddStatement("return await projection.ToListAsync(cancellationToken);");
+                    AsyncAdjust(method);
                 }
-                else
-                {
-                    method.AddStatement("return projection.ToList();");
-                }
-                if (asAsync) AsyncAdjust(method);
             });
             @class.AddMethod($"{pagedListInterface}<TProjection>", $"FindAllProjectTo{postFix}", method =>
             {
@@ -341,66 +339,67 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtentions
                     .AddStatement("var queryable = QueryInternal(queryOptions);")
                     .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);");
 
+                method.AddStatement(asAsync
+                    ? """
+                      return await ToPagedListAsync(
+                                      projection,
+                                      pageNo,
+                                      pageSize,
+                                      cancellationToken);
+                      """
+                    : """
+                      return ToPagedList(
+                                      projection,
+                                      pageNo,
+                                      pageSize);
+                      """);
+
                 if (asAsync)
                 {
-                    method.AddStatement(@"return await ToPagedListAsync(
-                projection,
-                pageNo,
-                pageSize,
-                cancellationToken);");
+                    AsyncAdjust(method);
                 }
-                else
-                {
-                    method.AddStatement(@"return ToPagedList(
-                projection,
-                pageNo,
-                pageSize);");
-                }
-                if (asAsync) AsyncAdjust(method);
             });
 
             @class.AddMethod($"TProjection{nullableChar}", $"FindProjectTo{postFix}", method =>
             {
                 method
                     .AddGenericParameter("TProjection")
-                    .AddParameter($"Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions");
+                    .AddParameter("Func<IQueryable<TPersistence>, IQueryable<TPersistence>>", "queryOptions");
                 method
                     .AddStatement("var queryable = QueryInternal(queryOptions);")
                     .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);");
 
+                method.AddStatement(asAsync
+                    ? "return await projection.FirstOrDefaultAsync(cancellationToken);"
+                    : "return projection.FirstOrDefault();");
+
                 if (asAsync)
                 {
-                    method.AddStatement("return await projection.FirstOrDefaultAsync(cancellationToken);");
+                    AsyncAdjust(method);
                 }
-                else
-                {
-                    method.AddStatement("return projection.FirstOrDefault();");
-                }
-                if (asAsync) AsyncAdjust(method);
             });
 
             @class.AddMethod($"TProjection{nullableChar}", $"FindProjectTo{postFix}", method =>
             {
                 method
                     .AddGenericParameter("TProjection")
-                    .AddParameter($"Expression<Func<TPersistence, bool>>", "filterExpression");
+                    .AddParameter("Expression<Func<TPersistence, bool>>", "filterExpression");
                 method
                     .AddStatement("var queryable = QueryInternal(filterExpression);")
                     .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);");
 
+                method.AddStatement(asAsync
+                    ? "return await projection.FirstOrDefaultAsync(cancellationToken);"
+                    : "return projection.FirstOrDefault();");
+
                 if (asAsync)
                 {
-                    method.AddStatement("return await projection.FirstOrDefaultAsync(cancellationToken);");
+                    AsyncAdjust(method);
                 }
-                else
-                {
-                    method.AddStatement("return projection.FirstOrDefault();");
-                }
-                if (asAsync) AsyncAdjust(method);
             });
         }
 
-        private void AsyncAdjust(CSharpClassMethod method)
+        private static void AsyncAdjust(CSharpClassMethod method)
         {
             method.Async();
             method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));

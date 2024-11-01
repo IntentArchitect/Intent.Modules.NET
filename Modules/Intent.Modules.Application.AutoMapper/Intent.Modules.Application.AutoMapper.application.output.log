@@ -12,7 +12,7 @@
       <ProjectId>4c521b48-b619-4ce1-b177-f18cb4391bc8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#c728fd6f-1d65-4d54-96b7-b1d7c45ea647</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtentions/EFRepositoryExtension.cs</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>FactoryExtensions/EFRepositoryExtension.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EFRepositoryExtension.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
