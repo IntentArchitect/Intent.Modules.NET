@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Net;
 using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Transactions;
 using AzureFunctions.NET8.Application;
 using AzureFunctions.NET8.Application.Interfaces;

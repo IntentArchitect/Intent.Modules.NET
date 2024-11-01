@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Net;
-using System.Threading;
-using System.Threading.Tasks;
 using AzureFunctions.NET8.Application.Customers;
 using AzureFunctions.NET8.Application.Customers.GetCustomers;
 using AzureFunctions.NET8.Domain.Common.Exceptions;

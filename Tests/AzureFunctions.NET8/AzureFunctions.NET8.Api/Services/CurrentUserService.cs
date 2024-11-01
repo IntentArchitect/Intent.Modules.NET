@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using AzureFunctions.NET8.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 

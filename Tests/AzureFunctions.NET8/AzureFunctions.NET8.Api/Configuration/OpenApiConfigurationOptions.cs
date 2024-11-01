@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Abstractions;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;

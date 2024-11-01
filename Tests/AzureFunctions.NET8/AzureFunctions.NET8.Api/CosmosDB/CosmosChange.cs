@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Transactions;
 using AzureFunctions.NET8.Application.CosmosDB.CosmosChange;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
