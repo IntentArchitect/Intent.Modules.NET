@@ -82,22 +82,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="70638d51-2b80-46e1-8caa-7036f9a9cb99" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AzureFunctions.Startup</name>
-      <display>Intent.AzureFunctions.Startup</display>
-      <externalReference>Intent.AzureFunctions</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</parentFolderId>
-      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
-      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="46a680e7-001f-4168-9442-7c8136b2218d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.HotChocolate.GraphQL.AzureFunctions.GraphQLFunctionTemplate</name>
       <display>Intent.HotChocolate.GraphQL.AzureFunctions.GraphQLFunctionTemplate</display>
@@ -140,6 +124,34 @@
       <packageName>GraphQL.AzureFunction.TestApplication</packageName>
       <stereotypes />
       <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="81463a0f-bd36-428b-b234-abb75ad45376" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AzureFunctions.InProcess.Startup</name>
+      <display>Intent.AzureFunctions.InProcess.Startup</display>
+      <externalReference>Intent.AzureFunctions</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="67648ec2-34ec-4123-bb2a-f109c7135ea4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AzureFunctions.Isolated.Program</name>
+      <display>Intent.AzureFunctions.Isolated.Program</display>
+      <externalReference>Intent.AzureFunctions</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>

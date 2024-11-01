@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="54913c29-ed6f-45c8-86e4-d191dfefd67d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.AzureFunctions.EntityFrameworkCore.DbInitializationService</name>
+  <display>Intent.AzureFunctions.EntityFrameworkCore.DbInitializationService</display>
+  <externalReference>Intent.AzureFunctions.EntityFrameworkCore</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>dd3f3e5c-e812-46db-af89-f630a56fa304</parentFolderId>
+  <stereotypes />
+  <metadata>
+    <entry key="status" value="unassigned" />
+  </metadata>
+  <childElements />
+</class>

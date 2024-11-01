@@ -15,6 +15,8 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.AzureFunctions.EntityFrameworkCore" version="5.0.0-pre.0" />
+    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

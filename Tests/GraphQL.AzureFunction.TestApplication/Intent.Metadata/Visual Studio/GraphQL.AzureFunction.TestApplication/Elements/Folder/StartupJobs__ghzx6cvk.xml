@@ -53,5 +53,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="cd54f261-fc3d-471a-aecd-9a6631bc9d05" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AzureFunctions.EntityFrameworkCore.DbInitializationService</name>
+      <display>Intent.AzureFunctions.EntityFrameworkCore.DbInitializationService</display>
+      <externalReference>Intent.AzureFunctions.EntityFrameworkCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b0dc08d2-5735-494f-a67b-3e410bb6b5d5</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>
