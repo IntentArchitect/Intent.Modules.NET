@@ -72,6 +72,23 @@
         <package id="Intent.AzureFunctions.Dispatch.MediatR" version="2.0.0-pre.0" />
       </install>
     </detect>
+    <!-- Remove after 1/1/2025 -->
+    <detect id="Intent.AzureFunctions.Interop.Contracts">
+      <install>
+        <package id="Intent.AzureFunctions.Interop.Contracts" version="5.0.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.AzureFunctions.Interop.EntityFrameworkCore">
+      <install>
+        <package id="Intent.AzureFunctions.Interop.EntityFrameworkCore" version="5.0.0-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.AzureFunctions.OpenApi">
+      <install>
+        <package id="Intent.AzureFunctions.OpenApi" version="2.0.0-pre.0" />
+      </install>
+    </detect>
+    <!-- Remove after 1/1/2025 -->
   </interoperability>
   <factoryExtensions></factoryExtensions>
   <moduleSettings>
