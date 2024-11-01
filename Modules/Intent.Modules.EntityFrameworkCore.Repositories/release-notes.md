@@ -2,7 +2,7 @@
 
 - Improvement: Pass `null` to `filterExpression` instead of `x => true` on `RespositoryBase` for method overloads which have no `filterExpression` or `queryOptions` parameters.
 - Fixed: `RepositoryBase` would generate a synchronous `Any` method even when the synchronous Application Setting was not set.
-- Fixed: Removed extraneous `SaveChangesAsync` from `RepositoryBase` which was not exposed on its interface.
+- Fixed: Removed extraneous `SaveChangesAsync` from `RepositoryBase` which was not exposed on its interface. (Note that `UnitOfWork.SaveChangesAsync` is still available and can be used through the interface.)
 
 ### Version 4.7.2
 
