@@ -9,8 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.OpenApi.Models;
 
@@ -30,13 +29,13 @@ namespace AzureFunctions.NET8.Api.Params
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("Params_FromBodyTest")]
+        [Function("Params_FromBodyTest")]
         [OpenApiOperation("FromBodyTestCommand", tags: new[] { "FromBodyTest" }, Description = "From body test command")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(IEnumerable<int>))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "from-body-test")] HttpRequest req,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             try
             {

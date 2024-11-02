@@ -5,8 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.OpenApi.Models;
 
@@ -24,14 +23,14 @@ namespace AzureFunctions.NET8.Api.Params
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [FunctionName("Params_GetByIdsQueryTest")]
+        [Function("Params_GetByIdsQueryTest")]
         [OpenApiOperation("GetByIdsQueryTest", tags: new[] { "Params" }, Description = "Get by ids query test")]
         [OpenApiParameter(name: "ids", In = ParameterLocation.Query, Required = true, Type = typeof(IEnumerable<int>))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(int))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "params/by-ids-query-test")] HttpRequest req,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             try
             {

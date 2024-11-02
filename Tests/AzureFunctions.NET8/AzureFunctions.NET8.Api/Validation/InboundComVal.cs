@@ -9,8 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.OpenApi.Models;
 
@@ -30,13 +29,13 @@ namespace AzureFunctions.NET8.Api.Validation
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("Validation_InboundComVal")]
+        [Function("Validation_InboundComVal")]
         [OpenApiOperation("InboundComValCommand", tags: new[] { "Validation" }, Description = "Inbound com val command")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(InboundComValCommand))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "put", Route = "validation/inbound")] HttpRequest req,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             try
             {

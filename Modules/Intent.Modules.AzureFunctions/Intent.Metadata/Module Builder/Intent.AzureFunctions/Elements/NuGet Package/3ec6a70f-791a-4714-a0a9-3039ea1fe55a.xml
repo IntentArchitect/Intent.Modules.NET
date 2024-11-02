@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="3ec6a70f-791a-4714-a0a9-3039ea1fe55a" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <comment>In Process Azure Functions</comment>
   <name>Microsoft.Azure.WebJobs.Extensions.ServiceBus</name>
   <display>Microsoft.Azure.WebJobs.Extensions.ServiceBus [locked]</display>
   <isAbstract>false</isAbstract>

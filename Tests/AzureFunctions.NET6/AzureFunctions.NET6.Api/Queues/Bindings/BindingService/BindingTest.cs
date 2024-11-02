@@ -32,7 +32,7 @@ namespace AzureFunctions.NET6.Api.Queues.Bindings.BindingService
         public async Task Run(
             [QueueTrigger("in-queue")] CustomerDto dto,
             [Queue("out-queue")] QueueClient queueClient,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))

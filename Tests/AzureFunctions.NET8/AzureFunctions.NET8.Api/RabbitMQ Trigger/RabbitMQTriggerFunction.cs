@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Transactions;
 using AzureFunctions.NET8.Application.RabbitMQTrigger.CommandForRabbitMQTrigger;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.WebJobs;
 using RabbitMQ.Client.Events;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -28,8 +22,8 @@ namespace AzureFunctions.NET8.Api.RabbitMQTrigger
 
         [Function("RabbitMQ Trigger_RabbitMQTriggerFunction")]
         public async Task Run(
-            [RabbitMQTrigger("rabbit-queue")] BasicDeliverEventArgs args,
-            CancellationToken cancellationToken)
+            [Microsoft.Azure.Functions.Worker.RabbitMQTrigger("rabbit-queue")] BasicDeliverEventArgs args,
+            CancellationToken cancellationToken = default)
         {
             var command = JsonSerializer.Deserialize<Application.RabbitMQTrigger.CommandForRabbitMQTrigger.CommandForRabbitMQTrigger>(args.Body.ToArray());
         }

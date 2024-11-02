@@ -117,6 +117,31 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
 
     public IEnumerable<INugetPackageInfo> GetNugetDependencies()
     {
-        yield return NugetPackages.MicrosoftAzureWebJobsExtensionsStorageQueues(_template.OutputTarget);
+        foreach (var nugetPackageInfo in GetNetSpecificPackages(AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget)))
+        {
+            yield return nugetPackageInfo;
+        }
+    }
+
+    public IEnumerable<INugetPackageInfo> GetNugetRedundantDependencies()
+    {
+        foreach (var nugetPackageInfo in GetNetSpecificPackages(AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget).SwapState()))
+        {
+            yield return nugetPackageInfo;
+        }
+    }
+
+    private IEnumerable<INugetPackageInfo> GetNetSpecificPackages(AzureFunctionsHelper.AzureFunctionsProcessType azureFunctionsProcessType)
+    {
+        switch (azureFunctionsProcessType)
+        {
+            case AzureFunctionsHelper.AzureFunctionsProcessType.InProcess:
+                yield return NugetPackages.MicrosoftAzureWebJobsExtensionsStorageQueues(_template.OutputTarget);
+                break;
+            default:
+            case AzureFunctionsHelper.AzureFunctionsProcessType.Isolated:
+                yield return NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsStorageQueues(_template.OutputTarget);
+                break;
+        }
     }
 }

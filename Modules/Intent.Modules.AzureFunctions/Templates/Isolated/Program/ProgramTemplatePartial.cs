@@ -28,6 +28,12 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
         {
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleServiceConfigurationRequest);
 
+            if (CanRunTemplate())
+            {
+                AddNugetDependency(NugetPackages.MicrosoftApplicationInsightsWorkerService(outputTarget));
+                AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerApplicationInsights(outputTarget));
+            }
+
             var configStatements = new CSharpLambdaBlock("(ctx, services)");
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -79,7 +85,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
 
         public override bool CanRunTemplate()
         {
-            return  AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.Isolated;
+            return AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.Isolated;
         }
 
         private void HandleServiceConfigurationRequest(ServiceConfigurationRequest request)

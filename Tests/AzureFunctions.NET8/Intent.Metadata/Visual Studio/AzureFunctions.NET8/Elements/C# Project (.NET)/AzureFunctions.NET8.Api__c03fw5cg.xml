@@ -81,6 +81,38 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="42a0f5f8-c590-4399-9650-f452ffd3b84f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AzureFunctions.InProcess.Startup</name>
+      <display>Intent.AzureFunctions.InProcess.Startup</display>
+      <externalReference>Intent.AzureFunctions</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9466369f-8619-418f-972f-413e1ba6cf0e</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET8</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="cd186650-5ebb-42f2-a545-2fdeae982122" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AzureFunctions.Isolated.Program</name>
+      <display>Intent.AzureFunctions.Isolated.Program</display>
+      <externalReference>Intent.AzureFunctions</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9466369f-8619-418f-972f-413e1ba6cf0e</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET8</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="88e4fcb9-ca80-4622-abb7-25c3c579f194" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Distribution</name>
       <display>Distribution</display>
@@ -107,34 +139,6 @@
       <packageName>AzureFunctions.NET8</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="42a0f5f8-c590-4399-9650-f452ffd3b84f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AzureFunctions.InProcess.Startup</name>
-      <display>Intent.AzureFunctions.InProcess.Startup</display>
-      <externalReference>Intent.AzureFunctions</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9466369f-8619-418f-972f-413e1ba6cf0e</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="cd186650-5ebb-42f2-a545-2fdeae982122" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AzureFunctions.Isolated.Program</name>
-      <display>Intent.AzureFunctions.Isolated.Program</display>
-      <externalReference>Intent.AzureFunctions</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>9466369f-8619-418f-972f-413e1ba6cf0e</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
       <childElements />
     </childElement>
   </childElements>

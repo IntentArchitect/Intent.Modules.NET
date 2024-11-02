@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="ca6788ca-ccb2-480a-99a5-306399915321" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <comment>In Process Azure Functions</comment>
   <name>Microsoft.Azure.WebJobs.Extensions.EventHubs</name>
   <display>Microsoft.Azure.WebJobs.Extensions.EventHubs [locked]</display>
   <isAbstract>false</isAbstract>

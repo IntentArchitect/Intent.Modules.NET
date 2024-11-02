@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Net;
 using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Transactions;
 using AzureFunctions.NET8.Application.Customers.CreateCustomer;
 using AzureFunctions.NET8.Domain.Common.Exceptions;
@@ -17,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.OpenApi.Models;
+using AuthorizationLevel = Microsoft.Azure.Functions.Worker.AuthorizationLevel;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
@@ -41,7 +37,7 @@ namespace AzureFunctions.NET8.Api.Customers
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "customers")] HttpRequest req,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             try
             {

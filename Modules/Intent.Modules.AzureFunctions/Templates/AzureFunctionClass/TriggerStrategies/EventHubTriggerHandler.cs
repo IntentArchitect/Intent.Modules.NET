@@ -45,7 +45,7 @@ internal class EventHubTriggerHandler : IFunctionTriggerHandler
                     }
                 });
             });
-        method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+        method.AddOptionalCancellationTokenParameter();
     }
 
     public void ApplyMethodStatements(CSharpClassMethod method)
@@ -58,6 +58,32 @@ internal class EventHubTriggerHandler : IFunctionTriggerHandler
         {
             yield return NugetPackages.AzureMessagingEventHubs(_template.OutputTarget);
         }
-        yield return NugetPackages.MicrosoftAzureWebJobsExtensionsEventHubs(_template.OutputTarget);
+
+        foreach (var nugetPackageInfo in GetNetSpecificPackages(AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget)))
+        {
+            yield return nugetPackageInfo;
+        }
+    }
+
+    public IEnumerable<INugetPackageInfo> GetNugetRedundantDependencies()
+    {
+        foreach (var nugetPackageInfo in GetNetSpecificPackages(AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget).SwapState()))
+        {
+            yield return nugetPackageInfo;
+        }
+    }
+
+    private IEnumerable<INugetPackageInfo> GetNetSpecificPackages(AzureFunctionsHelper.AzureFunctionsProcessType azureFunctionsProcessType)
+    {
+        switch (azureFunctionsProcessType)
+        {
+            case AzureFunctionsHelper.AzureFunctionsProcessType.InProcess:
+                yield return NugetPackages.MicrosoftAzureWebJobsExtensionsEventHubs(_template.OutputTarget);
+                break;
+            default:
+            case AzureFunctionsHelper.AzureFunctionsProcessType.Isolated:
+                yield return NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsEventHubs(_template.OutputTarget);
+                break;
+        }
     }
 }

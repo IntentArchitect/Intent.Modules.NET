@@ -7,8 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.OpenApi.Models;
 
@@ -26,7 +25,7 @@ namespace AzureFunctions.NET8.Api.Customers
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [FunctionName("Customers_GetCustomersPaged")]
+        [Function("Customers_GetCustomersPaged")]
         [OpenApiOperation("GetCustomersPagedQuery", tags: new[] { "CustomersPaged" }, Description = "Get customers paged query")]
         [OpenApiParameter(name: "pageNo", In = ParameterLocation.Query, Required = true, Type = typeof(int))]
         [OpenApiParameter(name: "pageSize", In = ParameterLocation.Query, Required = true, Type = typeof(int))]
@@ -34,7 +33,7 @@ namespace AzureFunctions.NET8.Api.Customers
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "customers-paged")] HttpRequest req,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             try
             {

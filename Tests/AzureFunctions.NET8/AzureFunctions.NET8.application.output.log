@@ -28,7 +28,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>068c81ed-d7c8-4b6b-be53-cceb04ad1312</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.OpenApi.OpenApiConfigurarationTemplate</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.NET8.Api/Configuration/OpenApiConfigurationOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OpenApiConfigurationOptions.cs</ProjectRelativeFilePath>

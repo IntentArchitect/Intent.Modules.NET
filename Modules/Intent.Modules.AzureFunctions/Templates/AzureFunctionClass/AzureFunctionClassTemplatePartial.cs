@@ -11,6 +11,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
@@ -28,20 +29,44 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
     {
         public const string TemplateId = "Intent.AzureFunctions.AzureFunctionClass";
 
-        private readonly IFunctionTriggerHandler _triggerStrategyHandler;
-
         [IntentManaged(Mode.Ignore)]
         public AzureFunctionClassTemplate(IOutputTarget outputTarget, IAzureFunctionModel model) : base(TemplateId, outputTarget, model)
         {
-            _triggerStrategyHandler = TriggerStrategyResolver.GetFunctionTriggerHandler(this, model);
-
-            AddNugetDependency(NugetPackages.MicrosoftNETSdkFunctions(outputTarget));
             AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection(outputTarget));
-            AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsExtensions(outputTarget));
 
-            foreach (var dependency in _triggerStrategyHandler.GetNugetDependencies())
+            switch (AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget))
+            {
+                case AzureFunctionsHelper.AzureFunctionsProcessType.InProcess:
+                    AddNugetDependency(NugetPackages.MicrosoftNETSdkFunctions(outputTarget));
+                    AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsExtensions(outputTarget));
+
+                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerPackageName, outputTarget));
+                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerSdkPackageName, outputTarget));
+                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsHttpPackageName, outputTarget));
+                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsHttpAspNetCorePackageName, outputTarget));
+                    break;
+                default:
+                case AzureFunctionsHelper.AzureFunctionsProcessType.Isolated:
+                    AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorker(outputTarget));
+                    AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerSdk(outputTarget));
+                    AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsHttp(outputTarget));
+                    AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsHttpAspNetCore(outputTarget));
+
+                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftNETSdkFunctionsPackageName, outputTarget));
+                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsExtensionsPackageName, outputTarget));
+                    break;
+            }
+
+            var triggerStrategyHandler = TriggerStrategyResolver.GetFunctionTriggerHandler(this, model);
+
+            foreach (var dependency in triggerStrategyHandler.GetNugetDependencies())
             {
                 AddNugetDependency(dependency);
+            }
+
+            foreach (var dependency in triggerStrategyHandler.GetNugetDependencies())
+            {
+                ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(dependency.Name, outputTarget));
             }
 
             AddTypeSource(TemplateRoles.Application.Contracts.Dto, "List<{0}>");
@@ -73,9 +98,19 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                                 break;
                         }
 
-                        _triggerStrategyHandler.ApplyMethodParameters(method);
-                        _triggerStrategyHandler.ApplyMethodStatements(method);
+                        triggerStrategyHandler.ApplyMethodParameters(method);
+                        triggerStrategyHandler.ApplyMethodStatements(method);
                     });
+                })
+                .AfterBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    var method = @class.FindMethod("Run");
+                    if (method?.Statements.Any() == false)
+                    {
+                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                        method.AddNotImplementedException();
+                    }
                 });
         }
 
@@ -162,7 +197,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             {
                 return $"Task<{UseType("Microsoft.AspNetCore.Mvc.IActionResult")}>";
             }
-            else if (Model.TriggerType == TriggerType.QueueTrigger && 
+            else if (Model.TriggerType == TriggerType.QueueTrigger &&
                      AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.InProcess)
             {
                 return $"Task";

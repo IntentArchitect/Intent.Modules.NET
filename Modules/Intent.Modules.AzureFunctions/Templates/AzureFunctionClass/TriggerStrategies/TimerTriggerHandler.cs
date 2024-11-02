@@ -19,7 +19,7 @@ internal class TimerTriggerHandler : IFunctionTriggerHandler
 
     public void ApplyMethodParameters(CSharpClassMethod method)
     {
-        if (!_template.OutputTarget.GetProject().IsNetApp(6))
+        if (_template.OutputTarget.GetProject().GetMaxNetAppVersion().Major > 6)
         {
             _template.CSharpFile.AddUsing("TimerInfo = Microsoft.Azure.Functions.Worker.TimerInfo");
             _template.CSharpFile.AddUsing("TimerTriggerAttribute = Microsoft.Azure.Functions.Worker.TimerTriggerAttribute");
@@ -44,9 +44,14 @@ internal class TimerTriggerHandler : IFunctionTriggerHandler
 
     public IEnumerable<INugetPackageInfo> GetNugetDependencies()
     {
-        if (!_template.OutputTarget.GetProject().IsNetApp(6))
+        if (_template.OutputTarget.GetProject().GetMaxNetAppVersion().Major > 6)
         {
             yield return NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsTimer(_template.OutputTarget);
         }
+    }
+    
+    public IEnumerable<INugetPackageInfo> GetNugetRedundantDependencies()
+    {
+        return [];
     }
 }

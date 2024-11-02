@@ -4,7 +4,6 @@ using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.WebJobs;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
@@ -25,7 +24,7 @@ namespace AzureFunctions.NET8.Api.CosmosDB
         [Function("CosmosDB_CosmosChange")]
         public async Task Run(
             [CosmosDBTrigger(databaseName: "DBName", containerName: "Container", Connection = "Connection", CreateLeaseContainerIfNotExists = true, LeaseContainerName = "leases")] IReadOnlyCollection<CosmosChangeCommand> rawCollection,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             if (rawCollection == null || rawCollection.Count == 0) return;
 

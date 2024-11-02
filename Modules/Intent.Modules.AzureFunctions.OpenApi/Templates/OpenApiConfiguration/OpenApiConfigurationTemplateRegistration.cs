@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.AzureFunctions.OpenApi.Templates.OpenApiConfiguraration
+namespace Intent.Modules.AzureFunctions.OpenApi.Templates.OpenApiConfiguration
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class OpenApiConfigurarationTemplateRegistration : SingleFileTemplateRegistration
+    public class OpenApiConfigurationTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => OpenApiConfigurarationTemplate.TemplateId;
+        public override string TemplateId => OpenApiConfigurationTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new OpenApiConfigurarationTemplate(outputTarget);
+            return new OpenApiConfigurationTemplate(outputTarget);
         }
     }
 }

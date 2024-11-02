@@ -10,7 +10,7 @@
   <tags>csharp dotnet azure functions serverless openapi swagger</tags>
   <releaseNotes>release-notes.md</releaseNotes>
   <templates>
-    <template id="Intent.AzureFunctions.OpenApi.OpenApiConfigurarationTemplate" externalReference="5d102fe0-c384-446f-ae63-fc7d0645b8c3">
+    <template id="Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate" externalReference="5d102fe0-c384-446f-ae63-fc7d0645b8c3">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />

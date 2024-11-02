@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="50f3428e-0f39-413f-a831-242148e03315" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <comment>In Process Azure Functions</comment>
   <name>Microsoft.Azure.Functions.Extensions</name>
   <display>Microsoft.Azure.Functions.Extensions [locked]</display>
   <isAbstract>false</isAbstract>

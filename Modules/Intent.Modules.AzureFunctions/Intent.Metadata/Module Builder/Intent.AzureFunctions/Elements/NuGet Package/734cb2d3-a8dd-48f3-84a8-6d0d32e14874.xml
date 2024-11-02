@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="734cb2d3-a8dd-48f3-84a8-6d0d32e14874" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore</name>
+  <display>Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>60f380ef-80e4-41fa-a1e6-1a9a98c77656</parentFolderId>
+  <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+  <packageName>Intent.AzureFunctions</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="20357fa9-f135-4627-8112-72950137d82a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>1.3.2</name>
+      <display>1.3.2 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>734cb2d3-a8dd-48f3-84a8-6d0d32e14874</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="c399f697-3f16-46ce-bee8-5e9bc5303178" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Functions.Worker</name>
+          <display>Microsoft.Azure.Functions.Worker (1.22.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.22.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>20357fa9-f135-4627-8112-72950137d82a</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="13c9c866-9600-45f0-a1be-529a9e554340" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Functions.Worker.Extensions.Abstractions</name>
+          <display>Microsoft.Azure.Functions.Worker.Extensions.Abstractions (1.3.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.3.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>20357fa9-f135-4627-8112-72950137d82a</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d2f6e59d-9219-4782-b49c-a8ca9f234e9a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Functions.Worker.Extensions.Http</name>
+          <display>Microsoft.Azure.Functions.Worker.Extensions.Http (3.2.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>20357fa9-f135-4627-8112-72950137d82a</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6e2b27f6-3cd3-42ca-979d-ef544bd70cdd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore.Analyzers</name>
+          <display>Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore.Analyzers (1.0.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>20357fa9-f135-4627-8112-72950137d82a</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

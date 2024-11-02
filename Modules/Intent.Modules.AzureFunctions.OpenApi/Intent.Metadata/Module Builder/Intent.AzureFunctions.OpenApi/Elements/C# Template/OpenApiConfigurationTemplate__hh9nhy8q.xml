@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="5d102fe0-c384-446f-ae63-fc7d0645b8c3" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>OpenApiConfigurarationTemplate</name>
-  <display>OpenApiConfigurarationTemplate: Single File</display>
+  <name>OpenApiConfigurationTemplate</name>
+  <display>OpenApiConfigurationTemplate: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="e3c283a9-a87f-4e8a-bcb1-a0594c1fa050">

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="7b73a3e6-d1f5-487c-841b-b2a109515a3a" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <comment>In Process Azure Functions</comment>
   <name>Microsoft.Azure.WebJobs.Extensions.CosmosDB</name>
   <display>Microsoft.Azure.WebJobs.Extensions.CosmosDB [locked]</display>
   <isAbstract>false</isAbstract>

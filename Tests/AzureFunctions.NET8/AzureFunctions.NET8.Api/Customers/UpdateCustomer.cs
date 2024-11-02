@@ -9,8 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.OpenApi.Models;
 
@@ -30,7 +29,7 @@ namespace AzureFunctions.NET8.Api.Customers
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("Customers_UpdateCustomer")]
+        [Function("Customers_UpdateCustomer")]
         [OpenApiOperation("UpdateCustomerCommand", tags: new[] { "Customers" }, Description = "Update customer command")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(UpdateCustomerCommand))]
         [OpenApiParameter(name: "id", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]
@@ -38,7 +37,7 @@ namespace AzureFunctions.NET8.Api.Customers
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "put", Route = "customers/{id}")] HttpRequest req,
             Guid id,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             try
             {

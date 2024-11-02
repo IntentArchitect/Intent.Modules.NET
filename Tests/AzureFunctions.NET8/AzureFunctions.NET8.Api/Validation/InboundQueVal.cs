@@ -6,8 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.OpenApi.Models;
 
@@ -25,7 +24,7 @@ namespace AzureFunctions.NET8.Api.Validation
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [FunctionName("Validation_InboundQueVal")]
+        [Function("Validation_InboundQueVal")]
         [OpenApiOperation("InboundQueValQuery", tags: new[] { "Validation" }, Description = "Inbound que val query")]
         [OpenApiParameter(name: "rangeStr", In = ParameterLocation.Query, Required = true, Type = typeof(string))]
         [OpenApiParameter(name: "minStr", In = ParameterLocation.Query, Required = true, Type = typeof(string))]
@@ -46,7 +45,7 @@ namespace AzureFunctions.NET8.Api.Validation
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "validation/inbound-validation")] HttpRequest req,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             try
             {

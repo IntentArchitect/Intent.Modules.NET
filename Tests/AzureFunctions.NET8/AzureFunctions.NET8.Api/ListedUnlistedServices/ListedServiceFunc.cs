@@ -7,8 +7,7 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
@@ -29,13 +28,13 @@ namespace AzureFunctions.NET8.Api.ListedUnlistedServices
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("ListedUnlistedServices_ListedServiceFunc")]
+        [Function("ListedUnlistedServices_ListedServiceFunc")]
         [OpenApiOperation("ListedServiceFunc", tags: new[] { "ListedUnlistedServices" }, Description = "Listed service func")]
         [OpenApiParameter(name: "param", In = ParameterLocation.Query, Required = true, Type = typeof(string))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "listed-unlisted-services/listed-service-func")] HttpRequest req,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             try
             {

@@ -4,7 +4,7 @@ using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
 using Microsoft.OpenApi.Models;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.AzureFunctions.OpenApi.OpenApiConfigurarationTemplate", Version = "1.0")]
+[assembly: IntentTemplate("Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate", Version = "1.0")]
 
 namespace AzureFunctions.NET8.Api.Configuration
 {

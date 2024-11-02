@@ -37,10 +37,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="3a9479d8-7a15-4aba-9418-337bb5f867fe" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AzureFunctions.OpenApi.OpenApiConfigurarationTemplate</name>
-      <display>Intent.AzureFunctions.OpenApi.OpenApiConfigurarationTemplate</display>
-      <externalReference>Intent.AzureFunctions.OpenApi</externalReference>
+    <childElement id="14e79cac-0d00-4c51-911d-d36c114d21b3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.HotChocolate.GraphQL.AzureFunctions.GraphQLConfigTemplate</name>
+      <display>Intent.HotChocolate.GraphQL.AzureFunctions.GraphQLConfigTemplate</display>
+      <externalReference>Intent.HotChocolate.GraphQL.AzureFunctions</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -53,16 +53,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="14e79cac-0d00-4c51-911d-d36c114d21b3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.HotChocolate.GraphQL.AzureFunctions.GraphQLConfigTemplate</name>
-      <display>Intent.HotChocolate.GraphQL.AzureFunctions.GraphQLConfigTemplate</display>
-      <externalReference>Intent.HotChocolate.GraphQL.AzureFunctions</externalReference>
+    <childElement id="656a7e8b-6d60-4ff7-95e7-e2e80f70d8d3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate</name>
+      <display>Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate</display>
+      <externalReference>Intent.AzureFunctions.OpenApi</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>290884bf-7850-411f-ae5a-c65e4e6d900b</parentFolderId>
-      <packageId>8ab04101-bcc2-4325-baab-7570faf71b83</packageId>
-      <packageName>GraphQL.AzureFunction.TestApplication</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

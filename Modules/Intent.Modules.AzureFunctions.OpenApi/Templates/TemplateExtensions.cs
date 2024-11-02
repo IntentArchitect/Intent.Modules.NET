@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Intent.Modules.AzureFunctions.OpenApi.Templates.OpenApiConfiguraration;
+using Intent.Modules.AzureFunctions.OpenApi.Templates.OpenApiConfiguration;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -11,9 +11,9 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetOpenApiConfigurarationTemplateName(this IIntentTemplate template)
+        public static string GetOpenApiConfigurationTemplateName(this IIntentTemplate template)
         {
-            return template.GetTypeName(OpenApiConfigurarationTemplate.TemplateId);
+            return template.GetTypeName(OpenApiConfigurationTemplate.TemplateId);
         }
 
     }

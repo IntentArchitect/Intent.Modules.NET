@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="a3e02198-088c-4147-a277-1f7eabcd46f1" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <comment>In Process Azure Functions</comment>
   <name>Microsoft.Azure.WebJobs.Extensions.Storage.Queues</name>
   <display>Microsoft.Azure.WebJobs.Extensions.Storage.Queues [locked]</display>
   <isAbstract>false</isAbstract>

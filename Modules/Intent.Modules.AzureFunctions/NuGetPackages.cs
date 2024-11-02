@@ -13,8 +13,19 @@ namespace Intent.Modules.AzureFunctions
     {
         public const string AzureMessagingEventHubsPackageName = "Azure.Messaging.EventHubs";
         public const string MediatRPackageName = "MediatR";
+        public const string MicrosoftApplicationInsightsWorkerServicePackageName = "Microsoft.ApplicationInsights.WorkerService";
         public const string MicrosoftAzureFunctionsExtensionsPackageName = "Microsoft.Azure.Functions.Extensions";
+        public const string MicrosoftAzureFunctionsWorkerPackageName = "Microsoft.Azure.Functions.Worker";
+        public const string MicrosoftAzureFunctionsWorkerApplicationInsightsPackageName = "Microsoft.Azure.Functions.Worker.ApplicationInsights";
+        public const string MicrosoftAzureFunctionsWorkerExtensionsCosmosDBPackageName = "Microsoft.Azure.Functions.Worker.Extensions.CosmosDB";
+        public const string MicrosoftAzureFunctionsWorkerExtensionsEventHubsPackageName = "Microsoft.Azure.Functions.Worker.Extensions.EventHubs";
+        public const string MicrosoftAzureFunctionsWorkerExtensionsHttpPackageName = "Microsoft.Azure.Functions.Worker.Extensions.Http";
+        public const string MicrosoftAzureFunctionsWorkerExtensionsHttpAspNetCorePackageName = "Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore";
+        public const string MicrosoftAzureFunctionsWorkerExtensionsRabbitMQPackageName = "Microsoft.Azure.Functions.Worker.Extensions.RabbitMQ";
+        public const string MicrosoftAzureFunctionsWorkerExtensionsServiceBusPackageName = "Microsoft.Azure.Functions.Worker.Extensions.ServiceBus";
+        public const string MicrosoftAzureFunctionsWorkerExtensionsStorageQueuesPackageName = "Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues";
         public const string MicrosoftAzureFunctionsWorkerExtensionsTimerPackageName = "Microsoft.Azure.Functions.Worker.Extensions.Timer";
+        public const string MicrosoftAzureFunctionsWorkerSdkPackageName = "Microsoft.Azure.Functions.Worker.Sdk";
         public const string MicrosoftAzureServiceBusPackageName = "Microsoft.Azure.ServiceBus";
         public const string MicrosoftAzureWebJobsExtensionsCosmosDBPackageName = "Microsoft.Azure.WebJobs.Extensions.CosmosDB";
         public const string MicrosoftAzureWebJobsExtensionsEventHubsPackageName = "Microsoft.Azure.WebJobs.Extensions.EventHubs";
@@ -38,6 +49,7 @@ namespace Intent.Modules.AzureFunctions
         public const string MicrosoftExtensionsHttpPackageName = "Microsoft.Extensions.Http";
         public const string MicrosoftExtensionsLoggingPackageName = "Microsoft.Extensions.Logging";
         public const string MicrosoftNETSdkFunctionsPackageName = "Microsoft.NET.Sdk.Functions";
+        public const string RabbitMQClientPackageName = "RabbitMQ.Client";
 
         public void RegisterPackages()
         {
@@ -56,6 +68,21 @@ namespace Intent.Modules.AzureFunctions
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MediatRPackageName}'"),
                     }
                 );
+            NugetRegistry.Register(MicrosoftApplicationInsightsWorkerServicePackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("2.22.0")
+                            .WithNugetDependency("Microsoft.ApplicationInsights", "2.22.0")
+                            .WithNugetDependency("Microsoft.ApplicationInsights.DependencyCollector", "2.22.0")
+                            .WithNugetDependency("Microsoft.ApplicationInsights.EventCounterCollector", "2.22.0")
+                            .WithNugetDependency("Microsoft.ApplicationInsights.PerfCounterCollector", "2.22.0")
+                            .WithNugetDependency("Microsoft.ApplicationInsights.WindowsServer", "2.22.0")
+                            .WithNugetDependency("Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel", "2.22.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "2.1.1")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.ApplicationInsights", "2.22.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftApplicationInsightsWorkerServicePackageName}'"),
+                    }
+                );
             NugetRegistry.Register(MicrosoftAzureFunctionsExtensionsPackageName,
                 (framework) => framework switch
                     {
@@ -63,11 +90,120 @@ namespace Intent.Modules.AzureFunctions
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureFunctionsExtensionsPackageName}'"),
                     }
                 );
+            NugetRegistry.Register(MicrosoftAzureFunctionsWorkerPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("1.23.0")
+                            .WithNugetDependency("Azure.Core", "1.41.0")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Core", "1.19.0")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Grpc", "1.17.0")
+                            .WithNugetDependency("Microsoft.Extensions.Hosting", "5.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "5.0.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureFunctionsWorkerPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MicrosoftAzureFunctionsWorkerApplicationInsightsPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("1.4.0")
+                            .WithNugetDependency("Azure.Identity", "1.12.0")
+                            .WithNugetDependency("Microsoft.ApplicationInsights.PerfCounterCollector", "2.22.0")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Core", "1.19.0")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "5.0.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureFunctionsWorkerApplicationInsightsPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MicrosoftAzureFunctionsWorkerExtensionsCosmosDBPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("4.11.0")
+                            .WithNugetDependency("Microsoft.Azure.Cosmos", "3.39.1")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Core", "1.19.0")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Abstractions", "1.3.0")
+                            .WithNugetDependency("Microsoft.Extensions.Azure", "1.7.5")
+                            .WithNugetDependency("Newtonsoft.Json", "13.0.3"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureFunctionsWorkerExtensionsCosmosDBPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MicrosoftAzureFunctionsWorkerExtensionsEventHubsPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("6.3.6")
+                            .WithNugetDependency("Azure.Messaging.EventHubs", "5.11.5")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Core", "1.19.0")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Abstractions", "1.3.0")
+                            .WithNugetDependency("Microsoft.Extensions.Azure", "1.7.5"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureFunctionsWorkerExtensionsEventHubsPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MicrosoftAzureFunctionsWorkerExtensionsHttpPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("3.2.0")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Core", "1.18.0")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Abstractions", "1.3.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureFunctionsWorkerExtensionsHttpPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MicrosoftAzureFunctionsWorkerExtensionsHttpAspNetCorePackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 6, 0) => new PackageVersion("1.3.2")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker", "1.22.0")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Abstractions", "1.3.0")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Http", "3.2.0")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore.Analyzers", "1.0.2"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureFunctionsWorkerExtensionsHttpAspNetCorePackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MicrosoftAzureFunctionsWorkerExtensionsRabbitMQPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("2.0.3")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Abstractions", "1.2.0-preview1"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureFunctionsWorkerExtensionsRabbitMQPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MicrosoftAzureFunctionsWorkerExtensionsServiceBusPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("5.22.0")
+                            .WithNugetDependency("Azure.Identity", "1.12.0")
+                            .WithNugetDependency("Azure.Messaging.ServiceBus", "7.18.1")
+                            .WithNugetDependency("Google.Protobuf", "3.27.1")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Core", "1.19.0")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Abstractions", "1.3.0")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Rpc", "1.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Azure", "1.7.5"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureFunctionsWorkerExtensionsServiceBusPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MicrosoftAzureFunctionsWorkerExtensionsStorageQueuesPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("5.5.0")
+                            .WithNugetDependency("Azure.Storage.Queues", "12.17.1")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Core", "1.18.0")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Abstractions", "1.3.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureFunctionsWorkerExtensionsStorageQueuesPackageName}'"),
+                    }
+                );
             NugetRegistry.Register(MicrosoftAzureFunctionsWorkerExtensionsTimerPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 6, 0) => new PackageVersion("4.2.0", locked: true),
+                        ( >= 2, 0) => new PackageVersion("4.3.1")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Core", "1.18.0")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Abstractions", "1.3.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureFunctionsWorkerExtensionsTimerPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MicrosoftAzureFunctionsWorkerSdkPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("1.18.1")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Sdk.Analyzers", "1.2.1")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Worker.Sdk.Generators", "1.3.4"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureFunctionsWorkerSdkPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftAzureServiceBusPackageName,
@@ -241,7 +377,14 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftExtensionsHttpPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 6, 0) => new PackageVersion("6.0.0", locked: true),
+                        ( >= 8, 0) => new PackageVersion("8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0"),
+                        ( >= 6, 0) => new PackageVersion("6.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsHttpPackageName}'"),
                     }
                 );
@@ -261,15 +404,44 @@ namespace Intent.Modules.AzureFunctions
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftNETSdkFunctionsPackageName}'"),
                     }
                 );
+            NugetRegistry.Register(RabbitMQClientPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("6.8.1")
+                            .WithNugetDependency("System.Memory", "4.5.5")
+                            .WithNugetDependency("System.Threading.Channels", "7.0.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{RabbitMQClientPackageName}'"),
+                    }
+                );
         }
 
         public static NugetPackageInfo MicrosoftNETSdkFunctions(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftNETSdkFunctionsPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo RabbitMQClient(IOutputTarget outputTarget) => NugetRegistry.GetVersion(RabbitMQClientPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftExtensionsHttp(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftExtensionsHttpPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftExtensionsLogging(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftExtensionsLoggingPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftAzureFunctionsExtensions(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureFunctionsExtensionsPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftAzureFunctionsWorker(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureFunctionsWorkerPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftAzureFunctionsWorkerApplicationInsights(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureFunctionsWorkerApplicationInsightsPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftAzureFunctionsWorkerExtensionsCosmosDB(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureFunctionsWorkerExtensionsCosmosDBPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftAzureFunctionsWorkerExtensionsEventHubs(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureFunctionsWorkerExtensionsEventHubsPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftAzureFunctionsWorkerExtensionsHttp(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureFunctionsWorkerExtensionsHttpPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftAzureFunctionsWorkerExtensionsHttpAspNetCore(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureFunctionsWorkerExtensionsHttpAspNetCorePackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftAzureFunctionsWorkerExtensionsRabbitMQ(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureFunctionsWorkerExtensionsRabbitMQPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftAzureFunctionsWorkerExtensionsServiceBus(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureFunctionsWorkerExtensionsServiceBusPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftAzureFunctionsWorkerExtensionsStorageQueues(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureFunctionsWorkerExtensionsStorageQueuesPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftAzureServiceBus(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureServiceBusPackageName, outputTarget.GetMaxNetAppVersion());
 
@@ -307,9 +479,13 @@ namespace Intent.Modules.AzureFunctions
 
         public static NugetPackageInfo MicrosoftAzureFunctionsWorkerExtensionsTimer(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureFunctionsWorkerExtensionsTimerPackageName, outputTarget.GetMaxNetAppVersion());
 
+        public static NugetPackageInfo MicrosoftAzureFunctionsWorkerSdk(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureFunctionsWorkerSdkPackageName, outputTarget.GetMaxNetAppVersion());
+
         public static NugetPackageInfo AzureMessagingEventHubs(IOutputTarget outputTarget) => NugetRegistry.GetVersion(AzureMessagingEventHubsPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MediatR(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MediatRPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftApplicationInsightsWorkerService(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftApplicationInsightsWorkerServicePackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftAzureWebJobsExtensionsCosmosDB(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAzureWebJobsExtensionsCosmosDBPackageName, outputTarget.GetMaxNetAppVersion());
 

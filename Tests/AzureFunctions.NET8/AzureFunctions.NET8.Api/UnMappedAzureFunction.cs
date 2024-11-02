@@ -8,8 +8,7 @@ using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.OpenApi.Models;
 
@@ -26,13 +25,13 @@ namespace AzureFunctions.NET8.Api
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("UnMappedAzureFunction")]
+        [Function("UnMappedAzureFunction")]
         [OpenApiOperation("UnMappedAzureFunction", tags: new[] { "Unmappedazurefunction" }, Description = "Hi There")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(SampleDomainDto))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "unmappedazurefunction")] HttpRequest req,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             try
             {

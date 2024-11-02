@@ -37,9 +37,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="a33e3ba5-1743-41d6-947b-bb71726d6536" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AzureFunctions.OpenApi.OpenApiConfigurarationTemplate</name>
-      <display>Intent.AzureFunctions.OpenApi.OpenApiConfigurarationTemplate</display>
+    <childElement id="08135367-4af1-4294-9ea2-e8eaf94c146e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate</name>
+      <display>Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate</display>
       <externalReference>Intent.AzureFunctions.OpenApi</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

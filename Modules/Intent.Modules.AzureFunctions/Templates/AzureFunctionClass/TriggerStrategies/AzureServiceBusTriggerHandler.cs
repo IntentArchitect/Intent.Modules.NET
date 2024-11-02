@@ -45,7 +45,7 @@ internal class AzureServiceBusTriggerHandler : IFunctionTriggerHandler
                     }
                 });
             });
-        method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+        method.AddOptionalCancellationTokenParameter();
     }
 
     public void ApplyMethodStatements(CSharpClassMethod method)
@@ -55,6 +55,32 @@ internal class AzureServiceBusTriggerHandler : IFunctionTriggerHandler
     public IEnumerable<INugetPackageInfo> GetNugetDependencies()
     {
         yield return NugetPackages.MicrosoftAzureServiceBus(_template.OutputTarget);
-        yield return NugetPackages.MicrosoftAzureWebJobsExtensionsServiceBus(_template.OutputTarget);
+
+        foreach (var nugetPackageInfo in GetNetSpecificPackages(AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget)))
+        {
+            yield return nugetPackageInfo;
+        }
+    }
+
+    public IEnumerable<INugetPackageInfo> GetNugetRedundantDependencies()
+    {
+        foreach (var nugetPackageInfo in GetNetSpecificPackages(AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget).SwapState()))
+        {
+            yield return nugetPackageInfo;
+        }
+    }
+    
+    private IEnumerable<INugetPackageInfo> GetNetSpecificPackages(AzureFunctionsHelper.AzureFunctionsProcessType azureFunctionsProcessType)
+    {
+        switch (azureFunctionsProcessType)
+        {
+            case AzureFunctionsHelper.AzureFunctionsProcessType.InProcess:
+                yield return NugetPackages.MicrosoftAzureWebJobsExtensionsServiceBus(_template.OutputTarget);
+                break;
+            default:
+            case AzureFunctionsHelper.AzureFunctionsProcessType.Isolated:
+                yield return NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsServiceBus(_template.OutputTarget);
+                break;
+        }
     }
 }

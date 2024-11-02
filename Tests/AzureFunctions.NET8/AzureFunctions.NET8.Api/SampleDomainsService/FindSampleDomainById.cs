@@ -5,8 +5,7 @@ using AzureFunctions.NET8.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.OpenApi.Models;
 
@@ -24,7 +23,7 @@ namespace AzureFunctions.NET8.Api.SampleDomainsService
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
         }
 
-        [FunctionName("SampleDomainsService_FindSampleDomainById")]
+        [Function("SampleDomainsService_FindSampleDomainById")]
         [OpenApiOperation("FindSampleDomainById", tags: new[] { "SampleDomains" }, Description = "Find sample domain by id")]
         [OpenApiParameter(name: "id", In = ParameterLocation.Path, Required = true, Type = typeof(Guid))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(SampleDomainDto))]
@@ -32,7 +31,7 @@ namespace AzureFunctions.NET8.Api.SampleDomainsService
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "sample-domains/{id}")] HttpRequest req,
             Guid id,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             try
             {

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="36e59725-09a9-41b5-a1ce-09422be0f907" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>Microsoft.Azure.Functions.Worker.Extensions.OpenApi</name>
+  <display>Microsoft.Azure.Functions.Worker.Extensions.OpenApi</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>06c9510e-b41f-46f2-b485-f9721de1814f</parentFolderId>
+  <packageId>c3808b69-f250-4ea9-b9c6-5636d3d52860</packageId>
+  <packageName>Intent.AzureFunctions.OpenApi</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="00df44fe-cc6e-4121-a07e-2e36274e284b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>1.5.1</name>
+      <display>1.5.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>36e59725-09a9-41b5-a1ce-09422be0f907</parentFolderId>
+      <packageId>c3808b69-f250-4ea9-b9c6-5636d3d52860</packageId>
+      <packageName>Intent.AzureFunctions.OpenApi</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="182ef2a1-fe1e-4d5d-8eaf-94d9197f1c27" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Core.NewtonsoftJson</name>
+          <display>Microsoft.Azure.Core.NewtonsoftJson (1.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00df44fe-cc6e-4121-a07e-2e36274e284b</parentFolderId>
+          <packageId>c3808b69-f250-4ea9-b9c6-5636d3d52860</packageId>
+          <packageName>Intent.AzureFunctions.OpenApi</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bfbe2af1-acda-481b-b0d6-65a13bd19d3c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Functions.Worker.Core</name>
+          <display>Microsoft.Azure.Functions.Worker.Core (1.8.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.8.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00df44fe-cc6e-4121-a07e-2e36274e284b</parentFolderId>
+          <packageId>c3808b69-f250-4ea9-b9c6-5636d3d52860</packageId>
+          <packageName>Intent.AzureFunctions.OpenApi</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="79883380-9917-4533-aefe-5156cf993ef9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Functions.Worker.Extensions.Http</name>
+          <display>Microsoft.Azure.Functions.Worker.Extensions.Http (3.0.13)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.0.13</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00df44fe-cc6e-4121-a07e-2e36274e284b</parentFolderId>
+          <packageId>c3808b69-f250-4ea9-b9c6-5636d3d52860</packageId>
+          <packageName>Intent.AzureFunctions.OpenApi</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c38a827b-6b5f-4002-8d04-5cc246e3a502" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.WebJobs.Extensions.OpenApi.Core</name>
+          <display>Microsoft.Azure.WebJobs.Extensions.OpenApi.Core (1.5.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.5.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00df44fe-cc6e-4121-a07e-2e36274e284b</parentFolderId>
+          <packageId>c3808b69-f250-4ea9-b9c6-5636d3d52860</packageId>
+          <packageName>Intent.AzureFunctions.OpenApi</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="942b349f-f2cf-416b-9f5d-a92d9b8cca03" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>YamlDotNet</name>
+          <display>YamlDotNet (12.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>12.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00df44fe-cc6e-4121-a07e-2e36274e284b</parentFolderId>
+          <packageId>c3808b69-f250-4ea9-b9c6-5636d3d52860</packageId>
+          <packageName>Intent.AzureFunctions.OpenApi</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

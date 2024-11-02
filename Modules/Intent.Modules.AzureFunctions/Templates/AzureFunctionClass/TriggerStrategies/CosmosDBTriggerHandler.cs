@@ -77,7 +77,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStra
                         }
                     });
                 });
-            method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+            method.AddOptionalCancellationTokenParameter();
         }
 
         public void ApplyMethodStatements(CSharpClassMethod method)
@@ -98,7 +98,32 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStra
 
         public IEnumerable<INugetPackageInfo> GetNugetDependencies()
         {
-            yield return NugetPackages.MicrosoftAzureWebJobsExtensionsCosmosDB(_template.OutputTarget);
+            foreach (var nugetPackageInfo in GetNetSpecificPackages(AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget)))
+            {
+                yield return nugetPackageInfo;
+            }
+        }
+
+        public IEnumerable<INugetPackageInfo> GetNugetRedundantDependencies()
+        {
+            foreach (var nugetPackageInfo in GetNetSpecificPackages(AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget).SwapState()))
+            {
+                yield return nugetPackageInfo;
+            }
+        }
+
+        private IEnumerable<INugetPackageInfo> GetNetSpecificPackages(AzureFunctionsHelper.AzureFunctionsProcessType azureFunctionsProcessType)
+        {
+            switch (azureFunctionsProcessType)
+            {
+                case AzureFunctionsHelper.AzureFunctionsProcessType.InProcess:
+                    yield return NugetPackages.MicrosoftAzureWebJobsExtensionsCosmosDB(_template.OutputTarget);
+                    break;
+                default:
+                case AzureFunctionsHelper.AzureFunctionsProcessType.Isolated:
+                    yield return NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsCosmosDB(_template.OutputTarget);
+                    break;
+            }
         }
     }
 }

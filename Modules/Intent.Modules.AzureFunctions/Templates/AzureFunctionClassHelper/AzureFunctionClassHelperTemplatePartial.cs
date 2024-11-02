@@ -21,7 +21,16 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClassHelper
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureFunctionClassHelperTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.MicrosoftNETSdkFunctions(outputTarget));
+            switch (AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget))
+            {
+                case AzureFunctionsHelper.AzureFunctionsProcessType.InProcess:
+                    AddNugetDependency(NugetPackages.MicrosoftNETSdkFunctions(outputTarget));
+                    break;
+                default:
+                case AzureFunctionsHelper.AzureFunctionsProcessType.Isolated:
+                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftNETSdkFunctionsPackageName, outputTarget));
+                    break;
+            }
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

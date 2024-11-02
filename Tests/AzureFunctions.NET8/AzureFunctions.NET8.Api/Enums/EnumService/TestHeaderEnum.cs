@@ -7,8 +7,7 @@ using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
 using Microsoft.OpenApi.Models;
 
@@ -28,13 +27,13 @@ namespace AzureFunctions.NET8.Api.Enums.EnumService
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("Enums_EnumService_TestHeaderEnum")]
+        [Function("Enums_EnumService_TestHeaderEnum")]
         [OpenApiOperation("TestHeaderEnum", tags: new[] { "Enum" }, Description = "Test header enum")]
         [OpenApiParameter(name: "testEnum", In = ParameterLocation.Header, Required = true, Type = typeof(Company))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "enum/test-header-enum")] HttpRequest req,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             try
             {

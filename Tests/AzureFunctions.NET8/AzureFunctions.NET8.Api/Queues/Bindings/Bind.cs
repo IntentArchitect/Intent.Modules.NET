@@ -1,17 +1,10 @@
-using System;
-using System.IO;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Transactions;
-using Azure.Storage.Queues;
 using AzureFunctions.NET8.Application.Customers;
 using AzureFunctions.NET8.Application.Queues.Bindings.Bind;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.WebJobs;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AzureFunctions.AzureFunctionClass", Version = "2.0")]
@@ -33,7 +26,7 @@ namespace AzureFunctions.NET8.Api.Queues.Bindings
         [QueueOutput("out-queue")]
         public async Task<CustomerDto> Run(
             [QueueTrigger("in-queue")] BindCommand bindCommand,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(bindCommand, cancellationToken);
             return result;

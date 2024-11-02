@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="24c02592-f55f-4ca3-8ae7-396674135d10" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <comment>In Process Azure Functions</comment>
   <name>Microsoft.NET.Sdk.Functions</name>
   <display>Microsoft.NET.Sdk.Functions [locked]</display>
   <isAbstract>false</isAbstract>

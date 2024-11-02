@@ -29,7 +29,11 @@ namespace Intent.Modules.AzureFunctions.Templates.InProcess.Startup
         public StartupTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleServiceConfigurationRequest);
-            AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsExtensions(outputTarget));
+
+            if (CanRunTemplate())
+            {
+                AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsExtensions(outputTarget));
+            }
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Azure.Functions.Extensions.DependencyInjection")
@@ -77,7 +81,7 @@ namespace Intent.Modules.AzureFunctions.Templates.InProcess.Startup
 
         public override bool CanRunTemplate()
         {
-            return  AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.InProcess;
+            return AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.InProcess;
         }
 
         private void HandleServiceConfigurationRequest(ServiceConfigurationRequest request)

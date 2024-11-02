@@ -52,16 +52,16 @@
       <ProjectId>9a7d2a08-33e6-4839-9ce4-21fff65ee31d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#5d102fe0-c384-446f-ae63-fc7d0645b8c3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/OpenApiConfiguraration/OpenApiConfigurarationTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OpenApiConfiguraration/OpenApiConfigurarationTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/OpenApiConfiguration/OpenApiConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiConfiguration/OpenApiConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>9a7d2a08-33e6-4839-9ce4-21fff65ee31d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#5d102fe0-c384-446f-ae63-fc7d0645b8c3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/OpenApiConfiguraration/OpenApiConfigurarationTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OpenApiConfiguraration/OpenApiConfigurarationTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/OpenApiConfiguration/OpenApiConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OpenApiConfiguration/OpenApiConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

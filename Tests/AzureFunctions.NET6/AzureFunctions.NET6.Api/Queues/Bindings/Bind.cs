@@ -32,7 +32,7 @@ namespace AzureFunctions.NET6.Api.Queues.Bindings
         public async Task Run(
             [QueueTrigger("in-queue")] BindCommand bindCommand,
             [Queue("out-queue")] QueueClient queueClient,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(bindCommand, cancellationToken);
             await queueClient.SendMessageAsync(JsonSerializer.Serialize(result), cancellationToken);

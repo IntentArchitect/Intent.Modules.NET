@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="c7217f54-c7a1-4c9b-bfbd-679742949f9b" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <comment>In Process Azure Functions</comment>
   <name>Microsoft.Azure.WebJobs.Extensions.RabbitMQ</name>
   <display>Microsoft.Azure.WebJobs.Extensions.RabbitMQ [locked]</display>
   <isAbstract>false</isAbstract>
