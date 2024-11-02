@@ -31,7 +31,7 @@ namespace AzureFunctions.NET8.Api.Queues.Bindings
 
         [Function("Queues_Bindings_Bind")]
         [QueueOutput("out-queue")]
-        public async Task<CustomerDto?> Run(
+        public async Task<CustomerDto> Run(
             [QueueTrigger("in-queue")] BindCommand bindCommand,
             CancellationToken cancellationToken)
         {

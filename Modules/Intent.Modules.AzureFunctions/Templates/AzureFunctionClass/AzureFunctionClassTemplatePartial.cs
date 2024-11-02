@@ -67,10 +67,9 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                             case AzureFunctionsHelper.AzureFunctionsProcessType.InProcess:
                                 method.AddAttribute(UseType("Microsoft.Azure.WebJobs.FunctionName"), attr => attr.AddArgument(@$"""{GetFunctionName()}"""));
                                 break;
+                            default:
                             case AzureFunctionsHelper.AzureFunctionsProcessType.Isolated:
                                 method.AddAttribute(UseType("Microsoft.Azure.Functions.Worker.Function"), attr => attr.AddArgument(@$"""{GetFunctionName()}"""));
-                                break;
-                            default:
                                 break;
                         }
 
@@ -163,11 +162,11 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             {
                 return $"Task<{UseType("Microsoft.AspNetCore.Mvc.IActionResult")}>";
             }
-            else if (Model.TriggerType == TriggerType.QueueTrigger)
+            else if (Model.TriggerType == TriggerType.QueueTrigger && 
+                     AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.InProcess)
             {
                 return $"Task";
             }
-
 
             return Model.ReturnType?.Element != null
                 ? $"Task<{GetTypeName(Model.ReturnType)}>"
