@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
@@ -19,9 +21,15 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
     {
         public const string TemplateId = "Intent.AzureFunctions.Isolated.Program";
 
+        private readonly IList<ServiceConfigurationRequest> _serviceConfigurations = [];
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ProgramTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleServiceConfigurationRequest);
+
+            var configStatements = new CSharpLambdaBlock("(ctx, services)");
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Azure.Functions.Worker")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
@@ -33,27 +41,105 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                         .AddInvocation("ConfigureFunctionsWebApplication", i => i.OnNewLine())
                         .AddInvocation("ConfigureServices", cs => cs
                             .OnNewLine()
-                            .AddArgument(
-                                new CSharpLambdaBlock("(ctx, services)").WithExpressionBody(
-                                    new CSharpStatement("var configuration = ctx.Configuration")
-                                        .AddInvocation("services.AddApplication", i => i.AddArgument("configuration"))
-                                        .AddInvocation("services.ConfigureApplicationSecurity", i => i.AddArgument("configuration"))
-                                        .AddInvocation("services.AddInfrastructure", i => i.AddArgument("configuration"))
-                                        .AddInvocation("services.AddApplicationInsightsTelemetryWorkerService")
-                                        .AddInvocation("services.ConfigureFunctionsApplicationInsights")
-                                )
+                            .AddArgument(configStatements
+                                .AddStatement("var configuration = ctx.Configuration;")
+                                .AddStatement("services.AddApplicationInsightsTelemetryWorkerService();")
+                                .AddStatement("services.ConfigureFunctionsApplicationInsights();")
                             )
                         )
-                        .AddInvocation("Build");
+                        .AddInvocation("Build", i => i.OnNewLine());
 
                     tls.AddStatement(new CSharpAssignmentStatement("var host", hostConfigStatement));
                     tls.AddStatement("host.Run();", s => s.SeparatedFromPrevious());
+                })
+                .AfterBuild(file =>
+                {
+                    configStatements.AddStatements(GetServiceConfigurationStatementList());
+
+                    foreach (var request in GetRelevantServiceConfigurationRequests())
+                    {
+                        foreach (var templateDependency in request.TemplateDependencies)
+                        {
+                            var template = GetTemplate<IClassProvider>(templateDependency);
+                            if (template != null)
+                            {
+                                AddUsing(template.Namespace);
+                            }
+
+                            AddTemplateDependency(templateDependency);
+                        }
+
+                        foreach (var @namespace in request.RequiredNamespaces)
+                        {
+                            AddUsing(@namespace);
+                        }
+                    }
                 });
         }
 
         public override bool CanRunTemplate()
         {
-            return OutputTarget.GetProject().TryGetMaxNetAppVersion(out var maxNetAppVersion) && maxNetAppVersion.Major >= 8;
+            return  AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.Isolated;
+        }
+
+        private void HandleServiceConfigurationRequest(ServiceConfigurationRequest request)
+        {
+            _serviceConfigurations.Add(request);
+        }
+
+        private List<ServiceConfigurationRequest> GetRelevantServiceConfigurationRequests()
+        {
+            return _serviceConfigurations
+                .Where(p => !p.IsHandled)
+                .OrderBy(o => o.Priority)
+                .ToList();
+        }
+
+        private List<CSharpStatement> GetServiceConfigurationStatementList()
+        {
+            var statementList = new List<CSharpStatement>();
+
+            statementList.AddRange(GetRelevantServiceConfigurationRequests()
+                .Select(s =>
+                {
+                    foreach (var dependency in s.TemplateDependencies)
+                    {
+                        var classProvider = GetTemplate<IClassProvider>(dependency);
+
+                        AddTemplateDependency(dependency);
+                        AddUsing(classProvider.Namespace);
+                    }
+                    return new CSharpStatement($"services.{s.ExtensionMethodName}({GetExtensionMethodParameterList(s)});");
+                }));
+
+            return statementList;
+        }
+
+        private string GetExtensionMethodParameterList(ServiceConfigurationRequest request)
+        {
+            if (request.ExtensionMethodParameterList?.Any() != true)
+            {
+                return string.Empty;
+            }
+
+            var paramList = new List<string>();
+
+            foreach (var param in request.ExtensionMethodParameterList)
+            {
+                switch (param)
+                {
+                    case ServiceConfigurationRequest.ParameterType.Configuration:
+                        paramList.Add("configuration");
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(
+                            paramName: nameof(request.ExtensionMethodParameterList),
+                            actualValue: param,
+                            message: "Type specified in parameter list is not known or supported");
+                }
+            }
+
+            return string.Join(", ", paramList);
         }
 
         [IntentManaged(Mode.Fully)]

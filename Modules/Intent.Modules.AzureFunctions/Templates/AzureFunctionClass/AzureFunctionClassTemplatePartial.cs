@@ -61,7 +61,19 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                     @class.AddMethod(GetRunMethodReturnType(), "Run", method =>
                     {
                         method.Async();
-                        method.AddAttribute(UseType("Microsoft.Azure.WebJobs.FunctionName"), attr => attr.AddArgument(@$"""{GetFunctionName()}"""));
+
+                        switch (AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget))
+                        {
+                            case AzureFunctionsHelper.AzureFunctionsProcessType.InProcess:
+                                method.AddAttribute(UseType("Microsoft.Azure.WebJobs.FunctionName"), attr => attr.AddArgument(@$"""{GetFunctionName()}"""));
+                                break;
+                            case AzureFunctionsHelper.AzureFunctionsProcessType.Isolated:
+                                method.AddAttribute(UseType("Microsoft.Azure.Functions.Worker.Function"), attr => attr.AddArgument(@$"""{GetFunctionName()}"""));
+                                break;
+                            default:
+                                break;
+                        }
+
                         _triggerStrategyHandler.ApplyMethodParameters(method);
                         _triggerStrategyHandler.ApplyMethodStatements(method);
                     });

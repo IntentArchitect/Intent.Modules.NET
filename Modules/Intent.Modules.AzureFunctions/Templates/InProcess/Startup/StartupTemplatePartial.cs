@@ -77,7 +77,7 @@ namespace Intent.Modules.AzureFunctions.Templates.InProcess.Startup
 
         public override bool CanRunTemplate()
         {
-            return OutputTarget.GetProject().IsNetApp(6);
+            return  AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.InProcess;
         }
 
         private void HandleServiceConfigurationRequest(ServiceConfigurationRequest request)

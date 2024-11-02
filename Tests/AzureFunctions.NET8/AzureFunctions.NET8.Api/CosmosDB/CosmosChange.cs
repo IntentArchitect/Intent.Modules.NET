@@ -22,7 +22,7 @@ namespace AzureFunctions.NET8.Api.CosmosDB
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
-        [FunctionName("CosmosDB_CosmosChange")]
+        [Function("CosmosDB_CosmosChange")]
         public async Task Run(
             [CosmosDBTrigger(databaseName: "DBName", containerName: "Container", Connection = "Connection", CreateLeaseContainerIfNotExists = true, LeaseContainerName = "leases")] IReadOnlyCollection<CosmosChangeCommand> rawCollection,
             CancellationToken cancellationToken)
