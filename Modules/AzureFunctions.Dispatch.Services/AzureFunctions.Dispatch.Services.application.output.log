@@ -27,6 +27,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>a5e2fbde-b680-478d-9dbe-11e798d5fdc3</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.AzureFunctions.Dispatch.Services/release-notes.md</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#05345d7b-3b4c-4e2d-8fff-07059a542948</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>

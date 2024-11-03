@@ -42,7 +42,7 @@ Your generated Azure Function will look similar to this:-
 
 ```csharp
 
-[FunctionName("CustomersCreated")]
+[Function("CustomersCreated")]
 public async Task Run(
     [CosmosDBTrigger(
         databaseName: "CosmosDBTriggerTest", 
@@ -64,7 +64,7 @@ public async Task Run(
 
 ```csharp
 
-[FunctionName("CustomersCreated")]
+[Function("CustomersCreated")]
 public async Task Run(
     [CosmosDBTrigger(
         databaseName: "CosmosDBTriggerTest", 
@@ -108,7 +108,7 @@ Configure the Azure Function Stereotype:
 Producing an azure function as follows:
 
 ```csharp
-[FunctionName("CreateCustomer")]
+[Function("CreateCustomer")]
 public async Task Run(
     [QueueTrigger("my-queue", Connection = "myconnection")] CreateCustomerCommand createCustomerCommand,
     CancellationToken cancellationToken)
@@ -122,7 +122,7 @@ If you want to gain access to the underlying raw queue message check the `Includ
 Producing an azure function as follows:
 
 ```csharp
-[FunctionName("CreateCustomer")]
+[Function("CreateCustomer")]
 public async Task Run(
     [QueueTrigger("my-queue", Connection = "myconnection")] QueueMessage message,
     CancellationToken cancellationToken)
@@ -138,6 +138,8 @@ If you configure your `Queue Trigger` Azure function with a result, an additiona
 
 Producing an azure function as follows:
 
+### For InProcess functions:
+
 ```csharp
 [FunctionName("CreateCustomer")]
 public async Task Run(
@@ -148,6 +150,20 @@ public async Task Run(
     var createCustomerCommand = JsonConvert.DeserializeObject<CreateCustomerCommand>(message.Body.ToString())!;
     var result = await _mediator.Send(createCustomerCommand, cancellationToken);
     await queueClient.SendMessageAsync(JsonConvert.SerializeObject(result), cancellationToken);
+}
+```
+
+### For Isolated functions:
+```csharp
+[Function("CreateCustomer")]
+[QueueOutput("out-queue")]
+public async Task<CustomerDto> Run(
+    [QueueTrigger("my-queue", Connection = "myconnection")] QueueMessage message,
+    CancellationToken cancellationToken)
+{
+    var createCustomerCommand = JsonConvert.DeserializeObject<CreateCustomerCommand>(message.Body.ToString())!;
+    var result = await _mediator.Send(createCustomerCommand, cancellationToken);
+    return result;
 }
 ```
 
