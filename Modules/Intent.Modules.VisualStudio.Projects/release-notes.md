@@ -1,5 +1,6 @@
 ### Version 3.8.3
 
+- Improvement: LocalSettings json file to allow `FUNCTIONS_WORKER_RUNTIME` to be set dynamically for upcoming Azure Functions Isolated processes.
 - Fixed: Changed `.gitIgnore` file to `.gitignore`.
 
 ### Version 3.8.2

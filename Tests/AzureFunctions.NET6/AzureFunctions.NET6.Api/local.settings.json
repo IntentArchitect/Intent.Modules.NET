@@ -8,9 +8,6 @@
     "IdentityClients:default:ClientId": "clientId",
     "IdentityClients:default:ClientSecret": "secret",
     "IdentityClients:default:Scope": "api",
-    "HttpClients:AzureFunctions.TestApplication.Services:Uri": "https://localhost:{app_port}/",
-    "HttpClients:AzureFunctions.TestApplication.Services:IdentityClientKey": "default",
-    "HttpClients:AzureFunctions.TestApplication.Services:Timeout": "00:01:00",
     "HttpClients:AzureFunctions.NET6.Services:Uri": "https://localhost:{app_port}/",
     "HttpClients:AzureFunctions.NET6.Services:IdentityClientKey": "default",
     "HttpClients:AzureFunctions.NET6.Services:Timeout": "00:01:00"

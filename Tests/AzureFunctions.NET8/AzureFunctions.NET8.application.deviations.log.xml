@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.AzureFunctions.AzureFunctionClass#386bb437-ea36-4345-8a68-22e9754475c1</correlationId>
+      <path>AzureFunctions.NET8.Api/FunctionWithIgnoreInApi.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2024-10-29T13:38:34.8631077Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2024-11-03T22:14:25.8561097Z</approvedAt>
+      <deviationsHash>27F327EF59C8165415235EBD7624BA54DF96967871F79D2E5C5969879FC9ED16</deviationsHash>
+      <fileHash>C2ABCEFEC9A04E83C19C1E9423483434B1A4547E34F27B2F489A5F538B6B62CA</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AzureFunctions.AzureFunctionClass#9e636440-d5fd-4b08-ac78-47b0e306892b</correlationId>
+      <path>AzureFunctions.NET8.Api/UnMappedAzureFunction.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2024-10-29T13:38:34.8632128Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2024-11-03T22:14:31.3494251Z</approvedAt>
+      <deviationsHash>F663514D0B361158C48F917EA7662B395F053813F38F9BA559FFE0D1A8E50105</deviationsHash>
+      <fileHash>63A9023B588015251BCD47446A462A379B816B0C61960C62B20B40F1D8BE7DDF</fileHash>
+    </file>
+  </files>
+</deviationsLog>

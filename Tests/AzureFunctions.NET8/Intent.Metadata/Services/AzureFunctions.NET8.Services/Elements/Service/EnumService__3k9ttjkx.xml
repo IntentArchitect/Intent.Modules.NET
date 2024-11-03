@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="347c7d33-6946-4cab-a3e3-8d682e575b06" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>EnumService</name>
+  <display>EnumService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>35b17407-2bef-4869-aaf2-d62cb6fe6ded</parentFolderId>
+  <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+  <packageName>AzureFunctions.NET8.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="81b18e7d-a8db-4a92-a6eb-167a9e68ebf1" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>TestRouteEnum</name>
+      <display>TestRouteEnum(testEnum: Company): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="07080aaf-32dc-48a0-b300-af2d021b7ffd">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>347c7d33-6946-4cab-a3e3-8d682e575b06</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.NET8.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Http Trigger" isActive="true" />
+            <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="true" />
+            <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" isActive="false" />
+            <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+            <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+            <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="false" />
+            <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+            <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+            <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+            <property name="38ed3faa-6770-484e-8bb9-84ae9db0153b" display="Include Message Envelope" value="false" isActive="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="route-enum/{testEnum}/test-route-enum" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="dd152d8f-7c14-4e23-984c-bc0143b4ed57" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>testEnum</name>
+          <display>in : testEnum: Company</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c507ceff-1872-424b-906c-afdf9124b2f8">
+            <typeId>d938afce-4f7e-46bc-ac67-0ffaa21a5f8d</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.NET8.Services</typePackageName>
+            <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>81b18e7d-a8db-4a92-a6eb-167a9e68ebf1</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.NET8.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="61915bbc-fc68-447d-952c-c95c7d4b13ba" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>TestQueryEnum</name>
+      <display>TestQueryEnum(testEnum: Company): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="577db57e-2450-4531-83ef-9acc34d5ae95">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>347c7d33-6946-4cab-a3e3-8d682e575b06</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.NET8.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Http Trigger" isActive="true" />
+            <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="true" />
+            <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" isActive="false" />
+            <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+            <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+            <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="false" />
+            <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+            <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+            <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+            <property name="38ed3faa-6770-484e-8bb9-84ae9db0153b" display="Include Message Envelope" value="false" isActive="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="enum/test-query-enum" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="a67a8c2d-352c-40c2-847c-a0d25dab3d3c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>testEnum</name>
+          <display>in : testEnum: Company</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="78485728-09f0-4a23-a56b-98f936d102ba">
+            <typeId>d938afce-4f7e-46bc-ac67-0ffaa21a5f8d</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.NET8.Services</typePackageName>
+            <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>61915bbc-fc68-447d-952c-c95c7d4b13ba</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.NET8.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Query" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="78a2b9b5-1a83-4033-8c00-49f3422a3a34" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>TestHeaderEnum</name>
+      <display>TestHeaderEnum(testEnum: Company): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="22ed1267-71e4-4085-838b-06f24e69e75f">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>347c7d33-6946-4cab-a3e3-8d682e575b06</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.NET8.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Http Trigger" isActive="true" />
+            <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="true" />
+            <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" isActive="false" />
+            <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+            <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+            <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="false" />
+            <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+            <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+            <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+            <property name="38ed3faa-6770-484e-8bb9-84ae9db0153b" display="Include Message Envelope" value="false" isActive="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="enum/test-header-enum" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="1200b916-9da3-4025-83db-710483c2f16c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>testEnum</name>
+          <display>in : testEnum: Company</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="61c6e3f3-0ce7-4472-ba3f-ca2780740674">
+            <typeId>d938afce-4f7e-46bc-ac67-0ffaa21a5f8d</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.NET8.Services</typePackageName>
+            <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>78a2b9b5-1a83-4033-8c00-49f3422a3a34</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.NET8.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="From Header" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" value="Company-Id" isActive="true" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

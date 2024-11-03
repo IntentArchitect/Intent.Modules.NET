@@ -19,7 +19,7 @@
       </creationOptions>
       <scriptOptions />
       <typeOrder>
-        <type>Azure Function</type>
+        <type type="Azure Function" typeId="702f57ca-3b5a-413b-a084-9f2d154154e7" />
       </typeOrder>
     </packageExtension>
   </packageExtensions>
@@ -30,6 +30,7 @@
       <displayFunction>return `${getName()}${genericTypes}(${getChildren("Azure Function Parameter").map(x =&gt; x.getName() + ": " + x.typeReference.display).join(", ")}): ${(typeReference.typeId ? typeReference.display : "void")}`;
 </displayFunction>
       <allowRename>true</allowRename>
+      <nameMustBeUnique>true</nameMustBeUnique>
       <allowAbstract>true</allowAbstract>
       <allowStatic>false</allowStatic>
       <allowGenericTypes>true</allowGenericTypes>
@@ -44,9 +45,9 @@
         <displayName>Return Type</displayName>
         <isRequired>false</isRequired>
         <targetTypes>
-          <type>DTO</type>
-          <type>Type-Definition</type>
-          <type>Enum</type>
+          <type type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734" />
+          <type type="Type-Definition" typeId="d4e577cd-ad05-4180-9a2e-fff4ddea0e1e" />
+          <type type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb" />
         </targetTypes>
         <allowIsNavigable>true</allowIsNavigable>
         <allowIsNullable>true</allowIsNullable>
@@ -56,7 +57,7 @@
         <isCollectionDefault>false</isCollectionDefault>
       </typeReferenceSetting>
       <typeOrder>
-        <type order="0">Azure Function Parameter</type>
+        <type order="0" type="Azure Function Parameter" typeId="b6d4f537-eebe-4c56-8cb0-7687cf5bbe16" />
       </typeOrder>
       <creationOptions>
         <option type="element">
@@ -85,30 +86,30 @@
           <mapFrom>root</mapFrom>
           <mappings>
             <mapping id="061d3950-5ddd-4183-af70-722c25c847c9">
-              <criteria specializationType="Service">
+              <criteria specializationType="Service" specializationTypeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
                 <hasTypeReference p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
                 <isCollection p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
                 <hasChildren p9:nil="true" xmlns:p9="http://www.w3.org/2001/XMLSchema-instance" />
               </criteria>
-              <mapTo specializationType="Azure Function" childMappingMode="traverse" />
+              <mapTo specializationType="Azure Function" specializationTypeId="702f57ca-3b5a-413b-a084-9f2d154154e7" childMappingMode="traverse" />
               <behaviour autoSelectChildren="false" />
               <childMappings>
                 <mapping id="505a5cab-0871-4291-a95c-fd25a8d08d40">
-                  <criteria specializationType="Operation">
+                  <criteria specializationType="Operation" specializationTypeId="e030c97a-e066-40a7-8188-808c275df3cb">
                     <hasTypeReference p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
                     <isCollection p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
                     <hasChildren p11:nil="true" xmlns:p11="http://www.w3.org/2001/XMLSchema-instance" />
                   </criteria>
-                  <mapTo specializationType="Azure Function" childMappingMode="map-to-child" />
+                  <mapTo specializationType="Azure Function" specializationTypeId="702f57ca-3b5a-413b-a084-9f2d154154e7" childMappingMode="map-to-child" />
                   <behaviour autoSelectChildren="true" />
                   <childMappings>
                     <mapping id="337342b1-ed7e-4f28-b5bb-bfc79180340f">
-                      <criteria specializationType="Parameter">
+                      <criteria specializationType="Parameter" specializationTypeId="00208d20-469d-41cb-8501-768fd5eb796b">
                         <hasTypeReference>true</hasTypeReference>
                         <isCollection p13:nil="true" xmlns:p13="http://www.w3.org/2001/XMLSchema-instance" />
                         <hasChildren p13:nil="true" xmlns:p13="http://www.w3.org/2001/XMLSchema-instance" />
                       </criteria>
-                      <mapTo specializationType="Azure Function Parameter" childMappingMode="map-to-child" />
+                      <mapTo specializationType="Azure Function Parameter" specializationTypeId="b6d4f537-eebe-4c56-8cb0-7687cf5bbe16" childMappingMode="map-to-child" />
                       <behaviour autoSelectChildren="false" />
                       <childMappings />
                     </mapping>
@@ -213,6 +214,7 @@ if (!httpVerb) {
           <icon type="UrlImagePath" source="./img/icons/uml/Parameter_256x.png" />
           <saveAsOwnFile>false</saveAsOwnFile>
           <allowRename>true</allowRename>
+          <nameMustBeUnique>true</nameMustBeUnique>
           <allowAbstract>false</allowAbstract>
           <allowStatic>false</allowStatic>
           <allowGenericTypes>false</allowGenericTypes>
@@ -227,11 +229,11 @@ if (!httpVerb) {
             <displayName>Type</displayName>
             <isRequired>true</isRequired>
             <targetTypes>
-              <type>Type-Definition</type>
-              <type>Enum</type>
-              <type>DTO</type>
-              <type>Command</type>
-              <type>Query</type>
+              <type type="Type-Definition" typeId="d4e577cd-ad05-4180-9a2e-fff4ddea0e1e" />
+              <type type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb" />
+              <type type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734" />
+              <type type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <type type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
             </targetTypes>
             <defaultTypeId>d384db9c-a279-45e1-801e-e4e8099625f2</defaultTypeId>
             <allowIsNavigable>true</allowIsNavigable>
@@ -241,12 +243,10 @@ if (!httpVerb) {
             <isNullableDefault>false</isNullableDefault>
             <isCollectionDefault>false</isCollectionDefault>
           </typeReferenceSetting>
-          <typeOrder />
           <creationOptions />
           <scriptOptions />
           <mappingOptions />
           <mappingSettings />
-          <childElementSettings />
         </childElementSetting>
       </childElementSettings>
     </elementSetting>
@@ -266,7 +266,7 @@ if (!httpVerb) {
       <scriptOptions />
       <mappingOptions />
       <typeOrder>
-        <type>Azure Function</type>
+        <type type="Azure Function" typeId="702f57ca-3b5a-413b-a084-9f2d154154e7" />
       </typeOrder>
       <mappingSettings />
     </elementExtension>
@@ -276,4 +276,5 @@ if (!httpVerb) {
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
+  <scripts />
 </settings>

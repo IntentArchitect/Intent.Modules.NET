@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <PackageVersion>4.1.3</PackageVersion>
+    <PackageVersion>5.0.0-pre.0</PackageVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>logo.png</PackageIcon>
     <Authors>Intent Architect</Authors>
@@ -12,21 +12,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Templates\AzureFunctionClass\AzureFunctionClassTemplate.tt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.6.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.7.3" />
-    <PackageReference Include="Intent.Modules.Common.Types" Version="3.4.0" />
-    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.3.1" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.7.0" />
-    <PackageReference Include="Intent.Packager" Version="3.4.2">
+    <PackageReference Include="Intent.Modules.Common" Version="3.7.2" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.1" />
+    <PackageReference Include="Intent.Modules.Common.Types" Version="4.0.0" />
+    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.5.1" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.8.2" />
+    <PackageReference Include="Intent.Packager" Version="3.4.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.6" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.6.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.7.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,10 +42,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ResourceLocationVoidTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\ReturnTypes\ResourceLocationClass\ResourceLocationClassTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ResourceLocationClassTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\AzureFunctionClassHelper\AzureFunctionClassHelperTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AzureFunctionClassHelperTemplate.cs</LastGenOutput>
@@ -57,6 +49,10 @@
     <None Update="Templates\ReturnTypes\JsonResponse\JsonResponseTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>JsonResponseTemplate.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ReturnTypes\ResourceLocationClass\ResourceLocationClassTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ResourceLocationClassTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -81,11 +77,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ResourceLocationVoidTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\ReturnTypes\ResourceLocationClass\ResourceLocationClassTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ResourceLocationClassTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\AzureFunctionClassHelper\AzureFunctionClassHelperTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -95,6 +86,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>JsonResponseTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ReturnTypes\ResourceLocationClass\ResourceLocationClassTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceLocationClassTemplate.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

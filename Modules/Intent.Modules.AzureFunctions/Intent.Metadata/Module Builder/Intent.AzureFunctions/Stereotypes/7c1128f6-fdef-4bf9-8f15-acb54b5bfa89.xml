@@ -18,7 +18,7 @@
   <displayAsText>false</displayAsText>
   <autoAdd>false</autoAdd>
   <allowMultipleApplies>false</allowMultipleApplies>
-  <parentFolderId>022dbddc-276c-406b-81e6-5034ad64db72</parentFolderId>
+  <parentFolderId>a393b6f6-3554-4a91-b1f4-cf962aa59c4d</parentFolderId>
   <order>0</order>
   <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
   <packageName>Intent.AzureFunctions</packageName>

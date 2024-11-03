@@ -29,7 +29,9 @@ namespace AzureFunctions.NET6.Api.Queues
         }
 
         [FunctionName("Queues_CreateCustomerWrappedMessage")]
-        public async Task Run([QueueTrigger("customers")] QueueMessage rawMessage, CancellationToken cancellationToken)
+        public async Task Run(
+            [QueueTrigger("customers")] QueueMessage rawMessage,
+            CancellationToken cancellationToken = default)
         {
             var createCustomerWrappedMessage = JsonSerializer.Deserialize<Application.Queues.CreateCustomerWrappedMessage.CreateCustomerWrappedMessage>(rawMessage.Body.ToString(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
             await _mediator.Send(createCustomerWrappedMessage, cancellationToken);

@@ -28,7 +28,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>290884bf-7850-411f-ae5a-c65e4e6d900b</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.OpenApi.OpenApiConfigurarationTemplate</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.OpenApi.OpenApiConfigurationTemplate</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/Configuration/OpenApiConfigurationOptions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OpenApiConfigurationOptions.cs</ProjectRelativeFilePath>
@@ -116,7 +116,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>5c72c7f5-5a19-4034-8f19-3d5633ef2694</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.Startup</CorrelationId>
+      <CorrelationId>Intent.AzureFunctions.InProcess.Startup</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.AzureFunction.TestApplication.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>

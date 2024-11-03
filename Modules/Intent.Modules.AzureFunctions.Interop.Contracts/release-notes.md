@@ -1,3 +1,7 @@
+### Version 5.0.0
+
+- Obsolete: The contents of this module has moved to `Intent.AzureFunctions.Dispatch.Services`. You may safely uninstall this module.
+
 ### Version 4.2.1
 
 - Improvement: Updated module NuGet packages infrastructure.

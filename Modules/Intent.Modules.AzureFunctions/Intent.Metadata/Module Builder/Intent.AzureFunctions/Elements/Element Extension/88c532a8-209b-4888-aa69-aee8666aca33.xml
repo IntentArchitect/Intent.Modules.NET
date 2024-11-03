@@ -30,6 +30,7 @@
         <property name="7d3859d4-084d-4ff0-8b31-850b4a8f8cd0" display="Display Name" isActive="false" />
         <property name="17223dbd-8df0-4700-8b81-02274ca3ed7f" display="Hint" isActive="false" />
         <property name="b2cef034-5706-45d2-8554-f4dc582a18ff" display="Target Types" isActive="false" />
+        <property name="08ec0581-c90a-489b-858f-ee265327c948" display="Target Traits" isActive="true" />
         <property name="93e4efa9-186d-4e88-ae0a-491bcd6e6f5e" display="Default Type Id" isActive="false" />
         <property name="7a0c4185-1c08-4d3e-9185-14683d7a3bd0" display="Allow Collection" value="Inherit" isActive="false" />
         <property name="e3dc90ec-4f5f-4f20-b271-e28a5094dc91" display="Allow Nullable" value="Inherit" isActive="false" />
@@ -62,7 +63,7 @@
       <childElements>
         <childElement id="e5548189-8be9-4e51-8416-9d43fda29247" type="Run Script Option" typeId="345d46fb-c500-409a-88c7-26720572c9af">
           <name>Expose as Azure Function</name>
-          <display>Expose as Azure Function: Script</display>
+          <display>Expose as Azure Function: Inline Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="c5e09204-0be9-40c9-828b-f6554c9d9017">
@@ -100,6 +101,7 @@
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
                 <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="let azureFunctionId = &quot;7c1128f6-fdef-4bf9-8f15-acb54b5bfa89&quot;; // from AzureFunctions (this) module&#xD;&#xA;if (!element.hasStereotype(azureFunctionId)) {&#xD;&#xA;    element.addStereotype(azureFunctionId);&#xD;&#xA;}" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -123,7 +125,7 @@
       <childElements>
         <childElement id="c1d0205a-ea4c-4641-86ad-6298359dd1eb" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <name>On Changed</name>
-          <display>On Changed: Script</display>
+          <display>On Changed: Inline Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="5591fd29-5737-40b5-be0d-8a3b51a7963d">
@@ -148,6 +150,7 @@
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
                 <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="let azureFunctionId = &quot;7c1128f6-fdef-4bf9-8f15-acb54b5bfa89&quot;; // from AzureFunctions (this) module&#xD;&#xA;let azureFunctionTriggerId = &quot;a6411e1f-8199-4b18-b1a1-fd2aa73b1da6&quot;;&#xD;&#xA;let httpSettingsId = &quot;b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6&quot;; // from WebApi module&#xD;&#xA;let parameterSettingsId = &quot;d01df110-1208-4af8-a913-92a49d219552&quot;; // from WebApi module&#xD;&#xA;&#xD;&#xA;if (!element.hasStereotype(azureFunctionId)) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (element.getStereotype(azureFunctionId).getProperty(azureFunctionTriggerId).getValue() !== &quot;Http Trigger&quot;) {&#xD;&#xA;    element.removeStereotype(httpSettingsId);&#xD;&#xA;    element.getChildren().forEach(x =&gt; x.removeStereotype(parameterSettingsId));&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;let serviceBaseName = removeSuffix(element.getParent().getName(), &quot;Service&quot;);&#xD;&#xA;applyHttpSettingsToOperations(element, toKebabCase(serviceBaseName));&#xD;&#xA;&#xD;&#xA;function applyHttpSettingsToOperations(operation, baseRoute) {&#xD;&#xA;&#xD;&#xA;    if (!operation.hasStereotype(httpSettingsId)) {&#xD;&#xA;        operation.addStereotype(httpSettingsId);&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    let httpSettings = operation.getStereotype(httpSettingsId);&#xD;&#xA;    if (!httpSettings.getProperty(&quot;Route&quot;).getValue()) {&#xD;&#xA;        if (operation.getName().startsWith(&quot;Create&quot;)) {&#xD;&#xA;            httpSettings.getProperty(&quot;Verb&quot;).setValue(&quot;POST&quot;);&#xD;&#xA;            httpSettings.getProperty(&quot;Route&quot;).setValue(`${baseRoute}`)&#xD;&#xA;        } else if (operation.getName().startsWith(&quot;Update&quot;)) {&#xD;&#xA;            httpSettings.getProperty(&quot;Verb&quot;).setValue(&quot;PUT&quot;);&#xD;&#xA;            httpSettings.getProperty(&quot;Route&quot;).setValue(`${(baseRoute ? `${baseRoute}/` : &quot;&quot;)}${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == &quot;id&quot;) ? `{id}` : &quot;&quot;)}`)&#xD;&#xA;        } else if (operation.getName().startsWith(&quot;Delete&quot;)) {&#xD;&#xA;            httpSettings.getProperty(&quot;Verb&quot;).setValue(&quot;DELETE&quot;);&#xD;&#xA;            httpSettings.getProperty(&quot;Route&quot;).setValue(`${(baseRoute ? `${baseRoute}/` : &quot;&quot;)}${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == &quot;id&quot;) ? `{id}` : &quot;&quot;)}`)&#xD;&#xA;        } else if (operation.getName().startsWith(&quot;Get&quot;) || operation.getName().startsWith(&quot;Find&quot;) || operation.getName().startsWith(&quot;Lookup&quot;)) {&#xD;&#xA;            httpSettings.getProperty(&quot;Verb&quot;).setValue(&quot;GET&quot;);&#xD;&#xA;            httpSettings.getProperty(&quot;Route&quot;).setValue(`${(baseRoute ? `${baseRoute}/` : &quot;&quot;)}${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == &quot;id&quot;) ? `{id}` : &quot;&quot;)}`)&#xD;&#xA;        } else if (operation.typeReference.getType() != null) {&#xD;&#xA;            httpSettings.getProperty(&quot;Verb&quot;).setValue(&quot;GET&quot;);&#xD;&#xA;            httpSettings.getProperty(&quot;Route&quot;).setValue(`${(baseRoute ? `${baseRoute}/` : &quot;&quot;)}${toKebabCase(operation.getName())}${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == &quot;id&quot;) ? `/{id}` : &quot;&quot;)}`)&#xD;&#xA;        } else {&#xD;&#xA;            httpSettings.getProperty(&quot;Verb&quot;).setValue(&quot;POST&quot;);&#xD;&#xA;            httpSettings.getProperty(&quot;Route&quot;).setValue(`${(baseRoute ? `${baseRoute}/` : &quot;&quot;)}${toKebabCase(operation.getName())}`)&#xD;&#xA;        }&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    operation.getChildren(&quot;Parameter&quot;).forEach(parameter =&gt; {&#xD;&#xA;        if (!parameter.hasStereotype(parameterSettingsId)) {&#xD;&#xA;            parameter.addStereotype(parameterSettingsId);&#xD;&#xA;        }&#xD;&#xA;    });&#xD;&#xA;}" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -157,7 +160,7 @@
         <childElement id="b40ee6e0-144d-463a-8502-1edc05cc87f7" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <comment>Queue Trigger</comment>
           <name>On Changed</name>
-          <display>On Changed: Script</display>
+          <display>On Changed: Inline Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="5664ee49-407b-444b-98db-e9856bb11435">
@@ -182,6 +185,7 @@
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
                 <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="let azureFunctionId = &quot;7c1128f6-fdef-4bf9-8f15-acb54b5bfa89&quot;; // from AzureFunctions (this) module&#xD;&#xA;let azureFunctionTriggerId = &quot;a6411e1f-8199-4b18-b1a1-fd2aa73b1da6&quot;;&#xD;&#xA;let queueOutputBindingId = &quot;ec293aa6-7120-4870-800f-7db01391376f&quot;;//from AzureFunctions (this) module&#xD;&#xA;&#xD;&#xA;if (element.getStereotype(azureFunctionId)?.getProperty(azureFunctionTriggerId).getValue() !== &quot;Queue Trigger&quot;) {&#xD;&#xA;    element.removeStereotype(queueOutputBindingId);&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (element.typeReference == null || element.typeReference.getType() == null ){&#xD;&#xA;    element.removeStereotype(queueOutputBindingId);&#xD;&#xA;} else if (element.getStereotype(queueOutputBindingId) == null) {&#xD;&#xA;    element.addStereotype(queueOutputBindingId);&#xD;&#xA;}&#xD;&#xA;" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -191,7 +195,7 @@
         <childElement id="b7d4f67b-26f8-496c-8d83-949e41cb6590" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <comment>Cosmos DB Trigger</comment>
           <name>On Changed</name>
-          <display>On Changed: Script</display>
+          <display>On Changed: Inline Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="c28628d5-8f92-45ba-beff-e79d190c7770">
@@ -216,6 +220,7 @@
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
                 <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="let azureFunctionId = &quot;7c1128f6-fdef-4bf9-8f15-acb54b5bfa89&quot;; // from AzureFunctions (this) module&#xD;&#xA;let azureFunctionTriggerId = &quot;a6411e1f-8199-4b18-b1a1-fd2aa73b1da6&quot;;&#xD;&#xA;let comsmosDBTriggerId = &quot;78edaf9d-bc43-4792-b483-408fcd630261&quot;;//from AzureFunctions (this) module&#xD;&#xA;&#xD;&#xA;if (element.getStereotype(azureFunctionId)?.getProperty(azureFunctionTriggerId).getValue() !== &quot;Cosmos DB Trigger&quot;) {&#xD;&#xA;    element.removeStereotype(comsmosDBTriggerId);&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (element.getStereotype(comsmosDBTriggerId) == null) {&#xD;&#xA;    element.addStereotype(comsmosDBTriggerId);&#xD;&#xA;}" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

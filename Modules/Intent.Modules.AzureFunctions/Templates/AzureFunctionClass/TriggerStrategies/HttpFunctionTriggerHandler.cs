@@ -41,7 +41,13 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
                 var route = !string.IsNullOrWhiteSpace(_endpointModel?.Route)
                     ? $@"""{_endpointModel.Route}"""
                     : @"""""";
-                attr.AddArgument($"{_template.UseType("Microsoft.Azure.WebJobs.Extensions.Http.AuthorizationLevel")}.{_azureFunctionModel.AuthorizationLevel}");
+                
+                var authorizationLevel = AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget) == 
+                                         AzureFunctionsHelper.AzureFunctionsProcessType.InProcess
+                    ? _template.UseType("Microsoft.Azure.WebJobs.Extensions.Http.AuthorizationLevel")
+                    : _template.UseType("Microsoft.Azure.Functions.Worker.AuthorizationLevel");
+                
+                attr.AddArgument($"{authorizationLevel}.{_azureFunctionModel.AuthorizationLevel}");
                 attr.AddArgument(@$"""{_endpointModel?.Verb.ToString().ToLower() ?? "get"}""");
                 attr.AddArgument($"Route = {route}");
             });
@@ -66,7 +72,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
             });
         }
 
-        method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+        method.AddOptionalCancellationTokenParameter();
     }
 
     private string NullableSymbol => _template.OutputTarget.GetProject().NullableEnabled ? "?" : string.Empty;
@@ -140,6 +146,11 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
     public IEnumerable<INugetPackageInfo> GetNugetDependencies()
     {
         yield return NugetPackages.MicrosoftExtensionsHttp(_template.OutputTarget);
+    }
+
+    public IEnumerable<INugetPackageInfo> GetNugetRedundantDependencies()
+    {
+        return [];
     }
 
     private IAzureFunctionParameterModel GetRequestInput()

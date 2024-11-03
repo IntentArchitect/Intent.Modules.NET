@@ -11,11 +11,14 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using ModelHasFolderTemplateExtensionsV2 = Intent.Modules.Common.ModelHasFolderTemplateExtensionsV2;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -27,20 +30,21 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
     {
         public const string TemplateId = "Intent.AzureFunctions.AzureFunctionClass";
 
-        private readonly IFunctionTriggerHandler _triggerStrategyHandler;
-
         [IntentManaged(Mode.Ignore)]
         public AzureFunctionClassTemplate(IOutputTarget outputTarget, IAzureFunctionModel model) : base(TemplateId, outputTarget, model)
         {
-            _triggerStrategyHandler = TriggerStrategyResolver.GetFunctionTriggerHandler(this, model);
-
-            AddNugetDependency(NugetPackages.MicrosoftNETSdkFunctions(outputTarget));
             AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection(outputTarget));
-            AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsExtensions(outputTarget));
 
-            foreach (var dependency in _triggerStrategyHandler.GetNugetDependencies())
+            var triggerStrategyHandler = TriggerStrategyResolver.GetFunctionTriggerHandler(this, model);
+
+            foreach (var dependency in triggerStrategyHandler.GetNugetDependencies())
             {
                 AddNugetDependency(dependency);
+            }
+
+            foreach (var dependency in triggerStrategyHandler.GetNugetDependencies())
+            {
+                ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(dependency.Name, outputTarget));
             }
 
             AddTypeSource(TemplateRoles.Application.Contracts.Dto, "List<{0}>");
@@ -60,10 +64,31 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                     @class.AddMethod(GetRunMethodReturnType(), "Run", method =>
                     {
                         method.Async();
-                        method.AddAttribute(UseType("Microsoft.Azure.WebJobs.FunctionName"), attr => attr.AddArgument(@$"""{GetFunctionName()}"""));
-                        _triggerStrategyHandler.ApplyMethodParameters(method);
-                        _triggerStrategyHandler.ApplyMethodStatements(method);
+
+                        switch (AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget))
+                        {
+                            case AzureFunctionsHelper.AzureFunctionsProcessType.InProcess:
+                                method.AddAttribute(UseType("Microsoft.Azure.WebJobs.FunctionName"), attr => attr.AddArgument(@$"""{GetFunctionName()}"""));
+                                break;
+                            default:
+                            case AzureFunctionsHelper.AzureFunctionsProcessType.Isolated:
+                                method.AddAttribute(UseType("Microsoft.Azure.Functions.Worker.Function"), attr => attr.AddArgument(@$"""{GetFunctionName()}"""));
+                                break;
+                        }
+
+                        triggerStrategyHandler.ApplyMethodParameters(method);
+                        triggerStrategyHandler.ApplyMethodStatements(method);
                     });
+                })
+                .AfterBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    var method = @class.FindMethod("Run");
+                    if (method?.Statements.Any() == false)
+                    {
+                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                        method.AddNotImplementedException();
+                    }
                 });
         }
 
@@ -83,7 +108,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
 
         private string GetRelativeLocation()
         {
-            return ((IIntentTemplate<IAzureFunctionModel>)this).GetFolderPath();
+            var path = string.Join("/", Model.GetParentFolderNames());
+            return path;
         }
 
         string GetNamespace(
@@ -149,11 +175,11 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
             {
                 return $"Task<{UseType("Microsoft.AspNetCore.Mvc.IActionResult")}>";
             }
-            else if (Model.TriggerType == TriggerType.QueueTrigger)
+            else if (Model.TriggerType == TriggerType.QueueTrigger &&
+                     AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.InProcess)
             {
                 return $"Task";
             }
-
 
             return Model.ReturnType?.Element != null
                 ? $"Task<{GetTypeName(Model.ReturnType)}>"

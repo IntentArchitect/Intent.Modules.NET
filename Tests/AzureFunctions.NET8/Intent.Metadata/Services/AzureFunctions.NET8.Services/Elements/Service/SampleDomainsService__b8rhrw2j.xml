@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4385c794-36f4-478f-a96f-17c1244c650b" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>SampleDomainsService</name>
+  <display>SampleDomainsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d334321a-377b-4cd9-ae64-2aec501e2a55</parentFolderId>
+  <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+  <packageName>AzureFunctions.NET8.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="8b74d781-d50c-4f35-833b-bfe1bc13026c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateSampleDomain</name>
+      <display>CreateSampleDomain(dto: SampleDomainCreateDto): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="bfd9edfd-590a-42f0-a88e-5da49763f907">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4385c794-36f4-478f-a96f-17c1244c650b</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.NET8.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Http Trigger" isActive="true" />
+            <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="true" />
+            <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" isActive="false" />
+            <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+            <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+            <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="false" />
+            <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+            <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+            <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+            <property name="38ed3faa-6770-484e-8bb9-84ae9db0153b" display="Include Message Envelope" value="false" isActive="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="sample-domains" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="e4477f43-dc64-46f8-8826-ec7ea2b4daf3" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: SampleDomainCreateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9914a725-6e5e-49bd-a2ad-58ec5cc31785">
+            <typeId>d59572ba-0a5c-408c-9793-4dc885a4e347</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.NET8.Services</typePackageName>
+            <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8b74d781-d50c-4f35-833b-bfe1bc13026c</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.NET8.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="fb871417-c9d4-4942-ab42-4cd5dbe1e5b5" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindSampleDomainById</name>
+      <display>FindSampleDomainById(id: guid): SampleDomainDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="f553d7d7-834c-4003-be56-e557117f12bd">
+        <typeId>31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AzureFunctions.NET8.Services</typePackageName>
+        <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4385c794-36f4-478f-a96f-17c1244c650b</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.NET8.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Http Trigger" isActive="true" />
+            <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="true" />
+            <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" isActive="false" />
+            <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+            <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+            <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="false" />
+            <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+            <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+            <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+            <property name="38ed3faa-6770-484e-8bb9-84ae9db0153b" display="Include Message Envelope" value="false" isActive="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="sample-domains/{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="53da2d32-ad67-4f65-b4e3-0ee980033106" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ab3b2dad-53a7-4842-81e4-295d4c494be6">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>fb871417-c9d4-4942-ab42-4cd5dbe1e5b5</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.NET8.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="c8e1e6e6-659f-4a3d-9b4a-8e00c21b666e" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindSampleDomains</name>
+      <display>FindSampleDomains(): SampleDomainDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="524c580d-01a3-4c9a-8797-cabf171e87d9">
+        <typeId>31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AzureFunctions.NET8.Services</typePackageName>
+        <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4385c794-36f4-478f-a96f-17c1244c650b</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.NET8.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Http Trigger" isActive="true" />
+            <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="true" />
+            <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" isActive="false" />
+            <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+            <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+            <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="false" />
+            <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+            <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+            <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+            <property name="38ed3faa-6770-484e-8bb9-84ae9db0153b" display="Include Message Envelope" value="false" isActive="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="sample-domains/" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8f263703-d904-4888-a0f3-8d01e8ae09a7" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateSampleDomain</name>
+      <display>UpdateSampleDomain(id: guid, dto: SampleDomainUpdateDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="98e3d759-b5e9-47b0-810e-30c109ec90fb">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4385c794-36f4-478f-a96f-17c1244c650b</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.NET8.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Http Trigger" isActive="true" />
+            <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="true" />
+            <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" isActive="false" />
+            <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+            <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+            <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="false" />
+            <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+            <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+            <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+            <property name="38ed3faa-6770-484e-8bb9-84ae9db0153b" display="Include Message Envelope" value="false" isActive="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="sample-domains/{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="596e2d45-f768-4b57-9c37-f66eaaa10d8b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="0d6eb565-bb9e-437a-9663-6193daf4e8a5">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8f263703-d904-4888-a0f3-8d01e8ae09a7</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.NET8.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c80a59ef-f319-463f-bbc5-f60e07ca3e9e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: SampleDomainUpdateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="3420b570-6a26-450d-8513-2ce95de1d975">
+            <typeId>f784648e-ac13-4e81-a272-4e7c783a498e</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.NET8.Services</typePackageName>
+            <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8f263703-d904-4888-a0f3-8d01e8ae09a7</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.NET8.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="416196df-286d-40af-960a-29b0646acffc" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteSampleDomain</name>
+      <display>DeleteSampleDomain(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="1a51590b-91ee-4384-a4bb-b06c17c3d4ed">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4385c794-36f4-478f-a96f-17c1244c650b</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.NET8.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Http Trigger" isActive="true" />
+            <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="true" />
+            <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" isActive="false" />
+            <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+            <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+            <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="false" />
+            <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+            <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+            <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+            <property name="38ed3faa-6770-484e-8bb9-84ae9db0153b" display="Include Message Envelope" value="false" isActive="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="DELETE" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="sample-domains/{id}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="c56d0ab9-c578-4dd6-b9e8-7b1a92e9d726" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f6e0e002-d22e-41bb-8c44-c1c9f4fbdba2">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>416196df-286d-40af-960a-29b0646acffc</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.NET8.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="668f5ee5-516d-4f41-996d-ee046d587834" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <comment />
+      <name>MappedAzureFunction</name>
+      <display>MappedAzureFunction(request: SampleMappedRequest): string</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="2383d077-17ea-426d-93db-f876e492ebff">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4385c794-36f4-478f-a96f-17c1244c650b</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.NET8.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="300a520f-1178-4856-9863-79e71bc31d63" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>request</name>
+          <display>in : request: SampleMappedRequest</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f20f8303-b1d0-4437-b56f-2862e4214fff">
+            <typeId>ee7d194f-7f63-4bff-9412-f080d620a5b4</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.NET8.Services</typePackageName>
+            <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>668f5ee5-516d-4f41-996d-ee046d587834</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.NET8.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1d15dc90-312a-4874-9381-1cf22c954edb" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindSampleDomainsPaged</name>
+      <display>FindSampleDomainsPaged(pageNo: int, pageSize: int): PagedResult&lt;SampleDomainDto&gt;</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="6b20756c-afde-482e-b3fe-eb770cdfaa65">
+        <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+        <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
+        <stereotypes />
+        <genericTypeParameters>
+          <genericTypeParameter id="6361c890-b9e8-4bdc-a562-746e970a80a1">
+            <typeId>31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+            <typePackageName>AzureFunctions.NET8.Services</typePackageName>
+            <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </genericTypeParameter>
+        </genericTypeParameters>
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4385c794-36f4-478f-a96f-17c1244c650b</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.NET8.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Http Trigger" isActive="true" />
+            <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="true" />
+            <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" isActive="false" />
+            <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+            <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+            <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="false" />
+            <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+            <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+            <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+            <property name="38ed3faa-6770-484e-8bb9-84ae9db0153b" display="Include Message Envelope" value="false" isActive="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="sample-domains-paged" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="a9a74009-0cfc-450f-aa41-814522a6f039" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>pageNo</name>
+          <display>in : pageNo: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="cdc2b5d2-5ffc-4ed3-90fe-c75f2179c7a8">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1d15dc90-312a-4874-9381-1cf22c954edb</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.NET8.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7a1638fe-0307-463c-ab4c-09c19f12f097" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>pageSize</name>
+          <display>in : pageSize: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="67b5b2a7-fe89-4000-9408-7ceb8ce9430e">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1d15dc90-312a-4874-9381-1cf22c954edb</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.NET8.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="05980be9-7579-494e-b39f-8ef224f993b0" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <comment>This should print out a warning to say that the query should also be set to a collection since the service operation expects to return a collection</comment>
+      <name>FindByNameForSingleSampleDomainMapToCollection</name>
+      <display>FindByNameForSingleSampleDomainMapToCollection(name: string): SampleDomainDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="4e137692-ea05-4534-a20a-8470669fbb54">
+        <typeId>31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AzureFunctions.NET8.Services</typePackageName>
+        <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4385c794-36f4-478f-a96f-17c1244c650b</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.NET8.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="df93754e-0cd7-4ac3-8820-5744345b4194" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>name</name>
+          <display>in : name: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e65c350b-d172-46b1-9543-32833f302df6">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05980be9-7579-494e-b39f-8ef224f993b0</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.NET8.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="a99328ad-c23e-4aac-b589-90b798e94bac" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindSampleDomainsByName</name>
+      <display>FindSampleDomainsByName(name: string): SampleDomainDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="dbeb848b-a6d1-4e69-893b-404225507dba">
+        <typeId>31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AzureFunctions.NET8.Services</typePackageName>
+        <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4385c794-36f4-478f-a96f-17c1244c650b</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.NET8.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="2483e25a-deba-4f97-96d8-5e6ed3631c04" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>name</name>
+          <display>in : name: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="fe7d2730-7fa4-4240-912b-9af81261380e">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a99328ad-c23e-4aac-b589-90b798e94bac</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.NET8.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="363e383c-97c0-4d34-af10-fa7f4c88667b" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <comment>This is not meant to be implemented automatically</comment>
+      <name>FindSampleDomainByAttribute</name>
+      <display>FindSampleDomainByAttribute(attribute: string): SampleDomainDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="117ee485-1cd3-4bd7-8571-8226082863f7">
+        <typeId>31f4080b-77e4-4bd2-83cd-9ebef6bff4f1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AzureFunctions.NET8.Services</typePackageName>
+        <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4385c794-36f4-478f-a96f-17c1244c650b</parentFolderId>
+      <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+      <packageName>AzureFunctions.NET8.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="44a88d27-6863-4725-9804-f70d819369ed" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <comment>Comment for this parameter</comment>
+          <name>attribute</name>
+          <display>in : attribute: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f50ad0e3-5bd5-45d2-95f4-a750ee25d319">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>363e383c-97c0-4d34-af10-fa7f4c88667b</parentFolderId>
+          <packageId>d334321a-377b-4cd9-ae64-2aec501e2a55</packageId>
+          <packageName>AzureFunctions.NET8.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

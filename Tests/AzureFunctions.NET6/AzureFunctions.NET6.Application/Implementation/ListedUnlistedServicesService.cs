@@ -29,9 +29,5 @@ namespace AzureFunctions.NET6.Application.Implementation
         {
             throw new NotImplementedException("Write your implementation for this service here...");
         }
-
-        public void Dispose()
-        {
-        }
     }
 }

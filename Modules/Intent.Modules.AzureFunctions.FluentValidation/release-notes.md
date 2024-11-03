@@ -1,3 +1,7 @@
+### Version 5.0.0
+
+- Improvement: Updated code and dependencies in line with the Isolated Process upgrade.
+
 ### Version 4.2.2
 
 - Improvement: Updated module NuGet packages infrastructure.

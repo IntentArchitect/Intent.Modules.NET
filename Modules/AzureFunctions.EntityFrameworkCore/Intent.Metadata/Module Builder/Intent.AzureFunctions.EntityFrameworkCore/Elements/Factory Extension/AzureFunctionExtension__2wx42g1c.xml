@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2ac9f629-04b0-4095-bdcd-7f13fef1d468" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>AzureFunctionExtension</name>
+  <display>AzureFunctionExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e3120171-ff1e-45b5-abf2-4de6c5feb36f</parentFolderId>
+  <packageId>e3120171-ff1e-45b5-abf2-4de6c5feb36f</packageId>
+  <packageName>Intent.AzureFunctions.EntityFrameworkCore</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

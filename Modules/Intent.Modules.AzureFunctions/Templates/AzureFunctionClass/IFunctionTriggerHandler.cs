@@ -7,6 +7,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 internal interface IFunctionTriggerHandler
 {
     IEnumerable<INugetPackageInfo> GetNugetDependencies();
+    IEnumerable<INugetPackageInfo> GetNugetRedundantDependencies();
     void ApplyMethodParameters(CSharpClassMethod method);
     void ApplyMethodStatements(CSharpClassMethod method);
 }

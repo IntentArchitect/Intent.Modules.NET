@@ -99,9 +99,9 @@
     </childElement>
     <childElement id="0f7924d3-6116-439e-a6d3-90ba15934c64" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.AzureFunctions.Dispatch.MediatR</name>
-      <display>Intent.AzureFunctions.Dispatch.MediatR 1.1.1</display>
+      <display>Intent.AzureFunctions.Dispatch.MediatR 2.0.0-pre.0</display>
       <isAbstract>false</isAbstract>
-      <value>1.1.1</value>
+      <value>2.0.0-pre.0</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -112,10 +112,10 @@
       <childElements />
     </childElement>
     <childElement id="1ab8992e-6883-4c99-beed-57b71b7196a9" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
-      <name>Intent.AzureFunctions.Interop.Contracts</name>
-      <display>Intent.AzureFunctions.Interop.Contracts 4.2.1</display>
+      <name>Intent.AzureFunctions.Dispatch.Services</name>
+      <display>Intent.AzureFunctions.Dispatch.Services 5.0.0-pre.0</display>
       <isAbstract>false</isAbstract>
-      <value>4.2.1</value>
+      <value>5.0.0-pre.0</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>

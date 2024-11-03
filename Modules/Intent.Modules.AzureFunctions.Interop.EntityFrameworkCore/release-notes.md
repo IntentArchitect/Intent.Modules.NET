@@ -1,3 +1,7 @@
+### Version 5.0.0
+
+- Obsolete: The contents of this module has moved to `Intent.AzureFunctions.EntityFrameworkCore`. You may safely uninstall this module.
+
 ### Version 4.3.1
 
 - Improvement: Updated module NuGet packages infrastructure.

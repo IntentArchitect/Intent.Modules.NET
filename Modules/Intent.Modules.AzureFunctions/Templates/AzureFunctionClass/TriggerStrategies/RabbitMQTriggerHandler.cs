@@ -22,7 +22,32 @@ public class RabbitMQTriggerHandler : IFunctionTriggerHandler
 
     public IEnumerable<INugetPackageInfo> GetNugetDependencies()
     {
-        yield return NugetPackages.MicrosoftAzureWebJobsExtensionsRabbitMQ(_template.OutputTarget);
+        foreach (var nugetPackageInfo in GetNetSpecificPackages(AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget)))
+        {
+            yield return nugetPackageInfo;
+        }
+    }
+
+    public IEnumerable<INugetPackageInfo> GetNugetRedundantDependencies()
+    {
+        foreach (var nugetPackageInfo in GetNetSpecificPackages(AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget).SwapState()))
+        {
+            yield return nugetPackageInfo;
+        }
+    }
+
+    private IEnumerable<INugetPackageInfo> GetNetSpecificPackages(AzureFunctionsHelper.AzureFunctionsProcessType azureFunctionsProcessType)
+    {
+        switch (azureFunctionsProcessType)
+        {
+            case AzureFunctionsHelper.AzureFunctionsProcessType.InProcess:
+                yield return NugetPackages.MicrosoftAzureWebJobsExtensionsRabbitMQ(_template.OutputTarget);
+                break;
+            default:
+            case AzureFunctionsHelper.AzureFunctionsProcessType.Isolated:
+                yield return NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsRabbitMQ(_template.OutputTarget);
+                break;
+        }
     }
 
     public void ApplyMethodParameters(CSharpClassMethod method)
@@ -43,14 +68,24 @@ public class RabbitMQTriggerHandler : IFunctionTriggerHandler
         {
             messageType = _template.UseType("RabbitMQ.Client.Events.BasicDeliverEventArgs");
             parameterName = "args";
+
+            if (AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.Isolated)
+            {
+                _template.AddNugetDependency(NugetPackages.RabbitMQClient(_template.OutputTarget));
+            }
         }
+        
+        var rabbitMQTrigger = AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget) == 
+                              AzureFunctionsHelper.AzureFunctionsProcessType.InProcess
+            ? _template.UseType("Microsoft.Azure.WebJobs.RabbitMQTrigger")
+            : _template.UseType("Microsoft.Azure.Functions.Worker.RabbitMQTrigger");
         
         method.AddParameter(
             type: messageType,
             name: parameterName,
             configure: param =>
             {
-                param.AddAttribute(_template.UseType("Microsoft.Azure.WebJobs.RabbitMQTrigger"), attr =>
+                param.AddAttribute(rabbitMQTrigger, attr =>
                 {
                     attr.AddArgument($@"""{_azureFunctionModel.QueueName}""");
                     if (!string.IsNullOrEmpty(_azureFunctionModel.Connection))
@@ -60,8 +95,8 @@ public class RabbitMQTriggerHandler : IFunctionTriggerHandler
                     }
                 });
             });
-        
-        method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+
+        method.AddOptionalCancellationTokenParameter();
     }
 
     public void ApplyMethodStatements(CSharpClassMethod method)
