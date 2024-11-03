@@ -16,6 +16,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
 
         string ProductId { get; set; }
 
-        ICollection<string> Tags { get; set; }
+        IList<string> Tags { get; set; }
     }
 }

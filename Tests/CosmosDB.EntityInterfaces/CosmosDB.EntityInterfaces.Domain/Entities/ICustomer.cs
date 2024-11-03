@@ -13,7 +13,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
 
         string Name { get; set; }
 
-        ICollection<string>? Tags { get; set; }
+        IList<string>? Tags { get; set; }
 
         Address DeliveryAddress { get; set; }
 

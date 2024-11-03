@@ -11,7 +11,7 @@ namespace MongoDb.TestApplication.Domain.Entities.Indexes
     {
         public string Id { get; set; }
 
-        public ICollection<string> MultiKey { get; set; } = [];
+        public IList<string> MultiKey { get; set; } = [];
 
         public string SomeField { get; set; }
     }

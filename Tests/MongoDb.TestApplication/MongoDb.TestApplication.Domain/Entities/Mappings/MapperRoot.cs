@@ -13,11 +13,11 @@ namespace MongoDb.TestApplication.Domain.Entities.Mappings
 
         public string No { get; set; }
 
-        public ICollection<string> MapAggChildrenIds { get; set; } = [];
+        public IList<string> MapAggChildrenIds { get; set; } = [];
 
         public string MapAggPeerId { get; set; }
 
-        public ICollection<string> MapperM2MSIds { get; set; } = [];
+        public IList<string> MapperM2MSIds { get; set; } = [];
 
         public MapCompChild MapCompChild { get; set; }
 

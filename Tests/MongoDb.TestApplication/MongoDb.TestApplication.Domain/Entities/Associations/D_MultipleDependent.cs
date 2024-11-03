@@ -13,6 +13,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
 
         public string Attribute { get; set; }
 
-        public ICollection<string> DOptionalaggregatesIds { get; set; } = [];
+        public IList<string> DOptionalaggregatesIds { get; set; } = [];
     }
 }

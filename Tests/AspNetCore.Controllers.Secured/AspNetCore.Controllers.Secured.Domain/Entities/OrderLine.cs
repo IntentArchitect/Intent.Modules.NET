@@ -18,7 +18,7 @@ namespace AspNetCore.Controllers.Secured.Domain.Entities
 
         public decimal UnitPrice { get; set; }
 
-        public ICollection<decimal> Discount { get; set; } = [];
+        public IList<decimal> Discount { get; set; } = [];
 
         public virtual Product Product { get; set; }
     }

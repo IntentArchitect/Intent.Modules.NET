@@ -19,7 +19,7 @@ namespace CosmosDB.Domain.Entities
 
         public string Name { get; set; }
 
-        public ICollection<string>? Tags { get; set; } = [];
+        public IList<string>? Tags { get; set; } = [];
 
         public Address DeliveryAddress { get; set; }
 

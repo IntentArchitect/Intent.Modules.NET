@@ -22,6 +22,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
 
         public string ProductId { get; set; }
 
-        public ICollection<string> Tags { get; set; } = [];
+        public IList<string> Tags { get; set; } = [];
     }
 }

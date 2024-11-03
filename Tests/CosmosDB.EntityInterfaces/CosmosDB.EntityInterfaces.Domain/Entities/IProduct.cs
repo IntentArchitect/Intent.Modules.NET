@@ -13,6 +13,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
 
         string Name { get; set; }
 
-        ICollection<string> CategoriesIds { get; set; }
+        IList<string> CategoriesIds { get; set; }
     }
 }

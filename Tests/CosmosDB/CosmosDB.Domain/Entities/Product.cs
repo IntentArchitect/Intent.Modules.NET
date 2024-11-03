@@ -19,7 +19,7 @@ namespace CosmosDB.Domain.Entities
 
         public string Name { get; set; }
 
-        public ICollection<string> CategoriesIds { get; set; } = [];
+        public IList<string> CategoriesIds { get; set; } = [];
 
         public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
     }
