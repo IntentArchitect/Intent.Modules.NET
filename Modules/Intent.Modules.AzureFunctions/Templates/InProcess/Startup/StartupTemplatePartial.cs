@@ -33,6 +33,15 @@ namespace Intent.Modules.AzureFunctions.Templates.InProcess.Startup
             if (CanRunTemplate())
             {
                 AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsExtensions(outputTarget));
+                
+                AddNugetDependency(NugetPackages.MicrosoftNETSdkFunctions(outputTarget));
+                AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsExtensions(outputTarget));
+
+                // Remove Isolated nuget dependencies
+                ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerPackageName, outputTarget));
+                ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerSdkPackageName, outputTarget));
+                ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsHttpPackageName, outputTarget));
+                ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsHttpAspNetCorePackageName, outputTarget));
             }
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())

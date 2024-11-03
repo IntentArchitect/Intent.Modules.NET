@@ -14,6 +14,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -33,29 +34,6 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
         public AzureFunctionClassTemplate(IOutputTarget outputTarget, IAzureFunctionModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection(outputTarget));
-
-            switch (AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget))
-            {
-                case AzureFunctionsHelper.AzureFunctionsProcessType.InProcess:
-                    AddNugetDependency(NugetPackages.MicrosoftNETSdkFunctions(outputTarget));
-                    AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsExtensions(outputTarget));
-
-                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerPackageName, outputTarget));
-                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerSdkPackageName, outputTarget));
-                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsHttpPackageName, outputTarget));
-                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsHttpAspNetCorePackageName, outputTarget));
-                    break;
-                default:
-                case AzureFunctionsHelper.AzureFunctionsProcessType.Isolated:
-                    AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorker(outputTarget));
-                    AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerSdk(outputTarget));
-                    AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsHttp(outputTarget));
-                    AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsHttpAspNetCore(outputTarget));
-
-                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftNETSdkFunctionsPackageName, outputTarget));
-                    ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsExtensionsPackageName, outputTarget));
-                    break;
-            }
 
             var triggerStrategyHandler = TriggerStrategyResolver.GetFunctionTriggerHandler(this, model);
 

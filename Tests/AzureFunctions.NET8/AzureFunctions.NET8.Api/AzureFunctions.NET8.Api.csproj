@@ -36,10 +36,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<ProjectReference Include="..\AzureFunctions.NET8.Domain\AzureFunctions.NET8.Domain.csproj" />
 		<ProjectReference Include="..\AzureFunctions.NET8.Application\AzureFunctions.NET8.Application.csproj" />
 		<ProjectReference Include="..\AzureFunctions.NET8.Infrastructure\AzureFunctions.NET8.Infrastructure.csproj" />

@@ -22,7 +22,7 @@
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
         <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
-        <typePackageName>AzureFunctions.NET6.Services</typePackageName>
+        <typePackageName>AzureFunctions.NET8.Services</typePackageName>
         <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
         <stereotypes />
         <genericTypeParameters />

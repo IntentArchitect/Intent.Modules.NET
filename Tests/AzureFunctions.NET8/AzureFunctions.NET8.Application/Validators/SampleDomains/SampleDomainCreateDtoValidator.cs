@@ -22,6 +22,9 @@ namespace AzureFunctions.NET8.Application.Validators.SampleDomains
         {
             RuleFor(v => v.Attribute)
                 .NotNull();
+
+            RuleFor(v => v.Name)
+                .NotNull();
         }
     }
 }

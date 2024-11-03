@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -32,6 +33,15 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
             {
                 AddNugetDependency(NugetPackages.MicrosoftApplicationInsightsWorkerService(outputTarget));
                 AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerApplicationInsights(outputTarget));
+                
+                AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorker(outputTarget));
+                AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerSdk(outputTarget));
+                AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsHttp(outputTarget));
+                AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsHttpAspNetCore(outputTarget));
+                
+                // Remove InProcess nuget dependencies
+                ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftNETSdkFunctionsPackageName, outputTarget));
+                ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsExtensionsPackageName, outputTarget));
             }
 
             var configStatements = new CSharpLambdaBlock("(ctx, services)");
@@ -86,6 +96,11 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
         public override bool CanRunTemplate()
         {
             return AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.Isolated;
+        }
+        
+        public override void BeforeTemplateExecution()
+        {
+            OutputTarget.AddFrameworkDependency("Microsoft.AspNetCore.App");
         }
 
         private void HandleServiceConfigurationRequest(ServiceConfigurationRequest request)

@@ -38,6 +38,7 @@ namespace AzureFunctions.NET8.Application.Implementation
             var newSampleDomain = new SampleDomain
             {
                 Attribute = dto.Attribute,
+                Name = dto.Name,
             };
             _sampleDomainRepository.Add(newSampleDomain);
             await _sampleDomainRepository.UnitOfWork.SaveChangesAsync(cancellationToken);

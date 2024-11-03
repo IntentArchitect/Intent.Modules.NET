@@ -10,7 +10,7 @@
     <isNullable>true</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>AzureFunctions.NET6.Services</typePackageName>
+    <typePackageName>AzureFunctions.NET8.Services</typePackageName>
     <typePackageId>d334321a-377b-4cd9-ae64-2aec501e2a55</typePackageId>
     <stereotypes />
     <genericTypeParameters />
