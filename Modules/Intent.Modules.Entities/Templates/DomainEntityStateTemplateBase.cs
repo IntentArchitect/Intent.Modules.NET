@@ -1,7 +1,9 @@
+using System;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
@@ -85,7 +87,9 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
                                             ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters();
         var propertyType = isPrivateSetterCollection
             ? GetTypeName(typeReference, UseType("System.Collections.Generic.IReadOnlyCollection<{0}>"))
-            : GetTypeName(typeReference);
+            : typeReference.IsCollection && typeReference.IsPrimitiveType() 
+                ? GetTypeName(typeReference, UseType("System.Collections.Generic.IList<{0}>"))
+                : GetTypeName(typeReference);
 
         @class.AddProperty(propertyType, propertyName.ToPascalCase(), property =>
         {

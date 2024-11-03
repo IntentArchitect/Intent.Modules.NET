@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Metadata;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -82,7 +83,11 @@ namespace Intent.Modules.Entities.Templates.DomainEntityInterface
 
                     foreach (var attribute in Model.Attributes)
                     {
-                        @interface.AddProperty(GetTypeName(attribute), attribute.Name.ToPascalCase(), property =>
+                        var propertyType = attribute.TypeReference.IsCollection && attribute.TypeReference.IsPrimitiveType()
+                            ? GetTypeName(attribute.TypeReference, UseType("System.Collections.Generic.IList<{0}>"))
+                            : GetTypeName(attribute.TypeReference);
+
+                        @interface.AddProperty(propertyType, attribute.Name.ToPascalCase(), property =>
                         {
                             property.AddMetadata("model", attribute);
                             property.RepresentsModel(attribute);

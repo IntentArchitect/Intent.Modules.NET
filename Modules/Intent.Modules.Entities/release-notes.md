@@ -2,6 +2,7 @@
 
 - Improvement: Generated code more aligned with best practices
 - Improvement: Domain entity collection initialization will use the simplified syntax when applicable 
+- Fixed: The default type of a primivite collection is now `IList` (instead of `ICollection`), allowing it to be saved by Entity Framework
 
 ### Version 5.1.5
 
