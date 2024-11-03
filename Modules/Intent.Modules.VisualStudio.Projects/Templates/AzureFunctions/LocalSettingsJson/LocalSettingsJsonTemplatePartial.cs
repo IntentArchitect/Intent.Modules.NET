@@ -57,6 +57,16 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.AzureFunctions.LocalSet
             return $"{TemplateId}#{OutputTarget.Id}";
         }
 
+        public override void BeforeTemplateExecution()
+        {
+            if (!_registrationRequestsByKey.ContainsKey("FUNCTIONS_WORKER_RUNTIME"))
+            {
+                _registrationRequestsByKey.Add(
+                    "FUNCTIONS_WORKER_RUNTIME",
+                    (new AppSettingRegistrationRequest("FUNCTIONS_WORKER_RUNTIME", "dotnet"), Environment.StackTrace));
+            }
+        }
+
         private void Handle(AppSettingRegistrationRequest @event)
         {
             if (!@event.IsApplicableTo(this))

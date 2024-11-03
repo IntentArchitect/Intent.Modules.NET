@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
@@ -96,6 +97,14 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
         public override bool CanRunTemplate()
         {
             return AzureFunctionsHelper.GetAzureFunctionsProcessType(OutputTarget) == AzureFunctionsHelper.AzureFunctionsProcessType.Isolated;
+        }
+        
+        public override void AfterTemplateRegistration()
+        {
+            if (CanRunTemplate())
+            {
+                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("FUNCTIONS_WORKER_RUNTIME", "dotnet-isolated"));
+            }
         }
         
         public override void BeforeTemplateExecution()

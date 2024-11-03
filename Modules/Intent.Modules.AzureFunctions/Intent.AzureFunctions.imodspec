@@ -88,6 +88,11 @@
         <package id="Intent.AzureFunctions.OpenApi" version="2.0.0-pre.0" />
       </install>
     </detect>
+    <detect id="Intent.VisualStudio.Projects">
+      <install>
+        <package id="Intent.VisualStudio.Projects" version="3.8.3-pre.1" />
+      </install>
+    </detect>
     <!-- Remove after 1/1/2025 -->
   </interoperability>
   <factoryExtensions></factoryExtensions>
