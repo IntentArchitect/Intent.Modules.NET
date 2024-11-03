@@ -17,7 +17,6 @@ namespace AzureFunctions.NET8.Application.Validators.NullableResult.GetCustomerN
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
         }

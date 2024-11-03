@@ -13,7 +13,6 @@ namespace AzureFunctions.NET8.Application.NullableResult.GetCustomerNullable
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetCustomerNullableHandler : IRequestHandler<GetCustomerNullable, CustomerDto>
     {
-        [IntentManaged(Mode.Ignore)]
         public GetCustomerNullableHandler()
         {
         }

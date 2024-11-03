@@ -11,13 +11,11 @@ namespace AzureFunctions.NET8.Application.Validators.CosmosDB.CosmosChange
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CosmosChangeCommandValidator : AbstractValidator<CosmosChangeCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public CosmosChangeCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

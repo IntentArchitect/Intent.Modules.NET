@@ -12,7 +12,6 @@ namespace AzureFunctions.NET8.Application.Params.GetByIdsQueryTest
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetByIdsQueryTestHandler : IRequestHandler<GetByIdsQueryTest, int>
     {
-        [IntentManaged(Mode.Ignore)]
         public GetByIdsQueryTestHandler()
         {
         }

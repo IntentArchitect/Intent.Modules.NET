@@ -20,7 +20,6 @@ namespace AzureFunctions.NET8.Application.Implementation.Queues
     {
         private readonly ICustomerRepository _customerRepository;
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public QueueService(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;

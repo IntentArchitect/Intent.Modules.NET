@@ -11,13 +11,11 @@ namespace AzureFunctions.NET8.Application.Validators.Queues.CreateCustomerWrappe
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateCustomerWrappedMessageValidator : AbstractValidator<Application.Queues.CreateCustomerWrappedMessage.CreateCustomerWrappedMessage>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public CreateCustomerWrappedMessageValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

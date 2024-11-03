@@ -8,16 +8,14 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.NET8.Application.Validators.SampleDomains
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class SampleMappedRequestValidator : AbstractValidator<SampleMappedRequest>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public SampleMappedRequestValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Field)

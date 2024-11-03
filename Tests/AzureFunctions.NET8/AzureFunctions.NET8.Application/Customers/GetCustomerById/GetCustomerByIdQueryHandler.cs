@@ -18,7 +18,6 @@ namespace AzureFunctions.NET8.Application.Customers.GetCustomerById
         private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
         public GetCustomerByIdQueryHandler(ICustomerRepository customerRepository, IMapper mapper)
         {
             _customerRepository = customerRepository;

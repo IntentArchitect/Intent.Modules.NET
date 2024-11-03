@@ -17,7 +17,6 @@ namespace AzureFunctions.NET8.Application.Validators.Params.GetByIdsQueryTest
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Ids)

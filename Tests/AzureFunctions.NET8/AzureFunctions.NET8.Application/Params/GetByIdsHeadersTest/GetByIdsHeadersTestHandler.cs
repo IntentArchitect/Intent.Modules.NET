@@ -12,7 +12,6 @@ namespace AzureFunctions.NET8.Application.Params.GetByIdsHeadersTest
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetByIdsHeadersTestHandler : IRequestHandler<GetByIdsHeadersTest, int>
     {
-        [IntentManaged(Mode.Ignore)]
         public GetByIdsHeadersTestHandler()
         {
         }

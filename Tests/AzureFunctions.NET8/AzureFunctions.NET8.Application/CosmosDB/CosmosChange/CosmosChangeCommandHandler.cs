@@ -12,7 +12,6 @@ namespace AzureFunctions.NET8.Application.CosmosDB.CosmosChange
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CosmosChangeCommandHandler : IRequestHandler<CosmosChangeCommand>
     {
-        [IntentManaged(Mode.Merge)]
         public CosmosChangeCommandHandler()
         {
         }

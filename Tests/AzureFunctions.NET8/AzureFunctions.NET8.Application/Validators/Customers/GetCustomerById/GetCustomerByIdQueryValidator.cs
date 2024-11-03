@@ -17,7 +17,6 @@ namespace AzureFunctions.NET8.Application.Validators.Customers.GetCustomerById
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
         }

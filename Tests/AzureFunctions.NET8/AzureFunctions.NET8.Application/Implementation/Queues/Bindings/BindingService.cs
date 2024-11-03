@@ -14,7 +14,6 @@ namespace AzureFunctions.NET8.Application.Implementation.Queues.Bindings
     [IntentManaged(Mode.Merge)]
     public class BindingService : IBindingService
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public BindingService()
         {
         }
