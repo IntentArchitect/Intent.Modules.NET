@@ -9,7 +9,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>66e8a974-5617-4dd2-8d46-a35bf0587a20</ProjectId>
+      <ProjectId>46e79afc-daa2-4f81-9071-77252d0f4776</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentOutputReadme#2b7880a4-d400-404b-b02b-04ed6a199767</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>content/DaprComponents/readme.txt</ApplicationRelativeFilePath>
@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>66e8a974-5617-4dd2-8d46-a35bf0587a20</ProjectId>
+      <ProjectId>46e79afc-daa2-4f81-9071-77252d0f4776</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentOutputReadme#7f8f1a8e-b5a8-4d62-9f0e-f2a8aed6e913</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>content/DaprFiles/readme.txt</ApplicationRelativeFilePath>
@@ -33,7 +33,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>66e8a974-5617-4dd2-8d46-a35bf0587a20</ProjectId>
+      <ProjectId>46e79afc-daa2-4f81-9071-77252d0f4776</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Dapr.AspNetCore.imodspec</ApplicationRelativeFilePath>
@@ -41,15 +41,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>66e8a974-5617-4dd2-8d46-a35bf0587a20</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#66e8a974-5617-4dd2-8d46-a35bf0587a20</CorrelationId>
+      <ProjectId>46e79afc-daa2-4f81-9071-77252d0f4776</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#46e79afc-daa2-4f81-9071-77252d0f4776</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Dapr.AspNetCore.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Dapr.AspNetCore.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>66e8a974-5617-4dd2-8d46-a35bf0587a20</ProjectId>
+      <ProjectId>46e79afc-daa2-4f81-9071-77252d0f4776</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>

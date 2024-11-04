@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClient;
+using Intent.Modules.Dapr.Shared;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConfiguration;
@@ -18,7 +19,6 @@ using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientHeaderDe
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using JetBrains.Annotations;
-using Intent.Modules.Dapr.Shared;
 using static System.Net.WebRequestMethods;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

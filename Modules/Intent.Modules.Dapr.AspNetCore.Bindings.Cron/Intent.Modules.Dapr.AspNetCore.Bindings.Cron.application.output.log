@@ -25,7 +25,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>160c8bdf-ce41-4c1b-b1a4-354e6b7d701e</ProjectId>
+      <ProjectId>7aa23eee-acb2-49a5-8fd3-9693145ee2ee</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Dapr.AspNetCore.Bindings.Cron.imodspec</ApplicationRelativeFilePath>
@@ -33,8 +33,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>160c8bdf-ce41-4c1b-b1a4-354e6b7d701e</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#160c8bdf-ce41-4c1b-b1a4-354e6b7d701e</CorrelationId>
+      <ProjectId>7aa23eee-acb2-49a5-8fd3-9693145ee2ee</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#7aa23eee-acb2-49a5-8fd3-9693145ee2ee</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Dapr.AspNetCore.Bindings.Cron.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Dapr.AspNetCore.Bindings.Cron.csproj</ProjectRelativeFilePath>
@@ -49,7 +49,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>160c8bdf-ce41-4c1b-b1a4-354e6b7d701e</ProjectId>
+      <ProjectId>7aa23eee-acb2-49a5-8fd3-9693145ee2ee</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

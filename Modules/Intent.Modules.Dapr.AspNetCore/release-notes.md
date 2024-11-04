@@ -1,6 +1,7 @@
 ### Version 2.0.6
 
 - Improvement: Split direct dependency on `Intent.Dapr.AspNetCore.ServiceInvocations` on this module.
+- Improvement: Updated module icon.
 
 ### Version 2.0.5
 

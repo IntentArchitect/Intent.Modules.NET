@@ -1,3 +1,7 @@
+### Version 2.1.4
+
+- Improvement: Updated module icon.
+
 ### Version 2.1.3
 
 - Fixed: Subscribing to Events can now be modeled in the Services designer. 
