@@ -178,3 +178,16 @@ This module introduces Swagger generation and Swagger UI support for Http Trigge
 You can use the follow tools to work and test locally for things like QueueStorage
 **[Azurite](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=visual-studio)**, this is a Azure storage emulator. This is installed and running by default if you are using Visual Studio 2022+.
 **[MS Azure Storage Explorer](https://azure.microsoft.com/en-us/products/storage/storage-explorer/)**, this tool allows you to browse and interact with Azurite.
+
+## Migrating from In-Process functions
+
+If you are still running the .NET 6 In-Process Azure Functions, you can migrate over to Isolated Processes using Intent Architect by performing the following steps:
+
+- In Intent Architect, having your Azure Functions application open.
+- Right-click on the application and select Manage Modules.
+- Update the Intent.AzureFunctions modules to the latest versions.
+- Next, Open the Visual Studio designer
+- Locate the API host project and left-click on it.
+- Change the .NET version from 6 to 8 (minimum).
+- Ensure all the other C# Projects also have upgraded from .NET 6 to 8.
+- Run the Software Factory. You will expect your Startup.cs file to be removed and a Program.cs to be created and all the Azure Functions to be updated.
