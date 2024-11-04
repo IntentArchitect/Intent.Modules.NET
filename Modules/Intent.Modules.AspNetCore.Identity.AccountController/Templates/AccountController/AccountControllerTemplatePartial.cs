@@ -495,8 +495,8 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                 Issuer = OutputTarget.ExecutionContext.GetApplicationConfig().Name,
                 Audience = OutputTarget.ExecutionContext.GetApplicationConfig().Name,
                 SigningKey = Convert.ToBase64String(randomBytesBuffer),
-                AuthTokenExpiryMinutes = 120,
-                RefreshTokenExpiryMinutes = 3
+                AuthTokenExpiryTimeSpan = "02:00:00",
+                RefreshTokenExpiryTimeSpan = "3.00:00:00"
             });
         }
 
