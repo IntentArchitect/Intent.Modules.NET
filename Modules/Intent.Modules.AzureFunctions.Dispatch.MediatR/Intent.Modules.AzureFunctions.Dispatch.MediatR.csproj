@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Application.MediatR" Version="4.0.11" />
+    <PackageReference Include="Intent.Modules.Application.MediatR" Version="4.0.12" />
     <PackageReference Include="Intent.Modules.Common" Version="3.7.2" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">
       <PrivateAssets>all</PrivateAssets>
