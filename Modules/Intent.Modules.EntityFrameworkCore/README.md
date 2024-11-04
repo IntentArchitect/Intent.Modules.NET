@@ -482,6 +482,22 @@ namespace {{Application Name}}.Infrastructure
 
 ```
 
+## Primitive Collection Modelling
+
+Primitive data types (examples include `string`, `int`, `bool` etc) can now be modelled as collections in the `Domain Designer` and will leverage Entity Framework's [Primitive collection properties](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew#primitive-collection-properties) functionality to persist the data as a JSON column in the database.
+
+![Primitive Collection](docs/images/primitive-collection.png)
+
+For additional details, see the []()
+
+The collection can be mapped using the `Services Designer` using existing mapping functionality:
+
+![Primitive Collection Mapping](docs/images/collection-mapping.png)
+
+When persisted to the database, the primitive collection property saved in a single column serialized to JSON.
+
+![Primitive Collection Mapping](docs/images/primitrive-collection-database.png)
+
 ## Related Modules
 
 ### Intent.Metadata.RDBMS
