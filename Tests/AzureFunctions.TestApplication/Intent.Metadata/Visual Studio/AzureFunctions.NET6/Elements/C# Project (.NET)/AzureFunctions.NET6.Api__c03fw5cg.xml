@@ -113,6 +113,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="abbbccaa-dd20-4648-8fe1-b5c7a868fd06" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Azure</name>
+      <display>Azure</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9466369f-8619-418f-972f-413e1ba6cf0e</parentFolderId>
+      <packageId>dd3f3e5c-e812-46db-af89-f630a56fa304</packageId>
+      <packageName>AzureFunctions.NET6</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
     <childElement id="88e4fcb9-ca80-4622-abb7-25c3c579f194" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Distribution</name>
       <display>Distribution</display>
