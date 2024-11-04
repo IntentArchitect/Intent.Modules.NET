@@ -23,9 +23,7 @@ namespace AzureFunctions.NET8.Api.Queues.Bindings.BindingService
 
         [Function("Queues_Bindings_BindingService_BindingTest")]
         [QueueOutput("out-queue")]
-        public async Task<CustomerDto> Run(
-            [QueueTrigger("in-queue")] CustomerDto dto,
-            CancellationToken cancellationToken = default)
+        public async Task<CustomerDto> Run([QueueTrigger("in-queue")] CustomerDto dto, CancellationToken cancellationToken)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))

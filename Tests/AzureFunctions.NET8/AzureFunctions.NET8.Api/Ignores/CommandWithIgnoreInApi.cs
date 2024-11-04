@@ -33,7 +33,7 @@ namespace AzureFunctions.NET8.Api.Ignores
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "put", Route = "ignores/command-with-ignore-in-api")] HttpRequest req,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             try
             {

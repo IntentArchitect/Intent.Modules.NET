@@ -42,7 +42,7 @@ namespace AzureFunctions.NET6.Api.Customers
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "customers/paged-with-parameters/{id}")] HttpRequest req,
             Guid id,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             try
             {

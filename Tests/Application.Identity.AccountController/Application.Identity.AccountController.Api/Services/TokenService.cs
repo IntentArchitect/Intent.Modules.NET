@@ -37,8 +37,7 @@ namespace Application.Identity.AccountController.Api.Services
             var signingKey = Convert.FromBase64String(_configuration.GetSection("JwtToken:SigningKey").Get<string>()!);
             var issuer = _configuration.GetSection("JwtToken:Issuer").Get<string>()!;
             var audience = _configuration.GetSection("JwtToken:Audience").Get<string>()!;
-            var expiration = TimeSpan.FromMinutes(_configuration.GetSection("JwtToken:AuthTokenExpiryMinutes").Get<int?>() ?? 120);
-            var expires = DateTime.UtcNow.Add(expiration);
+            var expires = DateTime.UtcNow.Add(_configuration.GetSection("JwtToken:AuthTokenExpiryTimeSpan").Get<TimeSpan?>() ?? TimeSpan.FromMinutes(120));
             var token = new JwtSecurityToken(
                 issuer: issuer,
                 audience: audience,
@@ -50,7 +49,7 @@ namespace Application.Identity.AccountController.Api.Services
 
         public (string Token, DateTime Expiry) GenerateRefreshToken(string username)
         {
-            var expiry = DateTime.UtcNow.AddMinutes(_configuration.GetSection("JwtToken:RefreshTokenExpiryMinutes").Get<int?>() ?? 3);
+            var expiry = DateTime.UtcNow.Add(_configuration.GetSection("JwtToken:RefreshTokenExpiryTimeSpan").Get<TimeSpan?>() ?? TimeSpan.FromDays(3));
             var unprotected = JsonSerializer.Serialize(new RefreshToken { Username = username, Expiry = expiry });
             var token = _protector.Protect(unprotected);
 

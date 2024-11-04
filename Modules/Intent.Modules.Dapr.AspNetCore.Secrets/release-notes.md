@@ -1,3 +1,7 @@
+### Version 1.1.6
+
+- Improvement: Updated module icon.
+
 ### Version 1.1.5
 
 - Improvement: Updated module NuGet packages infrastructure.

@@ -8,6 +8,7 @@
   <elementSettings />
   <elementExtensions>
     <elementExtension type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+      <implements />
       <mappingSettings />
       <macros>
         <macro trigger="on-changed">
@@ -57,4 +58,5 @@ await execute(element);
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
+  <scripts />
 </settings>

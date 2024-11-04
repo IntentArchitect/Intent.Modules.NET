@@ -1,6 +1,15 @@
-### Version 3.1.6
+﻿### Version 4.0.0
 
-- Fixed: The `GenerateRefreshToken` method on `TokenService` had `DateTime.UtcNow.AddDays(_configuration.GetSection("JwtToken:RefreshTokenExpiryMinutes")` (note the `.AddDays`) instead of `DateTime.UtcNow.AddMinutes(_configuration.GetSection("JwtToken:RefreshTokenExpiryMinutes")`.
+> ⚠️ **NOTE**
+>
+> The `appSettings.json` field names and value types for token expiries have changed and will need to be updated in your settings.
+>
+> `AuthTokenExpiryMinutes` has changed to `AuthTokenExpiryTimeSpan` and now has a default value of `02:00:00` (2 hours).
+>
+> `RefreshTokenExpiryMinutes` has changed to `RefreshTokenExpiryTimeSpan` and now has a default value of `3.00:00:00` (3 days).
+
+- Improvement: Token Expiry settings now take in a TimeSpan value as a string. For information on the structure of TimeSpan strings please refer to [Microsoft's Documentation](https://learn.microsoft.com/dotnet/api/system.timespan.tostring#system-timespan-tostring).
+- Fixed: The `GenerateRefreshToken` method on `TokenService` had `DateTime.UtcNow.AddDays(_configuration.GetSection("JwtToken:RefreshTokenExpiryMinutes")` (note that it was doing a `.AddDays` on a "Minutes" value).
 
 ### Version 3.1.5
 

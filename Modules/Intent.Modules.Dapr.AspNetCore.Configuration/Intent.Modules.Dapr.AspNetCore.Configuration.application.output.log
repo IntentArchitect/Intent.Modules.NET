@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>00bcef41-099a-4a9b-8557-5399f39d2dfc</ProjectId>
+      <ProjectId>a1502895-4e72-48aa-9038-8ed4c4db6de3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Dapr.AspNetCore.Configuration.imodspec</ApplicationRelativeFilePath>
@@ -25,8 +25,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>00bcef41-099a-4a9b-8557-5399f39d2dfc</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#00bcef41-099a-4a9b-8557-5399f39d2dfc</CorrelationId>
+      <ProjectId>a1502895-4e72-48aa-9038-8ed4c4db6de3</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#a1502895-4e72-48aa-9038-8ed4c4db6de3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Dapr.AspNetCore.Configuration.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Dapr.AspNetCore.Configuration.csproj</ProjectRelativeFilePath>

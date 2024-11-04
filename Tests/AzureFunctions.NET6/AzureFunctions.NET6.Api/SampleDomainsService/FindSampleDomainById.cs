@@ -37,7 +37,7 @@ namespace AzureFunctions.NET6.Api.SampleDomainsService
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "sample-domains/{id}")] HttpRequest req,
             Guid id,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             try
             {

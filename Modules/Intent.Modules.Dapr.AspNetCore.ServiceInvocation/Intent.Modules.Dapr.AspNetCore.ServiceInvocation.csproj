@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="resources\**" />
+    <EmbeddedResource Remove="resources\**" />
+    <None Remove="resources\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.6.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.7.6" />
     <PackageReference Include="Intent.Modules.Modelers.ServiceProxies" Version="5.2.0" />
@@ -20,10 +26,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Application.Contracts.Clients\Intent.Modules.Application.Contracts.Clients.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="resources\" />
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems" Label="Shared" />

@@ -1,6 +1,7 @@
 ### Version 1.2.7
 
 - Improvement: Small updated to more align code styling with best practices
+- Improvement: Updated module icon.
 
 ### Version 1.2.6
 

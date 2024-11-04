@@ -40,7 +40,7 @@ namespace AzureFunctions.NET6.Api.Enums.EnumService
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "route-enum/{testenum}/test-route-enum")] HttpRequest req,
             string testEnum,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             try
             {

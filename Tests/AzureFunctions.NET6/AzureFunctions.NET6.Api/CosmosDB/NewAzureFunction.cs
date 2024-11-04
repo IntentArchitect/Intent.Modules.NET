@@ -27,7 +27,7 @@ namespace AzureFunctions.NET6.Api.CosmosDB
         [FunctionName("CosmosDB_NewAzureFunction")]
         public async Task Run(
             [CosmosDBTrigger(databaseName: "MyDB", containerName: "Container", Connection = "Connection", CreateLeaseContainerIfNotExists = true, LeaseContainerName = "leases")] IReadOnlyCollection<CosmosChangeDto> rawCollection,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             if (rawCollection == null || rawCollection.Count == 0) return;
             var changes = rawCollection.ToList();

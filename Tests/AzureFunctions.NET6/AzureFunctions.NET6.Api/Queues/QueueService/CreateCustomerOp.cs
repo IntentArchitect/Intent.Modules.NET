@@ -29,9 +29,7 @@ namespace AzureFunctions.NET6.Api.Queues.QueueService
         }
 
         [FunctionName("Queues_QueueService_CreateCustomerOp")]
-        public async Task Run(
-            [QueueTrigger("customers")] QueueMessage rawMessage,
-            CancellationToken cancellationToken = default)
+        public async Task Run([QueueTrigger("customers")] QueueMessage rawMessage, CancellationToken cancellationToken)
         {
             var dto = JsonSerializer.Deserialize<CustomerDto>(rawMessage.Body.ToString(), new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
 

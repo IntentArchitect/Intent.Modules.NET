@@ -72,7 +72,7 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
             });
         }
 
-        method.AddOptionalCancellationTokenParameter();
+        method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
     }
 
     private string NullableSymbol => _template.OutputTarget.GetProject().NullableEnabled ? "?" : string.Empty;
