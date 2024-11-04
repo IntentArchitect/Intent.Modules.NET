@@ -238,10 +238,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
                     }
 
                     profile.EnvironmentVariables ??= new Dictionary<string, string>();
-                    if (!profile.EnvironmentVariables.ContainsKey(environmentVariable.Key))
-                    {
-                        profile.EnvironmentVariables[environmentVariable.Key] = environmentVariable.Value as string;
-                    }
+                    profile.EnvironmentVariables[environmentVariable.Key] = environmentVariable.Value as string;
                 }
             }
 
