@@ -181,13 +181,14 @@ You can use the follow tools to work and test locally for things like QueueStora
 
 ## Migrating from In-Process functions
 
-If you are still running the .NET 6 In-Process Azure Functions, you can migrate over to Isolated Processes using Intent Architect by performing the following steps:
+To migrate your Azure Functions applications from the .NET 6 In-Process model to Isolated Processes, follow these steps using Intent Architect:
 
-- In Intent Architect, having your Azure Functions application open.
-- Right-click on the application and select Manage Modules.
-- Update the Intent.AzureFunctions modules to the latest versions.
-- Next, Open the Visual Studio designer
-- Locate the API host project and left-click on it.
-- Change the .NET version from 6 to 8 (minimum).
-- Ensure all the other C# Projects also have upgraded from .NET 6 to 8.
-- Run the Software Factory. You will expect your Startup.cs file to be removed and a Program.cs to be created and all the Azure Functions to be updated.
+1. **Open Intent Architect**: Launch Intent Architect with your existing Azure Functions application.
+2. **Manage Modules**: Right-click on your application in the solution explorer and select **Manage Modules**.
+3. **Update Modules**: Ensure that the `Intent.AzureFunctions` modules are updated to the latest versions available.
+4. **Open Visual Studio Designer**: Access the Visual Studio designer for that same application.
+5. **Select API Host Project**: Find the API host project in the solution. Click on it to highlight it.
+6. **Change .NET Version**: Update the .NET version from 6 to 8 (or higher, if applicable) for the API host project.
+7. **Change the Output Type**: In the Output Type, select `Console` to make the application an EXE.
+8. **Upgrade C# Projects**: Confirm that all other C# projects in the solution are also upgraded from .NET 6 to .NET 8.
+9. **Run the Software Factory**: Execute the Software Factory process. As a result, your `Startup.cs` file will be removed, and a new `Program.cs` will be created. Additionally, all Azure Functions within your project will be updated to align with the Isolated Process model.

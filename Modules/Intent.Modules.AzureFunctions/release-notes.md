@@ -1,8 +1,11 @@
 ### Version 5.0.0
 
-- New Feature: Azure Functions for Isolated Processes are accessible by marking your API project as .NET 8 and setting the Output Type to `Console` in the Visual Studio designer.
-  
-  **See the module docs on how to migrate from In-Process functions.**
+- New Feature: Azure Functions for Isolated Processes are now accessible by configuring your API project to target .NET 8 and setting the Output Type to `Console` in the Visual Studio designer. This enhancement is introduced for the following reasons:
+  - **End of Support for .NET 6:** As of [12 November 2024](https://devblogs.microsoft.com/dotnet/dotnet-6-end-of-support/), .NET 6 will reach its end of support, necessitating migration to newer versions.
+  - **In-Process Model Retirement:** The In-Process model will reach its end of support on [10 November 2026](https://azure.microsoft.com/en-us/updates/retirement-support-for-the-inprocess-model-for-net-apps-in-azure-functions-ends-10-november-2026), prompting the shift to Isolated Processes.
+  - **Support for .NET 8 and Above:** This update provides improved compatibility and features for .NET 8 and future versions.
+
+**Refer to the module documentation for guidance on migrating from In-Process functions.**
 
 ### Version 4.1.3
 
