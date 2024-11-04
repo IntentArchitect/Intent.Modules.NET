@@ -50,7 +50,7 @@ namespace Application.Identity.AccountController.Api.Services
 
         public (string Token, DateTime Expiry) GenerateRefreshToken(string username)
         {
-            var expiry = DateTime.UtcNow.AddDays(_configuration.GetSection("JwtToken:RefreshTokenExpiryMinutes").Get<int?>() ?? 3);
+            var expiry = DateTime.UtcNow.AddMinutes(_configuration.GetSection("JwtToken:RefreshTokenExpiryMinutes").Get<int?>() ?? 3);
             var unprotected = JsonSerializer.Serialize(new RefreshToken { Username = username, Expiry = expiry });
             var token = _protector.Protect(unprotected);
 

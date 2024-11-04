@@ -77,7 +77,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.TokenSe
                     {
                         method.AddParameter("string", "username");
                         method.AddStatements(@"
-                            var expiry = DateTime.UtcNow.AddDays(_configuration.GetSection(""JwtToken:RefreshTokenExpiryMinutes"").Get<int?>() ?? 3);
+                            var expiry = DateTime.UtcNow.AddMinutes(_configuration.GetSection(""JwtToken:RefreshTokenExpiryMinutes"").Get<int?>() ?? 3);
                             var unprotected = JsonSerializer.Serialize(new RefreshToken { Username = username, Expiry = expiry });
                             var token = _protector.Protect(unprotected);
 

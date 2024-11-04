@@ -1,3 +1,7 @@
+### Version 3.1.6
+
+- Fixed: The `GenerateRefreshToken` method on `TokenService` had `DateTime.UtcNow.AddDays(_configuration.GetSection("JwtToken:RefreshTokenExpiryMinutes")` (note the `.AddDays`) instead of `DateTime.UtcNow.AddMinutes(_configuration.GetSection("JwtToken:RefreshTokenExpiryMinutes")`.
+
 ### Version 3.1.5
 
 - Fixed: Missed `Intent.JWT` module as dependency.
