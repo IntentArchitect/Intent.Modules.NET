@@ -30,7 +30,7 @@ namespace AzureFunctions.NET6.Api.CosmosDB
         [FunctionName("CosmosDB_CosmosChange")]
         public async Task Run(
             [CosmosDBTrigger(databaseName: "DBName", containerName: "Container", Connection = "Connection", CreateLeaseContainerIfNotExists = true, LeaseContainerName = "leases")] IReadOnlyCollection<CosmosChangeCommand> rawCollection,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             if (rawCollection == null || rawCollection.Count == 0) return;
 

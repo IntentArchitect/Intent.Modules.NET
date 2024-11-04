@@ -94,7 +94,7 @@ internal class QueueTriggerHandler : IFunctionTriggerHandler
             method.AddAttribute(_template.UseType("Microsoft.Azure.Functions.Worker.QueueOutput"), attr => attr.AddArgument($@"""{outputBinding.GetProperty<string>("Queue Name")}"""));
         }
 
-        method.AddOptionalCancellationTokenParameter();
+        method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
         return;
 
         static bool IsCommand(ITypeReference modelReturnType)

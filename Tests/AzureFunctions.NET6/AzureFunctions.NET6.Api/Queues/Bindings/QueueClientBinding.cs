@@ -29,7 +29,7 @@ namespace AzureFunctions.NET6.Api.Queues.Bindings
         public async Task Run(
             [QueueTrigger("queue1")] Application.Queues.CreateCustomerMessage.CreateCustomerMessage message,
             [Queue("out-queue")] QueueClient queueClient,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }

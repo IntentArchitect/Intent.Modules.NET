@@ -26,7 +26,7 @@ namespace AzureFunctions.NET8.Api.Queues.Bindings
         [QueueOutput("out-queue")]
         public async Task<CustomerDto> Run(
             [QueueTrigger("in-queue")] BindCommand bindCommand,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(bindCommand, cancellationToken);
             return result;

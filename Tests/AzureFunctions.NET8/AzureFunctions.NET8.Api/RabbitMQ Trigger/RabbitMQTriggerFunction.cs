@@ -23,7 +23,7 @@ namespace AzureFunctions.NET8.Api.RabbitMQTrigger
         [Function("RabbitMQ Trigger_RabbitMQTriggerFunction")]
         public async Task Run(
             [Microsoft.Azure.Functions.Worker.RabbitMQTrigger("rabbit-queue")] BasicDeliverEventArgs args,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             var command = JsonSerializer.Deserialize<Application.RabbitMQTrigger.CommandForRabbitMQTrigger.CommandForRabbitMQTrigger>(args.Body.ToArray());
         }

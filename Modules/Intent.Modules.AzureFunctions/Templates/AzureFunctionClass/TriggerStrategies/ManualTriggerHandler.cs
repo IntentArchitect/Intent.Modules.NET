@@ -35,7 +35,7 @@ internal class ManualTriggerHandler : IFunctionTriggerHandler
             type: _template.GetTypeName(_azureFunctionModel.Parameters.Single().TypeReference),
             name: _azureFunctionModel.Parameters.Single().Name.ToParameterName());
 
-        method.AddOptionalCancellationTokenParameter();
+        method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
     }
 
     public void ApplyMethodStatements(CSharpClassMethod method)

@@ -77,7 +77,7 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass.TriggerStra
                         }
                     });
                 });
-            method.AddOptionalCancellationTokenParameter();
+            method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
         }
 
         public void ApplyMethodStatements(CSharpClassMethod method)

@@ -24,7 +24,7 @@ namespace AzureFunctions.NET8.Api.RabbitMQTrigger
         [Function("RabbitMQ Trigger_CommandForRabbitMQTrigger")]
         public async Task Run(
             [Microsoft.Azure.Functions.Worker.RabbitMQTrigger("rabbit-queue")] Application.RabbitMQTrigger.CommandForRabbitMQTrigger.CommandForRabbitMQTrigger commandForRabbitMQTrigger,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             await _mediator.Send(commandForRabbitMQTrigger, cancellationToken);
 

@@ -24,7 +24,7 @@ namespace AzureFunctions.NET8.Api.Queues.Bindings
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<CustomerDto> Run(
             [QueueTrigger("queue1")] Application.Queues.CreateCustomerMessage.CreateCustomerMessage message,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             return default;
         }
