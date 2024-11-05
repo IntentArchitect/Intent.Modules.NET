@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="707e1f8a-e1b2-405c-8e1e-e22b1e434798" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2882e5e5-a25e-4ef7-bbf1-da619efe7650</parentFolderId>
+  <packageId>2882e5e5-a25e-4ef7-bbf1-da619efe7650</packageId>
+  <packageName>Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Domain</packageName>
+  <diagram>
+    <targetPackageId>707e1f8a-e1b2-405c-8e1e-e22b1e434798</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

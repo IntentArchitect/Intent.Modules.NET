@@ -15,8 +15,8 @@ namespace CloudBlobStorageClients.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<IBlobStorage, AzureBlobStorage>();
-            services.AddAmazonS3ObjectStorage(configuration);
             services.AddGoogleCloudStorage(configuration);
+            services.AddAmazonS3ObjectStorage(configuration);
             return services;
         }
     }

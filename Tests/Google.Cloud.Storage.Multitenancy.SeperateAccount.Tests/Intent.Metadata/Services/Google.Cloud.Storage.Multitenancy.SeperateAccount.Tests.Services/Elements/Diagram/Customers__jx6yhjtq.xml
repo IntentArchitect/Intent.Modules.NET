@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="480daef4-816d-4f88-b847-427e882ee77a" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Customers</name>
+  <display>Customers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>817dcc1b-abc0-4cba-9cb7-530bc08fa1af</parentFolderId>
+  <packageId>b9f6ee60-050f-487a-8ffa-16e2b09079c5</packageId>
+  <packageName>Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>480daef4-816d-4f88-b847-427e882ee77a</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

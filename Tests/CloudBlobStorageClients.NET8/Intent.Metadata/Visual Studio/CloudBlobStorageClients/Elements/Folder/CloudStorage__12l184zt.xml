@@ -23,5 +23,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="da04435e-82ea-4765-ad31-523e2113902d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Google.CloudStorage.GoogleCloudStorageMultiTenantConnectionFactory</name>
+      <display>Intent.Google.CloudStorage.GoogleCloudStorageMultiTenantConnectionFactory</display>
+      <externalReference>Intent.Google.CloudStorage</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>af9cac0f-fdae-44ef-9273-23825860b66f</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

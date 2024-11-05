@@ -41,7 +41,7 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageConfigu
                         {
                             var teneantConnectionsTemplate = this.GetTemplate<ICSharpFileBuilderTemplate>("Intent.Modules.AspNetCore.MultiTenancy.TenantConnectionsInterfaceTemplate");
 
-                            method.AddStatement($"services.AddSingleton<{this.GetGoogleCloudStorageMultiTenantConnectionFactoryName()}>();");                            
+                            method.AddStatement($"services.AddSingleton<{this.GetGoogleCloudStorageMultiTenantConnectionFactoryName()}>();");
                             method.AddInvocationStatement("services.AddScoped", invoc =>
                             {
                                 invoc.AddLambdaBlock("sp", lambda =>

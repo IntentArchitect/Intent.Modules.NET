@@ -59,9 +59,17 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantConnectionsInte
                 {
                     return;
                 }
+
+                var multiTenantException = template.UseType("Finbuckle.MultiTenant.MultiTenantException");
+                //Working around a name conflict with MongoFramework, dont have a better solution right now. 
+                if (template.ExecutionContext.InstalledModules.Any(x => x.ModuleId == "Intent.MongoDb"))
+                {
+                    multiTenantException = "Finbuckle.MultiTenant.MultiTenantException";
+                }
+
                 method.AddStatement($@"services.AddScoped<ITenantConnections>(
                 provider => provider.GetService<ITenantInfo>() as {template.GetTenantExtendedInfoName()} ?? 
-                throw new Finbuckle.MultiTenant.MultiTenantException(""Failed to resolve tenant info""));");
+                throw new { multiTenantException }(""Failed to resolve tenant info""));");
             });
         }
 

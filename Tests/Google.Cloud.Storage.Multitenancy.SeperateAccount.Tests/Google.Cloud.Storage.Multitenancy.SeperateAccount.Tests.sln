@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{07A31576-BC03-419B-9E8A-F6616CFDEBB9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Api", "Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Api\Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Api.csproj", "{5BAFF1A0-D29A-483A-8ED6-A47BC761A044}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{A1200146-967B-436C-AABC-CE4ED7EBB61D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application", "Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application\Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application.csproj", "{DF672BFE-5754-472D-BD86-390B643661C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{7F7DCA14-A929-4BA4-972A-8099F1D40C88}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Domain", "Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Domain\Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Domain.csproj", "{CE615823-7E8D-4473-AA02-8D9854224291}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{5DC4FD85-20C8-46AB-A29E-E1A3FF43682D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure", "Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure\Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Infrastructure.csproj", "{1FCBE360-16F9-4655-96D3-A51E7307F344}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5BAFF1A0-D29A-483A-8ED6-A47BC761A044} = {07A31576-BC03-419B-9E8A-F6616CFDEBB9}
+		{DF672BFE-5754-472D-BD86-390B643661C8} = {A1200146-967B-436C-AABC-CE4ED7EBB61D}
+		{CE615823-7E8D-4473-AA02-8D9854224291} = {7F7DCA14-A929-4BA4-972A-8099F1D40C88}
+		{1FCBE360-16F9-4655-96D3-A51E7307F344} = {5DC4FD85-20C8-46AB-A29E-E1A3FF43682D}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5BAFF1A0-D29A-483A-8ED6-A47BC761A044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BAFF1A0-D29A-483A-8ED6-A47BC761A044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BAFF1A0-D29A-483A-8ED6-A47BC761A044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BAFF1A0-D29A-483A-8ED6-A47BC761A044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF672BFE-5754-472D-BD86-390B643661C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF672BFE-5754-472D-BD86-390B643661C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF672BFE-5754-472D-BD86-390B643661C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF672BFE-5754-472D-BD86-390B643661C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE615823-7E8D-4473-AA02-8D9854224291}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE615823-7E8D-4473-AA02-8D9854224291}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE615823-7E8D-4473-AA02-8D9854224291}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE615823-7E8D-4473-AA02-8D9854224291}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FCBE360-16F9-4655-96D3-A51E7307F344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FCBE360-16F9-4655-96D3-A51E7307F344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FCBE360-16F9-4655-96D3-A51E7307F344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FCBE360-16F9-4655-96D3-A51E7307F344}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
