@@ -142,7 +142,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                                 foreach (var tenant in tenantList.Tenants)
                                 {
                                     method
-                                        .AddStatement($"store.TryAddAsync(new {GetTenantClass()}() {{ {string.Join(",", tenant.Select(kvp => $"{kvp.Key} = \"{kvp.Value}\""))} }}).Wait();", s => s
+                                        .AddStatement($"store.TryAddAsync(new {GetTenantClass()}() {{ {string.Join(", ", tenant.Select(kvp => $"{kvp.Key} = \"{kvp.Value}\""))} }}).Wait();", s => s
                                             .AddMetadata($"add-{tenant["Identifier"]}", true));
                                 }
                                 /*

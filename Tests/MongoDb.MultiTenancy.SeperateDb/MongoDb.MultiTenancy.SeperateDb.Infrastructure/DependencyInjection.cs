@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MongoDb.MultiTenancy.SeperateDb.Application.Common.Interfaces;
 using MongoDb.MultiTenancy.SeperateDb.Domain.Common.Interfaces;
 using MongoDb.MultiTenancy.SeperateDb.Domain.Repositories;
+using MongoDb.MultiTenancy.SeperateDb.Infrastructure.MultiTenant;
 using MongoDb.MultiTenancy.SeperateDb.Infrastructure.Persistence;
 using MongoDb.MultiTenancy.SeperateDb.Infrastructure.Repositories;
 using MongoDb.MultiTenancy.SeperateDb.Infrastructure.Services;
@@ -20,12 +21,19 @@ namespace MongoDb.MultiTenancy.SeperateDb.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<ApplicationMongoDbContext>();
-            services.AddSingleton<MongoDbConnectionFactory>();
+            services.AddSingleton<MongoDbMultiTenantConnectionFactory>();
             services.AddScoped<IMongoDbConnection>(provider =>
                     {
-                        var tenantInfo = provider.GetService<ITenantInfo>() ?? throw new Finbuckle.MultiTenant.MultiTenantException("Failed to resolve tenant info.");
-                        return provider.GetRequiredService<MongoDbConnectionFactory>().GetConnection(tenantInfo);
+                        var tenantConnections = provider.GetService<ITenantConnections>();
+                        if (tenantConnections is null || tenantConnections.MongoDbConnection is null)
+                        {
+                            throw new Finbuckle.MultiTenant.MultiTenantException("Failed to resolve tenant MongoDb connection information");
+                        }
+                        return provider.GetRequiredService<MongoDbMultiTenantConnectionFactory>().GetConnection(tenantConnections.MongoDbConnection);
                     });
+            services.AddScoped<ITenantConnections>(
+                provider => provider.GetService<ITenantInfo>() as TenantExtendedInfo ??
+                throw new Finbuckle.MultiTenant.MultiTenantException("Failed to resolve tenant info"));
             services.AddTransient<ICustomerRepository, CustomerMongoRepository>();
             services.AddTransient<IMongoDbUnitOfWork>(provider => provider.GetRequiredService<ApplicationMongoDbContext>());
             services.AddScoped<IDomainEventService, DomainEventService>();

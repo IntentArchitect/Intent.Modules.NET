@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Modules.AspNetCore.MultiTenancy.MultiTenancyConfiguration</correlationId>
+      <path>MongoDb.MultiTenancy.SeperateDb.Api/Configuration/MultiTenancyConfiguration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2024-11-05T09:39:59.7578848Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2024-11-05T09:45:27.1252491Z</approvedAt>
+      <deviationsHash>E1624FE86FFB7559750893F2934464C72015B415E2F360CEE867B4BC10C71174</deviationsHash>
+      <fileHash>7B8E570F2C5CE6C8E5C9369BA5129C1BEC419834C96096DEA99B067666FE2EF8</fileHash>
+    </file>
+  </files>
 </deviationsLog>

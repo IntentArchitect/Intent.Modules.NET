@@ -593,6 +593,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>feab2697-c0ef-4bf1-b092-d648db071863</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.MultiTenancy.TenantConnectionsInterfaceTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Infrastructure/MultiTenant/ITenantConnections.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ITenantConnections.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>feab2697-c0ef-4bf1-b092-d648db071863</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.MultiTenancy.TenantExtendedInfo</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Infrastructure/MultiTenant/TenantExtendedInfo.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TenantExtendedInfo.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>aebb8212-565c-46ba-ad95-584669afd75a</ProjectId>
       <CorrelationId>Intent.MongoDb.ApplicationMongoDbContext</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -602,10 +618,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>aebb8212-565c-46ba-ad95-584669afd75a</ProjectId>
-      <CorrelationId>Intent.MongoDb.MongoDbConnectionFactory</CorrelationId>
+      <CorrelationId>Intent.MongoDb.MongoDbMultiTenantConnectionFactory</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Infrastructure/Persistence/MongoDbConnectionFactory.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoDbConnectionFactory.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Infrastructure/Persistence/MongoDbMultiTenantConnectionFactory.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MongoDbMultiTenantConnectionFactory.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

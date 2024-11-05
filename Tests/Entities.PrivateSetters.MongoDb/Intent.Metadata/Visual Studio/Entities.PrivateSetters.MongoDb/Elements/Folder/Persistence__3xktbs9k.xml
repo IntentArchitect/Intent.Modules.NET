@@ -37,9 +37,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="a5c4f7c7-f47e-4ed9-a0fd-f573dce8c365" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MongoDb.MongoDbConnectionFactory</name>
-      <display>Intent.MongoDb.MongoDbConnectionFactory</display>
+    <childElement id="1cd6abbd-1b02-46f9-92be-0e7e7cbe0fde" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.MongoDbMultiTenantConnectionFactory</name>
+      <display>Intent.MongoDb.MongoDbMultiTenantConnectionFactory</display>
       <externalReference>Intent.MongoDb</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

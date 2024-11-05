@@ -155,9 +155,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="71e1b2d2-40db-4501-9a91-624b50f87915" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.MongoDb.MongoDbConnectionFactory</name>
-      <display>Intent.MongoDb.MongoDbConnectionFactory</display>
+    <childElement id="eca2e1f7-e23b-4ec8-a2d4-3c53f4b4ead8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.MongoDb.MongoDbMultiTenantConnectionFactory</name>
+      <display>Intent.MongoDb.MongoDbMultiTenantConnectionFactory</display>
       <externalReference>Intent.MongoDb</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

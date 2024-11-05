@@ -7,26 +7,22 @@ using MongoFramework;
 using MongoFramework.Infrastructure.Diagnostics;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.MongoDb.MongoDbConnectionFactory", Version = "1.0")]
+[assembly: IntentTemplate("Intent.MongoDb.MongoDbMultiTenantConnectionFactory", Version = "1.0")]
 
 namespace MongoDb.MultiTenancy.SeperateDb.Infrastructure.Persistence
 {
-    public class MongoDbConnectionFactory : IDisposable
+    public class MongoDbMultiTenantConnectionFactory : IDisposable
     {
         private readonly ConcurrentDictionary<string, CacheableMongoDbConnection> _connectionCache;
 
-        public MongoDbConnectionFactory()
+        public MongoDbMultiTenantConnectionFactory()
         {
             _connectionCache = new ConcurrentDictionary<string, CacheableMongoDbConnection>();
         }
 
-        public IMongoDbConnection GetConnection(ITenantInfo tenant)
+        public IMongoDbConnection GetConnection(string connectionString)
         {
-            if (tenant is null || tenant.Identifier is null)
-            {
-                throw new ArgumentException("Tenant not supplied.", nameof(tenant));
-            }
-            return _connectionCache.GetOrAdd(tenant.Identifier, id => new CacheableMongoDbConnection(MongoDbConnection.FromConnectionString(tenant.ConnectionString)));
+            return _connectionCache.GetOrAdd(connectionString, id => new CacheableMongoDbConnection(MongoDbConnection.FromConnectionString(connectionString)));
         }
 
         public void Dispose()

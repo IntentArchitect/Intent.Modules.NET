@@ -33,9 +33,13 @@ namespace Intent.Modules.MongoDb.Settings
 
     internal static class ModuleSettingsExtensions
     {
-        public static MultitenancySettings GetMultitenancySettings(this IApplicationSettingsProvider settings)
+        public static MultitenancySettings? GetMultitenancySettings(this IApplicationSettingsProvider settings)
         {
-            return new MultitenancySettings(settings.GetGroup("41ae5a02-3eb2-42a6-ade2-322b3c1f1115"));
+            if (settings.GetGroup("41ae5a02-3eb2-42a6-ade2-322b3c1f1115") != null)
+            {
+                return new MultitenancySettings(settings.GetGroup("41ae5a02-3eb2-42a6-ade2-322b3c1f1115"));
+            }
+            return null;
         }
     }
 

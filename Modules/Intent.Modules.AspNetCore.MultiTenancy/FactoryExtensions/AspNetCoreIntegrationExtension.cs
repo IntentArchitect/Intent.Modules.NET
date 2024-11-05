@@ -290,68 +290,6 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
         var template = application.FindTemplateInstance<MultiTenancyConfigurationTemplate>(MultiTenancyConfigurationTemplate.TemplateId);
         var extendedInfoTypeName = template.GetTypeName(TenantExtendedInfoTemplate.TemplateId);
 
-        /*
-        template.DefaultTenants = new[]
-        {
-            new
-            {
-                Id = "sample-tenant-1",
-                Identifier = "tenant1",
-                Name = "Tenant 1",
-                ConnectionStrings = connectionStringNames
-                    .Select(connectionStringName => new
-                    {
-                        Name = connectionStringName,
-                        Value = $"Tenant1{connectionStringName}Connection"
-                    })
-                    .ToArray()
-            },
-            new
-            {
-                Id = "sample-tenant-2",
-                Identifier = "tenant2",
-                Name = "Tenant 2",
-                ConnectionStrings = connectionStringNames
-                    .Select(connectionStringName => new
-                    {
-                        Name = connectionStringName,
-                        Value = $"Tenant2{connectionStringName}Connection"
-                    })
-                    .ToArray()
-            }
-        };*/
-
-        /*
-        template.DefaultTenants = new[]
-        {
-            new
-            {
-                Id = "sample-tenant-1",
-                Identifier = "tenant1",
-                Name = "Tenant 1",
-                ConnectionStrings = connectionStringNames
-                    .Select(connectionStringName => new
-                    {
-                        Name = connectionStringName,
-                        Value = $"Tenant1{connectionStringName}Connection"
-                    })
-                    .ToArray()
-            },
-            new
-            {
-                Id = "sample-tenant-2",
-                Identifier = "tenant2",
-                Name = "Tenant 2",
-                ConnectionStrings = connectionStringNames
-                    .Select(connectionStringName => new
-                    {
-                        Name = connectionStringName,
-                        Value = $"Tenant2{connectionStringName}Connection"
-                    })
-                    .ToArray()
-            }
-        };*/
-
         template.CSharpFile.AfterBuild(file =>
         {
             file.AddUsing("System.Collections.Generic");

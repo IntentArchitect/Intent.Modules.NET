@@ -53,5 +53,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="dc61d7d7-ee2c-4d4c-a15f-69275d4b97de" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.AspNetCore.MultiTenancy.TenantConnectionsInterfaceTemplate</name>
+      <display>Intent.Modules.AspNetCore.MultiTenancy.TenantConnectionsInterfaceTemplate</display>
+      <externalReference>Intent.Modules.AspNetCore.MultiTenancy</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6b20ca8f-dcae-4a51-9886-159c6e0baa9e</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

@@ -56,6 +56,7 @@ namespace Intent.Modules.MongoDb.FactoryExtensions
                     method.AddStatement($"services.AddSingleton<{dependencyInjection.GetMongoDbMultiTenantConnectionFactoryName()}>();");
 
                     var teneantConnectionsTemplate = dependencyInjection.GetTemplate<ICSharpFileBuilderTemplate>("Intent.Modules.AspNetCore.MultiTenancy.TenantConnectionsInterfaceTemplate");
+                    dependencyInjection.AddUsing("Finbuckle.MultiTenant");
                     method.AddStatement(@$"services.AddScoped<IMongoDbConnection>(provider =>
                     {{
                         var tenantConnections = provider.GetService<{dependencyInjection.GetTypeName(teneantConnectionsTemplate)}>();
