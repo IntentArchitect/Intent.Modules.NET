@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a6c2c29c-6700-4744-909f-340920a11a9b" type="Module Settings Extension" typeId="72044cdf-1f96-4ad2-86be-8d5468725e67">
+  <name>Multitenancy Settings Extension</name>
+  <display>Multitenancy Settings Extension: Multitenancy Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="e5e5cab6-5a42-4c2f-ab9f-b6710e527929">
+    <typeId>41ae5a02-3eb2-42a6-ade2-322b3c1f1115</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modules.AspNetCore.MultiTenancy</typePackageName>
+    <typePackageId>9d4225f4-5ab3-49e8-9fe1-073ad8df3453</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>1cd103d0-3bec-4144-8795-b5d6066ca528</parentFolderId>
+  <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
+  <packageName>Intent.Google.CloudStorage</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="47907e56-bda9-4ec8-945d-318b0fdc0322" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Google Cloud Storage Data Isolation</name>
+      <display>Google Cloud Storage Data Isolation</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a6c2c29c-6700-4744-909f-340920a11a9b</parentFolderId>
+      <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
+      <packageName>Intent.Google.CloudStorage</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="none" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="a5f119c0-231d-4ca6-87d4-06faf104d612" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>None</name>
+          <display>None = none</display>
+          <isAbstract>false</isAbstract>
+          <value>none</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>47907e56-bda9-4ec8-945d-318b0fdc0322</parentFolderId>
+          <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
+          <packageName>Intent.Google.CloudStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4d7dcc07-4b89-42d7-85c1-5ee8e0670edf" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Separate Storage Account</name>
+          <display>Separate Storage Account = separate-storage-account</display>
+          <isAbstract>false</isAbstract>
+          <value>separate-storage-account</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>47907e56-bda9-4ec8-945d-318b0fdc0322</parentFolderId>
+          <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
+          <packageName>Intent.Google.CloudStorage</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

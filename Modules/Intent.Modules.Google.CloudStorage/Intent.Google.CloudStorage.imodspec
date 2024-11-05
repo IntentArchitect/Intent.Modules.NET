@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Google.CloudStorage</id>
-  <version>1.0.0-beta.1</version>
+  <version>1.0.0-beta.2</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Introduces a Object storage client that can link with Google Cloud Storage.</summary>
   <description>Introduces a Object storage client that can link with Google Cloud Storage.</description>
@@ -43,14 +43,25 @@
       <role>Infrastructure.Storage.GoogleCloudStorage</role>
       <location>CloudStorage</location>
     </template>
+    <template id="Intent.Google.CloudStorage.GoogleCloudStorageMultiTenantConnectionFactory" externalReference="f63f5d9d-f2b2-4db2-a6a7-eba77caf8dab">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Storage.GoogleCloudStorageMultiTenantConnectionFactory</role>
+      <location>CloudStorage</location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
+    <dependency id="Intent.AspNetCore" version="6.0.2" />
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.8.2-pre.1" />
+    <dependency id="Intent.Common.CSharp" version="3.8.3-pre.10" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Modelers.Domain" version="3.4.6" />
+    <dependency id="Intent.Modules.AspNetCore.MultiTenancy" version="5.1.4" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
@@ -58,6 +69,19 @@
     <file src="$outDir$/$id$.pdb" />
   </files>
   <tags />
-  <moduleSettingsExtensions />
+  <moduleSettingsExtensions>
+    <groupExtension id="a6c2c29c-6700-4744-909f-340920a11a9b" groupId="41ae5a02-3eb2-42a6-ade2-322b3c1f1115" externalReference="a6c2c29c-6700-4744-909f-340920a11a9b">
+      <settings>
+        <setting id="47907e56-bda9-4ec8-945d-318b0fdc0322" title="Google Cloud Storage Data Isolation" type="select">
+          <isRequired>false</isRequired>
+          <defaultValue>none</defaultValue>
+          <options>
+            <option value="none" description="None" />
+            <option value="separate-storage-account" description="Separate Storage Account" />
+          </options>
+        </setting>
+      </settings>
+    </groupExtension>
+  </moduleSettingsExtensions>
   <metadata />
 </package>

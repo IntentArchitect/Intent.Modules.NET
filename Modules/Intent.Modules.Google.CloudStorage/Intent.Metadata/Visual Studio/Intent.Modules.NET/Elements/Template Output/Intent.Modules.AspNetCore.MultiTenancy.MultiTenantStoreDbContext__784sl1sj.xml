@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="34141769-baa0-403f-821a-91bf3cbf6455" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.Modules.AspNetCore.MultiTenancy.MultiTenantStoreDbContext</name>
+  <display>Intent.Modules.AspNetCore.MultiTenancy.MultiTenantStoreDbContext</display>
+  <externalReference>Intent.Modules.AspNetCore.MultiTenancy</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5fd56ebd-0b85-44bf-abf3-f3ec11c14f3a</parentFolderId>
+  <stereotypes />
+  <metadata>
+    <entry key="status" value="unassigned" />
+  </metadata>
+  <childElements />
+</class>

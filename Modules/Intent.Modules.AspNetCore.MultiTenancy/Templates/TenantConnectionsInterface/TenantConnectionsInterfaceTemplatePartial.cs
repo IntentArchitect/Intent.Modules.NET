@@ -59,8 +59,8 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantConnectionsInte
                 {
                     return;
                 }
-                method.AddStatement(@"services.AddScoped<ITenantConnections>(
-                provider => provider.GetService<ITenantInfo>() as TenantExtendedInfo ?? 
+                method.AddStatement($@"services.AddScoped<ITenantConnections>(
+                provider => provider.GetService<ITenantInfo>() as {template.GetTenantExtendedInfoName()} ?? 
                 throw new Finbuckle.MultiTenant.MultiTenantException(""Failed to resolve tenant info""));");
             });
         }

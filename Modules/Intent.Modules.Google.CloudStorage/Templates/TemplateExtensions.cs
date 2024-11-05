@@ -4,6 +4,7 @@ using Intent.Modules.Google.CloudStorage.Templates.BulkCloudObjectItem;
 using Intent.Modules.Google.CloudStorage.Templates.CloudStorageInterface;
 using Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageConfiguration;
 using Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImplementation;
+using Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageMultiTenantConnectionFactory;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -31,6 +32,11 @@ namespace Intent.Modules.Google.CloudStorage.Templates
         public static string GetGoogleCloudStorageImplementationName(this IIntentTemplate template)
         {
             return template.GetTypeName(GoogleCloudStorageImplementationTemplate.TemplateId);
+        }
+
+        public static string GetGoogleCloudStorageMultiTenantConnectionFactoryName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(GoogleCloudStorageMultiTenantConnectionFactoryTemplate.TemplateId);
         }
 
     }
