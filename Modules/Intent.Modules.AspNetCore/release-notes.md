@@ -1,6 +1,6 @@
 ### Version 6.0.5
 
-- Improvement: Added braces to ProblemDetailsConfiguration template to better align with best practices
+- Improvement: Small update to make code standard more consistent.
 
 ### Version 6.0.4
 

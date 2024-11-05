@@ -10,6 +10,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -103,37 +104,27 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
                 .AddUsing("Microsoft.AspNetCore.Hosting")
                 .AddUsing("Microsoft.AspNetCore.Diagnostics")
                 .AddUsing("System.Collections.Generic");
+
             method.AddInvocationStatement("services.AddProblemDetails", addProblemDetails => addProblemDetails
                     .AddArgument(new CSharpLambdaBlock("conf")
                         .WithExpressionBody(new CSharpLambdaBlock("conf.CustomizeProblemDetails = context")
                             .AddStatements(@"
                         context.ProblemDetails.Type = $""https://httpstatuses.io/{context.ProblemDetails.Status}"";
                 
-                        if (context.ProblemDetails.Status != 500) 
-                        { 
-                            return; 
-                        }
-
+                        if (context.ProblemDetails.Status != 500) return;
                         context.ProblemDetails.Title = ""Internal Server Error"";
                         context.ProblemDetails.Extensions.TryAdd(""traceId"", Activity.Current?.Id ?? context.HttpContext.TraceIdentifier);
                 
                         var env = context.HttpContext.RequestServices.GetService<IWebHostEnvironment>()!;
-                        if (!env.IsDevelopment()) 
-                        { 
-                            return; 
-                        }
+                        if (!env.IsDevelopment()) return;
                 
                         var exceptionFeature = context.HttpContext.Features.Get<IExceptionHandlerFeature>();
-                        if (exceptionFeature is null) 
-                        { 
-                            return; 
-                        }
-
+                        if (exceptionFeature is null) return;
                         context.ProblemDetails.Detail = exceptionFeature.Error.ToString();")
                         )))
                 .AddStatement("return services;");
         }
-
+        
         public override bool CanRunTemplate()
         {
             return IsExceptionHandlerSupported(OutputTarget);
