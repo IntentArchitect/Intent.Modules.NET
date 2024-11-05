@@ -238,8 +238,7 @@ internal static class PersistenceUnitOfWork
                     var isolationLevel = template.UseType("System.Transactions.IsolationLevel");
                     var transactionScopeAsyncFlowOption = template.UseType("System.Transactions.TransactionScopeAsyncFlowOption");
 
-                    currentBlock.AddUsingBlock(@$"var transaction = new {transactionScope}(
-                {transactionScopeOption}.Required,
+                    currentBlock.AddUsingBlock(@$"var transaction = new {transactionScope}({transactionScopeOption}.Required,
                 new {transactionOptions} {{ IsolationLevel = {isolationLevel}.ReadCommitted }}, {transactionScopeAsyncFlowOption}.Enabled)",
                         @using =>
                         {

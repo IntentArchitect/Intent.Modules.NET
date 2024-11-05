@@ -1,6 +1,6 @@
 ### Version 1.0.4
 
-- Improvement: Small updated to more align code styling with best practices
+- Improvement: Small updated to module internal code
 
 ### Version 1.0.3
 
