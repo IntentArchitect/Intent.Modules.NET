@@ -1,25 +1,3 @@
-### Version 6.0.0
-
-```csharp
-//In the TenantExtendedInfo class add the following
-
-//Backwards compatibility if there is only 1 connection string for persisted stores
-public string? ConnectionString 
-{ 
-    get
-    {
-        return EFConnection;
-    }
-    set
-    {
-        if (EFConnection == null) 
-        {
-            EFConnection = value;
-        }
-    }
-}
-```
-
 ### Version 5.1.5
 
 - Improvement: Added support for multitenancy `route strategy`

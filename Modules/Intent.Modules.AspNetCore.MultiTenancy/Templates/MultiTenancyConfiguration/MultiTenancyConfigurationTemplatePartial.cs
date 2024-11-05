@@ -203,13 +203,15 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.MultiTenancyConfigura
                     {
                         { "Id" , "sample-tenant-1" },
                         { "Identifier" , "tenant1" },
-                        { "Name" , "Tenant 1" }
+                        { "Name" , "Tenant 1" },
+                        { "ConnectionString" , "Tenant1Connection" }
                     },
                     new Dictionary<string, string>
                     {
                         { "Id" , "sample-tenant-2" },
                         { "Identifier" , "tenant2" },
-                        { "Name" , "Tenant 2" }
+                        { "Name" , "Tenant 2" },
+                        { "ConnectionString" , "Tenant2Connection" }
                     }
                 });
             if (_connectionRequests.Any())

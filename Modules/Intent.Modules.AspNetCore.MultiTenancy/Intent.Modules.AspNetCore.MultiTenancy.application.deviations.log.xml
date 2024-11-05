@@ -12,7 +12,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:04:30.0895507Z</approvedAt>
       <deviationsHash>BB7D9A01994B4AC151B724B0DF4854C7206B574B07703AB73E68A643DC7BA438</deviationsHash>
-      <fileHash>36F1BA4AA05BE2E772BEBAD438FA7EC3E75F134071DF950EFE34C34E05316D25</fileHash>
+      <fileHash>4FC3F72A97DBF5C607CE3F54F323F0D223EC03F23B83576ACA4872E0328C7F26</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0010a2e5-2a3a-4c32-a2c3-b125afe9f750</correlationId>
@@ -35,7 +35,7 @@
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2024-11-01T09:30:24.347878Z</updatedAt>
       <deviationsHash>F04BC5A92FB4777AF3E7D8FB6FF303B640A01B4A09CBAEBCDF11D7487AA86742</deviationsHash>
-      <fileHash>B402AFA51904F809B954965050809F49D3CC7EA58932C2B69C12AD6846CEA7D1</fileHash>
+      <fileHash>EE5ADC516F03D2C01BC4667052356487FA81E05B07368D3FD82B818F3A3E1B15</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>

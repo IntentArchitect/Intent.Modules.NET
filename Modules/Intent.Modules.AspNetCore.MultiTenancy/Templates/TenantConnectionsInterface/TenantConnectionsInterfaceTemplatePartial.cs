@@ -60,7 +60,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantConnectionsInte
                     return;
                 }
                 method.AddStatement(@"services.AddScoped<ITenantConnections>(
-                provider => provider.GetRequiredService<IMultiTenantContextAccessor<TenantExtendedInfo>>().MultiTenantContext?.TenantInfo ?? 
+                provider => provider.GetService<ITenantInfo>() as TenantExtendedInfo ?? 
                 throw new Finbuckle.MultiTenant.MultiTenantException(""Failed to resolve tenant info""));");
             });
         }

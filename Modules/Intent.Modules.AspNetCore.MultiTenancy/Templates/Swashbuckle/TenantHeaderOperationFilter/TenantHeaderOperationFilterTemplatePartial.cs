@@ -29,7 +29,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.Swashbuckle.TenantHea
                 .AddClass("TenantHeaderOperationFilter", @class =>
                 {
                     @class.ImplementsInterface("IOperationFilter");
-                    @class.AddMethod("void", "Apply", method => 
+                    @class.AddMethod("void", "Apply", method =>
                     {
                         method
                             .AddParameter("OpenApiOperation", "operation")
