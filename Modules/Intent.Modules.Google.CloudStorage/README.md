@@ -45,6 +45,33 @@ public class MarketingMaterialService
 
 This service class simplifies all functions related to storing and retrieving marketing materials, enhancing the manageability and cleanliness of the overall codebase.
 
+## Multitenancy Support
+
+When used in conjunction with our `Intent.Modules.AspNetCore.MultiTenancy` module, has support for multitenancy. You can adjust the setting as follows:
+
+![Multiteanancy Setting](./docs/images/multitenancy-settings.png)
+
+The `Google Cloud Storage Data Isolation` setting can be configured to either
+
+- *None*, Shared account (No multitenancy)
+- *Separate Storage Account*, Each tenant has their own configures Google Storage Account.
+
+You simply need to configure your Cloud Storage Account details per tenant.
+
+Here is a sample configuration for the `In Memory` tenant store.
+
+```csharp
+
+public static void InitializeStore(IServiceProvider sp)
+{
+    var scopeServices = sp.CreateScope().ServiceProvider;
+    var store = scopeServices.GetRequiredService<IMultiTenantStore<TenantExtendedInfo>>();
+
+    store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", GoogleCloudStorageConnection = "{Json Details Here}" }).Wait();
+    store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", GoogleCloudStorageConnection = "{Json Details Here}" }).Wait();
+}
+```
+
 ## Pre-Signed Expiry Urls
 
 Performing a `GetAsync` will give you back a link that you can use to gain access to an object for a limited amount of time ([link](https://cloud.google.com/storage/docs/access-control/signed-urls)).

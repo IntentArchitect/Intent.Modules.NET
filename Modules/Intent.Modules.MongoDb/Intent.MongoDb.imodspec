@@ -56,6 +56,11 @@
         <package id="Intent.Application.MediatR.Behaviours" version="4.2.11" />
       </install>
     </detect>
+    <detect id="Intent.Modules.AspNetCore.MultiTenancy">
+      <install>
+        <package id="Intent.Modules.AspNetCore.MultiTenancy" version="5.1.5-pre.1" />
+      </install>
+    </detect>
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>

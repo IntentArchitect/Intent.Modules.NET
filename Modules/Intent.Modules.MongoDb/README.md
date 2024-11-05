@@ -27,7 +27,7 @@ When designing domain models for MongoDB your domain package must be annotated w
 
 ## Multi-Tenancy Support
 
-The module can work in conjunction with the `Intent.Modules.AspNetCore.MultiTenancy`. This module currently only support the `Separate Databases` Data Isolation option.
+The module can work in conjunction with the `Intent.Modules.AspNetCore.MultiTenancy`. This module currently only supports the `Separate Databases` Data Isolation option.
 
 In this setup each tenant will connection to their own MongoDB, you simply need to configure your connection strings per tenant.
 
