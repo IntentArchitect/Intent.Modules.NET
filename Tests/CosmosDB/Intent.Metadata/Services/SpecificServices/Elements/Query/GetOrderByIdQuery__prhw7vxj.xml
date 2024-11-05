@@ -20,6 +20,10 @@
   <parentFolderId>f0a38851-8aa6-42b1-b43a-1f4ccb17b53d</parentFolderId>
   <packageId>e15d978a-f58d-41bf-bdc7-207652bd244a</packageId>
   <packageName>SpecificServices</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes />
   <metadata>
     <entry key="baseName" value="Order" />

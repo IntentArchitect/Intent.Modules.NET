@@ -22,6 +22,9 @@
     <name>orderItems</name>
     <display>[query] orderItems: OrderItem[*]</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="f72f81cf-0103-4eea-be39-cf8002aa07dc">
       <typeId>bd723a25-fde6-4734-af0b-7fc96a3c3de7</typeId>
       <isNavigable>true</isNavigable>

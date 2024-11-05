@@ -22,6 +22,9 @@
     <name>order</name>
     <display>[delete] order: Order</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="0cec00c8-432f-467c-a61c-8ec2746e3f4c">
       <typeId>a55a4654-cf65-4d13-a8a5-f73878860995</typeId>
       <isNavigable>true</isNavigable>
@@ -36,20 +39,20 @@
     <stereotypes />
     <mappings>
       <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
-        <source applicationId="b0cfe26a-d338-4d6d-a8df-a97c4e78f647" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="7f1ac5f6-63ac-475e-8623-3934e361c53a" location="DeleteOrderCommand" />
-        <target applicationId="b0cfe26a-d338-4d6d-a8df-a97c4e78f647" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a55a4654-cf65-4d13-a8a5-f73878860995" location="Order" />
+        <source applicationId="b0cfe26a-d338-4d6d-a8df-a97c4e78f647" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="7f1ac5f6-63ac-475e-8623-3934e361c53a" location="[CosmosDB].[Services].[DeleteOrderCommand]" />
+        <target applicationId="b0cfe26a-d338-4d6d-a8df-a97c4e78f647" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a55a4654-cf65-4d13-a8a5-f73878860995" location="[CosmosDB].[Services].[Order]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{Id}</expression>
             <path>
-              <target id="a55a4654-cf65-4d13-a8a5-f73878860995" name="Order" type="element" specialization="Class" />
-              <target id="01b2a37b-c014-46ef-b60b-da278623dd52" name="Id" type="element" specialization="Attribute" />
+              <target id="a55a4654-cf65-4d13-a8a5-f73878860995" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="01b2a37b-c014-46ef-b60b-da278623dd52" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
                 <path>
-                  <target id="7f1ac5f6-63ac-475e-8623-3934e361c53a" name="DeleteOrderCommand" type="element" specialization="Command" />
-                  <target id="9933b689-1df4-409d-8605-98b693cd4645" name="Id" type="element" specialization="DTO-Field" />
+                  <target id="7f1ac5f6-63ac-475e-8623-3934e361c53a" name="DeleteOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="9933b689-1df4-409d-8605-98b693cd4645" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -57,14 +60,14 @@
           <mappedEnd>
             <expression>{WarehouseId}</expression>
             <path>
-              <target id="a55a4654-cf65-4d13-a8a5-f73878860995" name="Order" type="element" specialization="Class" />
-              <target id="7033ff66-4fd0-49ba-a67c-71a2d2c0d52f" name="WarehouseId" type="element" specialization="Attribute" />
+              <target id="a55a4654-cf65-4d13-a8a5-f73878860995" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="7033ff66-4fd0-49ba-a67c-71a2d2c0d52f" name="WarehouseId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="WarehouseId" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
                 <path>
-                  <target id="7f1ac5f6-63ac-475e-8623-3934e361c53a" name="DeleteOrderCommand" type="element" specialization="Command" />
-                  <target id="d6f2306e-47db-48ac-bfa0-2f8b7e98e0d3" name="WarehouseId" type="element" specialization="DTO-Field" />
+                  <target id="7f1ac5f6-63ac-475e-8623-3934e361c53a" name="DeleteOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d6f2306e-47db-48ac-bfa0-2f8b7e98e0d3" name="WarehouseId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

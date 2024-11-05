@@ -20,13 +20,17 @@
     <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="95fae8b4-3ed1-4c69-bae6-dd6d00b91d0a" name="Invoice" type="element" specialization="Class" />
-      <target id="8b54c5a2-b429-4da0-aeff-41ea14f869d7" name="Update" type="element" specialization="Operation" />
+      <target id="95fae8b4-3ed1-4c69-bae6-dd6d00b91d0a" name="Invoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+      <target id="8b54c5a2-b429-4da0-aeff-41ea14f869d7" name="Update" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>36254441-1c68-40a7-ad6c-cec8f051ae63</parentFolderId>
   <packageId>e326ac1c-237a-4369-afc9-e661453c5460</packageId>
   <packageName>CosmosDB.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
       <addedByDefault>false</addedByDefault>
@@ -36,6 +40,7 @@
         <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" isActive="true" />
         <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/invoice/{id}/by-op" isActive="true" />
         <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+        <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
@@ -109,7 +114,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="046eaa7f-c92f-4c22-8b19-8be1db37bb44" name="date" type="element" specialization="Parameter" />
+          <target id="046eaa7f-c92f-4c22-8b19-8be1db37bb44" name="date" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>328c19d7-c0e9-4e04-ac40-43b4a59ec66d</parentFolderId>
@@ -163,7 +168,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c6cdf9a6-27cb-468e-ba0a-d73e0e277d22" name="number" type="element" specialization="Parameter" />
+          <target id="c6cdf9a6-27cb-468e-ba0a-d73e0e277d22" name="number" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>328c19d7-c0e9-4e04-ac40-43b4a59ec66d</parentFolderId>
@@ -217,7 +222,7 @@
         <mappingSettingsId>7c31c459-6229-4f10-bf13-507348cd8828</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="1574ecb1-d5fd-4d9a-905a-0bd2ab22c1f4" name="clientIdentifier" type="element" specialization="Parameter" />
+          <target id="1574ecb1-d5fd-4d9a-905a-0bd2ab22c1f4" name="clientIdentifier" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>328c19d7-c0e9-4e04-ac40-43b4a59ec66d</parentFolderId>

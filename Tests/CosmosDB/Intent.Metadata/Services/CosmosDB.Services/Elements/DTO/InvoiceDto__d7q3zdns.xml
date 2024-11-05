@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="95fae8b4-3ed1-4c69-bae6-dd6d00b91d0a" name="Invoice" type="element" specialization="Class" />
+      <target id="95fae8b4-3ed1-4c69-bae6-dd6d00b91d0a" name="Invoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>36254441-1c68-40a7-ad6c-cec8f051ae63</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="f89fd972-4a34-4ec5-9691-6879bd391e1b" name="Id" type="element" specialization="Attribute" />
+          <target id="f89fd972-4a34-4ec5-9691-6879bd391e1b" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>56ea3ab1-6488-4bab-8320-4dc25d408ca6</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="d717cf47-0147-44b6-a4f9-3351ac629bc3" name="ClientIdentifier" type="element" specialization="Attribute" />
+          <target id="d717cf47-0147-44b6-a4f9-3351ac629bc3" name="ClientIdentifier" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>56ea3ab1-6488-4bab-8320-4dc25d408ca6</parentFolderId>
@@ -152,7 +152,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="78acc1bf-23e5-42ad-82d6-564c090d55f7" name="Date" type="element" specialization="Attribute" />
+          <target id="78acc1bf-23e5-42ad-82d6-564c090d55f7" name="Date" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>56ea3ab1-6488-4bab-8320-4dc25d408ca6</parentFolderId>
@@ -206,7 +206,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="850b7fa1-2be7-4d4b-bd89-9b975e26e102" name="Number" type="element" specialization="Attribute" />
+          <target id="850b7fa1-2be7-4d4b-bd89-9b975e26e102" name="Number" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>56ea3ab1-6488-4bab-8320-4dc25d408ca6</parentFolderId>
@@ -260,7 +260,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="809cddd7-d014-49ba-a2a3-907ce892c4fe" name="LineItems" type="association" specialization="Association Target End" />
+          <target id="809cddd7-d014-49ba-a2a3-907ce892c4fe" name="LineItems" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>56ea3ab1-6488-4bab-8320-4dc25d408ca6</parentFolderId>
@@ -314,7 +314,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="d6e800cb-63b7-4878-9c10-ac4be8765257" name="Client" type="association" specialization="Association Target End" />
+          <target id="d6e800cb-63b7-4878-9c10-ac4be8765257" name="Client" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>56ea3ab1-6488-4bab-8320-4dc25d408ca6</parentFolderId>

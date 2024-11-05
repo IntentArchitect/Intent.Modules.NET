@@ -24,12 +24,16 @@
     <mappingSettingsId>50c4872d-f029-48ec-a818-58b426e8166a</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="e2ac691c-4989-4e62-9a1b-da8c284ee952" name="GetAllImplementationOrder" type="element" specialization="Class" />
+      <target id="e2ac691c-4989-4e62-9a1b-da8c284ee952" name="GetAllImplementationOrder" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>57f2d988-4378-44cc-8113-8315a96123c5</parentFolderId>
   <packageId>018d3b91-abcc-489f-949f-f79142c3571d</packageId>
   <packageName>GetAllImplementation.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes />
   <metadata>
     <entry key="baseName" value="GetallimplementationCustomerGetallimplementationOrders" />

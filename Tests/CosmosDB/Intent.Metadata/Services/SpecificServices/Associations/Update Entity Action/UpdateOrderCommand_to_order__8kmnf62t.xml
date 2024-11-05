@@ -22,6 +22,9 @@
     <name>order</name>
     <display>[update] order: Order</display>
     <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="40d85983-ad63-456e-923f-d60b72a32aa4">
       <typeId>a55a4654-cf65-4d13-a8a5-f73878860995</typeId>
       <isNavigable>true</isNavigable>

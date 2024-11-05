@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="224a7826-e454-4980-bb5a-0491cfcfcf09">
+  <sourceEnd id="d425569c-d5f3-4cde-942a-6a2a2758e952" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Departments</name>
+    <display>Departments: Department[*]</display>
+    <order>0</order>
+    <typeReference id="2e9c2470-f11e-4157-9e8e-f83624b94717">
+      <typeId>b752b1fe-9a79-45c2-8438-2367249e47aa</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="224a7826-e454-4980-bb5a-0491cfcfcf09" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>University</name>
+    <display>University: University?</display>
+    <order>3</order>
+    <typeReference id="27e71016-6874-45f6-97f8-79e36cc681e1">
+      <typeId>a6407328-5294-4f43-a9de-370c480c43cb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

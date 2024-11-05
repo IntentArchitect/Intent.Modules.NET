@@ -127,6 +127,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>WithGuidId.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\IDepartment.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Department.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IUniversity.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>University.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

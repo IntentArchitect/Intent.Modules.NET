@@ -48,6 +48,8 @@ namespace CosmosDB.Infrastructure
                         .WithContainer(defaultContainerId))
                     .Configure<CustomerDocument>(c => c
                         .WithContainer(defaultContainerId))
+                    .Configure<DepartmentDocument>(c => c
+                        .WithContainer(defaultContainerId))
                     .Configure<DerivedOfTDocument>(c => c
                         .WithContainer(defaultContainerId))
                     .Configure<DerivedTypeDocument>(c => c
@@ -80,6 +82,8 @@ namespace CosmosDB.Infrastructure
                         .WithContainer(defaultContainerId))
                     .Configure<RegionDocument>(c => c
                         .WithContainer(defaultContainerId))
+                    .Configure<UniversityDocument>(c => c
+                        .WithContainer(defaultContainerId))
                     .Configure<WithGuidIdDocument>(c => c
                         .WithContainer(defaultContainerId))
                     .Configure<WithoutPartitionKeyDocument>(c => c
@@ -90,6 +94,7 @@ namespace CosmosDB.Infrastructure
             services.AddScoped<IClassContainerRepository, ClassContainerCosmosDBRepository>();
             services.AddScoped<IClientRepository, ClientCosmosDBRepository>();
             services.AddScoped<ICustomerRepository, CustomerCosmosDBRepository>();
+            services.AddScoped<IDepartmentRepository, DepartmentCosmosDBRepository>();
             services.AddScoped<IDerivedOfTRepository, DerivedOfTCosmosDBRepository>();
             services.AddScoped<IDerivedTypeRepository, DerivedTypeCosmosDBRepository>();
             services.AddScoped<IDerivedTypeAggregateRepository, DerivedTypeAggregateCosmosDBRepository>();
@@ -102,6 +107,7 @@ namespace CosmosDB.Infrastructure
             services.AddScoped<IPackageContainerRepository, PackageContainerCosmosDBRepository>();
             services.AddScoped<IProductRepository, ProductCosmosDBRepository>();
             services.AddScoped<IRegionRepository, RegionCosmosDBRepository>();
+            services.AddScoped<IUniversityRepository, UniversityCosmosDBRepository>();
             services.AddScoped<IWithGuidIdRepository, WithGuidIdCosmosDBRepository>();
             services.AddScoped<IWithoutPartitionKeyRepository, WithoutPartitionKeyCosmosDBRepository>();
             services.AddScoped<IFolderContainerRepository, FolderContainerCosmosDBRepository>();

@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Fixed: On certain fields being mapped, primitive types that are nullable aren't accessed through the `.Value` property.
+
 ### Version 1.0.2
 
 - Improvement: Updated module NuGet packages infrastructure.
