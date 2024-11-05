@@ -1,3 +1,7 @@
+### Version 3.8.4
+
+- Improvement: Environment variables values changed in `launchsettings.json` will no longer be overwritten when running the Software Factory
+
 ### Version 3.8.3
 
 - Improvement: LocalSettings json file to allow `FUNCTIONS_WORKER_RUNTIME` to be set dynamically for upcoming Azure Functions Isolated processes.
