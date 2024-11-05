@@ -46,8 +46,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchWit
 
         public override async Task HandleAsync(MutationNoImpl1RequestModel req, CancellationToken ct)
         {
-            using (var transaction = new TransactionScope(
-                TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 _appService.MutationNoImpl1(req.Param);

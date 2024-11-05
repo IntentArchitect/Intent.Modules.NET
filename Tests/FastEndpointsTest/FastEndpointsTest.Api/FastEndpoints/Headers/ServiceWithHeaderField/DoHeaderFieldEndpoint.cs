@@ -45,8 +45,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.Headers.ServiceWithHeaderField
 
         public override async Task HandleAsync(DoHeaderFieldRequestModel req, CancellationToken ct)
         {
-            using (var transaction = new TransactionScope(
-                TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.DoHeaderField(req.Param, ct);

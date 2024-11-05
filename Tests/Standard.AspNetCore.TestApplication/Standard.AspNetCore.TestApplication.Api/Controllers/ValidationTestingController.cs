@@ -49,8 +49,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         {
             await _validationService.Handle(dto, cancellationToken);
 
-            using (var transaction = new TransactionScope(
-                TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.InboundValidationDtoAction(dto, cancellationToken);

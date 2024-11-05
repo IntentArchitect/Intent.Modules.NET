@@ -40,8 +40,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> OperationA(CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(
-                TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.OperationA(cancellationToken);
@@ -59,8 +58,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> OperationB(CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(
-                TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.OperationB(cancellationToken);

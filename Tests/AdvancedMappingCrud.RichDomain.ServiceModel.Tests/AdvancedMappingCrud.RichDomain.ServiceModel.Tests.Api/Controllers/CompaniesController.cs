@@ -50,8 +50,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Api.Controllers
             await _validationService.Handle(dto, cancellationToken);
             var result = default(Guid);
 
-            using (var transaction = new TransactionScope(
-                TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 result = await _appService.CreateCompany(dto, cancellationToken);
@@ -105,8 +104,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteCompany([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(
-                TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.DeleteCompany(id, cancellationToken);

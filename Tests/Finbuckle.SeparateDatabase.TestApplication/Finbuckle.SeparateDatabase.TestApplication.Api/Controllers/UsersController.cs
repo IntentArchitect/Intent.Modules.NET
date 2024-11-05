@@ -49,8 +49,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         {
             await _validationService.Handle(dto, cancellationToken);
             var result = default(Guid);
-            using (var transaction = new TransactionScope(
-                TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 result = await _appService.Create(dto, cancellationToken);
@@ -108,8 +107,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             await _validationService.Handle(dto, cancellationToken);
-            using (var transaction = new TransactionScope(
-                TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.Put(id, dto, cancellationToken);
@@ -132,8 +130,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Api.Controllers
         public async Task<ActionResult<UserDto>> Delete([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
             var result = default(UserDto);
-            using (var transaction = new TransactionScope(
-                TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 result = await _appService.Delete(id, cancellationToken);

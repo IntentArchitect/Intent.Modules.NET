@@ -48,8 +48,7 @@ namespace ProxyServiceTests.OriginalServices.Api.Controllers
             await _validationService.Handle(dto, cancellationToken);
             var result = default(Guid);
 
-            using (var transaction = new TransactionScope(
-                TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 result = await _appService.CreateClient(dto, cancellationToken);
@@ -108,8 +107,7 @@ namespace ProxyServiceTests.OriginalServices.Api.Controllers
         {
             await _validationService.Handle(dto, cancellationToken);
 
-            using (var transaction = new TransactionScope(
-                TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.UpdateClient(id, dto, cancellationToken);
@@ -136,8 +134,7 @@ namespace ProxyServiceTests.OriginalServices.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteClient([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(
-                TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.DeleteClient(id, cancellationToken);

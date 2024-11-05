@@ -78,8 +78,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             }
             var result = default(Guid);
 
-            using (var transaction = new TransactionScope(
-                TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 result = await _appService.Upload(stream, filename, contentType, contentLength, cancellationToken);

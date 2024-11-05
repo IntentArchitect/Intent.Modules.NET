@@ -45,8 +45,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.NamedQueryStrings.ServiceWithNamed
 
         public override async Task HandleAsync(DoNamedQueryStringRequestModel req, CancellationToken ct)
         {
-            using (var transaction = new TransactionScope(
-                TransactionScopeOption.Required,
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _appService.DoNamedQueryString(req.CustomName, ct);
