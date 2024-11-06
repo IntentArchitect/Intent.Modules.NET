@@ -24,9 +24,14 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Persistence
         }
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ChildParentExcluded> ChildParentExcludeds { get; set; }
+        public DbSet<ChildSimple> ChildSimples { get; set; }
 
         public DbSet<Company> Companies { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<FamilyComplex> FamilyComplexes { get; set; }
+        public DbSet<FamilyComplexSkipped> FamilyComplexSkippeds { get; set; }
+        public DbSet<FamilySimple> FamilySimples { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -54,8 +59,13 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ChildParentExcludedConfiguration());
+            modelBuilder.ApplyConfiguration(new ChildSimpleConfiguration());
             modelBuilder.ApplyConfiguration(new CompanyConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            modelBuilder.ApplyConfiguration(new FamilyComplexConfiguration());
+            modelBuilder.ApplyConfiguration(new FamilyComplexSkippedConfiguration());
+            modelBuilder.ApplyConfiguration(new FamilySimpleConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());

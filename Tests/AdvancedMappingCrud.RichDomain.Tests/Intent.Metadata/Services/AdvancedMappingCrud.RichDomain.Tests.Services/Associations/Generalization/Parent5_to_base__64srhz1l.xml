@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2dfc0d59-d90a-45b1-b560-d06e5f8787bb">
+  <sourceEnd id="d9034311-6426-4f24-9db7-f09b4e79b6b7" type="Generalization Source End" typeId="5ce8666c-89d2-4c9c-b30c-6e5fe42e1766">
+    <display>: Parent5</display>
+    <order>0</order>
+    <typeReference id="c6166855-6984-43dc-bbaf-bf7a07657f2f">
+      <typeId>1a1db378-13a1-44b3-a011-577bedb66877</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+      <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2dfc0d59-d90a-45b1-b560-d06e5f8787bb" type="Generalization Target End" typeId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db">
+    <name>base</name>
+    <display>extends Grandparent5</display>
+    <order>3</order>
+    <typeReference id="ec32b328-2e22-44cd-b56f-1ced966d8e44">
+      <typeId>8cc713b6-2c8b-44c6-9788-b01a81869a85</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+      <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5ba12bbf-122f-4c3e-af3c-4a88dc554597</associationTypeId>
+  <stereotypes />
+</association>

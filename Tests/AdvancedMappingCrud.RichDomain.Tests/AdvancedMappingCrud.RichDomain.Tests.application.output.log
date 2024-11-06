@@ -84,6 +84,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>add66d43-1fcb-448d-a78b-12b95984230a</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#773e484f-850d-44d9-b862-33f9752c50c9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Api/Controllers/HierarchyController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HierarchyController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>add66d43-1fcb-448d-a78b-12b95984230a</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#6b659242-da15-433b-bdf6-5deb19e4988d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Api/Controllers/OrdersController.cs</ApplicationRelativeFilePath>
@@ -664,6 +672,398 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#91194805-fda5-4dd9-8745-979d872156ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Aunt5.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Aunt5.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#91194805-fda5-4dd9-8745-979d872156ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Aunt5Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Aunt5Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#2d527b38-0e22-4d75-839e-0ea089c2bf01</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Child1.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Child1.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#2d527b38-0e22-4d75-839e-0ea089c2bf01</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Child1MappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Child1MappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#2d527b38-0e22-4d75-839e-0ea089c2bf01</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Child1Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Child1Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#28d9c2c9-b582-41fb-a64c-448df52b6364</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Child2.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Child2.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#28d9c2c9-b582-41fb-a64c-448df52b6364</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Child2MappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Child2MappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#28d9c2c9-b582-41fb-a64c-448df52b6364</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Child2Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Child2Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#fdf81541-0da8-491e-8537-f45f5d0e5203</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Child3.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Child3.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#fdf81541-0da8-491e-8537-f45f5d0e5203</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Child3Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Child3Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#35ae14aa-ccb4-426f-bb27-d33e7cf1e57d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Child4.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Child4.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#35ae14aa-ccb4-426f-bb27-d33e7cf1e57d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Child4Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Child4Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e8199de9-3c95-48bb-9d50-ef4096ff6ef9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Child5.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Child5.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#e8199de9-3c95-48bb-9d50-ef4096ff6ef9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Child5MappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Child5MappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#e8199de9-3c95-48bb-9d50-ef4096ff6ef9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Child5Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Child5Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#bd360190-a1aa-4c70-aeb7-077a446e2e65</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/CreateChild1/CreateChild1Command.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/CreateChild1/CreateChild1Command.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#bd360190-a1aa-4c70-aeb7-077a446e2e65</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/CreateChild1/CreateChild1CommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/CreateChild1/CreateChild1CommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#bd360190-a1aa-4c70-aeb7-077a446e2e65</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/CreateChild1/CreateChild1CommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/CreateChild1/CreateChild1CommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#86d03197-d4d1-4e8c-88d4-a59efcb5b529</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/CreateChild2/CreateChild2Command.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/CreateChild2/CreateChild2Command.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#86d03197-d4d1-4e8c-88d4-a59efcb5b529</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/CreateChild2/CreateChild2CommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/CreateChild2/CreateChild2CommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#86d03197-d4d1-4e8c-88d4-a59efcb5b529</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/CreateChild2/CreateChild2CommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/CreateChild2/CreateChild2CommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#b5af9504-5a95-43ef-a7a3-8abaf7f0b0a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/CreateChild3/CreateChild3Command.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/CreateChild3/CreateChild3Command.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#b5af9504-5a95-43ef-a7a3-8abaf7f0b0a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/CreateChild3/CreateChild3CommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/CreateChild3/CreateChild3CommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#b5af9504-5a95-43ef-a7a3-8abaf7f0b0a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/CreateChild3/CreateChild3CommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/CreateChild3/CreateChild3CommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#f221519a-8bc1-4965-8488-2cd8a3d84310</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/CreateChild4/CreateChild4Command.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/CreateChild4/CreateChild4Command.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#f221519a-8bc1-4965-8488-2cd8a3d84310</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/CreateChild4/CreateChild4CommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/CreateChild4/CreateChild4CommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f221519a-8bc1-4965-8488-2cd8a3d84310</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/CreateChild4/CreateChild4CommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/CreateChild4/CreateChild4CommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#f04703aa-7735-47fe-bf92-74963829b0eb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/CreateChild5/CreateChild5Command.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/CreateChild5/CreateChild5Command.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#f04703aa-7735-47fe-bf92-74963829b0eb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/CreateChild5/CreateChild5CommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/CreateChild5/CreateChild5CommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f04703aa-7735-47fe-bf92-74963829b0eb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/CreateChild5/CreateChild5CommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/CreateChild5/CreateChild5CommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#bef39cb8-cbe6-4d08-9dce-9984291fc488</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Grandparent3.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Grandparent3.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#bef39cb8-cbe6-4d08-9dce-9984291fc488</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Grandparent3Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Grandparent3Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#78ce45a5-fa5f-4407-80f2-0775f8a1fde4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Grandparent4.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Grandparent4.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#78ce45a5-fa5f-4407-80f2-0775f8a1fde4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Grandparent4Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Grandparent4Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#8cc713b6-2c8b-44c6-9788-b01a81869a85</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Grandparent5.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Grandparent5.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#8cc713b6-2c8b-44c6-9788-b01a81869a85</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Grandparent5Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Grandparent5Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#2499a665-b3cc-4f19-8cbe-e5c20e44153a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/GreatGrandparent4.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/GreatGrandparent4.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#2499a665-b3cc-4f19-8cbe-e5c20e44153a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/GreatGrandparent4Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/GreatGrandparent4Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#6c8f4b66-5cfd-4371-8aa6-ea1c0f25a79e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/GreatGrandparent5.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/GreatGrandparent5.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#6c8f4b66-5cfd-4371-8aa6-ea1c0f25a79e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/GreatGrandparent5Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/GreatGrandparent5Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#fc15423b-7c66-43b1-81d3-e4f4dfe5c526</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Parent1.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Parent1.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#fc15423b-7c66-43b1-81d3-e4f4dfe5c526</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Parent1Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Parent1Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#3a39d499-48d4-437a-856f-87f66765d688</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Parent2.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Parent2.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#360660a9-ec7a-4efc-b991-6f859b97d0ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Parent3.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Parent3.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#360660a9-ec7a-4efc-b991-6f859b97d0ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Parent3Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Parent3Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#a780c5f8-51c8-4914-931b-4d179b98c5e9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Parent4.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Parent4.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#a780c5f8-51c8-4914-931b-4d179b98c5e9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Parent4Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Parent4Validator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#1a1db378-13a1-44b3-a011-577bedb66877</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Parent5.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Parent5.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>088e427b-9c9b-4fbd-b39b-c66a461d083e</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#1a1db378-13a1-44b3-a011-577bedb66877</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Hierarchy/Parent5Validator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Hierarchy/Parent5Validator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1964,6 +2364,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>10a8fcaa-d4f3-4f27-bc9f-0c7f89a2bb2b</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#accc8774-3e25-415d-970f-69ffa17a6533</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Entities/ChildParentExcluded.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ChildParentExcluded.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>10a8fcaa-d4f3-4f27-bc9f-0c7f89a2bb2b</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#f61c0d1e-2cae-4540-b214-15121f04fa0c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Entities/ChildSimple.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ChildSimple.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>10a8fcaa-d4f3-4f27-bc9f-0c7f89a2bb2b</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#8251ab6c-2778-45a2-b726-6a11c7334e39</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Entities/Company.cs</ApplicationRelativeFilePath>
@@ -1976,6 +2392,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Entities/Customer.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>10a8fcaa-d4f3-4f27-bc9f-0c7f89a2bb2b</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#964e783d-92c3-474b-896b-0ac33a9ad4a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Entities/FamilyComplex.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FamilyComplex.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>10a8fcaa-d4f3-4f27-bc9f-0c7f89a2bb2b</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#695aaf6d-dc55-485e-ba2e-b11b3945a3f9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Entities/FamilyComplexSkipped.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FamilyComplexSkipped.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>10a8fcaa-d4f3-4f27-bc9f-0c7f89a2bb2b</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#44cd8609-eb99-4802-9c0b-4d081f89c71a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Entities/FamilySimple.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FamilySimple.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2060,6 +2500,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>4fe59f1e-4c8e-435c-a094-5d5cbd04d78a</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#accc8774-3e25-415d-970f-69ffa17a6533</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Repositories/IChildParentExcludedRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IChildParentExcludedRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4fe59f1e-4c8e-435c-a094-5d5cbd04d78a</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#f61c0d1e-2cae-4540-b214-15121f04fa0c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Repositories/IChildSimpleRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IChildSimpleRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4fe59f1e-4c8e-435c-a094-5d5cbd04d78a</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#8251ab6c-2778-45a2-b726-6a11c7334e39</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Repositories/ICompanyRepository.cs</ApplicationRelativeFilePath>
@@ -2080,6 +2536,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4fe59f1e-4c8e-435c-a094-5d5cbd04d78a</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#964e783d-92c3-474b-896b-0ac33a9ad4a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Repositories/IFamilyComplexRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IFamilyComplexRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4fe59f1e-4c8e-435c-a094-5d5cbd04d78a</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#695aaf6d-dc55-485e-ba2e-b11b3945a3f9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Repositories/IFamilyComplexSkippedRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IFamilyComplexSkippedRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4fe59f1e-4c8e-435c-a094-5d5cbd04d78a</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#44cd8609-eb99-4802-9c0b-4d081f89c71a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Repositories/IFamilySimpleRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IFamilySimpleRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2236,6 +2716,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>9a6c2d22-cd1c-492d-a75e-836344ee753e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#accc8774-3e25-415d-970f-69ffa17a6533</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Persistence/Configurations/ChildParentExcludedConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ChildParentExcludedConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9a6c2d22-cd1c-492d-a75e-836344ee753e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#f61c0d1e-2cae-4540-b214-15121f04fa0c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Persistence/Configurations/ChildSimpleConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ChildSimpleConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9a6c2d22-cd1c-492d-a75e-836344ee753e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#8251ab6c-2778-45a2-b726-6a11c7334e39</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Persistence/Configurations/CompanyConfiguration.cs</ApplicationRelativeFilePath>
@@ -2248,6 +2744,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9a6c2d22-cd1c-492d-a75e-836344ee753e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#964e783d-92c3-474b-896b-0ac33a9ad4a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Persistence/Configurations/FamilyComplexConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FamilyComplexConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9a6c2d22-cd1c-492d-a75e-836344ee753e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#695aaf6d-dc55-485e-ba2e-b11b3945a3f9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Persistence/Configurations/FamilyComplexSkippedConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FamilyComplexSkippedConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9a6c2d22-cd1c-492d-a75e-836344ee753e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#44cd8609-eb99-4802-9c0b-4d081f89c71a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Persistence/Configurations/FamilySimpleConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FamilySimpleConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2316,6 +2836,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>ed259fdc-807e-4f54-a50b-e83cd127b57e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#accc8774-3e25-415d-970f-69ffa17a6533</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Repositories/ChildParentExcludedRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ChildParentExcludedRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ed259fdc-807e-4f54-a50b-e83cd127b57e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#f61c0d1e-2cae-4540-b214-15121f04fa0c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Repositories/ChildSimpleRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ChildSimpleRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ed259fdc-807e-4f54-a50b-e83cd127b57e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#8251ab6c-2778-45a2-b726-6a11c7334e39</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Repositories/CompanyRepository.cs</ApplicationRelativeFilePath>
@@ -2328,6 +2864,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Repositories/CustomerRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ed259fdc-807e-4f54-a50b-e83cd127b57e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#964e783d-92c3-474b-896b-0ac33a9ad4a6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Repositories/FamilyComplexRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FamilyComplexRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ed259fdc-807e-4f54-a50b-e83cd127b57e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#695aaf6d-dc55-485e-ba2e-b11b3945a3f9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Repositories/FamilyComplexSkippedRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FamilyComplexSkippedRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ed259fdc-807e-4f54-a50b-e83cd127b57e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#44cd8609-eb99-4802-9c0b-4d081f89c71a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Infrastructure/Repositories/FamilySimpleRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FamilySimpleRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

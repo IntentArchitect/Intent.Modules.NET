@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f61c0d1e-2cae-4540-b214-15121f04fa0c" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>ChildSimple</name>
+  <display>ChildSimple</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>42d31ce9-1395-4a0a-b86c-7af2682124b9</parentFolderId>
+  <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+  <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="3689017c-273b-4034-b7de-0b393932f50f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="12c44927-33f0-4ced-b220-9c873877822f">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f61c0d1e-2cae-4540-b214-15121f04fa0c</parentFolderId>
+      <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="7c43522e-1b5f-480a-af3f-8acb9796e83c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ChildName</name>
+      <display>ChildName: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5e237996-9cd5-4da7-9236-830eb855cba5">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f61c0d1e-2cae-4540-b214-15121f04fa0c</parentFolderId>
+      <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="c9fbdc7a-3236-469a-ac2f-b4356208a87c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ParentName</name>
+      <display>ParentName: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ba513ffe-b224-4e6c-a6fa-dca1fad37b51">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f61c0d1e-2cae-4540-b214-15121f04fa0c</parentFolderId>
+      <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
+      <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

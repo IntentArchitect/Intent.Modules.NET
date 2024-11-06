@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7e0facd7-13da-4697-8672-74d452c8eca0">
+  <sourceEnd id="89e17f86-1ea5-45db-83d1-765208ddc0a7" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Hierarchy.CreateChild5Command</display>
+    <order>0</order>
+    <typeReference id="5d6e1afa-0e9c-461a-b53a-3db0daf182a3">
+      <typeId>f04703aa-7735-47fe-bf92-74963829b0eb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+      <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7e0facd7-13da-4697-8672-74d452c8eca0" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>entity</name>
+    <display>[create] entity: FamilyComplex</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="118a1c29-0d4f-480a-9ae4-35a82fb40f16">
+      <typeId>964e783d-92c3-474b-896b-0ac33a9ad4a6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f04703aa-7735-47fe-bf92-74963829b0eb" location="[AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests].[Services].[CreateChild5Command]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="964e783d-92c3-474b-896b-0ac33a9ad4a6" location="[AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests].[Services].[FamilyComplex]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateChild5Command}</expression>
+            <path>
+              <target id="964e783d-92c3-474b-896b-0ac33a9ad4a6" name="FamilyComplex" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateChild5Command" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="f04703aa-7735-47fe-bf92-74963829b0eb" name="CreateChild5Command" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Dto.ChildName}</expression>
+            <path>
+              <target id="964e783d-92c3-474b-896b-0ac33a9ad4a6" name="FamilyComplex" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="e6881fac-543f-48cc-b854-eb36f0fcc231" name="ChildName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Dto.ChildName" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f04703aa-7735-47fe-bf92-74963829b0eb" name="CreateChild5Command" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="21e9612b-2761-4a01-b8a1-e6abada6df24" name="Dto" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="50507c15-0bad-4214-8d4d-2470146f31bb" name="ChildName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Dto.base.ParentId}</expression>
+            <path>
+              <target id="964e783d-92c3-474b-896b-0ac33a9ad4a6" name="FamilyComplex" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="60e42a97-92fb-4708-aaeb-1e6447645519" name="ParentId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Dto.base.ParentId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f04703aa-7735-47fe-bf92-74963829b0eb" name="CreateChild5Command" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="21e9612b-2761-4a01-b8a1-e6abada6df24" name="Dto" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="da3db088-7cf4-472b-9461-d96267df47a3" name="base" type="association" specialization="Generalization Target End" specializationId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db" />
+                  <target id="1404a55b-49c1-448e-934c-1561081284e4" name="ParentId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Dto.base.ParentName}</expression>
+            <path>
+              <target id="964e783d-92c3-474b-896b-0ac33a9ad4a6" name="FamilyComplex" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c92fa9d2-7dc3-4fa2-a9a2-83f5c694e7ce" name="ParentName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Dto.base.ParentName" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f04703aa-7735-47fe-bf92-74963829b0eb" name="CreateChild5Command" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="21e9612b-2761-4a01-b8a1-e6abada6df24" name="Dto" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="da3db088-7cf4-472b-9461-d96267df47a3" name="base" type="association" specialization="Generalization Target End" specializationId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db" />
+                  <target id="f265327d-a51b-4ca8-a259-32138ad83f4f" name="ParentName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Dto.base.base.GrandparentId}</expression>
+            <path>
+              <target id="964e783d-92c3-474b-896b-0ac33a9ad4a6" name="FamilyComplex" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d3bebc35-5a33-438f-8077-322814d7459f" name="GrandParentId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Dto.base.base.GrandparentId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f04703aa-7735-47fe-bf92-74963829b0eb" name="CreateChild5Command" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="21e9612b-2761-4a01-b8a1-e6abada6df24" name="Dto" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="da3db088-7cf4-472b-9461-d96267df47a3" name="base" type="association" specialization="Generalization Target End" specializationId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db" />
+                  <target id="2dfc0d59-d90a-45b1-b560-d06e5f8787bb" name="base" type="association" specialization="Generalization Target End" specializationId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db" />
+                  <target id="c71510c7-8654-44cb-a923-274e27908da3" name="GrandparentId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Dto.base.base.base.GreatGrandParentId}</expression>
+            <path>
+              <target id="964e783d-92c3-474b-896b-0ac33a9ad4a6" name="FamilyComplex" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a267ac8e-be12-4ca9-918b-5e2427d388eb" name="GreatGrandParentId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Dto.base.base.base.GreatGrandParentId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f04703aa-7735-47fe-bf92-74963829b0eb" name="CreateChild5Command" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="21e9612b-2761-4a01-b8a1-e6abada6df24" name="Dto" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="da3db088-7cf4-472b-9461-d96267df47a3" name="base" type="association" specialization="Generalization Target End" specializationId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db" />
+                  <target id="2dfc0d59-d90a-45b1-b560-d06e5f8787bb" name="base" type="association" specialization="Generalization Target End" specializationId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db" />
+                  <target id="a7673535-db13-481f-ab50-6918551bc287" name="base" type="association" specialization="Generalization Target End" specializationId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db" />
+                  <target id="778c913c-573f-4d6e-a629-0b96f5cfd553" name="GreatGrandParentId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Dto.base.base.base.GreatGrandParentName}</expression>
+            <path>
+              <target id="964e783d-92c3-474b-896b-0ac33a9ad4a6" name="FamilyComplex" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d88fa62d-024f-4fdd-aa97-6ef49aa8373e" name="GreatGrandParentName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Dto.base.base.base.GreatGrandParentName" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f04703aa-7735-47fe-bf92-74963829b0eb" name="CreateChild5Command" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="21e9612b-2761-4a01-b8a1-e6abada6df24" name="Dto" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="da3db088-7cf4-472b-9461-d96267df47a3" name="base" type="association" specialization="Generalization Target End" specializationId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db" />
+                  <target id="2dfc0d59-d90a-45b1-b560-d06e5f8787bb" name="base" type="association" specialization="Generalization Target End" specializationId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db" />
+                  <target id="a7673535-db13-481f-ab50-6918551bc287" name="base" type="association" specialization="Generalization Target End" specializationId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db" />
+                  <target id="0508d9a5-686d-496b-bbbe-2da3b9732444" name="GreatGrandParentName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Dto.base.Aunt.AuntId}</expression>
+            <path>
+              <target id="964e783d-92c3-474b-896b-0ac33a9ad4a6" name="FamilyComplex" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="78301890-4915-47fa-b47b-c4ee68d95b93" name="AuntId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Dto.base.Aunt.AuntId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f04703aa-7735-47fe-bf92-74963829b0eb" name="CreateChild5Command" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="21e9612b-2761-4a01-b8a1-e6abada6df24" name="Dto" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="da3db088-7cf4-472b-9461-d96267df47a3" name="base" type="association" specialization="Generalization Target End" specializationId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db" />
+                  <target id="53bbad51-0121-46b3-94ba-7098f9dc8fb1" name="Aunt" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="c47bf397-71b6-4de6-b99a-e5e4425c12c6" name="AuntId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Dto.base.Aunt.AuntName}</expression>
+            <path>
+              <target id="964e783d-92c3-474b-896b-0ac33a9ad4a6" name="FamilyComplex" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="44a99c1d-e586-48a3-ad62-624cba0c9ee2" name="AuntName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Dto.base.Aunt.AuntName" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="f04703aa-7735-47fe-bf92-74963829b0eb" name="CreateChild5Command" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="21e9612b-2761-4a01-b8a1-e6abada6df24" name="Dto" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="da3db088-7cf4-472b-9461-d96267df47a3" name="base" type="association" specialization="Generalization Target End" specializationId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db" />
+                  <target id="53bbad51-0121-46b3-94ba-7098f9dc8fb1" name="Aunt" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="cdcaf568-0382-4075-8a9e-0116b5630b69" name="AuntName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>
