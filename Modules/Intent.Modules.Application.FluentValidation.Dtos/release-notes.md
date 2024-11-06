@@ -1,3 +1,7 @@
+### Version 3.10.2
+
+- Fixed: Parent validators are now invoked using dependency injection, and empty validators are no longer generated in some scenarios
+
 ### Version 3.10.1
 
 - Fixed: Stackoverflow occuring in rare circumstances where Advanced Mappings and Basic Mappings are interconnected.

@@ -13,6 +13,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Templates;
 using Intent.Utils;
 
 namespace Intent.Modules.FluentValidation.Shared;
@@ -77,37 +78,6 @@ public static class ValidationRulesExtensions
                 {
                     method.Private();
 
-                    if (dtoModel.ParentDtoTypeReference?.Element?.AsDTOModel() != null)
-                    {
-                        var parentDto = dtoModel.ParentDtoTypeReference?.Element?.AsDTOModel();
-
-                        // get the DTO validator for the base DTO type
-                        var baseValidatorTemplate = template
-                            .ExecutionContext
-                            .FindTemplateInstances("Intent.Application.FluentValidation.Dtos.DTOValidator")
-                            .FirstOrDefault(t =>
-                            {
-                                // should never be null at this point
-                                if (t is not CSharpTemplateBase<DTOModel> parentTemplate)
-                                {
-                                    return false;
-                                }
-
-                                return parentTemplate.Model.Name == parentDto?.Name;
-                            });
-
-                        if(baseValidatorTemplate != null)
-                        {
-                            // this check should always pass, but just being safe
-                            if (baseValidatorTemplate is CSharpTemplateBase<DTOModel> templateBaseValidator)
-                            {
-                                method.AddInvocationStatement("Include", invoc =>
-                                {
-                                    invoc.AddArgument($"new {template.UseType($"{templateBaseValidator.Namespace}.{templateBaseValidator.ClassName}()")}");
-                                });
-                            }
-                        }
-                    }
 
                     var validationRuleStatements = template.GetValidationRulesStatements(
                         dtoModel: dtoModel,
@@ -295,6 +265,11 @@ public static class ValidationRulesExtensions
                 defaultNullableFormatter: null)
             : template.Types;
 
+        if(TryAddValidationFromParent(template, dtoModel, dtoTemplateId, dtoValidatorTemplateId, out var validationStatement))
+        {
+            yield return validationStatement;
+        }
+
         foreach (var field in dtoModel.Fields)
         {
             var validationRuleChain = new CSharpMethodChainStatement($"RuleFor(v => v.{field.Name.ToPascalCase()})");
@@ -337,6 +312,33 @@ public static class ValidationRulesExtensions
         {
             yield return ruleChain;
         }
+    }
+
+    private static bool TryAddValidationFromParent<TModel>(CSharpTemplateBase<TModel> template, DTOModel model, string dtoTemplateId, 
+        string dtoValidatorTemplateId, out CSharpMethodChainStatement? statement)
+    {
+        if(model.ParentDto is null)
+        {
+            statement = null;
+            return false;
+        }
+
+        if(template?.TryGetTypeName(
+            templateId: dtoValidatorTemplateId,
+            model: model.ParentDto,
+            typeName: out _) == true &&
+            template.TryGetTypeName(
+                templateId: dtoTemplateId,
+                model: model.ParentDto,
+                typeName: out var dtoTemplateName))
+        {
+            statement = new CSharpMethodChainStatement($"Include(provider.GetValidator<{dtoTemplateName}>())");
+            statement.Metadata["requires-validator-provider"] = true;
+            return true;
+        }
+
+        statement = null;
+        return false;
     }
 
     private static void AddValidatorsFromFluentValidationStereotype(
