@@ -21,7 +21,7 @@ The following instructions assume a `HostAPI` application exposing API endpoints
 #### Registering the Host Application
 
 1. Sign into the [Azure portal](https://portal.azure.com).
-2. Navigate to **Azure Active Directory** > **App registrations**.
+2. Navigate to **Microsoft Entra ID** > **App registrations**.
 3. Click **New registration**.
 4. Enter a **Name** for the application (e.g., "HostAPI").
 5. Select the **Supported account types** as `Accounts in this organizational directory only (Single tenant)`.
@@ -32,15 +32,17 @@ The following instructions assume a `HostAPI` application exposing API endpoints
 
 1. Go to the application's **Overview** page.
 2. Under **Manage**, select **Owners** and add your Azure user as an owner.
-3. Select **Expose an API** and click on `Add a scope`. Have it create the `Application ID URI`.
-4. Provide a Scope name, e.g. `Client.Access`.
-5. Set the consent to `Admins only`.
-6. Populate the display name and description.
-7. Ensure it's `Enabled` and click on `Add scope`.
+3. Select **App roles** and click on `Create app role`.
+4. Provide it a Display name: `Client Access Role`.
+5. Set the `Allowed member types` to `Application`.
+6. Se the Value to `Client.Access`.
+7. Give it a description.
+8. Ensure that the `app role` is enabled by having the box checked at the end.
+9. Click on `Apply`.
 
 #### Register the Client Application
 
-1. Navigate to **Azure Active Directory** > **App registrations**.
+1. Navigate to **Microsoft Entra ID** > **App registrations**.
 2. Click **New registration**.
 3. Enter a **Name** for the application (e.g., "Client App").
 4. Select the **Supported account types** as `Accounts in this organizational directory only (Single tenant)`.
@@ -54,10 +56,13 @@ The following instructions assume a `HostAPI` application exposing API endpoints
 3. Navigate to `API permissions`. Click on `Add a permission`.
 4. Go to `My APIs`.
 5. Select `HostAPI`.
-6. Click on `Grant admin consent for Default Directory`.
+6. Select the `Client.Access` role while ensuring that `Application permissions` are also set.
+7. Click on `Add permissoins`.
+8. Click on `Grant admin consent for Default Directory`.
 
 #### Configure `appsettings.json`
 
+Your API service hosting the endpoints for consumption needs to be configured using your `Host Application` configuration from Microsoft Entra ID.
 Ensure you specify the necessary properties for `AzureAd`.
 
 ```json
@@ -70,10 +75,10 @@ Ensure you specify the necessary properties for `AzureAd`.
 }
 ```
 
-1. `Domain` can be found on the `Overview` page by copying the `Primary domain`.
-2. `Instance` can be found by clicking on `Endpoints` in `App registrations`. Copy the domain from the `OAuth 2.0 authorization endpoint (v2)` URL, i.e., `https://login.microsoftonline.com`.
+1. `Domain` can be found on the `Overview` page (Microsoft Entra ID) by copying the `Primary domain`.
+2. `Instance` can be found by clicking on `Endpoints` in `App registrations`. Copy the `domain part` from the `OAuth 2.0 authorization endpoint (v2)` URI, i.e., `https://login.microsoftonline.com`.
 3. Retrieve `ClientId` and `TenantId` from `HostApi`'s `Overview` page.
-4. `Audience` can be specified as this `api://<ClientId>`.
+4. `Audience` can be specified like this `api://<ClientId>` (where `ClientId` is the `HostApi` Client Id).
 
 #### Obtain an Access Token for Testing
 
@@ -89,7 +94,8 @@ grant_type=client_credentials
 &scope=api://325fbbd0-77e7-40f0-a25f-3857263fb265/.default
 ```
 
-Use the `client_id` and `client_secret` from your Client application. The `scope` should be the `Audience` from the `HostAPI` plus `/.default`.
+The URI can be found by accessing the `Endpoints` page from `HostApi`'s `Overview` page and copying the `OAuth 2.0 authorization endpoint (v2)` URI.
+Use the `client_id` and `client_secret` from your `Client` application. The `scope` should be the `Audience` from the `HostAPI` having the suffix of `/.default`.
 
 You can then paste the resulting `access_token` into the Swagger UI under `Authorize`.
 
