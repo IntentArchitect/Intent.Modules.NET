@@ -1,3 +1,4 @@
+using AdvancedMappingCrud.RichDomain.Tests.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,14 +11,14 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Stocks
     public class StockDtoValidator : AbstractValidator<StockDto>
     {
         [IntentManaged(Mode.Merge)]
-        public StockDtoValidator()
+        public StockDtoValidator(IValidatorProvider provider)
         {
-            ConfigureValidationRules();
+            ConfigureValidationRules(provider);
         }
 
-        private void ConfigureValidationRules()
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
-            Include(new BaseStockDtoValidator());
+            Include(provider.GetValidator<BaseStockDto>());
 
             RuleFor(v => v.Name)
                 .NotNull();

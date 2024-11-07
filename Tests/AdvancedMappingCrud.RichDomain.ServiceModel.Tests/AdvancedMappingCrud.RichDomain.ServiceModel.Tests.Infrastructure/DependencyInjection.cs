@@ -25,8 +25,13 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IChildParentExcludedRepository, ChildParentExcludedRepository>();
+            services.AddTransient<IChildSimpleRepository, ChildSimpleRepository>();
             services.AddTransient<ICompanyRepository, CompanyRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IFamilyComplexRepository, FamilyComplexRepository>();
+            services.AddTransient<IFamilyComplexSkippedRepository, FamilyComplexSkippedRepository>();
+            services.AddTransient<IFamilySimpleRepository, FamilySimpleRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IPersonRepository, PersonRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();

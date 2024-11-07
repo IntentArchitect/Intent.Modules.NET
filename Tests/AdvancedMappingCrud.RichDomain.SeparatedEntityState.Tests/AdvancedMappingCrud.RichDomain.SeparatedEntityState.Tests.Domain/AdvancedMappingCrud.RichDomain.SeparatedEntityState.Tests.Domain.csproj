@@ -70,6 +70,31 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Stock.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\ChildSimpleState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ChildSimple.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ChildParentExcludedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ChildParentExcluded.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\FamilySimpleState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FamilySimple.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\FamilyComplexSkippedState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FamilyComplexSkipped.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\FamilyComplexState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FamilyComplex.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>

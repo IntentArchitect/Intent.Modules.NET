@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4ab446b2-3d1c-422e-96c6-ebf54855df62">
+  <sourceEnd id="b3b52c9b-6ec2-4868-a764-f86462a5e22b" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Hierarchy.CreateChild1Command</display>
+    <order>0</order>
+    <typeReference id="1b9737b4-6063-4e34-a088-bd73103316f7">
+      <typeId>bd360190-a1aa-4c70-aeb7-077a446e2e65</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Services</typePackageName>
+      <typePackageId>4cb1decc-0bf9-44b4-86fd-2301923ae3ab</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4ab446b2-3d1c-422e-96c6-ebf54855df62" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>entity</name>
+    <display>[create] entity: ChildSimple</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="b8adfd54-9f36-402e-b961-d9884db3c479">
+      <typeId>f61c0d1e-2cae-4540-b214-15121f04fa0c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.RichDomain.Tests.Domain</typePackageName>
+      <typePackageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="bd360190-a1aa-4c70-aeb7-077a446e2e65" location="[AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests].[Services].[CreateChild1Command]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f61c0d1e-2cae-4540-b214-15121f04fa0c" location="[AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests].[Services].[ChildSimple]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateChild1Command}</expression>
+            <path>
+              <target id="f61c0d1e-2cae-4540-b214-15121f04fa0c" name="ChildSimple" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateChild1Command" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="bd360190-a1aa-4c70-aeb7-077a446e2e65" name="CreateChild1Command" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Dto.ChildName}</expression>
+            <path>
+              <target id="f61c0d1e-2cae-4540-b214-15121f04fa0c" name="ChildSimple" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="7c43522e-1b5f-480a-af3f-8acb9796e83c" name="ChildName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Dto.ChildName" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="bd360190-a1aa-4c70-aeb7-077a446e2e65" name="CreateChild1Command" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5b84eba6-cb3b-4dbd-8679-6f134f7ec64d" name="Dto" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="769a1ed2-f0ea-450f-8cf9-73279c4beb71" name="ChildName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Dto.base.ParentName}</expression>
+            <path>
+              <target id="f61c0d1e-2cae-4540-b214-15121f04fa0c" name="ChildSimple" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c9fbdc7a-3236-469a-ac2f-b4356208a87c" name="ParentName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Dto.base.ParentName" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="bd360190-a1aa-4c70-aeb7-077a446e2e65" name="CreateChild1Command" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5b84eba6-cb3b-4dbd-8679-6f134f7ec64d" name="Dto" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="74474742-8ce0-494f-8217-5b6bd5a5cc6e" name="base" type="association" specialization="Generalization Target End" specializationId="e1b3d4e4-0ad0-4aec-97fb-780ab9e476db" />
+                  <target id="d6100553-5af4-410d-85cb-a90f9b53bb46" name="ParentName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>
