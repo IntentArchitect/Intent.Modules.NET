@@ -6,5 +6,10 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
 {
     public partial class ChildSimple
     {
+        public ChildSimple(string childName, string parentName)
+        {
+            ChildName = childName;
+            ParentName = parentName;
+        }
     }
 }

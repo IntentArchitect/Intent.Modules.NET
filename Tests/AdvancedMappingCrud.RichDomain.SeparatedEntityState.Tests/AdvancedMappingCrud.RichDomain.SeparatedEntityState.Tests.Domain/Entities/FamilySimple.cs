@@ -6,5 +6,13 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
 {
     public partial class FamilySimple
     {
+        public FamilySimple(string childName, int parentId, string parentName, string grandparentName, long grandparentId)
+        {
+            ChildName = childName;
+            ParentId = parentId;
+            ParentName = parentName;
+            GrandparentName = grandparentName;
+            GrandparentId = grandparentId;
+        }
     }
 }

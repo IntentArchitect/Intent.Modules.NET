@@ -39,8 +39,8 @@
     <stereotypes />
     <mappings>
       <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
-        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c09fd582-0249-4060-81fa-8ec459cf064b" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[DeleteStockCommand]" />
-        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="324d1cb5-f694-48bb-b758-494d14ba3b6b" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[Stock]" />
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c09fd582-0249-4060-81fa-8ec459cf064b" location="[AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests].[Services].[DeleteStockCommand]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="324d1cb5-f694-48bb-b758-494d14ba3b6b" location="[AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests].[Services].[Stock]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{Data.base.Id}</expression>

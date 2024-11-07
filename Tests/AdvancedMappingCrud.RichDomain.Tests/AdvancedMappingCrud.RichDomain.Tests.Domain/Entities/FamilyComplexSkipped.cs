@@ -9,6 +9,27 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
 {
     public class FamilyComplexSkipped : IHasDomainEvent
     {
+        public FamilyComplexSkipped(string childName,
+            int parentId,
+            long grandparentId,
+            long greatGrandparentId,
+            string greatGrandparentName)
+        {
+            ChildName = childName;
+            ParentId = parentId;
+            GrandparentId = grandparentId;
+            GreatGrandparentId = greatGrandparentId;
+            GreatGrandparentName = greatGrandparentName;
+        }
+
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        protected FamilyComplexSkipped()
+        {
+            ChildName = null!;
+            GreatGrandparentName = null!;
+        }
         public Guid Id { get; private set; }
 
         public string ChildName { get; private set; }

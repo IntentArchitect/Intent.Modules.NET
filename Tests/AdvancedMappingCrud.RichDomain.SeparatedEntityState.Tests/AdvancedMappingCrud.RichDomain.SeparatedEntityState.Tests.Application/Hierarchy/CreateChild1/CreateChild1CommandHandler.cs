@@ -25,11 +25,9 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateChild1Command request, CancellationToken cancellationToken)
         {
-            var entity = new ChildSimple
-            {
-                ChildSimple = request.Dto.ChildName,
-                ChildSimple = request.Dto.ParentName
-            };
+            var entity = new ChildSimple(
+                childName: request.Dto.ChildName,
+                parentName: request.Dto.ParentName);
 
             _childSimpleRepository.Add(entity);
             await _childSimpleRepository.UnitOfWork.SaveChangesAsync(cancellationToken);

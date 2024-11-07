@@ -25,11 +25,9 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateChild2Command request, CancellationToken cancellationToken)
         {
-            var entity = new ChildParentExcluded
-            {
-                ChildParentExcluded = request.Dto.ChildName,
-                ChildParentExcluded = request.Dto.ParentAge
-            };
+            var entity = new ChildParentExcluded(
+                childName: request.Dto.ChildName,
+                parentAge: request.Dto.ParentAge);
 
             _childParentExcludedRepository.Add(entity);
             await _childParentExcludedRepository.UnitOfWork.SaveChangesAsync(cancellationToken);

@@ -25,14 +25,12 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Hierarchy.CreateChild
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateChild3Command request, CancellationToken cancellationToken)
         {
-            var entity = new FamilySimple
-            {
-                ChildName = request.Dto.ChildName,
-                ParentId = request.Dto.ParentId,
-                ParentName = request.Dto.ParentName,
-                GrandparentId = request.Dto.GrandparentId,
-                GrandparentName = request.Dto.GrandparentName
-            };
+            var entity = new FamilySimple(
+                childName: request.Dto.ChildName,
+                parentId: request.Dto.ParentId,
+                parentName: request.Dto.ParentName,
+                grandparentName: request.Dto.GrandparentName,
+                grandparentId: request.Dto.GrandparentId);
 
             _familySimpleRepository.Add(entity);
             await _familySimpleRepository.UnitOfWork.SaveChangesAsync(cancellationToken);

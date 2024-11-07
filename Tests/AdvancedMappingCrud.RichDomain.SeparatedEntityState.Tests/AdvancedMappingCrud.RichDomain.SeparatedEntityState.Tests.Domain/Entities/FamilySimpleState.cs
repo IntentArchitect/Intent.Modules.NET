@@ -10,6 +10,16 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
 {
     public partial class FamilySimple : IHasDomainEvent
     {
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected FamilySimple()
+        {
+            ChildName = null!;
+            ParentName = null!;
+            GrandparentName = null!;
+        }
         public Guid Id { get; set; }
 
         public string ChildName { get; set; }

@@ -9,6 +9,19 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
 {
     public class ChildParentExcluded : IHasDomainEvent
     {
+        public ChildParentExcluded(string childName, int parentAge)
+        {
+            ChildName = childName;
+            ParentAge = parentAge;
+        }
+
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        protected ChildParentExcluded()
+        {
+            ChildName = null!;
+        }
         public Guid Id { get; private set; }
 
         public string ChildName { get; private set; }

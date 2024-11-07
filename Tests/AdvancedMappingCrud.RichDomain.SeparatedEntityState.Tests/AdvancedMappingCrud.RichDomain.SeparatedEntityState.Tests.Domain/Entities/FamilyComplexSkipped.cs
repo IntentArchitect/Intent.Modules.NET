@@ -6,5 +6,17 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
 {
     public partial class FamilyComplexSkipped
     {
+        public FamilyComplexSkipped(string childName,
+            int parentId,
+            long grandparentId,
+            long greatGrandparentId,
+            string greatGrandparentName)
+        {
+            ChildName = childName;
+            ParentId = parentId;
+            GrandparentId = grandparentId;
+            GreatGrandparentId = greatGrandparentId;
+            GreatGrandparentName = greatGrandparentName;
+        }
     }
 }

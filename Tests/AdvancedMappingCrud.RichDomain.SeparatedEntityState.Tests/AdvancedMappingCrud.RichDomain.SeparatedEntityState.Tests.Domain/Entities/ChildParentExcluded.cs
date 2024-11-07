@@ -6,5 +6,10 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
 {
     public partial class ChildParentExcluded
     {
+        public ChildParentExcluded(string childName, int parentAge)
+        {
+            ChildName = childName;
+            ParentAge = parentAge;
+        }
     }
 }

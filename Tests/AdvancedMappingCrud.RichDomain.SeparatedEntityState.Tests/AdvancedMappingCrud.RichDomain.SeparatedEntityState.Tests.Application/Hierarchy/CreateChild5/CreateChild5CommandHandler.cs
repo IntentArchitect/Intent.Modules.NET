@@ -25,17 +25,15 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateChild5Command request, CancellationToken cancellationToken)
         {
-            var entity = new FamilyComplex
-            {
-                FamilyComplex = request.Dto.ChildName,
-                FamilyComplex = request.Dto.ParentId,
-                FamilyComplex = request.Dto.ParentName,
-                FamilyComplex = request.Dto.GrandparentId,
-                FamilyComplex = request.Dto.GreatGrandParentId,
-                FamilyComplex = request.Dto.GreatGrandParentName,
-                FamilyComplex = request.Dto.Aunt.AuntId,
-                FamilyComplex = request.Dto.Aunt.AuntName
-            };
+            var entity = new FamilyComplex(
+                childName: request.Dto.ChildName,
+                parentId: request.Dto.ParentId,
+                parentName: request.Dto.ParentName,
+                grandParentId: request.Dto.GrandparentId,
+                greatGrandParentId: request.Dto.GreatGrandParentId,
+                greatGrandParentName: request.Dto.GreatGrandParentName,
+                auntId: request.Dto.Aunt.AuntId,
+                auntName: request.Dto.Aunt.AuntName);
 
             _familyComplexRepository.Add(entity);
             await _familyComplexRepository.UnitOfWork.SaveChangesAsync(cancellationToken);

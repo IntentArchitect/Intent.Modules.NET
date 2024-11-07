@@ -9,6 +9,35 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
 {
     public class FamilyComplex : IHasDomainEvent
     {
+        public FamilyComplex(string childName,
+            int parentId,
+            string parentName,
+            long grandParentId,
+            long greatGrandParentId,
+            string greatGrandParentName,
+            int auntId,
+            string auntName)
+        {
+            ChildName = childName;
+            ParentId = parentId;
+            ParentName = parentName;
+            GrandParentId = grandParentId;
+            GreatGrandParentId = greatGrandParentId;
+            GreatGrandParentName = greatGrandParentName;
+            AuntId = auntId;
+            AuntName = auntName;
+        }
+
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        protected FamilyComplex()
+        {
+            ChildName = null!;
+            ParentName = null!;
+            GreatGrandParentName = null!;
+            AuntName = null!;
+        }
         public Guid Id { get; private set; }
 
         public string ChildName { get; private set; }

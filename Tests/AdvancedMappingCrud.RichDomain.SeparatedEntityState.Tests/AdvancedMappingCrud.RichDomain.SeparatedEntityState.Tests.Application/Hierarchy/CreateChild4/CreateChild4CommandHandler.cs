@@ -25,14 +25,12 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateChild4Command request, CancellationToken cancellationToken)
         {
-            var entity = new FamilyComplexSkipped
-            {
-                FamilyComplexSkipped = request.Dto.ChildName,
-                FamilyComplexSkipped = request.Dto.ParentId,
-                FamilyComplexSkipped = request.Dto.GrandparentId,
-                FamilyComplexSkipped = request.Dto.GreatGrandparentId,
-                FamilyComplexSkipped = request.Dto.GreatGrandparentName
-            };
+            var entity = new FamilyComplexSkipped(
+                childName: request.Dto.ChildName,
+                parentId: request.Dto.ParentId,
+                grandparentId: request.Dto.GrandparentId,
+                greatGrandparentId: request.Dto.GreatGrandparentId,
+                greatGrandparentName: request.Dto.GreatGrandparentName);
 
             _familyComplexSkippedRepository.Add(entity);
             await _familyComplexSkippedRepository.UnitOfWork.SaveChangesAsync(cancellationToken);

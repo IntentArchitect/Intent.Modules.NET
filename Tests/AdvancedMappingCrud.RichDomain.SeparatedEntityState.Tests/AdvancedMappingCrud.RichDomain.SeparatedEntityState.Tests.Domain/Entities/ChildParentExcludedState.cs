@@ -10,6 +10,14 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
 {
     public partial class ChildParentExcluded : IHasDomainEvent
     {
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected ChildParentExcluded()
+        {
+            ChildName = null!;
+        }
         public Guid Id { get; set; }
 
         public string ChildName { get; set; }
