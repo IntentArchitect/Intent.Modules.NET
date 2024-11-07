@@ -4,7 +4,6 @@
   <display>ClientApp</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
-  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>5f9b980c-8d87-479d-8ae3-40d830777dc8</parentFolderId>
