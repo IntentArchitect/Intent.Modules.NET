@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AzureFunctions.Interop.EntityFrameworkCore</id>
-  <version>5.0.0-pre.0</version>
+  <version>5.0.0</version>
   <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Obsolete. The functionality of this module has moved to Intent.AzureFunctions.EntityFrameworkCore. It can safely be uninstalled.</summary>
@@ -14,7 +14,7 @@
   <factoryExtensions />
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.AzureFunctions.EntityFrameworkCore" version="5.0.0-pre.0" />
+    <dependency id="Intent.AzureFunctions.EntityFrameworkCore" version="5.0.0" />
     <dependency id="Intent.Common" version="3.6.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
   </dependencies>

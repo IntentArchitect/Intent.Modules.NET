@@ -17,7 +17,7 @@
       <name>Intent.Application.Contracts</name>
       <display>Intent.Application.Contracts 5.0.8</display>
       <isAbstract>false</isAbstract>
-      <value>5.0.8</value>
+      <value>5.0.9</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -73,7 +73,7 @@
       <name>Intent.Application.Dtos.AutoMapper</name>
       <display>Intent.Application.Dtos.AutoMapper 4.0.10</display>
       <isAbstract>false</isAbstract>
-      <value>4.0.10</value>
+      <value>4.0.11</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -87,7 +87,7 @@
       <name>Intent.Application.FluentValidation.Dtos</name>
       <display>Intent.Application.FluentValidation.Dtos 3.10.0</display>
       <isAbstract>false</isAbstract>
-      <value>3.10.0</value>
+      <value>3.10.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -101,7 +101,7 @@
       <name>Intent.Application.Identity</name>
       <display>Intent.Application.Identity 3.5.3</display>
       <isAbstract>false</isAbstract>
-      <value>3.5.3</value>
+      <value>3.5.4</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -129,7 +129,7 @@
       <name>Intent.Application.MediatR.FluentValidation</name>
       <display>Intent.Application.MediatR.FluentValidation 4.7.0</display>
       <isAbstract>false</isAbstract>
-      <value>4.7.0</value>
+      <value>4.7.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -157,7 +157,7 @@
       <name>Intent.AspNetCore</name>
       <display>Intent.AspNetCore 6.0.4</display>
       <isAbstract>false</isAbstract>
-      <value>6.0.4</value>
+      <value>6.0.5</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -185,7 +185,7 @@
       <name>Intent.AspNetCore.Controllers.Dispatch.ServiceContract</name>
       <display>Intent.AspNetCore.Controllers.Dispatch.ServiceContract 5.2.8</display>
       <isAbstract>false</isAbstract>
-      <value>5.2.8</value>
+      <value>5.2.9</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -227,7 +227,7 @@
       <name>Intent.AspNetCore.Swashbuckle.Security</name>
       <display>Intent.AspNetCore.Swashbuckle.Security 4.0.7</display>
       <isAbstract>false</isAbstract>
-      <value>4.0.7</value>
+      <value>4.0.8</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -241,7 +241,7 @@
       <name>Intent.Common</name>
       <display>Intent.Common 3.7.2</display>
       <isAbstract>false</isAbstract>
-      <value>3.7.2</value>
+      <value>3.7.3</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -255,7 +255,7 @@
       <name>Intent.Common.CSharp</name>
       <display>Intent.Common.CSharp 3.8.2</display>
       <isAbstract>false</isAbstract>
-      <value>3.8.2</value>
+      <value>3.8.3</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -269,7 +269,7 @@
       <name>Intent.DocumentDB.Dtos.AutoMapper</name>
       <display>Intent.DocumentDB.Dtos.AutoMapper 1.0.2</display>
       <isAbstract>false</isAbstract>
-      <value>1.0.2</value>
+      <value>1.0.3</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -283,7 +283,7 @@
       <name>Intent.Entities.Repositories.Api</name>
       <display>Intent.Entities.Repositories.Api 5.1.2</display>
       <isAbstract>false</isAbstract>
-      <value>5.1.2</value>
+      <value>5.1.3</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -325,7 +325,7 @@
       <name>Intent.Eventing.Contracts</name>
       <display>Intent.Eventing.Contracts 5.1.1</display>
       <isAbstract>false</isAbstract>
-      <value>5.1.1</value>
+      <value>5.1.2</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -339,7 +339,7 @@
       <name>Intent.Eventing.Contracts.DomainMapping</name>
       <display>Intent.Eventing.Contracts.DomainMapping 4.1.6</display>
       <isAbstract>false</isAbstract>
-      <value>4.1.6</value>
+      <value>4.1.7</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -395,7 +395,7 @@
       <name>Intent.Metadata.WebApi</name>
       <display>Intent.Metadata.WebApi 4.6.1</display>
       <isAbstract>false</isAbstract>
-      <value>4.6.1</value>
+      <value>4.6.2</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -507,7 +507,7 @@
       <name>Intent.Modelers.Services</name>
       <display>Intent.Modelers.Services 3.8.2</display>
       <isAbstract>false</isAbstract>
-      <value>3.8.2</value>
+      <value>3.8.3</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
@@ -535,7 +535,7 @@
       <name>Intent.Modelers.Services.DomainInteractions</name>
       <display>Intent.Modelers.Services.DomainInteractions 2.0.1</display>
       <isAbstract>false</isAbstract>
-      <value>2.0.1</value>
+      <value>2.0.2</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>89eae76b-21a1-4903-9a18-255b8a2aedfb</parentFolderId>
