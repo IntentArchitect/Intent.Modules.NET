@@ -309,7 +309,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
             foreach (var projectPackage in projectPackages)
             {
-                var dependantPackages = GetDependantPackages(projectPackage.OutputTarget, projectToNugetPackageMap);
+                var dependantPackages = GetDependantPackages(projectPackage.OutputTarget, GetEnrichedPackageMap(projectToNugetPackageMap, projectPackage));
                 foreach (var dependantPackage in dependantPackages)
                 {
                     if (projectPackage.RequestedPackages.TryGetValue(dependantPackage.Key, out var packge))
@@ -330,7 +330,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     }
                 }
 
-                List<string> toRemove = new List<string>();
+                List<string> toRemove = [];
                 foreach (var requestedPackage in projectPackage.RequestedPackages)
                 {
                     if (requestedPackage.Value.RequestedPackage?.Dependencies?.Any() == true)
@@ -355,7 +355,34 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             }
         }
 
-        private Dictionary<string, VersionRange> GetDependantPackages(IOutputTarget project, Dictionary<string, Dictionary<string, VersionRange>> projectToNugetPackageMap)
+        private static Dictionary<string, Dictionary<string, PackageVersionRange>> GetEnrichedPackageMap(Dictionary<string, Dictionary<string, VersionRange>> projectToNugetPackageMap, NuGetProject projectPackage)
+        {
+            // this block will basically convert the projectToNugetPackageMap, type: Dictionary<string, Dictionary<string, VersionRange>> to a 
+            // type of Dictionary<string, Dictionary<string, PackageVersionRange>>. The second type contains the same info as the first one, with the 
+            // addition of the NuGetProject
+            // This is required so that the GetDependantPackages method has enough information to determine if the package has the "PrivateAssets" property set or not
+            var projectToNugetPackageMapEnriched = new Dictionary<string, Dictionary<string, PackageVersionRange>>();
+            foreach (var projectNugetMap in projectToNugetPackageMap)
+            {
+                Dictionary<string, PackageVersionRange> keyValuePairs = [];
+                foreach (var kvp in projectNugetMap.Value)
+                {
+                    NuGetPackage nuGetPackage = null;
+                    if (projectPackage.RequestedPackages.TryGetValue(kvp.Key, out NuGetPackage value))
+                    {
+                        nuGetPackage = value;
+                    }
+                    var package = new PackageVersionRange(kvp.Value, nuGetPackage);
+                    keyValuePairs.Add(kvp.Key, package);
+                }
+
+                projectToNugetPackageMapEnriched.Add(projectNugetMap.Key, keyValuePairs);
+            }
+
+            return projectToNugetPackageMapEnriched;
+        }
+
+        private Dictionary<string, VersionRange> GetDependantPackages(IOutputTarget project, Dictionary<string, Dictionary<string, PackageVersionRange>> projectToNugetPackageMap)
         {
             var collectedPackages = new Dictionary<string, VersionRange>();
 
@@ -370,7 +397,11 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 {
                     foreach (var package in packages)
                     {
-                        AddUpdatePackageVersion(collectedPackages, package.Key, package.Value);
+                        // if the package is a private asset, don't consider it for harvesting
+                        if (package.Value.Package?.PrivateAssets.Count == 0)
+                        {
+                            AddUpdatePackageVersion(collectedPackages, package.Key, package.Value.VersionRange);
+                        }
                     }
                 }
 

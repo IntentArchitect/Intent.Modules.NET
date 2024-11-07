@@ -1,3 +1,7 @@
+### Version 3.8.4
+
+- Improvement: NuGet packages with `PrivateAssets` property set are not automatically trimmed from the project file.
+
 ### Version 3.8.3
 
 - Improvement: LocalSettings json file to allow `FUNCTIONS_WORKER_RUNTIME` to be set dynamically for upcoming Azure Functions Isolated processes.
