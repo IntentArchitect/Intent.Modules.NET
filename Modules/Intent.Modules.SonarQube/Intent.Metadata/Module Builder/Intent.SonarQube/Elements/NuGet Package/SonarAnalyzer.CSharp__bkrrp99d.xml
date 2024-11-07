@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9de3fb98-6ebd-4575-9c09-80db04faafd5" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>SonarAnalyzer.CSharp</name>
+  <display>SonarAnalyzer.CSharp</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4a3210b5-a0d9-48b4-b9dc-ed1237ba0b71</parentFolderId>
+  <packageId>85926971-0aec-4d8a-b6ce-3907d759579a</packageId>
+  <packageName>Intent.SonarQube</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" value="[&quot;all&quot;]" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" value="[&quot;runtime&quot;,&quot;build&quot;,&quot;native&quot;,&quot;contentFiles&quot;,&quot;analyzers&quot;,&quot;buildTransitive&quot;]" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="1eae8bef-1c39-4a71-a7ae-42d285aaa15a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>9.32.0.97167</name>
+      <display>9.32.0.97167 ( &gt;= Any,Version=v0.0 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9de3fb98-6ebd-4575-9c09-80db04faafd5</parentFolderId>
+      <packageId>85926971-0aec-4d8a-b6ce-3907d759579a</packageId>
+      <packageName>Intent.SonarQube</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value="Any,Version=v0.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

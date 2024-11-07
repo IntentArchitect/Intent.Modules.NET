@@ -1,6 +1,7 @@
 ### Version 3.8.4
 
 - Improvement: Environment variables values changed in `launchsettings.json` will no longer be overwritten when running the Software Factory
+- Improvement: NuGet packages with `PrivateAssets` property set are not automatically trimmed from the project file.
 
 ### Version 3.8.3
 

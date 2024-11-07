@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4a3210b5-a0d9-48b4-b9dc-ed1237ba0b71" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>85926971-0aec-4d8a-b6ce-3907d759579a</parentFolderId>
+  <packageId>85926971-0aec-4d8a-b6ce-3907d759579a</packageId>
+  <packageName>Intent.SonarQube</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
