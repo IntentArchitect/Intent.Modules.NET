@@ -83,9 +83,11 @@ namespace SwashbuckleSettings.SimpleSchemaId.Api.Configuration
         {
             var provider = app.ApplicationServices.GetRequiredService<IApiVersionDescriptionProvider>();
 
-            foreach (var description in provider.ApiVersionDescriptions.OrderByDescending(o => o.ApiVersion))
+            foreach (var groupName in provider.ApiVersionDescriptions
+                .OrderByDescending(o => o.ApiVersion)
+                .Select(a => a.GroupName))
             {
-                options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", $"{options.OAuthConfigObject.AppName} {description.GroupName}");
+                options.SwaggerEndpoint($"/swagger/{groupName}/swagger.json", $"{options.OAuthConfigObject.AppName} {groupName}");
             }
         }
     }

@@ -58,7 +58,9 @@ namespace MinimalHostingModel.Domain.Common
             /// <param name="toAdd">A collection of elements to be added.</param>
             /// <param name="toRemove">A collection of elements to be removed.</param>
             /// <param name="possibleEdits">A collection of matched elements that might have edits.</param>
-            public ComparisonResult(ICollection<TChanged> toAdd, ICollection<TOriginal> toRemove, ICollection<Match<TChanged, TOriginal>> possibleEdits)
+            public ComparisonResult(ICollection<TChanged> toAdd,
+                ICollection<TOriginal> toRemove,
+                ICollection<Match<TChanged, TOriginal>> possibleEdits)
             {
                 ToAdd = toAdd;
                 ToRemove = toRemove;
@@ -86,7 +88,7 @@ namespace MinimalHostingModel.Domain.Common
             /// <returns><see langword="true" /> if there are changes; otherwise, <see langword="false" />.</returns>
             public bool HasChanges()
             {
-                return ToAdd.Any() || ToRemove.Any() || PossibleEdits.Any();
+                return ToAdd.Count > 0 || ToRemove.Count > 0 || PossibleEdits.Count > 0;
             }
         }
 
