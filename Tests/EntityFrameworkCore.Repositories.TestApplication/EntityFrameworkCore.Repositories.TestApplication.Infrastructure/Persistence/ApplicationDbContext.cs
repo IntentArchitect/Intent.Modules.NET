@@ -8,9 +8,11 @@ using EntityFrameworkCore.Repositories.TestApplication.Domain.Common.Interfaces;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Contracts;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Contracts.MappableStoredProcs;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities;
+using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.CustomPkName;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.MappableStoredProcs;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.PrimaryKeyTypes;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persistence.Configurations;
+using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persistence.Configurations.CustomPkName;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persistence.Configurations.MappableStoredProcs;
 using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persistence.Configurations.PrimaryKeyTypes;
 using Intent.RoslynWeaver.Attributes;
@@ -44,6 +46,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
         public DbSet<AggregateRoot4Nullable> AggregateRoot4Nullables { get; set; }
         public DbSet<AggregateRoot4Single> AggregateRoot4Singles { get; set; }
         public DbSet<AggregateRoot5> AggregateRoot5s { get; set; }
+        public DbSet<CustomPk> CustomPks { get; set; }
+        public DbSet<CustomPkComp> CustomPkComps { get; set; }
         public DbSet<MockEntity> MockEntities { get; set; }
         public DbSet<NewClassByte> NewClassBytes { get; set; }
         public DbSet<NewClassDecimal> NewClassDecimals { get; set; }
@@ -86,6 +90,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
             modelBuilder.ApplyConfiguration(new AggregateRoot4NullableConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot4SingleConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot5Configuration());
+            modelBuilder.ApplyConfiguration(new CustomPkConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomPkCompConfiguration());
             modelBuilder.ApplyConfiguration(new MockEntityConfiguration());
             modelBuilder.ApplyConfiguration(new NewClassByteConfiguration());
             modelBuilder.ApplyConfiguration(new NewClassDecimalConfiguration());

@@ -81,19 +81,22 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
             {
                 method.AddAttribute("[IntentManaged(Mode.Fully)]");
                 string parameterType;
+                string parameterName;
                 if (pks.Length == 1)
                 {
                     var pk = pks.First();
                     parameterType = template.GetTypeName(pk.TypeReference);
+                    parameterName = pk.Name.ToParameterName();
                 }
                 else
                 {
                     parameterType = $"({string.Join(", ", pks.Select(pk => $"{template.GetTypeName(pk.TypeReference)} {pk.Name.ToPascalCase()}"))})";
+                    parameterName = "id";
                 }
 
                 method
                     .AddGenericParameter("TProjection")
-                    .AddParameter(parameterType, "id");
+                    .AddParameter(parameterType, parameterName);
 
                 if (asAsync) AsyncAdjust(method);
             });
@@ -122,21 +125,24 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
             {
                 string parameterType;
                 string filter;
+                string parameterName;
                 if (pks.Length == 1)
                 {
                     var pk = pks.First();
                     parameterType = template.GetTypeName(pk.TypeReference);
-                    filter = $"x.{pk.Name} == {pk.Name.ToCamelCase()}";
+                    filter = $"x.{pk.Name} == {pk.Name.ToParameterName()}";
+                    parameterName = pk.Name.ToParameterName();
                 }
                 else
                 {
                     parameterType = $"({string.Join(", ", pks.Select(pk => $"{template.GetTypeName(pk.TypeReference)} {pk.Name.ToPascalCase()}"))})";
                     filter = string.Join(" && ", pks.Select(pk => $"x.{pk.Name} == id.{pk.Name.ToPascalCase()}"));
+                    parameterName = "id";
                 }
 
                 method
                     .AddGenericParameter("TProjection")
-                    .AddParameter(parameterType, "id");
+                    .AddParameter(parameterType, parameterName);
 
                 method.AddStatement(asAsync
                     ? $"return await FindProjectToAsync<TProjection>(x => {filter}, cancellationToken);"
