@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -31,11 +31,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>CollectionWrapperTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Update="Templates\CollectionExtensions\CollectionExtensionsTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>CollectionExtensionsTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\UpdateHelper\UpdateHelperTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -49,10 +44,6 @@
     <None Update="Templates\CollectionWrapper\CollectionWrapperTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CollectionWrapperTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\CollectionExtensions\CollectionExtensionsTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CollectionExtensionsTemplate.cs</LastGenOutput>
     </None>
     <None Update="Templates\UpdateHelper\UpdateHelperTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

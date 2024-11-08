@@ -1,3 +1,8 @@
+### Version 5.1.7
+
+- Improvement: Converted `CollectionExtensions` to use Builder pattern
+- Improvement: General code clean up to remove several code warnings.
+
 ### Version 5.1.6
 
 - Improvement: Generated code more aligned with best practices

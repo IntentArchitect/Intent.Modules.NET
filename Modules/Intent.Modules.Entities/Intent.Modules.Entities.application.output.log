@@ -50,22 +50,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#49871fba-2c9a-4e92-b322-9da36cdb6cce</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CollectionExtensions/CollectionExtensionsTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CollectionExtensions/CollectionExtensionsTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#49871fba-2c9a-4e92-b322-9da36cdb6cce</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CollectionExtensions/CollectionExtensionsTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CollectionExtensions/CollectionExtensionsTemplate.tt</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2070c3cc-fb67-4828-aa85-834756054e4e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#49871fba-2c9a-4e92-b322-9da36cdb6cce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CollectionExtensions/CollectionExtensionsTemplatePartial.cs</ApplicationRelativeFilePath>
