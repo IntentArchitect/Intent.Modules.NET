@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f622c6d4-d77b-445a-8245-3ee366b75867" type="Diagram" typeId="4912c89a-77eb-497e-a3f4-7408b6a20886">
+  <name>#1 - Site Map</name>
+  <display>#1 - Site Map</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>25cabfac-d9a6-4255-a8ad-37c821d2e1e2</parentFolderId>
+  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+  <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <diagram>
+    <targetPackageId>f622c6d4-d77b-445a-8245-3ee366b75867</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

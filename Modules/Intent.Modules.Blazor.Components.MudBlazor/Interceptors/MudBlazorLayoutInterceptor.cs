@@ -41,7 +41,7 @@ public class MudBlazorLayoutInterceptor(IRazorComponentBuilderProvider component
         {
             grid = new HtmlElement("MudGrid", template.RazorFile);
             //This is used to denote which component the grid represents
-            grid.AddMetadata("model", component.ParentElement);
+            grid.AddMetadata("_gridModel", component.ParentElement);
 
             if (component.IsContainerModel())
             {
@@ -58,7 +58,7 @@ public class MudBlazorLayoutInterceptor(IRazorComponentBuilderProvider component
 
     private bool TryGetExistingGrid(IRazorFileNode node, IElement parent, out HtmlElement grid)
     {
-        grid = node.ChildNodes.FirstOrDefault(c => c is HtmlElement { Name: "MudGrid" } && c.HasMetadata("model") && c.GetMetadata<IElement>("model") == parent) as HtmlElement;
+        grid = node.ChildNodes.FirstOrDefault(c => c is HtmlElement { Name: "MudGrid" } && c.HasMetadata("_gridModel") && c.GetMetadata<IElement>("_gridModel") == parent) as HtmlElement;
         return grid != null;
     }
 

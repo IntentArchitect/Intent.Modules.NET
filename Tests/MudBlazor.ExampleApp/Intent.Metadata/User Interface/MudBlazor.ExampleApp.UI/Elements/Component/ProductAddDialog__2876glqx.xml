@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="82e2c720-26f3-48c1-81ef-aabb13850056" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+  <name>ProductAddDialog</name>
+  <display>ProductAddDialog</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2b903aaf-2410-4740-882c-23a60099aa11</parentFolderId>
+  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+  <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <stereotypes />
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="82e2c720-26f3-48c1-81ef-aabb13850056" location="[MudBlazor.ExampleApp].[User Interface].[ProductAddDialog]" />
+      <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="188159f9-393d-4bf4-8714-8afb4253df27" location="[MudBlazor.ExampleApp].[User Interface].[[view]]" />
+      <mappedEnds>
+        <mappedEnd>
+          <expression>{Model}</expression>
+          <path>
+            <target id="188159f9-393d-4bf4-8714-8afb4253df27" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="fa006311-7140-4a05-b2b1-c7852f2e19fb" name="Dialog" type="element" specialization="Dialog" specializationId="1260ae89-b0cc-4ae0-b21c-7e26d45f16a5" />
+            <target id="65752249-c273-46c0-9f0f-d2134f021dcc" name="Content" type="element" specialization="Dialog Content" specializationId="69495016-6e72-4c18-bae5-2391e45cd234" />
+            <target id="660ec46c-9050-4a81-a0f5-5d16ebde353c" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="9d16e967-a2ab-45b4-ba69-b286daf4488c" name="Model" type="static-mappable" specialization="Model" specializationId="9d16e967-a2ab-45b4-ba69-b286daf4488c">
+              <typeReference id="dc321f9d-3b16-439d-b36a-61b0070f1381">
+                <isNavigable>true</isNavigable>
+                <isNullable>false</isNullable>
+                <isCollection>false</isCollection>
+                <isRequired>true</isRequired>
+                <stereotypes />
+                <genericTypeParameters />
+              </typeReference>
+            </target>
+          </path>
+          <sources>
+            <source identifier="Model" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="82e2c720-26f3-48c1-81ef-aabb13850056" name="ProductAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="4210c38f-e6f0-4ae6-b742-41bd3947a299" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.Name}</expression>
+          <path>
+            <target id="188159f9-393d-4bf4-8714-8afb4253df27" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="fa006311-7140-4a05-b2b1-c7852f2e19fb" name="Dialog" type="element" specialization="Dialog" specializationId="1260ae89-b0cc-4ae0-b21c-7e26d45f16a5" />
+            <target id="65752249-c273-46c0-9f0f-d2134f021dcc" name="Content" type="element" specialization="Dialog Content" specializationId="69495016-6e72-4c18-bae5-2391e45cd234" />
+            <target id="660ec46c-9050-4a81-a0f5-5d16ebde353c" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="a956078b-964a-4e9a-9122-86b440ed5cbf" name="Name" type="element" specialization="Text Input" specializationId="4803bf60-c626-4cbe-94ed-0f1eafff9fe3" />
+          </path>
+          <sources>
+            <source identifier="Model.Name" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="82e2c720-26f3-48c1-81ef-aabb13850056" name="ProductAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="4210c38f-e6f0-4ae6-b742-41bd3947a299" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="351d0507-dd60-42a8-870f-1d2a59c8f02c" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.Description}</expression>
+          <path>
+            <target id="188159f9-393d-4bf4-8714-8afb4253df27" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="fa006311-7140-4a05-b2b1-c7852f2e19fb" name="Dialog" type="element" specialization="Dialog" specializationId="1260ae89-b0cc-4ae0-b21c-7e26d45f16a5" />
+            <target id="65752249-c273-46c0-9f0f-d2134f021dcc" name="Content" type="element" specialization="Dialog Content" specializationId="69495016-6e72-4c18-bae5-2391e45cd234" />
+            <target id="660ec46c-9050-4a81-a0f5-5d16ebde353c" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="571f803f-69e4-4148-a270-f94ec645223b" name="Description" type="element" specialization="Text Input" specializationId="4803bf60-c626-4cbe-94ed-0f1eafff9fe3" />
+          </path>
+          <sources>
+            <source identifier="Model.Description" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="82e2c720-26f3-48c1-81ef-aabb13850056" name="ProductAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="4210c38f-e6f0-4ae6-b742-41bd3947a299" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="7d16e587-1cd9-41d0-b1c9-d368c32e926a" name="Description" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.Price}</expression>
+          <path>
+            <target id="188159f9-393d-4bf4-8714-8afb4253df27" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="fa006311-7140-4a05-b2b1-c7852f2e19fb" name="Dialog" type="element" specialization="Dialog" specializationId="1260ae89-b0cc-4ae0-b21c-7e26d45f16a5" />
+            <target id="65752249-c273-46c0-9f0f-d2134f021dcc" name="Content" type="element" specialization="Dialog Content" specializationId="69495016-6e72-4c18-bae5-2391e45cd234" />
+            <target id="660ec46c-9050-4a81-a0f5-5d16ebde353c" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="8015c265-9662-4840-86e3-e0df2044310c" name="Price" type="element" specialization="Text Input" specializationId="4803bf60-c626-4cbe-94ed-0f1eafff9fe3" />
+          </path>
+          <sources>
+            <source identifier="Model.Price" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="82e2c720-26f3-48c1-81ef-aabb13850056" name="ProductAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="4210c38f-e6f0-4ae6-b742-41bd3947a299" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="979f30e7-e7ba-409b-9704-4886fed4cd96" name="Price" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.ImageUrl}</expression>
+          <path>
+            <target id="188159f9-393d-4bf4-8714-8afb4253df27" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="fa006311-7140-4a05-b2b1-c7852f2e19fb" name="Dialog" type="element" specialization="Dialog" specializationId="1260ae89-b0cc-4ae0-b21c-7e26d45f16a5" />
+            <target id="65752249-c273-46c0-9f0f-d2134f021dcc" name="Content" type="element" specialization="Dialog Content" specializationId="69495016-6e72-4c18-bae5-2391e45cd234" />
+            <target id="660ec46c-9050-4a81-a0f5-5d16ebde353c" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="d2eefa68-eefa-4007-a02e-ccb6863cd59f" name="Image Url" type="element" specialization="Text Input" specializationId="4803bf60-c626-4cbe-94ed-0f1eafff9fe3" />
+          </path>
+          <sources>
+            <source identifier="Model.ImageUrl" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="82e2c720-26f3-48c1-81ef-aabb13850056" name="ProductAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="4210c38f-e6f0-4ae6-b742-41bd3947a299" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="7eaad80e-2acc-42b3-87ed-fdc1287349af" name="ImageUrl" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{OnSaveClicked}</expression>
+          <path>
+            <target id="188159f9-393d-4bf4-8714-8afb4253df27" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="fa006311-7140-4a05-b2b1-c7852f2e19fb" name="Dialog" type="element" specialization="Dialog" specializationId="1260ae89-b0cc-4ae0-b21c-7e26d45f16a5" />
+            <target id="16ac7c19-0e73-458e-8b7d-54952dc8b2aa" name="Actions" type="element" specialization="Dialog Actions" specializationId="247a4768-7c46-472c-b5ea-565b37194956" />
+            <target id="cbc350b8-b253-4382-b759-1fe5e935f789" name="Save" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" name="On Click" type="static-mappable" specialization="On Click" specializationId="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" />
+          </path>
+          <sources>
+            <source identifier="OnSaveClicked" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="82e2c720-26f3-48c1-81ef-aabb13850056" name="ProductAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="25ea6ed3-0eb6-4b23-9810-a7a834dfb024" name="OnSaveClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{OnCancelClicked}</expression>
+          <path>
+            <target id="188159f9-393d-4bf4-8714-8afb4253df27" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="fa006311-7140-4a05-b2b1-c7852f2e19fb" name="Dialog" type="element" specialization="Dialog" specializationId="1260ae89-b0cc-4ae0-b21c-7e26d45f16a5" />
+            <target id="16ac7c19-0e73-458e-8b7d-54952dc8b2aa" name="Actions" type="element" specialization="Dialog Actions" specializationId="247a4768-7c46-472c-b5ea-565b37194956" />
+            <target id="b5f63f2b-0045-46f4-a8c2-39e112cce490" name="Cancel" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" name="On Click" type="static-mappable" specialization="On Click" specializationId="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" />
+          </path>
+          <sources>
+            <source identifier="OnCancelClicked" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="82e2c720-26f3-48c1-81ef-aabb13850056" name="ProductAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="c15ee023-dc27-421e-8681-c8272ba6d3ba" name="OnCancelClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+      </mappedEnds>
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements>
+    <childElement id="4210c38f-e6f0-4ae6-b742-41bd3947a299" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>Model</name>
+      <display>Model: ProductDto = new()</display>
+      <isAbstract>false</isAbstract>
+      <value>new()</value>
+      <genericTypes />
+      <typeReference id="c191477c-2aae-46a3-823f-1f5dcbb0bce2">
+        <typeId>35f97230-e866-41c4-8d9b-62c70a613c79</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+        <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>82e2c720-26f3-48c1-81ef-aabb13850056</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="9304d76a-af29-458f-bcf4-83f5db1410ca" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnInitializedAsync</name>
+      <display>OnInitializedAsync(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="60568731-0974-4620-91fc-63c678e87c33">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>82e2c720-26f3-48c1-81ef-aabb13850056</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="25ea6ed3-0eb6-4b23-9810-a7a834dfb024" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnSaveClicked</name>
+      <display>OnSaveClicked(): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="6906b931-72fe-42cd-baf2-1518eeb24252">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>82e2c720-26f3-48c1-81ef-aabb13850056</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="99fa62d8-a0a4-4134-a6d2-5e1806cc3b19" type="Invocation" typeId="18f87cd6-d8d8-4518-8931-58653d537467">
+          <name>Dialog.Close</name>
+          <display>[call] Dialog.Close</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="edba7418-fa9d-4576-b2b9-564a79ddbf36">
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>25ea6ed3-0eb6-4b23-9810-a7a834dfb024</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <traits>
+            <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+          </traits>
+          <stereotypes />
+          <mappings>
+            <mapping type="Invocation Mapping" typeId="d5d1dd6a-15f4-4332-b531-3b74e1d97fab">
+              <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="82e2c720-26f3-48c1-81ef-aabb13850056" location="[MudBlazor.ExampleApp].[User Interface].[ProductAddDialog]" />
+              <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="82e2c720-26f3-48c1-81ef-aabb13850056" location="[MudBlazor.ExampleApp].[User Interface].[ProductAddDialog]" />
+              <mappedEnds>
+                <mappedEnd>
+                  <expression>{OnSaveClicked.Dialog_Close}</expression>
+                  <path>
+                    <target id="82e2c720-26f3-48c1-81ef-aabb13850056" name="ProductAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
+                      <typeReference id="6f0905ae-9817-416e-9a0b-d6a29b9bdb38">
+                        <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
+                        <isNavigable>true</isNavigable>
+                        <isNullable>false</isNullable>
+                        <isCollection>false</isCollection>
+                        <isRequired>true</isRequired>
+                        <typePackageName>Intent.Blazor.Components.MudBlazor</typePackageName>
+                        <typePackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</typePackageId>
+                        <stereotypes />
+                        <genericTypeParameters />
+                      </typeReference>
+                    </target>
+                    <target id="6143176f-5953-48d2-8eb4-c1ef02e3adf0" name="Close" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  </path>
+                  <sources>
+                    <source identifier="OnSaveClicked.Dialog_Close" mappingType="Invokable Mapping" mappingTypeId="720f119b-39b3-4f11-8d96-27fa82d1f4e2">
+                      <path>
+                        <target id="82e2c720-26f3-48c1-81ef-aabb13850056" name="ProductAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                        <target id="25ea6ed3-0eb6-4b23-9810-a7a834dfb024" name="OnSaveClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                        <target id="99fa62d8-a0a4-4134-a6d2-5e1806cc3b19" name="Dialog.Close" type="element" specialization="Invocation" specializationId="18f87cd6-d8d8-4518-8931-58653d537467" />
+                      </path>
+                    </source>
+                  </sources>
+                </mappedEnd>
+              </mappedEnds>
+            </mapping>
+          </mappings>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="c15ee023-dc27-421e-8681-c8272ba6d3ba" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnCancelClicked</name>
+      <display>OnCancelClicked(): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="ab7d6e34-3da5-4d26-a39f-9df3598b4d22">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>82e2c720-26f3-48c1-81ef-aabb13850056</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="ccdc9abb-7a00-44c4-914c-7fc8e9c2732f" type="Invocation" typeId="18f87cd6-d8d8-4518-8931-58653d537467">
+          <name>Dialog.Cancel</name>
+          <display>[call] Dialog.Cancel</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="080bf57d-3631-43a3-87d7-74d21bbba913">
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c15ee023-dc27-421e-8681-c8272ba6d3ba</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <traits>
+            <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+          </traits>
+          <stereotypes />
+          <mappings>
+            <mapping type="Invocation Mapping" typeId="d5d1dd6a-15f4-4332-b531-3b74e1d97fab">
+              <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="82e2c720-26f3-48c1-81ef-aabb13850056" location="[MudBlazor.ExampleApp].[User Interface].[ProductAddDialog]" />
+              <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="82e2c720-26f3-48c1-81ef-aabb13850056" location="[MudBlazor.ExampleApp].[User Interface].[ProductAddDialog]" />
+              <mappedEnds>
+                <mappedEnd>
+                  <expression>{OnCancelClicked.Dialog_Cancel}</expression>
+                  <path>
+                    <target id="82e2c720-26f3-48c1-81ef-aabb13850056" name="ProductAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
+                      <typeReference id="68f84a7a-416f-40f0-ae9d-6e7f9e2eed76">
+                        <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
+                        <isNavigable>true</isNavigable>
+                        <isNullable>false</isNullable>
+                        <isCollection>false</isCollection>
+                        <isRequired>true</isRequired>
+                        <typePackageName>Intent.Blazor.Components.MudBlazor</typePackageName>
+                        <typePackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</typePackageId>
+                        <stereotypes />
+                        <genericTypeParameters />
+                      </typeReference>
+                    </target>
+                    <target id="aecdb5f8-9acf-4365-a894-c3ea09f23018" name="Cancel" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  </path>
+                  <sources>
+                    <source identifier="OnCancelClicked.Dialog_Cancel" mappingType="Invokable Mapping" mappingTypeId="720f119b-39b3-4f11-8d96-27fa82d1f4e2">
+                      <path>
+                        <target id="82e2c720-26f3-48c1-81ef-aabb13850056" name="ProductAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                        <target id="c15ee023-dc27-421e-8681-c8272ba6d3ba" name="OnCancelClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                        <target id="ccdc9abb-7a00-44c4-914c-7fc8e9c2732f" name="Dialog.Cancel" type="element" specialization="Invocation" specializationId="18f87cd6-d8d8-4518-8931-58653d537467" />
+                      </path>
+                    </source>
+                  </sources>
+                </mappedEnd>
+              </mappedEnds>
+            </mapping>
+          </mappings>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

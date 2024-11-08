@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4255cff1-e16b-4c21-b4f4-8646011c7339" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+  <name>ConfirmationDialog</name>
+  <display>ConfirmationDialog</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5d5319ec-0b34-40a5-a933-73a83002544c</parentFolderId>
+  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+  <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <stereotypes />
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="4255cff1-e16b-4c21-b4f4-8646011c7339" location="[MudBlazor.ExampleApp].[User Interface].[ConfirmationDialog]" />
+      <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="990f187f-694a-460d-aae4-6af3f6970411" location="[MudBlazor.ExampleApp].[User Interface].[[view]]" />
+      <mappedEnds>
+        <mappedEnd>
+          <expression>{ContentText}</expression>
+          <path>
+            <target id="990f187f-694a-460d-aae4-6af3f6970411" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="9de4d7a3-82d3-4ffd-aa49-5fb0b1f0e185" name="Dialog" type="element" specialization="Dialog" specializationId="1260ae89-b0cc-4ae0-b21c-7e26d45f16a5" />
+            <target id="10b9eb50-e6af-43e8-a517-607e1f5fbc23" name="Content" type="element" specialization="Dialog Content" specializationId="69495016-6e72-4c18-bae5-2391e45cd234" />
+            <target id="47a73d45-5cfb-4bc4-929b-c868f17e2dd0" name="Text" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources>
+            <source identifier="ContentText" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="4255cff1-e16b-4c21-b4f4-8646011c7339" name="ConfirmationDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="3cae10d1-debe-4e6c-86c5-32fb8224c1da" name="ContentText" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Submit}</expression>
+          <path>
+            <target id="990f187f-694a-460d-aae4-6af3f6970411" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="9de4d7a3-82d3-4ffd-aa49-5fb0b1f0e185" name="Dialog" type="element" specialization="Dialog" specializationId="1260ae89-b0cc-4ae0-b21c-7e26d45f16a5" />
+            <target id="fb02c319-e1d0-47d0-9e21-4e9ca06da385" name="Actions" type="element" specialization="Dialog Actions" specializationId="247a4768-7c46-472c-b5ea-565b37194956" />
+            <target id="8fddb9e9-4e33-43ae-aa97-cd5da23ee179" name="Submit" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" name="On Click" type="static-mappable" specialization="On Click" specializationId="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" />
+          </path>
+          <sources>
+            <source identifier="Submit" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="4255cff1-e16b-4c21-b4f4-8646011c7339" name="ConfirmationDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="1169f2aa-e882-464b-8816-99270e5a2042" name="Submit" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Color}</expression>
+          <path>
+            <target id="990f187f-694a-460d-aae4-6af3f6970411" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="9de4d7a3-82d3-4ffd-aa49-5fb0b1f0e185" name="Dialog" type="element" specialization="Dialog" specializationId="1260ae89-b0cc-4ae0-b21c-7e26d45f16a5" />
+            <target id="fb02c319-e1d0-47d0-9e21-4e9ca06da385" name="Actions" type="element" specialization="Dialog Actions" specializationId="247a4768-7c46-472c-b5ea-565b37194956" />
+            <target id="8fddb9e9-4e33-43ae-aa97-cd5da23ee179" name="Submit" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="3a04c387-3b5b-4a3d-b03a-4ecd0dcc301a" name="Color" type="static-mappable" specialization="Color" specializationId="3a04c387-3b5b-4a3d-b03a-4ecd0dcc301a">
+              <typeReference id="362f0fc2-d71f-48e8-99a6-a1a41e4937b6">
+                <typeId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</typeId>
+                <isNavigable>true</isNavigable>
+                <isNullable>false</isNullable>
+                <isCollection>false</isCollection>
+                <isRequired>true</isRequired>
+                <typePackageName>Intent.Blazor.Components.MudBlazor</typePackageName>
+                <typePackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</typePackageId>
+                <stereotypes />
+                <genericTypeParameters />
+              </typeReference>
+            </target>
+          </path>
+          <sources>
+            <source identifier="Color" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="4255cff1-e16b-4c21-b4f4-8646011c7339" name="ConfirmationDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="3868dd3d-88e9-4a9c-a21a-f564204c5e8c" name="Color" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Cancel}</expression>
+          <path>
+            <target id="990f187f-694a-460d-aae4-6af3f6970411" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="9de4d7a3-82d3-4ffd-aa49-5fb0b1f0e185" name="Dialog" type="element" specialization="Dialog" specializationId="1260ae89-b0cc-4ae0-b21c-7e26d45f16a5" />
+            <target id="fb02c319-e1d0-47d0-9e21-4e9ca06da385" name="Actions" type="element" specialization="Dialog Actions" specializationId="247a4768-7c46-472c-b5ea-565b37194956" />
+            <target id="654efee0-6eb2-4608-b1b3-1122befe25e4" name="Cancel" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" name="On Click" type="static-mappable" specialization="On Click" specializationId="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" />
+          </path>
+          <sources>
+            <source identifier="Cancel" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="4255cff1-e16b-4c21-b4f4-8646011c7339" name="ConfirmationDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="ed081ff7-af55-4cb0-9486-08d7de136c96" name="Cancel" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+      </mappedEnds>
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements>
+    <childElement id="3cae10d1-debe-4e6c-86c5-32fb8224c1da" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>ContentText</name>
+      <display>ContentText: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="17e70420-fa5b-462c-af2d-3627edee25e4">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4255cff1-e16b-4c21-b4f4-8646011c7339</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="12ba7bea-ceb9-44d4-8819-835fe36af7b3" name="[Bindable]">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="30b73d1f-f4ac-4d30-98c3-91c7fd05479a" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>ButtonText</name>
+      <display>ButtonText: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ee817c29-f4fb-4cd5-97eb-63160d5b3d39">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4255cff1-e16b-4c21-b4f4-8646011c7339</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="12ba7bea-ceb9-44d4-8819-835fe36af7b3" name="[Bindable]">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="3868dd3d-88e9-4a9c-a21a-f564204c5e8c" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>Color</name>
+      <display>Color: Color</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5bba2a06-6072-417e-98b8-7e10c730733a">
+        <typeId>f357cbb8-2a8f-4765-93ec-3a5c15ca8313</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Blazor.Components.MudBlazor</typePackageName>
+        <typePackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4255cff1-e16b-4c21-b4f4-8646011c7339</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="12ba7bea-ceb9-44d4-8819-835fe36af7b3" name="[Bindable]">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="ed081ff7-af55-4cb0-9486-08d7de136c96" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Cancel</name>
+      <display>Cancel(): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="8d8d339c-a9a9-4a8e-af3b-5522541b6253">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4255cff1-e16b-4c21-b4f4-8646011c7339</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="4cfe8056-cdd8-46e1-9b96-2ba71eed7213" type="Invocation" typeId="18f87cd6-d8d8-4518-8931-58653d537467">
+          <name>Dialog.Cancel</name>
+          <display>[call] Dialog.Cancel</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f7fd5e1d-e3ec-49c7-b733-c3c1d380aef0">
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ed081ff7-af55-4cb0-9486-08d7de136c96</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <traits>
+            <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+          </traits>
+          <stereotypes />
+          <mappings>
+            <mapping type="Invocation Mapping" typeId="d5d1dd6a-15f4-4332-b531-3b74e1d97fab">
+              <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="4255cff1-e16b-4c21-b4f4-8646011c7339" location="[MudBlazor.ExampleApp].[User Interface].[ConfirmationDialog]" />
+              <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="4255cff1-e16b-4c21-b4f4-8646011c7339" location="[MudBlazor.ExampleApp].[User Interface].[ConfirmationDialog]" />
+              <mappedEnds>
+                <mappedEnd>
+                  <expression>{Cancel.Dialog_Cancel}</expression>
+                  <path>
+                    <target id="4255cff1-e16b-4c21-b4f4-8646011c7339" name="ConfirmationDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
+                      <typeReference id="4c98eecd-6253-4ecc-a093-499e81776143">
+                        <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
+                        <isNavigable>true</isNavigable>
+                        <isNullable>false</isNullable>
+                        <isCollection>false</isCollection>
+                        <isRequired>true</isRequired>
+                        <typePackageName>Intent.Blazor.Components.MudBlazor</typePackageName>
+                        <typePackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</typePackageId>
+                        <stereotypes />
+                        <genericTypeParameters />
+                      </typeReference>
+                    </target>
+                    <target id="aecdb5f8-9acf-4365-a894-c3ea09f23018" name="Cancel" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  </path>
+                  <sources>
+                    <source identifier="Cancel.Dialog_Cancel" mappingType="Invokable Mapping" mappingTypeId="720f119b-39b3-4f11-8d96-27fa82d1f4e2">
+                      <path>
+                        <target id="4255cff1-e16b-4c21-b4f4-8646011c7339" name="ConfirmationDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                        <target id="ed081ff7-af55-4cb0-9486-08d7de136c96" name="Cancel" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                        <target id="4cfe8056-cdd8-46e1-9b96-2ba71eed7213" name="Dialog.Cancel" type="element" specialization="Invocation" specializationId="18f87cd6-d8d8-4518-8931-58653d537467" />
+                      </path>
+                    </source>
+                  </sources>
+                </mappedEnd>
+                <mappedEnd>
+                  <expression>true</expression>
+                  <path>
+                    <target id="4255cff1-e16b-4c21-b4f4-8646011c7339" name="ConfirmationDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
+                      <typeReference id="4c98eecd-6253-4ecc-a093-499e81776143">
+                        <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
+                        <isNavigable>true</isNavigable>
+                        <isNullable>false</isNullable>
+                        <isCollection>false</isCollection>
+                        <isRequired>true</isRequired>
+                        <typePackageName>Intent.Blazor.Components.MudBlazor</typePackageName>
+                        <typePackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</typePackageId>
+                        <stereotypes />
+                        <genericTypeParameters />
+                      </typeReference>
+                    </target>
+                    <target id="6143176f-5953-48d2-8eb4-c1ef02e3adf0" name="Close" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  </path>
+                  <sources />
+                </mappedEnd>
+              </mappedEnds>
+            </mapping>
+          </mappings>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1169f2aa-e882-464b-8816-99270e5a2042" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Submit</name>
+      <display>Submit(): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="e1497ecf-b926-431c-94b8-e5ed7b05ef25">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>4255cff1-e16b-4c21-b4f4-8646011c7339</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <mappings>
+        <mapping type="Invocation Mapping" typeId="d5d1dd6a-15f4-4332-b531-3b74e1d97fab">
+          <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="4255cff1-e16b-4c21-b4f4-8646011c7339" location="[MudBlazor.ExampleApp].[User Interface].[ConfirmationDialog]" />
+          <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="4255cff1-e16b-4c21-b4f4-8646011c7339" location="[MudBlazor.ExampleApp].[User Interface].[ConfirmationDialog]" />
+          <mappedEnds />
+        </mapping>
+      </mappings>
+      <metadata />
+      <childElements>
+        <childElement id="0196c2d8-ccca-4c90-b0e4-e813ca59debd" type="Invocation" typeId="18f87cd6-d8d8-4518-8931-58653d537467">
+          <name>Dialog.Close</name>
+          <display>[call] Dialog.Close</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="63c4c4c3-940b-413c-b30d-22dda50bdf70">
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1169f2aa-e882-464b-8816-99270e5a2042</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <traits>
+            <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+          </traits>
+          <stereotypes />
+          <mappings>
+            <mapping type="Invocation Mapping" typeId="d5d1dd6a-15f4-4332-b531-3b74e1d97fab">
+              <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="4255cff1-e16b-4c21-b4f4-8646011c7339" location="[MudBlazor.ExampleApp].[User Interface].[ConfirmationDialog]" />
+              <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="4255cff1-e16b-4c21-b4f4-8646011c7339" location="[MudBlazor.ExampleApp].[User Interface].[ConfirmationDialog]" />
+              <mappedEnds>
+                <mappedEnd>
+                  <expression>{Submit.Dialog_Close}</expression>
+                  <path>
+                    <target id="4255cff1-e16b-4c21-b4f4-8646011c7339" name="ConfirmationDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
+                      <typeReference id="57ce835a-36f1-44cf-8542-4a30aa8219a1">
+                        <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
+                        <isNavigable>true</isNavigable>
+                        <isNullable>false</isNullable>
+                        <isCollection>false</isCollection>
+                        <isRequired>true</isRequired>
+                        <typePackageName>Intent.Blazor.Components.MudBlazor</typePackageName>
+                        <typePackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</typePackageId>
+                        <stereotypes />
+                        <genericTypeParameters />
+                      </typeReference>
+                    </target>
+                    <target id="6143176f-5953-48d2-8eb4-c1ef02e3adf0" name="Close" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  </path>
+                  <sources>
+                    <source identifier="Submit.Dialog_Close" mappingType="Invokable Mapping" mappingTypeId="720f119b-39b3-4f11-8d96-27fa82d1f4e2">
+                      <path>
+                        <target id="4255cff1-e16b-4c21-b4f4-8646011c7339" name="ConfirmationDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                        <target id="1169f2aa-e882-464b-8816-99270e5a2042" name="Submit" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                        <target id="0196c2d8-ccca-4c90-b0e4-e813ca59debd" name="Dialog.Close" type="element" specialization="Invocation" specializationId="18f87cd6-d8d8-4518-8931-58653d537467" />
+                      </path>
+                    </source>
+                  </sources>
+                </mappedEnd>
+                <mappedEnd>
+                  <expression>true</expression>
+                  <path>
+                    <target id="4255cff1-e16b-4c21-b4f4-8646011c7339" name="ConfirmationDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
+                      <typeReference id="57ce835a-36f1-44cf-8542-4a30aa8219a1">
+                        <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
+                        <isNavigable>true</isNavigable>
+                        <isNullable>false</isNullable>
+                        <isCollection>false</isCollection>
+                        <isRequired>true</isRequired>
+                        <typePackageName>Intent.Blazor.Components.MudBlazor</typePackageName>
+                        <typePackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</typePackageId>
+                        <stereotypes />
+                        <genericTypeParameters />
+                      </typeReference>
+                    </target>
+                    <target id="6143176f-5953-48d2-8eb4-c1ef02e3adf0" name="Close" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                    <target id="a42e7676-1ee2-4531-9443-b586bae6cef9" name="result" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                  </path>
+                  <sources />
+                </mappedEnd>
+              </mappedEnds>
+            </mapping>
+          </mappings>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

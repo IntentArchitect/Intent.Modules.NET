@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="bda7fb04-9cf1-4dea-aa4c-5e15da3702c2">
+  <sourceEnd id="197d2a83-7055-480b-82a7-e2ad1486ea86" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomersQuery</display>
+    <order>0</order>
+    <typeReference id="9fabc4d5-2803-4175-93fd-48c6ca6b9f39">
+      <typeId>675cead0-622c-4331-b54d-00cc4c59bee0</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="bda7fb04-9cf1-4dea-aa4c-5e15da3702c2" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customers</name>
+    <display>[query] customers: Customer[*]</display>
+    <order>5</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="6311ecc3-5ead-4a1a-a5f7-88c7a3c98c79">
+      <typeId>83691e7d-b435-45cf-bbee-791979bb4c9d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.Domain</typePackageName>
+      <typePackageId>18787662-9a09-4c1d-8181-9fae5717b52f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="675cead0-622c-4331-b54d-00cc4c59bee0" location="[MudBlazor.ExampleApp].[Services].[GetCustomersQuery]" />
+        <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="83691e7d-b435-45cf-bbee-791979bb4c9d" location="[MudBlazor.ExampleApp].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{SearchText}</expression>
+            <path>
+              <target id="83691e7d-b435-45cf-bbee-791979bb4c9d" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3b319604-3a04-4a1a-986a-995bbc1fccb2" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="SearchText" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="675cead0-622c-4331-b54d-00cc4c59bee0" name="GetCustomersQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="a9b3ccbe-2b02-47ef-a9e9-5f2e7fd71151" name="SearchText" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,62 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Frontend", "0 - Frontend", "{853681EB-9C01-4670-ADCC-3D615E7BA4B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudBlazor.ExampleApp.Client", "MudBlazor.ExampleApp.Client\MudBlazor.ExampleApp.Client.csproj", "{034E5AD7-94F5-45B1-A010-3D60BD78514A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{AA38C5F4-8C9D-4A09-847D-06C37454E19B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudBlazor.ExampleApp.Api", "MudBlazor.ExampleApp.Api\MudBlazor.ExampleApp.Api.csproj", "{60CBA7C4-B64F-482B-889D-4F45AF82A317}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{847639C5-2BFA-4ED3-BE3A-2997D0103562}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudBlazor.ExampleApp.Application", "MudBlazor.ExampleApp.Application\MudBlazor.ExampleApp.Application.csproj", "{DC41A6ED-6D8F-41DF-872D-B94532E31928}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{3027AA59-BEC1-4D88-A90D-9ADDBC981C52}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudBlazor.ExampleApp.Domain", "MudBlazor.ExampleApp.Domain\MudBlazor.ExampleApp.Domain.csproj", "{BB082579-07EA-4E3C-BCB4-291864F8EA9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{9EEA42E6-6D0B-4A47-93C3-B6B277C260E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudBlazor.ExampleApp.Infrastructure", "MudBlazor.ExampleApp.Infrastructure\MudBlazor.ExampleApp.Infrastructure.csproj", "{483E2214-6448-40B1-B393-DA28DB541F1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{034E5AD7-94F5-45B1-A010-3D60BD78514A} = {853681EB-9C01-4670-ADCC-3D615E7BA4B0}
+		{60CBA7C4-B64F-482B-889D-4F45AF82A317} = {AA38C5F4-8C9D-4A09-847D-06C37454E19B}
+		{DC41A6ED-6D8F-41DF-872D-B94532E31928} = {847639C5-2BFA-4ED3-BE3A-2997D0103562}
+		{BB082579-07EA-4E3C-BCB4-291864F8EA9A} = {3027AA59-BEC1-4D88-A90D-9ADDBC981C52}
+		{483E2214-6448-40B1-B393-DA28DB541F1C} = {9EEA42E6-6D0B-4A47-93C3-B6B277C260E9}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{034E5AD7-94F5-45B1-A010-3D60BD78514A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{034E5AD7-94F5-45B1-A010-3D60BD78514A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{034E5AD7-94F5-45B1-A010-3D60BD78514A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{034E5AD7-94F5-45B1-A010-3D60BD78514A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60CBA7C4-B64F-482B-889D-4F45AF82A317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60CBA7C4-B64F-482B-889D-4F45AF82A317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60CBA7C4-B64F-482B-889D-4F45AF82A317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60CBA7C4-B64F-482B-889D-4F45AF82A317}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC41A6ED-6D8F-41DF-872D-B94532E31928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC41A6ED-6D8F-41DF-872D-B94532E31928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC41A6ED-6D8F-41DF-872D-B94532E31928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC41A6ED-6D8F-41DF-872D-B94532E31928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB082579-07EA-4E3C-BCB4-291864F8EA9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB082579-07EA-4E3C-BCB4-291864F8EA9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB082579-07EA-4E3C-BCB4-291864F8EA9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB082579-07EA-4E3C-BCB4-291864F8EA9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{483E2214-6448-40B1-B393-DA28DB541F1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{483E2214-6448-40B1-B393-DA28DB541F1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{483E2214-6448-40B1-B393-DA28DB541F1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{483E2214-6448-40B1-B393-DA28DB541F1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

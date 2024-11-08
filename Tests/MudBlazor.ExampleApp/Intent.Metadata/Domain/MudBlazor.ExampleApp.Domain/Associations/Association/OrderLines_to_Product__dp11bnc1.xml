@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e57672b7-a5ad-4eac-94e6-71ab9930e61e">
+  <sourceEnd id="76a7fb43-1cf8-4625-b84f-1f087ea3534f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>OrderLines</name>
+    <display>OrderLines: InvoiceLine[*]</display>
+    <order>0</order>
+    <typeReference id="06fed9f2-42ff-4402-9115-af13aeb58a1e">
+      <typeId>49fff5bc-deef-4853-bf3e-3b9dc10fd44d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.Domain</typePackageName>
+      <typePackageId>18787662-9a09-4c1d-8181-9fae5717b52f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e57672b7-a5ad-4eac-94e6-71ab9930e61e" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Product</name>
+    <display>Product: Product</display>
+    <order>6</order>
+    <typeReference id="ff2e8487-4631-4dfc-9d7d-01fcf562dafc">
+      <typeId>5af194c3-cf3e-46b0-a51d-e0497bca9559</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.Domain</typePackageName>
+      <typePackageId>18787662-9a09-4c1d-8181-9fae5717b52f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

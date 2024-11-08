@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d0a16f95-9ab2-4461-b5ed-14032d8649b6">
+  <sourceEnd id="8b11da83-0e21-4589-971f-c899a7d361a5" type="Call Service Operation Action Source End" typeId="936e090c-8408-429d-b2f6-2eb8deecc428">
+    <display>: FetchDataGridData</display>
+    <order>0</order>
+    <typeReference id="b764baea-a429-4885-a98f-e99a50a59fcf">
+      <typeId>a60836a7-57c6-4989-bc28-149e6df309c8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+      <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d0a16f95-9ab2-4461-b5ed-14032d8649b6" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
+    <name>GetProductsQuery</name>
+    <display>[call] ProductsService.GetProductsQuery(pageNo: int, pageSize: int, orderBy: string?, searchText: string?): PagedResult&lt;ProductDto&gt;</display>
+    <order>3</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="34597138-5773-40ee-adac-e77583affd35">
+      <typeId>20855426-4972-4feb-9238-8b75015a242b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+      <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Call Service Mapping" typeId="e4a4111b-cf13-4efe-8a5d-fea9457ac8ad">
+        <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="88648126-3b19-4608-8c41-6c230a2b2ecd" location="[MudBlazor.ExampleApp].[User Interface].[ProductList]" />
+        <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="20855426-4972-4feb-9238-8b75015a242b" location="[MudBlazor.ExampleApp].[User Interface].[GetProductsQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{FetchDataGridData.GetProductsQuery}</expression>
+            <path>
+              <target id="20855426-4972-4feb-9238-8b75015a242b" name="GetProductsQuery" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+            </path>
+            <sources>
+              <source identifier="FetchDataGridData.GetProductsQuery" mappingType="Invocation Mapping" mappingTypeId="ab447316-1252-49bc-a695-f34cb00a3cdc">
+                <path>
+                  <target id="88648126-3b19-4608-8c41-6c230a2b2ecd" name="ProductList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="a60836a7-57c6-4989-bc28-149e6df309c8" name="FetchDataGridData" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="d0a16f95-9ab2-4461-b5ed-14032d8649b6" name="GetProductsQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{FetchDataGridData.pageNo}</expression>
+            <path>
+              <target id="20855426-4972-4feb-9238-8b75015a242b" name="GetProductsQuery" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="e0340baf-aaec-463e-8a29-d05700ada358" name="pageNo" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+            </path>
+            <sources>
+              <source identifier="FetchDataGridData.pageNo" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="88648126-3b19-4608-8c41-6c230a2b2ecd" name="ProductList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="a60836a7-57c6-4989-bc28-149e6df309c8" name="FetchDataGridData" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="7d2b259a-44cd-4016-b7fd-8e8b37b5bbf1" name="pageNo" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{FetchDataGridData.pageSize}</expression>
+            <path>
+              <target id="20855426-4972-4feb-9238-8b75015a242b" name="GetProductsQuery" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="b30ac6f7-650c-48dc-a69b-b118a2bc051d" name="pageSize" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+            </path>
+            <sources>
+              <source identifier="FetchDataGridData.pageSize" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="88648126-3b19-4608-8c41-6c230a2b2ecd" name="ProductList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="a60836a7-57c6-4989-bc28-149e6df309c8" name="FetchDataGridData" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="ad37296e-2911-433b-a7c4-dc6d98dd42f8" name="pageSize" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{FetchDataGridData.sorting}</expression>
+            <path>
+              <target id="20855426-4972-4feb-9238-8b75015a242b" name="GetProductsQuery" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="6f408d40-d01c-4967-bc55-18b43f4925f6" name="orderBy" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+            </path>
+            <sources>
+              <source identifier="FetchDataGridData.sorting" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="88648126-3b19-4608-8c41-6c230a2b2ecd" name="ProductList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="a60836a7-57c6-4989-bc28-149e6df309c8" name="FetchDataGridData" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="01c29769-e1e3-41c1-92d9-703fdb5cfb16" name="sorting" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{SearchText}</expression>
+            <path>
+              <target id="20855426-4972-4feb-9238-8b75015a242b" name="GetProductsQuery" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="bff532f2-5d97-462e-b522-61944db6a182" name="searchText" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+            </path>
+            <sources>
+              <source identifier="SearchText" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="88648126-3b19-4608-8c41-6c230a2b2ecd" name="ProductList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="37f838cb-89e4-481e-b011-92f1825915c8" name="SearchText" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Call Service Response Mapping" typeId="e60890c6-7ce7-47be-a0da-dff82b8adc02">
+        <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="88648126-3b19-4608-8c41-6c230a2b2ecd" location="[MudBlazor.ExampleApp].[User Interface].[ProductList]" />
+        <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="88648126-3b19-4608-8c41-6c230a2b2ecd" location="[MudBlazor.ExampleApp].[User Interface].[ProductList]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{FetchDataGridData.GetProductsQuery.response}</expression>
+            <path>
+              <target id="88648126-3b19-4608-8c41-6c230a2b2ecd" name="ProductList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="f348d18c-5a0b-4c20-ba33-4e02b350acc5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="FetchDataGridData.GetProductsQuery.response" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="88648126-3b19-4608-8c41-6c230a2b2ecd" name="ProductList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="a60836a7-57c6-4989-bc28-149e6df309c8" name="FetchDataGridData" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="d0a16f95-9ab2-4461-b5ed-14032d8649b6" name="GetProductsQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="d4084c9b-594d-4930-a5a8-31afc9560c2f">
+                      <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+                      <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation Action</associationType>
+  <associationTypeId>fe5a5cd8-aabd-472f-8d42-f5c233e658dc</associationTypeId>
+  <stereotypes />
+</association>

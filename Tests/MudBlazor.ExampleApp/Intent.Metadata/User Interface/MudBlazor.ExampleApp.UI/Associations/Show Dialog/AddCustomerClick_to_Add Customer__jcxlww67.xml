@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ee3f12ed-b579-4d19-8fb4-52fbfdfa6efd">
+  <sourceEnd id="b35c34ab-c786-41f5-a4a1-eac45bd67e29" type="Show Dialog Source End" typeId="ad3de626-cb72-4dde-966b-122a6b386fb7">
+    <display>: AddCustomerClick</display>
+    <order>0</order>
+    <typeReference id="a18d4b07-830d-4a6c-95b5-4d8488f02b68">
+      <typeId>e88ed0fd-2f73-4570-adac-f1f8b76ab401</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+      <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ee3f12ed-b579-4d19-8fb4-52fbfdfa6efd" type="Show Dialog Target End" typeId="c44a7969-abfa-4073-ab2c-d2d0f1f6bd2f">
+    <name>Add Customer</name>
+    <display>[show] CustomerAddDialog("Add Customer")</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="c6e2f233-ac35-49b0-8a09-788189447b57">
+      <typeId>f7169b90-27de-4c6b-b47d-94c4f4f1733d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+      <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Show Dialog</associationType>
+  <associationTypeId>2a309fb2-c487-4c00-9462-16dac9824731</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="78d2d0d3-e5e0-4d60-9b63-513607e6c5c0">
+  <sourceEnd id="a6cd8f00-9f84-4d32-a65c-88d1ebef2363" type="Call Service Operation Action Source End" typeId="936e090c-8408-429d-b2f6-2eb8deecc428">
+    <display>: OnSaveClicked</display>
+    <order>0</order>
+    <typeReference id="e4accdfa-4c10-4988-aaee-0d3518ea7512">
+      <typeId>c0acc140-6438-41a3-bd29-7efffd983818</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+      <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="78d2d0d3-e5e0-4d60-9b63-513607e6c5c0" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
+    <name>CreateCustomerCommand</name>
+    <display>[call] CustomersService.CreateCustomerCommand(command: CreateCustomerCommand): guid</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="a48d22ac-7eeb-43c4-90e1-132906cfd048">
+      <typeId>3a494ea0-bdfe-483e-a7df-d22de8769892</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+      <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Call Service Mapping" typeId="e4a4111b-cf13-4efe-8a5d-fea9457ac8ad">
+        <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="f7169b90-27de-4c6b-b47d-94c4f4f1733d" location="[MudBlazor.ExampleApp].[User Interface].[CustomerAddDialog]" />
+        <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="3a494ea0-bdfe-483e-a7df-d22de8769892" location="[MudBlazor.ExampleApp].[User Interface].[CreateCustomerCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OnSaveClicked.CreateCustomerCommand}</expression>
+            <path>
+              <target id="3a494ea0-bdfe-483e-a7df-d22de8769892" name="CreateCustomerCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+            </path>
+            <sources>
+              <source identifier="OnSaveClicked.CreateCustomerCommand" mappingType="Invocation Mapping" mappingTypeId="ab447316-1252-49bc-a695-f34cb00a3cdc">
+                <path>
+                  <target id="f7169b90-27de-4c6b-b47d-94c4f4f1733d" name="CustomerAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c0acc140-6438-41a3-bd29-7efffd983818" name="OnSaveClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="78d2d0d3-e5e0-4d60-9b63-513607e6c5c0" name="CreateCustomerCommand" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.Name}</expression>
+            <path>
+              <target id="3a494ea0-bdfe-483e-a7df-d22de8769892" name="CreateCustomerCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="e4a11ad0-6e92-480a-a923-6cdc07537566" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="ba1748a4-3459-4cc5-a246-51c04b0a727e" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.Name" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="f7169b90-27de-4c6b-b47d-94c4f4f1733d" name="CustomerAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="b68e98bd-0bbd-4f05-8ff6-0d8b7b0f9bdb" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="b6b1d17f-f0cd-4598-8930-538cd96b96d0" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.AccountNo}</expression>
+            <path>
+              <target id="3a494ea0-bdfe-483e-a7df-d22de8769892" name="CreateCustomerCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="e4a11ad0-6e92-480a-a923-6cdc07537566" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="abb56291-4096-4c3f-a7b8-4339a72b852f" name="AccountNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.AccountNo" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="f7169b90-27de-4c6b-b47d-94c4f4f1733d" name="CustomerAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="b68e98bd-0bbd-4f05-8ff6-0d8b7b0f9bdb" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="7c5fac5d-019e-4547-a0f6-3fd60a33c180" name="AccountNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.AddressLine1}</expression>
+            <path>
+              <target id="3a494ea0-bdfe-483e-a7df-d22de8769892" name="CreateCustomerCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="e4a11ad0-6e92-480a-a923-6cdc07537566" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="015a5b08-e278-4f9e-99d9-f4bcf0efa8ac" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="f5a530be-2b41-49f8-bca9-1a2449d65a5c" name="Line1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.AddressLine1" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="f7169b90-27de-4c6b-b47d-94c4f4f1733d" name="CustomerAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="b68e98bd-0bbd-4f05-8ff6-0d8b7b0f9bdb" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="ec7f7916-9ed0-4f68-9de3-96742d3d66cd" name="AddressLine1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.AddressLine2}</expression>
+            <path>
+              <target id="3a494ea0-bdfe-483e-a7df-d22de8769892" name="CreateCustomerCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="e4a11ad0-6e92-480a-a923-6cdc07537566" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="015a5b08-e278-4f9e-99d9-f4bcf0efa8ac" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="d13ba48d-4483-4549-95ee-1136d4ec232b" name="Line2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.AddressLine2" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="f7169b90-27de-4c6b-b47d-94c4f4f1733d" name="CustomerAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="b68e98bd-0bbd-4f05-8ff6-0d8b7b0f9bdb" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="95dc6443-2e4b-4d2b-8e6d-19ddf9548cce" name="AddressLine2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.AddressCity}</expression>
+            <path>
+              <target id="3a494ea0-bdfe-483e-a7df-d22de8769892" name="CreateCustomerCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="e4a11ad0-6e92-480a-a923-6cdc07537566" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="015a5b08-e278-4f9e-99d9-f4bcf0efa8ac" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="3e988578-0b8d-4404-9f3c-e778cbc22f1f" name="City" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.AddressCity" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="f7169b90-27de-4c6b-b47d-94c4f4f1733d" name="CustomerAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="b68e98bd-0bbd-4f05-8ff6-0d8b7b0f9bdb" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="ba52771d-25b5-4930-b449-589a5b4ee604" name="AddressCity" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.AddressCountry}</expression>
+            <path>
+              <target id="3a494ea0-bdfe-483e-a7df-d22de8769892" name="CreateCustomerCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="e4a11ad0-6e92-480a-a923-6cdc07537566" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="015a5b08-e278-4f9e-99d9-f4bcf0efa8ac" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="e41f8e26-27e6-4eee-97d2-2aa112f8ff11" name="Country" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.AddressCountry" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="f7169b90-27de-4c6b-b47d-94c4f4f1733d" name="CustomerAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="b68e98bd-0bbd-4f05-8ff6-0d8b7b0f9bdb" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="9a3b7f46-5a92-4c38-899d-b72e92ff5d54" name="AddressCountry" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.AddressPostal}</expression>
+            <path>
+              <target id="3a494ea0-bdfe-483e-a7df-d22de8769892" name="CreateCustomerCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="e4a11ad0-6e92-480a-a923-6cdc07537566" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="015a5b08-e278-4f9e-99d9-f4bcf0efa8ac" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="ca45a1db-2c51-4b31-bd79-0597063af4be" name="Postal" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.AddressPostal" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="f7169b90-27de-4c6b-b47d-94c4f4f1733d" name="CustomerAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="b68e98bd-0bbd-4f05-8ff6-0d8b7b0f9bdb" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="9679c17a-8c97-4124-87c1-9077b8c3bc27" name="AddressPostal" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation Action</associationType>
+  <associationTypeId>fe5a5cd8-aabd-472f-8d42-f5c233e658dc</associationTypeId>
+  <stereotypes />
+</association>

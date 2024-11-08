@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8aad6c9a-b79d-4723-a454-12cf22eabe57">
+  <sourceEnd id="b04f6131-7cb5-4251-99b0-48dd436e6c3a" type="Call Service Operation Action Source End" typeId="936e090c-8408-429d-b2f6-2eb8deecc428">
+    <display>: OnInitializedAsync</display>
+    <order>0</order>
+    <typeReference id="99fe6e46-c335-4672-a658-8510cac4fffc">
+      <typeId>c7faf205-6f5b-479b-b5ca-8a0c4179bae6</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+      <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8aad6c9a-b79d-4723-a454-12cf22eabe57" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
+    <name>GetInvoiceByIdQuery</name>
+    <display>[call] InvoiceService.GetInvoiceByIdQuery(id: guid): InvoiceDto</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="960ae464-4e76-4b8d-923c-1a43761f6a04">
+      <typeId>8c0589cd-aae8-4271-9139-f8552b7831dc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+      <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Call Service Mapping" typeId="e4a4111b-cf13-4efe-8a5d-fea9457ac8ad">
+        <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="93098c5f-5c93-48f9-afa4-130e0c8a8289" location="[MudBlazor.ExampleApp].[User Interface].[InvoiceEdit]" />
+        <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="8c0589cd-aae8-4271-9139-f8552b7831dc" location="[MudBlazor.ExampleApp].[User Interface].[GetInvoiceByIdQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery}</expression>
+            <path>
+              <target id="8c0589cd-aae8-4271-9139-f8552b7831dc" name="GetInvoiceByIdQuery" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery" mappingType="Invocation Mapping" mappingTypeId="ab447316-1252-49bc-a695-f34cb00a3cdc">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{InvoiceId}</expression>
+            <path>
+              <target id="8c0589cd-aae8-4271-9139-f8552b7831dc" name="GetInvoiceByIdQuery" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="0dd671ed-209d-4c53-b6a3-3eff4f8a78a4" name="id" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+            </path>
+            <sources>
+              <source identifier="InvoiceId" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="61a58d22-b17a-42a4-accb-5f25cd4ce999" name="InvoiceId" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Call Service Response Mapping" typeId="e60890c6-7ce7-47be-a0da-dff82b8adc02">
+        <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="93098c5f-5c93-48f9-afa4-130e0c8a8289" location="[MudBlazor.ExampleApp].[User Interface].[InvoiceEdit]" />
+        <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="93098c5f-5c93-48f9-afa4-130e0c8a8289" location="[MudBlazor.ExampleApp].[User Interface].[InvoiceEdit]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.Id}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="baf2af82-1dc6-4138-a65b-c343aa4e7b81" name="Id" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.Id" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="ef4c1fad-602c-4a15-9699-9a72adc29566" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.InvoiceNo}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="42d74e05-3a36-4f2d-b871-d43801f522d1" name="InvoiceNo" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.InvoiceNo" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="1c038e03-f28e-4cf0-bff4-10e46abb28cf" name="InvoiceNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.InvoiceDate}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="05ea29f1-8013-48c6-a2db-1df1eeeffee5" name="InvoiceDate" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.InvoiceDate" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="555598f7-fbf6-4276-bb16-a3c0e5e3b91e" name="InvoiceDate" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="a4995de4-ff6d-45c7-9bfd-64706d5257b9" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.InvoiceId}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="92124dba-cd33-43bc-9e2a-2f16101ef501" name="InvoiceId" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.InvoiceId" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="a4995de4-ff6d-45c7-9bfd-64706d5257b9" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="44087e04-177f-47db-93b2-4e20b8761142" name="InvoiceId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.ProductId}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="91046ed1-c61d-4875-ab7b-5cd72c3687a2" name="ProductId" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.ProductId" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="a4995de4-ff6d-45c7-9bfd-64706d5257b9" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="8b99b108-f7c1-4d1b-9a55-aca64728c4d1" name="ProductId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.Units}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="669996b0-5eca-4372-ba7a-02a1f2e00994" name="Units" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.Units" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="a4995de4-ff6d-45c7-9bfd-64706d5257b9" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="ba84c3a1-9d67-4638-9d29-cd2b204fea09" name="Units" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.UnitPrice}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="0b2a8b5a-be8c-41a1-880d-cf2d67cffadb" name="UnitPrice" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.UnitPrice" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="a4995de4-ff6d-45c7-9bfd-64706d5257b9" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="3e321aa1-0c3b-48bc-881c-25af431da33b" name="UnitPrice" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.Discount}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="9728d199-ef20-458c-85a7-5a5dc7d7c302" name="Discount" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.Discount" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="a4995de4-ff6d-45c7-9bfd-64706d5257b9" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="c42d80e7-fcc4-45d0-a0ce-948db15d25fc" name="Discount" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.Id}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="56251be9-78f3-4fec-ad89-f24cc85ace73" name="Id" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.Id" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="a4995de4-ff6d-45c7-9bfd-64706d5257b9" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="0c81ce29-2de2-4f53-8d85-3e7f70c67413" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.ProductName}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="ee485b49-dff5-4617-9533-12a9df3f3822" name="ProductName" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.ProductName" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="a4995de4-ff6d-45c7-9bfd-64706d5257b9" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="ec63bd39-1b13-4f3d-bfa7-f69c4ddfe441" name="ProductName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.ProductDescription}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="9efbfe43-7600-4be7-9342-363ff3663184" name="ProductDescription" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.ProductDescription" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="a4995de4-ff6d-45c7-9bfd-64706d5257b9" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="e3469707-43e3-49d5-9f52-51757546047a" name="ProductDescription" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.ProductImageUrl}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="2169458e-9115-4468-911e-dfea7adb72fd" name="ProductImageUrl" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.OrderLines.ProductImageUrl" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="a4995de4-ff6d-45c7-9bfd-64706d5257b9" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="85721e9d-3dcd-46ed-9894-d780bac9abc8" name="ProductImageUrl" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.CustomerId}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="f015cff2-24f0-4261-9815-5449eff25c9b" name="CustomerId" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.CustomerId" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="b563dccf-3c10-4aad-a305-4156c7e67dee" name="CustomerId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.CustomerName}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="b142e65a-6a63-4618-8992-a7a44305385b" name="CustomerName" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.CustomerName" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="4b298dbd-d51d-4768-be06-280ef18d5381" name="CustomerName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.CustomerAccountNo}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="3728d0f8-455f-4ef8-8e66-0696db22f5d8" name="CustomerAccountNo" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.CustomerAccountNo" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="7c62efb4-03b9-4cbe-b42c-1e8410f69dd5" name="CustomerAccountNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.AddressLine1}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="d049b0bd-fe06-43cf-9b02-459fd04a8681" name="AddressLine1" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.AddressLine1" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="abb0c3b7-40ff-4b7d-9272-40467dcba4dd" name="AddressLine1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.AddressLine2}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="52989b86-99c7-4298-abfc-5fe27a44425c" name="AddressLine2" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.AddressLine2" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="a51ca0c8-ce08-4f85-ad6c-4aec696fc6e2" name="AddressLine2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.AddressCity}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="45445588-072c-4cb9-8b86-3af0ac2b5112" name="AddressCity" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.AddressCity" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="4a9d062c-bb90-4f4f-bc72-1003103c2542" name="AddressCity" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.AddressCountry}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="25c6e384-50da-4797-94b9-fd8401d9971e" name="AddressCountry" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.AddressCountry" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="ad5927fd-21aa-4c93-b4a0-1f795ad6ed95" name="AddressCountry" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.AddressPostal}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="e02bd2b2-6426-4cb8-b96a-708002b6ac33" name="AddressPostal" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.AddressPostal" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="0f65b936-d1e2-4b12-bcc9-51b5c5c88db5" name="AddressPostal" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.DueDate}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="b7a98483-e1c7-4e56-a876-d36297e84801" name="DueDate" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.DueDate" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="2a225cad-e7e7-4470-8b29-9d233cd59dac" name="DueDate" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OnInitializedAsync.GetInvoiceByIdQuery.response.Reference}</expression>
+            <path>
+              <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="1bea4930-027c-4679-8f26-1d2d80c53da6" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              <target id="f99e0c9b-0638-4bc9-8f0a-2c27ec1c8f50" name="Reference" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="OnInitializedAsync.GetInvoiceByIdQuery.response.Reference" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+                <path>
+                  <target id="93098c5f-5c93-48f9-afa4-130e0c8a8289" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c7faf205-6f5b-479b-b5ca-8a0c4179bae6" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8aad6c9a-b79d-4723-a454-12cf22eabe57" name="GetInvoiceByIdQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
+                    <typeReference id="0bd92a1e-6805-4fc9-9185-f53ad0e150fe">
+                      <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+                      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                  <target id="4972964b-995a-45ea-b6c0-514f511b4517" name="Reference" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation Action</associationType>
+  <associationTypeId>fe5a5cd8-aabd-472f-8d42-f5c233e658dc</associationTypeId>
+  <stereotypes />
+</association>
