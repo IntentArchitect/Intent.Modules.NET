@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="90e5a5c6-1b2a-4e70-b6c0-a8d73d360a89" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>InvoiceService</name>
+  <display>InvoiceService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>00727c17-aeb5-470b-991f-68c0b481117e</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="2dac69cf-9281-42ae-b529-49eb2e7a6d3f" name="MudBlazor.ExampleApp.Services" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="9b7c71cb-965f-45e8-b0a5-acbf054c2138" name="Invoices" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>11cdc31a-966a-4a9c-8796-a321cda740a4</parentFolderId>
+  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+  <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6d0f86b5-a3c9-4ddf-828d-299c3547c7d2" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CreateInvoiceCommand</name>
+      <display>CreateInvoiceCommand(command: CreateInvoiceCommand): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="40645a49-b9af-4dc5-b5e3-4c57c3605b0a">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="c8088f89-cd35-4664-a493-57b66c2bbdd9" name="CreateInvoiceCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>90e5a5c6-1b2a-4e70-b6c0-a8d73d360a89</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="3e6f644b-abe8-4e7e-9039-7bbd68d71d38" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: CreateInvoiceCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="77783d2f-2829-4c4a-915e-5842dc1ee5e8">
+            <typeId>c8088f89-cd35-4664-a493-57b66c2bbdd9</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+            <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>6d0f86b5-a3c9-4ddf-828d-299c3547c7d2</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="c8088f89-cd35-4664-a493-57b66c2bbdd9" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="128232e3-4796-445d-8abf-c63595e8bb0c" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>DeleteInvoiceCommand</name>
+      <display>DeleteInvoiceCommand(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="3c44af02-0400-4547-bd9a-3e25071c3de5">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="986a4350-a2c2-44fb-b985-cb423740781c" name="DeleteInvoiceCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>90e5a5c6-1b2a-4e70-b6c0-a8d73d360a89</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="8d5082df-2365-443e-9cf2-5654988ff85c" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="cf2c3079-494d-49fb-82e2-491f26c4a162">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>128232e3-4796-445d-8abf-c63595e8bb0c</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="c42e3d71-140d-47b8-a0d2-a771cf9e6a7d" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="75b07a61-e863-4faa-bf30-e4d1dd2a98e9" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>UpdateInvoiceCommand</name>
+      <display>UpdateInvoiceCommand(id: guid, command: UpdateInvoiceCommand): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="b19ceb07-f052-481f-8211-8c4cd00649a8">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="c78c9df7-366f-4a9c-9771-dae782054116" name="UpdateInvoiceCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>90e5a5c6-1b2a-4e70-b6c0-a8d73d360a89</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="4884709c-62c7-46d5-8370-1546ec29ed7b" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e01e31d6-b513-4fa5-a297-d491d4059281">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>75b07a61-e863-4faa-bf30-e4d1dd2a98e9</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="3b8029a7-045a-4b7b-867e-9712a87f1b5a" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="256de830-147e-4ac2-89e3-004232ad44b0" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: UpdateInvoiceCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="0d5f8a22-1e44-4fbe-9775-d8a16d59577a">
+            <typeId>c78c9df7-366f-4a9c-9771-dae782054116</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+            <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>75b07a61-e863-4faa-bf30-e4d1dd2a98e9</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="c78c9df7-366f-4a9c-9771-dae782054116" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8c1af4b7-76ea-4057-bf88-3415301e2f86" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetInvoicesQuery</name>
+      <display>GetInvoicesQuery(pageNo: int, pageSize: int, orderBy: string?): PagedResult&lt;InvoiceDto&gt;</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="da421b98-da75-4ef4-bf6e-c84ad92c7bf4">
+        <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+        <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
+        <stereotypes />
+        <genericTypeParameters>
+          <genericTypeParameter id="ac0a3812-0d56-49eb-a516-364273897b4a">
+            <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+            <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+            <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </genericTypeParameter>
+        </genericTypeParameters>
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="96a9bcd7-616a-4597-a812-c5ff22e7b364" name="GetInvoicesQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>90e5a5c6-1b2a-4e70-b6c0-a8d73d360a89</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="fba2c998-f921-4eb0-aac8-abf7dfc8f9c1" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>pageNo</name>
+          <display>pageNo: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="3932dc8c-21a6-4b3a-adc0-e9fc6b75e4c5">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8c1af4b7-76ea-4057-bf88-3415301e2f86</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="f50818ba-37d3-4562-8c9e-d72ee023a123" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="ac4e5c69-97c3-4b13-93af-2b3af13d7b54" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>pageSize</name>
+          <display>pageSize: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1beed7af-ad2b-4bd6-8ebe-1664f811ce20">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8c1af4b7-76ea-4057-bf88-3415301e2f86</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="4eea8ad7-c4d9-4aee-83c8-ad0676fd02b1" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="5b59e8c2-bfb7-4f03-96ff-3eb2822e12f5" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>orderBy</name>
+          <display>orderBy: string?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="25567cb5-81f0-4123-a760-a227c5446b7a">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8c1af4b7-76ea-4057-bf88-3415301e2f86</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="ad511acc-a147-438c-8a28-03caa4287f5b" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8c0589cd-aae8-4271-9139-f8552b7831dc" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetInvoiceByIdQuery</name>
+      <display>GetInvoiceByIdQuery(id: guid): InvoiceDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="c9c9124c-3aac-433d-b2c5-edeccfef6490">
+        <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+        <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="357a0f94-f5f2-4f61-af56-19b4f699db64" name="GetInvoiceByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>90e5a5c6-1b2a-4e70-b6c0-a8d73d360a89</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="0dd671ed-209d-4c53-b6a3-3eff4f8a78a4" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="fb0ff2ff-62a4-4ddf-8d3f-1e0e953e586e">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8c0589cd-aae8-4271-9139-f8552b7831dc</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="43f94f8d-f3cb-4555-aeab-664616eee0e2" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

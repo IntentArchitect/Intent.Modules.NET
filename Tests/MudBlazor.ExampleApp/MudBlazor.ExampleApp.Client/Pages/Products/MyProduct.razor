@@ -1,0 +1,51 @@
+@page "/products/my-product"
+
+<MudGrid>
+    <MudItem xs="12"
+             md="2">
+        <MudGrid>
+            <MudItem xs="12"
+                     md="2">
+                <MudText>My Label</MudText>
+            </MudItem>
+            <MudItem xs="12"
+                     md="10">
+                <MudTextField Label="Mytext" @bind-Value="Model.Name" />
+            </MudItem>
+        </MudGrid>
+    </MudItem>
+</MudGrid>
+<MudGrid>
+    <MudItem xs="12"
+             md="1">
+        <MudGrid>
+            <MudItem xs="12"
+                     md="2">
+                <MudGrid>
+                    <MudItem xs="12"
+                             md="2">
+                        <MudText>My Label</MudText>
+                    </MudItem>
+                    <MudItem xs="12"
+                             md="10">
+                        <MudTextField @bind-Value="Model.Name"
+                                      Label="Mytext" />
+                    </MudItem>
+                </MudGrid>
+            </MudItem>
+            <MudItem xs="12"
+                     md="1">
+                <MudGrid>
+                    <MudItem xs="12"
+                             md="3">
+                        <MudText>Sibling Label</MudText>
+                    </MudItem>
+                    <MudItem xs="12"
+                             md="10">
+                        <MudTextField Label="Text Input" @bind-Value="Model.Name" />
+                    </MudItem>
+                </MudGrid>
+            </MudItem>
+        </MudGrid>
+    </MudItem>
+</MudGrid>

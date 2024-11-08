@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="80bf4b0b-2d6c-477e-92fe-02bb0831a254">
+  <sourceEnd id="afdfca4d-8f9b-4942-b456-fd590b280bb8" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: Home</display>
+    <order>0</order>
+    <typeReference id="5f91d80e-46e7-4471-9dd5-6463e8a2cf46">
+      <typeId>c39eb8c5-5b7a-4eec-a13f-e6c9b5a932a1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+      <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="80bf4b0b-2d6c-477e-92fe-02bb0831a254" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToProductList</name>
+    <display>[navigate] ProductList</display>
+    <order>2</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="f23a7d74-980b-4003-ac44-826556ea149f">
+      <typeId>88648126-3b19-4608-8c41-6c230a2b2ecd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+      <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <stereotypes />
+</association>

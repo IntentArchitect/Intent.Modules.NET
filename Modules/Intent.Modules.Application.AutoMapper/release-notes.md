@@ -1,10 +1,11 @@
 ### Version 5.1.5
 
-- Fixed: Some ProjectTo overloads were not being generated on repositories.
+- Fixed: `FindProjectToAsync` had the incorrect idenitifier name in some scenarios where the Primary Key name had been changed from `Id`.
 
 ### Version 5.1.4
 
 - Improvement: Added additional `ProjectTo` operations on EF repositories.
+- Fixed: Some ProjectTo overloads were not being generated on repositories.
 
 ### Version 5.1.3
 

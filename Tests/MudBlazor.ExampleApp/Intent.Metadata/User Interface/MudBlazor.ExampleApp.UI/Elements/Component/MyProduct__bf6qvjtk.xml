@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="07d1dd04-4f62-4beb-84d5-060b65e2f778" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+  <name>MyProduct</name>
+  <display>MyProduct</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3b5e7be6-a0e6-4289-92f3-a766698e9195</parentFolderId>
+  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+  <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+      <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+      <properties>
+        <property name="9dff9df1-a993-4bf6-9aa7-c16811142228" display="Route" value="/products/my-product" isActive="true" />
+        <property name="0a8627ba-ec45-4023-9c36-b0999f43e982" display="Title" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="07d1dd04-4f62-4beb-84d5-060b65e2f778" location="[MudBlazor.ExampleApp].[User Interface].[MyProduct]" />
+      <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="20ef63e3-cfac-4107-ab3c-05442fd5a0ea" location="[MudBlazor.ExampleApp].[User Interface].[[view]]" />
+      <mappedEnds>
+        <mappedEnd>
+          <expression>My Label</expression>
+          <path>
+            <target id="20ef63e3-cfac-4107-ab3c-05442fd5a0ea" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="a9effa68-e8fb-4c7f-83b6-94e4eb001962" name="Container 1" type="element" specialization="Container" specializationId="b97ea181-2462-431f-8f62-f90f79509b9e" />
+            <target id="c8315281-2e2a-4a6b-9b23-0e7cc0072b50" name="Container" type="element" specialization="Container" specializationId="b97ea181-2462-431f-8f62-f90f79509b9e" />
+            <target id="190f2070-efe0-48ce-ac6c-04f991cf84a9" name="MyLabel" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.Name}</expression>
+          <path>
+            <target id="20ef63e3-cfac-4107-ab3c-05442fd5a0ea" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="a9effa68-e8fb-4c7f-83b6-94e4eb001962" name="Container 1" type="element" specialization="Container" specializationId="b97ea181-2462-431f-8f62-f90f79509b9e" />
+            <target id="c8315281-2e2a-4a6b-9b23-0e7cc0072b50" name="Container" type="element" specialization="Container" specializationId="b97ea181-2462-431f-8f62-f90f79509b9e" />
+            <target id="5aef835e-5bae-4885-8841-ff84be62c446" name="Mytext" type="element" specialization="Text Input" specializationId="4803bf60-c626-4cbe-94ed-0f1eafff9fe3" />
+          </path>
+          <sources>
+            <source identifier="Model.Name" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="07d1dd04-4f62-4beb-84d5-060b65e2f778" name="MyProduct" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="da9da7ff-a7bb-4a1e-8ea1-911d79f6446e" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="351d0507-dd60-42a8-870f-1d2a59c8f02c" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>My Label</expression>
+          <path>
+            <target id="20ef63e3-cfac-4107-ab3c-05442fd5a0ea" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="8e697384-a034-4ef9-b44f-38e0afeaa475" name="Container 2" type="element" specialization="Container" specializationId="b97ea181-2462-431f-8f62-f90f79509b9e" />
+            <target id="de12c909-94ad-4fb3-a9aa-2b25ddad6d2f" name="Another" type="element" specialization="Container" specializationId="b97ea181-2462-431f-8f62-f90f79509b9e" />
+            <target id="64cdbb6b-49d8-4640-a3de-9abd718e19fb" name="My Child Container" type="element" specialization="Container" specializationId="b97ea181-2462-431f-8f62-f90f79509b9e" />
+            <target id="a209a3d9-688a-4ded-ba79-71ca4b640d47" name="MyLabel" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.Name}</expression>
+          <path>
+            <target id="20ef63e3-cfac-4107-ab3c-05442fd5a0ea" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="8e697384-a034-4ef9-b44f-38e0afeaa475" name="Container 2" type="element" specialization="Container" specializationId="b97ea181-2462-431f-8f62-f90f79509b9e" />
+            <target id="de12c909-94ad-4fb3-a9aa-2b25ddad6d2f" name="Another" type="element" specialization="Container" specializationId="b97ea181-2462-431f-8f62-f90f79509b9e" />
+            <target id="64cdbb6b-49d8-4640-a3de-9abd718e19fb" name="My Child Container" type="element" specialization="Container" specializationId="b97ea181-2462-431f-8f62-f90f79509b9e" />
+            <target id="09109c6d-c664-4769-8880-85d2a143dd80" name="Mytext" type="element" specialization="Text Input" specializationId="4803bf60-c626-4cbe-94ed-0f1eafff9fe3" />
+          </path>
+          <sources>
+            <source identifier="Model.Name" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="07d1dd04-4f62-4beb-84d5-060b65e2f778" name="MyProduct" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="da9da7ff-a7bb-4a1e-8ea1-911d79f6446e" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="351d0507-dd60-42a8-870f-1d2a59c8f02c" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.Name}</expression>
+          <path>
+            <target id="20ef63e3-cfac-4107-ab3c-05442fd5a0ea" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="8e697384-a034-4ef9-b44f-38e0afeaa475" name="Container 2" type="element" specialization="Container" specializationId="b97ea181-2462-431f-8f62-f90f79509b9e" />
+            <target id="de12c909-94ad-4fb3-a9aa-2b25ddad6d2f" name="Another" type="element" specialization="Container" specializationId="b97ea181-2462-431f-8f62-f90f79509b9e" />
+            <target id="545cd005-324f-4e95-92a6-fcf82152aa60" name="Sibling" type="element" specialization="Container" specializationId="b97ea181-2462-431f-8f62-f90f79509b9e" />
+            <target id="89cf7c85-aa0f-4f08-9473-a9a8c8d3848d" name="Text Input" type="element" specialization="Text Input" specializationId="4803bf60-c626-4cbe-94ed-0f1eafff9fe3" />
+          </path>
+          <sources>
+            <source identifier="Model.Name" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="07d1dd04-4f62-4beb-84d5-060b65e2f778" name="MyProduct" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="da9da7ff-a7bb-4a1e-8ea1-911d79f6446e" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="351d0507-dd60-42a8-870f-1d2a59c8f02c" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+      </mappedEnds>
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements>
+    <childElement id="da9da7ff-a7bb-4a1e-8ea1-911d79f6446e" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>Model</name>
+      <display>Model: ProductDto = new()</display>
+      <isAbstract>false</isAbstract>
+      <value>new()</value>
+      <genericTypes />
+      <typeReference id="25b986f3-f2ae-46c1-b226-c5ce0407be0a">
+        <typeId>35f97230-e866-41c4-8d9b-62c70a613c79</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+        <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>07d1dd04-4f62-4beb-84d5-060b65e2f778</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b6c596f3-d9e4-4ce4-8695-879aa465a008" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnInitializedAsync</name>
+      <display>OnInitializedAsync(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b7fc792a-af16-46fc-8317-e82ad38649ad">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>07d1dd04-4f62-4beb-84d5-060b65e2f778</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

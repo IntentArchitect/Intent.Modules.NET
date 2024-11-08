@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fea58c9d-3a06-40b2-88b9-e0d6906198a6" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Common</name>
+  <display>Common</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>add2c42d-ca06-4190-9a19-ca7ed0de1f78</parentFolderId>
+  <packageId>96180650-c419-412c-87ba-a67befe3a60a</packageId>
+  <packageName>MudBlazor.ExampleApp</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="2eba5860-4869-4df4-8495-121de685d718" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.HttpClientRequestException</name>
+      <display>Intent.Blazor.HttpClients.HttpClientRequestException</display>
+      <externalReference>Intent.Blazor.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fea58c9d-3a06-40b2-88b9-e0d6906198a6</parentFolderId>
+      <packageId>96180650-c419-412c-87ba-a67befe3a60a</packageId>
+      <packageName>MudBlazor.ExampleApp</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a73e11c9-fe24-4307-9269-a6ce94e9d5b4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.JsonResponse</name>
+      <display>Intent.Blazor.HttpClients.JsonResponse</display>
+      <externalReference>Intent.Blazor.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fea58c9d-3a06-40b2-88b9-e0d6906198a6</parentFolderId>
+      <packageId>96180650-c419-412c-87ba-a67befe3a60a</packageId>
+      <packageName>MudBlazor.ExampleApp</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2b51c9e8-5d7b-455f-a43b-3a823c247020" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.PagedResult</name>
+      <display>Intent.Blazor.HttpClients.PagedResult</display>
+      <externalReference>Intent.Blazor.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fea58c9d-3a06-40b2-88b9-e0d6906198a6</parentFolderId>
+      <packageId>96180650-c419-412c-87ba-a67befe3a60a</packageId>
+      <packageName>MudBlazor.ExampleApp</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3724f6c4-6b15-4954-a770-2c7a61cf1eef" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.ProblemDetailsWithErrors</name>
+      <display>Intent.Blazor.HttpClients.ProblemDetailsWithErrors</display>
+      <externalReference>Intent.Blazor.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fea58c9d-3a06-40b2-88b9-e0d6906198a6</parentFolderId>
+      <packageId>96180650-c419-412c-87ba-a67befe3a60a</packageId>
+      <packageName>MudBlazor.ExampleApp</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

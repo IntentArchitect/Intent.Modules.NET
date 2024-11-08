@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a80d7708-e051-4927-b32e-c239affc1689" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+  <name>InvoiceList</name>
+  <display>InvoiceList</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ee660084-c3d9-4122-8f83-2668348d1d8f</parentFolderId>
+  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+  <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+      <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+      <properties>
+        <property name="9dff9df1-a993-4bf6-9aa7-c16811142228" display="Route" value="/invoices" isActive="true" />
+        <property name="0a8627ba-ec45-4023-9c36-b0999f43e982" display="Title" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="a80d7708-e051-4927-b32e-c239affc1689" location="[MudBlazor.ExampleApp].[User Interface].[InvoiceList]" />
+      <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="dfce3f26-e87d-478d-a5ef-c3f357679761" location="[MudBlazor.ExampleApp].[User Interface].[[view]]" />
+      <mappedEnds>
+        <mappedEnd>
+          <expression>{Model.Data}</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+          </path>
+          <sources>
+            <source identifier="Model.Data" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="a80d7708-e051-4927-b32e-c239affc1689" name="InvoiceList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="3dfa6669-4af5-43df-b0c5-f26f301deed5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.TotalCount}</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="a5e50b44-c402-4006-bcea-a25ab7dc0c56" name="Total Items" type="static-mappable" specialization="Total Items" specializationId="a5e50b44-c402-4006-bcea-a25ab7dc0c56" />
+          </path>
+          <sources>
+            <source identifier="Model.TotalCount" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="a80d7708-e051-4927-b32e-c239affc1689" name="InvoiceList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="3dfa6669-4af5-43df-b0c5-f26f301deed5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="a98da735-b791-444a-b621-6c6bc9ce7b7d" name="TotalCount" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{OnRowClicked}</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="5e17d25c-5d06-4db6-9961-51910f21b41f" name="On Row Click" type="static-mappable" specialization="On Row Click" specializationId="5e17d25c-5d06-4db6-9961-51910f21b41f" />
+          </path>
+          <sources>
+            <source identifier="OnRowClicked" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="a80d7708-e051-4927-b32e-c239affc1689" name="InvoiceList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="fe54069b-ed6f-402b-a239-cb2d40f34b4c" name="OnRowClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.Data.Id}</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="5e17d25c-5d06-4db6-9961-51910f21b41f" name="On Row Click" type="static-mappable" specialization="On Row Click" specializationId="5e17d25c-5d06-4db6-9961-51910f21b41f" />
+            <target id="bcb82e3f-0cb1-4800-aee3-2097169a565f" name="invoiceId" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+          </path>
+          <sources>
+            <source identifier="Model.Data.Id" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="a80d7708-e051-4927-b32e-c239affc1689" name="InvoiceList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="3dfa6669-4af5-43df-b0c5-f26f301deed5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                <target id="ef4c1fad-602c-4a15-9699-9a72adc29566" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{FetchDataGridData}</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="53a618ca-e5aa-49ca-a993-8cd935683748" name="On Load Data" type="static-mappable" specialization="On Load Data" specializationId="53a618ca-e5aa-49ca-a993-8cd935683748" />
+          </path>
+          <sources>
+            <source identifier="FetchDataGridData" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="a80d7708-e051-4927-b32e-c239affc1689" name="InvoiceList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="639d239b-f36e-4224-b33c-8c0ff36eac72" name="FetchDataGridData" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>pageNo</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="53a618ca-e5aa-49ca-a993-8cd935683748" name="On Load Data" type="static-mappable" specialization="On Load Data" specializationId="53a618ca-e5aa-49ca-a993-8cd935683748" />
+            <target id="1bb35449-7446-488c-b253-b6706397a639" name="pageNo" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>pageSize</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="53a618ca-e5aa-49ca-a993-8cd935683748" name="On Load Data" type="static-mappable" specialization="On Load Data" specializationId="53a618ca-e5aa-49ca-a993-8cd935683748" />
+            <target id="6bcd6eed-e630-46fa-add1-6497215ed2cd" name="pageSize" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>sorting</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="53a618ca-e5aa-49ca-a993-8cd935683748" name="On Load Data" type="static-mappable" specialization="On Load Data" specializationId="53a618ca-e5aa-49ca-a993-8cd935683748" />
+            <target id="5f9d0702-471c-4a33-91cf-42a2545f2cac" name="sorting" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{AddInvoiceClick}</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="b193adde-8086-43e7-8908-cba6419d62de" name="Toolbar" type="element" specialization="Data Grid Toolbar" specializationId="9af26915-0394-4cda-864d-0e7f9f9943dc" />
+            <target id="ba41d31e-33b9-4f59-abe1-db7905124f3d" name="Add Invoice" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" name="On Click" type="static-mappable" specialization="On Click" specializationId="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" />
+          </path>
+          <sources>
+            <source identifier="AddInvoiceClick" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="a80d7708-e051-4927-b32e-c239affc1689" name="InvoiceList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="be537628-573c-4260-a7e1-37c3283bc04f" name="AddInvoiceClick" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.Data.InvoiceNo}</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="37057574-ddc2-4291-9ef1-bc7ecdc6d98b" name="Invoice No" type="element" specialization="Data Grid Column" specializationId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532" />
+          </path>
+          <sources>
+            <source identifier="Model.Data.InvoiceNo" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="a80d7708-e051-4927-b32e-c239affc1689" name="InvoiceList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="3dfa6669-4af5-43df-b0c5-f26f301deed5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                <target id="1c038e03-f28e-4cf0-bff4-10e46abb28cf" name="InvoiceNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.Data.CustomerName}</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="68386cf7-8f59-4b0d-a2e8-1b7a8a5c15fa" name="Customer Name" type="element" specialization="Data Grid Column" specializationId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532" />
+          </path>
+          <sources>
+            <source identifier="Model.Data.CustomerName" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="a80d7708-e051-4927-b32e-c239affc1689" name="InvoiceList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="3dfa6669-4af5-43df-b0c5-f26f301deed5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                <target id="4b298dbd-d51d-4768-be06-280ef18d5381" name="CustomerName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.Data.CustomerAccountNo}</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="3001a2f3-1e31-4f75-9127-40ea6ab01ea9" name="Customer Account No" type="element" specialization="Data Grid Column" specializationId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532" />
+          </path>
+          <sources>
+            <source identifier="Model.Data.CustomerAccountNo" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="a80d7708-e051-4927-b32e-c239affc1689" name="InvoiceList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="3dfa6669-4af5-43df-b0c5-f26f301deed5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                <target id="7c62efb4-03b9-4cbe-b42c-1e8410f69dd5" name="CustomerAccountNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.Data.AddressLine1}</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="9e521e46-4786-461c-9996-f44b30fa6151" name="Address Line1" type="element" specialization="Data Grid Column" specializationId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532" />
+          </path>
+          <sources>
+            <source identifier="Model.Data.AddressLine1" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="a80d7708-e051-4927-b32e-c239affc1689" name="InvoiceList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="3dfa6669-4af5-43df-b0c5-f26f301deed5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                <target id="abb0c3b7-40ff-4b7d-9272-40467dcba4dd" name="AddressLine1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.Data.AddressLine2}</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="8251b210-037b-4ef2-a5c8-570edb2cf478" name="Address Line2" type="element" specialization="Data Grid Column" specializationId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532" />
+          </path>
+          <sources>
+            <source identifier="Model.Data.AddressLine2" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="a80d7708-e051-4927-b32e-c239affc1689" name="InvoiceList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="3dfa6669-4af5-43df-b0c5-f26f301deed5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                <target id="a51ca0c8-ce08-4f85-ad6c-4aec696fc6e2" name="AddressLine2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.Data.AddressCity}</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="676bddea-987a-41c8-87a2-9809d8f0079a" name="Address City" type="element" specialization="Data Grid Column" specializationId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532" />
+          </path>
+          <sources>
+            <source identifier="Model.Data.AddressCity" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="a80d7708-e051-4927-b32e-c239affc1689" name="InvoiceList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="3dfa6669-4af5-43df-b0c5-f26f301deed5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                <target id="4a9d062c-bb90-4f4f-bc72-1003103c2542" name="AddressCity" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.Data.AddressCountry}</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="db6070e6-b6bf-4119-bbc8-138b3edb555d" name="Address Country" type="element" specialization="Data Grid Column" specializationId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532" />
+          </path>
+          <sources>
+            <source identifier="Model.Data.AddressCountry" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="a80d7708-e051-4927-b32e-c239affc1689" name="InvoiceList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="3dfa6669-4af5-43df-b0c5-f26f301deed5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                <target id="ad5927fd-21aa-4c93-b4a0-1f795ad6ed95" name="AddressCountry" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.Data.AddressPostal}</expression>
+          <path>
+            <target id="dfce3f26-e87d-478d-a5ef-c3f357679761" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c99ce999-7575-42c3-9b58-1739ae7194ca" name="DataGrid" type="element" specialization="Data Grid" specializationId="4b33f894-ad6e-43e0-a238-4286375c9ab7" />
+            <target id="9c412bcd-c1bf-4bb2-89f3-72ed20d1287a" name="Address Postal" type="element" specialization="Data Grid Column" specializationId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532" />
+          </path>
+          <sources>
+            <source identifier="Model.Data.AddressPostal" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="a80d7708-e051-4927-b32e-c239affc1689" name="InvoiceList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="3dfa6669-4af5-43df-b0c5-f26f301deed5" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="85da666a-2f42-4c36-8189-62fb1ac27209" name="Data" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                <target id="0f65b936-d1e2-4b12-bcc9-51b5c5c88db5" name="AddressPostal" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+      </mappedEnds>
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements>
+    <childElement id="3dfa6669-4af5-43df-b0c5-f26f301deed5" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>Model</name>
+      <display>Model: PagedResult&lt;InvoiceDto&gt;?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5fa0f75e-a9e4-4f4a-9f1f-d5150093f7e5">
+        <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+        <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
+        <stereotypes />
+        <genericTypeParameters>
+          <genericTypeParameter id="96724b05-9be0-4f94-9132-62b51fb6160c">
+            <typeId>02370575-6315-4bc1-9753-616891d39255</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+            <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+            <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </genericTypeParameter>
+        </genericTypeParameters>
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a80d7708-e051-4927-b32e-c239affc1689</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="be537628-573c-4260-a7e1-37c3283bc04f" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>AddInvoiceClick</name>
+      <display>AddInvoiceClick(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a28da288-08d8-4e4c-b79c-cd1b262f11d4">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a80d7708-e051-4927-b32e-c239affc1689</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="fe54069b-ed6f-402b-a239-cb2d40f34b4c" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnRowClicked</name>
+      <display>OnRowClicked(invoiceId: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="9a416098-2231-44af-8d01-c769cb49f0c0">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a80d7708-e051-4927-b32e-c239affc1689</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="bcb82e3f-0cb1-4800-aee3-2097169a565f" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>invoiceId</name>
+          <display>in : invoiceId: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="8e2d064f-831b-4931-9dfb-16b7d851603e">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>fe54069b-ed6f-402b-a239-cb2d40f34b4c</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="639d239b-f36e-4224-b33c-8c0ff36eac72" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FetchDataGridData</name>
+      <display>FetchDataGridData(pageNo: int, pageSize: int, sorting: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="05b890c8-beac-4a5e-b259-11168980fe57">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a80d7708-e051-4927-b32e-c239affc1689</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="1bb35449-7446-488c-b253-b6706397a639" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>pageNo</name>
+          <display>in : pageNo: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c9d6f6cb-9f22-46de-8df4-9ce81700f9f2">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>639d239b-f36e-4224-b33c-8c0ff36eac72</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6bcd6eed-e630-46fa-add1-6497215ed2cd" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>pageSize</name>
+          <display>in : pageSize: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c68b4d64-a5ba-4bfd-9958-725863a8336b">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>639d239b-f36e-4224-b33c-8c0ff36eac72</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5f9d0702-471c-4a33-91cf-42a2545f2cac" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>sorting</name>
+          <display>in : sorting: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="97c73bb0-9945-4acb-b703-715cf43ef4a1">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>639d239b-f36e-4224-b33c-8c0ff36eac72</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

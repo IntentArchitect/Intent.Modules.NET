@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4582cc30-72c1-4367-afb7-a5b7d2343c53" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Diagram</name>
+  <display>Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</parentFolderId>
+  <packageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</packageId>
+  <packageName>MudBlazor.ExampleApp.Services</packageName>
+  <diagram>
+    <targetPackageId>4582cc30-72c1-4367-afb7-a5b7d2343c53</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

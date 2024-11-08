@@ -28,6 +28,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.TokenSe
                 .AddUsing("System.Security.Claims")
                 .AddUsing("System.Security.Cryptography")
                 .AddUsing("System.Text.Json")
+                .AddUsing("System.Linq")
                 .AddUsing("Microsoft.AspNetCore.DataProtection")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.IdentityModel.Tokens")
@@ -50,13 +51,26 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.TokenSe
                     @class.AddMethod("(string Token, DateTime Expiry)", "GenerateAccessToken", method =>
                     {
                         method.AddParameter("string", "username");
-                        method.AddParameter("IEnumerable<Claim>", "claims");
-                        method.AddStatement(new CSharpObjectInitializerBlock("var tokenClaims = new List<Claim>")
-                            .AddStatement("new Claim(JwtRegisteredClaimNames.Sub, username)")
-                            .AddStatement("new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())")
-                            .WithSemicolon());
+                        method.AddParameter("IList<Claim>", "claims");
 
-                        method.AddStatement("tokenClaims.AddRange(claims);");
+                        method.AddIfStatement("claims.Any(p => p.Type == JwtRegisteredClaimNames.Name)", stmt =>
+                        {
+                            stmt.AddStatement(@"throw new ArgumentException($""Claim '{JwtRegisteredClaimNames.Name}' is reserved. Ensure that the correct name is passed through the 'username' parameter."");");
+                        });
+                        
+                        method.AddStatement(new CSharpObjectInitializerBlock("var tokenClaims = new List<Claim>")
+                            .AddStatement("new Claim(JwtRegisteredClaimNames.Name, username)")
+                            .AddStatement("new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())")
+                            .WithSemicolon()
+                            .SeparatedFromPrevious());
+
+                        method.AddIfStatement("claims.All(p => p.Type != JwtRegisteredClaimNames.Sub)", stmt =>
+                        {
+                            stmt.AddStatement(@"throw new ArgumentException($""The '{JwtRegisteredClaimNames.Sub}' claim has not been set. Ensure you add it in the 'claims' List parameter."");");
+                            stmt.SeparatedFromPrevious();
+                        });
+
+                        method.AddStatement("tokenClaims.AddRange(claims);", stmt => stmt.SeparatedFromPrevious());
                         method.AddStatements($@"
                             var signingKey = Convert.FromBase64String(_configuration.GetSection(""JwtToken:SigningKey"").Get<string>()!);
                             var issuer = _configuration.GetSection(""JwtToken:Issuer"").Get<string>()!;

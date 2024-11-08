@@ -1,0 +1,71 @@
+@page "/customers"
+@using MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Customers
+
+<MudDataGrid T="CustomerDto"
+             @ref="DataGrid"
+             ServerData="LoadDataGridData"
+             Hover="true"
+             RowClick="(e) => DataGridRowClick(e.Item.Id.ToString())">
+    <ToolBarContent>
+        <MudButton Variant="Variant.Filled"
+                   StartIcon="@Icons.Material.Filled.AddCircle"
+                   Class="my-2 mr-2"
+                   Color="Color.Secondary"
+                   OnClick="() => AddCustomerClick()"
+                   Disabled="@_addCustomerClickProcessing">
+            @if (_addCustomerClickProcessing) 
+            {
+                <MudProgressCircular Class="ms-n1"
+                                     Size="Size.Small"
+                                     Indeterminate="true" />
+            }
+            <MudText>Add Customer</MudText>
+        </MudButton>
+        <MudSpacer />
+        <MudTextField T="string"
+                      Value="SearchText"
+                      ValueChanged="(value) => OnSearch(value)"
+                      Placeholder="Search"
+                      DebounceInterval="400"
+                      AdornmentIcon="@Icons.Material.Filled.Search"
+                      Adornment="Adornment.Start" />
+    </ToolBarContent>
+    <Columns>
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Name"
+                        Property="x => x.Name" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Account No"
+                        Property="x => x.AccountNo" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Address Line1"
+                        Property="x => x.AddressLine1" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Address Line2"
+                        Property="x => x.AddressLine2" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Address City"
+                        Property="x => x.AddressCity" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Address Country"
+                        Property="x => x.AddressCountry" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Address Postal"
+                        Property="x => x.AddressPostal" />
+        <TemplateColumn Title="">
+            <CellTemplate>
+                <MudStack Row>
+                    <MudIconButton Variant="Variant.Text"
+                                   Icon="@Icons.Material.Filled.Delete"
+                                   Class="m-0 p-1"
+                                   Color="Color.Error"
+                                   OnClick="() => OnDeleteClick(context.Item.Id)" />
+                </MudStack>
+            </CellTemplate>
+        </TemplateColumn>
+    </Columns>
+    <PagerContent>
+        <MudDataGridPager T="CustomerDto"
+                          PageSizeOptions="new int[] { 10, 25, 50, 100 }" />
+    </PagerContent>
+</MudDataGrid>

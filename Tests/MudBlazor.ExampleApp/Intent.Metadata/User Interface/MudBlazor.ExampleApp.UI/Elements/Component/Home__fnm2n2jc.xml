@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c39eb8c5-5b7a-4eec-a13f-e6c9b5a932a1" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+  <name>Home</name>
+  <display>Home</display>
+  <externalReference>fb620d93-23a7-4a7c-b7a4-a6e45839d64d</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>25cabfac-d9a6-4255-a8ad-37c821d2e1e2</parentFolderId>
+  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+  <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+      <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+      <properties>
+        <property name="9dff9df1-a993-4bf6-9aa7-c16811142228" display="Route" value="/" isActive="true" />
+        <property name="0a8627ba-ec45-4023-9c36-b0999f43e982" display="Title" value="Home" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="c39eb8c5-5b7a-4eec-a13f-e6c9b5a932a1" location="[MudBlazor.ExampleApp].[User Interface].[Home]" />
+      <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="dbb7eb1c-f5ef-484d-a1eb-a433f8ba0479" location="[MudBlazor.ExampleApp].[User Interface].[[view]]" />
+      <mappedEnds>
+        <mappedEnd>
+          <expression>###Welcome!</expression>
+          <path>
+            <target id="dbb7eb1c-f5ef-484d-a1eb-a433f8ba0479" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="d4599d94-37fe-4592-8db7-66bb6eb2a29e" name="Welcome Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="77326902-d99c-4af5-a1cc-ea43288aee54" name="Header" type="element" specialization="Card Header" specializationId="61bd2c09-fb56-4f0a-9d45-7a04c649a965" />
+            <target id="3f36454e-e562-481a-afec-ec88b0352300" name="Head" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>This is a simple sample Blazor application, code-automated by Intent Architect.</expression>
+          <path>
+            <target id="dbb7eb1c-f5ef-484d-a1eb-a433f8ba0479" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="d4599d94-37fe-4592-8db7-66bb6eb2a29e" name="Welcome Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="77326902-d99c-4af5-a1cc-ea43288aee54" name="Header" type="element" specialization="Card Header" specializationId="61bd2c09-fb56-4f0a-9d45-7a04c649a965" />
+            <target id="44e1e5a3-f4ac-4174-b4d0-6c2b9e81509a" name="Text" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>We look forward to your feedback :)</expression>
+          <path>
+            <target id="dbb7eb1c-f5ef-484d-a1eb-a433f8ba0479" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="d4599d94-37fe-4592-8db7-66bb6eb2a29e" name="Welcome Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="77326902-d99c-4af5-a1cc-ea43288aee54" name="Header" type="element" specialization="Card Header" specializationId="61bd2c09-fb56-4f0a-9d45-7a04c649a965" />
+            <target id="0f641476-f6e6-4936-9cca-c49062c1aed4" name="Text1" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>https://form.jotform.com/242683172056558</expression>
+          <path>
+            <target id="dbb7eb1c-f5ef-484d-a1eb-a433f8ba0479" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="d4599d94-37fe-4592-8db7-66bb6eb2a29e" name="Welcome Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="efd9d1ff-7d02-4dc2-beb0-1d3953824562" name="Actions" type="element" specialization="Card Actions" specializationId="8dd9e894-be78-41ec-89f2-d2bd2d26d8d6" />
+            <target id="496255a1-ff84-4be3-9388-09333f55d9ae" name="Give Feedback" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="ddfa6961-1042-4bea-84c7-4b2e9853c80a" name="Link To" type="static-mappable" specialization="Link To" specializationId="ddfa6961-1042-4bea-84c7-4b2e9853c80a" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>https://intentarchitect.com/#/redirect/?category=clientResource&amp;subCategory=home.needHelp</expression>
+          <path>
+            <target id="dbb7eb1c-f5ef-484d-a1eb-a433f8ba0479" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="d4599d94-37fe-4592-8db7-66bb6eb2a29e" name="Welcome Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="efd9d1ff-7d02-4dc2-beb0-1d3953824562" name="Actions" type="element" specialization="Card Actions" specializationId="8dd9e894-be78-41ec-89f2-d2bd2d26d8d6" />
+            <target id="f64adcda-a612-4628-b265-8923b14524f4" name="Log an Issue" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="ddfa6961-1042-4bea-84c7-4b2e9853c80a" name="Link To" type="static-mappable" specialization="Link To" specializationId="ddfa6961-1042-4bea-84c7-4b2e9853c80a" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>#####Invoices</expression>
+          <path>
+            <target id="dbb7eb1c-f5ef-484d-a1eb-a433f8ba0479" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="98be2187-89fd-4e82-b69b-6d39ec33521a" name="Invoices Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="34c39cd5-33cb-4555-a1b4-634c323e86a2" name="Header" type="element" specialization="Card Header" specializationId="61bd2c09-fb56-4f0a-9d45-7a04c649a965" />
+            <target id="44ac9c3c-fb1a-4305-8471-0fac66f9533a" name="Header" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>Create and update invoices for your customers.</expression>
+          <path>
+            <target id="dbb7eb1c-f5ef-484d-a1eb-a433f8ba0479" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="98be2187-89fd-4e82-b69b-6d39ec33521a" name="Invoices Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="34c39cd5-33cb-4555-a1b4-634c323e86a2" name="Header" type="element" specialization="Card Header" specializationId="61bd2c09-fb56-4f0a-9d45-7a04c649a965" />
+            <target id="371f8446-b7e1-4b0e-97de-c813cdf1236f" name="Description" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{NavigateToInvoiceList}</expression>
+          <path>
+            <target id="dbb7eb1c-f5ef-484d-a1eb-a433f8ba0479" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="98be2187-89fd-4e82-b69b-6d39ec33521a" name="Invoices Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="5ed5f2b3-ceef-4670-b7fa-e53127109359" name="Actions" type="element" specialization="Card Actions" specializationId="8dd9e894-be78-41ec-89f2-d2bd2d26d8d6" />
+            <target id="a36aab71-f64a-4920-b15f-0893562a7956" name="Manage Invoices" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="ddfa6961-1042-4bea-84c7-4b2e9853c80a" name="Link To" type="static-mappable" specialization="Link To" specializationId="ddfa6961-1042-4bea-84c7-4b2e9853c80a" />
+          </path>
+          <sources>
+            <source identifier="NavigateToInvoiceList" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="c39eb8c5-5b7a-4eec-a13f-e6c9b5a932a1" name="Home" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="3ef5f4da-6554-4931-a579-8a95a0eb14be" name="NavigateToInvoiceList" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>#####Customers</expression>
+          <path>
+            <target id="dbb7eb1c-f5ef-484d-a1eb-a433f8ba0479" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="82664911-b122-41a3-a62f-2b293ab6c196" name="Customers Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="b21e1bf9-9543-4ed3-a113-3350a423097b" name="Header" type="element" specialization="Card Header" specializationId="61bd2c09-fb56-4f0a-9d45-7a04c649a965" />
+            <target id="8295b980-dd73-4601-8aeb-047cb7d67c57" name="Header" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>Manage you customer information.</expression>
+          <path>
+            <target id="dbb7eb1c-f5ef-484d-a1eb-a433f8ba0479" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="82664911-b122-41a3-a62f-2b293ab6c196" name="Customers Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="b21e1bf9-9543-4ed3-a113-3350a423097b" name="Header" type="element" specialization="Card Header" specializationId="61bd2c09-fb56-4f0a-9d45-7a04c649a965" />
+            <target id="60bbb937-f7e0-472d-b05c-46102170c16c" name="Description" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{NavigateToCustomerList1}</expression>
+          <path>
+            <target id="dbb7eb1c-f5ef-484d-a1eb-a433f8ba0479" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="82664911-b122-41a3-a62f-2b293ab6c196" name="Customers Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="68d11407-6f67-4a53-8ece-391a3dc2a393" name="Actions" type="element" specialization="Card Actions" specializationId="8dd9e894-be78-41ec-89f2-d2bd2d26d8d6" />
+            <target id="1f1384ad-e84b-4709-ad90-76cd23cd0e38" name="Manage Customers" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="ddfa6961-1042-4bea-84c7-4b2e9853c80a" name="Link To" type="static-mappable" specialization="Link To" specializationId="ddfa6961-1042-4bea-84c7-4b2e9853c80a" />
+          </path>
+          <sources>
+            <source identifier="NavigateToCustomerList1" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="c39eb8c5-5b7a-4eec-a13f-e6c9b5a932a1" name="Home" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="f440ea97-767c-493a-94a0-52e15387b0eb" name="NavigateToCustomerList1" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>#####Products</expression>
+          <path>
+            <target id="dbb7eb1c-f5ef-484d-a1eb-a433f8ba0479" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="1d1e86c5-e51e-40b9-a625-8eb4b1c4e5de" name="Products Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="7e81d81a-7820-47ec-875c-fdb6c36d1eee" name="Header" type="element" specialization="Card Header" specializationId="61bd2c09-fb56-4f0a-9d45-7a04c649a965" />
+            <target id="32149bbd-7c9d-44dd-ae34-6e4b38330164" name="Header" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>Manage you available pruducts.</expression>
+          <path>
+            <target id="dbb7eb1c-f5ef-484d-a1eb-a433f8ba0479" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="1d1e86c5-e51e-40b9-a625-8eb4b1c4e5de" name="Products Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="7e81d81a-7820-47ec-875c-fdb6c36d1eee" name="Header" type="element" specialization="Card Header" specializationId="61bd2c09-fb56-4f0a-9d45-7a04c649a965" />
+            <target id="bb6100f6-a9e2-4671-8637-942133a5ab41" name="Description" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{NavigateToProductList}</expression>
+          <path>
+            <target id="dbb7eb1c-f5ef-484d-a1eb-a433f8ba0479" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="1d1e86c5-e51e-40b9-a625-8eb4b1c4e5de" name="Products Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="9ad9de3c-2cfc-4604-9aaa-011feca94b3a" name="Actions" type="element" specialization="Card Actions" specializationId="8dd9e894-be78-41ec-89f2-d2bd2d26d8d6" />
+            <target id="f6be4eaa-8c21-4132-b700-666a7fa5a574" name="Manage Products" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="ddfa6961-1042-4bea-84c7-4b2e9853c80a" name="Link To" type="static-mappable" specialization="Link To" specializationId="ddfa6961-1042-4bea-84c7-4b2e9853c80a" />
+          </path>
+          <sources>
+            <source identifier="NavigateToProductList" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="c39eb8c5-5b7a-4eec-a13f-e6c9b5a932a1" name="Home" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="80bf4b0b-2d6c-477e-92fe-02bb0831a254" name="NavigateToProductList" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+      </mappedEnds>
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements />
+</class>

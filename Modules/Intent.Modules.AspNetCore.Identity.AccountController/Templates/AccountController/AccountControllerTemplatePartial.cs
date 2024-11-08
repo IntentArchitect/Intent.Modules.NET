@@ -40,6 +40,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                 .AddUsing("Microsoft.AspNetCore.Mvc.ModelBinding")
                 .AddUsing("Microsoft.AspNetCore.WebUtilities")
                 .AddUsing("Microsoft.Extensions.Logging")
+                .AddUsing("Microsoft.IdentityModel.JsonWebTokens")
                 .AddClass("AccountController", @class =>
                 {
                     @class.AddAttribute("[Route(\"api/[controller]/[action]\")]");
@@ -423,7 +424,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                         method.AddParameter(this.GetIdentityUserClass(), "user");
                         method.AddStatements(@"
                             var claims = await _userManager.GetClaimsAsync(user);
-                            claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id));
+                            claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));
 
                             var roles = await _userManager.GetRolesAsync(user);
                             foreach (var role in roles)

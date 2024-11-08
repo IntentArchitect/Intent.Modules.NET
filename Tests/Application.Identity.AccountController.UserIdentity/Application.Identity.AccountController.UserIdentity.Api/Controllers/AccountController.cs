@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.JsonWebTokens;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Identity.AccountController.AccountController", Version = "1.0")]
@@ -379,7 +380,7 @@ namespace Application.Identity.AccountController.UserIdentity.Api.Controllers
         private async Task<IList<Claim>> GetClaims(BespokeUser user)
         {
             var claims = await _userManager.GetClaimsAsync(user);
-            claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id));
+            claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));
 
             var roles = await _userManager.GetRolesAsync(user);
             foreach (var role in roles)

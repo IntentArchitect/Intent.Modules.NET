@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dfce3f26-e87d-478d-a5ef-c3f357679761" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
+  <name>[view]</name>
+  <display>[view]</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a80d7708-e051-4927-b32e-c239affc1689</parentFolderId>
+  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+  <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c99ce999-7575-42c3-9b58-1739ae7194ca" type="Data Grid" typeId="4b33f894-ad6e-43e0-a238-4286375c9ab7">
+      <name>DataGrid</name>
+      <display>DataGrid = {Model.Data}</display>
+      <isAbstract>false</isAbstract>
+      <value>{Model.Data}</value>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>dfce3f26-e87d-478d-a5ef-c3f357679761</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="0f3fc9f6-d11b-4e78-b28d-3c818e32d510" name="Interaction">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+          <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+          <properties>
+            <property name="0e69d7ce-a9aa-4c8f-8940-6b9964dfa894" display="On Row Click" value="{OnRowClicked}" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="b193adde-8086-43e7-8908-cba6419d62de" type="Data Grid Toolbar" typeId="9af26915-0394-4cda-864d-0e7f9f9943dc">
+          <name>Toolbar</name>
+          <display>Toolbar</display>
+          <isAbstract>false</isAbstract>
+          <sort-children>manually</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c99ce999-7575-42c3-9b58-1739ae7194ca</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="ba41d31e-33b9-4f59-abe1-db7905124f3d" type="Button" typeId="4474d808-f6fd-405f-a9c7-6998cd000ede">
+              <name>Add Invoice</name>
+              <display>Add Invoice</display>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>b193adde-8086-43e7-8908-cba6419d62de</parentFolderId>
+              <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+              <packageName>MudBlazor.ExampleApp.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes>
+                <stereotype stereotypeDefinitionId="a7de29e5-4bee-4e5d-93f0-740569ac6130" name="Interaction">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
+                  <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
+                  <properties>
+                    <property name="7cee794d-e1a7-4590-b65a-6e56914a2a97" display="Type" value="Default" isActive="true" />
+                    <property name="2265736b-4381-42dc-9dbf-b757188837bc" display="Form" isActive="false" />
+                    <property name="d05f7b5b-fe45-4cbb-b938-380a4b68c0df" display="On Click" value="{AddInvoiceClick}" isActive="true" />
+                    <property name="86aeb4ba-54e8-4327-bcb0-166fb9b9968c" display="Link To" isActive="true" />
+                  </properties>
+                </stereotype>
+                <stereotype stereotypeDefinitionId="b218f7cb-d150-401d-a17a-9e22fadf863f" name="Appearance">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="eecbc26c-443b-4d97-a706-a4e21fc13552" display="Icon Only" value="false" isActive="true" />
+                    <property name="de8a25d2-a144-4806-b5ad-e6c195abfa43" display="Variant" value="93828c49-ea2f-46d2-b661-df6fc2c4a0e2" isActive="true" />
+                    <property name="d527d5a7-fd00-4486-a204-5c6fc93099a5" display="Color" value="35ce5616-161f-406e-9130-924e367d7836" isActive="true" />
+                    <property name="9243cf9b-c6de-47d4-a914-382ab7ddf920" display="Class" isActive="true" />
+                  </properties>
+                </stereotype>
+                <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="7bda044e-8be7-4ac4-98cd-41e97132942f" display="Icon Value" value="bcb1ed81-8cfa-47c4-826e-46b2fda60b54" isActive="true" />
+                    <property name="6a70b142-c60d-4015-97aa-be0bcab7d128" display="Icon Color" isActive="true" />
+                    <property name="13f1151e-7611-4bde-8374-1598b5d3335c" display="Variant" value="41f2ef78-a358-43bd-9b84-926dc185c8d1" isActive="true" />
+                  </properties>
+                </stereotype>
+              </stereotypes>
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+        <childElement id="37057574-ddc2-4291-9ef1-bc7ecdc6d98b" type="Data Grid Column" typeId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532">
+          <name>Invoice No</name>
+          <display>Invoice No = {Model.Data.InvoiceNo}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.InvoiceNo}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c99ce999-7575-42c3-9b58-1739ae7194ca</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="68386cf7-8f59-4b0d-a2e8-1b7a8a5c15fa" type="Data Grid Column" typeId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532">
+          <name>Customer Name</name>
+          <display>Customer Name = {Model.Data.CustomerName}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.CustomerName}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c99ce999-7575-42c3-9b58-1739ae7194ca</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3001a2f3-1e31-4f75-9127-40ea6ab01ea9" type="Data Grid Column" typeId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532">
+          <name>Customer Account No</name>
+          <display>Customer Account No = {Model.Data.CustomerAccountNo}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.CustomerAccountNo}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c99ce999-7575-42c3-9b58-1739ae7194ca</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9e521e46-4786-461c-9996-f44b30fa6151" type="Data Grid Column" typeId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532">
+          <name>Address Line1</name>
+          <display>Address Line1 = {Model.Data.AddressLine1}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.AddressLine1}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c99ce999-7575-42c3-9b58-1739ae7194ca</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8251b210-037b-4ef2-a5c8-570edb2cf478" type="Data Grid Column" typeId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532">
+          <name>Address Line2</name>
+          <display>Address Line2 = {Model.Data.AddressLine2}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.AddressLine2}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c99ce999-7575-42c3-9b58-1739ae7194ca</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="676bddea-987a-41c8-87a2-9809d8f0079a" type="Data Grid Column" typeId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532">
+          <name>Address City</name>
+          <display>Address City = {Model.Data.AddressCity}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.AddressCity}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c99ce999-7575-42c3-9b58-1739ae7194ca</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="db6070e6-b6bf-4119-bbc8-138b3edb555d" type="Data Grid Column" typeId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532">
+          <name>Address Country</name>
+          <display>Address Country = {Model.Data.AddressCountry}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.AddressCountry}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c99ce999-7575-42c3-9b58-1739ae7194ca</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9c412bcd-c1bf-4bb2-89f3-72ed20d1287a" type="Data Grid Column" typeId="7cea32c5-1218-4bf2-bbab-52ddb2cb1532">
+          <name>Address Postal</name>
+          <display>Address Postal = {Model.Data.AddressPostal}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.AddressPostal}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c99ce999-7575-42c3-9b58-1739ae7194ca</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="853681eb-9c01-4670-adcc-3d615e7ba4b0" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>0 - Frontend</name>
+  <display>0 - Frontend</display>
+  <externalReference>c2163b22-18c4-4f76-8f84-4736b53d1c56</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>96180650-c419-412c-87ba-a67befe3a60a</parentFolderId>
+  <packageId>96180650-c419-412c-87ba-a67befe3a60a</packageId>
+  <packageName>MudBlazor.ExampleApp</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

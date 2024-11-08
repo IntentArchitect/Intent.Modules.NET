@@ -1,0 +1,47 @@
+@page "/invoices"
+@using MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Invoices
+
+<MudDataGrid T="InvoiceDto"
+             ServerData="LoadDataGridData"
+             Hover="true"
+             RowClick="(e) => OnRowClicked(e.Item.Id.ToString())">
+    <ToolBarContent>
+        <MudButton Variant="Variant.Filled"
+                   StartIcon="@Icons.Material.Filled.AddCircle"
+                   Class="my-2 mr-2"
+                   Color="Color.Secondary"
+                   OnClick="() => AddInvoiceClick()">
+            <MudText>Add Invoice</MudText>
+        </MudButton>
+    </ToolBarContent>
+    <Columns>
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Invoice No"
+                        Property="x => x.InvoiceNo" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Customer Name"
+                        Property="x => x.CustomerName" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Customer Account No"
+                        Property="x => x.CustomerAccountNo" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Address Line1"
+                        Property="x => x.AddressLine1" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Address Line2"
+                        Property="x => x.AddressLine2" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Address City"
+                        Property="x => x.AddressCity" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Address Country"
+                        Property="x => x.AddressCountry" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Address Postal"
+                        Property="x => x.AddressPostal" />
+    </Columns>
+    <PagerContent>
+        <MudDataGridPager T="InvoiceDto"
+                          PageSizeOptions="new int[] { 10, 25, 50, 100 }" />
+    </PagerContent>
+</MudDataGrid>
