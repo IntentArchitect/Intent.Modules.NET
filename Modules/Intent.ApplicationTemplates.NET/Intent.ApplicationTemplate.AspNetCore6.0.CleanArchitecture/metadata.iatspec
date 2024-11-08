@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</id>
-  <version>5.0.4-pre.0</version>
+  <version>5.0.5-pre.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <displayName>Clean Architecture .NET</displayName>
   <shortDescription>Web application implementation based on Robert Martin's Clean Architecture with a CQRS API and Mediator dispatch pattern in .NET</shortDescription>
@@ -478,7 +478,7 @@
       </components>
     </group>
     <group name="Logging &amp; Telemetry">
-      <selectionMode>allow-single-only</selectionMode>
+      <selectionMode>allow-multiple</selectionMode>
       <components>
         <component id="da1bf0b2-be7c-4650-b940-abf593b75528" name="Serilog" included="true" required="false">
           <description>Serilog logging for ASP.NET Core.</description>
