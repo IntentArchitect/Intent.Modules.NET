@@ -1,3 +1,7 @@
+### Version 1.1.5
+
+- Improvement: Simplified the code output in the `AddSwaggerEndpoints` method.
+
 ### Version 1.1.4
 
 - Improvement: Small updated to more align code styling with best practices

@@ -1,3 +1,7 @@
+### Version 5.1.3
+
+- Improvement: Aligned `ISchemaFilter` implementation parameter names with the interface declaration.
+
 ### Version 5.1.2
 
 - Improvement: Small updated to more align code styling with best practices

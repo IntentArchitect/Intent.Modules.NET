@@ -73,9 +73,11 @@ public class SwaggerInstaller : FactoryExtensionBase
             method.AddParameter("SwaggerUIOptions", "options");
             method.AddStatement(
                 "var provider = app.ApplicationServices.GetRequiredService<IApiVersionDescriptionProvider>();");
-            method.AddForEachStatement("description", "provider.ApiVersionDescriptions.OrderByDescending(o => o.ApiVersion)", stmt => stmt
+            method.AddForEachStatement("groupName", @"provider.ApiVersionDescriptions
+                .OrderByDescending(o => o.ApiVersion)
+                .Select(a => a.GroupName)", stmt => stmt
                 .AddStatement(
-                    @"options.SwaggerEndpoint($""/swagger/{description.GroupName}/swagger.json"", $""{options.OAuthConfigObject.AppName} {description.GroupName}"");"));
+                    @"options.SwaggerEndpoint($""/swagger/{groupName}/swagger.json"", $""{options.OAuthConfigObject.AppName} {groupName}"");"));
         });
     }
 }
