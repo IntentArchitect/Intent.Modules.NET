@@ -5,19 +5,6 @@ param(
     [string]$testsIntentSolutionRelativePath
 )
 
-$repoConfigContent = 
-"<?xml version=""1.0"" encoding=""utf-8""?>
-<assetRepositories>
-  <entries>
-    <entry>
-      <name>Pipeline build artifact staging directory</name>
-      <address>$buildArtifactStagingDirectory</address>
-      <isBuiltIn>false</isBuiltIn>
-      <order>3</order>
-    </entry>
-  </entries>
-</assetRepositories>"
-
 $moduleLookup = @{}
 $moduleFileNames = Get-ChildItem "$buildArtifactStagingDirectory/*.imod" | % {
     $file = [System.IO.Path]::GetFileNameWithoutExtension($_.Name)
@@ -55,9 +42,7 @@ $testSln = [xml] (Get-Content "./$testsIntentSolutionRelativePath" -Encoding UTF
 $testSlnDir = [System.IO.Path]::GetDirectoryName($testsIntentSolutionRelativePath)
 Write-Host "`$testSlnDir = $testSlnDir"
 
-$repoPath = [System.IO.Path]::Combine($curLocation, $testSlnDir, "intent.repositories.config")
-Write-Host "`$repoPath = $repoPath"
-$repoConfigContent | Set-Content $repoPath -Encoding UTF8
+$discrepanciesFound = $false
 
 $testSln.solution.applications.application | % {
     $appRelPath = [System.IO.Path]::Combine($curLocation, $testSlnDir, $_.relativePath)
@@ -65,16 +50,17 @@ $testSln.solution.applications.application | % {
     $modulesConfig = [System.IO.Path]::Combine($basePath, "modules.config")
 
     $modulesConfigContent = [xml] (Get-Content $modulesConfig -Encoding UTF8)
-    $changed = $false
     $modulesConfigContent.modules.module | % { 
         $module = $_
         $moduleVersionFound = $moduleLookup[$module.moduleId]
-        if ($moduleVersionFound -ne $null -and [semver]$moduleVersionFound -gt [semver]$module.version) { 
-            $module.version = $moduleVersionFound
-            $changed = $true
+        if ($moduleVersionFound -ne $null -and $module.version -ne $moduleVersionFound) { 
+            Write-Error "##vso[task.logissue type=error;]$($name): Version discrepancy found for module '$($module.moduleId)': expected '$moduleVersionFound', found '$($module.version)'"
+            $discrepanciesFound = $true
         }
     }
-    if ($changed) {
-        $modulesConfigContent.Save($modulesConfig)
-    }
+}
+
+if ($discrepanciesFound) {
+    Write-Error "##vso[task.logissue type=error;]Review the $($testsIntentSolutionRelativePath) Intent Solution and make sure the module dependencies are installed to the appropriate versions needed for the test suite to execute successfully."
+    exit 1
 }

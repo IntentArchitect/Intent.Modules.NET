@@ -96,9 +96,9 @@ steps:
 # Required for entry in NuGet.Config that is generated as part of 'dotnet pack'.
 - task: NuGetAuthenticate@1
 
-# We pack upfront as projects may rely on NuGet packages from this same solution.
+# Make it available to other pipeline builds...
 - task: PowerShell@2
-  displayName: 'dotnet pack'
+  displayName: 'Push Intent Nuget Packages to DevOps Artifacts'
   inputs:
     pwsh: true
     failOnStderr: true
@@ -153,6 +153,15 @@ steps:
       --no-restore
       -p:IntentModuleOutputPath=$(Build.ArtifactStagingDirectory)
 
+# Run this check as early as possible as devs will forget to do this and early feedback is useful.
+- task: PowerShell@2
+  displayName: 'Template Testing Validation'
+  inputs:
+    targetType: 'inline'
+    pwsh: true
+    script: ./PipelineScripts/pre-template-test-validation.ps1 "$(Build.ArtifactStagingDirectory)" "$(intent-solution)"
+
+
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
   env:
@@ -197,12 +206,10 @@ steps:
   inputs:
     targetType: 'inline'
     pwsh: true
-    script: |
-      ./PipelineScripts/prepare-intent-testing.ps1 "$(Build.ArtifactStagingDirectory)" "$(intent-solution)"
-      intent-cli ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_SOLUTION_PATH" --check-deviations
+    script: intent-cli ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_SOLUTION_PATH" --check-deviations
 
 - task: PowerShell@2
-  displayName: 'install intent packager'
+  displayName: 'Install Intent packager'
   condition: and(succeeded(), in('True', variables.isMaster, variables.isDevelopment))
   inputs:
     targetType: 'inline'
@@ -211,7 +218,7 @@ steps:
       dotnet tool install Intent.IArchitect.Packager.CommandLine --global --prerelease --add-source '$(vstsFeedUrl)'
 
 - task: PowerShell@2
-  displayName: 'filter artifacts to publish'
+  displayName: 'Filter artifacts to publish'
   condition: and(succeeded(), in('True', variables.isMaster, variables.isDevelopment))
   inputs:
     targetType: inline
@@ -240,7 +247,7 @@ steps:
       Get-ChildItem "$artifactsFolder" | ForEach-Object { Write-Host $_.Name }
 
 - task: PowerShell@2
-  displayName: 'publish modules'
+  displayName: 'Publish modules'
   condition: and(succeeded(), in('True', variables.isMaster, variables.isDevelopment))
   env:
     DOTNET_NOLOGO: '1'
@@ -260,7 +267,7 @@ steps:
       intent-package-management BulkUploadApplicationTemplates -directory "$directory" -address "$address" -username "$username" -password "$password"
 
 - task: DotNetCoreCLI@2
-  displayName: 'Push *.nupkg to nuget.org'
+  displayName: 'Push *.nupkg to nuget.org (Final Release)'
   condition: and(succeeded(), in('True', variables.isMaster))
   inputs:
     command: 'custom'
