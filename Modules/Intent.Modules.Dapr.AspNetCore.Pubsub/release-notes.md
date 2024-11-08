@@ -1,3 +1,8 @@
+### Version 2.2.0
+
+- Improvement: Updated Event subscriptions which are modeled in the Services Designer to implement the subscription using the `IIntegrationEventHandler` similar to our other Eventing models.
+    If you had any Event subscriptions modeled in the Services Designer prior to this version you simply need to move the implementation logic from the `IReqyuestHandler` implementation to the `IIntegrationEventHandler` implementation.
+
 ### Version 2.1.4
 
 - Improvement: Updated module icon.

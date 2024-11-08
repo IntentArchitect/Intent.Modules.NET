@@ -10,10 +10,13 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler;
 using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandlerImplementation;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Intent.Modelers.Services.EventInteractions;
+using Intent.Modelers.Eventing.Api;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -32,6 +35,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
             AddNugetDependency(NugetPackages.MediatR(outputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Dapr")
@@ -47,8 +51,10 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
                         .WithBaseType("ControllerBase")
                         .AddConstructor(constructor => constructor
                             .AddParameter("ISender", "mediatr", p => p.IntroduceReadonlyField())
+                            .AddParameter("IServiceProvider", "serviceProvider", p => p.IntroduceReadonlyField())
                         );
 
+                    //Eventing Designer
                     var eventHandlerTemplates = ExecutionContext.FindTemplateInstances<EventHandlerImplementationTemplate>(TemplateDependency.OfType<EventHandlerImplementationTemplate>())
                         .ToArray();
 
@@ -67,7 +73,39 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
                                 .AddStatement("await _mediatr.Send(@event, cancellationToken);");
                         });
                     }
+
+                    //Service Designer
+                    var eventSubscriptionTemplates = ExecutionContext.FindTemplateInstances<EventHandlerTemplate>(TemplateDependency.OfType<EventHandlerTemplate>())
+                        .ToArray();
+                    if (eventHandlerTemplates.Any())
+                    {
+                        AddUsing("System");
+                        AddUsing("Microsoft.Extensions.DependencyInjection");
+                    }
+                    foreach (var eventHandler in eventSubscriptionTemplates)
+                    {
+                        foreach (var subscription in eventHandler.Model.IntegrationEventSubscriptions())
+                        {
+                            var eventType = GetMessageName(subscription);
+                            @class.AddMethod("Task", $"Handle{eventType}", method =>
+                            {
+                                method
+                                    .AddAttribute("[HttpPost]")
+                                    .AddAttribute($"[Topic({eventType}.PubsubName, {eventType}.TopicName)]")
+                                    .Async()
+                                    .AddParameter(eventType, "@event")
+                                    .AddParameter("CancellationToken", "cancellationToken")
+                                    .AddStatement($"var handler = _serviceProvider.GetRequiredService<{this.GetIntegrationEventHandlerInterfaceName()}<{eventType}>>();")
+                                    .AddStatement("await handler.HandleAsync(@event, cancellationToken);");
+                            });
+                        }
+                    }
                 });
+        }
+
+        private string GetMessageName(SubscribeIntegrationEventTargetEndModel subscription)
+        {
+            return this.GetIntegrationEventMessageName(subscription.TypeReference.Element.AsMessageModel());
         }
 
         public override void AfterTemplateRegistration()
