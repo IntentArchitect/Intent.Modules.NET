@@ -63,6 +63,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.PagedList
 
                     @class.AddMethod("int", "GetPageCount", method =>
                     {
+                        method.Static();
                         method.Private();
                         method.AddParameter("int", "pageSize")
                             .AddParameter("int", "totalCount");

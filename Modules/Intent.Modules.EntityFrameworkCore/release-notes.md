@@ -1,3 +1,7 @@
+### Version 5.0.14
+
+- Improvement: `PagedList.GetPageCount` made static
+
 ### Version 5.0.13
 
 - Improvement: Udpated the `DbMigrationsReadMe` template so it respects `CanRun`.
