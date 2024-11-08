@@ -1,4 +1,14 @@
-﻿### Version 4.0.0
+﻿### Version 4.1.0
+
+> ⚠️ **NOTE**
+> 
+> Claims related changes has been introduced to improve the experience using the `CurrentUserService`.
+
+- Fixed: `GetClaims` no longer provides a claim named `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` but instead returns the `sub` claim that represents the User's ID.
+- Fixed: `TokenService` will no longer automatically set the `sub` claim to be the `username` by default.
+- Fixed: The `TokenService` has also been updated to accept `IList` of claims as opposed to `IEnumerable` of claims.
+
+### Version 4.0.0
 
 > ⚠️ **NOTE**
 >

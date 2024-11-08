@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text.Json;
@@ -25,13 +26,23 @@ namespace Application.Identity.AccountController.UserIdentity.Api.Services
             _protector = provider.CreateProtector("Application.Identity.AccountController.UserIdentity.Api.Services.TokenService");
         }
 
-        public (string Token, DateTime Expiry) GenerateAccessToken(string username, IEnumerable<Claim> claims)
+        public (string Token, DateTime Expiry) GenerateAccessToken(string username, IList<Claim> claims)
         {
+            if (claims.Any(p => p.Type == JwtRegisteredClaimNames.Name))
+            {
+                throw new ArgumentException($"Claim '{JwtRegisteredClaimNames.Name}' is reserved. Ensure that the correct name is passed through the 'username' parameter.");
+            }
+
             var tokenClaims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Sub, username),
+                new Claim(JwtRegisteredClaimNames.Name, username),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
+
+            if (claims.All(p => p.Type != JwtRegisteredClaimNames.Sub))
+            {
+                throw new ArgumentException($"The '{JwtRegisteredClaimNames.Sub}' claim has not been set. Ensure you add it in the 'claims' List parameter.");
+            }
 
             tokenClaims.AddRange(claims);
             var signingKey = Convert.FromBase64String(_configuration.GetSection("JwtToken:SigningKey").Get<string>()!);

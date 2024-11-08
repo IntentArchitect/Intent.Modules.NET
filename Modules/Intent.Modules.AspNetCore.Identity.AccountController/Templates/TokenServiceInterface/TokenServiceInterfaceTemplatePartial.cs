@@ -30,7 +30,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.TokenSe
                     inter.AddMethod("(string Token, DateTime Expiry)", "GenerateAccessToken", method =>
                     {
                         method.AddParameter("string", "username");
-                        method.AddParameter("IEnumerable<Claim>", "claims");
+                        method.AddParameter("IList<Claim>", "claims");
                     });
                     inter.AddMethod("(string Token, DateTime Expiry)", "GenerateRefreshToken", method =>
                     {
