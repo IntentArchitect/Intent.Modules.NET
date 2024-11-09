@@ -16,7 +16,7 @@
       <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
       <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
       <properties>
-        <property name="54b29a03-082b-407a-b42e-cbacbcfa7fd7" display="Selection Mode" value="Allow Single Only" isActive="true" />
+        <property name="54b29a03-082b-407a-b42e-cbacbcfa7fd7" display="Selection Mode" value="Allow Multiple" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

@@ -59,7 +59,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler
                 })
                 .AfterBuild(file =>
                 {
-                    foreach (var handleMethod in file.Classes.First().Methods.Where(x => x.Name == "Handle"))
+                    foreach (var handleMethod in file.Classes.First().Methods.Where(x => x.Name == "HandleAsync"))
                     {
                         if (handleMethod.Statements.Count == 0)
                         {

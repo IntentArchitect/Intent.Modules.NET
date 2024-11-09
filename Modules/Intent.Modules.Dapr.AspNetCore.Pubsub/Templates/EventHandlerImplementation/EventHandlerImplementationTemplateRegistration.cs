@@ -38,13 +38,15 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandlerImplementa
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<MessageModel> GetModels(IApplication application)
         {
-            var eventDeisgnerEventSubs = _metadataManager.GetSubscribedToMessageModels(application).ToList();
+            return _metadataManager.GetSubscribedToMessageModels(application).ToList();
+            
+            /*
             var serviceDesignerEventSubs = _metadataManager.Services(application).GetIntegrationEventHandlerModels()
                     .SelectMany(x => x.IntegrationEventSubscriptions()
                         .Select(y => y.TypeReference.Element.AsMessageModel())
                         .Where(z => z is not null));
-
-            return serviceDesignerEventSubs.Union(eventDeisgnerEventSubs);
+            return serviceDesignerEventSubs;//.Union(eventDeisgnerEventSubs);
+            */
         }
 
     }
