@@ -34,10 +34,6 @@ namespace Intent.Modules.Application.AutoMapper.Templates.MappingProfile
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("string", "exampleParam", param =>
-                        {
-                            param.IntroduceReadonlyField();
-                        });
                         ctor.AddInvocationStatement("ApplyMappingsFromAssembly", cfg =>
                         {
                             cfg.AddArgument(new CSharpInvocationStatement("Assembly.GetExecutingAssembly").WithoutSemicolon());
