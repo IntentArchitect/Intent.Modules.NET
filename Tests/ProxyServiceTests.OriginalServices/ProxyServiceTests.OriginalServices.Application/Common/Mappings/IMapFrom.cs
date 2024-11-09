@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace ProxyServiceTests.OriginalServices.Application.Common.Mappings
 {
-    interface IMapFrom<T>
+    internal interface IMapFrom<T>
     {
         void Mapping(Profile profile);
     }

@@ -19,7 +19,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Common.Mappings
         private void ApplyMappingsFromAssembly(Assembly assembly)
         {
             var types = assembly.GetExportedTypes()
-                .Where(t => t.GetInterfaces().Any(i =>
+                .Where(t => Array.Exists(t.GetInterfaces(), i =>
                     i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IMapFrom<>)))
                 .ToList();
 

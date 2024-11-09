@@ -26,7 +26,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Co
         public int PageNo { get; private set; }
         public int PageSize { get; private set; }
 
-        private int GetPageCount(int pageSize, int totalCount)
+        private static int GetPageCount(int pageSize, int totalCount)
         {
             if (pageSize == 0)
             {

@@ -19,7 +19,7 @@ namespace Application.Identity.Jwt.TestApplication.Application.Common.Mappings
         private void ApplyMappingsFromAssembly(Assembly assembly)
         {
             var types = assembly.GetExportedTypes()
-                .Where(t => t.GetInterfaces().Any(i =>
+                .Where(t => Array.Exists(t.GetInterfaces(), i =>
                     i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IMapFrom<>)))
                 .ToList();
 
@@ -30,7 +30,7 @@ namespace Application.Identity.Jwt.TestApplication.Application.Common.Mappings
                 var methodInfo = type.GetMethod("Mapping")
                     ?? type.GetInterface("IMapFrom`1")?.GetMethod("Mapping");
 
-                methodInfo?.Invoke(instance, new object[] { this });
+                methodInfo?.Invoke(instance, [this]);
             }
         }
     }
