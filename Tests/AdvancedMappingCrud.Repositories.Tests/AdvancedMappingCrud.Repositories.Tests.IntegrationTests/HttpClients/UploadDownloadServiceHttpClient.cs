@@ -13,17 +13,11 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
 {
     public class UploadDownloadServiceHttpClient : IUploadDownloadService
     {
-        private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 
         public UploadDownloadServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-
-            _serializerOptions = new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            };
         }
 
         public async Task<Guid> UploadAsync(
@@ -60,9 +54,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
                 {
                     var str = await new StreamReader(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
 
-                    if (str.StartsWith(@"""") || str.StartsWith("'"))
+                    if (str.StartsWith('"') || str.StartsWith('\''))
                     {
-                        str = str.Substring(1, str.Length - 2);
+                        str = str[1..^1];
                     }
                     return Guid.Parse(str);
                 }
@@ -87,7 +81,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
                 }
                 var memoryStream = new MemoryStream();
                 var responseStream = await response.Content.ReadAsStreamAsync(cancellationToken);
-                await responseStream.CopyToAsync(memoryStream);
+                await responseStream.CopyToAsync(memoryStream, cancellationToken);
                 memoryStream.Seek(0, SeekOrigin.Begin);
 
                 return FileDownloadDto.Create(memoryStream, filename: response.Content.Headers.ContentDisposition?.FileName, contentType: response.Content.Headers.ContentType?.MediaType ?? "");
@@ -96,6 +90,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
         }
     }
 }

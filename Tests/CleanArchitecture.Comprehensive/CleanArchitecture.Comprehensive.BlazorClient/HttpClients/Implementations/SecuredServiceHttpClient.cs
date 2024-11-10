@@ -12,17 +12,11 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
 {
     public class SecuredServiceHttpClient : ISecuredService
     {
-        private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 
         public SecuredServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-
-            _serializerOptions = new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            };
         }
 
         public async Task SecuredAsync(CancellationToken cancellationToken = default)
@@ -42,6 +36,13 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
         }
     }
 }

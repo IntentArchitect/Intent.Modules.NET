@@ -1,9 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.Dapr.Application.Common.Exceptions;
@@ -19,18 +19,11 @@ namespace CleanArchitecture.Dapr.Infrastructure.HttpClients
 {
     public class NamedQueryStringsServiceHttpClient : INamedQueryStringsService
     {
-        private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 
         public NamedQueryStringsServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-
-            _serializerOptions = new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                Converters = { new JsonStringEnumConverter() }
-            };
         }
 
         public async Task NamedQueryStringsAsync(string par1, CancellationToken cancellationToken = default)
@@ -54,6 +47,13 @@ namespace CleanArchitecture.Dapr.Infrastructure.HttpClients
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
         }
     }
 }

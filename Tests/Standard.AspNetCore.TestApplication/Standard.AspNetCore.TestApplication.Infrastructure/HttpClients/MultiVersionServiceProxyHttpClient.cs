@@ -1,3 +1,4 @@
+using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -16,17 +17,11 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
 {
     public class MultiVersionServiceProxyHttpClient : IMultiVersionServiceProxy
     {
-        private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 
         public MultiVersionServiceProxyHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-
-            _serializerOptions = new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            };
         }
 
         public async Task OperationForVersionOneAsync(CancellationToken cancellationToken = default)
@@ -61,6 +56,13 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
         }
     }
 }

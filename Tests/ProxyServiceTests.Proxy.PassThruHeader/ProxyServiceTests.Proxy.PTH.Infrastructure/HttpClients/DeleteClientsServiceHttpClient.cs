@@ -17,17 +17,11 @@ namespace ProxyServiceTests.Proxy.PTH.Infrastructure.HttpClients
 {
     public class DeleteClientsServiceHttpClient : IDeleteClientsService
     {
-        private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 
         public DeleteClientsServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-
-            _serializerOptions = new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            };
         }
 
         public async Task DeleteClientAsync(Guid id, CancellationToken cancellationToken = default)
@@ -47,6 +41,13 @@ namespace ProxyServiceTests.Proxy.PTH.Infrastructure.HttpClients
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
         }
     }
 }

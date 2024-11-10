@@ -231,6 +231,13 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Customer
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
         }
     }
 }

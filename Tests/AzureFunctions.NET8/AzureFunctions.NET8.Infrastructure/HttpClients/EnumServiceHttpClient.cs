@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -19,17 +20,11 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
 {
     public class EnumServiceHttpClient : IEnumService
     {
-        private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 
         public EnumServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-
-            _serializerOptions = new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            };
         }
 
         public async Task TestRouteEnumAsync(Company testEnum, CancellationToken cancellationToken = default)
@@ -84,6 +79,13 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
         }
     }
 }

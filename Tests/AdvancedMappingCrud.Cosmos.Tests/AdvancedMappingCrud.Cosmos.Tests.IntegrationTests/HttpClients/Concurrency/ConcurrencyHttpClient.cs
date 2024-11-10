@@ -11,17 +11,11 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Concurre
 {
     public class ConcurrencyHttpClient : IConcurrencyService
     {
-        private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 
         public ConcurrencyHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-
-            _serializerOptions = new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            };
         }
 
         public async Task UpdateEntityAfterEtagWasChangedByPreviousOperationTestAsync(CancellationToken cancellationToken = default)
@@ -41,6 +35,13 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Concurre
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -52,6 +53,13 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
         }
     }
 }

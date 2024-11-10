@@ -47,9 +47,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
                 {
                     var str = await new StreamReader(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
 
-                    if (str.StartsWith(@"""") || str.StartsWith("'"))
+                    if (str.StartsWith('"') || str.StartsWith('\''))
                     {
-                        str = str.Substring(1, str.Length - 2);
+                        str = str[1..^1];
                     }
                     return Guid.Parse(str);
                 }
@@ -161,6 +161,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
         }
     }
 }

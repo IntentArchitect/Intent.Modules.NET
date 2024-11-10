@@ -85,7 +85,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.HttpClients
 
                 var memoryStream = new MemoryStream();
                 var responseStream = await response.Content.ReadAsStreamAsync(cancellationToken);
-                await responseStream.CopyToAsync(memoryStream);
+                await responseStream.CopyToAsync(memoryStream, cancellationToken);
                 memoryStream.Seek(0, SeekOrigin.Begin);
 
                 return FileDownloadDto.Create(memoryStream, filename: response.Content.Headers.ContentDisposition?.FileName, contentType: response.Content.Headers.ContentType?.MediaType ?? "");
@@ -94,6 +94,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.HttpClients
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
         }
     }
 }

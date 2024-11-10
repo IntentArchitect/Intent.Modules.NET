@@ -21,17 +21,11 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
 {
     public class ParamConversionServiceHttpClient : IParamConversionService
     {
-        private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 
         public ParamConversionServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-
-            _serializerOptions = new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            };
         }
 
         public async Task<bool> CheckTypeConversionsOnProxyAsync(
@@ -71,9 +65,9 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
                 {
                     var str = await new StreamReader(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
 
-                    if (str.StartsWith(@"""") || str.StartsWith("'"))
+                    if (str.StartsWith('"') || str.StartsWith('\''))
                     {
-                        str = str.Substring(1, str.Length - 2);
+                        str = str[1..^1];
                     }
                     return bool.Parse(str);
                 }
@@ -82,6 +76,13 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
@@ -68,9 +69,9 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
                 {
                     var str = await new StreamReader(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
 
-                    if (str.StartsWith(@"""") || str.StartsWith("'"))
+                    if (str.StartsWith('"') || str.StartsWith('\''))
                     {
-                        str = str.Substring(1, str.Length - 2);
+                        str = str[1..^1];
                     }
                     return int.Parse(str);
                 }
@@ -103,9 +104,9 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
                 {
                     var str = await new StreamReader(contentStream).ReadToEndAsync(cancellationToken).ConfigureAwait(false);
 
-                    if (str.StartsWith(@"""") || str.StartsWith("'"))
+                    if (str.StartsWith('"') || str.StartsWith('\''))
                     {
-                        str = str.Substring(1, str.Length - 2);
+                        str = str[1..^1];
                     }
                     return int.Parse(str);
                 }
@@ -114,6 +115,13 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
         }
     }
 }

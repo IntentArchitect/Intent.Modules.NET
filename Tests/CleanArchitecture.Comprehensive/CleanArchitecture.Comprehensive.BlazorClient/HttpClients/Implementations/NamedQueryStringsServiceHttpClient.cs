@@ -13,17 +13,11 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
 {
     public class NamedQueryStringsServiceHttpClient : INamedQueryStringsService
     {
-        private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 
         public NamedQueryStringsServiceHttpClient(HttpClient httpClient)
         {
             _httpClient = httpClient;
-
-            _serializerOptions = new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            };
         }
 
         public async Task NamedQueryStringsAsync(string par1, CancellationToken cancellationToken = default)
@@ -47,6 +41,13 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
         }
     }
 }

@@ -201,6 +201,13 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Class cleanup goes here
         }
     }
 }
