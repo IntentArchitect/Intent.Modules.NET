@@ -1,3 +1,7 @@
+### Version 1.0.11
+
+- Improvement: Generated code on http clients is more aligned with best practices (Recommended implementation of IDisposable pattern, JsonSerializerOptions only added if required, small synatx updates)
+
 ### Version 1.0.10
 
 - Fixed: AutoFixture code around setting up test data wasn't handling `DateOnly` fields correctly.

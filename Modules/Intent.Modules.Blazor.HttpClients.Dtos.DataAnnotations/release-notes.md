@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Improvement: Updated referenced libraries
+
 ### Version 1.1.0
 
 - Improvement: Updated for 4.3 UI modeling support

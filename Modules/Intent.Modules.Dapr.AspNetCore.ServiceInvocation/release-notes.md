@@ -1,3 +1,7 @@
+### Version 2.2.13
+
+- Improvement: Generated code on http clients is more aligned with best practices (Recommended implementation of IDisposable pattern, JsonSerializerOptions only added if required, small synatx updates)
+
 ### Version 2.2.12
 
 - Improvement: Removed direct dependency on `Intent.Dapr.AspNetCore`, so it can be used for Stand-alone proxy generation.

@@ -1,3 +1,7 @@
+### Version 4.0.2
+
+- Improvement: Generated code on http clients is more aligned with best practices (Recommended implementation of IDisposable pattern, JsonSerializerOptions only added if required, small synatx updates)
+
 ### Version 4.0.1
 
 - Improvement: Generated code is more aligned with best practices

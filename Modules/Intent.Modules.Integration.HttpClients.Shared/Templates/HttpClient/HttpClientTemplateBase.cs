@@ -91,26 +91,19 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
             .IntentManagedFully()
             .AddClass($"{Model.Name.RemoveSuffix("Http", "Client")}HttpClient", @class =>
             {
+                var addSerializerOptions = false;
+
                 if (model.UnderlyingModel != null)
                 {
                     @class.AddMetadata("model", model.UnderlyingModel);
-                }
+                }            
                 @class
                     .ImplementsInterface(GetTypeName(serviceContractTemplateId, Model))
-                    .AddField("JsonSerializerOptions", "_serializerOptions", f => f.PrivateReadOnly())
                     .AddConstructor(constructor =>
                     {
-                        var jsonSettingsBlock = new CSharpObjectInitializerBlock("_serializerOptions = new JsonSerializerOptions")
-                            .AddInitStatement("PropertyNamingPolicy", "JsonNamingPolicy.CamelCase")
-                            .WithSemicolon();
-                        if (model.SerializeEnumsAsStrings)
-                        {
-                            AddUsing("System.Text.Json.Serialization");
-                            jsonSettingsBlock.AddInitStatement("Converters", "{ new JsonStringEnumConverter() }");
-                        }
+                        // _serializerOptions/JsonSerializerOptions only added if required as set by "addSerializerOptions" below
                         constructor
-                            .AddParameter("HttpClient", "httpClient", p => p.IntroduceReadonlyField())
-                            .AddStatement(jsonSettingsBlock);
+                            .AddParameter("HttpClient", "httpClient", p => p.IntroduceReadonlyField());
                     });
 
                 foreach (var endpoint in endpoints)
@@ -242,6 +235,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                             // Changed to UTF8 as Default can be sketchy:
                             // https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding.default?view=net-7.0&devlangs=csharp&f1url=%3FappId%3DDev16IDEF1%26l%3DEN-US%26k%3Dk(System.Text.Encoding.Default)%3Bk(DevLang-csharp)%26rd%3Dtrue
                             method.AddStatement("httpRequest.Content = new StringContent(content, Encoding.UTF8 , \"application/json\");");
+                            addSerializerOptions = true;
                         }
                         else if (inputsBySource.TryGetValue(HttpInputSource.FromForm, out var formParams))
                         {
@@ -282,7 +276,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
 
                                 usingResponseBlock.AddStatement($"var memoryStream = new {UseType( "System.IO.MemoryStream")}();");
                                 usingResponseBlock.AddStatement($"var responseStream  = await response.Content.{GetReadAsStreamAsyncMethodCall()};");
-                                usingResponseBlock.AddStatement("await responseStream.CopyToAsync(memoryStream);");
+                                usingResponseBlock.AddStatement($"await responseStream.{GetCopyToAsyncMethodCall()};");
                                 usingResponseBlock.AddStatement("memoryStream.Seek(0, SeekOrigin.Begin);");
 
 
@@ -316,28 +310,44 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                     {
                                         usingContentStreamBlock.AddStatement($"var wrappedObj = {SuppressNullable($"await JsonSerializer.DeserializeAsync<{GetTypeName(jsonResponseTemplateId)}<{GetTypeName(endpoint.ReturnType)}>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false)")};");
                                         usingContentStreamBlock.AddStatement("return wrappedObj!.Value;");
+                                        addSerializerOptions = true;
                                     }
                                     else if (!isWrappedReturnType && returnsString && !returnsCollection)
                                     {
                                         usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
-                                        usingContentStreamBlock.AddIfStatement("str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")", stmt =>
+                                        usingContentStreamBlock.AddIfStatement("str.StartsWith('\"') || str.StartsWith('\\'')", stmt =>
                                         {
-                                            stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
+                                            if (outputTarget.GetProject().GetLanguageVersion().Major >= 8)
+                                            {
+                                                stmt.AddStatement("str = str[1..^1];");
+                                            }
+                                            else
+                                            {
+                                                stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
+                                            }
                                         });
                                         usingContentStreamBlock.AddStatement("return str;");
                                     }
                                     else if (!isWrappedReturnType && returnsPrimitive)
                                     {
                                         usingContentStreamBlock.AddStatement($"var str = await new {UseType("System.IO.StreamReader")}(contentStream).{GetReadToEndMethodCall()}.ConfigureAwait(false);");
-                                        usingContentStreamBlock.AddIfStatement("str.StartsWith(@\"\"\"\") || str.StartsWith(\"'\")", stmt =>
+                                        usingContentStreamBlock.AddIfStatement("str.StartsWith('\"') || str.StartsWith('\\'')", stmt =>
                                         {
-                                            stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
+                                            if (outputTarget.GetProject().GetLanguageVersion().Major >= 8)
+                                            {
+                                                stmt.AddStatement("str = str[1..^1];");
+                                            }
+                                            else
+                                            {
+                                                stmt.AddStatement("str = str.Substring(1, str.Length - 2);");
+                                            }
                                         });
                                         usingContentStreamBlock.AddStatement($"return {GetTypeName(endpoint.ReturnType)}.Parse(str);");
                                     }
                                     else
                                     {
                                         usingContentStreamBlock.AddStatement($"return {SuppressNullable($"await JsonSerializer.DeserializeAsync<{GetTypeName(endpoint.ReturnType)}>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false)")};");
+                                        addSerializerOptions = true;
                                     }
                                 });
                             }
@@ -345,7 +355,44 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                     });
                 }
 
-                @class.AddMethod("void", "Dispose");
+                if (addSerializerOptions)
+                {
+                    @class.AddField("JsonSerializerOptions", "_serializerOptions", f => f.PrivateReadOnly());
+
+                    var jsonSettingsBlock = new CSharpObjectInitializerBlock("_serializerOptions = new JsonSerializerOptions")
+                            .AddInitStatement("PropertyNamingPolicy", "JsonNamingPolicy.CamelCase")
+                            .WithSemicolon();
+                    if (model.SerializeEnumsAsStrings)
+                    {
+                        AddUsing("System.Text.Json.Serialization");
+                        jsonSettingsBlock.AddInitStatement("Converters", "{ new JsonStringEnumConverter() }");
+                    }
+
+                    @class.Constructors.First().AddStatement(jsonSettingsBlock);
+                }
+
+                @class.AddMethod("void", "Dispose", method =>
+                {
+                    method.AddInvocationStatement("Dispose", inv =>
+                    {
+                        inv.AddArgument("true");
+                    });
+
+                    method.AddInvocationStatement($"{UseType("System.GC")}.SuppressFinalize", inv =>
+                    {
+                        inv.AddArgument("this");
+                    });
+                });
+
+                @class.AddMethod("void", "Dispose", method =>
+                {
+                    method.Virtual();
+                    method.Protected();
+
+                    method.AddParameter("bool", "disposing");
+
+                    method.AddStatement("// Class cleanup goes here");
+                });
             });
     }
 
@@ -374,6 +421,17 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
             _ => "ReadAsStreamAsync(cancellationToken)"
         };
     }
+
+    private string GetCopyToAsyncMethodCall()
+    {
+        return OutputTarget switch
+        {
+            _ when OutputTarget.GetProject().TargetFramework().StartsWith("netstandard") => "CopyToAsync(memoryStream)",
+            _ => "CopyToAsync(memoryStream, cancellationToken)"
+        };
+    }
+
+
 
     [IntentManaged(Mode.Fully)]
     public CSharpFile CSharpFile { get; }

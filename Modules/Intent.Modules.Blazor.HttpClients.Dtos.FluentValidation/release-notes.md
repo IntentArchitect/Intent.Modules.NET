@@ -1,3 +1,7 @@
+### Version 1.2.1
+
+- Improvement: Updated referenced libraries
+
 ### Version 1.2.0
 
 TODO

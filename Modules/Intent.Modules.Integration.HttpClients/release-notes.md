@@ -1,3 +1,7 @@
+### Version 5.2.3
+
+- Improvement: Generated code on http clients is more aligned with best practices (Recommended implementation of IDisposable pattern, JsonSerializerOptions only added if required, small synatx updates)
+
 ### Version 5.2.2
 
 - Fixed: Added NuGet dependencies for .Net Standard 2.

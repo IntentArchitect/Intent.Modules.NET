@@ -121,7 +121,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.EFContainerFixt
 
                         var connectionStringText = (dbContextStatement as IHasCSharpStatements)?.FindStatement(x => x.HasMetadata("is-connection-string")).GetText("");
                         string dbContextReconfigure = dbContextStatement.GetText("").Replace(connectionStringText, "_dbContainer.GetConnectionString()").Replace("                               ", "            ");
-                        method.InsertStatements(method.Statements.IndexOf(statement), dbContextReconfigure.ConvertToStatements().ToList());
+                        method.InsertStatements(method.Statements.IndexOf((CSharpStatement)statement), dbContextReconfigure.ConvertToStatements().ToList());
                         statement.Remove();
                     }
 
