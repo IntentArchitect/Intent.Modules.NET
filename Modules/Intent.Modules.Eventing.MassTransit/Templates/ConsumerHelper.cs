@@ -143,7 +143,7 @@ public static class ConsumerHelper
         method.ApplyUnitOfWorkImplementations(
             template: template,
             constructor: @class.Constructors.First(),
-            invocationStatement: executeHandler,
+            invocationStatement: (CSharpStatement)executeHandler,
             allowTransactionScope: allowTransactionScope,
             cancellationTokenExpression: "context.CancellationToken");
 

@@ -121,7 +121,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                 var statement = method.FindStatement(stmt => stmt.GetText("") == "DispatchEventsAsync().GetAwaiter().GetResult();");
                 if (statement != null)
                 {
-                    statement.InsertBelow("_eventBus.FlushAllAsync().GetAwaiter().GetResult();");
+                    statement.InsertBelow((CSharpStatement)"_eventBus.FlushAllAsync().GetAwaiter().GetResult();");
                 }
                 else
                 {
@@ -137,7 +137,7 @@ namespace Intent.Modules.Eventing.MassTransit.FactoryExtensions
                 statement = method.FindStatement(stmt => stmt.GetText("") == "await DispatchEventsAsync(cancellationToken);");
                 if (statement != null)
                 {
-                    statement.InsertBelow("await _eventBus.FlushAllAsync(cancellationToken);");
+                    statement.InsertBelow((CSharpStatement)"await _eventBus.FlushAllAsync(cancellationToken);");
                 }
                 else
                 {

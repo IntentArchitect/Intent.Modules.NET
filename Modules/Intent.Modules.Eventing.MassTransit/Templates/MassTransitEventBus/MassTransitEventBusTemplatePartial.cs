@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.MassTransit.Settings;
@@ -37,6 +38,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                     {
                         nested
                             .Private()
+                            .Sealed()
                             .AddConstructor(ctor =>
                             {
                                 ctor.AddParameter("object", "message", p => p.IntroduceProperty(prop => prop.WithoutSetter()));
@@ -44,12 +46,19 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                             });
                     });
 
+                    var publishFieldDefault = outputTarget.GetProject().GetLanguageVersion().Major < 12 
+                        ? new CSharpStatement("new List<object>()")
+                        : new CSharpStatement("[]");
                     @class.AddField("List<object>", "_messagesToPublish", field => field
                         .PrivateReadOnly()
-                        .WithAssignment(new CSharpStatement("new List<object>()")));
+                        .WithAssignment(publishFieldDefault));
+
+                    var sendhFieldDefault = outputTarget.GetProject().GetLanguageVersion().Major < 12
+                        ? new CSharpStatement("new List<MessageToSend>()")
+                        : new CSharpStatement("[]");
                     @class.AddField("List<MessageToSend>", "_messagesToSend", field => field
                         .PrivateReadOnly()
-                        .WithAssignment(new CSharpStatement("new List<MessageToSend>()")));
+                        .WithAssignment(sendhFieldDefault));
 
                     @class.AddConstructor(ctor => { ctor.AddParameter("IServiceProvider", "serviceProvider", param => param.IntroduceReadonlyField()); });
 
