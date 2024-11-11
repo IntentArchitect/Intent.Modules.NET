@@ -61,6 +61,7 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeChec
                     @class.AddMethod("bool", "HasAuthorize", method =>
                     {
                         method.Private();
+                        method.Static();
                         method.AddParameter(UseType("Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext"), "context");
 
                         method.AddIfStatement("context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any()", block =>

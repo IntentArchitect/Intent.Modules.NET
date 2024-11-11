@@ -1,3 +1,7 @@
+### Version 4.0.9
+
+- Improvement: Improved generated code quality by making `AuthorizeCheckOperationFilter.HasAuthorize` static
+
 ### Version 4.0.8
 
 - Improvement: Small updated to more align code styling with best practices
