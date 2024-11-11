@@ -1,4 +1,4 @@
-### Version 1.0.6
+### Version 1.0.7
 
 - Improvement: Improved code quality by making `ValidateODataOptions` static
 
