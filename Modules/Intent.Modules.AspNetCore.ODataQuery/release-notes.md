@@ -1,5 +1,9 @@
 ### Version 1.0.6
 
+- Improvement: Improved code quality by making `ValidateODataOptions` static
+
+### Version 1.0.6
+
 - Improvement: Updated module NuGet packages infrastructure.
 
 ### Version 1.0.5

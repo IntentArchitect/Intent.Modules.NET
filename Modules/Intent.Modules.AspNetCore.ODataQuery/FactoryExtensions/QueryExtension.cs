@@ -91,6 +91,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                     {
                         method
                             .Private()
+                            .Static()
                             .AddGenericParameter("TDto", out var genericArg)
                             .AddParameter($"ODataQueryOptions<{genericArg}>", "options")
                             .AddParameter("bool", "enableSelect", p => p.WithDefaultValue("false"));
