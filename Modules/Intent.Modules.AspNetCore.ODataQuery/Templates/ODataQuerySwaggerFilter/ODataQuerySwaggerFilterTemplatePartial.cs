@@ -43,7 +43,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.Templates.ODataQuerySwaggerFilter
                             .AddParameter("OpenApiOperation", "operation")
                             .AddParameter("OperationFilterContext", "context");
 
-                        method.AddStatement("var hasODataQueryOptions = context.MethodInfo.GetParameters().Any(MatchODataQueryOptions);");
+                        method.AddStatement($"var hasODataQueryOptions = {UseType("System.Array")}.Exists(context.MethodInfo.GetParameters(), MatchODataQueryOptions);");
                         method.AddIfStatement("!hasODataQueryOptions", c => c.AddStatement("return;"));
 
                         method.AddStatement(@"int index = context.MethodInfo.GetParameters()

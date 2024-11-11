@@ -1,6 +1,6 @@
 ### Version 1.0.7
 
-- Improvement: Improved code quality by making `ValidateODataOptions` static
+- Improvement: Improved code quality by making `ValidateODataOptions` static and updating `Array.Any` to `Array.Exists` in `ODataQueryFilter`
 
 ### Version 1.0.6
 
