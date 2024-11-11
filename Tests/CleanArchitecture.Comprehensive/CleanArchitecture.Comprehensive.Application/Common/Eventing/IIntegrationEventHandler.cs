@@ -8,7 +8,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Comprehensive.Application.Common.Eventing
 {
-    public interface IIntegrationEventHandler<TMessage>
+    public interface IIntegrationEventHandler<in TMessage>
         where TMessage : class
     {
         Task HandleAsync(TMessage message, CancellationToken cancellationToken = default);
