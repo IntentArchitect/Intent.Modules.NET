@@ -1,3 +1,7 @@
+### Version 5.1.3
+
+- Improvement: `in` keyword added to `IIntegrationEventHandler` generic parameter to improve the quality of generated code
+
 ### Version 5.1.2
 
 - Fixed: Integration messages pascal-casing namespaces.

@@ -26,7 +26,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventHandlerInt
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddInterface("IIntegrationEventHandler", @interface => @interface
-                    .AddGenericParameter("TMessage")
+                    .AddGenericParameter("TMessage", cfg => cfg.Contravariant())
                     .AddGenericTypeConstraint("TMessage", c => c.AddType("class"))
                     .AddMethod("Task", "HandleAsync", m => m
                         .AddParameter("TMessage", "message")
