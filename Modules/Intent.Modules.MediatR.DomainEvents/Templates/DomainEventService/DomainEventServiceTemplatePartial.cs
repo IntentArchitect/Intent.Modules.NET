@@ -61,6 +61,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventService
                     {
                         method
                             .Private()
+                            .Static()
                             .AddParameter(GetDomainEventBaseType(), "domainEvent");
                         method.AddStatement(@$"var result = Activator.CreateInstance(
                 typeof({GetDomainEventNotificationType()}<>).MakeGenericType(domainEvent.GetType()), domainEvent);");

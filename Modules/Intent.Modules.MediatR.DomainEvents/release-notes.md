@@ -1,3 +1,7 @@
+### Version 5.0.19
+
+- Improvement: Improved code quality by making `DomainEventService.GetNotificationCorrespondingToDomainEvent` static
+
 ### Version 5.0.18
 
 - Improvement: Converted T4 template to CSharpFileBuilder paradigm.
