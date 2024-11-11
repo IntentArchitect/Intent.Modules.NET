@@ -51,7 +51,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Api.Controllers
             [FromBody] AddCollectionsUserCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
@@ -111,7 +111,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Api.Controllers
             [FromBody] TestDCUserCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }

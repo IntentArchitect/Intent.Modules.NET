@@ -42,7 +42,7 @@ namespace DtoSettings.Class.Internal.Api.Controllers
             [FromBody] InvoiceCreateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var result = default(Guid);
+            var result = Guid.Empty;
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {

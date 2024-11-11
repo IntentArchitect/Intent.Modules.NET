@@ -82,7 +82,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Api.Controll
             [FromBody] UpdateOrderItemsOrderCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }

@@ -81,7 +81,7 @@ namespace IntegrationTesting.Tests.Api.Controllers
             [FromBody] UpdateDiffIdCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.MyId == default)
+            if (command.MyId == Guid.Empty)
             {
                 command.MyId = myId;
             }

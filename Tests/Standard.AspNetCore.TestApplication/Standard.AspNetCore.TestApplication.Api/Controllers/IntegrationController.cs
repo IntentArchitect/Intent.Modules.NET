@@ -203,7 +203,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<JsonResponse<Guid>>> GetWrappedPrimitiveGuid(CancellationToken cancellationToken = default)
         {
-            var result = default(Guid);
+            var result = Guid.Empty;
             result = await _appService.GetWrappedPrimitiveGuid(cancellationToken);
             return Ok(new JsonResponse<Guid>(result));
         }
@@ -256,7 +256,7 @@ namespace Standard.AspNetCore.TestApplication.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Guid>> GetPrimitiveGuid(CancellationToken cancellationToken = default)
         {
-            var result = default(Guid);
+            var result = Guid.Empty;
             result = await _appService.GetPrimitiveGuid(cancellationToken);
             return Ok(result);
         }

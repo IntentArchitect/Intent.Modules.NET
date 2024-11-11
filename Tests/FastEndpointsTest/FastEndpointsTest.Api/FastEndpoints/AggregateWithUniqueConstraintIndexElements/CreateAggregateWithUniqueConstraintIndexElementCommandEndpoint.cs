@@ -46,7 +46,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.AggregateWithUniqueConstraintIndex
             CreateAggregateWithUniqueConstraintIndexElementCommand req,
             CancellationToken ct)
         {
-            var result = default(Guid);
+            var result = Guid.Empty;
             result = await _mediator.Send(req, ct);
             await SendCreatedAtAsync<GetAggregateWithUniqueConstraintIndexElementByIdQueryEndpoint>(new { id = result }, new JsonResponse<Guid>(result), cancellation: ct);
         }

@@ -81,7 +81,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Api.Controllers
             [FromBody] UpdatePersonCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }

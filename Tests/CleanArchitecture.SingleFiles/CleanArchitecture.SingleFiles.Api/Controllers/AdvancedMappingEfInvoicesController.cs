@@ -76,7 +76,7 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
             [FromBody] UpdateEfInvoiceCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }

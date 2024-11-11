@@ -68,7 +68,7 @@ namespace TrainingModel.Tests.Api.Controllers
             [FromBody] AddPriceProductCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
@@ -97,7 +97,7 @@ namespace TrainingModel.Tests.Api.Controllers
             [FromBody] CaptureCategoriesProductCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
@@ -159,7 +159,7 @@ namespace TrainingModel.Tests.Api.Controllers
             [FromBody] UpdateProductCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }

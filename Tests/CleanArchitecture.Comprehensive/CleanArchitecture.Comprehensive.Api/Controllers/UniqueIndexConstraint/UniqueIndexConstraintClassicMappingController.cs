@@ -140,7 +140,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.UniqueIndexConstraint
             [FromBody] UpdateAggregateWithUniqueConstraintIndexElementCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
@@ -169,7 +169,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers.UniqueIndexConstraint
             [FromBody] UpdateAggregateWithUniqueConstraintIndexStereotypeCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }

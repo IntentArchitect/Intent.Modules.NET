@@ -71,7 +71,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers
             [FromBody] CreateAggregateRootCompositeManyBCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.AggregateRootId == default)
+            if (command.AggregateRootId == Guid.Empty)
             {
                 command.AggregateRootId = aggregateRootId;
             }
@@ -137,10 +137,11 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers
             [FromBody] UpdateAggregateRootCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
+
             if (id != command.Id)
             {
                 return BadRequest();
@@ -166,19 +167,21 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers
             [FromBody] UpdateAggregateRootCompositeManyBCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.AggregateRootId == default)
+            if (command.AggregateRootId == Guid.Empty)
             {
                 command.AggregateRootId = aggregateRootId;
             }
 
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
+
             if (aggregateRootId != command.AggregateRootId)
             {
                 return BadRequest();
             }
+
             if (id != command.Id)
             {
                 return BadRequest();

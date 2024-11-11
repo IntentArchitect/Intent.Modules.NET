@@ -76,7 +76,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             {
                 stream = Request.Body;
             }
-            var result = default(Guid);
+            var result = Guid.Empty;
 
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))

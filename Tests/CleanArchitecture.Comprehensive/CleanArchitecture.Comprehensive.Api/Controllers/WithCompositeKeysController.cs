@@ -85,19 +85,21 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers
             [FromBody] UpdateWithCompositeKeyCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Key1Id == default)
+            if (command.Key1Id == Guid.Empty)
             {
                 command.Key1Id = key1Id;
             }
 
-            if (command.Key2Id == default)
+            if (command.Key2Id == Guid.Empty)
             {
                 command.Key2Id = key2Id;
             }
+
             if (key1Id != command.Key1Id)
             {
                 return BadRequest();
             }
+
             if (key2Id != command.Key2Id)
             {
                 return BadRequest();

@@ -61,7 +61,7 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
             [FromBody] CreateEfInvoiceEfLineCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.EfInvoicesId == default)
+            if (command.EfInvoicesId == Guid.Empty)
             {
                 command.EfInvoicesId = efInvoicesId;
             }
@@ -125,10 +125,11 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
             [FromBody] UpdateEfInvoiceCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
+
             if (id != command.Id)
             {
                 return BadRequest();
@@ -154,19 +155,21 @@ namespace CleanArchitecture.SingleFiles.Api.Controllers
             [FromBody] UpdateEfInvoiceEfLineCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.EfInvoicesId == default)
+            if (command.EfInvoicesId == Guid.Empty)
             {
                 command.EfInvoicesId = efInvoicesId;
             }
 
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
+
             if (efInvoicesId != command.EfInvoicesId)
             {
                 return BadRequest();
             }
+
             if (id != command.Id)
             {
                 return BadRequest();

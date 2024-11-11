@@ -49,7 +49,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Api.Controllers
             [FromBody] ChangeCategoriesProductCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
@@ -78,7 +78,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Api.Controllers
             [FromBody] ChangeCategoriesSyncProductCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }

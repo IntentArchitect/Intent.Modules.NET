@@ -111,7 +111,7 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Infrastructure.Eventing
             await publishEndpoint.PublishBatch(_messagesToPublish, cancellationToken).ConfigureAwait(false);
         }
 
-        private class MessageToSend
+        private sealed class MessageToSend
         {
             public MessageToSend(object message, Uri? address)
             {

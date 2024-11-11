@@ -82,7 +82,7 @@ namespace SharedKernel.Consumer.Tests.Api.Controllers
             [FromBody] UpdateCurrencyCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }

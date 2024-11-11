@@ -44,7 +44,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.AggregateRoots
 
         public override async Task HandleAsync(CreateAggregateRootCommand req, CancellationToken ct)
         {
-            var result = default(Guid);
+            var result = Guid.Empty;
             result = await _mediator.Send(req, ct);
             await SendCreatedAtAsync<GetAggregateRootByIdQueryEndpoint>(new { id = result }, new JsonResponse<Guid>(result), cancellation: ct);
         }

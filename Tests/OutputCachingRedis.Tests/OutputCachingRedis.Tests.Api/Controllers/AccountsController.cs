@@ -82,7 +82,7 @@ namespace OutputCachingRedis.Tests.Api.Controllers
             [FromBody] UpdateAccountCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }

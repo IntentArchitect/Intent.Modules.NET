@@ -64,6 +64,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             return await QueryInternal(filterExpression, queryOptions).SingleOrDefaultAsync<TDomain>(cancellationToken);
         }
 
+        public virtual async Task<TDomain?> FindAsync(
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await QueryInternal(queryOptions).SingleOrDefaultAsync<TDomain>(cancellationToken);
+        }
+
         public virtual async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default)
         {
             return await QueryInternal(filterExpression: null).ToListAsync<TDomain>(cancellationToken);
@@ -126,27 +133,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
                 cancellationToken);
         }
 
-        public virtual async Task<int> CountAsync(
-            Expression<Func<TPersistence, bool>> filterExpression,
-            CancellationToken cancellationToken = default)
-        {
-            return await QueryInternal(filterExpression).CountAsync(cancellationToken);
-        }
-
-        public virtual async Task<bool> AnyAsync(
-            Expression<Func<TPersistence, bool>> filterExpression,
-            CancellationToken cancellationToken = default)
-        {
-            return await QueryInternal(filterExpression).AnyAsync(cancellationToken);
-        }
-
-        public virtual async Task<TDomain?> FindAsync(
-            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
-            CancellationToken cancellationToken = default)
-        {
-            return await QueryInternal(queryOptions).SingleOrDefaultAsync<TDomain>(cancellationToken);
-        }
-
         public virtual async Task<List<TDomain>> FindAllAsync(
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
             CancellationToken cancellationToken = default)
@@ -169,6 +155,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
         }
 
         public virtual async Task<int> CountAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            CancellationToken cancellationToken = default)
+        {
+            return await QueryInternal(filterExpression).CountAsync(cancellationToken);
+        }
+
+        public virtual async Task<int> CountAsync(
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default,
             CancellationToken cancellationToken = default)
         {
@@ -176,50 +169,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
         }
 
         public virtual async Task<bool> AnyAsync(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            CancellationToken cancellationToken = default)
+        {
+            return await QueryInternal(filterExpression).AnyAsync(cancellationToken);
+        }
+
+        public virtual async Task<bool> AnyAsync(
             Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions = default,
             CancellationToken cancellationToken = default)
         {
             return await QueryInternal(queryOptions).AnyAsync(cancellationToken);
-        }
-
-        protected virtual IQueryable<TPersistence> QueryInternal(Expression<Func<TPersistence, bool>>? filterExpression)
-        {
-            var queryable = CreateQuery();
-            if (filterExpression != null)
-            {
-                queryable = queryable.Where(filterExpression);
-            }
-            return queryable;
-        }
-
-        protected virtual IQueryable<TResult> QueryInternal<TResult>(
-            Expression<Func<TPersistence, bool>> filterExpression,
-            Func<IQueryable<TPersistence>, IQueryable<TResult>> queryOptions)
-        {
-            var queryable = CreateQuery();
-            queryable = queryable.Where(filterExpression);
-            var result = queryOptions(queryable);
-            return result;
-        }
-
-        protected virtual IQueryable<TPersistence> QueryInternal(Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions)
-        {
-            var queryable = CreateQuery();
-            if (queryOptions != null)
-            {
-                queryable = queryOptions(queryable);
-            }
-            return queryable;
-        }
-
-        protected virtual IQueryable<TPersistence> CreateQuery()
-        {
-            return GetSet();
-        }
-
-        protected virtual DbSet<TPersistence> GetSet()
-        {
-            return _dbContext.Set<TPersistence>();
         }
 
         public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(CancellationToken cancellationToken = default)
@@ -317,13 +277,15 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
                 cancellationToken);
         }
 
-        public async Task<TProjection?> FindProjectToAsync<TProjection>(
-            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
+        public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(
+            Expression<Func<TPersistence, bool>>? filterExpression,
+            Func<IQueryable<TProjection>, IQueryable> filterProjection,
             CancellationToken cancellationToken = default)
         {
-            var queryable = QueryInternal(queryOptions);
+            var queryable = QueryInternal(filterExpression);
             var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
-            return await projection.FirstOrDefaultAsync(cancellationToken);
+            var response = filterProjection(projection);
+            return await response.Cast<TProjection>().ToListAsync();
         }
 
         public async Task<TProjection?> FindProjectToAsync<TProjection>(
@@ -345,6 +307,15 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             return await projection.FirstOrDefaultAsync(cancellationToken);
         }
 
+        public async Task<TProjection?> FindProjectToAsync<TProjection>(
+            Func<IQueryable<TPersistence>, IQueryable<TPersistence>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            var queryable = QueryInternal(queryOptions);
+            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
+            return await projection.FirstOrDefaultAsync(cancellationToken);
+        }
+
         public async Task<IEnumerable> FindAllProjectToWithTransformationAsync<TProjection>(
             Expression<Func<TPersistence, bool>>? filterExpression,
             Func<IQueryable<TProjection>, IQueryable> transform,
@@ -356,15 +327,44 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             return await response.Cast<object>().ToListAsync();
         }
 
-        public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(
-            Expression<Func<TPersistence, bool>>? filterExpression,
-            Func<IQueryable<TProjection>, IQueryable> filterProjection,
-            CancellationToken cancellationToken = default)
+        protected virtual IQueryable<TPersistence> QueryInternal(Expression<Func<TPersistence, bool>>? filterExpression)
         {
-            var queryable = QueryInternal(filterExpression);
-            var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
-            var response = filterProjection(projection);
-            return await response.Cast<TProjection>().ToListAsync();
+            var queryable = CreateQuery();
+            if (filterExpression != null)
+            {
+                queryable = queryable.Where(filterExpression);
+            }
+            return queryable;
+        }
+
+        protected virtual IQueryable<TResult> QueryInternal<TResult>(
+            Expression<Func<TPersistence, bool>> filterExpression,
+            Func<IQueryable<TPersistence>, IQueryable<TResult>> queryOptions)
+        {
+            var queryable = CreateQuery();
+            queryable = queryable.Where(filterExpression);
+            var result = queryOptions(queryable);
+            return result;
+        }
+
+        protected virtual IQueryable<TPersistence> QueryInternal(Func<IQueryable<TPersistence>, IQueryable<TPersistence>>? queryOptions)
+        {
+            var queryable = CreateQuery();
+            if (queryOptions != null)
+            {
+                queryable = queryOptions(queryable);
+            }
+            return queryable;
+        }
+
+        protected virtual IQueryable<TPersistence> CreateQuery()
+        {
+            return GetSet();
+        }
+
+        protected virtual DbSet<TPersistence> GetSet()
+        {
+            return _dbContext.Set<TPersistence>();
         }
 
         private static async Task<IPagedList<T>> ToPagedListAsync<T>(

@@ -80,10 +80,11 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers
             [FromBody] UpdateAnemicIntegrationTriggeringCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
+
             if (id != command.Id)
             {
                 return BadRequest();

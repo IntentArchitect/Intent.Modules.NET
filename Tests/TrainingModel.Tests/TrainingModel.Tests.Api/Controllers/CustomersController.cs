@@ -83,7 +83,7 @@ namespace TrainingModel.Tests.Api.Controllers
             [FromBody] UpdateCustomerCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }

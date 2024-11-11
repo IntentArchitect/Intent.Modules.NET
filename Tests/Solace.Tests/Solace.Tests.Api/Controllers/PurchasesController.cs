@@ -81,7 +81,7 @@ namespace Solace.Tests.Api.Controllers
             [FromBody] UpdatePurchaseCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }

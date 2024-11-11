@@ -48,7 +48,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             await _validationService.Handle(dto, cancellationToken);
-            var result = default(Guid);
+            var result = Guid.Empty;
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {

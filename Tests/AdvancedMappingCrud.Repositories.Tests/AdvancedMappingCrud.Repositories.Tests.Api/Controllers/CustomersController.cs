@@ -62,7 +62,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             [FromBody] ApproveQuoteCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.QuoteId == default)
+            if (command.QuoteId == Guid.Empty)
             {
                 command.QuoteId = quoteId;
             }
@@ -188,7 +188,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             [FromBody] UpdateCorporateFuneralCoverQuoteCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
@@ -217,7 +217,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             [FromBody] UpdateCustomerCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }

@@ -50,7 +50,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
             [FromBody] ChangeAddressCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
@@ -133,10 +133,11 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Api.Controllers
             [FromBody] UpdateCustomerRichCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
+
             if (id != command.Id)
             {
                 return BadRequest();

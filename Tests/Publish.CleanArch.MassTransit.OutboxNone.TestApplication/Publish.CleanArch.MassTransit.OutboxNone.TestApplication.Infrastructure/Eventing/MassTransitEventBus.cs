@@ -15,8 +15,8 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
     public class MassTransitEventBus : IEventBus
     {
         private readonly IServiceProvider _serviceProvider;
-        private readonly List<object> _messagesToPublish = new List<object>();
-        private readonly List<MessageToSend> _messagesToSend = new List<MessageToSend>();
+        private readonly List<object> _messagesToPublish = [];
+        private readonly List<MessageToSend> _messagesToSend = [];
         private readonly List<ScheduleEntry> _messagesToSchedule = new List<ScheduleEntry>();
 
         public MassTransitEventBus(IServiceProvider serviceProvider)
@@ -55,7 +55,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
             _messagesToSchedule.Add(ScheduleEntry.ForDelay(message, delay));
         }
 
-        private class MessageToSend
+        private sealed class MessageToSend
         {
             public MessageToSend(object message, Uri? address)
             {

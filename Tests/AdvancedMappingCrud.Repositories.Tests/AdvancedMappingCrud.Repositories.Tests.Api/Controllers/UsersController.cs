@@ -123,7 +123,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             [FromBody] UpdateUserAddressCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
@@ -152,7 +152,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             [FromBody] UpdateUserCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }

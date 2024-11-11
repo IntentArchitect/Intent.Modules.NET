@@ -83,7 +83,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api.Controller
             [FromBody] UpdateEntityAppDefaultCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }

@@ -82,7 +82,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
             [FromBody] OrderConfirmed command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
@@ -111,10 +111,11 @@ namespace Publish.CleanArchDapr.TestApplication.Api.Controllers
             [FromBody] UpdateOrderCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
+
             if (id != command.Id)
             {
                 return BadRequest();

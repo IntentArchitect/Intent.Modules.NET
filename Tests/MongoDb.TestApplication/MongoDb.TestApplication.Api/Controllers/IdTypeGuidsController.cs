@@ -47,7 +47,7 @@ namespace MongoDb.TestApplication.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             await _validationService.Handle(dto, cancellationToken);
-            var result = default(Guid);
+            var result = Guid.Empty;
             result = await _appService.CreateIdTypeGuid(dto, cancellationToken);
 
             await _mongoDbUnitOfWork.SaveChangesAsync(cancellationToken);

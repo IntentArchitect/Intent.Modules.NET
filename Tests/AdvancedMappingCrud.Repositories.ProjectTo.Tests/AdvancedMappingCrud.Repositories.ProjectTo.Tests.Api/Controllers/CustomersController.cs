@@ -53,7 +53,7 @@ namespace AdvancedMappingCrud.Repositories.ProjectTo.Tests.Api.Controllers
             [FromBody] ChangeEmailCustomerCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
@@ -115,7 +115,7 @@ namespace AdvancedMappingCrud.Repositories.ProjectTo.Tests.Api.Controllers
             [FromBody] UpdateCustomerCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.Id == default)
+            if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
