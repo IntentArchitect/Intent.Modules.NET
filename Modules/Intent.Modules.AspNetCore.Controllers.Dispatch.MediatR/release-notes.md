@@ -1,3 +1,7 @@
+### Version 5.5.4
+
+- Improvement: Comparison using `Guid`s on the controller will use `Guid.Empty` instead of `default` to be more aligned with best practices
+
 ### Version 5.5.3
 
 - Improvement: Updated module NuGet packages infrastructure.

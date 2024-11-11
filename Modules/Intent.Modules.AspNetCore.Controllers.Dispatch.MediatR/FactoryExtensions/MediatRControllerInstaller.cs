@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -178,12 +179,19 @@ public class MediatRControllerInstaller : FactoryExtensionBase
                 continue;
             }
 
-            statements.Add(new CSharpIfStatement($"{payloadParameter.Name}.{commandProp.Name} == default")
+            statements.Add(new CSharpIfStatement($"{payloadParameter.Name}.{commandProp.Name} == {GetComparisonValue(commandProp.Type?.ToTypeName() ?? string.Empty)}")
                 .AddStatement($"{payloadParameter.Name}.{commandProp.Name} = {methodParameter.Name};"));
         }
 
         return statements;
     }
+
+    private static string GetComparisonValue(string type) => type switch
+    {
+        "Guid" => "Guid.Empty",
+        _ => "default"
+    };
+
 
     private IEnumerable<CSharpStatement> GetValidations(IControllerOperationModel operationModel)
     {

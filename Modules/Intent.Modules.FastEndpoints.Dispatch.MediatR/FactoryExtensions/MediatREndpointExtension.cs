@@ -7,10 +7,12 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.FastEndpoints.Dispatch.MediatR.Templates.Endpoint;
 using Intent.Modules.FastEndpoints.Templates.Endpoint;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -72,7 +74,8 @@ namespace Intent.Modules.FastEndpoints.Dispatch.MediatR.FactoryExtensions
                 {
                     invocation = new CSharpAssignmentStatement("result", invocation);
 
-                    method.AddStatement($"var result = default({endpointTemplate.GetTypeName(endpointTemplate.Model.ReturnType)});");
+                    var defaultResultValue = GetDefaultValue(endpointTemplate.GetTypeName(endpointTemplate.Model.ReturnType));
+                    method.AddStatement($"var result = {defaultResultValue};");
                 }
 
                 invocation.AddMetadata("mediatr-dispatch", true);
@@ -86,5 +89,11 @@ namespace Intent.Modules.FastEndpoints.Dispatch.MediatR.FactoryExtensions
                 }
             }, 2);
         }
+
+        private static string GetDefaultValue(string type) => type switch
+        {
+            "Guid" => "Guid.Empty",
+            _ => $"default({type})"
+        };
     }
 }

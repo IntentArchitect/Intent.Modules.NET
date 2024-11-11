@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.Application.Dtos.Templates.DtoModel;
 using Intent.Modules.AspNetCore.Controllers.Templates;
@@ -16,6 +17,7 @@ using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 using Microsoft.Build.Evaluation;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -124,7 +126,9 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
 
                         if (operationModel.ReturnType != null)
                         {
-                            method.AddStatement($"var result = default({template.GetTypeName(operationModel)});");
+                            var defaultResultValue = GetDefaultValue(template.GetTypeName(operationModel));
+
+                            method.AddStatement($"var result = {defaultResultValue};");
                             method.AddStatement($"result = {awaitModifier}_appService.{operationModel.Name.ToPascalCase()}({arguments});",
                                 stmt => stmt.AddMetadata("service-contract-dispatch", true));
                         }
@@ -143,6 +147,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                 }
             });
         }
+
+        private static string GetDefaultValue(string type) => type switch
+        {
+            "Guid" => "Guid.Empty",
+            _ => $"default({type})"
+        };
 
         private static void InstallTransactionWithUnitOfWork(IControllerTemplate<IControllerModel> template, IApplication application)
         {

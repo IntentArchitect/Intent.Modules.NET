@@ -76,7 +76,8 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
                 {
                     invocation = new CSharpAssignmentStatement("result", invocation);
 
-                    method.AddStatement($"var result = default({endpointTemplate.GetTypeName(endpointTemplate.Model.ReturnType)});");
+                    var defaultResultValue = GetDefaultValue(endpointTemplate.GetTypeName(endpointTemplate.Model.ReturnType));
+                    method.AddStatement($"var result = {defaultResultValue};");
                 }
 
                 invocation.AddMetadata("service-contract-dispatch", true);
@@ -90,6 +91,12 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
                 }
             }, 2);
         }
+
+        private static string GetDefaultValue(string type) => type switch
+        {
+            "Guid" => "Guid.Empty",
+            _ => $"default({type})"
+        };
 
         private void InstallTransactionWithUnitOfWork(EndpointTemplate endpointTemplate)
         {
