@@ -22,7 +22,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureNestingChildren(OwnedNavigationBuilder<NestingParent, NestingChild> builder)
+        public static void ConfigureNestingChildren(OwnedNavigationBuilder<NestingParent, NestingChild> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.NestingParentId);
@@ -39,7 +39,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
                 .Navigation(x => x.NestingChildChild).IsRequired();
         }
 
-        public void ConfigureNestingChildChild(OwnedNavigationBuilder<NestingChild, NestingChildChild> builder)
+        public static void ConfigureNestingChildChild(OwnedNavigationBuilder<NestingChild, NestingChildChild> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

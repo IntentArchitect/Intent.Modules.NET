@@ -30,7 +30,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureKeyValuePairSerializeds(OwnedNavigationBuilder<DictionaryWithKvPSerialized, KeyValuePairSerialized> builder)
+        public static void ConfigureKeyValuePairSerializeds(OwnedNavigationBuilder<DictionaryWithKvPSerialized, KeyValuePairSerialized> builder)
         {
             builder.WithOwner();
 

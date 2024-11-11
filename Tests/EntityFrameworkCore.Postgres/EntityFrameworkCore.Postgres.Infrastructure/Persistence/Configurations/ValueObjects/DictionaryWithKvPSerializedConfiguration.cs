@@ -21,7 +21,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations
             builder.OwnsMany(x => x.KeyValuePairSerializeds, ConfigureKeyValuePairSerializeds);
         }
 
-        public void ConfigureKeyValuePairSerializeds(OwnedNavigationBuilder<DictionaryWithKvPSerialized, KeyValuePairSerialized> builder)
+        public static void ConfigureKeyValuePairSerializeds(OwnedNavigationBuilder<DictionaryWithKvPSerialized, KeyValuePairSerialized> builder)
         {
             builder.WithOwner();
 

@@ -20,7 +20,7 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Persistence.Con
             builder.OwnsOne(x => x.OneToOptionalDest, ConfigureOneToOptionalDest);
         }
 
-        public void ConfigureOneToOptionalDest(OwnedNavigationBuilder<OneToOptionalSource, OneToOptionalDest> builder)
+        public static void ConfigureOneToOptionalDest(OwnedNavigationBuilder<OneToOptionalSource, OneToOptionalDest> builder)
         {
             builder.WithOwner(x => x.OneToOptionalSource)
                 .HasForeignKey(x => x.Id);

@@ -46,7 +46,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurati
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureTestNullablityChildren(OwnedNavigationBuilder<TestNullablity, TestNullablityChild> builder)
+        public static void ConfigureTestNullablityChildren(OwnedNavigationBuilder<TestNullablity, TestNullablityChild> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.TestNullablityId);

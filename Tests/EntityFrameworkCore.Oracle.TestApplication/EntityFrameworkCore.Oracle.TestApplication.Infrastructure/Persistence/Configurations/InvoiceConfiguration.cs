@@ -22,7 +22,7 @@ namespace EntityFrameworkCore.Oracle.TestApplication.Infrastructure.Persistence.
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureLineItems(OwnedNavigationBuilder<Invoice, LineItem> builder)
+        public static void ConfigureLineItems(OwnedNavigationBuilder<Invoice, LineItem> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.InvoiceId);

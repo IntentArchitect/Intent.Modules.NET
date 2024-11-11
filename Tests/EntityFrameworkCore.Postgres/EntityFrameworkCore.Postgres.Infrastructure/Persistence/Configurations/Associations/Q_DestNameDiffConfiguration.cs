@@ -18,7 +18,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations
                 .Navigation(x => x.DestNameDiff).IsRequired();
         }
 
-        public void ConfigureDestNameDiff(OwnedNavigationBuilder<Q_DestNameDiff, Q_DestNameDiffDependent> builder)
+        public static void ConfigureDestNameDiff(OwnedNavigationBuilder<Q_DestNameDiff, Q_DestNameDiffDependent> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

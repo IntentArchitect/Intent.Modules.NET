@@ -29,7 +29,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureT_NoPkInCompositeDependent(OwnedNavigationBuilder<T_NoPkInComposite, T_NoPkInCompositeDependent> builder)
+        public static void ConfigureT_NoPkInCompositeDependent(OwnedNavigationBuilder<T_NoPkInComposite, T_NoPkInCompositeDependent> builder)
         {
             builder.WithOwner();
 

@@ -33,7 +33,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
             builder.OwnsOne(x => x.DefaultBillingAddress, ConfigureDefaultBillingAddress);
         }
 
-        public void ConfigureAddresses(OwnedNavigationBuilder<User, UserAddress> builder)
+        public static void ConfigureAddresses(OwnedNavigationBuilder<User, UserAddress> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.UserId);
@@ -56,7 +56,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
                 .IsRequired();
         }
 
-        public void ConfigureDefaultDeliveryAddress(OwnedNavigationBuilder<User, UserDefaultAddress> builder)
+        public static void ConfigureDefaultDeliveryAddress(OwnedNavigationBuilder<User, UserDefaultAddress> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);
@@ -70,7 +70,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
                 .IsRequired();
         }
 
-        public void ConfigureDefaultBillingAddress(OwnedNavigationBuilder<User, UserDefaultAddress> builder)
+        public static void ConfigureDefaultBillingAddress(OwnedNavigationBuilder<User, UserDefaultAddress> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

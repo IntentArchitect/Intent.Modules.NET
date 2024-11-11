@@ -41,7 +41,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureN_CompositeManies(OwnedNavigationBuilder<N_ComplexRoot, N_CompositeMany> builder)
+        public static void ConfigureN_CompositeManies(OwnedNavigationBuilder<N_ComplexRoot, N_CompositeMany> builder)
         {
             builder.WithOwner();
 

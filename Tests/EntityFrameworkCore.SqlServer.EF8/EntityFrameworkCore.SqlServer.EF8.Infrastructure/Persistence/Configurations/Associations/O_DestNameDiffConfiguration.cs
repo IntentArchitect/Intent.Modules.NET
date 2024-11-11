@@ -17,7 +17,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configura
             builder.OwnsMany(x => x.DestNameDiff, ConfigureDestNameDiff);
         }
 
-        public void ConfigureDestNameDiff(OwnedNavigationBuilder<O_DestNameDiff, O_DestNameDiffDependent> builder)
+        public static void ConfigureDestNameDiff(OwnedNavigationBuilder<O_DestNameDiff, O_DestNameDiffDependent> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.ODestnamediffId);

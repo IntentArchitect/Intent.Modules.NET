@@ -19,7 +19,7 @@ namespace EFCore.Lazy.Loading.Tests.Infrastructure.Persistence.Configurations
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureAddress(OwnedNavigationBuilder<Customer, Address> builder)
+        public static void ConfigureAddress(OwnedNavigationBuilder<Customer, Address> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

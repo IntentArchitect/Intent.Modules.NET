@@ -23,7 +23,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructu
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureContactDetailsVOS(OwnedNavigationBuilder<Company, ContactDetailsVO> builder)
+        public static void ConfigureContactDetailsVOS(OwnedNavigationBuilder<Company, ContactDetailsVO> builder)
         {
             builder.WithOwner();
 

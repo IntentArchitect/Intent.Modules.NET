@@ -21,7 +21,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.Persist
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureCost(OwnedNavigationBuilder<Purchase, Money> builder)
+        public static void ConfigureCost(OwnedNavigationBuilder<Purchase, Money> builder)
         {
             builder.Property(x => x.Amount)
                 .IsRequired()

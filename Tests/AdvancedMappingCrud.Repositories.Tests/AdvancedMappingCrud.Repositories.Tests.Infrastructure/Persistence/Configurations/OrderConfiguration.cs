@@ -42,7 +42,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureOrderItems(OwnedNavigationBuilder<Order, OrderItem> builder)
+        public static void ConfigureOrderItems(OwnedNavigationBuilder<Order, OrderItem> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.OrderId);
@@ -70,7 +70,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
                 .OnDelete(DeleteBehavior.Restrict);
         }
 
-        public void ConfigureDeliveryAddress(OwnedNavigationBuilder<Order, Address> builder)
+        public static void ConfigureDeliveryAddress(OwnedNavigationBuilder<Order, Address> builder)
         {
             builder.WithOwner();
 
@@ -87,7 +87,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
                 .IsRequired();
         }
 
-        public void ConfigureBillingAddress(OwnedNavigationBuilder<Order, Address> builder)
+        public static void ConfigureBillingAddress(OwnedNavigationBuilder<Order, Address> builder)
         {
             builder.WithOwner();
 

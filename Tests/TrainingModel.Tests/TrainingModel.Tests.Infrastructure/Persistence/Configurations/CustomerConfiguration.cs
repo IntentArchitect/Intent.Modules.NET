@@ -36,7 +36,7 @@ namespace TrainingModel.Tests.Infrastructure.Persistence.Configurations
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigurePreferences(OwnedNavigationBuilder<Customer, Preferences> builder)
+        public static void ConfigurePreferences(OwnedNavigationBuilder<Customer, Preferences> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);
@@ -50,7 +50,7 @@ namespace TrainingModel.Tests.Infrastructure.Persistence.Configurations
                 .IsRequired();
         }
 
-        public void ConfigureAddress(OwnedNavigationBuilder<Customer, Address> builder)
+        public static void ConfigureAddress(OwnedNavigationBuilder<Customer, Address> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.CustomersId);

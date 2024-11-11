@@ -26,7 +26,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
             builder.OwnsMany(x => x.Preferences, ConfigurePreferences);
         }
 
-        public void ConfigurePreferences(OwnedNavigationBuilder<User, Preference> builder)
+        public static void ConfigurePreferences(OwnedNavigationBuilder<User, Preference> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.UserId);

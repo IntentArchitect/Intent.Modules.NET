@@ -28,7 +28,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigurePreferences(OwnedNavigationBuilder<Customer, Preferences> builder)
+        public static void ConfigurePreferences(OwnedNavigationBuilder<Customer, Preferences> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

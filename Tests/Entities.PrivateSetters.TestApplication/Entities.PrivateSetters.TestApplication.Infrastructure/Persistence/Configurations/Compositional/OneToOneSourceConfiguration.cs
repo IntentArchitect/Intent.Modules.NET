@@ -21,7 +21,7 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Persistence.Con
                 .Navigation(x => x.OneToOneDest).IsRequired();
         }
 
-        public void ConfigureOneToOneDest(OwnedNavigationBuilder<OneToOneSource, OneToOneDest> builder)
+        public static void ConfigureOneToOneDest(OwnedNavigationBuilder<OneToOneSource, OneToOneDest> builder)
         {
             builder.WithOwner(x => x.OneToOneSource)
                 .HasForeignKey(x => x.Id);

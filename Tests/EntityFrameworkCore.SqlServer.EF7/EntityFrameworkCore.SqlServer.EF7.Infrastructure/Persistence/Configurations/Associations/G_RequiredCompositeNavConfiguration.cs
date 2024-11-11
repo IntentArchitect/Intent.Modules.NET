@@ -20,7 +20,7 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Persistence.Configura
             builder.OwnsMany(x => x.G_MultipleDependents, ConfigureG_MultipleDependents);
         }
 
-        public void ConfigureG_MultipleDependents(OwnedNavigationBuilder<G_RequiredCompositeNav, G_MultipleDependent> builder)
+        public static void ConfigureG_MultipleDependents(OwnedNavigationBuilder<G_RequiredCompositeNav, G_MultipleDependent> builder)
         {
             builder.WithOwner(x => x.G_RequiredCompositeNav)
                 .HasForeignKey(x => x.G_RequiredCompositeNavId);

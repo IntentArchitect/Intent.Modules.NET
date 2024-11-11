@@ -23,7 +23,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Infrastructure.Persi
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureContactDetailsVOS(OwnedNavigationBuilder<Company, ContactDetailsVO> builder)
+        public static void ConfigureContactDetailsVOS(OwnedNavigationBuilder<Company, ContactDetailsVO> builder)
         {
             builder.WithOwner();
 

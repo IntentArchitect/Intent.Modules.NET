@@ -20,7 +20,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurati
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureOpAndCtorMapping1(OwnedNavigationBuilder<OpAndCtorMapping2, OpAndCtorMapping1> builder)
+        public static void ConfigureOpAndCtorMapping1(OwnedNavigationBuilder<OpAndCtorMapping2, OpAndCtorMapping1> builder)
         {
             builder.WithOwner(x => x.OpAndCtorMapping2)
                 .HasForeignKey(x => x.Id);

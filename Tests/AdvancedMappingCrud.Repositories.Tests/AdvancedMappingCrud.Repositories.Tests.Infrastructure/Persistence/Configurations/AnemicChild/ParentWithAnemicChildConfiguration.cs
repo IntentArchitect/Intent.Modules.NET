@@ -25,7 +25,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureAnemicChildren(OwnedNavigationBuilder<ParentWithAnemicChild, Domain.Entities.AnemicChild.AnemicChild> builder)
+        public static void ConfigureAnemicChildren(OwnedNavigationBuilder<ParentWithAnemicChild, Domain.Entities.AnemicChild.AnemicChild> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.ParentWithAnemicChildId);

@@ -18,7 +18,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations
                 .Navigation(x => x.R_SourceNameDiffDependent).IsRequired();
         }
 
-        public void ConfigureR_SourceNameDiffDependent(OwnedNavigationBuilder<R_SourceNameDiff, R_SourceNameDiffDependent> builder)
+        public static void ConfigureR_SourceNameDiffDependent(OwnedNavigationBuilder<R_SourceNameDiff, R_SourceNameDiffDependent> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

@@ -22,7 +22,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configura
                 .Navigation(x => x.AddressNormal).IsRequired();
         }
 
-        public void ConfigureAddressNormal(OwnedNavigationBuilder<PersonWithAddressNormal, AddressNormal> builder)
+        public static void ConfigureAddressNormal(OwnedNavigationBuilder<PersonWithAddressNormal, AddressNormal> builder)
         {
             builder.WithOwner();
 

@@ -23,7 +23,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureTags(OwnedNavigationBuilder<Product, Tag> builder)
+        public static void ConfigureTags(OwnedNavigationBuilder<Product, Tag> builder)
         {
             builder.WithOwner();
 

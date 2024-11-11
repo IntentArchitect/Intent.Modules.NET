@@ -134,7 +134,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Api.Controllers
             return Ok(result);
         }
 
-        private void ValidateODataOptions<TDto>(ODataQueryOptions<TDto> options, bool enableSelect = false)
+        private static void ValidateODataOptions<TDto>(ODataQueryOptions<TDto> options, bool enableSelect = false)
         {
             var settings = new ODataValidationSettings();
 

@@ -20,7 +20,7 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Persistence.Con
             builder.OwnsMany(x => x.Owneds, ConfigureOwneds);
         }
 
-        public void ConfigureOwneds(OwnedNavigationBuilder<OneToManySource, OneToManyDest> builder)
+        public static void ConfigureOwneds(OwnedNavigationBuilder<OneToManySource, OneToManyDest> builder)
         {
             builder.WithOwner(x => x.Owner)
                 .HasForeignKey(x => x.OwnerId);

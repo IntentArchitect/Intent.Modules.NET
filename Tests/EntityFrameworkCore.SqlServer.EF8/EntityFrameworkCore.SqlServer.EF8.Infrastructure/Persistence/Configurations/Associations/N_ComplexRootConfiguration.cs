@@ -32,7 +32,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configura
             builder.OwnsMany(x => x.N_CompositeManies, ConfigureN_CompositeManies);
         }
 
-        public void ConfigureN_CompositeManies(OwnedNavigationBuilder<N_ComplexRoot, N_CompositeMany> builder)
+        public static void ConfigureN_CompositeManies(OwnedNavigationBuilder<N_ComplexRoot, N_CompositeMany> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.NComplexrootId);

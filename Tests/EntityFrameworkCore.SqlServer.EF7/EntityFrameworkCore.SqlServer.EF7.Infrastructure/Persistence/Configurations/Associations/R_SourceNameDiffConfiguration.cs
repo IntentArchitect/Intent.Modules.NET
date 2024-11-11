@@ -18,7 +18,7 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Persistence.Configura
                 .Navigation(x => x.R_SourceNameDiffDependent).IsRequired();
         }
 
-        public void ConfigureR_SourceNameDiffDependent(OwnedNavigationBuilder<R_SourceNameDiff, R_SourceNameDiffDependent> builder)
+        public static void ConfigureR_SourceNameDiffDependent(OwnedNavigationBuilder<R_SourceNameDiff, R_SourceNameDiffDependent> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

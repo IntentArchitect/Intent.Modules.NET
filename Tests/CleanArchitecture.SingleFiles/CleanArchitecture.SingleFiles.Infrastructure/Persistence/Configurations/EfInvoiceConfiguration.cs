@@ -22,7 +22,7 @@ namespace CleanArchitecture.SingleFiles.Infrastructure.Persistence.Configuration
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureEfLines(OwnedNavigationBuilder<EfInvoice, EfLine> builder)
+        public static void ConfigureEfLines(OwnedNavigationBuilder<EfInvoice, EfLine> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.EfInvoicesId);

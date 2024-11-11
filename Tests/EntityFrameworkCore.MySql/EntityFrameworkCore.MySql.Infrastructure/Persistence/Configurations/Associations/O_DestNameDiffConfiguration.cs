@@ -17,7 +17,7 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations.As
             builder.OwnsMany(x => x.DestNameDiff, ConfigureDestNameDiff);
         }
 
-        public void ConfigureDestNameDiff(OwnedNavigationBuilder<O_DestNameDiff, O_DestNameDiffDependent> builder)
+        public static void ConfigureDestNameDiff(OwnedNavigationBuilder<O_DestNameDiff, O_DestNameDiffDependent> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.ODestnamediffId);

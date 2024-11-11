@@ -30,16 +30,14 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Servic
             await _mediator.Publish(GetNotificationCorrespondingToDomainEvent(domainEvent), cancellationToken);
         }
 
-        private INotification GetNotificationCorrespondingToDomainEvent(DomainEvent domainEvent)
+        private static INotification GetNotificationCorrespondingToDomainEvent(DomainEvent domainEvent)
         {
             var result = Activator.CreateInstance(
                 typeof(DomainEventNotification<>).MakeGenericType(domainEvent.GetType()), domainEvent);
-            if (result == null)
-            {
-                throw new Exception($"Unable to create DomainEventNotification<{domainEvent.GetType().Name}>");
-            }
 
-            return (INotification)result;
+            return result == null
+                ? throw new Exception($"Unable to create DomainEventNotification<{domainEvent.GetType().Name}>")
+                : (INotification)result;
         }
     }
 }

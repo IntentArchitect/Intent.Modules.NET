@@ -23,7 +23,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations
                 .Navigation(x => x.SchemaInLineChild).IsRequired();
         }
 
-        public void ConfigureSchemaInLineChild(OwnedNavigationBuilder<SchemaParent, SchemaInLineChild> builder)
+        public static void ConfigureSchemaInLineChild(OwnedNavigationBuilder<SchemaParent, SchemaInLineChild> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

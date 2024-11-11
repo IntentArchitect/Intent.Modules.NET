@@ -36,7 +36,7 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure.Persisten
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureInLineColumns(OwnedNavigationBuilder<VOAssociation, InLineColumns> builder)
+        public static void ConfigureInLineColumns(OwnedNavigationBuilder<VOAssociation, InLineColumns> builder)
         {
             builder.WithOwner();
 

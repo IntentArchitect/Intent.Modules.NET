@@ -20,7 +20,7 @@ namespace Entities.Interfaces.EF.Infrastructure.Persistence.Configurations
             builder.OwnsMany(x => x.OrderItems, ConfigureOrderItems);
         }
 
-        public void ConfigureOrderItems(OwnedNavigationBuilder<Order, OrderItem> builder)
+        public static void ConfigureOrderItems(OwnedNavigationBuilder<Order, OrderItem> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.OrderId);

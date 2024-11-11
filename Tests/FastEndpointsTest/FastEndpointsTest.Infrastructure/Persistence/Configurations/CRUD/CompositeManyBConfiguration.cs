@@ -31,7 +31,7 @@ namespace FastEndpointsTest.Infrastructure.Persistence.Configurations.CRUD
             builder.OwnsMany(x => x.Composites, ConfigureComposites);
         }
 
-        public void ConfigureComposites(OwnedNavigationBuilder<CompositeManyB, CompositeManyBB> builder)
+        public static void ConfigureComposites(OwnedNavigationBuilder<CompositeManyB, CompositeManyBB> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.CompositeManyBId);

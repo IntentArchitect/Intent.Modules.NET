@@ -20,7 +20,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Infrastructure.Persistence.C
             builder.OwnsMany(x => x.Priviledges, ConfigurePriviledges);
         }
 
-        public void ConfigurePriviledges(OwnedNavigationBuilder<Role, Priviledge> builder)
+        public static void ConfigurePriviledges(OwnedNavigationBuilder<Role, Priviledge> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.RoleId);

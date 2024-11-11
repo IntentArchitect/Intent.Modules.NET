@@ -26,7 +26,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureDestNameDiff(OwnedNavigationBuilder<O_DestNameDiff, O_DestNameDiffDependent> builder)
+        public static void ConfigureDestNameDiff(OwnedNavigationBuilder<O_DestNameDiff, O_DestNameDiffDependent> builder)
         {
             builder.WithOwner();
 

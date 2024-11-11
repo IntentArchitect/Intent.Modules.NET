@@ -22,7 +22,7 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations.Va
                 .Navigation(x => x.AddressSerialized).IsRequired();
         }
 
-        public void ConfigureAddressSerialized(OwnedNavigationBuilder<PersonWithAddressSerialized, AddressSerialized> builder)
+        public static void ConfigureAddressSerialized(OwnedNavigationBuilder<PersonWithAddressSerialized, AddressSerialized> builder)
         {
             builder.WithOwner();
 

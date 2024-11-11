@@ -31,7 +31,7 @@ namespace GraphQL.CQRS.TestApplication.Infrastructure.Persistence.Configurations
                 .OnDelete(DeleteBehavior.Restrict);
         }
 
-        public void ConfigureInvoiceLines(OwnedNavigationBuilder<Invoice, InvoiceLine> builder)
+        public static void ConfigureInvoiceLines(OwnedNavigationBuilder<Invoice, InvoiceLine> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.InvoiceId);

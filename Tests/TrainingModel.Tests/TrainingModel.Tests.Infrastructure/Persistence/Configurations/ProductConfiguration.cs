@@ -40,7 +40,7 @@ namespace TrainingModel.Tests.Infrastructure.Persistence.Configurations
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigurePrices(OwnedNavigationBuilder<Product, Price> builder)
+        public static void ConfigurePrices(OwnedNavigationBuilder<Product, Price> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.ProductId);

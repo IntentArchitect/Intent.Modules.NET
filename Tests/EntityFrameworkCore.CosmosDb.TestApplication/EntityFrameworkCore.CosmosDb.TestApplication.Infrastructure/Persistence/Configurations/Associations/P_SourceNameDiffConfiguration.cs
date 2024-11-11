@@ -26,7 +26,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureP_SourceNameDiffDependents(OwnedNavigationBuilder<P_SourceNameDiff, P_SourceNameDiffDependent> builder)
+        public static void ConfigureP_SourceNameDiffDependents(OwnedNavigationBuilder<P_SourceNameDiff, P_SourceNameDiffDependent> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.SourceNameDiffId);

@@ -20,7 +20,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureAggregateRoot5EntityWithRepo(OwnedNavigationBuilder<AggregateRoot5, AggregateRoot5EntityWithRepo> builder)
+        public static void ConfigureAggregateRoot5EntityWithRepo(OwnedNavigationBuilder<AggregateRoot5, AggregateRoot5EntityWithRepo> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

@@ -27,7 +27,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureQuoteLines(OwnedNavigationBuilder<Quote, QuoteLine> builder)
+        public static void ConfigureQuoteLines(OwnedNavigationBuilder<Quote, QuoteLine> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.QuoteId);

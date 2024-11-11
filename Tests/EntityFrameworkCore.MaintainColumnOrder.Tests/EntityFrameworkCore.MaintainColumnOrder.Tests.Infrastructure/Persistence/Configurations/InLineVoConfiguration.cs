@@ -32,7 +32,7 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure.Persisten
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureCol2(OwnedNavigationBuilder<InLineVo, InLineColumns> builder)
+        public static void ConfigureCol2(OwnedNavigationBuilder<InLineVo, InLineColumns> builder)
         {
             builder.Property(x => x.Col1)
                 .IsRequired()

@@ -21,7 +21,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations
             builder.OwnsMany(x => x.KeyValuePairNormals, ConfigureKeyValuePairNormals);
         }
 
-        public void ConfigureKeyValuePairNormals(OwnedNavigationBuilder<DictionaryWithKvPNormal, KeyValuePairNormal> builder)
+        public static void ConfigureKeyValuePairNormals(OwnedNavigationBuilder<DictionaryWithKvPNormal, KeyValuePairNormal> builder)
         {
             builder.WithOwner();
 

@@ -34,7 +34,7 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Api.Filters
             });
         }
 
-        private bool HasAuthorize(OperationFilterContext context)
+        private static bool HasAuthorize(OperationFilterContext context)
         {
             if (context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any())
             {

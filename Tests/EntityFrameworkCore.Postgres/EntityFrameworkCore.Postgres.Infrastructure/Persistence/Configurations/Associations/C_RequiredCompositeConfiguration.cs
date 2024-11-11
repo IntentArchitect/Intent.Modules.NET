@@ -20,7 +20,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations
             builder.OwnsMany(x => x.C_MultipleDependents, ConfigureC_MultipleDependents);
         }
 
-        public void ConfigureC_MultipleDependents(OwnedNavigationBuilder<C_RequiredComposite, C_MultipleDependent> builder)
+        public static void ConfigureC_MultipleDependents(OwnedNavigationBuilder<C_RequiredComposite, C_MultipleDependent> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.C_RequiredCompositeId);

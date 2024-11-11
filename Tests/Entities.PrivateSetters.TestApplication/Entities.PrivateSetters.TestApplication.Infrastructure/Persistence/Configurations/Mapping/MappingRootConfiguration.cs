@@ -20,7 +20,7 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Persistence.Con
                 .Navigation(x => x.MappingCompositeSingle).IsRequired();
         }
 
-        public void ConfigureMappingCompositeMultiples(OwnedNavigationBuilder<MappingRoot, MappingCompositeMultiple> builder)
+        public static void ConfigureMappingCompositeMultiples(OwnedNavigationBuilder<MappingRoot, MappingCompositeMultiple> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.MappingRootId);
@@ -34,7 +34,7 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Persistence.Con
                 .IsRequired();
         }
 
-        public void ConfigureMappingCompositeSingle(OwnedNavigationBuilder<MappingRoot, MappingCompositeSingle> builder)
+        public static void ConfigureMappingCompositeSingle(OwnedNavigationBuilder<MappingRoot, MappingCompositeSingle> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

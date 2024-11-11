@@ -24,7 +24,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.Persist
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureAddress(OwnedNavigationBuilder<CustomerAnemic, Address> builder)
+        public static void ConfigureAddress(OwnedNavigationBuilder<CustomerAnemic, Address> builder)
         {
             builder.WithOwner();
 

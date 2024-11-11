@@ -22,7 +22,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurati
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureODataChildren(OwnedNavigationBuilder<ODataAgg, ODataChild> builder)
+        public static void ConfigureODataChildren(OwnedNavigationBuilder<ODataAgg, ODataChild> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.ODataAggId);

@@ -28,7 +28,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.Infrastructure.Persistence.Configu
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureAddresses(OwnedNavigationBuilder<User, Address> builder)
+        public static void ConfigureAddresses(OwnedNavigationBuilder<User, Address> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.UserId);

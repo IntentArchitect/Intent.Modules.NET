@@ -24,7 +24,7 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Persistence.Con
                 .UsingEntity(x => x.ToTable("InvoiceTags"));
         }
 
-        public void ConfigureLines(OwnedNavigationBuilder<Invoice, Line> builder)
+        public static void ConfigureLines(OwnedNavigationBuilder<Invoice, Line> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.InvoiceId);

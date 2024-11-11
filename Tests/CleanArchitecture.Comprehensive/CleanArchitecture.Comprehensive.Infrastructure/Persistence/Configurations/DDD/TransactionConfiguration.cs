@@ -32,7 +32,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurati
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureCurrent(OwnedNavigationBuilder<Transaction, Money> builder)
+        public static void ConfigureCurrent(OwnedNavigationBuilder<Transaction, Money> builder)
         {
             builder.Property(x => x.Currency)
                 .IsRequired();

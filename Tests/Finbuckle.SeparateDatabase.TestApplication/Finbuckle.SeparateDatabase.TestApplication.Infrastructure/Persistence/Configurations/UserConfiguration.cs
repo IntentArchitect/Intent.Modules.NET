@@ -23,7 +23,7 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Infrastructure.Persistence.
             builder.OwnsMany(x => x.Roles, ConfigureRoles);
         }
 
-        public void ConfigureRoles(OwnedNavigationBuilder<User, Role> builder)
+        public static void ConfigureRoles(OwnedNavigationBuilder<User, Role> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.UserId);

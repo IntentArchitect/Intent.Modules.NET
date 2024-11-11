@@ -28,7 +28,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Infrastructure.Persistence.Co
             builder.IsMultiTenant();
         }
 
-        public void ConfigureRoles(OwnedNavigationBuilder<User, Role> builder)
+        public static void ConfigureRoles(OwnedNavigationBuilder<User, Role> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.UserId);

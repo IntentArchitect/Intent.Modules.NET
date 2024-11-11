@@ -21,7 +21,7 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations.Va
             builder.OwnsMany(x => x.KeyValuePairSerializeds, ConfigureKeyValuePairSerializeds);
         }
 
-        public void ConfigureKeyValuePairSerializeds(OwnedNavigationBuilder<DictionaryWithKvPSerialized, KeyValuePairSerialized> builder)
+        public static void ConfigureKeyValuePairSerializeds(OwnedNavigationBuilder<DictionaryWithKvPSerialized, KeyValuePairSerialized> builder)
         {
             builder.WithOwner();
 

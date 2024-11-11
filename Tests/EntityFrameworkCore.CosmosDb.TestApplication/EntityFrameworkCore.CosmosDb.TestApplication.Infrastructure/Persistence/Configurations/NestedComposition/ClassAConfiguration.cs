@@ -29,7 +29,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureClassBS(OwnedNavigationBuilder<ClassA, ClassB> builder)
+        public static void ConfigureClassBS(OwnedNavigationBuilder<ClassA, ClassB> builder)
         {
             builder.WithOwner();
 
@@ -47,7 +47,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             builder.OwnsMany(x => x.ClassDS, ConfigureClassDS);
         }
 
-        public void ConfigureClassC(OwnedNavigationBuilder<ClassB, ClassC> builder)
+        public static void ConfigureClassC(OwnedNavigationBuilder<ClassB, ClassC> builder)
         {
             builder.WithOwner();
 
@@ -57,7 +57,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
                 .IsRequired();
         }
 
-        public void ConfigureClassDS(OwnedNavigationBuilder<ClassB, ClassD> builder)
+        public static void ConfigureClassDS(OwnedNavigationBuilder<ClassB, ClassD> builder)
         {
             builder.WithOwner();
 
@@ -70,7 +70,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
                 .Navigation(x => x.ClassE).IsRequired();
         }
 
-        public void ConfigureClassE(OwnedNavigationBuilder<ClassD, ClassE> builder)
+        public static void ConfigureClassE(OwnedNavigationBuilder<ClassD, ClassE> builder)
         {
             builder.WithOwner();
 

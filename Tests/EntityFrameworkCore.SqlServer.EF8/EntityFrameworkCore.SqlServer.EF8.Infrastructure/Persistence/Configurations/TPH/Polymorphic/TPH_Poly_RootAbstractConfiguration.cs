@@ -31,7 +31,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configura
             builder.OwnsOne(x => x.Poly_RootAbstract_Comp, ConfigurePoly_RootAbstract_Comp);
         }
 
-        public void ConfigurePoly_RootAbstract_Comp(OwnedNavigationBuilder<TPH_Poly_RootAbstract, TPH_Poly_RootAbstract_Comp> builder)
+        public static void ConfigurePoly_RootAbstract_Comp(OwnedNavigationBuilder<TPH_Poly_RootAbstract, TPH_Poly_RootAbstract_Comp> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

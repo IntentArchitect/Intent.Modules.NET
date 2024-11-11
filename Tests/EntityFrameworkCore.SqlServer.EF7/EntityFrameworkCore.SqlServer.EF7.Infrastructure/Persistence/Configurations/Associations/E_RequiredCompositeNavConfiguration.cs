@@ -21,7 +21,7 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Persistence.Configura
                 .Navigation(x => x.E_RequiredDependent).IsRequired();
         }
 
-        public void ConfigureE_RequiredDependent(OwnedNavigationBuilder<E_RequiredCompositeNav, E_RequiredDependent> builder)
+        public static void ConfigureE_RequiredDependent(OwnedNavigationBuilder<E_RequiredCompositeNav, E_RequiredDependent> builder)
         {
             builder.WithOwner(x => x.E_RequiredCompositeNav)
                 .HasForeignKey(x => x.Id);

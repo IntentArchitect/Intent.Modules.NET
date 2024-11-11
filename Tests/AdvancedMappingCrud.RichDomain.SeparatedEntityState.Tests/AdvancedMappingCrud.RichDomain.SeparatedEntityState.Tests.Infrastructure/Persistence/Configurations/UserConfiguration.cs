@@ -31,7 +31,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructu
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureAddresses(OwnedNavigationBuilder<User, Address> builder)
+        public static void ConfigureAddresses(OwnedNavigationBuilder<User, Address> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.UserId);
@@ -54,7 +54,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructu
                 .IsRequired();
         }
 
-        public void ConfigureContactDetails(OwnedNavigationBuilder<User, ContactDetailsVO> builder)
+        public static void ConfigureContactDetails(OwnedNavigationBuilder<User, ContactDetailsVO> builder)
         {
             builder.WithOwner();
 

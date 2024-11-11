@@ -14,7 +14,7 @@ namespace Application.Identity.AccountController.Api.Filters
 {
     public class AuthorizeCheckOperationFilter : IOperationFilter
     {
-        private bool HasAuthorize(OperationFilterContext context)
+        private static bool HasAuthorize(OperationFilterContext context)
         {
             if (context.MethodInfo.GetCustomAttributes(true).OfType<AuthorizeAttribute>().Any())
             {

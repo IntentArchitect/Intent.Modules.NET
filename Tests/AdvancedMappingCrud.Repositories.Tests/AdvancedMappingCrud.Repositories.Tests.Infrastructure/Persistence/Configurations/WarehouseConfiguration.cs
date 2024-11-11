@@ -26,7 +26,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Conf
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureAddress(OwnedNavigationBuilder<Warehouse, Address> builder)
+        public static void ConfigureAddress(OwnedNavigationBuilder<Warehouse, Address> builder)
         {
             builder.WithOwner();
 

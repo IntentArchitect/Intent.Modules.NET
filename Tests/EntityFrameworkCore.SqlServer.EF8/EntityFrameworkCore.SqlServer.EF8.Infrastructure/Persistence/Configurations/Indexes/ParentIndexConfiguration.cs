@@ -22,7 +22,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configura
             builder.OwnsOne(x => x.SingleChildIndex, ConfigureSingleChildIndex);
         }
 
-        public void ConfigureMultiChildIndices(OwnedNavigationBuilder<ParentIndex, MultiChildIndex> builder)
+        public static void ConfigureMultiChildIndices(OwnedNavigationBuilder<ParentIndex, MultiChildIndex> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.ParentIndexId);
@@ -44,7 +44,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configura
                 .HasDatabaseName("IX_Child_Name");
         }
 
-        public void ConfigureSingleChildIndex(OwnedNavigationBuilder<ParentIndex, SingleChildIndex> builder)
+        public static void ConfigureSingleChildIndex(OwnedNavigationBuilder<ParentIndex, SingleChildIndex> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

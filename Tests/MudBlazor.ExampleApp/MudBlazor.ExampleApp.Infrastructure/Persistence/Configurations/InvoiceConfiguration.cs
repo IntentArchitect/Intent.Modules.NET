@@ -40,7 +40,7 @@ namespace MudBlazor.ExampleApp.Infrastructure.Persistence.Configurations
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureOrderLines(OwnedNavigationBuilder<Invoice, InvoiceLine> builder)
+        public static void ConfigureOrderLines(OwnedNavigationBuilder<Invoice, InvoiceLine> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.InvoiceId);

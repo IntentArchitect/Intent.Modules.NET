@@ -30,7 +30,7 @@ namespace ProxyServiceTests.OriginalServices.Infrastructure.Persistence.Configur
                 .OnDelete(DeleteBehavior.Restrict);
         }
 
-        public void ConfigureAmount(OwnedNavigationBuilder<Account, Money> builder)
+        public static void ConfigureAmount(OwnedNavigationBuilder<Account, Money> builder)
         {
             builder.Property(x => x.Amount)
                 .IsRequired();

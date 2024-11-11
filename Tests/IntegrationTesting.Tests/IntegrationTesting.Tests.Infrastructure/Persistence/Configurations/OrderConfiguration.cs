@@ -30,7 +30,7 @@ namespace IntegrationTesting.Tests.Infrastructure.Persistence.Configurations
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureOrderItems(OwnedNavigationBuilder<Order, OrderItem> builder)
+        public static void ConfigureOrderItems(OwnedNavigationBuilder<Order, OrderItem> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.OrderId);

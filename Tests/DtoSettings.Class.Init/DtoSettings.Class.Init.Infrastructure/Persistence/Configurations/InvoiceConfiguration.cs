@@ -20,7 +20,7 @@ namespace DtoSettings.Class.Init.Infrastructure.Persistence.Configurations
             builder.OwnsMany(x => x.InvoiceLines, ConfigureInvoiceLines);
         }
 
-        public void ConfigureInvoiceLines(OwnedNavigationBuilder<Invoice, InvoiceLine> builder)
+        public static void ConfigureInvoiceLines(OwnedNavigationBuilder<Invoice, InvoiceLine> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.InvoiceId);

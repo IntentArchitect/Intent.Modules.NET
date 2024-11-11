@@ -22,7 +22,7 @@ namespace FastEndpointsTest.Infrastructure.Persistence.Configurations.CRUD
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureCompositeOfAggrLong(OwnedNavigationBuilder<AggregateRootLong, CompositeOfAggrLong> builder)
+        public static void ConfigureCompositeOfAggrLong(OwnedNavigationBuilder<AggregateRootLong, CompositeOfAggrLong> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

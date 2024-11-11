@@ -31,7 +31,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureAddressNormal(OwnedNavigationBuilder<PersonWithAddressNormal, AddressNormal> builder)
+        public static void ConfigureAddressNormal(OwnedNavigationBuilder<PersonWithAddressNormal, AddressNormal> builder)
         {
             builder.WithOwner();
 

@@ -28,7 +28,7 @@ namespace AspNetCore.Controllers.Secured.Infrastructure.Persistence.Configuratio
             builder.OwnsMany(x => x.OrderLines, ConfigureOrderLines);
         }
 
-        public void ConfigureOrderLines(OwnedNavigationBuilder<Order, OrderLine> builder)
+        public static void ConfigureOrderLines(OwnedNavigationBuilder<Order, OrderLine> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.OrderId);

@@ -19,7 +19,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Infrastructure
                 .Navigation(x => x.TestVO).IsRequired();
         }
 
-        public void ConfigureTestVO(OwnedNavigationBuilder<ClassWithVO, TestVO> builder)
+        public static void ConfigureTestVO(OwnedNavigationBuilder<ClassWithVO, TestVO> builder)
         {
             builder.WithOwner();
 

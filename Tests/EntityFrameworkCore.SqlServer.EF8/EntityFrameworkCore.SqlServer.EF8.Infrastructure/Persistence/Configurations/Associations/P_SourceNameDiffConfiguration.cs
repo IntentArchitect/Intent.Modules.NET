@@ -17,7 +17,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configura
             builder.OwnsMany(x => x.P_SourceNameDiffDependents, ConfigureP_SourceNameDiffDependents);
         }
 
-        public void ConfigureP_SourceNameDiffDependents(OwnedNavigationBuilder<P_SourceNameDiff, P_SourceNameDiffDependent> builder)
+        public static void ConfigureP_SourceNameDiffDependents(OwnedNavigationBuilder<P_SourceNameDiff, P_SourceNameDiffDependent> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.SourceNameDiffId);

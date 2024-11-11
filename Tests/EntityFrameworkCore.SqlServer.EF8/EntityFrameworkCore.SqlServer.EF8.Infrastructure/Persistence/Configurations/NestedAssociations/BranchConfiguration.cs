@@ -42,7 +42,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configura
                 .OnDelete(DeleteBehavior.Cascade);
         }
 
-        public void ConfigureInternode(OwnedNavigationBuilder<Branch, Internode> builder)
+        public static void ConfigureInternode(OwnedNavigationBuilder<Branch, Internode> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

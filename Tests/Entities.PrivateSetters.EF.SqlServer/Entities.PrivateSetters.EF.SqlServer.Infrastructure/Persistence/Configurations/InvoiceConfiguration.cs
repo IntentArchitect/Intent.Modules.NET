@@ -24,7 +24,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence.Config
                 .UsingEntity(x => x.ToTable("InvoiceTags"));
         }
 
-        public void ConfigureLines(OwnedNavigationBuilder<Invoice, Line> builder)
+        public static void ConfigureLines(OwnedNavigationBuilder<Invoice, Line> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.InvoiceId);

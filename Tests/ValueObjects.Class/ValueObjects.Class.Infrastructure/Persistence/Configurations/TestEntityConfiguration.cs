@@ -27,7 +27,7 @@ namespace ValueObjects.Class.Infrastructure.Persistence.Configurations
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureAmount(OwnedNavigationBuilder<TestEntity, Money> builder)
+        public static void ConfigureAmount(OwnedNavigationBuilder<TestEntity, Money> builder)
         {
             builder.Property(x => x.Amount)
                 .IsRequired();
@@ -36,7 +36,7 @@ namespace ValueObjects.Class.Infrastructure.Persistence.Configurations
                 .IsRequired();
         }
 
-        public void ConfigureAddress(OwnedNavigationBuilder<TestEntity, Address> builder)
+        public static void ConfigureAddress(OwnedNavigationBuilder<TestEntity, Address> builder)
         {
             builder.Property(x => x.Line1)
                 .IsRequired();

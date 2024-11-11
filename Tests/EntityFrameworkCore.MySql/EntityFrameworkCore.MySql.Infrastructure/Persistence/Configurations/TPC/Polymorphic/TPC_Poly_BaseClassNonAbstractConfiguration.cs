@@ -34,7 +34,7 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations.TP
             builder.OwnsOne(x => x.Poly_RootAbstract_Comp, ConfigurePoly_RootAbstract_Comp);
         }
 
-        public void ConfigurePoly_RootAbstract_Comp(OwnedNavigationBuilder<TPC_Poly_BaseClassNonAbstract, TPC_Poly_RootAbstract_Comp> builder)
+        public static void ConfigurePoly_RootAbstract_Comp(OwnedNavigationBuilder<TPC_Poly_BaseClassNonAbstract, TPC_Poly_RootAbstract_Comp> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.Id);

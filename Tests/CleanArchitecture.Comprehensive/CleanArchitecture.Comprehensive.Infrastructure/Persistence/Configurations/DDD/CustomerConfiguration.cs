@@ -23,7 +23,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurati
                 .Navigation(x => x.Address).IsRequired();
         }
 
-        public void ConfigureAddress(OwnedNavigationBuilder<Customer, Address> builder)
+        public static void ConfigureAddress(OwnedNavigationBuilder<Customer, Address> builder)
         {
             builder.WithOwner();
 

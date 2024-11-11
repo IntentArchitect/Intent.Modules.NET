@@ -28,7 +28,7 @@ namespace Entities.PrivateSetters.EF.CosmosDb.Infrastructure.Persistence.Configu
                 .UsingEntity(x => x.ToTable("InvoiceTags"));
         }
 
-        public void ConfigureLines(OwnedNavigationBuilder<Invoice, Line> builder)
+        public static void ConfigureLines(OwnedNavigationBuilder<Invoice, Line> builder)
         {
             builder.WithOwner();
 

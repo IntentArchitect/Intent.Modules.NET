@@ -21,13 +21,13 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Persistence.Config
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureDetails(OwnedNavigationBuilder<Person, PersonDetails> builder)
+        public static void ConfigureDetails(OwnedNavigationBuilder<Person, PersonDetails> builder)
         {
             builder.OwnsOne(x => x.Name, ConfigureName)
                 .Navigation(x => x.Name).IsRequired();
         }
 
-        public void ConfigureName(OwnedNavigationBuilder<PersonDetails, Names> builder)
+        public static void ConfigureName(OwnedNavigationBuilder<PersonDetails, Names> builder)
         {
             builder.Property(x => x.First)
                 .IsRequired();

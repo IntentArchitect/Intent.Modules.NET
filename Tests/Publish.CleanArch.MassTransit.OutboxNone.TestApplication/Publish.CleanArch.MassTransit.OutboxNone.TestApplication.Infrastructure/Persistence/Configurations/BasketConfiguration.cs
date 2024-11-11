@@ -22,7 +22,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Infrastructur
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureBasketItems(OwnedNavigationBuilder<Basket, BasketItem> builder)
+        public static void ConfigureBasketItems(OwnedNavigationBuilder<Basket, BasketItem> builder)
         {
             builder.WithOwner()
                 .HasForeignKey(x => x.BasketId);

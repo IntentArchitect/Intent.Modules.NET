@@ -23,7 +23,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurati
             builder.Ignore(e => e.DomainEvents);
         }
 
-        public void ConfigureItems(OwnedNavigationBuilder<Submission, Item> builder)
+        public static void ConfigureItems(OwnedNavigationBuilder<Submission, Item> builder)
         {
             builder.WithOwner();
 
