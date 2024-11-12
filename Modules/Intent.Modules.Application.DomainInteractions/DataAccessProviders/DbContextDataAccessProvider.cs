@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -19,8 +21,10 @@ public class DbContextDataAccessProvider : IDataAccessProvider
     private readonly CSharpClassMappingManager _mappingManager;
     private readonly CSharpAccessMemberStatement _dbSetAccessor;
     private readonly CSharpProperty[] _pks;
+    private readonly bool _isUsingProjections;
+    private readonly QueryActionContext? _queryContext;
 
-    public DbContextDataAccessProvider(string dbContextField, ClassModel entity, ICSharpFileBuilderTemplate template, CSharpClassMappingManager mappingManager)
+    public DbContextDataAccessProvider(string dbContextField, ClassModel entity, ICSharpFileBuilderTemplate template, CSharpClassMappingManager mappingManager, QueryActionContext queryContext)
     {
         _dbContextField = dbContextField;
         _template = template;
@@ -28,6 +32,8 @@ public class DbContextDataAccessProvider : IDataAccessProvider
         _dbSetAccessor = new CSharpAccessMemberStatement(_dbContextField, entity.Name.ToPascalCase().Pluralize());
         var entityTemplate = _template.GetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, entity);
         _pks = entityTemplate.CSharpFile.Classes.First().GetPropertiesWithPrimaryKey();
+        _isUsingProjections = queryContext?.ImplementWithProjections() == true;
+        _queryContext = queryContext;
     }
 
     public bool IsUsingProjections => false;
@@ -58,19 +64,20 @@ public class DbContextDataAccessProvider : IDataAccessProvider
     public CSharpStatement FindByIdAsync(List<PrimaryKeyFilterMapping> pkMaps)
     {
         _template.AddUsing("Microsoft.EntityFrameworkCore");
-        var invocation = new CSharpInvocationStatement($"await {_dbSetAccessor}", $"SingleOrDefaultAsync");
-        if (pkMaps.Count == 1)
+        if (_isUsingProjections)
         {
-            invocation.AddArgument($"x => x.{pkMaps[0].Property} == {pkMaps[0].ValueExpression}");
+            var invocation = new CSharpInvocationStatement($"await {_dbSetAccessor}", Where())
+                .AddArgument(GetPkFilterEquals(pkMaps));
+            var projectTo = AddProjectTo(invocation);
+            return new CSharpInvocationStatement(projectTo.WithoutSemicolon(), "SingleOrDefaultAsync").AddArgument("cancellationToken");
         }
         else
         {
-            invocation.AddArgument($"x => {string.Join(" && ", pkMaps.Select(pkMap => $"x.{pkMap.Property} == {pkMap.ValueExpression}"))}");
+            return new CSharpInvocationStatement($"await {_dbSetAccessor}", $"SingleOrDefaultAsync")
+                .AddArgument(GetPkFilterEquals(pkMaps))
+                .AddArgument("cancellationToken");
         }
-
-        return invocation.AddArgument("cancellationToken");
     }
-
     public CSharpStatement FindByIdsAsync(List<PrimaryKeyFilterMapping> pkMaps)
     {
         _template.AddUsing("Microsoft.EntityFrameworkCore");
@@ -83,6 +90,10 @@ public class DbContextDataAccessProvider : IDataAccessProvider
         {
             whereClause.AddArgument($"x => {string.Join(" && ", pkMaps.Select(pkMap => $"{pkMap.ValueExpression}.Contains(x.{pkMap.Property})"))}");
         }
+        if (_isUsingProjections)
+        {
+            whereClause = AddProjectTo(whereClause);
+        }
         return new CSharpInvocationStatement(whereClause.WithoutSemicolon(), "ToListAsync").AddArgument("cancellationToken");
     }
 
@@ -90,6 +101,10 @@ public class DbContextDataAccessProvider : IDataAccessProvider
     {
         _template.AddUsing("Microsoft.EntityFrameworkCore");
         var invocation = new CSharpMethodChainStatement($"await {CreateQueryFilterExpression(queryMapping, out prerequisiteStatements)}");
+        if (_isUsingProjections)
+        {
+            AddProjectTo(invocation);
+        }
         return invocation.AddChainStatement($"ToListAsync(cancellationToken)");
     }
 
@@ -102,42 +117,61 @@ public class DbContextDataAccessProvider : IDataAccessProvider
             throw new ElementException(queryMapping.HostElement, "No query fields have been mapped for this Query Entity Action, which signifies a single return value. Either specify this action returns a collection or map at least one field.");
         }
         _template.AddUsing("Microsoft.EntityFrameworkCore");
-        var invocation = new CSharpInvocationStatement($"await {_dbSetAccessor}", $"FirstOrDefaultAsync");
-        invocation.AddArgument(expression);
-        invocation.AddArgument("cancellationToken");
-        return invocation;
+        if (_isUsingProjections)
+        {
+            var invocation = new CSharpInvocationStatement($"await {_dbSetAccessor}", Where())
+                .AddArgument(expression);
+            invocation = AddProjectTo(invocation);
+            return new CSharpInvocationStatement(invocation.WithoutSemicolon(), "FirstOrDefaultAsync").AddArgument("cancellationToken");
+        }
+        else
+        {
+            return new CSharpInvocationStatement($"await {_dbSetAccessor}", $"FirstOrDefaultAsync")
+                .AddArgument(expression)
+                .AddArgument("cancellationToken");
+        }
     }
 
     public CSharpStatement FindAsync(CSharpStatement expression)
     {
         _template.AddUsing("Microsoft.EntityFrameworkCore");
-        var invocation = new CSharpInvocationStatement($"await {_dbSetAccessor}", $"FirstOrDefaultAsync");
-        if (expression != null)
+        if (_isUsingProjections)
         {
-            invocation.AddArgument(expression);
+            CSharpInvocationStatement invocation;
+            if (expression is not null)
+            {
+                invocation = new CSharpInvocationStatement($"await {_dbSetAccessor}", Where())
+                    .AddArgument(expression);
+                invocation = AddProjectTo(invocation);
+            }
+            else
+            {
+                invocation = AddProjectTo($"await {_dbSetAccessor}");
+            }
+
+            return new CSharpInvocationStatement(invocation.WithoutSemicolon(), "FirstOrDefaultAsync").AddArgument("cancellationToken");
         }
-        invocation.AddArgument("cancellationToken");
-
-        return invocation;
-    }
-
-    public CSharpStatement FindAllAsync(CSharpStatement expression)
-    {
-        _template.AddUsing("Microsoft.EntityFrameworkCore");
-        var invocation = new CSharpMethodChainStatement($"await {_dbSetAccessor}");
-        if (expression != null)
+        else
         {
-            invocation.AddChainStatement(new CSharpInvocationStatement(Where())
-                .AddArgument(expression).WithoutSemicolon());
-        }
+            var invocation = new CSharpInvocationStatement($"await {_dbSetAccessor}", $"FirstOrDefaultAsync");
 
-        invocation.AddChainStatement("ToListAsync(cancellationToken)");
-        return invocation;
+            if (expression != null)
+            {
+                invocation.AddArgument(expression);
+            }
+
+            return invocation.AddArgument("cancellationToken");
+        }
     }
 
     public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, string? orderBy, bool orderByIsNullable, out IList<CSharpStatement> prerequisiteStatements)
     {
         var invocation = new CSharpMethodChainStatement($"await {CreateQueryFilterExpression(queryMapping, out prerequisiteStatements)}");
+
+        if (_isUsingProjections)
+        {
+            AddProjectTo(invocation);
+        }
 
         if (orderBy != null)
         {
@@ -159,6 +193,10 @@ public class DbContextDataAccessProvider : IDataAccessProvider
                 .AddArgument(expression)
                 .WithoutSemicolon());
         }
+        if (_isUsingProjections)
+        {
+            AddProjectTo(invocation);
+        }
         if (orderBy != null)
         {
             invocation.AddChainStatement(new CSharpInvocationStatement(_template.UseType($"System.Linq.Dynamic.Core.OrderBy"))
@@ -168,9 +206,36 @@ public class DbContextDataAccessProvider : IDataAccessProvider
         return invocation.AddChainStatement($"ToPagedListAsync({pageNo}, {pageSize}, cancellationToken)");
     }
 
+    private string GetPkFilterEquals(List<PrimaryKeyFilterMapping> pkMaps)
+    {
+        if (pkMaps.Count == 1)
+        {
+            return $"x => x.{pkMaps[0].Property} == {pkMaps[0].ValueExpression}";
+        }
+        else
+        {
+            return $"x => {string.Join(" && ", pkMaps.Select(pkMap => $"x.{pkMap.Property} == {pkMap.ValueExpression}"))}";
+        }
+    }
+
     private string GetOrderByValue(bool orderByIsNullable, string? orderByField)
     {
         return orderByIsNullable ? $"{orderByField} ?? \"{_pks[0].Name}\"" : orderByField;
+    }
+
+    private CSharpInvocationStatement AddProjectTo(CSharpStatement statement)
+    {        
+        return new CSharpInvocationStatement(statement, $"{_template.UseType($"AutoMapper.QueryableExtensions.ProjectTo")}<{_queryContext!.GetDtoProjectionReturnType()}>").AddArgument("_mapper.ConfigurationProvider");
+    }
+
+    private CSharpInvocationStatement AddProjectTo(CSharpInvocationStatement statement)
+    {
+        return AddProjectTo((CSharpStatement)statement.WithoutSemicolon());
+    }
+
+    private void AddProjectTo(CSharpMethodChainStatement chain)
+    {
+        chain.AddChainStatement($"{_template.UseType($"AutoMapper.QueryableExtensions.ProjectTo")}<{_queryContext!.GetDtoProjectionReturnType()}>(_mapper.ConfigurationProvider)");
     }
 
     private string Where()

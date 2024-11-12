@@ -1,3 +1,7 @@
+### Version 6.0.22
+
+- Improvement: Added support for ProjectTo query implementations for DBContext implementation CRUD Scenarios.
+
 ### Version 6.0.21
 
 - Improvement: CRUD for Compositional entities now throws a clearer exceptions if you have modeled multiple owners(which is not valid).
