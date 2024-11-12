@@ -257,7 +257,7 @@ public class DomainInteractionsManager
 
             }
 
-            TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity.InternalElement, entityVariableName, dataAccess, false, queryContext.ImplementWithProjections() ? queryContext.GetDtoProjectionReturnType() : null, associationEnd.TypeReference.IsCollection));
+            TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity.InternalElement, entityVariableName, dataAccess, false, queryContext.ImplementWithProjections() && dataAccess.IsUsingProjections ? queryContext.GetDtoProjectionReturnType() : null, associationEnd.TypeReference.IsCollection));
 
             return statements;
         }

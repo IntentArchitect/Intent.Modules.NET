@@ -216,6 +216,8 @@
             <isNullable>false</isNullable>
             <isCollection>true</isCollection>
             <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.DbContext.Tests.Services</typePackageName>
+            <typePackageId>b9c64131-4227-4b8a-9d95-8d5a5c97897f</typePackageId>
             <stereotypes />
             <genericTypeParameters />
           </typeReference>

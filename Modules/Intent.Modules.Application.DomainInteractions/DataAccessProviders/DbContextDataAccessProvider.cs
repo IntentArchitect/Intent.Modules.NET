@@ -36,7 +36,7 @@ public class DbContextDataAccessProvider : IDataAccessProvider
         _queryContext = queryContext;
     }
 
-    public bool IsUsingProjections => false;
+    public bool IsUsingProjections => _isUsingProjections;
 
     public CSharpStatement SaveChangesAsync()
     {
@@ -224,8 +224,9 @@ public class DbContextDataAccessProvider : IDataAccessProvider
     }
 
     private CSharpInvocationStatement AddProjectTo(CSharpStatement statement)
-    {        
-        return new CSharpInvocationStatement(statement, $"{_template.UseType($"AutoMapper.QueryableExtensions.ProjectTo")}<{_queryContext!.GetDtoProjectionReturnType()}>").AddArgument("_mapper.ConfigurationProvider");
+    {
+        _template.AddUsing("AutoMapper.QueryableExtensions");
+        return new CSharpInvocationStatement(statement, $"ProjectTo<{_queryContext!.GetDtoProjectionReturnType()}>").AddArgument("_mapper.ConfigurationProvider");
     }
 
     private CSharpInvocationStatement AddProjectTo(CSharpInvocationStatement statement)
@@ -235,7 +236,8 @@ public class DbContextDataAccessProvider : IDataAccessProvider
 
     private void AddProjectTo(CSharpMethodChainStatement chain)
     {
-        chain.AddChainStatement($"{_template.UseType($"AutoMapper.QueryableExtensions.ProjectTo")}<{_queryContext!.GetDtoProjectionReturnType()}>(_mapper.ConfigurationProvider)");
+        _template.AddUsing("AutoMapper.QueryableExtensions");
+        chain.AddChainStatement($"ProjectTo<{_queryContext!.GetDtoProjectionReturnType()}>(_mapper.ConfigurationProvider)");
     }
 
     private string Where()
