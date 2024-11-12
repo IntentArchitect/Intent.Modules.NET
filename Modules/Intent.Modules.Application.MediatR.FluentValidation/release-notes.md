@@ -1,3 +1,7 @@
+### Version 4.7.2
+
+- Improvement: Comment added to `Command`/`Query` validators to provide context of empty method
+
 ### Version 4.7.1
 
 - Improvement: Updated `ValidationBehaviour` template to use the Builder pattern. Updated styling to more align with best practices

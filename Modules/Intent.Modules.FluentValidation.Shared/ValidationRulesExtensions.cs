@@ -98,6 +98,11 @@ public static class ValidationRulesExtensions
                             repositoryFieldName = possibleRepositoryFieldName;
                         }
                     }
+
+                    if (!validationRuleStatements.Any())
+                    {
+                        method.AddStatement("// Implement custom validation logic here if required");
+                    }
                 });
 
                 foreach (var field in dtoModel.Fields)
