@@ -17,6 +17,7 @@ namespace Entities.Interfaces.EF.Application.People.GetPersonById
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

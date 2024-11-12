@@ -17,6 +17,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.AsyncRepo
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

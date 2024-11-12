@@ -17,6 +17,7 @@ namespace CosmosDB.EnumStrings.Application.RootEntities.GetRootEntities
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

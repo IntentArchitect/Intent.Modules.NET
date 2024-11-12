@@ -17,6 +17,7 @@ namespace MassTransit.AzureServiceBus.Application.ExternalMessagePublish.Publish
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

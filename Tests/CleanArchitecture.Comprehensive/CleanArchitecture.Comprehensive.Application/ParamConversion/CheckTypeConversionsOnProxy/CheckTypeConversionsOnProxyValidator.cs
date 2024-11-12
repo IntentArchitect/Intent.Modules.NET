@@ -17,6 +17,7 @@ namespace CleanArchitecture.Comprehensive.Application.ParamConversion.CheckTypeC
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

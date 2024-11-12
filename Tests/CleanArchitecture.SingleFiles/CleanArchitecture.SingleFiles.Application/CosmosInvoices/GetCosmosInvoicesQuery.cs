@@ -56,6 +56,7 @@ namespace CleanArchitecture.SingleFiles.Application.CosmosInvoices
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

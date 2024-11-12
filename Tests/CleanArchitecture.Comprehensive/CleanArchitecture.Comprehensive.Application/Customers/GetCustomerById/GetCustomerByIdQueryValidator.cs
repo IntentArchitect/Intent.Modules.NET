@@ -17,6 +17,7 @@ namespace CleanArchitecture.Comprehensive.Application.Customers.GetCustomerById
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

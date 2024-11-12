@@ -17,6 +17,7 @@ namespace OpenApiImporterTest.Application.Stores.DeleteOrder
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

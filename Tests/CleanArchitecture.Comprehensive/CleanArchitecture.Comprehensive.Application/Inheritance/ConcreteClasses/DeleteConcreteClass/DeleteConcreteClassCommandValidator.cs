@@ -17,6 +17,7 @@ namespace CleanArchitecture.Comprehensive.Application.Inheritance.ConcreteClasse
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

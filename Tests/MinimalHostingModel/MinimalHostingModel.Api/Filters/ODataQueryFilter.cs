@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Linq;
 using System.Reflection;
@@ -17,7 +18,7 @@ namespace MinimalHostingModel.Api.Filters
     {
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
-            var hasODataQueryOptions = context.MethodInfo.GetParameters().Any(MatchODataQueryOptions);
+            var hasODataQueryOptions = Array.Exists(context.MethodInfo.GetParameters(), MatchODataQueryOptions);
 
             if (!hasODataQueryOptions)
             {

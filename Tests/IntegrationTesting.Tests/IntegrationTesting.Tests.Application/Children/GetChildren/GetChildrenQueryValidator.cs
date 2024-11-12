@@ -17,6 +17,7 @@ namespace IntegrationTesting.Tests.Application.Children.GetChildren
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

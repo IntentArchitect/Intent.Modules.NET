@@ -17,6 +17,7 @@ namespace ProxyServiceTests.Proxy.PTH.Application.DeleteClientsServices.DeleteCl
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

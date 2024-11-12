@@ -17,6 +17,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Orders.DeleteOrder
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

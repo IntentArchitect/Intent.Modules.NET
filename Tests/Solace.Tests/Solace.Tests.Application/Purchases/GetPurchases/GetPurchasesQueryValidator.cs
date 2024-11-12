@@ -17,6 +17,7 @@ namespace Solace.Tests.Application.Purchases.GetPurchases
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Redis.Om.Repositories.Application.DerivedTypes.GetDerivedTypes
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

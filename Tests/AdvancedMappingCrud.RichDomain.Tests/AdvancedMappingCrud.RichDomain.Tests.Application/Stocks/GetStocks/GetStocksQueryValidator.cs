@@ -17,6 +17,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Stocks.GetStocks
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

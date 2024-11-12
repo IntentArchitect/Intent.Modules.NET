@@ -19,6 +19,7 @@ namespace AzureFunctions.NET8.Application.Validators.Customers.GetCustomers
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

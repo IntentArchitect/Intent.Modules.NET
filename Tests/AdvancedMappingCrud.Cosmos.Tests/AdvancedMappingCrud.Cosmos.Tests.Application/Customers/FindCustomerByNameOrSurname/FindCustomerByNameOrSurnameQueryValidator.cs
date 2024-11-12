@@ -17,6 +17,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Customers.FindCustomerByN
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

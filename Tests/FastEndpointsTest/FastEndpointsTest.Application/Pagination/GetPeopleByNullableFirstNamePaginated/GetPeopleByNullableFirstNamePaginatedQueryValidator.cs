@@ -17,6 +17,7 @@ namespace FastEndpointsTest.Application.Pagination.GetPeopleByNullableFirstNameP
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

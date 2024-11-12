@@ -17,6 +17,7 @@ namespace CleanArchitecture.Comprehensive.Application.OpenApiIgnoreAllImplicit.O
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

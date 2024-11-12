@@ -20,6 +20,7 @@ namespace AzureFunctions.NET6.Application.Validators.Customers.GetCustomerById
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

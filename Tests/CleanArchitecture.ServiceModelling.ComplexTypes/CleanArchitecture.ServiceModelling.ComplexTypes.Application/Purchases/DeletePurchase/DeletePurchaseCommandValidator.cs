@@ -20,6 +20,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

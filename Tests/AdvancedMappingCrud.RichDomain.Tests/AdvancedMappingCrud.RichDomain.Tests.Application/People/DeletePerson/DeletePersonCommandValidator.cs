@@ -17,6 +17,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.People.DeletePerson
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

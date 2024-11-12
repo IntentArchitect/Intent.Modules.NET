@@ -17,6 +17,7 @@ namespace ProxyServiceTests.OriginalServices.Application.Accounts.GetAccountById
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

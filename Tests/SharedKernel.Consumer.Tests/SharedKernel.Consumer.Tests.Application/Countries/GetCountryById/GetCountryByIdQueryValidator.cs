@@ -17,6 +17,7 @@ namespace SharedKernel.Consumer.Tests.Application.Countries.GetCountryById
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

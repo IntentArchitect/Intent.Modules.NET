@@ -17,6 +17,7 @@ namespace ProxyServiceTests.Proxy.AuthHeaderProvider.Application.AccountsService
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

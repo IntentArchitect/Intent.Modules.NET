@@ -54,6 +54,7 @@ namespace CleanArchitecture.SingleFiles.Application.MongoInvoices
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

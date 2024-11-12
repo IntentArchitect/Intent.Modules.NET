@@ -17,6 +17,7 @@ namespace TrainingModel.Tests.Application.Brands.GetBrandById
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

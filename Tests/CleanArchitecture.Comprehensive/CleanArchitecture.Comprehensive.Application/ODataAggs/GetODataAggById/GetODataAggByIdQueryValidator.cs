@@ -17,6 +17,7 @@ namespace CleanArchitecture.Comprehensive.Application.ODataAggs.GetODataAggById
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

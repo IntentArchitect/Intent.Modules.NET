@@ -17,6 +17,7 @@ namespace Kafka.Consumer.Application.Invoices.GetInvoiceById
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

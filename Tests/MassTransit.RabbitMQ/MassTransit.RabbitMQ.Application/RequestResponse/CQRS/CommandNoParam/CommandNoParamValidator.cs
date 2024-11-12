@@ -17,6 +17,7 @@ namespace MassTransit.RabbitMQ.Application.RequestResponse.CQRS.CommandNoParam
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

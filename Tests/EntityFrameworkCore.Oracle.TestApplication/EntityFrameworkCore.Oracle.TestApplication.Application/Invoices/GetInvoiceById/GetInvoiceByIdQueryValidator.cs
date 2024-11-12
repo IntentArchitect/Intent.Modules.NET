@@ -17,6 +17,7 @@ namespace EntityFrameworkCore.Oracle.TestApplication.Application.Invoices.GetInv
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

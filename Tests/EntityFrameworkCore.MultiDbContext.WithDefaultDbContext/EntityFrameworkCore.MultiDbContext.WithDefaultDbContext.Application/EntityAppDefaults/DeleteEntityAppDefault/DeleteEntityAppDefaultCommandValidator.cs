@@ -17,6 +17,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Application.En
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

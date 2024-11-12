@@ -18,6 +18,7 @@ namespace Entities.PrivateSetters.TestApplication.Application.ManyToOneDests.Del
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

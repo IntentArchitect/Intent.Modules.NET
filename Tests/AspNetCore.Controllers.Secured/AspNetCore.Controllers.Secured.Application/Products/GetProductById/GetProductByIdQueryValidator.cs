@@ -17,6 +17,7 @@ namespace AspNetCore.Controllers.Secured.Application.Products.GetProductById
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

@@ -17,6 +17,7 @@ namespace CosmosDB.Application.NonStringPartitionKeys.GetNonStringPartitionKeys
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

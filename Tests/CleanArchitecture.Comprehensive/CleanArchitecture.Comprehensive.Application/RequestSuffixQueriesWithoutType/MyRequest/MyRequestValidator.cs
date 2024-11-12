@@ -20,6 +20,7 @@ namespace CleanArchitecture.Comprehensive.Application.RequestSuffixQueriesWithou
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

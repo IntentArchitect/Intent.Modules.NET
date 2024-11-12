@@ -17,6 +17,7 @@ namespace SqlServerImporterTests.Application.Orders.GetCustomerOrders
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

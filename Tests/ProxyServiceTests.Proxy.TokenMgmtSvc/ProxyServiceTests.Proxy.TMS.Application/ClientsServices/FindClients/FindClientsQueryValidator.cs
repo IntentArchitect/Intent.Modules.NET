@@ -17,6 +17,7 @@ namespace ProxyServiceTests.Proxy.TMS.Application.ClientsServices.FindClients
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

@@ -17,6 +17,7 @@ namespace TrainingModel.Tests.Application.Orders.GetOrders
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

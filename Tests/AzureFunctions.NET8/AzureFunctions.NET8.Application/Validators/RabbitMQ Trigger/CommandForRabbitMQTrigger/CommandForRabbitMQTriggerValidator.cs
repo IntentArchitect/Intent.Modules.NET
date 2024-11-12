@@ -18,6 +18,7 @@ namespace AzureFunctions.NET8.Application.Validators.RabbitMQTrigger.CommandForR
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

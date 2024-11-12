@@ -18,6 +18,7 @@ namespace Entities.PrivateSetters.TestApplication.Application.ManyToOneSources.G
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

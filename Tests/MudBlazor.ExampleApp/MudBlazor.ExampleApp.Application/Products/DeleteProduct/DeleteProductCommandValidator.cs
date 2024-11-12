@@ -17,6 +17,7 @@ namespace MudBlazor.ExampleApp.Application.Products.DeleteProduct
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

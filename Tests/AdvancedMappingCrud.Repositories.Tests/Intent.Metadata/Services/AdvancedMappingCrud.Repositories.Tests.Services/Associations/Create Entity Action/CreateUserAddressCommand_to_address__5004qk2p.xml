@@ -40,17 +40,17 @@
     <mappings>
       <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
         <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="234e858c-4321-472b-bd71-517e8947785d" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CreateUserAddressCommand]" />
-        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="93dd60e4-2bcc-46f9-be53-97693c0b97dd" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Address]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="93dd60e4-2bcc-46f9-be53-97693c0b97dd" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UserAddress]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{CreateUserAddressCommand}</expression>
             <path>
-              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="Address" type="element" specialization="Class" />
+              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="UserAddress" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
             </path>
             <sources>
               <source identifier="CreateUserAddressCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
                 <path>
-                  <target id="234e858c-4321-472b-bd71-517e8947785d" name="CreateUserAddressCommand" type="element" specialization="Command" />
+                  <target id="234e858c-4321-472b-bd71-517e8947785d" name="CreateUserAddressCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                 </path>
               </source>
             </sources>
@@ -58,14 +58,14 @@
           <mappedEnd>
             <expression>{UserId}</expression>
             <path>
-              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="Address" type="element" specialization="Class" />
-              <target id="21a9832c-e2a8-4f2c-b3fc-50b4f2381862" name="UserId" type="element" specialization="Attribute" />
+              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="UserAddress" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="21a9832c-e2a8-4f2c-b3fc-50b4f2381862" name="UserId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="UserId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="234e858c-4321-472b-bd71-517e8947785d" name="CreateUserAddressCommand" type="element" specialization="Command" />
-                  <target id="c351df25-551e-40e1-a1c5-8a4263fb0b76" name="UserId" type="element" specialization="DTO-Field" />
+                  <target id="234e858c-4321-472b-bd71-517e8947785d" name="CreateUserAddressCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="c351df25-551e-40e1-a1c5-8a4263fb0b76" name="UserId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -73,14 +73,14 @@
           <mappedEnd>
             <expression>{Line1}</expression>
             <path>
-              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="Address" type="element" specialization="Class" />
-              <target id="f8603373-7ff2-43bd-b461-48774dba3cda" name="Line1" type="element" specialization="Attribute" />
+              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="UserAddress" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="f8603373-7ff2-43bd-b461-48774dba3cda" name="Line1" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Line1" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="234e858c-4321-472b-bd71-517e8947785d" name="CreateUserAddressCommand" type="element" specialization="Command" />
-                  <target id="7e1163c1-432f-4135-8ae0-635e477dd35a" name="Line1" type="element" specialization="DTO-Field" />
+                  <target id="234e858c-4321-472b-bd71-517e8947785d" name="CreateUserAddressCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7e1163c1-432f-4135-8ae0-635e477dd35a" name="Line1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -88,14 +88,14 @@
           <mappedEnd>
             <expression>{Line2}</expression>
             <path>
-              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="Address" type="element" specialization="Class" />
-              <target id="93c06185-bad6-403f-a6f5-7dd7656c0ca7" name="Line2" type="element" specialization="Attribute" />
+              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="UserAddress" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="93c06185-bad6-403f-a6f5-7dd7656c0ca7" name="Line2" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Line2" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="234e858c-4321-472b-bd71-517e8947785d" name="CreateUserAddressCommand" type="element" specialization="Command" />
-                  <target id="cd52f3e5-3f84-45ca-99fe-6d45b22e4201" name="Line2" type="element" specialization="DTO-Field" />
+                  <target id="234e858c-4321-472b-bd71-517e8947785d" name="CreateUserAddressCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="cd52f3e5-3f84-45ca-99fe-6d45b22e4201" name="Line2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -103,14 +103,14 @@
           <mappedEnd>
             <expression>{City}</expression>
             <path>
-              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="Address" type="element" specialization="Class" />
-              <target id="0cadbc67-ed8d-464f-9be1-05712683c17c" name="City" type="element" specialization="Attribute" />
+              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="UserAddress" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="0cadbc67-ed8d-464f-9be1-05712683c17c" name="City" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="City" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="234e858c-4321-472b-bd71-517e8947785d" name="CreateUserAddressCommand" type="element" specialization="Command" />
-                  <target id="1e4ad71a-7653-48eb-830a-7848f24e137a" name="City" type="element" specialization="DTO-Field" />
+                  <target id="234e858c-4321-472b-bd71-517e8947785d" name="CreateUserAddressCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="1e4ad71a-7653-48eb-830a-7848f24e137a" name="City" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -118,14 +118,14 @@
           <mappedEnd>
             <expression>{Postal}</expression>
             <path>
-              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="Address" type="element" specialization="Class" />
-              <target id="696444d5-61bb-4f8d-a0c7-44225bd391e4" name="Postal" type="element" specialization="Attribute" />
+              <target id="93dd60e4-2bcc-46f9-be53-97693c0b97dd" name="UserAddress" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="696444d5-61bb-4f8d-a0c7-44225bd391e4" name="Postal" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Postal" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="234e858c-4321-472b-bd71-517e8947785d" name="CreateUserAddressCommand" type="element" specialization="Command" />
-                  <target id="882a1681-00d5-4128-8ef3-8fdccebc1f91" name="Postal" type="element" specialization="DTO-Field" />
+                  <target id="234e858c-4321-472b-bd71-517e8947785d" name="CreateUserAddressCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="882a1681-00d5-4128-8ef3-8fdccebc1f91" name="Postal" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

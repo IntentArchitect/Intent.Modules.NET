@@ -20,6 +20,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Validators.Products.
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

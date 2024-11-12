@@ -17,6 +17,7 @@ namespace Entities.Interfaces.EF.Application.Orders.DeleteOrder
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

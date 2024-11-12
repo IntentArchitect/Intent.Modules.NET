@@ -17,6 +17,7 @@ namespace SharedKernel.Consumer.Tests.Application.Orders.GetOrderById
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

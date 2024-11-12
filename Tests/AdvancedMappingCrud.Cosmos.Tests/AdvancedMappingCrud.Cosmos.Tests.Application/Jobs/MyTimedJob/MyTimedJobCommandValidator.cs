@@ -17,6 +17,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Jobs.MyTimedJob
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

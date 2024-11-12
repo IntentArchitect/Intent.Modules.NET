@@ -17,6 +17,7 @@ namespace OpenApiImporterTest.Application.Users.GetLogout
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

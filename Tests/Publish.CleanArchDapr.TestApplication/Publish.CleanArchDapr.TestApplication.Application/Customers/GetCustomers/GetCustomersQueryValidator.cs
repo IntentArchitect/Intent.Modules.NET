@@ -19,6 +19,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.GetCustome
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

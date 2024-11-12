@@ -17,6 +17,7 @@ namespace AdvancedMappingCrudMongo.Tests.Application.Orders.GetOrderByRef
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

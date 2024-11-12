@@ -17,6 +17,7 @@ namespace FastEndpointsTest.Application.AggregateRoots.GetAggregateRootById
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

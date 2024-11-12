@@ -17,6 +17,7 @@ namespace OpenApiImporterTest.Application.Pets.GetPet
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

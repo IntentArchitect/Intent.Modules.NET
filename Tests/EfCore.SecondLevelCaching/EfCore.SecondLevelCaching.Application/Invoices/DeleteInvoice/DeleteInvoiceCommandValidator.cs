@@ -17,6 +17,7 @@ namespace EfCore.SecondLevelCaching.Application.Invoices.DeleteInvoice
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

@@ -17,6 +17,7 @@ namespace CleanArchitecture.Comprehensive.Application.GeometryTypes.GetGeometryT
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

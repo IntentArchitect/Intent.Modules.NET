@@ -19,6 +19,7 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.DeleteTestC
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

@@ -19,6 +19,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.GetPrivileges
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

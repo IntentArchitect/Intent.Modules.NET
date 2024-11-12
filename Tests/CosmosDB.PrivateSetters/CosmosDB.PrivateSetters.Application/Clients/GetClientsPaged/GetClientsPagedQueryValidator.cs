@@ -17,6 +17,7 @@ namespace CosmosDB.PrivateSetters.Application.Clients.GetClientsPaged
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

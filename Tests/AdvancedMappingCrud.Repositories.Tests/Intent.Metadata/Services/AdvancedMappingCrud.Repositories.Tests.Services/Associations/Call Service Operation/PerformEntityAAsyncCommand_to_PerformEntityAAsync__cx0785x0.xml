@@ -44,12 +44,12 @@
           <mappedEnd>
             <expression>{PerformEntityAAsyncCommand}</expression>
             <path>
-              <target id="daf306f7-ba72-4cff-b6d6-5438c5310e81" name="PerformEntityAAsync" type="element" specialization="Operation" />
+              <target id="daf306f7-ba72-4cff-b6d6-5438c5310e81" name="PerformEntityAAsync" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
             </path>
             <sources>
               <source identifier="PerformEntityAAsyncCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
                 <path>
-                  <target id="634ecce8-21bd-4cf9-8435-6556650f7190" name="PerformEntityAAsyncCommand" type="element" specialization="Command" />
+                  <target id="634ecce8-21bd-4cf9-8435-6556650f7190" name="PerformEntityAAsyncCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                 </path>
               </source>
             </sources>
@@ -57,15 +57,15 @@
           <mappedEnd>
             <expression>{ConcreteAttr}</expression>
             <path>
-              <target id="daf306f7-ba72-4cff-b6d6-5438c5310e81" name="PerformEntityAAsync" type="element" specialization="Operation" />
-              <target id="d68eefb0-89b5-4b64-8e2f-ffd188ca0e9e" name="entity" type="element" specialization="Parameter" />
-              <target id="78aaffa9-c613-4f4c-8b21-c71b25e93af9" name="ConcreteAttr" type="element" specialization="Attribute" />
+              <target id="daf306f7-ba72-4cff-b6d6-5438c5310e81" name="PerformEntityAAsync" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="d68eefb0-89b5-4b64-8e2f-ffd188ca0e9e" name="entity" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+              <target id="78aaffa9-c613-4f4c-8b21-c71b25e93af9" name="ConcreteAttr" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="ConcreteAttr" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
                 <path>
-                  <target id="634ecce8-21bd-4cf9-8435-6556650f7190" name="PerformEntityAAsyncCommand" type="element" specialization="Command" />
-                  <target id="eac84c18-8d3c-4ff2-8bca-a917ee0241ce" name="ConcreteAttr" type="element" specialization="DTO-Field" />
+                  <target id="634ecce8-21bd-4cf9-8435-6556650f7190" name="PerformEntityAAsyncCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="eac84c18-8d3c-4ff2-8bca-a917ee0241ce" name="ConcreteAttr" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -73,16 +73,16 @@
           <mappedEnd>
             <expression>{BaseAttr}</expression>
             <path>
-              <target id="daf306f7-ba72-4cff-b6d6-5438c5310e81" name="PerformEntityAAsync" type="element" specialization="Operation" />
-              <target id="d68eefb0-89b5-4b64-8e2f-ffd188ca0e9e" name="entity" type="element" specialization="Parameter" />
-              <target id="85f3868d-ad2a-477a-ba77-fec7957a53d3" name="base" type="association" specialization="Generalization Target End" />
-              <target id="60d718fe-cd61-468b-9057-5894dca44d14" name="BaseAttr" type="element" specialization="Attribute" />
+              <target id="daf306f7-ba72-4cff-b6d6-5438c5310e81" name="PerformEntityAAsync" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="d68eefb0-89b5-4b64-8e2f-ffd188ca0e9e" name="entity" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+              <target id="85f3868d-ad2a-477a-ba77-fec7957a53d3" name="base" type="association" specialization="Generalization Target End" specializationId="4686cc1d-b4d8-4b99-b45b-f77bd5496946" />
+              <target id="60d718fe-cd61-468b-9057-5894dca44d14" name="BaseAttr" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="BaseAttr" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
                 <path>
-                  <target id="634ecce8-21bd-4cf9-8435-6556650f7190" name="PerformEntityAAsyncCommand" type="element" specialization="Command" />
-                  <target id="249f6ffb-c1b9-442a-b16f-eb4a76cd799b" name="BaseAttr" type="element" specialization="DTO-Field" />
+                  <target id="634ecce8-21bd-4cf9-8435-6556650f7190" name="PerformEntityAAsyncCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="249f6ffb-c1b9-442a-b16f-eb4a76cd799b" name="BaseAttr" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

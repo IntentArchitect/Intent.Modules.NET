@@ -17,6 +17,7 @@ namespace CleanArchitecture.Dapr.Application.SecuredProxy.GetSecuredValue
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

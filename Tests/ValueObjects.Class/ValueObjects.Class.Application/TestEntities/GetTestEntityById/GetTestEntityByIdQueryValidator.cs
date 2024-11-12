@@ -17,6 +17,7 @@ namespace ValueObjects.Class.Application.TestEntities.GetTestEntityById
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

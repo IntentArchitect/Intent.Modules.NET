@@ -17,6 +17,7 @@ namespace MudBlazor.ExampleApp.Application.Products.GetProductById
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

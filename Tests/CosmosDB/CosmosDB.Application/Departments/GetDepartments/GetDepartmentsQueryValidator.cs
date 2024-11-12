@@ -17,6 +17,7 @@ namespace CosmosDB.Application.Departments.GetDepartments
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

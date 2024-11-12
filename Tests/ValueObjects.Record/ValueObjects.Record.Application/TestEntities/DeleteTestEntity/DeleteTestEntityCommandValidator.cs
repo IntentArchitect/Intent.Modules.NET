@@ -17,6 +17,7 @@ namespace ValueObjects.Record.Application.TestEntities.DeleteTestEntity
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

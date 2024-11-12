@@ -19,6 +19,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.UpdateOrder
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

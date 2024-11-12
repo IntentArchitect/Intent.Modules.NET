@@ -19,6 +19,7 @@ namespace CleanArchitecture.Dapr.Application.OldMappingSystem.Clients.GetClients
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

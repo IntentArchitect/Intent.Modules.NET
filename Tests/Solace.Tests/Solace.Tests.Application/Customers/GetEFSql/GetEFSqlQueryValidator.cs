@@ -17,6 +17,7 @@ namespace Solace.Tests.Application.Customers.GetEFSql
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

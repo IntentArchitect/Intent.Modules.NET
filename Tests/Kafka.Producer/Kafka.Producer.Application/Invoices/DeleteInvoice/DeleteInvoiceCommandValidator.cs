@@ -17,6 +17,7 @@ namespace Kafka.Producer.Application.Invoices.DeleteInvoice
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

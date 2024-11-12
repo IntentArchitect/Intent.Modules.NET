@@ -17,6 +17,7 @@ namespace FastEndpointsTest.Application.ScalarCollectionReturnType.CommandWithCo
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

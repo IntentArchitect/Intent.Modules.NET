@@ -17,6 +17,7 @@ namespace SharedKernel.Consumer.Tests.Application.Currencies.GetCurrencies
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

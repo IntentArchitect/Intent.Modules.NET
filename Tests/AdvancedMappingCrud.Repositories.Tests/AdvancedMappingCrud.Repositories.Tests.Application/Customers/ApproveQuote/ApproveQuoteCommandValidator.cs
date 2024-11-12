@@ -17,6 +17,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.ApproveQu
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

@@ -17,6 +17,7 @@ namespace CosmosDBMultiTenancy.Application.Invoices.GetInvoices
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Solace.Tests.Application.Purchases.DeletePurchase
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

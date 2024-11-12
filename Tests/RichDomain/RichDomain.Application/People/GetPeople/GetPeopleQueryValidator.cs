@@ -18,6 +18,7 @@ namespace RichDomain.Application.People.GetPeople
         [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

@@ -17,6 +17,7 @@ namespace OutputCachingRedis.Tests.Application.Files.GetFilesById
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

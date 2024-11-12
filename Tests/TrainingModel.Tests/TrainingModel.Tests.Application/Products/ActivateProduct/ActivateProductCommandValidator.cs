@@ -17,6 +17,7 @@ namespace TrainingModel.Tests.Application.Products.ActivateProduct
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

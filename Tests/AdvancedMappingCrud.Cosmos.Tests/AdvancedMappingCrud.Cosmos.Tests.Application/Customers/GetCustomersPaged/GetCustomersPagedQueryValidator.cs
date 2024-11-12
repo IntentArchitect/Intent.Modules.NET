@@ -17,6 +17,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomersPag
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }

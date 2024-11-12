@@ -17,6 +17,7 @@ namespace Ardalis.Application.Clients.DeleteClient
 
         private void ConfigureValidationRules()
         {
+            // Implement custom validation logic here if required
         }
     }
 }
