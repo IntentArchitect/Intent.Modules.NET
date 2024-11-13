@@ -53,11 +53,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
                             file.AddHtmlElement("PageTitle", x => x.WithText(Model.GetPage().Title()));
                         }
                     }
-
-                    ComponentBuilderProvider.BuildComponent(Model.View.InternalElement, file);
-
                     var block = GetCodeBehind();
                     block.AddCodeBlockMembers(this, Model.InternalElement);
+
+                    file.AfterBuild(_ =>
+                    {
+                        ComponentBuilderProvider.BuildComponent(Model.View.InternalElement, file);
+                    });
+
+
                     if (Model.HasPage())
                     {
                         foreach (var declaration in block.Declarations)
