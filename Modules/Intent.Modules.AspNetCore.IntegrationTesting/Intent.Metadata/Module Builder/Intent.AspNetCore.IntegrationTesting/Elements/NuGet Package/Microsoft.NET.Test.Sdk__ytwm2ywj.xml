@@ -25,8 +25,9 @@
   <metadata />
   <childElements>
     <childElement id="19f2e215-a2a7-4de9-8a5c-9c3757383e08" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>15.5.0</name>
-      <display>15.5.0 ( &gt;= Any,Version=v0.0 )</display>
+      <comment>This doesnt seem to update from NuGet goes to 15.5.0</comment>
+      <name>17.6.0</name>
+      <display>17.6.0 ( &gt;= Any,Version=v0.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
