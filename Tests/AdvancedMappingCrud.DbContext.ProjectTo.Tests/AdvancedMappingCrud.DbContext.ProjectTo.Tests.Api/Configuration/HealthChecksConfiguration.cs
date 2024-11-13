@@ -18,7 +18,6 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Api.Configuration
             IConfiguration configuration)
         {
             var hcBuilder = services.AddHealthChecks();
-            hcBuilder.AddSqlServer(configuration.GetConnectionString("DefaultConnection")!, name: "DefaultConnection", tags: new[] { "database", "SqlServer" });
 
             return services;
         }

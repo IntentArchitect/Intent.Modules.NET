@@ -17,9 +17,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Infrastructure
         {
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
-                options.UseSqlServer(
-                    configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
+                options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());

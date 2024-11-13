@@ -1332,14 +1332,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>bc2ca533-13f9-4767-a682-88ea134a7322</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IntegrationTesting.EFContainerFixture</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests/EFContainerFixture.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EFContainerFixture.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>bc2ca533-13f9-4767-a682-88ea134a7322</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.EnumContract#6e24d900-4e8d-4bf4-ba74-c7273ca45ee0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests/EntityStatus.cs</ApplicationRelativeFilePath>
