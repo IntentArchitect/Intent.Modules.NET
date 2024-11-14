@@ -50,7 +50,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.Identity", "Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj", "{DEDDB78D-352E-4FE1-B7AF-5F1AC59E4F55}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.Behaviours", "Intent.Modules.Application.MediatR.Behaviours\Intent.Modules.Application.MediatR.Behaviours.csproj", "{8DE7DB33-7D69-403F-AD45-3B3D753705F2}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.MediatR.Behaviours", "Intent.Modules.Application.MediatR.Behaviours\Intent.Modules.Application.MediatR.Behaviours.csproj", "{8DE7DB33-7D69-403F-AD45-3B3D753705F2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.DependencyInjection.MediatR", "Intent.Modules.Application.DependencyInjection.MediatR\Intent.Modules.Application.DependencyInjection.MediatR.csproj", "{237C143B-3123-4722-BDF6-24A34537C85B}"
 EndProject

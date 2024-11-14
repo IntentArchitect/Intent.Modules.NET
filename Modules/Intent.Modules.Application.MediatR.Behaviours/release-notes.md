@@ -1,4 +1,9 @@
-﻿### Version 4.2.17
+﻿### Version 4.2.18
+
+- Improvement: Updated `LoggingBehavior` and `PerformanceBehavior` to use Builder pattern
+- Improvement: `ILogger<{ClassName}>` is now injected into `LoggingBehavior`, `PerformanceBehavior` and `UnhandledExceptionBehaviour`, instead of `ILogger<TRequest>`
+
+### Version 4.2.17
 
 - Improvement: ToList IEnumerable to prevent possible multiple enumerations.
 - Improvement: Small updated to improve readibility of `LoggingBehaviour` and `PerformanceBehaviour`

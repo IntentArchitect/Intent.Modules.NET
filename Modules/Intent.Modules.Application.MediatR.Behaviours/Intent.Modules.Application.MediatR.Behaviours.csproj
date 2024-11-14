@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -26,14 +26,6 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>AuthorizationBehaviourTemplate.cs</LastGenOutput>
     </None>
-    <None Update="Templates\LoggingBehaviour\LoggingBehaviourTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>LoggingBehaviourTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>PerformanceBehaviourTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ValidationBehaviourTemplate.cs</LastGenOutput>
@@ -57,16 +49,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>AuthorizationBehaviourTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\LoggingBehaviour\LoggingBehaviourTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>LoggingBehaviourTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\PerformanceBehaviour\PerformanceBehaviourTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>PerformanceBehaviourTemplate.tt</DependentUpon>
     </Compile>
     <Compile Update="Templates\ValidationBehaviour\ValidationBehaviourTemplate.cs">
       <DesignTime>True</DesignTime>

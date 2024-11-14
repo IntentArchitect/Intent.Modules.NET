@@ -30,15 +30,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#68ec10f6-35bb-4b18-9845-d5ef91513cff</correlationId>
       <path>Intent.Modules.Application.MediatR.Behaviours/Templates/LoggingBehaviour/LoggingBehaviourTemplatePartial.cs</path>
-      <count>3</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T09:42:11.4939864Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:59:18.8780777Z</approvedAt>
-      <deviationsHash>5C7BE6471C5195B35D7C422EA5C670945D9C5BFED2B774C5804616D873FD0006</deviationsHash>
-      <fileHash>47169AF1848D3C03D2FBA9214B6589F021D59D5ACB9316CA54CC81A0F3C72D3C</fileHash>
+      <count>4</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2024-11-14T13:35:30.2463861Z</updatedAt>
+      <deviationsHash>A3D856A829EA65829A6536A510F3631239CAD0E6F8ED99D0BF59A6DAA1CC4F35</deviationsHash>
+      <fileHash>36C600755A0AAD1D8A1F037D0C64297525701C4B4C802EF44048709D6D714A0D</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#68ec10f6-35bb-4b18-9845-d5ef91513cff</correlationId>
@@ -57,14 +54,11 @@
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#01accc66-206d-450c-8c23-b671dd4a69d4</correlationId>
       <path>Intent.Modules.Application.MediatR.Behaviours/Templates/PerformanceBehaviour/PerformanceBehaviourTemplatePartial.cs</path>
       <count>3</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-19T09:42:11.4939953Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:59:18.8892168Z</approvedAt>
-      <deviationsHash>6DB8ABD17D76C0D8B027720D257A86A30874B4A70DF93DE667A1DB57D60CCF6C</deviationsHash>
-      <fileHash>89B34F322D6B010CD858EC2C060CE6C71447957F44136B91D1D51CCFC9BD4A04</fileHash>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2024-11-14T13:35:30.2463978Z</updatedAt>
+      <deviationsHash>9C93CE2082785AB121215EA408AC2466A916EBCE8F7AB4E5D72644A9E3C897AD</deviationsHash>
+      <fileHash>55F3DAF5A05AF1F43BA5EAB8780765A4A0122B9449E8B1ABD6300983CC2AD67F</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#01accc66-206d-450c-8c23-b671dd4a69d4</correlationId>

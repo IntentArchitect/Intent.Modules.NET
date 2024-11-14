@@ -38,7 +38,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
                     @class.ImplementsInterface($"IPipelineBehavior<{TRequest}, {TResponse}>");
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter($"ILogger<{TRequest}>", "logger", param => param.IntroduceReadonlyField());
+                        ctor.AddParameter($"ILogger<UnhandledExceptionBehaviour<{TRequest},{TResponse}>>", "logger", param => param.IntroduceReadonlyField());
                     });
                     @class.AddMethod($"Task<{TResponse}>", "Handle", method =>
                     {
@@ -54,7 +54,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
                             .WithExceptionType("Exception")
                             .WithParameterName("ex")
                             .AddStatement($"var requestName = typeof({TRequest}).Name;")
-                            .AddStatement(@"_logger.LogError(ex, ""CleanArchitecture Request: Unhandled Exception for Request {Name} {@Request}"", requestName, request);")
+                            .AddStatement($@"_logger.LogError(ex, ""{ExecutionContext.GetApplicationConfig().Name} Request: Unhandled Exception for Request {{Name}} {{@Request}}"", requestName, request);")
                             .AddStatement("throw;"));
                     });
                 });
