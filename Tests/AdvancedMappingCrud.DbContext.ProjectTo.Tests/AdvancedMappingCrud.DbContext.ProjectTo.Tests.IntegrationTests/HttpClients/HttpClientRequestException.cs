@@ -9,6 +9,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.HttpCli
 {
     public class HttpClientRequestException : Exception
     {
+        private static readonly JsonSerializerOptions _jsonSerializer = new() { WriteIndented = true };
         public HttpClientRequestException(Uri requestUri,
             HttpStatusCode statusCode,
             IReadOnlyDictionary<string, IEnumerable<string>> responseHeaders,
@@ -34,14 +35,23 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.HttpCli
 
         public HttpClientRequestException()
         {
+            RequestUri = new Uri(string.Empty, UriKind.RelativeOrAbsolute);
+            ResponseHeaders = new Dictionary<string, IEnumerable<string>>();
+            ResponseContent = string.Empty;
         }
 
         public HttpClientRequestException(string message) : base(message)
         {
+            RequestUri = new Uri(string.Empty, UriKind.RelativeOrAbsolute);
+            ResponseHeaders = new Dictionary<string, IEnumerable<string>>();
+            ResponseContent = string.Empty;
         }
 
         public HttpClientRequestException(string message, Exception innerException) : base(message, innerException)
         {
+            RequestUri = new Uri(string.Empty, UriKind.RelativeOrAbsolute);
+            ResponseHeaders = new Dictionary<string, IEnumerable<string>>();
+            ResponseContent = string.Empty;
         }
 
         public ProblemDetailsWithErrors? ProblemDetails { get; private set; }
@@ -88,7 +98,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.HttpCli
 
         private static string FormatJson(object jsonObject)
         {
-            return JsonSerializer.Serialize(jsonObject, new JsonSerializerOptions() { WriteIndented = true });
+            return JsonSerializer.Serialize(jsonObject, _jsonSerializer);
         }
     }
 }

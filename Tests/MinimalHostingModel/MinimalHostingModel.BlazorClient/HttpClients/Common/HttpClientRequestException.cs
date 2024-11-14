@@ -11,14 +11,23 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.Common
     {
         public HttpClientRequestException()
         {
+            RequestUri = new Uri(string.Empty, UriKind.RelativeOrAbsolute);
+            ResponseHeaders = new Dictionary<string, IEnumerable<string>>();
+            ResponseContent = string.Empty;
         }
 
         public HttpClientRequestException(string message) : base(message)
         {
+            RequestUri = new Uri(string.Empty, UriKind.RelativeOrAbsolute);
+            ResponseHeaders = new Dictionary<string, IEnumerable<string>>();
+            ResponseContent = string.Empty;
         }
 
         public HttpClientRequestException(string message, Exception innerException) : base(message, innerException)
         {
+            RequestUri = new Uri(string.Empty, UriKind.RelativeOrAbsolute);
+            ResponseHeaders = new Dictionary<string, IEnumerable<string>>();
+            ResponseContent = string.Empty;
         }
         public HttpClientRequestException(Uri requestUri,
             HttpStatusCode statusCode,
