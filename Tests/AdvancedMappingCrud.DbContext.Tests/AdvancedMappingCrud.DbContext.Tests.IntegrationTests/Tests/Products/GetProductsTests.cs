@@ -29,7 +29,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests.Tests
             var products = await client.GetProductsAsync();
 
             // Assert
-            Assert.True(products.Count > 0);
+            Assert.True(products.Count != 0);
         }
     }
 }

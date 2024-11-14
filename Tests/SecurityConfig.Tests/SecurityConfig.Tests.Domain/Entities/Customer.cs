@@ -17,6 +17,6 @@ namespace SecurityConfig.Tests.Domain.Entities
 
         public CustomerType CustomerType { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

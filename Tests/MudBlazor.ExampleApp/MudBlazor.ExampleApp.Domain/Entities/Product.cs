@@ -17,6 +17,6 @@ namespace MudBlazor.ExampleApp.Domain.Entities
 
         public string? ImageUrl { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

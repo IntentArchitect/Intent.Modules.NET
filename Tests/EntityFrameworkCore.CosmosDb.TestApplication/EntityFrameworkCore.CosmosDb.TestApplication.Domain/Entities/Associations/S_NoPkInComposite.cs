@@ -17,6 +17,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 
         public virtual S_NoPkInCompositeDependent S_NoPkInCompositeDependent { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

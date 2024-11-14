@@ -29,6 +29,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
             set => Countries = value.Cast<Country>().ToList();
         }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

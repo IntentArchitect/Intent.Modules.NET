@@ -14,6 +14,6 @@ namespace FastEndpointsTest.Domain.Entities.CRUD
 
         public virtual CompositeOfAggrLong? CompositeOfAggrLong { get; set; } = new();
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

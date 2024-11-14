@@ -15,6 +15,6 @@ namespace SqlServerImporterTests.Domain.Entities.Dbo
 
         public bool IsActive { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

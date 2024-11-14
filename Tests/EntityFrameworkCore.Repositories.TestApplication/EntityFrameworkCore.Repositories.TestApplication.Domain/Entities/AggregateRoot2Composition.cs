@@ -17,6 +17,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
 
         public virtual ICollection<AggregateRoot2Collection> AggregateRoot2Collections { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

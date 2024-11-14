@@ -20,6 +20,6 @@ namespace TableStorage.Tests.Domain.Entities
 
         public ICollection<OrderLine> OrderLines { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

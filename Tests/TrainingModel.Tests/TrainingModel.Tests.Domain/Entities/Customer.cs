@@ -23,6 +23,6 @@ namespace TrainingModel.Tests.Domain.Entities
 
         public virtual ICollection<Address> Address { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

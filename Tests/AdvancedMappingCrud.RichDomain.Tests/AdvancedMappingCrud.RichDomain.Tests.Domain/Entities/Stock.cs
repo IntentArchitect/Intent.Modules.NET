@@ -30,7 +30,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
 
         public string AddedUser { get; private set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void UpdateStockLevel(Guid id, int total, DateTime dateUpdated)
         {

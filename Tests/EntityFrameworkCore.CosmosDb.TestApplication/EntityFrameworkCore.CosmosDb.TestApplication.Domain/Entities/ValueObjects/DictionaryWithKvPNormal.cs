@@ -19,6 +19,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.ValueObje
 
         public ICollection<KeyValuePairNormal> KeyValuePairNormals { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

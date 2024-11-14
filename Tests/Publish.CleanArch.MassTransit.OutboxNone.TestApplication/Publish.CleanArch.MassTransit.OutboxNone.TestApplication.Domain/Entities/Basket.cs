@@ -15,6 +15,6 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Entiti
 
         public virtual ICollection<BasketItem> BasketItems { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

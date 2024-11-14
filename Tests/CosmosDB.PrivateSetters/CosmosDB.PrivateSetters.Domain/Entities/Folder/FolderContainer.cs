@@ -24,6 +24,6 @@ namespace CosmosDB.PrivateSetters.Domain.Entities.Folder
             private set => _folderPartitionKey = value;
         }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

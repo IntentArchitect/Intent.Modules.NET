@@ -59,7 +59,7 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
 
         public InvoiceLogo InvoiceLogo { get; private set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void Update(DateTime date, string number, string clientIdentifier)
         {

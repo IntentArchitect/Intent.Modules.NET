@@ -38,6 +38,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
             set => OrderItems = value.Cast<OrderItem>().ToList();
         }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

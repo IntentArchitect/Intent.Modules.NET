@@ -13,6 +13,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
 
         public virtual AggregateRoot5EntityWithRepo AggregateRoot5EntityWithRepo { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

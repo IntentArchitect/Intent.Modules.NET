@@ -29,7 +29,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             var orderItems = await client.GetOrderOrderItemsAsync(ids.OrderId);
 
             // Assert
-            Assert.True(orderItems.Count > 0);
+            Assert.True(orderItems.Count != 0);
         }
     }
 }

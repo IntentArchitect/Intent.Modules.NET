@@ -39,7 +39,7 @@ namespace RichDomain.Domain.Entities
 
         IDepartment IPerson.Department => Department;
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         void IPerson.UpdatePerson(string firstName, IDepartment department)
         {

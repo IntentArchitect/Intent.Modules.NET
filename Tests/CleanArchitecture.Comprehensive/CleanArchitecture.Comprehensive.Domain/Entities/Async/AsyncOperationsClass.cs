@@ -15,7 +15,7 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.Async
 
         public Guid Id { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public async Task Explicit(CancellationToken cancellationToken = default)
         {

@@ -15,6 +15,6 @@ namespace FastEndpointsTest.Domain.Entities.Pagination
 
         public DateTime TimeStamp { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

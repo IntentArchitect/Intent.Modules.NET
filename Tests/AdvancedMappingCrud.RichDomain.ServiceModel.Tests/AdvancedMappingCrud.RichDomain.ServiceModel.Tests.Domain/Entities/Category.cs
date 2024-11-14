@@ -26,6 +26,6 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
 
         public string Name { get; private set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

@@ -15,6 +15,6 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
 
         public virtual ICollection<EfLine> EfLines { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

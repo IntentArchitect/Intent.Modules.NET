@@ -22,6 +22,6 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.DDD
 
         public virtual Account Account { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

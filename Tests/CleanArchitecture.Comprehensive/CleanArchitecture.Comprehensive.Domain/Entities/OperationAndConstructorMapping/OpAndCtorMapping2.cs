@@ -13,6 +13,6 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.OperationAndConstructo
 
         public virtual OpAndCtorMapping1 OpAndCtorMapping1 { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

@@ -28,6 +28,6 @@ namespace GraphQL.MongoDb.TestApplication.Domain.Entities
 
         public ICollection<AssignedPrivilege> AssignedPrivileges { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

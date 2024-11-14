@@ -27,6 +27,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 
         public Address? BillingAddress { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

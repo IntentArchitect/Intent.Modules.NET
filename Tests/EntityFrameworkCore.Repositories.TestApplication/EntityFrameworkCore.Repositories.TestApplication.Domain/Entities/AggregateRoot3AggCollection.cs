@@ -23,6 +23,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
 
         public virtual AggregateRoot3Collection AggregateRoot3Collection { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

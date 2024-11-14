@@ -15,6 +15,6 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.ODataQuery
 
         public virtual ICollection<ODataChild> ODataChildren { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

@@ -19,7 +19,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
         /// </summary>
         public string Tag { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public AggregateRoot1 Operation(object param1)
         {

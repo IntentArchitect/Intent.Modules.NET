@@ -36,7 +36,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 
         public virtual ICollection<QuoteLine> QuoteLines { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void NotifyQuoteCreated()
         {

@@ -17,6 +17,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
             set => _id = value;
         }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

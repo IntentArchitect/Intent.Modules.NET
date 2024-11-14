@@ -12,6 +12,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.Prima
 
         public string ByteName { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

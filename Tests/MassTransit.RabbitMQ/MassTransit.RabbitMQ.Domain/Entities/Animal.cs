@@ -16,7 +16,7 @@ namespace MassTransit.RabbitMQ.Domain.Entities
 
         public string Type { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void MakeSound()
         {

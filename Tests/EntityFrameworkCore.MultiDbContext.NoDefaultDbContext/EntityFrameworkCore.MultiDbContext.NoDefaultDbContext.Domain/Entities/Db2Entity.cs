@@ -13,6 +13,6 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain.Entities
 
         public string Message { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

@@ -20,6 +20,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritan
 
         public virtual ConcreteBaseClass ConcreteBaseClass { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

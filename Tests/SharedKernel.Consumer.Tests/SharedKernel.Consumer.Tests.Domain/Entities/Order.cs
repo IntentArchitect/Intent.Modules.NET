@@ -42,6 +42,6 @@ namespace SharedKernel.Consumer.Tests.Domain.Entities
 
         public virtual Currency Currency { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

@@ -15,6 +15,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 
         public ICollection<Tag> Tags { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

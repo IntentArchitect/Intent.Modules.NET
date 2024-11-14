@@ -18,6 +18,6 @@ namespace Redis.Om.Repositories.Domain.Entities
 
         public string Id { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

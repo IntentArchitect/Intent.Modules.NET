@@ -23,6 +23,6 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
 
         public PersonDetails Details { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

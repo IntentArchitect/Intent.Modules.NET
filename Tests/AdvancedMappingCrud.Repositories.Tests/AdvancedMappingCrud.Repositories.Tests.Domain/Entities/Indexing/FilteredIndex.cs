@@ -15,6 +15,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.Indexing
 
         public bool IsActive { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

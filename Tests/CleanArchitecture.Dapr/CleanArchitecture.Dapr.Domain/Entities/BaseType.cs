@@ -18,6 +18,6 @@ namespace CleanArchitecture.Dapr.Domain.Entities
 
         public string BaseAttribute { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

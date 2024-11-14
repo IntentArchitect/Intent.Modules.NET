@@ -18,6 +18,6 @@ namespace Finbuckle.SharedDatabase.TestApplication.Domain.Entities
 
         public virtual ICollection<Role> Roles { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

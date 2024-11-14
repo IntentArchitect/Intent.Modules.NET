@@ -28,6 +28,6 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
 
         public int ParentAge { get; private set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

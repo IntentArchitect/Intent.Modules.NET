@@ -15,7 +15,7 @@ namespace FastEndpointsTest.Domain.Entities.DDD
 
         public string Surname { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void ChangeName(string name, string surname)
         {

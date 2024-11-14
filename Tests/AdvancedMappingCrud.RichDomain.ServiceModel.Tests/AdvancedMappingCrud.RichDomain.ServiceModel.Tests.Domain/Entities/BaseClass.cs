@@ -11,6 +11,6 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
     {
         public Guid Id { get; protected set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

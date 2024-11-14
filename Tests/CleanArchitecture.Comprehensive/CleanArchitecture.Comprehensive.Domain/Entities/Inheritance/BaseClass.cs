@@ -13,6 +13,6 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.Inheritance
 
         public string BaseAttr { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

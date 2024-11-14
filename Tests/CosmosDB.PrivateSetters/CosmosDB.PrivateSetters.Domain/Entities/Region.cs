@@ -26,6 +26,6 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
             private set => _countries = new List<Country>(value);
         }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

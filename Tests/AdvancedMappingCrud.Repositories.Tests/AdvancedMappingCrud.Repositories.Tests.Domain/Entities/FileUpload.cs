@@ -17,6 +17,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 
         public string ContentType { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

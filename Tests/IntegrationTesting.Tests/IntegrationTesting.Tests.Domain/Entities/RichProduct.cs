@@ -32,6 +32,6 @@ namespace IntegrationTesting.Tests.Domain.Entities
 
         public virtual Brand Brand { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

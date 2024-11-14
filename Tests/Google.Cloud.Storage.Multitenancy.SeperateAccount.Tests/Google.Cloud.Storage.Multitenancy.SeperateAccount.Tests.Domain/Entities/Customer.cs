@@ -13,6 +13,6 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Domain.Entitie
 
         public string Name { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

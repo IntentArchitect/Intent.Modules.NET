@@ -17,6 +17,6 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Domain.Entities
 
         public string Last2 { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

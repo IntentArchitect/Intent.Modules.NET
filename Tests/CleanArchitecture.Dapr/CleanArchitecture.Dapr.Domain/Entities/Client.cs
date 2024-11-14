@@ -21,6 +21,6 @@ namespace CleanArchitecture.Dapr.Domain.Entities
 
         public IList<string> TagsIds { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

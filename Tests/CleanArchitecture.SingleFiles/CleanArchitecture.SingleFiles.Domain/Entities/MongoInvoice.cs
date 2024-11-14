@@ -15,6 +15,6 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
 
         public ICollection<MongoLine> MongoLines { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

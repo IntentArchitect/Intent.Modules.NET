@@ -15,6 +15,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.MappingTests
 
         public virtual ICollection<NestingChild> NestingChildren { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

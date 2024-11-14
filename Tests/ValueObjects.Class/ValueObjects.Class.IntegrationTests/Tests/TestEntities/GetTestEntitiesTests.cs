@@ -28,7 +28,7 @@ namespace ValueObjects.Class.IntegrationTests.Tests
             var testEntities = await client.GetTestEntitiesAsync();
 
             // Assert
-            Assert.True(testEntities.Count > 0);
+            Assert.True(testEntities.Count != 0);
         }
     }
 }

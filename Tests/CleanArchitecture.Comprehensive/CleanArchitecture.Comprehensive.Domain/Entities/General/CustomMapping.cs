@@ -13,6 +13,6 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.General
 
         public DateTime? When { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

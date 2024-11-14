@@ -13,6 +13,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.FolderCon
 
         public string FolderPartKey { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

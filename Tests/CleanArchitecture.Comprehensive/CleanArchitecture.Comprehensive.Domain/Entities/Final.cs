@@ -19,6 +19,6 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities
 
         public int FourId { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

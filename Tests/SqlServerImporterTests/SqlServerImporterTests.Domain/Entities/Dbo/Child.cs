@@ -17,6 +17,6 @@ namespace SqlServerImporterTests.Domain.Entities.Dbo
 
         public virtual Parent Parent { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

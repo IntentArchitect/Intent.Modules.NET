@@ -27,7 +27,7 @@ namespace Kafka.Consumer.Domain.Entities
 
         public string Note { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void Update(string note)
         {

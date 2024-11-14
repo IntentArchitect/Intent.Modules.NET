@@ -23,6 +23,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
 
         public IList<string> CategoriesIds { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

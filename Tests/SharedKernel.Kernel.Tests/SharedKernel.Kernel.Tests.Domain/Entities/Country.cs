@@ -32,6 +32,6 @@ namespace SharedKernel.Kernel.Tests.Domain.Entities
 
         public string Code { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

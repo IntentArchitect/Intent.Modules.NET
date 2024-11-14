@@ -39,6 +39,6 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
 
         public string AuntName { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

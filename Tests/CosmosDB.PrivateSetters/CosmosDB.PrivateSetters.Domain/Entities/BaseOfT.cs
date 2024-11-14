@@ -19,6 +19,6 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
 
         public T GenericAttribute { get; protected set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

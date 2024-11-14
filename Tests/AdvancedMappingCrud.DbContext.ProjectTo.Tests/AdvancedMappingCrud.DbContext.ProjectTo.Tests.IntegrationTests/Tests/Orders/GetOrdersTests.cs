@@ -28,7 +28,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.Tests
             var orders = await client.GetOrdersAsync();
 
             // Assert
-            Assert.True(orders.Count > 0);
+            Assert.True(orders.Count != 0);
         }
     }
 }

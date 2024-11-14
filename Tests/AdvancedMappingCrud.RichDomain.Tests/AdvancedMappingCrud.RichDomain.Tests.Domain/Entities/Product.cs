@@ -40,7 +40,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
             private set => _categories = new List<Category>(value);
         }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public async Task ChangeCategoriesAsync(
             IEnumerable<string> categoryNames,

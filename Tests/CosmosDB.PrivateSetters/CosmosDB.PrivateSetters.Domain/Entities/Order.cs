@@ -35,6 +35,6 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
             private set => _orderItems = new List<OrderItem>(value);
         }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

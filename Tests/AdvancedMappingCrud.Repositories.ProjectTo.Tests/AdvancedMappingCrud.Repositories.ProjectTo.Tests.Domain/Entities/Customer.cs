@@ -17,7 +17,7 @@ namespace AdvancedMappingCrud.Repositories.ProjectTo.Tests.Domain.Entities
 
         public string Email { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void ChangeEmail(string email)
         {

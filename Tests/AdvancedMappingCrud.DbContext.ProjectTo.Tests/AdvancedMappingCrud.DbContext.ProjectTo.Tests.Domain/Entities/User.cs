@@ -19,6 +19,6 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Domain.Entities
 
         public virtual ICollection<Address> Addresses { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

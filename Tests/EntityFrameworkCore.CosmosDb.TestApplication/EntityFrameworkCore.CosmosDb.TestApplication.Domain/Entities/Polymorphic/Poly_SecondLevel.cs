@@ -18,6 +18,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Polymorph
 
         public virtual Poly_BaseClassNonAbstract BaseClassNonAbstracts { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

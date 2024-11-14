@@ -25,7 +25,7 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.DefaultDiagram
 
         public string Name { get; set; } = "John";
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void OperationWithDefault(string param1 = "Operation Param 1 Value")
         {

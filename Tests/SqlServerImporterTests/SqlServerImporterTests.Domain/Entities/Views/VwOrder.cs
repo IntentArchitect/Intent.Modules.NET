@@ -17,6 +17,6 @@ namespace SqlServerImporterTests.Domain.Entities.Views
 
         public string RefNo { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

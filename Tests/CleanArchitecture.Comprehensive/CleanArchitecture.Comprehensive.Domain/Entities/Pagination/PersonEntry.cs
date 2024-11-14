@@ -15,6 +15,6 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.Pagination
 
         public string LastName { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

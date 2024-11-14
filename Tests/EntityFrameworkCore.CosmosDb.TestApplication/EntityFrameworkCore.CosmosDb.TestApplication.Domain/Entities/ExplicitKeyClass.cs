@@ -14,6 +14,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities
 
         public string Attribute { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

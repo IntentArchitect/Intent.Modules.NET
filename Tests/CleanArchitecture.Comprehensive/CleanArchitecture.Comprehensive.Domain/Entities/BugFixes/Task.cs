@@ -11,6 +11,6 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.BugFixes
     {
         public Guid Id { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

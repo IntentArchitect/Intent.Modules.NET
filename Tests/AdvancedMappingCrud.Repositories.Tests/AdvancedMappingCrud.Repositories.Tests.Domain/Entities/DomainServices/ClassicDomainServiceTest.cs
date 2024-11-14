@@ -23,7 +23,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.DomainServices
 
         public Guid Id { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void ClassicOp(IMyDomainService service)
         {

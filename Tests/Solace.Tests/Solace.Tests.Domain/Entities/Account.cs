@@ -15,6 +15,6 @@ namespace Solace.Tests.Domain.Entities
 
         public virtual Customer Customer { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

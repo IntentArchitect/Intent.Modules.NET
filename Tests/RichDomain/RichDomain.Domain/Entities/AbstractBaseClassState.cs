@@ -14,6 +14,6 @@ namespace RichDomain.Domain.Entities
 
         public string AbstractBaseAttribute { get; protected set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

@@ -15,6 +15,6 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Domain.Entities
 
         public string Surname { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

@@ -22,7 +22,7 @@ namespace BasicAuditing.CustomUserId.Tests.Domain.Entities
 
         public DateTimeOffset? UpdatedDate { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         void IAuditable.SetCreated(Guid createdBy, DateTimeOffset createdDate) => (CreatedBy, CreatedDate) = (createdBy, createdDate);
 

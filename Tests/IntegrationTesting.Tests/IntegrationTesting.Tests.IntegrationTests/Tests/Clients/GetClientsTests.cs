@@ -28,7 +28,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var clients = await client.GetClientsAsync();
 
             // Assert
-            Assert.True(clients.Count > 0);
+            Assert.True(clients.Count != 0);
         }
     }
 }

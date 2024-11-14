@@ -29,7 +29,7 @@ namespace FastEndpointsTest.Domain.Entities.DDD
 
         public virtual ICollection<Account> Accounts { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void Transfer(string description, IAccountingDomainService service, decimal amount, string currency)
         {

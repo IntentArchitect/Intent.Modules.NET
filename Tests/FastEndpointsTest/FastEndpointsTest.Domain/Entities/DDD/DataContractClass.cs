@@ -14,7 +14,7 @@ namespace FastEndpointsTest.Domain.Entities.DDD
 
         public string Name { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void Change(DataContractObject obj)
         {

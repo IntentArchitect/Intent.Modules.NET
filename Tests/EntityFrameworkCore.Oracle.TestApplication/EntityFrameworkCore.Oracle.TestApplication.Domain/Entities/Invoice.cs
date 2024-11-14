@@ -15,6 +15,6 @@ namespace EntityFrameworkCore.Oracle.TestApplication.Domain.Entities
 
         public virtual ICollection<LineItem> LineItems { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

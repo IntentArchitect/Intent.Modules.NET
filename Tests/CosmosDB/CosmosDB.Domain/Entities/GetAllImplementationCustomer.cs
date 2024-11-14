@@ -21,6 +21,6 @@ namespace CosmosDB.Domain.Entities
 
         public GetAllImplementationOrder GetAllImplementationOrder { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

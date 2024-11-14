@@ -16,7 +16,7 @@ namespace MassTransit.AzureServiceBus.Domain.Entities
 
         public string LastName { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void Talk(string message)
         {

@@ -13,6 +13,6 @@ namespace FastEndpointsTest.Domain.Entities.DDD
 
         public string IdemiaId { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

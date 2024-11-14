@@ -33,6 +33,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.AnemicChild
 
         public virtual ICollection<AnemicChild> AnemicChildren { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

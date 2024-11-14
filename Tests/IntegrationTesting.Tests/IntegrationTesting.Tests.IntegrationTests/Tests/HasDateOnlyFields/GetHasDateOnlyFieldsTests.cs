@@ -28,7 +28,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var hasDateOnlyFields = await client.GetHasDateOnlyFieldsAsync();
 
             // Assert
-            Assert.True(hasDateOnlyFields.Count > 0);
+            Assert.True(hasDateOnlyFields.Count != 0);
         }
     }
 }

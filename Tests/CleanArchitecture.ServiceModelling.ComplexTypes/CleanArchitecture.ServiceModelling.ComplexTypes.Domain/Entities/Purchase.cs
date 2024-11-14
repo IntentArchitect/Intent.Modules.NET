@@ -14,6 +14,6 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Entities
 
         public Money Cost { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

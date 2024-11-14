@@ -28,6 +28,6 @@ namespace Entities.Constants.TestApplication.Domain.Entities
 
         public string NVarCharMax { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

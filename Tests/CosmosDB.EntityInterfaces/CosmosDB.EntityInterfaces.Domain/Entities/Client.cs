@@ -31,7 +31,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
 
         public string Name { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void Update(ClientType type, string name)
         {

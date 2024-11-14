@@ -19,6 +19,6 @@ namespace CosmosDB.Domain.Entities
 
         public T GenericAttribute { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

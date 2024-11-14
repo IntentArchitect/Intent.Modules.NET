@@ -21,6 +21,6 @@ namespace AdvancedMappingCrudMongo.Tests.Domain.Entities
 
         public ICollection<OrderItem> OrderItems { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

@@ -26,6 +26,6 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
             private set => _categoriesIds = new List<string>(value);
         }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

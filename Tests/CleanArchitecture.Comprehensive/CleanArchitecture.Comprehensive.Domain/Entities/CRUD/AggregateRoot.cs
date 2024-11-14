@@ -34,6 +34,6 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.CRUD
 
         public virtual AggregateSingleC? Aggregate { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

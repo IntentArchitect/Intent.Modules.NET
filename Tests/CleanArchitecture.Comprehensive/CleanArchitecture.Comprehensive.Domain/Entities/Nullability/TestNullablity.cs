@@ -61,6 +61,6 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.Nullability
 
         public virtual NullabilityPeer NullabilityPeer { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

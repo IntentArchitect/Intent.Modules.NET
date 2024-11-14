@@ -22,7 +22,7 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.ConventionBasedEventPu
 
         public string Value { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void Update(string value)
         {

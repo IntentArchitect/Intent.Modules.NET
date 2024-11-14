@@ -13,6 +13,6 @@ namespace EntityFramework.SynchronousRepositories.Domain.Entities
 
         public string No { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

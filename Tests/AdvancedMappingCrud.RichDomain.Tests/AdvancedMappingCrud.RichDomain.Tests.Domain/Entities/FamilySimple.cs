@@ -39,6 +39,6 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
 
         public string GrandparentName { get; private set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

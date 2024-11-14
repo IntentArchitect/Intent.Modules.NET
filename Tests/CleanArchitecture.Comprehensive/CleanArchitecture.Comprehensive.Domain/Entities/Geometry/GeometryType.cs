@@ -14,6 +14,6 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.Geometry
 
         public Point Point { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }
