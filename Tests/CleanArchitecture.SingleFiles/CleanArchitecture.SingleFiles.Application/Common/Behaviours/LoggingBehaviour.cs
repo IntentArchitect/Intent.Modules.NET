@@ -13,10 +13,10 @@ namespace CleanArchitecture.SingleFiles.Application.Common.Behaviours
     public class LoggingBehaviour<TRequest> : IRequestPreProcessor<TRequest>
         where TRequest : notnull
     {
-        private readonly ILogger _logger;
+        private readonly ILogger<LoggingBehaviour<TRequest>> _logger;
         private readonly ICurrentUserService _currentUserService;
 
-        public LoggingBehaviour(ILogger<TRequest> logger, ICurrentUserService currentUserService)
+        public LoggingBehaviour(ILogger<LoggingBehaviour<TRequest>> logger, ICurrentUserService currentUserService)
         {
             _logger = logger;
             _currentUserService = currentUserService;

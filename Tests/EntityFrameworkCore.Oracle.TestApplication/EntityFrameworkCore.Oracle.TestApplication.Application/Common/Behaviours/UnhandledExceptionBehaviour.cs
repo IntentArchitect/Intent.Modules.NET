@@ -14,9 +14,9 @@ namespace EntityFrameworkCore.Oracle.TestApplication.Application.Common.Behaviou
     public class UnhandledExceptionBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : notnull
     {
-        private readonly ILogger<TRequest> _logger;
+        private readonly ILogger<UnhandledExceptionBehaviour<TRequest, TResponse>> _logger;
 
-        public UnhandledExceptionBehaviour(ILogger<TRequest> logger)
+        public UnhandledExceptionBehaviour(ILogger<UnhandledExceptionBehaviour<TRequest, TResponse>> logger)
         {
             _logger = logger;
         }
@@ -38,7 +38,7 @@ namespace EntityFrameworkCore.Oracle.TestApplication.Application.Common.Behaviou
             catch (Exception ex)
             {
                 var requestName = typeof(TRequest).Name;
-                _logger.LogError(ex, "CleanArchitecture Request: Unhandled Exception for Request {Name} {@Request}", requestName, request);
+                _logger.LogError(ex, "EntityFrameworkCore.Oracle.TestApplication Request: Unhandled Exception for Request {Name} {@Request}", requestName, request);
                 throw;
             }
         }

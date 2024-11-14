@@ -15,11 +15,10 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Common.Behaviours
         where TRequest : notnull
     {
         private readonly Stopwatch _timer;
-        private readonly ILogger<TRequest> _logger;
+        private readonly ILogger<PerformanceBehaviour<TRequest, TResponse>> _logger;
         private readonly ICurrentUserService _currentUserService;
 
-        public PerformanceBehaviour(
-            ILogger<TRequest> logger,
+        public PerformanceBehaviour(ILogger<PerformanceBehaviour<TRequest, TResponse>> logger,
             ICurrentUserService currentUserService)
         {
             _timer = new Stopwatch();
@@ -28,7 +27,10 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Common.Behaviours
             _currentUserService = currentUserService;
         }
 
-        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+        public async Task<TResponse> Handle(
+            TRequest request,
+            RequestHandlerDelegate<TResponse> next,
+            CancellationToken cancellationToken)
         {
             _timer.Start();
 
