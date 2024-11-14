@@ -28,7 +28,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
 
             // Assert
             Assert.NotNull(basics);
-            Assert.True(basics.Data.Count() > 0);
+            Assert.True(basics.Data.Count > 0);
         }
 
     }

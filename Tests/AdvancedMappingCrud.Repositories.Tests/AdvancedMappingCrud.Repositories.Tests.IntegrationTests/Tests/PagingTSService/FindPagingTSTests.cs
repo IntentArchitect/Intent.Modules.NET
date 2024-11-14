@@ -30,7 +30,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
 
             // Assert
             Assert.NotNull(pagingTSs);
-            Assert.True(pagingTSs.Data.Count() > 0);
+            Assert.True(pagingTSs.Data.Count > 0);
         }
     }
 }
