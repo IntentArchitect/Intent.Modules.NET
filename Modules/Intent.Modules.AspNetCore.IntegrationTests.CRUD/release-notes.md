@@ -1,6 +1,7 @@
 ### Version 1.0.11
 
 - Improvement: Generated code on http clients is more aligned with best practices (Recommended implementation of IDisposable pattern, JsonSerializerOptions only added if required, small synatx updates)
+- Improvement: Updated tests to use `.Any()` instead of `.Count() > 0`
 
 ### Version 1.0.10
 

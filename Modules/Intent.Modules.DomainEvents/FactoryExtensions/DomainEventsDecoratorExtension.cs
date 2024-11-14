@@ -9,6 +9,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
@@ -53,7 +54,8 @@ namespace Intent.Modules.DomainEvents.FactoryExtensions
                         @class.AddProperty($"{template.UseType("System.Collections.Generic.List")}<{template.GetTypeName(DomainEventBaseTemplate.TemplateId)}>", "DomainEvents",
                             property =>
                             {
-                                property.WithInitialValue($"new {property.Type}()");
+                                var initValue = template.OutputTarget.GetProject().GetLanguageVersion().Major < 12 ? $"new {property.Type}()" : "[]";
+                                property.WithInitialValue(initValue);
                                 property.AddMetadata("non-persistent", true);
                             });
                     }

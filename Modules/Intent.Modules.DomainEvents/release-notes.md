@@ -1,3 +1,7 @@
+### Version 5.0.6
+
+- Improvement: `DomainEvents` property default value updated to be `[]` when possible
+
 ### Version 5.0.5
 
 - Improvement: Updated `DomainEventServiceInterfaceTemplate` template to `CSharpFileBuilderTemplate`.
