@@ -1,3 +1,7 @@
+### Version 4.1.2
+
+- Improvement: Updated module references
+
 ### Version 4.1.1
 
 - Improvement: Updated module NuGet packages infrastructure.

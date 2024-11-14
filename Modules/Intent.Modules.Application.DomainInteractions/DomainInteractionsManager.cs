@@ -24,6 +24,7 @@ using Intent.Templates;
 using Intent.Utils;
 using JetBrains.Annotations;
 using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
+using AttributeModel = Intent.Modelers.Domain.Api.AttributeModel;
 
 namespace Intent.Modules.Application.DomainInteractions;
 
@@ -193,14 +194,14 @@ public class DomainInteractionsManager
             else
             {
                 // USE THE FindByIdAsync/FindByIdsAsync METHODS:
-                if (queryMapping.MappedEnds.Any() && queryMapping.MappedEnds.All(x => x.TargetElement.AsAttributeModel()?.IsPrimaryKey() == true)
+                if (queryMapping.MappedEnds.Any() && queryMapping.MappedEnds.All(x => Intent.Modelers.Domain.Api.AttributeModelExtensions.AsAttributeModel(x.TargetElement)?.IsPrimaryKey() == true)
                                                   && foundEntity.GetTypesInHierarchy().SelectMany(c => c.Attributes).Count(x => x.IsPrimaryKey()) == queryMapping.MappedEnds.Count)
                 {
                     var idFields = queryMapping.MappedEnds
                         .OrderBy(x => ((IElement)x.TargetElement).Order)
                         .Select(x => new PrimaryKeyFilterMapping(
                             _csharpMapping.GenerateSourceStatementForMapping(queryMapping, x),
-                            x.TargetElement.AsAttributeModel().Name.ToPropertyName(),
+                            Intent.Modelers.Domain.Api.AttributeModelExtensions.AsAttributeModel(x.TargetElement).Name.ToPropertyName(),
                             x))
                         .ToList();
 
@@ -436,8 +437,8 @@ public class DomainInteractionsManager
             var dto = returnType.Element.AsDTOModel();
 
             var mappedPks = dto.Fields
-                .Where(x => x.Mapping != null && x.Mapping.Element.IsAttributeModel() && x.Mapping.Element.AsAttributeModel().IsPrimaryKey())
-                .Select(x => x.Mapping.Element.AsAttributeModel().InternalElement.ParentElement.Id)
+                .Where(x => x.Mapping != null && Intent.Modelers.Domain.Api.AttributeModelExtensions.IsAttributeModel(x.Mapping.Element) && Intent.Modelers.Domain.Api.AttributeModelExtensions.AsAttributeModel(x.Mapping.Element).IsPrimaryKey())
+                .Select(x => Intent.Modelers.Domain.Api.AttributeModelExtensions.AsAttributeModel(x.Mapping.Element).InternalElement.ParentElement.Id)
                 .Distinct() 
                 .ToList();
             if (mappedPks.Any())
