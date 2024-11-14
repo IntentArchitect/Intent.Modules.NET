@@ -34,7 +34,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                     .WithBaseType("Exception")
                     .AddProperty("ProblemDetailsWithErrors?", "ProblemDetails", prop => prop
                         .PrivateSetter()
-                    )
+                    )                    
                     .AddConstructor(c => c
                         .AddParameter("Uri", "requestUri", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
                         .AddParameter("HttpStatusCode", "statusCode", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
@@ -53,18 +53,24 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                                 )
                         )
                     )
-                    .AddConstructor()
+                    .AddConstructor(ctor =>
+                    {
+                        InitializeProperties(ctor);
+                    })
                     .AddConstructor(ctor =>
                     {
                         ctor.AddParameter("string", "message");
                         ctor.CallsBase(b => b.AddArgument("message"));
+                        InitializeProperties(ctor);
                     })
                     .AddConstructor(ctor =>
                     {
                         ctor.AddParameter("string", "message");
                         ctor.AddParameter("Exception", "innerException");
                         ctor.CallsBase(b => b.AddArgument("message").AddArgument("innerException"));
+                        InitializeProperties(ctor);
                     })
+                    
                     .AddMethod($"Task<{@class.Name}>", "Create", m => m
                         .Static()
                         .Async()
@@ -97,6 +103,12 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                     )
                 );
         }
+        private static void InitializeProperties(CSharpConstructor ctor)
+        {
+            ctor.AddObjectInitStatement("RequestUri", "new Uri(string.Empty, UriKind.RelativeOrAbsolute);");
+            ctor.AddObjectInitStatement("ResponseHeaders", "new Dictionary<string, IEnumerable<string>>();");
+            ctor.AddObjectInitStatement("ResponseContent", "string.Empty;");
+        }
 
         private string GetReadAsStringAsyncMethodCall()
         {
@@ -106,7 +118,6 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                 _ => "ReadAsStringAsync(cancellationToken)"
             };
         }
-
 
         public CSharpFile CSharpFile { get; }
 

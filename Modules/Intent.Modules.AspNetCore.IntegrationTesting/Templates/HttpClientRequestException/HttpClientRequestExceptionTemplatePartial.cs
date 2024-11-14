@@ -34,13 +34,20 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.HttpClientReque
                     .Replace(""\\r\\n"", Environment.NewLine);");
                 toReplace.Remove();
 
+                @class.AddField("JsonSerializerOptions", "_jsonSerializer", field =>
+                {
+                    field.PrivateReadOnly()
+                        .Static()
+                        .WithAssignment(new CSharpStatement("new() { WriteIndented = true }"));
+                });
+
                 @class.AddMethod("string", "FormatJson", method =>
                 {
                     method
                         .Private()
                         .Static()
                         .AddParameter("object", "jsonObject")
-                        .AddStatement("return JsonSerializer.Serialize(jsonObject, new JsonSerializerOptions() { WriteIndented = true });");
+                        .AddStatement("return JsonSerializer.Serialize(jsonObject, _jsonSerializer);");
                 });
             }, 10);
         }

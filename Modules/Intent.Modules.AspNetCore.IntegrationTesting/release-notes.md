@@ -1,6 +1,7 @@
 ### Version 1.0.10
 
-- Improvement: Generated code on http clients is more aligned with best practices (Recommended implementation of IDisposable pattern, JsonSerializerOptions only added if required, small synatx updates)
+- Improvement: Improvements in generated http client code: recommended implementation of `IDisposable pattern`, `JsonSerializerOptions` only added if required, as well as small synatax updates
+- Improvement: Non-nullable properties set in all constructors on `HttpClientRequestException`
 - Improvement: Updated `Microsoft.NET.Test.Sdk` package to 17.6.0.
 
 ### Version 1.0.9
