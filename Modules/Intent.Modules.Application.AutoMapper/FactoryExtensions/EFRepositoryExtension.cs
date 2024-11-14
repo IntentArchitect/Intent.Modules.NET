@@ -130,13 +130,13 @@ namespace Intent.Modules.Application.AutoMapper.FactoryExtensions
                 {
                     var pk = pks.First();
                     parameterType = template.GetTypeName(pk.TypeReference);
-                    filter = $"x.{pk.Name} == {pk.Name.ToParameterName()}";
+                    filter = $"x.{pk.Name.ToPropertyName()} == {pk.Name.ToParameterName()}";
                     parameterName = pk.Name.ToParameterName();
                 }
                 else
                 {
                     parameterType = $"({string.Join(", ", pks.Select(pk => $"{template.GetTypeName(pk.TypeReference)} {pk.Name.ToPascalCase()}"))})";
-                    filter = string.Join(" && ", pks.Select(pk => $"x.{pk.Name} == id.{pk.Name.ToPascalCase()}"));
+                    filter = string.Join(" && ", pks.Select(pk => $"x.{pk.Name.ToPropertyName()} == id.{pk.Name.ToPascalCase()}"));
                     parameterName = "id";
                 }
 

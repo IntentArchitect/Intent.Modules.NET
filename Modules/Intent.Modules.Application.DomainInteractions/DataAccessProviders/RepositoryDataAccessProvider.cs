@@ -44,6 +44,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         {
             _queryImplementation = new DefaultQueryImplementation(this, _repositoryFieldName, queryContext);
         }
+        _isUsingProjections = queryContext?.ImplementWithProjections() == true;
     }
 
     public bool IsUsingProjections => _isUsingProjections;

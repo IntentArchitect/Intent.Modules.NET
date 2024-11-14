@@ -1,0 +1,62 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{A20466A1-343A-4F7E-A16A-12D88E4FD966}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMappingCrud.DbContext.ProjectTo.Tests.Api", "AdvancedMappingCrud.DbContext.ProjectTo.Tests.Api\AdvancedMappingCrud.DbContext.ProjectTo.Tests.Api.csproj", "{C56BC272-BA0E-404B-BEF7-89BF1D0C6E66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{7F171AD3-5596-4FF0-AC40-41C5D9E5A909}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application", "AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application\AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.csproj", "{0AFDD396-DC53-4BA8-AC41-B3F762DAEF36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{0EEC9775-2898-42FA-8462-9495CB2626C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMappingCrud.DbContext.ProjectTo.Tests.Domain", "AdvancedMappingCrud.DbContext.ProjectTo.Tests.Domain\AdvancedMappingCrud.DbContext.ProjectTo.Tests.Domain.csproj", "{3BAD5F5D-B5BF-467E-8583-1BC5B6A6181B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{F66E9536-2B83-4118-AE53-557FCB9315FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMappingCrud.DbContext.ProjectTo.Tests.Infrastructure", "AdvancedMappingCrud.DbContext.ProjectTo.Tests.Infrastructure\AdvancedMappingCrud.DbContext.ProjectTo.Tests.Infrastructure.csproj", "{1F14FBF7-424F-4378-9DD8-BC106FB84D4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{2763BC3D-4831-4405-8F87-50F9433D95FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests", "AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests\AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.csproj", "{BC2CA533-13F9-4767-A682-88EA134A7322}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C56BC272-BA0E-404B-BEF7-89BF1D0C6E66} = {A20466A1-343A-4F7E-A16A-12D88E4FD966}
+		{0AFDD396-DC53-4BA8-AC41-B3F762DAEF36} = {7F171AD3-5596-4FF0-AC40-41C5D9E5A909}
+		{3BAD5F5D-B5BF-467E-8583-1BC5B6A6181B} = {0EEC9775-2898-42FA-8462-9495CB2626C6}
+		{1F14FBF7-424F-4378-9DD8-BC106FB84D4E} = {F66E9536-2B83-4118-AE53-557FCB9315FF}
+		{BC2CA533-13F9-4767-A682-88EA134A7322} = {2763BC3D-4831-4405-8F87-50F9433D95FC}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C56BC272-BA0E-404B-BEF7-89BF1D0C6E66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C56BC272-BA0E-404B-BEF7-89BF1D0C6E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C56BC272-BA0E-404B-BEF7-89BF1D0C6E66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C56BC272-BA0E-404B-BEF7-89BF1D0C6E66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AFDD396-DC53-4BA8-AC41-B3F762DAEF36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AFDD396-DC53-4BA8-AC41-B3F762DAEF36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AFDD396-DC53-4BA8-AC41-B3F762DAEF36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AFDD396-DC53-4BA8-AC41-B3F762DAEF36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BAD5F5D-B5BF-467E-8583-1BC5B6A6181B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BAD5F5D-B5BF-467E-8583-1BC5B6A6181B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BAD5F5D-B5BF-467E-8583-1BC5B6A6181B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BAD5F5D-B5BF-467E-8583-1BC5B6A6181B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F14FBF7-424F-4378-9DD8-BC106FB84D4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F14FBF7-424F-4378-9DD8-BC106FB84D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F14FBF7-424F-4378-9DD8-BC106FB84D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F14FBF7-424F-4378-9DD8-BC106FB84D4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC2CA533-13F9-4767-A682-88EA134A7322}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC2CA533-13F9-4767-A682-88EA134A7322}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC2CA533-13F9-4767-A682-88EA134A7322}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC2CA533-13F9-4767-A682-88EA134A7322}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

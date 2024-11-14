@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a20466a1-343a-4f7e-a16a-12d88e4fd966" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4af7945e-7095-49cf-b174-d9d381c15521</parentFolderId>
+  <packageId>4af7945e-7095-49cf-b174-d9d381c15521</packageId>
+  <packageName>AdvancedMappingCrud.DbContext.ProjectTo.Tests</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

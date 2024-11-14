@@ -74,6 +74,7 @@ public static class RazorFileExtensions
             {
                 block.AddProperty(block.Template.GetTypeName(child.TypeReference), child.Name.ToPropertyName(), property =>
                 {
+                    property.RepresentsModel(child);
                     if (!string.IsNullOrWhiteSpace(child.Value))
                     {
                         property.WithInitialValue(child.Value);

@@ -257,7 +257,7 @@ public class DomainInteractionsManager
 
             }
 
-            TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity.InternalElement, entityVariableName, dataAccess, false, queryContext.ImplementWithProjections() ? queryContext.GetDtoProjectionReturnType() : null, associationEnd.TypeReference.IsCollection));
+            TrackedEntities.Add(associationEnd.Id, new EntityDetails(foundEntity.InternalElement, entityVariableName, dataAccess, false, queryContext.ImplementWithProjections() && dataAccess.IsUsingProjections ? queryContext.GetDtoProjectionReturnType() : null, associationEnd.TypeReference.IsCollection));
 
             return statements;
         }
@@ -725,14 +725,14 @@ public class DomainInteractionsManager
         {
             return dataAccess;
         }
-        if (TryInjectDbContext(handlerClass, foundEntity, out dataAccess))
+        if (TryInjectDbContext(handlerClass, foundEntity, queryContext, out dataAccess))
         {
             return dataAccess;
         }
         throw new Exception("No CRUD Data Access Provider found. Please install a Module with a Repository Pattern or EF Core Module.");
     }
 
-    private bool TryInjectDbContext(CSharpClass handlerClass, ClassModel entity, out IDataAccessProvider dataAccessProvider)
+    private bool TryInjectDbContext(CSharpClass handlerClass, ClassModel entity, QueryActionContext queryContext, out IDataAccessProvider dataAccessProvider)
     {
         if (!_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface) ||
             !SettingGenerateDbContextInterface())
@@ -740,8 +740,14 @@ public class DomainInteractionsManager
             dataAccessProvider = null;
             return false;
         }
+
+        if (queryContext?.ImplementWithProjections() == true)
+        {
+            InjectService(_template.UseType("AutoMapper.IMapper"), handlerClass);
+        }
+
         var dbContextField = InjectService(dbContextInterface, handlerClass, "dbContext");
-        dataAccessProvider = new DbContextDataAccessProvider(dbContextField, entity, _template, _csharpMapping);
+        dataAccessProvider = new DbContextDataAccessProvider(dbContextField, entity, _template, _csharpMapping, queryContext);
         return true;
     }
 

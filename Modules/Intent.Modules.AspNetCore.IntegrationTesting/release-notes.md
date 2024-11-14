@@ -1,6 +1,7 @@
 ### Version 1.0.10
 
 - Improvement: Generated code on http clients is more aligned with best practices (Recommended implementation of IDisposable pattern, JsonSerializerOptions only added if required, small synatx updates)
+- Improvement: Updated `Microsoft.NET.Test.Sdk` package to 17.6.0.
 
 ### Version 1.0.9
 

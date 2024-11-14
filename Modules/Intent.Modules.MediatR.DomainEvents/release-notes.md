@@ -1,6 +1,7 @@
 ### Version 5.0.19
 
-- Improvement: Improved code quality by making `DomainEventService.GetNotificationCorrespondingToDomainEvent` static
+- Improvement: Improved code quality by making `DomainEventService.GetNotificationCorrespondingToDomainEvent` static.
+- Improvement: Added support for ProjectTo query implementations for DBContext implementation CRUD Scenarios.
 
 ### Version 5.0.18
 
