@@ -104,7 +104,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                         .AddStatement("var queryable = QueryInternal(filterExpression);")
                         .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
                         .AddStatement("var response = transform(projection);")
-                        .AddStatement("return await response.Cast<object>().ToListAsync();");
+                        .AddStatement("return await response.Cast<object>().ToListAsync(cancellationToken);");
                 });
                 @class.AddMethod("Task<List<TProjection>>", "FindAllProjectToAsync", method =>
                 {
@@ -118,7 +118,7 @@ namespace Intent.Modules.AspNetCore.ODataQuery.FactoryExtensions
                         .AddStatement("var queryable = QueryInternal(filterExpression);")
                         .AddStatement("var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);")
                         .AddStatement("var response = filterProjection(projection);")
-                        .AddStatement("return await response.Cast<TProjection>().ToListAsync();");
+                        .AddStatement("return await response.Cast<TProjection>().ToListAsync(cancellationToken);");
                 });
                 if (template.ExecutionContext.Settings.GetDatabaseSettings().AddSynchronousMethodsToRepositories())
                 {
