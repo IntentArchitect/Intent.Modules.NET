@@ -9,7 +9,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3d3183a9-5f38-4f01-a525-46d1c4afd2c9</ProjectId>
+      <ProjectId>d9429353-9847-4ccd-b4d1-37ed71d563f8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AspNetCore.Cors.imodspec</ApplicationRelativeFilePath>
@@ -17,8 +17,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3d3183a9-5f38-4f01-a525-46d1c4afd2c9</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#3d3183a9-5f38-4f01-a525-46d1c4afd2c9</CorrelationId>
+      <ProjectId>d9429353-9847-4ccd-b4d1-37ed71d563f8</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#d9429353-9847-4ccd-b4d1-37ed71d563f8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Cors.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Cors.csproj</ProjectRelativeFilePath>

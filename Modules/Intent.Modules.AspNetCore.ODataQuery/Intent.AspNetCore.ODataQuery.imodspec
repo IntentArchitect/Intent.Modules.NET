@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.ODataQuery</id>
-  <version>1.0.7</version>
-  <supportedClientVersions>[4.1.0,5.0.0)</supportedClientVersions>
+  <version>1.0.8-pre.0</version>
+  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>The module adds support for ODataQuery options to standard ASP.NET Core Controllers.</summary>
   <description>The module adds support for ODataQuery options to standard ASP.NET Core Controllers.</description>
   <authors>Intent Architect</authors>
@@ -32,27 +32,22 @@
     <group id="f9a82d4b-bb1b-4fa5-9586-36485364e6fc" title="OData Query Settings" externalReference="f9a82d4b-bb1b-4fa5-9586-36485364e6fc">
       <settings>
         <setting id="f07b3386-b22c-48b7-b39a-3b113d0984e3" title="Allow Filter Option" type="switch">
-          <isRequired>false</isRequired>
           <hint>Enable $filter query option. This allows  expression based filtering of data.</hint>
           <defaultValue>true</defaultValue>
         </setting>
         <setting id="35ddc434-96db-4d85-b8e8-8b724e251897" title="Allow OrderBy Option" type="switch">
-          <isRequired>false</isRequired>
           <hint>Enable $orderby query option. This allows  expression based ordering of the data.</hint>
           <defaultValue>true</defaultValue>
         </setting>
         <setting id="e1ef66ba-3e3c-47c5-8a25-55bd827fcd3b" title="Allow Expand Option" type="switch">
-          <isRequired>false</isRequired>
           <hint>Enable $expand query options. This option specifies the related data to be included in line with the query.</hint>
           <defaultValue>true</defaultValue>
         </setting>
         <setting id="73866e5a-1fba-4637-af2b-9c3cfc1786cd" title="Allow Select Option" type="switch">
-          <isRequired>false</isRequired>
           <hint>Enable $select query options. This option allows you to change the nature of the return type.</hint>
           <defaultValue>false</defaultValue>
         </setting>
         <setting id="8bafbb9e-e756-4e07-8ff3-da57e4b3c190" title="Max Top" type="number">
-          <isRequired>false</isRequired>
           <hint>Sets the maximum value of $top that a client can request</hint>
           <defaultValue>200</defaultValue>
         </setting>

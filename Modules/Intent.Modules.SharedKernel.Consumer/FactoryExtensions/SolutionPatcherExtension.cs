@@ -1,7 +1,6 @@
 using System;
-using System.IO;
 using System.Collections.Generic;
-using Path = Intent.IArchitect.CrossPlatform.IO.Path;
+using System.IO;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
@@ -13,6 +12,7 @@ using Intent.Modules.SharedKernel.Consumer.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.DotNet.Cli.Sln.Internal;
+using Path = Intent.IArchitect.CrossPlatform.IO.Path;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]

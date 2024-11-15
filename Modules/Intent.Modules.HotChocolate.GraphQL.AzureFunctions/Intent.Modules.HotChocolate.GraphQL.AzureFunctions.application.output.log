@@ -9,7 +9,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a0df4c1e-6aba-4566-951d-2875055bd4f0</ProjectId>
+      <ProjectId>cb051d64-6ae2-4ace-9d4f-7ad9deea1645</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.HotChocolate.GraphQL.AzureFunctions.imodspec</ApplicationRelativeFilePath>
@@ -17,15 +17,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a0df4c1e-6aba-4566-951d-2875055bd4f0</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a0df4c1e-6aba-4566-951d-2875055bd4f0</CorrelationId>
+      <ProjectId>cb051d64-6ae2-4ace-9d4f-7ad9deea1645</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#cb051d64-6ae2-4ace-9d4f-7ad9deea1645</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.HotChocolate.GraphQL.AzureFunctions.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.HotChocolate.GraphQL.AzureFunctions.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a0df4c1e-6aba-4566-951d-2875055bd4f0</ProjectId>
+      <ProjectId>cb051d64-6ae2-4ace-9d4f-7ad9deea1645</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>

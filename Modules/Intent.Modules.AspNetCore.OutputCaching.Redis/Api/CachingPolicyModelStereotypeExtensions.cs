@@ -15,14 +15,14 @@ namespace Intent.AspNetCore.OutputCaching.Redis.Api
     {
         public static CachingConfig GetCachingConfig(this CachingPolicyModel model)
         {
-            var stereotype = model.GetStereotype("56f48881-3e17-43bf-aead-e222a8f725fd");
+            var stereotype = model.GetStereotype(CachingConfig.DefinitionId);
             return stereotype != null ? new CachingConfig(stereotype) : null;
         }
 
 
         public static bool HasCachingConfig(this CachingPolicyModel model)
         {
-            return model.HasStereotype("56f48881-3e17-43bf-aead-e222a8f725fd");
+            return model.HasStereotype(CachingConfig.DefinitionId);
         }
 
         public static bool TryGetCachingConfig(this CachingPolicyModel model, out CachingConfig stereotype)
@@ -33,13 +33,14 @@ namespace Intent.AspNetCore.OutputCaching.Redis.Api
                 return false;
             }
 
-            stereotype = new CachingConfig(model.GetStereotype("56f48881-3e17-43bf-aead-e222a8f725fd"));
+            stereotype = new CachingConfig(model.GetStereotype(CachingConfig.DefinitionId));
             return true;
         }
 
         public class CachingConfig
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "56f48881-3e17-43bf-aead-e222a8f725fd";
 
             public CachingConfig(IStereotype stereotype)
             {

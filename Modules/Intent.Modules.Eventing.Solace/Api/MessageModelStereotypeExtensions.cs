@@ -15,14 +15,14 @@ namespace Intent.Eventing.Solace.Api
     {
         public static Publishing GetPublishing(this MessageModel model)
         {
-            var stereotype = model.GetStereotype("56e898f3-74db-486d-86f9-3e885e7509e6");
+            var stereotype = model.GetStereotype(Publishing.DefinitionId);
             return stereotype != null ? new Publishing(stereotype) : null;
         }
 
 
         public static bool HasPublishing(this MessageModel model)
         {
-            return model.HasStereotype("56e898f3-74db-486d-86f9-3e885e7509e6");
+            return model.HasStereotype(Publishing.DefinitionId);
         }
 
         public static bool TryGetPublishing(this MessageModel model, out Publishing stereotype)
@@ -33,13 +33,14 @@ namespace Intent.Eventing.Solace.Api
                 return false;
             }
 
-            stereotype = new Publishing(model.GetStereotype("56e898f3-74db-486d-86f9-3e885e7509e6"));
+            stereotype = new Publishing(model.GetStereotype(Publishing.DefinitionId));
             return true;
         }
 
         public class Publishing
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "56e898f3-74db-486d-86f9-3e885e7509e6";
 
             public Publishing(IStereotype stereotype)
             {

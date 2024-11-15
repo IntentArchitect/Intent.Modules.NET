@@ -93,7 +93,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
 
                     invocationArgument.InsertStatement(
                         index: 0,
-                        statement: $"(entity as {template.GetAuditableInterfaceName()})?.SetCreated(_auditDetails.Value.UserIdentifier, _auditDetails.Value.TimeStamp);");
+                        statement: (CSharpStatement)$"(entity as {template.GetAuditableInterfaceName()})?.SetCreated(_auditDetails.Value.UserIdentifier, _auditDetails.Value.TimeStamp);");
                 }
 
                 // Update
@@ -104,7 +104,7 @@ namespace Intent.Modules.Entities.BasicAuditing.FactoryExtensions
 
                     invocationArgument.InsertStatement(
                         index: 0,
-                        statement: $"(entity as {template.GetAuditableInterfaceName()})?.SetUpdated(_auditDetails.Value.UserIdentifier, _auditDetails.Value.TimeStamp);");
+                        statement: (CSharpStatement)$"(entity as {template.GetAuditableInterfaceName()})?.SetUpdated(_auditDetails.Value.UserIdentifier, _auditDetails.Value.TimeStamp);");
                 }
             }, 1000);
         }

@@ -9,15 +9,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>be53d805-6699-498d-a281-05f24e1b3e58</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#be53d805-6699-498d-a281-05f24e1b3e58</CorrelationId>
+      <ProjectId>54d2e1b0-549f-4dcb-90ec-eb4d8a9b8fd7</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#54d2e1b0-549f-4dcb-90ec-eb4d8a9b8fd7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.ValueObjects.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.ValueObjects.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>be53d805-6699-498d-a281-05f24e1b3e58</ProjectId>
+      <ProjectId>54d2e1b0-549f-4dcb-90ec-eb4d8a9b8fd7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.ValueObjects.imodspec</ApplicationRelativeFilePath>
@@ -25,7 +25,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>be53d805-6699-498d-a281-05f24e1b3e58</ProjectId>
+      <ProjectId>54d2e1b0-549f-4dcb-90ec-eb4d8a9b8fd7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

@@ -9,7 +9,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>37df17b6-66fe-4810-82d0-1a964213e4ec</ProjectId>
+      <ProjectId>f85a47f2-664f-46a5-a75f-9fdaf807365e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AspNetCore.Identity.AccountController.Metadata.imodspec</ApplicationRelativeFilePath>
@@ -17,15 +17,15 @@
       <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>37df17b6-66fe-4810-82d0-1a964213e4ec</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#37df17b6-66fe-4810-82d0-1a964213e4ec</CorrelationId>
+      <ProjectId>f85a47f2-664f-46a5-a75f-9fdaf807365e</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#f85a47f2-664f-46a5-a75f-9fdaf807365e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Identity.AccountController.Metadata.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Identity.AccountController.Metadata.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>37df17b6-66fe-4810-82d0-1a964213e4ec</ProjectId>
+      <ProjectId>f85a47f2-664f-46a5-a75f-9fdaf807365e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

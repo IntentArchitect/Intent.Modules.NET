@@ -174,7 +174,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                         continue;
                     }
 
-                    var dispatchStmt = method.FindStatement(stmt => stmt.HasMetadata("service-contract-dispatch"));
+                    var dispatchStmt = (CSharpStatement)method.FindStatement(stmt => stmt.HasMetadata("service-contract-dispatch"));
                     if (dispatchStmt == null)
                     {
                         continue;

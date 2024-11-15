@@ -57,7 +57,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.TokenSe
                         {
                             stmt.AddStatement(@"throw new ArgumentException($""Claim '{JwtRegisteredClaimNames.Name}' is reserved. Ensure that the correct name is passed through the 'username' parameter."");");
                         });
-                        
+
                         method.AddStatement(new CSharpObjectInitializerBlock("var tokenClaims = new List<Claim>")
                             .AddStatement("new Claim(JwtRegisteredClaimNames.Name, username)")
                             .AddStatement("new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())")

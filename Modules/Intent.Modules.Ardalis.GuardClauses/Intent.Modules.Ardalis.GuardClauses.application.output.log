@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>c5472ce5-b273-46d6-8072-34adfc531cf1</ProjectId>
+      <ProjectId>539bca88-6fa4-4db0-93b1-b037d20e253f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Ardalis.GuardClauses.imodspec</ApplicationRelativeFilePath>
@@ -25,15 +25,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>c5472ce5-b273-46d6-8072-34adfc531cf1</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#c5472ce5-b273-46d6-8072-34adfc531cf1</CorrelationId>
+      <ProjectId>539bca88-6fa4-4db0-93b1-b037d20e253f</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#539bca88-6fa4-4db0-93b1-b037d20e253f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Ardalis.GuardClauses.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Ardalis.GuardClauses.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>c5472ce5-b273-46d6-8072-34adfc531cf1</ProjectId>
+      <ProjectId>539bca88-6fa4-4db0-93b1-b037d20e253f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
@@ -41,7 +41,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>c5472ce5-b273-46d6-8072-34adfc531cf1</ProjectId>
+      <ProjectId>539bca88-6fa4-4db0-93b1-b037d20e253f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -13,6 +12,9 @@ using DomainEvent = Intent.Modelers.Domain.Events.Api;
 using GeneralizationModel = Intent.Modelers.Domain.Api.GeneralizationModel;
 
 namespace Intent.Modules.Eventing.Contracts.DomainMapping.Templates;
+
+// Disambiguation
+using Intent.Modelers.Domain.Api;
 
 internal static class MappingExtensionHelper
 {

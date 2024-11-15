@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>af1800f1-2afc-4804-84d3-e0e8e2bb51d3</ProjectId>
+      <ProjectId>70c5ef6b-a273-4518-9b26-5d640f2addde</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.MediatR.CRUD.Eventing.imodspec</ApplicationRelativeFilePath>
@@ -25,8 +25,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>af1800f1-2afc-4804-84d3-e0e8e2bb51d3</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#af1800f1-2afc-4804-84d3-e0e8e2bb51d3</CorrelationId>
+      <ProjectId>70c5ef6b-a273-4518-9b26-5d640f2addde</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#70c5ef6b-a273-4518-9b26-5d640f2addde</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.MediatR.CRUD.Eventing.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.MediatR.CRUD.Eventing.csproj</ProjectRelativeFilePath>

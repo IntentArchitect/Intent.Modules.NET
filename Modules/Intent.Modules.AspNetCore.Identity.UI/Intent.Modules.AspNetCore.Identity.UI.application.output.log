@@ -9,7 +9,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>ddd2ff2f-cd4e-4d5e-8d8a-a62d572541db</ProjectId>
+      <ProjectId>3f04c7f2-deb7-428f-b675-36136f2c746e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentOutputReadme#6b155e43-5943-4cc7-ace6-d07217de2fcd</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>content/IdentityUiFiles/readme.txt</ApplicationRelativeFilePath>
@@ -25,7 +25,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>ddd2ff2f-cd4e-4d5e-8d8a-a62d572541db</ProjectId>
+      <ProjectId>3f04c7f2-deb7-428f-b675-36136f2c746e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AspNetCore.Identity.UI.imodspec</ApplicationRelativeFilePath>
@@ -33,8 +33,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>ddd2ff2f-cd4e-4d5e-8d8a-a62d572541db</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#ddd2ff2f-cd4e-4d5e-8d8a-a62d572541db</CorrelationId>
+      <ProjectId>3f04c7f2-deb7-428f-b675-36136f2c746e</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#3f04c7f2-deb7-428f-b675-36136f2c746e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Identity.UI.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Identity.UI.csproj</ProjectRelativeFilePath>

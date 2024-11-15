@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>6930cd87-e815-4614-b05e-7f10aa1b5f15</ProjectId>
+      <ProjectId>652c5713-b796-4d50-abfe-b1e044c7d412</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.EntityFrameworkCore.BulkOperations.imodspec</ApplicationRelativeFilePath>
@@ -25,15 +25,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>6930cd87-e815-4614-b05e-7f10aa1b5f15</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#6930cd87-e815-4614-b05e-7f10aa1b5f15</CorrelationId>
+      <ProjectId>652c5713-b796-4d50-abfe-b1e044c7d412</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#652c5713-b796-4d50-abfe-b1e044c7d412</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.EntityFrameworkCore.BulkOperations.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.EntityFrameworkCore.BulkOperations.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>6930cd87-e815-4614-b05e-7f10aa1b5f15</ProjectId>
+      <ProjectId>652c5713-b796-4d50-abfe-b1e044c7d412</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>

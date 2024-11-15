@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>660cb137-92bc-425b-8adb-b29cf80291b3</ProjectId>
+      <ProjectId>292c4883-3802-4087-b02a-7d263b597749</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.EntityFrameworkCore.DesignTimeDbContextFactory.imodspec</ApplicationRelativeFilePath>
@@ -25,15 +25,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>660cb137-92bc-425b-8adb-b29cf80291b3</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#660cb137-92bc-425b-8adb-b29cf80291b3</CorrelationId>
+      <ProjectId>292c4883-3802-4087-b02a-7d263b597749</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#292c4883-3802-4087-b02a-7d263b597749</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>660cb137-92bc-425b-8adb-b29cf80291b3</ProjectId>
+      <ProjectId>292c4883-3802-4087-b02a-7d263b597749</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
@@ -41,7 +41,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>660cb137-92bc-425b-8adb-b29cf80291b3</ProjectId>
+      <ProjectId>292c4883-3802-4087-b02a-7d263b597749</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

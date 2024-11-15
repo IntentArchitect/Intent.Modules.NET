@@ -15,14 +15,14 @@ namespace Intent.CosmosDB.Api
     {
         public static FieldSetting GetFieldSetting(this AssociationTargetEndModel model)
         {
-            var stereotype = model.GetStereotype("fb47f1e4-447b-4a67-947d-590fc24c20c1");
+            var stereotype = model.GetStereotype(FieldSetting.DefinitionId);
             return stereotype != null ? new FieldSetting(stereotype) : null;
         }
 
 
         public static bool HasFieldSetting(this AssociationTargetEndModel model)
         {
-            return model.HasStereotype("fb47f1e4-447b-4a67-947d-590fc24c20c1");
+            return model.HasStereotype(FieldSetting.DefinitionId);
         }
 
         public static bool TryGetFieldSetting(this AssociationTargetEndModel model, out FieldSetting stereotype)
@@ -33,13 +33,14 @@ namespace Intent.CosmosDB.Api
                 return false;
             }
 
-            stereotype = new FieldSetting(model.GetStereotype("fb47f1e4-447b-4a67-947d-590fc24c20c1"));
+            stereotype = new FieldSetting(model.GetStereotype(FieldSetting.DefinitionId));
             return true;
         }
 
         public class FieldSetting
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "fb47f1e4-447b-4a67-947d-590fc24c20c1";
 
             public FieldSetting(IStereotype stereotype)
             {

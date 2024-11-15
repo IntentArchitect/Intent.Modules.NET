@@ -14,14 +14,14 @@ namespace Intent.QuartzScheduler.Api
     {
         public static Scheduling GetScheduling(this ScheduledJobModel model)
         {
-            var stereotype = model.GetStereotype("b7a34ab9-8f7f-415f-92bd-c85cfe02f29d");
+            var stereotype = model.GetStereotype(Scheduling.DefinitionId);
             return stereotype != null ? new Scheduling(stereotype) : null;
         }
 
 
         public static bool HasScheduling(this ScheduledJobModel model)
         {
-            return model.HasStereotype("b7a34ab9-8f7f-415f-92bd-c85cfe02f29d");
+            return model.HasStereotype(Scheduling.DefinitionId);
         }
 
         public static bool TryGetScheduling(this ScheduledJobModel model, out Scheduling stereotype)
@@ -32,13 +32,14 @@ namespace Intent.QuartzScheduler.Api
                 return false;
             }
 
-            stereotype = new Scheduling(model.GetStereotype("b7a34ab9-8f7f-415f-92bd-c85cfe02f29d"));
+            stereotype = new Scheduling(model.GetStereotype(Scheduling.DefinitionId));
             return true;
         }
 
         public class Scheduling
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "b7a34ab9-8f7f-415f-92bd-c85cfe02f29d";
 
             public Scheduling(IStereotype stereotype)
             {

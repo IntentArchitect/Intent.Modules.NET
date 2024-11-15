@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Application.MediatR</id>
   <version>4.3.0-pre.0</version>
-  <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the MediatR middleware</summary>
   <description>Provides the MediatR middleware</description>
   <authors>Intent Architect</authors>
@@ -147,7 +147,6 @@
     <group id="2392c046-0aa7-4ee5-a77a-e954c4a7aab5" title="CQRS Settings" externalReference="2392c046-0aa7-4ee5-a77a-e954c4a7aab5">
       <settings>
         <setting id="02413035-08e9-47b2-8b89-798f38388243" title="Consolidate Command/Query associated files into single file" type="switch">
-          <isRequired>false</isRequired>
           <hint>Generate Commands and Queries' associated files (e.g. handlers, validators, etc) into the Command/Query file itself.</hint>
         </setting>
       </settings>

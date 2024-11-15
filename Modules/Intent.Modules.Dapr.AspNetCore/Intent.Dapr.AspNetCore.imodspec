@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Dapr.AspNetCore</id>
   <version>2.0.6</version>
-  <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Base functionality to enable Dapr for ASP.NET projects.</summary>
   <description>Base functionality to enable Dapr for ASP.NET projects.</description>
   <authors>Intent Architect</authors>

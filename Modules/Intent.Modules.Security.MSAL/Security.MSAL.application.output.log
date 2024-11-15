@@ -25,15 +25,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>768108c5-5757-47fb-b4c4-ccc16685bb58</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#768108c5-5757-47fb-b4c4-ccc16685bb58</CorrelationId>
+      <ProjectId>42b7116a-b465-4223-975b-97a52111f859</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#42b7116a-b465-4223-975b-97a52111f859</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Security.MSAL.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Security.MSAL.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>768108c5-5757-47fb-b4c4-ccc16685bb58</ProjectId>
+      <ProjectId>42b7116a-b465-4223-975b-97a52111f859</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Security.MSAL.imodspec</ApplicationRelativeFilePath>
@@ -41,7 +41,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>768108c5-5757-47fb-b4c4-ccc16685bb58</ProjectId>
+      <ProjectId>42b7116a-b465-4223-975b-97a52111f859</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
@@ -49,7 +49,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>768108c5-5757-47fb-b4c4-ccc16685bb58</ProjectId>
+      <ProjectId>42b7116a-b465-4223-975b-97a52111f859</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

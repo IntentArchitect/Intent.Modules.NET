@@ -41,7 +41,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>7e2cdd36-d086-4401-9ce5-b83f61a6fce9</ProjectId>
+      <ProjectId>908bf728-6b07-47bf-997f-e1d69fcf8c60</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.IdentityServer4.SecureTokenServer.imodspec</ApplicationRelativeFilePath>
@@ -49,8 +49,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>7e2cdd36-d086-4401-9ce5-b83f61a6fce9</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#7e2cdd36-d086-4401-9ce5-b83f61a6fce9</CorrelationId>
+      <ProjectId>908bf728-6b07-47bf-997f-e1d69fcf8c60</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#908bf728-6b07-47bf-997f-e1d69fcf8c60</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.IdentityServer4.SecureTokenServer.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.SecureTokenServer.csproj</ProjectRelativeFilePath>

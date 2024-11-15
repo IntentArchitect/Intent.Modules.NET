@@ -6,7 +6,7 @@
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>f545306e-a259-418e-82dc-7eaff6ac0be2</parentFolderId>
+  <parentFolderId>8e9531cc-3008-416c-b274-7872a88a822d</parentFolderId>
   <packageId>e6bdb9be-e564-44a6-9693-50a116c493b0</packageId>
   <packageName>Intent.Modules.NET</packageName>
   <stereotypes>
@@ -255,6 +255,34 @@
       <parentFolderId>8466ae24-3f43-4aaa-a7c5-be9b11b6cc75</parentFolderId>
       <packageId>e6bdb9be-e564-44a6-9693-50a116c493b0</packageId>
       <packageName>Intent.Modules.NET</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d32f21ab-2cb1-4b78-8999-88f640263297" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.RazorStringInterpolationTemplate</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.RazorStringInterpolationTemplate</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8466ae24-3f43-4aaa-a7c5-be9b11b6cc75</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="68f46c8a-707d-4a9a-b67d-cf1e7f366961" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial</name>
+      <display>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial</display>
+      <externalReference>Intent.ModuleBuilder.CSharp</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8466ae24-3f43-4aaa-a7c5-be9b11b6cc75</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

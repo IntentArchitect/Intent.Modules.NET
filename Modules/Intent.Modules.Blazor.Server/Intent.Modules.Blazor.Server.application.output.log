@@ -9,7 +9,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>6d0d559f-7b76-4099-a2f2-3a098b81e8a3</ProjectId>
+      <ProjectId>366bb492-c2b2-4076-95eb-344dbc5d5d0d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentOutputReadme#be4782b5-7a0e-44b6-8ae0-5b8966680050</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>content/static-content/readme.txt</ApplicationRelativeFilePath>
@@ -25,7 +25,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>6d0d559f-7b76-4099-a2f2-3a098b81e8a3</ProjectId>
+      <ProjectId>366bb492-c2b2-4076-95eb-344dbc5d5d0d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Blazor.Server.imodspec</ApplicationRelativeFilePath>
@@ -33,15 +33,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>6d0d559f-7b76-4099-a2f2-3a098b81e8a3</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#6d0d559f-7b76-4099-a2f2-3a098b81e8a3</CorrelationId>
+      <ProjectId>366bb492-c2b2-4076-95eb-344dbc5d5d0d</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#366bb492-c2b2-4076-95eb-344dbc5d5d0d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Blazor.Server.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Blazor.Server.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>6d0d559f-7b76-4099-a2f2-3a098b81e8a3</ProjectId>
+      <ProjectId>366bb492-c2b2-4076-95eb-344dbc5d5d0d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

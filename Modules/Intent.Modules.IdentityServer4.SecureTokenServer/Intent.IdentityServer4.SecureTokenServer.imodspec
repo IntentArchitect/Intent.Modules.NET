@@ -24,7 +24,7 @@
   </decorators>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.6-pre.1" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
     <dependency id="Intent.VisualStudio.Projects" version="3.3.25" />
@@ -41,7 +41,6 @@
     <group id="2540e7d3-58b4-4e0d-9187-f614bf834837" title="Identity Server Settings" externalReference="2540e7d3-58b4-4e0d-9187-f614bf834837">
       <settings>
         <setting id="e31ca033-a677-4674-aeca-126633e3e097" title="Create Test Users" type="checkbox">
-          <isRequired>false</isRequired>
           <hint>If checked, will create test users for Identity Server.</hint>
           <defaultValue>true</defaultValue>
         </setting>

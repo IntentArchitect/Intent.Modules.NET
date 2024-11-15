@@ -15,6 +15,10 @@ using Intent.Modules.Metadata.RDBMS.Settings;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 
+// This is for disambiguating the extension method
+using Intent.Modelers.Domain.Api;
+
+
 public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
 {
     public IList<CSharpStatement> Statements { get; } = new List<CSharpStatement>();

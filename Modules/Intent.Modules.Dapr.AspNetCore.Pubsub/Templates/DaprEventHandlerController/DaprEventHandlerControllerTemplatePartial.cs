@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Intent.Dapr.AspNetCore.Pubsub.Api;
 using Intent.Engine;
+using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
@@ -15,8 +17,6 @@ using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandlerImplementation
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Modelers.Services.EventInteractions;
-using Intent.Modelers.Eventing.Api;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>5.0.14</version>
-  <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
+  <version>5.0.15-pre.0</version>
+  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
   <authors>Intent Architect</authors>
@@ -120,7 +120,7 @@
     <groupExtension id="bc792686-00cd-43b2-97bf-d91127604c95" groupId="ac0a788e-d8b3-4eea-b56d-538608f1ded9" externalReference="bc792686-00cd-43b2-97bf-d91127604c95">
       <settings>
         <setting id="00bb780c-57bf-43c1-b952-303f11096be7" title="Database Provider" type="select">
-          <isRequired>true</isRequired>
+          <isRequired>false</isRequired>
           <hint>Underlying database technology.</hint>
           <defaultValue>in-memory</defaultValue>
           <options>
@@ -133,7 +133,7 @@
           </options>
         </setting>
         <setting id="49b09c68-e86a-4e15-96ab-cd482168ef22" title="Table naming convention" type="select">
-          <isRequired>true</isRequired>
+          <isRequired>false</isRequired>
           <hint>Naming convention for SQL table names.</hint>
           <defaultValue>pluralized</defaultValue>
           <options>
@@ -143,7 +143,7 @@
           </options>
         </setting>
         <setting id="182cdc53-baee-4bb3-adbd-d2a0aa1216a1" title="Lazy loading with proxies" type="switch">
-          <isRequired>true</isRequired>
+          <isRequired>false</isRequired>
           <defaultValue>true</defaultValue>
         </setting>
         <setting id="85dea0e8-8981-4c7b-908e-d99294fc37f1" title="Generate DbContext interface" type="switch">
@@ -171,7 +171,7 @@
           <hint>Explicitly set the default schema name for application (relational DBs only)</hint>
         </setting>
         <setting id="1cb44856-03a7-4a0c-88cf-ae9f84b9dd79" title="Maintain column ordering" type="switch">
-          <isRequired>true</isRequired>
+          <isRequired>false</isRequired>
           <hint>SQL column ordering should reflect the model order.</hint>
           <defaultValue>false</defaultValue>
         </setting>

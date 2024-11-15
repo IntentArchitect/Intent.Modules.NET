@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>09c2dee1-c9c4-4798-bcfd-dcc9836e6823</ProjectId>
+      <ProjectId>2319741f-1711-48ed-9ca6-131badf47f57</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AspNetCore.Swashbuckle.Security.imodspec</ApplicationRelativeFilePath>
@@ -25,8 +25,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>09c2dee1-c9c4-4798-bcfd-dcc9836e6823</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#09c2dee1-c9c4-4798-bcfd-dcc9836e6823</CorrelationId>
+      <ProjectId>2319741f-1711-48ed-9ca6-131badf47f57</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#2319741f-1711-48ed-9ca6-131badf47f57</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Swashbuckle.Security.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Swashbuckle.Security.csproj</ProjectRelativeFilePath>

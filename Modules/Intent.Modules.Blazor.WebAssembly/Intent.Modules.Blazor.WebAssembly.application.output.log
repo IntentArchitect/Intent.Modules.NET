@@ -9,7 +9,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>0400e2eb-dd1c-4f52-85c2-9ef8fc23956b</ProjectId>
+      <ProjectId>5e6be0ea-f07c-4a16-9c84-8026c435bcb1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentOutputReadme#84464de4-ae65-4ebd-898b-875b7b4ac0cb</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>content/static-content/readme.txt</ApplicationRelativeFilePath>
@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>0400e2eb-dd1c-4f52-85c2-9ef8fc23956b</ProjectId>
+      <ProjectId>5e6be0ea-f07c-4a16-9c84-8026c435bcb1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Blazor.WebAssembly.imodspec</ApplicationRelativeFilePath>
@@ -25,15 +25,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>0400e2eb-dd1c-4f52-85c2-9ef8fc23956b</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#0400e2eb-dd1c-4f52-85c2-9ef8fc23956b</CorrelationId>
+      <ProjectId>5e6be0ea-f07c-4a16-9c84-8026c435bcb1</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#5e6be0ea-f07c-4a16-9c84-8026c435bcb1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Blazor.WebAssembly.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Blazor.WebAssembly.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>0400e2eb-dd1c-4f52-85c2-9ef8fc23956b</ProjectId>
+      <ProjectId>5e6be0ea-f07c-4a16-9c84-8026c435bcb1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>

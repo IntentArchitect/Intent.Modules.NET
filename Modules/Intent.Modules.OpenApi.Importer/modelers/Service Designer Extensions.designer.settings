@@ -243,4 +243,5 @@ await importOpenApi(element);
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
+  <scripts />
 </settings>

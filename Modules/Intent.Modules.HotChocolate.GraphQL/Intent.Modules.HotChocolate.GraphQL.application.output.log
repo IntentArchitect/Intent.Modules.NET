@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>5eec3e89-9696-474c-85f9-d992298e8ba2</ProjectId>
+      <ProjectId>0ce6f717-6dec-4f0d-bd01-b9d3d9367a1f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.HotChocolate.GraphQL.imodspec</ApplicationRelativeFilePath>
@@ -25,15 +25,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>5eec3e89-9696-474c-85f9-d992298e8ba2</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#5eec3e89-9696-474c-85f9-d992298e8ba2</CorrelationId>
+      <ProjectId>0ce6f717-6dec-4f0d-bd01-b9d3d9367a1f</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#0ce6f717-6dec-4f0d-bd01-b9d3d9367a1f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.HotChocolate.GraphQL.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.HotChocolate.GraphQL.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>5eec3e89-9696-474c-85f9-d992298e8ba2</ProjectId>
+      <ProjectId>0ce6f717-6dec-4f0d-bd01-b9d3d9367a1f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>

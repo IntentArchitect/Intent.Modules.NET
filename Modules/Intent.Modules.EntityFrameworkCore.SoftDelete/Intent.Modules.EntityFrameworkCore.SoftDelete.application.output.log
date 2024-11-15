@@ -41,7 +41,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e0c2aa10-ed71-486b-8876-d126faedebb4</ProjectId>
+      <ProjectId>be6ef12f-ef79-4937-8c3d-4c54eecc4488</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.EntityFrameworkCore.SoftDelete.imodspec</ApplicationRelativeFilePath>
@@ -49,8 +49,8 @@
       <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e0c2aa10-ed71-486b-8876-d126faedebb4</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#e0c2aa10-ed71-486b-8876-d126faedebb4</CorrelationId>
+      <ProjectId>be6ef12f-ef79-4937-8c3d-4c54eecc4488</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#be6ef12f-ef79-4937-8c3d-4c54eecc4488</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.EntityFrameworkCore.SoftDelete.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.EntityFrameworkCore.SoftDelete.csproj</ProjectRelativeFilePath>
@@ -65,7 +65,7 @@
       <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e0c2aa10-ed71-486b-8876-d126faedebb4</ProjectId>
+      <ProjectId>be6ef12f-ef79-4937-8c3d-4c54eecc4488</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

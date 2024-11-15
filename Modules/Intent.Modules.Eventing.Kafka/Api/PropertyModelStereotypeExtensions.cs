@@ -15,14 +15,14 @@ namespace Intent.Eventing.Kafka.Api
     {
         public static Key GetKey(this PropertyModel model)
         {
-            var stereotype = model.GetStereotype("ea495988-41a8-41f2-944e-24632a06fa70");
+            var stereotype = model.GetStereotype(Key.DefinitionId);
             return stereotype != null ? new Key(stereotype) : null;
         }
 
 
         public static bool HasKey(this PropertyModel model)
         {
-            return model.HasStereotype("ea495988-41a8-41f2-944e-24632a06fa70");
+            return model.HasStereotype(Key.DefinitionId);
         }
 
         public static bool TryGetKey(this PropertyModel model, out Key stereotype)
@@ -33,13 +33,14 @@ namespace Intent.Eventing.Kafka.Api
                 return false;
             }
 
-            stereotype = new Key(model.GetStereotype("ea495988-41a8-41f2-944e-24632a06fa70"));
+            stereotype = new Key(model.GetStereotype(Key.DefinitionId));
             return true;
         }
 
         public class Key
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "ea495988-41a8-41f2-944e-24632a06fa70";
 
             public Key(IStereotype stereotype)
             {

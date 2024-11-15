@@ -69,7 +69,7 @@ namespace Intent.Modules.AspNetCore.MultiTenancy.Templates.TenantConnectionsInte
 
                 method.AddStatement($@"services.AddScoped<ITenantConnections>(
                 provider => provider.GetService<ITenantInfo>() as {template.GetTenantExtendedInfoName()} ?? 
-                throw new { multiTenantException }(""Failed to resolve tenant info""));");
+                throw new {multiTenantException}(""Failed to resolve tenant info""));");
             });
         }
 

@@ -98,7 +98,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                         throw new("app.UseMultiTenancy() was not configured");
                     }
                     template.GetCosmosDBMultiTenantMiddlewareName();
-                    useUseMultiTenancyStatement.InsertBelow($"{ctx.App}.UseCosmosMultiTenantMiddleware();");
+                    useUseMultiTenancyStatement.InsertBelow((CSharpStatement)$"{ctx.App}.UseCosmosMultiTenantMiddleware();");
                 });
             }, 15);
         }
@@ -176,7 +176,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                     var documentDeclarationStatement = invocationArgument.FindStatement(x => x.HasMetadata(MetadataNames.DocumentDeclarationStatement));
 
                     ConfigurableStatement(
-                        invocationArgument.Statements[invocationArgument.Statements.IndexOf(documentDeclarationStatement) + 1],
+                        invocationArgument.Statements[invocationArgument.Statements.IndexOf((CSharpStatement)documentDeclarationStatement) + 1],
                         c => c.SeparatedFromPrevious());
 
                     documentDeclarationStatement.InsertBelow(
@@ -192,7 +192,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                     var documentDeclarationStatement = invocationArgument.FindStatement(x => x.HasMetadata(MetadataNames.DocumentDeclarationStatement));
 
                     ConfigurableStatement(
-                        invocationArgument.Statements[invocationArgument.Statements.IndexOf(documentDeclarationStatement) + 1],
+                        invocationArgument.Statements[invocationArgument.Statements.IndexOf((CSharpStatement)documentDeclarationStatement) + 1],
                         c => c.SeparatedFromPrevious());
 
                     documentDeclarationStatement.InsertBelow(
@@ -208,7 +208,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                     var documentDeclarationStatement = invocationArgument.FindStatement(x => x.HasMetadata(MetadataNames.DocumentDeclarationStatement));
 
                     ConfigurableStatement(
-                        invocationArgument.Statements[invocationArgument.Statements.IndexOf(documentDeclarationStatement) + 1],
+                        invocationArgument.Statements[invocationArgument.Statements.IndexOf((CSharpStatement)documentDeclarationStatement) + 1],
                         c => c.SeparatedFromPrevious());
 
                     documentDeclarationStatement.InsertBelow(
@@ -233,7 +233,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 {
                     var method = @class.FindMethod(x => x.Name == "FindAllAsync" && x.Parameters.Count == 2);
 
-                    var documentsDeclarationStatement = method.FindStatement(x => x.HasMetadata(MetadataNames.DocumentsDeclarationStatement));
+                    var documentsDeclarationStatement = (CSharpStatement)method.FindStatement(x => x.HasMetadata(MetadataNames.DocumentsDeclarationStatement));
                     documentsDeclarationStatement.FindAndReplace("AdaptFilterPredicate(filterExpression)", "predicate");
                     documentsDeclarationStatement.SeparatedFromPrevious();
                     documentsDeclarationStatement.InsertAbove(
@@ -245,7 +245,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 {
                     var method = @class.FindMethod(x => x.Name == "FindAllAsync" && x.Parameters.Count == 4);
 
-                    var pagedDocumentsDeclarationStatement = method.FindStatement(x => x.HasMetadata(MetadataNames.PagedDocumentsDeclarationStatement));
+                    var pagedDocumentsDeclarationStatement = (CSharpStatement)method.FindStatement(x => x.HasMetadata(MetadataNames.PagedDocumentsDeclarationStatement));
                     pagedDocumentsDeclarationStatement.FindAndReplace("AdaptFilterPredicate(filterExpression)", "predicate");
                     pagedDocumentsDeclarationStatement.SeparatedFromPrevious();
                     pagedDocumentsDeclarationStatement.InsertAbove(
@@ -256,7 +256,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                 // FindByIdsAsync
                 {
                     var method = @class.FindMethod("FindByIdsAsync");
-                    var queryDefinitionDeclarationStatement = method.FindStatement(x => x.HasMetadata(MetadataNames.QueryDefinitionDeclarationStatement));
+                    var queryDefinitionDeclarationStatement = (CSharpStatement)method.FindStatement(x => x.HasMetadata(MetadataNames.QueryDefinitionDeclarationStatement));
                     queryDefinitionDeclarationStatement.Replace(@"var queryDefinition = new QueryDefinition($""SELECT * from c WHERE {(!string.IsNullOrEmpty(_partitionKeyFieldName) ? ""(@tenantId = null OR c.{_partitionKeyFieldName} = @tenantId)  AND "" : """")}ARRAY_CONTAINS(@ids, c.{_idFieldName})"")
                     .WithParameter(""@tenantId"", _tenantId)
                     .WithParameter(""@ids"", ids);");

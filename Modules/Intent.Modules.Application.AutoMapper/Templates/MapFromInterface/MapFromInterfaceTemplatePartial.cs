@@ -19,7 +19,7 @@ namespace Intent.Modules.Application.AutoMapper.Templates.MapFromInterface
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.AutoMapper.MapFromInterface";
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public MapFromInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())

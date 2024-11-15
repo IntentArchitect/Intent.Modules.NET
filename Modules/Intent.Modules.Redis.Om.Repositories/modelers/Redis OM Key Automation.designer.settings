@@ -26,4 +26,5 @@ if (element.hasStereotype(PrimaryKeyStereotypeId)) {
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
+  <scripts />
 </settings>

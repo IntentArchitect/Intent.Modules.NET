@@ -6,7 +6,7 @@
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>0400e2eb-dd1c-4f52-85c2-9ef8fc23956b</parentFolderId>
+  <parentFolderId>5e6be0ea-f07c-4a16-9c84-8026c435bcb1</parentFolderId>
   <packageId>8a3a1cbc-3db3-4e95-8fae-b962314e116a</packageId>
   <packageName>Intent.Modules.NET</packageName>
   <stereotypes>

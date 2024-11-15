@@ -149,7 +149,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
                 var hostBuilderStatement = tryBlock.FindStatement(x => x.HasMetadata("is-builder-statement"));
 
                 // Add a line above the next statement:
-                var nextStatementIndex = tryBlock.Statements.IndexOf(hostBuilderStatement) + 1;
+                var nextStatementIndex = tryBlock.Statements.IndexOf((CSharpStatement)hostBuilderStatement) + 1;
                 if (tryBlock.Statements.Count > nextStatementIndex)
                 {
                     tryBlock.Statements[nextStatementIndex].SeparatedFromPrevious();

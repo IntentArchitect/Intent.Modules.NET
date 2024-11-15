@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>
+      <ProjectId>7327b9f1-fa34-47c3-bbb2-db4cbba27a7c</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AspNetCore.Interop.Angular.imodspec</ApplicationRelativeFilePath>
@@ -25,8 +25,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#96ac5884-36a9-4b6d-8e91-3c8d7ba75bb6</CorrelationId>
+      <ProjectId>7327b9f1-fa34-47c3-bbb2-db4cbba27a7c</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#7327b9f1-fa34-47c3-bbb2-db4cbba27a7c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Interop.Angular.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Interop.Angular.csproj</ProjectRelativeFilePath>

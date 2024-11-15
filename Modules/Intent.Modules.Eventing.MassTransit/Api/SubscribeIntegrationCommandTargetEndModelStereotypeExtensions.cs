@@ -15,14 +15,14 @@ namespace Intent.Eventing.MassTransit.Api
     {
         public static CommandConsumption GetCommandConsumption(this SubscribeIntegrationCommandTargetEndModel model)
         {
-            var stereotype = model.GetStereotype("ced769d7-12d7-4efc-b8e7-4fe013097613");
+            var stereotype = model.GetStereotype(CommandConsumption.DefinitionId);
             return stereotype != null ? new CommandConsumption(stereotype) : null;
         }
 
 
         public static bool HasCommandConsumption(this SubscribeIntegrationCommandTargetEndModel model)
         {
-            return model.HasStereotype("ced769d7-12d7-4efc-b8e7-4fe013097613");
+            return model.HasStereotype(CommandConsumption.DefinitionId);
         }
 
         public static bool TryGetCommandConsumption(this SubscribeIntegrationCommandTargetEndModel model, out CommandConsumption stereotype)
@@ -33,13 +33,14 @@ namespace Intent.Eventing.MassTransit.Api
                 return false;
             }
 
-            stereotype = new CommandConsumption(model.GetStereotype("ced769d7-12d7-4efc-b8e7-4fe013097613"));
+            stereotype = new CommandConsumption(model.GetStereotype(CommandConsumption.DefinitionId));
             return true;
         }
 
         public class CommandConsumption
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "ced769d7-12d7-4efc-b8e7-4fe013097613";
 
             public CommandConsumption(IStereotype stereotype)
             {

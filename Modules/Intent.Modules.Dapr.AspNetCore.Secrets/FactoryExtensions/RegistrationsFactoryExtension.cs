@@ -47,7 +47,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Secrets.FactoryExtensions
                 startupTemplate.StartupFile.ConfigureApp((statements, context) =>
                 {
                     startupTemplate.GetDaprSecretsConfigurationName();
-                    statements.InsertStatement(0, $"{context.App}.LoadDaprSecretStoreDeferred({context.Configuration});");
+                    statements.InsertStatement(0, (CSharpStatement)$"{context.App}.LoadDaprSecretStoreDeferred({context.Configuration});");
                 });
             }, 10);
         }

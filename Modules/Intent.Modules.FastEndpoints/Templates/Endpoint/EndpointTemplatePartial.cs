@@ -376,10 +376,10 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             {
                 property.File.Template.AddNugetDependency(NugetPackages.FastEndpointsAttributes(property.File.Template.OutputTarget));
                 property.AddAttribute(property.File.Template.UseType("FastEndpoints.FromQueryParams"));
-                
+
                 if (!string.IsNullOrWhiteSpace(parameter.QueryStringName))
                 {
-                    property.AddAttribute(property.File.Template.UseType("FastEndpoints.BindFrom"), 
+                    property.AddAttribute(property.File.Template.UseType("FastEndpoints.BindFrom"),
                         attr => attr.AddArgument($@"""{parameter.QueryStringName}"""));
                 }
             }

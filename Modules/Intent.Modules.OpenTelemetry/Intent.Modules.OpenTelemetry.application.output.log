@@ -17,15 +17,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>4c241e0e-b274-4d98-a0bb-c0d94f310661</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#4c241e0e-b274-4d98-a0bb-c0d94f310661</CorrelationId>
+      <ProjectId>4f7818de-3791-41c1-b1de-d7a493fec5eb</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#4f7818de-3791-41c1-b1de-d7a493fec5eb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.OpenTelemetry.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.OpenTelemetry.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>4c241e0e-b274-4d98-a0bb-c0d94f310661</ProjectId>
+      <ProjectId>4f7818de-3791-41c1-b1de-d7a493fec5eb</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.OpenTelemetry.imodspec</ApplicationRelativeFilePath>
@@ -33,7 +33,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>4c241e0e-b274-4d98-a0bb-c0d94f310661</ProjectId>
+      <ProjectId>4f7818de-3791-41c1-b1de-d7a493fec5eb</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>

@@ -6,7 +6,6 @@ using Intent.Engine;
 using Intent.EntityFrameworkCore.Api;
 using Intent.Metadata.Models;
 using Intent.Metadata.RDBMS.Api;
-using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -27,6 +26,9 @@ using ClassExtensionModel = Intent.Metadata.RDBMS.Api.ClassExtensionModel;
 
 namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 {
+    // This is for disambiguating the extension method
+    using Intent.Modelers.Domain.Api;
+
     [IntentManaged(Mode.Merge)]
     public partial class EntityTypeConfigurationTemplate : CSharpTemplateBase<ClassModel, ITemplateDecorator>, ICSharpFileBuilderTemplate
     {

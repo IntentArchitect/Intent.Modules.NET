@@ -6,7 +6,6 @@ using Intent.CosmosDB.Api;
 using Intent.Engine;
 using Intent.Metadata.DocumentDB.Api;
 using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -19,6 +18,9 @@ using Intent.Modules.CosmosDB.Templates.CosmosDBValueObjectDocumentInterface;
 
 namespace Intent.Modules.CosmosDB.Templates
 {
+    // This is for disambiguating the extension method
+    using Intent.Modelers.Domain.Api;
+
     internal static class DocumentTemplateHelpers
     {
         public static void AddCosmosDBDocumentProperties<TModel>(

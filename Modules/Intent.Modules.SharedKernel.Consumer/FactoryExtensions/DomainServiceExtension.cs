@@ -64,8 +64,8 @@ namespace Intent.Modules.SharedKernel.Consumer.FactoryExtensions
                     handlerTemplate.CSharpFile.OnBuild(file =>
                     {
                         file.AddUsing($"{sharedKernel.ApplicationName}.Domain.Events");
-                        
-                        var @class = file.Classes.First();                        
+
+                        var @class = file.Classes.First();
                         @class.Interfaces[0] = @class.Interfaces[0].Replace("INotificationHandler<DomainEventNotification<", $"INotificationHandler<{sharedKernel.ApplicationName}.Application.Common.Models.DomainEventNotification<");
                         foreach (var toFix in fixes)
                         {

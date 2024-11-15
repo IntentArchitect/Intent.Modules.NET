@@ -15,14 +15,14 @@ namespace Intent.CosmosDB.Api
     {
         public static Container GetContainer(this DomainPackageModel model)
         {
-            var stereotype = model.GetStereotype("ef9b1772-18e1-44ad-b606-66406221c805");
+            var stereotype = model.GetStereotype(Container.DefinitionId);
             return stereotype != null ? new Container(stereotype) : null;
         }
 
 
         public static bool HasContainer(this DomainPackageModel model)
         {
-            return model.HasStereotype("ef9b1772-18e1-44ad-b606-66406221c805");
+            return model.HasStereotype(Container.DefinitionId);
         }
 
         public static bool TryGetContainer(this DomainPackageModel model, out Container stereotype)
@@ -33,13 +33,14 @@ namespace Intent.CosmosDB.Api
                 return false;
             }
 
-            stereotype = new Container(model.GetStereotype("ef9b1772-18e1-44ad-b606-66406221c805"));
+            stereotype = new Container(model.GetStereotype(Container.DefinitionId));
             return true;
         }
 
         public class Container
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "ef9b1772-18e1-44ad-b606-66406221c805";
 
             public Container(IStereotype stereotype)
             {

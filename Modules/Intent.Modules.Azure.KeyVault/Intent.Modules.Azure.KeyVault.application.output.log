@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>31d61c32-3b68-497e-83e6-f30d7a862894</ProjectId>
+      <ProjectId>c2fd86f7-a010-45d3-98ab-4297cadff7b0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Azure.KeyVault.imodspec</ApplicationRelativeFilePath>
@@ -25,15 +25,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>31d61c32-3b68-497e-83e6-f30d7a862894</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#31d61c32-3b68-497e-83e6-f30d7a862894</CorrelationId>
+      <ProjectId>c2fd86f7-a010-45d3-98ab-4297cadff7b0</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#c2fd86f7-a010-45d3-98ab-4297cadff7b0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Azure.KeyVault.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Azure.KeyVault.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>31d61c32-3b68-497e-83e6-f30d7a862894</ProjectId>
+      <ProjectId>c2fd86f7-a010-45d3-98ab-4297cadff7b0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
@@ -41,7 +41,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>31d61c32-3b68-497e-83e6-f30d7a862894</ProjectId>
+      <ProjectId>c2fd86f7-a010-45d3-98ab-4297cadff7b0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

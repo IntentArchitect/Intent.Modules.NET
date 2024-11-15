@@ -51,4 +51,5 @@ if (mappedServiceIsMessageRequestEndpoint &amp;&amp; !element.hasStereotype(mess
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
+  <scripts />
 </settings>

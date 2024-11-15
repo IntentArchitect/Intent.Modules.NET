@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.SecondLevelCaching</id>
   <version>1.0.0-beta.2</version>
-  <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Provides second level caching for EF Core using https://github.com/VahidN/EFCoreSecondLevelCacheInterceptor.</summary>
   <description>Provides second level caching for EF Core using https://github.com/VahidN/EFCoreSecondLevelCacheInterceptor.</description>
   <authors>Intent Architect</authors>
@@ -25,7 +25,7 @@
   <dependencies>
     <dependency id="Intent.AspNetCore.DistributedCaching" version="1.0.0-beta.0" />
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.6" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>

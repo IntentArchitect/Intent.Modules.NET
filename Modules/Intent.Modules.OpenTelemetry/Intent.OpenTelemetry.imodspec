@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.OpenTelemetry</id>
   <version>2.2.2</version>
@@ -127,7 +127,7 @@ return getProperty(Export).value != AzureMonitorOpenTelemetryDistro &amp;&amp;
     <!-- Remove after 1 January 2025 -->
     <detect id="Intent.Eventing.MassTransit">
       <install>
-          <package id="Intent.Eventing.MassTransit" version="6.2.6" />
+        <package id="Intent.Eventing.MassTransit" version="6.2.6" />
       </install>
     </detect>
     <!-- Remove after 1 January 2025 -->

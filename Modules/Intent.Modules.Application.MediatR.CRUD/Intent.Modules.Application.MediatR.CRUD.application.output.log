@@ -73,7 +73,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3f0ab5fe-e9ef-4069-b690-195694fc1ce5</ProjectId>
+      <ProjectId>39a37e72-bc23-41c6-8a6e-ae7700d0a46d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.MediatR.CRUD.imodspec</ApplicationRelativeFilePath>
@@ -81,8 +81,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3f0ab5fe-e9ef-4069-b690-195694fc1ce5</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#3f0ab5fe-e9ef-4069-b690-195694fc1ce5</CorrelationId>
+      <ProjectId>39a37e72-bc23-41c6-8a6e-ae7700d0a46d</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#39a37e72-bc23-41c6-8a6e-ae7700d0a46d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.MediatR.CRUD.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.MediatR.CRUD.csproj</ProjectRelativeFilePath>

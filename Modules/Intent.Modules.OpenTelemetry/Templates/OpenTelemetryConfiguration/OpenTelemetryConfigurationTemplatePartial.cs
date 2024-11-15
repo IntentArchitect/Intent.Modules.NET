@@ -56,7 +56,7 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             {
                 AddNugetDependency(NugetPackages.AzureMonitorOpenTelemetryAspNetCore(OutputTarget));
                 AddUsing("Azure.Monitor.OpenTelemetry.AspNetCore");
-                
+
                 method.AddInvocationStatement("services.AddOpenTelemetry", main => main
                     .AddInvocation("UseAzureMonitor", inv => inv
                         .AddArgument(new CSharpLambdaBlock("opt")
@@ -216,13 +216,13 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             case Settings.OpenTelemetry.ExportOptionsEnum.Console:
                 {
                     AddNugetDependency(NugetPackages.OpenTelemetryExporterConsole(OutputTarget));
-                    
+
                     return configChain.AddInvocation("AddConsoleExporter", inv => inv.OnNewLine());
                 }
             case Settings.OpenTelemetry.ExportOptionsEnum.OpenTelemetryProtocol:
                 {
                     AddNugetDependency(NugetPackages.OpenTelemetryExporterOpenTelemetryProtocol(OutputTarget));
-                    
+
                     return configChain.AddInvocation("AddOtlpExporter", inv => inv.OnNewLine()
                         .AddArgument(new CSharpLambdaBlock("opt")
                             .AddStatement($@"opt.Endpoint = configuration.GetValue<{UseType("System.Uri")}>(""open-telemetry-protocol:endpoint"")!;")
@@ -231,7 +231,7 @@ public partial class OpenTelemetryConfigurationTemplate : CSharpTemplateBase<obj
             case Settings.OpenTelemetry.ExportOptionsEnum.AzureApplicationInsights:
                 {
                     AddNugetDependency(NugetPackages.AzureMonitorOpenTelemetryExporter(OutputTarget));
-                    
+
                     AddUsing("Azure.Monitor.OpenTelemetry.Exporter");
 
                     return configChain.AddInvocation($"AddAzureMonitor{exporterType}Exporter", inv => inv.OnNewLine()

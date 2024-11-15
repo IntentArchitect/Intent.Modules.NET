@@ -47,4 +47,5 @@ if (!element.hasStereotype(messageTriggeredStereotype)) {
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
+  <scripts />
 </settings>

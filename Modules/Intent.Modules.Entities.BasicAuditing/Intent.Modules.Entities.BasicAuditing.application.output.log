@@ -41,7 +41,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e8fc2c42-6fc9-4a68-8f84-79cea0ea9cab</ProjectId>
+      <ProjectId>2a286d8e-e6eb-4f4b-9ee1-84cb9483fe1b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Entities.BasicAuditing.imodspec</ApplicationRelativeFilePath>
@@ -49,8 +49,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e8fc2c42-6fc9-4a68-8f84-79cea0ea9cab</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#e8fc2c42-6fc9-4a68-8f84-79cea0ea9cab</CorrelationId>
+      <ProjectId>2a286d8e-e6eb-4f4b-9ee1-84cb9483fe1b</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#2a286d8e-e6eb-4f4b-9ee1-84cb9483fe1b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Entities.BasicAuditing.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Entities.BasicAuditing.csproj</ProjectRelativeFilePath>
@@ -65,7 +65,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e8fc2c42-6fc9-4a68-8f84-79cea0ea9cab</ProjectId>
+      <ProjectId>2a286d8e-e6eb-4f4b-9ee1-84cb9483fe1b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

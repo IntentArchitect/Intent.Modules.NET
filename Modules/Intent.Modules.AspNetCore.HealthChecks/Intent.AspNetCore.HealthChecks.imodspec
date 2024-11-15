@@ -2,7 +2,7 @@
 <package>
   <id>Intent.AspNetCore.HealthChecks</id>
   <version>2.0.9</version>
-  <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Monitor various aspects of your application to determine if is responding to requests normally.</summary>
   <description>Monitor various aspects of your application to determine if is responding to requests normally.</description>
   <authors>Intent Architect</authors>
@@ -35,7 +35,6 @@
           </options>
         </setting>
         <setting id="68cad1ef-8e6b-4a51-a9b7-ec6042224cc8" title="Health Checks UI" type="checkbox">
-          <isRequired>false</isRequired>
           <hint>Health Checks UI is a minimal UI interface that monitors your app's health check state.</hint>
         </setting>
       </settings>
@@ -52,7 +51,7 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.6-pre.1" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>

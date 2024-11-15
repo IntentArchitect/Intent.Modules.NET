@@ -15,14 +15,14 @@ namespace Intent.Entities.Api
     {
         public static Flags GetFlags(this EnumModel model)
         {
-            var stereotype = model.GetStereotype("3988663b-69c9-4ab1-b471-ecd3bc01dec6");
+            var stereotype = model.GetStereotype(Flags.DefinitionId);
             return stereotype != null ? new Flags(stereotype) : null;
         }
 
 
         public static bool HasFlags(this EnumModel model)
         {
-            return model.HasStereotype("3988663b-69c9-4ab1-b471-ecd3bc01dec6");
+            return model.HasStereotype(Flags.DefinitionId);
         }
 
         public static bool TryGetFlags(this EnumModel model, out Flags stereotype)
@@ -33,13 +33,14 @@ namespace Intent.Entities.Api
                 return false;
             }
 
-            stereotype = new Flags(model.GetStereotype("3988663b-69c9-4ab1-b471-ecd3bc01dec6"));
+            stereotype = new Flags(model.GetStereotype(Flags.DefinitionId));
             return true;
         }
 
         public class Flags
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "3988663b-69c9-4ab1-b471-ecd3bc01dec6";
 
             public Flags(IStereotype stereotype)
             {

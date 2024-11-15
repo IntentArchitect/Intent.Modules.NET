@@ -9,7 +9,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>d2c20998-fb57-4c68-b78b-6faf943c99a3</ProjectId>
+      <ProjectId>8be7bb86-e95a-4fd3-9e1d-5fc109995a2f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Azure.BlobStorage.imodspec</ApplicationRelativeFilePath>
@@ -17,15 +17,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>d2c20998-fb57-4c68-b78b-6faf943c99a3</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#d2c20998-fb57-4c68-b78b-6faf943c99a3</CorrelationId>
+      <ProjectId>8be7bb86-e95a-4fd3-9e1d-5fc109995a2f</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#8be7bb86-e95a-4fd3-9e1d-5fc109995a2f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Azure.BlobStorage.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Azure.BlobStorage.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>d2c20998-fb57-4c68-b78b-6faf943c99a3</ProjectId>
+      <ProjectId>8be7bb86-e95a-4fd3-9e1d-5fc109995a2f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
@@ -33,7 +33,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>d2c20998-fb57-4c68-b78b-6faf943c99a3</ProjectId>
+      <ProjectId>8be7bb86-e95a-4fd3-9e1d-5fc109995a2f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

@@ -15,14 +15,14 @@ namespace Intent.Entities.Repositories.Api.Api
     {
         public static Repository GetRepository(this ClassModel model)
         {
-            var stereotype = model.GetStereotype("cdc3d50d-0edd-4ffd-996f-08cbdf39595c");
+            var stereotype = model.GetStereotype(Repository.DefinitionId);
             return stereotype != null ? new Repository(stereotype) : null;
         }
 
 
         public static bool HasRepository(this ClassModel model)
         {
-            return model.HasStereotype("cdc3d50d-0edd-4ffd-996f-08cbdf39595c");
+            return model.HasStereotype(Repository.DefinitionId);
         }
 
         public static bool TryGetRepository(this ClassModel model, out Repository stereotype)
@@ -33,7 +33,7 @@ namespace Intent.Entities.Repositories.Api.Api
                 return false;
             }
 
-            stereotype = new Repository(model.GetStereotype("cdc3d50d-0edd-4ffd-996f-08cbdf39595c"));
+            stereotype = new Repository(model.GetStereotype(Repository.DefinitionId));
             return true;
         }
 
@@ -41,6 +41,7 @@ namespace Intent.Entities.Repositories.Api.Api
         public class Repository
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "cdc3d50d-0edd-4ffd-996f-08cbdf39595c";
 
             public Repository(IStereotype stereotype)
             {

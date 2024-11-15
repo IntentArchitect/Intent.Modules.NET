@@ -39,7 +39,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandlerImplementa
         public override IEnumerable<MessageModel> GetModels(IApplication application)
         {
             return _metadataManager.GetSubscribedToMessageModels(application).ToList();
-            
+
             /*
             var serviceDesignerEventSubs = _metadataManager.Services(application).GetIntegrationEventHandlerModels()
                     .SelectMany(x => x.IntegrationEventSubscriptions()

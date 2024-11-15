@@ -3,7 +3,6 @@ using System.Linq;
 using System.Reflection;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -22,6 +21,9 @@ using Intent.Templates;
 
 namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
 {
+    // This is for disambiguating the extension method
+    using Intent.Modelers.Services.Api;
+
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class ApplicationServiceInteractionInstaller : FactoryExtensionBase
     {

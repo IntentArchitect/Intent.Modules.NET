@@ -46,7 +46,7 @@ namespace Intent.Modules.Eventing.MassTransit.Templates.MassTransitEventBus
                             });
                     });
 
-                    var publishFieldDefault = outputTarget.GetProject().GetLanguageVersion().Major < 12 
+                    var publishFieldDefault = outputTarget.GetProject().GetLanguageVersion().Major < 12
                         ? new CSharpStatement("new List<object>()")
                         : new CSharpStatement("[]");
                     @class.AddField("List<object>", "_messagesToPublish", field => field

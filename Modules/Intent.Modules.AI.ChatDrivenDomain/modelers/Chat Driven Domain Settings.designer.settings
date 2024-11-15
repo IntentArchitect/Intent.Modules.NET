@@ -253,6 +253,7 @@ if (updateResultObj.errorMessage) {
         </option>
       </scriptOptions>
       <typeOrder />
+      <childElementExtensions />
     </packageExtension>
   </packageExtensions>
   <elementSettings />
@@ -262,4 +263,5 @@ if (updateResultObj.errorMessage) {
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
+  <scripts />
 </settings>

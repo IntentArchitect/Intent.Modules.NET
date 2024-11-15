@@ -8,7 +8,6 @@ using System.Xml.Linq;
 using Intent.CosmosDB.Api;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -31,6 +30,9 @@ using Intent.Utils;
 
 namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
 {
+    // This is for disambiguating the extension method
+    using Intent.Modelers.Domain.Api;
+
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class CosmosDBDocumentTemplate : CSharpTemplateBase<ClassModel>, ICSharpFileBuilderTemplate
     {

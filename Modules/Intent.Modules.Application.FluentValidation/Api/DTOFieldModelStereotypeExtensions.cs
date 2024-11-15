@@ -15,14 +15,14 @@ namespace Intent.Application.FluentValidation.Api
     {
         public static Validations GetValidations(this DTOFieldModel model)
         {
-            var stereotype = model.GetStereotype("4b54a612-2664-4493-a1f7-dc0623aa03da");
+            var stereotype = model.GetStereotype(Validations.DefinitionId);
             return stereotype != null ? new Validations(stereotype) : null;
         }
 
 
         public static bool HasValidations(this DTOFieldModel model)
         {
-            return model.HasStereotype("4b54a612-2664-4493-a1f7-dc0623aa03da");
+            return model.HasStereotype(Validations.DefinitionId);
         }
 
         public static bool TryGetValidations(this DTOFieldModel model, out Validations stereotype)
@@ -33,7 +33,7 @@ namespace Intent.Application.FluentValidation.Api
                 return false;
             }
 
-            stereotype = new Validations(model.GetStereotype("4b54a612-2664-4493-a1f7-dc0623aa03da"));
+            stereotype = new Validations(model.GetStereotype(Validations.DefinitionId));
             return true;
         }
 
@@ -41,6 +41,7 @@ namespace Intent.Application.FluentValidation.Api
         public class Validations
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "4b54a612-2664-4493-a1f7-dc0623aa03da";
 
             public Validations(IStereotype stereotype)
             {

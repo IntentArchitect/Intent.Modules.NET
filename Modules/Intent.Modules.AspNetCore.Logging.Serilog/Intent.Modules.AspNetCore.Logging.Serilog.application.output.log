@@ -33,15 +33,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a58a2fc1-5444-4388-8be7-0231516ce1d2</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a58a2fc1-5444-4388-8be7-0231516ce1d2</CorrelationId>
+      <ProjectId>b9b91c28-0de7-4437-8b8a-6d6c401f401b</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#b9b91c28-0de7-4437-8b8a-6d6c401f401b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Logging.Serilog.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Logging.Serilog.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a58a2fc1-5444-4388-8be7-0231516ce1d2</ProjectId>
+      <ProjectId>b9b91c28-0de7-4437-8b8a-6d6c401f401b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Logging.Serilog.imodspec</ApplicationRelativeFilePath>
@@ -49,7 +49,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a58a2fc1-5444-4388-8be7-0231516ce1d2</ProjectId>
+      <ProjectId>b9b91c28-0de7-4437-8b8a-6d6c401f401b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>

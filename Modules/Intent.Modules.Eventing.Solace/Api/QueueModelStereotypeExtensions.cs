@@ -14,14 +14,14 @@ namespace Intent.Eventing.Solace.Api
     {
         public static QueueConfig GetQueueConfig(this QueueModel model)
         {
-            var stereotype = model.GetStereotype("6b1a00d5-377b-4e0d-87d3-8c2ad5c70c5d");
+            var stereotype = model.GetStereotype(QueueConfig.DefinitionId);
             return stereotype != null ? new QueueConfig(stereotype) : null;
         }
 
 
         public static bool HasQueueConfig(this QueueModel model)
         {
-            return model.HasStereotype("6b1a00d5-377b-4e0d-87d3-8c2ad5c70c5d");
+            return model.HasStereotype(QueueConfig.DefinitionId);
         }
 
         public static bool TryGetQueueConfig(this QueueModel model, out QueueConfig stereotype)
@@ -32,13 +32,14 @@ namespace Intent.Eventing.Solace.Api
                 return false;
             }
 
-            stereotype = new QueueConfig(model.GetStereotype("6b1a00d5-377b-4e0d-87d3-8c2ad5c70c5d"));
+            stereotype = new QueueConfig(model.GetStereotype(QueueConfig.DefinitionId));
             return true;
         }
 
         public class QueueConfig
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "6b1a00d5-377b-4e0d-87d3-8c2ad5c70c5d";
 
             public QueueConfig(IStereotype stereotype)
             {

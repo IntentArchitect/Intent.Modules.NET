@@ -15,14 +15,14 @@ namespace Intent.Eventing.MassTransit.RequestResponse.Api
     {
         public static MessageTriggered GetMessageTriggered(this CommandModel model)
         {
-            var stereotype = model.GetStereotype("5150384d-18a3-4c7e-a716-599e6658abde");
+            var stereotype = model.GetStereotype(MessageTriggered.DefinitionId);
             return stereotype != null ? new MessageTriggered(stereotype) : null;
         }
 
 
         public static bool HasMessageTriggered(this CommandModel model)
         {
-            return model.HasStereotype("5150384d-18a3-4c7e-a716-599e6658abde");
+            return model.HasStereotype(MessageTriggered.DefinitionId);
         }
 
         public static bool TryGetMessageTriggered(this CommandModel model, out MessageTriggered stereotype)
@@ -33,13 +33,14 @@ namespace Intent.Eventing.MassTransit.RequestResponse.Api
                 return false;
             }
 
-            stereotype = new MessageTriggered(model.GetStereotype("5150384d-18a3-4c7e-a716-599e6658abde"));
+            stereotype = new MessageTriggered(model.GetStereotype(MessageTriggered.DefinitionId));
             return true;
         }
 
         public class MessageTriggered
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "5150384d-18a3-4c7e-a716-599e6658abde";
 
             public MessageTriggered(IStereotype stereotype)
             {

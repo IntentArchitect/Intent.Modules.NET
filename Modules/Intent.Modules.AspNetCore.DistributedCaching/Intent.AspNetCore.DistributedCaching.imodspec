@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.DistributedCaching</id>
   <version>1.0.0-beta.3</version>
-  <supportedClientVersions>[4.1.0-beta.21,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Configures IDistributedCache and a unit of work enabled interface for using a Distributed Cache with an application.</summary>
   <description>Configures IDistributedCache and a unit of work enabled interface for using a Distributed Cache with an application.</description>
   <authors>Intent Architect</authors>
@@ -41,7 +41,6 @@
     <group id="49ad40aa-eeb7-4d44-9b20-947a784dc12d" title="Distributed Caching Settings" externalReference="49ad40aa-eeb7-4d44-9b20-947a784dc12d">
       <settings>
         <setting id="82233474-2fba-4033-b236-97d5cc4d3e04" title="Provider" type="select">
-          <isRequired>false</isRequired>
           <hint>The [implementation](https://learn.microsoft.com/aspnet/core/performance/caching/distributed#establish-distributed-caching-services) to register for [IDistributedCache](https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache).</hint>
           <defaultValue>memory</defaultValue>
           <options>
@@ -54,7 +53,7 @@
   </moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.6" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>

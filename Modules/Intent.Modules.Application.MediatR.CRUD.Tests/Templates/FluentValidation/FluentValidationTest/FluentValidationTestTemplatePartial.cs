@@ -4,7 +4,6 @@ using System.Linq;
 using Intent.Application.FluentValidation.Api;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
@@ -25,6 +24,10 @@ using Intent.Templates;
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.Application.MediatR.CRUD.Tests.Templates.FluentValidation.FluentValidationTest;
+
+// This is for disambiguating the extension method
+using Intent.Modelers.Domain.Api;
+
 
 [IntentManaged(Mode.Fully, Body = Mode.Merge)]
 public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandModel>, ICSharpFileBuilderTemplate

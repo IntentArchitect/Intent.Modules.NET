@@ -30,4 +30,5 @@ element.setName(name);</script>
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
+  <scripts />
 </settings>

@@ -15,14 +15,14 @@ namespace Intent.Dapr.AspNetCore.Pubsub.Api
     {
         public static DaprSettings GetDaprSettings(this MessageModel model)
         {
-            var stereotype = model.GetStereotype("ec96e452-9084-49bb-a883-aa42eb327fe7");
+            var stereotype = model.GetStereotype(DaprSettings.DefinitionId);
             return stereotype != null ? new DaprSettings(stereotype) : null;
         }
 
 
         public static bool HasDaprSettings(this MessageModel model)
         {
-            return model.HasStereotype("ec96e452-9084-49bb-a883-aa42eb327fe7");
+            return model.HasStereotype(DaprSettings.DefinitionId);
         }
 
         public static bool TryGetDaprSettings(this MessageModel model, out DaprSettings stereotype)
@@ -33,13 +33,14 @@ namespace Intent.Dapr.AspNetCore.Pubsub.Api
                 return false;
             }
 
-            stereotype = new DaprSettings(model.GetStereotype("ec96e452-9084-49bb-a883-aa42eb327fe7"));
+            stereotype = new DaprSettings(model.GetStereotype(DaprSettings.DefinitionId));
             return true;
         }
 
         public class DaprSettings
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "ec96e452-9084-49bb-a883-aa42eb327fe7";
 
             public DaprSettings(IStereotype stereotype)
             {

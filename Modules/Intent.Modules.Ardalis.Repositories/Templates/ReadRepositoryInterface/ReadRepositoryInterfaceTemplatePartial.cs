@@ -35,8 +35,8 @@ namespace Intent.Modules.Ardalis.Repositories.Templates.ReadRepositoryInterface
                 .AddInterface($"I{Model.Name.ToPascalCase()}ReadRepository", @interface =>
                 {
                     @interface.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
-                    @interface.ImplementsInterfaces($"IReadRepositoryBase<{ GetPersistenceEntityTypeName()}>");
-                }).AfterBuild(file => 
+                    @interface.ImplementsInterfaces($"IReadRepositoryBase<{GetPersistenceEntityTypeName()}>");
+                }).AfterBuild(file =>
                 {
                     var @interface = file.Interfaces.First();
                     if (HasSinglePrimaryKey())

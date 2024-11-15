@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>153f48c5-96fa-437d-ac88-f17033966d4c</ProjectId>
+      <ProjectId>0f948541-aa58-4326-a397-e5e5b8b8fbd7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Blazor.HttpClients.Dtos.DataAnnotations.imodspec</ApplicationRelativeFilePath>
@@ -25,15 +25,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>153f48c5-96fa-437d-ac88-f17033966d4c</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#153f48c5-96fa-437d-ac88-f17033966d4c</CorrelationId>
+      <ProjectId>0f948541-aa58-4326-a397-e5e5b8b8fbd7</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#0f948541-aa58-4326-a397-e5e5b8b8fbd7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>153f48c5-96fa-437d-ac88-f17033966d4c</ProjectId>
+      <ProjectId>0f948541-aa58-4326-a397-e5e5b8b8fbd7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

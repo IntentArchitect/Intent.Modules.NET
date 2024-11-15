@@ -49,15 +49,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>558f5562-d714-4264-a02d-350300a2c956</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#558f5562-d714-4264-a02d-350300a2c956</CorrelationId>
+      <ProjectId>28dd1fb0-60f5-4b7e-8377-473c1419521e</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#28dd1fb0-60f5-4b7e-8377-473c1419521e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Redis.Om.Repositories.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Redis.Om.Repositories.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>558f5562-d714-4264-a02d-350300a2c956</ProjectId>
+      <ProjectId>28dd1fb0-60f5-4b7e-8377-473c1419521e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Redis.Om.Repositories.imodspec</ApplicationRelativeFilePath>
@@ -73,7 +73,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>558f5562-d714-4264-a02d-350300a2c956</ProjectId>
+      <ProjectId>28dd1fb0-60f5-4b7e-8377-473c1419521e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
@@ -81,7 +81,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>558f5562-d714-4264-a02d-350300a2c956</ProjectId>
+      <ProjectId>28dd1fb0-60f5-4b7e-8377-473c1419521e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

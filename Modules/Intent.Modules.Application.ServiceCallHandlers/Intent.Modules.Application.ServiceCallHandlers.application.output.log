@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>97a3a6d9-a900-417b-b6ff-ff9221142d35</ProjectId>
+      <ProjectId>29fa4e59-b0c4-494c-8898-cef18e98cc67</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.ServiceCallHandlers.imodspec</ApplicationRelativeFilePath>
@@ -25,15 +25,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>97a3a6d9-a900-417b-b6ff-ff9221142d35</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#97a3a6d9-a900-417b-b6ff-ff9221142d35</CorrelationId>
+      <ProjectId>29fa4e59-b0c4-494c-8898-cef18e98cc67</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#29fa4e59-b0c4-494c-8898-cef18e98cc67</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.ServiceCallHandlers.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.ServiceCallHandlers.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>97a3a6d9-a900-417b-b6ff-ff9221142d35</ProjectId>
+      <ProjectId>29fa4e59-b0c4-494c-8898-cef18e98cc67</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

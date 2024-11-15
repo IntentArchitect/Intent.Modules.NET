@@ -15,14 +15,14 @@ namespace Intent.DomainServices.Api
     {
         public static ContractOnly GetContractOnly(this DomainServiceModel model)
         {
-            var stereotype = model.GetStereotype("12fc5683-f818-43ea-a3c7-c843d4a40352");
+            var stereotype = model.GetStereotype(ContractOnly.DefinitionId);
             return stereotype != null ? new ContractOnly(stereotype) : null;
         }
 
 
         public static bool HasContractOnly(this DomainServiceModel model)
         {
-            return model.HasStereotype("12fc5683-f818-43ea-a3c7-c843d4a40352");
+            return model.HasStereotype(ContractOnly.DefinitionId);
         }
 
         public static bool TryGetContractOnly(this DomainServiceModel model, out ContractOnly stereotype)
@@ -33,13 +33,14 @@ namespace Intent.DomainServices.Api
                 return false;
             }
 
-            stereotype = new ContractOnly(model.GetStereotype("12fc5683-f818-43ea-a3c7-c843d4a40352"));
+            stereotype = new ContractOnly(model.GetStereotype(ContractOnly.DefinitionId));
             return true;
         }
 
         public class ContractOnly
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "12fc5683-f818-43ea-a3c7-c843d4a40352";
 
             public ContractOnly(IStereotype stereotype)
             {

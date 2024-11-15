@@ -57,7 +57,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>dceedf9c-f645-408b-8e3c-8e3f214bb797</ProjectId>
+      <ProjectId>97a16882-946b-4b3e-9fd6-5301b004527c</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiMetadataProviderExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ApiMetadataProviderExtensions.cs</ApplicationRelativeFilePath>
@@ -65,7 +65,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>dceedf9c-f645-408b-8e3c-8e3f214bb797</ProjectId>
+      <ProjectId>97a16882-946b-4b3e-9fd6-5301b004527c</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AspNetCore.SignalR.imodspec</ApplicationRelativeFilePath>
@@ -73,8 +73,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>dceedf9c-f645-408b-8e3c-8e3f214bb797</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#dceedf9c-f645-408b-8e3c-8e3f214bb797</CorrelationId>
+      <ProjectId>97a16882-946b-4b3e-9fd6-5301b004527c</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#97a16882-946b-4b3e-9fd6-5301b004527c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.SignalR.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.SignalR.csproj</ProjectRelativeFilePath>
@@ -89,7 +89,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>dceedf9c-f645-408b-8e3c-8e3f214bb797</ProjectId>
+      <ProjectId>97a16882-946b-4b3e-9fd6-5301b004527c</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

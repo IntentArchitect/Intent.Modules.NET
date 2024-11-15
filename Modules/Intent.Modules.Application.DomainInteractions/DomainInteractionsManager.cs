@@ -8,7 +8,6 @@ using System.Reflection;
 using System.Xml.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
@@ -27,6 +26,8 @@ using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtens
 using AttributeModel = Intent.Modelers.Domain.Api.AttributeModel;
 
 namespace Intent.Modules.Application.DomainInteractions;
+// Disambiguation
+using Intent.Modelers.Domain.Api;
 
 public static class DomainInteractionExtensions
 {

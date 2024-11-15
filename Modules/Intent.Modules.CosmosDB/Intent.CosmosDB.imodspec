@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.CosmosDB</id>
   <version>1.2.6</version>
-  <supportedClientVersions>[4.1.0, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</summary>
   <description>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</description>
   <authors>Intent Architect</authors>
@@ -187,7 +187,6 @@
           <defaultValue>true</defaultValue>
         </setting>
         <setting id="863af816-91fb-4f11-9e9d-e62f559ab0ac" title="Store enums as strings" type="switch">
-          <isRequired>false</isRequired>
           <hint>Enables a convention to convert enums to/from strings.</hint>
           <defaultValue>false</defaultValue>
         </setting>
@@ -225,7 +224,7 @@
   </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.7.6" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Entities.Repositories.Api" version="5.0.0" />
     <dependency id="Intent.Metadata.DocumentDB" version="1.1.8" />

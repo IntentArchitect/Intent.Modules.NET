@@ -646,4 +646,5 @@ function getNamingConvention() {
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
+  <scripts />
 </settings>

@@ -20,7 +20,7 @@ namespace Intent.Modules.Application.AutoMapper.Templates.MappingProfile
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.AutoMapper.MappingProfile";
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public MappingProfileTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddUsing("System");

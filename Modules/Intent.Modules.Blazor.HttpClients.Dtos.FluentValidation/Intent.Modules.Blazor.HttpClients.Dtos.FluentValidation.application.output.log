@@ -9,7 +9,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>98a21c3b-18c5-4d9c-8e22-94a186541490</ProjectId>
+      <ProjectId>4386097e-7be8-4786-9057-982422f8829b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Blazor.HttpClients.Dtos.FluentValidation.imodspec</ApplicationRelativeFilePath>
@@ -17,15 +17,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>98a21c3b-18c5-4d9c-8e22-94a186541490</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#98a21c3b-18c5-4d9c-8e22-94a186541490</CorrelationId>
+      <ProjectId>4386097e-7be8-4786-9057-982422f8829b</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#4386097e-7be8-4786-9057-982422f8829b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>98a21c3b-18c5-4d9c-8e22-94a186541490</ProjectId>
+      <ProjectId>4386097e-7be8-4786-9057-982422f8829b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

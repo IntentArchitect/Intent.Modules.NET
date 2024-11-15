@@ -15,14 +15,14 @@ namespace Intent.Dapr.AspNetCore.Bindings.Cron.Api
     {
         public static DaprCronBinding GetDaprCronBinding(this CommandModel model)
         {
-            var stereotype = model.GetStereotype("48db7f06-3edd-488a-8838-1f7f33b81eb0");
+            var stereotype = model.GetStereotype(DaprCronBinding.DefinitionId);
             return stereotype != null ? new DaprCronBinding(stereotype) : null;
         }
 
 
         public static bool HasDaprCronBinding(this CommandModel model)
         {
-            return model.HasStereotype("48db7f06-3edd-488a-8838-1f7f33b81eb0");
+            return model.HasStereotype(DaprCronBinding.DefinitionId);
         }
 
         public static bool TryGetDaprCronBinding(this CommandModel model, out DaprCronBinding stereotype)
@@ -33,13 +33,14 @@ namespace Intent.Dapr.AspNetCore.Bindings.Cron.Api
                 return false;
             }
 
-            stereotype = new DaprCronBinding(model.GetStereotype("48db7f06-3edd-488a-8838-1f7f33b81eb0"));
+            stereotype = new DaprCronBinding(model.GetStereotype(DaprCronBinding.DefinitionId));
             return true;
         }
 
         public class DaprCronBinding
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "48db7f06-3edd-488a-8838-1f7f33b81eb0";
 
             public DaprCronBinding(IStereotype stereotype)
             {

@@ -42,7 +42,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Configuration.FactoryExtensions
                 startupTemplate.StartupFile.ConfigureApp((hasCSharpStatements, ctx) =>
                 {
                     startupTemplate.GetDaprConfigurationConfigurationName();
-                    hasCSharpStatements.InsertStatement(0, $"{ctx.App}.LoadDaprConfigurationStoreDeferred({ctx.Configuration});");
+                    hasCSharpStatements.InsertStatement(0, (CSharpStatement)$"{ctx.App}.LoadDaprConfigurationStoreDeferred({ctx.Configuration});");
                 });
             }, 15);
         }

@@ -41,7 +41,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>6289a1b3-7e43-4c1a-9472-c9e8703d41e7</ProjectId>
+      <ProjectId>ad5f2a1b-3a86-44bd-a5b2-61eb1be5165e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.IdentityServer4.UI.Interop.Identity.EFCore.imodspec</ApplicationRelativeFilePath>
@@ -49,8 +49,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>6289a1b3-7e43-4c1a-9472-c9e8703d41e7</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#6289a1b3-7e43-4c1a-9472-c9e8703d41e7</CorrelationId>
+      <ProjectId>ad5f2a1b-3a86-44bd-a5b2-61eb1be5165e</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#ad5f2a1b-3a86-44bd-a5b2-61eb1be5165e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.IdentityServer4.UI.Interop.Identity.EFCore.csproj</ProjectRelativeFilePath>

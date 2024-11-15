@@ -73,7 +73,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a25be506-f63a-4638-8a59-4069fc088824</ProjectId>
+      <ProjectId>83d7e412-cef6-48b5-a194-20172cbc7a5b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.CosmosDB.imodspec</ApplicationRelativeFilePath>
@@ -81,15 +81,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a25be506-f63a-4638-8a59-4069fc088824</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#a25be506-f63a-4638-8a59-4069fc088824</CorrelationId>
+      <ProjectId>83d7e412-cef6-48b5-a194-20172cbc7a5b</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#83d7e412-cef6-48b5-a194-20172cbc7a5b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.CosmosDB.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.CosmosDB.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>a25be506-f63a-4638-8a59-4069fc088824</ProjectId>
+      <ProjectId>83d7e412-cef6-48b5-a194-20172cbc7a5b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>

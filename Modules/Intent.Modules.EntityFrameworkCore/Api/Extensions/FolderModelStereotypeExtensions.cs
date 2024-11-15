@@ -15,14 +15,14 @@ namespace Intent.EntityFrameworkCore.Api
     {
         public static CosmosDBContainerSettings GetCosmosDBContainerSettings(this FolderModel model)
         {
-            var stereotype = model.GetStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5");
+            var stereotype = model.GetStereotype(CosmosDBContainerSettings.DefinitionId);
             return stereotype != null ? new CosmosDBContainerSettings(stereotype) : null;
         }
 
 
         public static bool HasCosmosDBContainerSettings(this FolderModel model)
         {
-            return model.HasStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5");
+            return model.HasStereotype(CosmosDBContainerSettings.DefinitionId);
         }
 
         public static bool TryGetCosmosDBContainerSettings(this FolderModel model, out CosmosDBContainerSettings stereotype)
@@ -33,13 +33,14 @@ namespace Intent.EntityFrameworkCore.Api
                 return false;
             }
 
-            stereotype = new CosmosDBContainerSettings(model.GetStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5"));
+            stereotype = new CosmosDBContainerSettings(model.GetStereotype(CosmosDBContainerSettings.DefinitionId));
             return true;
         }
 
         public class CosmosDBContainerSettings
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "b4995259-b47b-405a-a332-fd3dc69cd3a5";
 
             public CosmosDBContainerSettings(IStereotype stereotype)
             {

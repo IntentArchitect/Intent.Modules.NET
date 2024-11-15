@@ -15,14 +15,14 @@ namespace Intent.EntityFrameworkCore.Repositories.Api
     {
         public static StoredProcedureParameterSettings GetStoredProcedureParameterSettings(this StoredProcedureParameterModel model)
         {
-            var stereotype = model.GetStereotype("5332b774-6499-4b4b-9fdb-e3eef13bdee4");
+            var stereotype = model.GetStereotype(StoredProcedureParameterSettings.DefinitionId);
             return stereotype != null ? new StoredProcedureParameterSettings(stereotype) : null;
         }
 
 
         public static bool HasStoredProcedureParameterSettings(this StoredProcedureParameterModel model)
         {
-            return model.HasStereotype("5332b774-6499-4b4b-9fdb-e3eef13bdee4");
+            return model.HasStereotype(StoredProcedureParameterSettings.DefinitionId);
         }
 
         public static bool TryGetStoredProcedureParameterSettings(this StoredProcedureParameterModel model, out StoredProcedureParameterSettings stereotype)
@@ -33,13 +33,14 @@ namespace Intent.EntityFrameworkCore.Repositories.Api
                 return false;
             }
 
-            stereotype = new StoredProcedureParameterSettings(model.GetStereotype("5332b774-6499-4b4b-9fdb-e3eef13bdee4"));
+            stereotype = new StoredProcedureParameterSettings(model.GetStereotype(StoredProcedureParameterSettings.DefinitionId));
             return true;
         }
 
         public class StoredProcedureParameterSettings
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "5332b774-6499-4b4b-9fdb-e3eef13bdee4";
 
             public StoredProcedureParameterSettings(IStereotype stereotype)
             {

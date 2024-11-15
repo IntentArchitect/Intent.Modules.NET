@@ -22,7 +22,7 @@
       <scriptOptions />
       <mappingOptions />
       <typeOrder>
-        <type>Stored Procedure</type>
+        <type type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560" />
       </typeOrder>
       <mappingSettings />
       <macros>
@@ -47,4 +47,5 @@ element.setName(name);
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
+  <scripts />
 </settings>

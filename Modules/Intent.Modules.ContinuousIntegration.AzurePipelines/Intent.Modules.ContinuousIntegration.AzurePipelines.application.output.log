@@ -9,7 +9,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>2d938ca8-3fed-4e2c-bd3c-642e8f996396</ProjectId>
+      <ProjectId>42fe8b17-26e9-4af8-acb1-f546a193c70e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.ContinuousIntegration.AzurePipelines.imodspec</ApplicationRelativeFilePath>
@@ -17,15 +17,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>2d938ca8-3fed-4e2c-bd3c-642e8f996396</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#2d938ca8-3fed-4e2c-bd3c-642e8f996396</CorrelationId>
+      <ProjectId>42fe8b17-26e9-4af8-acb1-f546a193c70e</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#42fe8b17-26e9-4af8-acb1-f546a193c70e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.ContinuousIntegration.AzurePipelines.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.ContinuousIntegration.AzurePipelines.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>2d938ca8-3fed-4e2c-bd3c-642e8f996396</ProjectId>
+      <ProjectId>42fe8b17-26e9-4af8-acb1-f546a193c70e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

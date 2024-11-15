@@ -17,7 +17,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e484d3da-e357-43a3-b37b-a43c33a639d1</ProjectId>
+      <ProjectId>1293dc52-c973-450b-9d4a-75c76a0a1492</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.DomainEvents.imodspec</ApplicationRelativeFilePath>
@@ -25,8 +25,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e484d3da-e357-43a3-b37b-a43c33a639d1</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#e484d3da-e357-43a3-b37b-a43c33a639d1</CorrelationId>
+      <ProjectId>1293dc52-c973-450b-9d4a-75c76a0a1492</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#1293dc52-c973-450b-9d4a-75c76a0a1492</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.DomainEvents.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.DomainEvents.csproj</ProjectRelativeFilePath>

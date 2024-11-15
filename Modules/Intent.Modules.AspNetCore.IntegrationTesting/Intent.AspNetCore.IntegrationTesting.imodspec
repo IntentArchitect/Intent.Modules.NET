@@ -150,7 +150,6 @@
     <group id="d37f669a-8f2c-49ed-8c28-6ad31d836754" title="Integration Test Settings" externalReference="d37f669a-8f2c-49ed-8c28-6ad31d836754">
       <settings>
         <setting id="e3ac09d9-db67-4432-8c77-44d38fe228a9" title="Container Isolation" type="select">
-          <isRequired>false</isRequired>
           <defaultValue>shared-container</defaultValue>
           <options>
             <option value="container-per-test-class" description="Container per Test Class" />
@@ -170,7 +169,7 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.7.3" />
     <dependency id="Intent.Common.CSharp" version="3.8.3" />
-    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Common.Types" version="4.0.0" />
     <dependency id="Intent.Metadata.WebApi" version="4.4.1" />
     <dependency id="Intent.Modelers.Services" version="3.8.0" />
     <dependency id="Intent.Modelers.Types.ServiceProxies" version="5.2.0" />

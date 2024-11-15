@@ -15,14 +15,14 @@ namespace Intent.EntityFrameworkCore.Api
     {
         public static CosmosDBContainerSettings GetCosmosDBContainerSettings(this DomainPackageModel model)
         {
-            var stereotype = model.GetStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5");
+            var stereotype = model.GetStereotype(CosmosDBContainerSettings.DefinitionId);
             return stereotype != null ? new CosmosDBContainerSettings(stereotype) : null;
         }
 
 
         public static bool HasCosmosDBContainerSettings(this DomainPackageModel model)
         {
-            return model.HasStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5");
+            return model.HasStereotype(CosmosDBContainerSettings.DefinitionId);
         }
 
         public static bool TryGetCosmosDBContainerSettings(this DomainPackageModel model, out CosmosDBContainerSettings stereotype)
@@ -33,20 +33,20 @@ namespace Intent.EntityFrameworkCore.Api
                 return false;
             }
 
-            stereotype = new CosmosDBContainerSettings(model.GetStereotype("b4995259-b47b-405a-a332-fd3dc69cd3a5"));
+            stereotype = new CosmosDBContainerSettings(model.GetStereotype(CosmosDBContainerSettings.DefinitionId));
             return true;
         }
 
         public static DatabaseSettings GetDatabaseSettings(this DomainPackageModel model)
         {
-            var stereotype = model.GetStereotype("897cc466-d518-444c-bb01-769024eee290");
+            var stereotype = model.GetStereotype(DatabaseSettings.DefinitionId);
             return stereotype != null ? new DatabaseSettings(stereotype) : null;
         }
 
 
         public static bool HasDatabaseSettings(this DomainPackageModel model)
         {
-            return model.HasStereotype("897cc466-d518-444c-bb01-769024eee290");
+            return model.HasStereotype(DatabaseSettings.DefinitionId);
         }
 
         public static bool TryGetDatabaseSettings(this DomainPackageModel model, out DatabaseSettings stereotype)
@@ -57,13 +57,14 @@ namespace Intent.EntityFrameworkCore.Api
                 return false;
             }
 
-            stereotype = new DatabaseSettings(model.GetStereotype("897cc466-d518-444c-bb01-769024eee290"));
+            stereotype = new DatabaseSettings(model.GetStereotype(DatabaseSettings.DefinitionId));
             return true;
         }
 
         public class CosmosDBContainerSettings
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "b4995259-b47b-405a-a332-fd3dc69cd3a5";
 
             public CosmosDBContainerSettings(IStereotype stereotype)
             {
@@ -87,6 +88,7 @@ namespace Intent.EntityFrameworkCore.Api
         public class DatabaseSettings
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "897cc466-d518-444c-bb01-769024eee290";
 
             public DatabaseSettings(IStereotype stereotype)
             {

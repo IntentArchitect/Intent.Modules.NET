@@ -23,7 +23,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventService
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.MediatR.DomainEvents.DomainEventService";
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public DomainEventServiceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -66,7 +66,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventService
                         method.AddStatement(@$"var result = Activator.CreateInstance(
                 typeof({GetDomainEventNotificationType()}<>).MakeGenericType(domainEvent.GetType()), domainEvent);");
 
-                    method.AddStatement(@"return result == null
+                        method.AddStatement(@"return result == null
                 ? throw new Exception($""Unable to create DomainEventNotification<{domainEvent.GetType().Name}>"")
                 : (INotification)result;", cfg => cfg.SeparatedFromPrevious());
                     });

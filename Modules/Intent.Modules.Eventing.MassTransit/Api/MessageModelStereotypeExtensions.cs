@@ -15,14 +15,14 @@ namespace Intent.Eventing.MassTransit.Api
     {
         public static MessageTopologySettings GetMessageTopologySettings(this MessageModel model)
         {
-            var stereotype = model.GetStereotype("fc095295-eb25-470a-9ee5-19129919db2b");
+            var stereotype = model.GetStereotype(MessageTopologySettings.DefinitionId);
             return stereotype != null ? new MessageTopologySettings(stereotype) : null;
         }
 
 
         public static bool HasMessageTopologySettings(this MessageModel model)
         {
-            return model.HasStereotype("fc095295-eb25-470a-9ee5-19129919db2b");
+            return model.HasStereotype(MessageTopologySettings.DefinitionId);
         }
 
         public static bool TryGetMessageTopologySettings(this MessageModel model, out MessageTopologySettings stereotype)
@@ -33,13 +33,14 @@ namespace Intent.Eventing.MassTransit.Api
                 return false;
             }
 
-            stereotype = new MessageTopologySettings(model.GetStereotype("fc095295-eb25-470a-9ee5-19129919db2b"));
+            stereotype = new MessageTopologySettings(model.GetStereotype(MessageTopologySettings.DefinitionId));
             return true;
         }
 
         public class MessageTopologySettings
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "fc095295-eb25-470a-9ee5-19129919db2b";
 
             public MessageTopologySettings(IStereotype stereotype)
             {

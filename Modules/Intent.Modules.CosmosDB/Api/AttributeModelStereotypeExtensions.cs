@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
-using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
+using Intent.Modules.Common.Types.Api;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,18 +11,21 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.CosmosDB.Api
 {
+    // This is for disambiguating the extension method
+    using Intent.Modelers.Domain.Api;
+
     public static class AttributeModelStereotypeExtensions
     {
         public static FieldSetting GetFieldSetting(this AttributeModel model)
         {
-            var stereotype = model.GetStereotype("fb47f1e4-447b-4a67-947d-590fc24c20c1");
+            var stereotype = model.GetStereotype(FieldSetting.DefinitionId);
             return stereotype != null ? new FieldSetting(stereotype) : null;
         }
 
 
         public static bool HasFieldSetting(this AttributeModel model)
         {
-            return model.HasStereotype("fb47f1e4-447b-4a67-947d-590fc24c20c1");
+            return model.HasStereotype(FieldSetting.DefinitionId);
         }
 
         public static bool TryGetFieldSetting(this AttributeModel model, out FieldSetting stereotype)
@@ -33,13 +36,14 @@ namespace Intent.CosmosDB.Api
                 return false;
             }
 
-            stereotype = new FieldSetting(model.GetStereotype("fb47f1e4-447b-4a67-947d-590fc24c20c1"));
+            stereotype = new FieldSetting(model.GetStereotype(FieldSetting.DefinitionId));
             return true;
         }
 
         public class FieldSetting
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "fb47f1e4-447b-4a67-947d-590fc24c20c1";
 
             public FieldSetting(IStereotype stereotype)
             {

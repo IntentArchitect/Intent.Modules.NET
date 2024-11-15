@@ -25,7 +25,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>30433701-b132-47a8-831d-7093a7d2a79b</ProjectId>
+      <ProjectId>bc21e011-d774-4bda-b18e-621c58ecb8d3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AspNetCore.Swashbuckle.imodspec</ApplicationRelativeFilePath>
@@ -33,15 +33,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>30433701-b132-47a8-831d-7093a7d2a79b</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#30433701-b132-47a8-831d-7093a7d2a79b</CorrelationId>
+      <ProjectId>bc21e011-d774-4bda-b18e-621c58ecb8d3</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#bc21e011-d774-4bda-b18e-621c58ecb8d3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Swashbuckle.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Swashbuckle.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>30433701-b132-47a8-831d-7093a7d2a79b</ProjectId>
+      <ProjectId>bc21e011-d774-4bda-b18e-621c58ecb8d3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
@@ -49,7 +49,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>30433701-b132-47a8-831d-7093a7d2a79b</ProjectId>
+      <ProjectId>bc21e011-d774-4bda-b18e-621c58ecb8d3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.ReleaseNotes</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>

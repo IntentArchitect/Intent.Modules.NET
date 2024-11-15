@@ -33,7 +33,6 @@
     <group id="82b8662d-4368-4dc6-9516-5acb1fa85464" title="Value Object Settings" externalReference="82b8662d-4368-4dc6-9516-5acb1fa85464">
       <settings>
         <setting id="704c2e3d-1a78-4af2-b363-533f2da2089b" title="Value Object Type" type="select">
-          <isRequired>false</isRequired>
           <defaultValue>class</defaultValue>
           <options>
             <option value="class" description="Class" />

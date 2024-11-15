@@ -15,14 +15,14 @@ namespace Intent.Eventing.Solace.Api
     {
         public static Subscribing GetSubscribing(this SubscribeIntegrationEventTargetEndModel model)
         {
-            var stereotype = model.GetStereotype("600ea351-52b9-4b32-982f-614fb5b26ed1");
+            var stereotype = model.GetStereotype(Subscribing.DefinitionId);
             return stereotype != null ? new Subscribing(stereotype) : null;
         }
 
 
         public static bool HasSubscribing(this SubscribeIntegrationEventTargetEndModel model)
         {
-            return model.HasStereotype("600ea351-52b9-4b32-982f-614fb5b26ed1");
+            return model.HasStereotype(Subscribing.DefinitionId);
         }
 
         public static bool TryGetSubscribing(this SubscribeIntegrationEventTargetEndModel model, out Subscribing stereotype)
@@ -33,13 +33,14 @@ namespace Intent.Eventing.Solace.Api
                 return false;
             }
 
-            stereotype = new Subscribing(model.GetStereotype("600ea351-52b9-4b32-982f-614fb5b26ed1"));
+            stereotype = new Subscribing(model.GetStereotype(Subscribing.DefinitionId));
             return true;
         }
 
         public class Subscribing
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "600ea351-52b9-4b32-982f-614fb5b26ed1";
 
             public Subscribing(IStereotype stereotype)
             {

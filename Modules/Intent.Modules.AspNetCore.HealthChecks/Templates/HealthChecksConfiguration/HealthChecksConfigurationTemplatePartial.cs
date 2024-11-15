@@ -357,11 +357,11 @@ namespace Intent.Modules.AspNetCore.HealthChecks.Templates.HealthChecksConfigura
             {
                 startup.StartupFile.ConfigureEndpoints((statements, context) =>
                 {
-                    statements.InsertStatement(0, $"{context.Endpoints}.MapDefaultHealthChecks();");
+                    statements.InsertStatement(0, (CSharpStatement)$"{context.Endpoints}.MapDefaultHealthChecks();");
 
                     if (ExecutionContext.Settings.GetHealthChecks().HealthChecksUI())
                     {
-                        statements.InsertStatement(1, $"{context.Endpoints}.MapDefaultHealthChecksUI();");
+                        statements.InsertStatement(1, (CSharpStatement)$"{context.Endpoints}.MapDefaultHealthChecksUI();");
                     }
                 });
             });

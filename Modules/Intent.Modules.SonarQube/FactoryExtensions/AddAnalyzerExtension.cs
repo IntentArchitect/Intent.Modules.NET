@@ -29,7 +29,7 @@ namespace Intent.Modules.SonarQube.FactoryExtensions
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-           
+
         }
 
         /// <summary>

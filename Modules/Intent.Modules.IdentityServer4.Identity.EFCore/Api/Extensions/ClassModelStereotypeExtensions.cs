@@ -15,14 +15,14 @@ namespace Intent.IdentityServer4.Identity.EFCore.Api
     {
         public static IdentityUser GetIdentityUser(this ClassModel model)
         {
-            var stereotype = model.GetStereotype("efde089e-21e6-4da1-b086-72d7f6caf389");
+            var stereotype = model.GetStereotype(IdentityUser.DefinitionId);
             return stereotype != null ? new IdentityUser(stereotype) : null;
         }
 
 
         public static bool HasIdentityUser(this ClassModel model)
         {
-            return model.HasStereotype("efde089e-21e6-4da1-b086-72d7f6caf389");
+            return model.HasStereotype(IdentityUser.DefinitionId);
         }
 
         public static bool TryGetIdentityUser(this ClassModel model, out IdentityUser stereotype)
@@ -33,7 +33,7 @@ namespace Intent.IdentityServer4.Identity.EFCore.Api
                 return false;
             }
 
-            stereotype = new IdentityUser(model.GetStereotype("efde089e-21e6-4da1-b086-72d7f6caf389"));
+            stereotype = new IdentityUser(model.GetStereotype(IdentityUser.DefinitionId));
             return true;
         }
 
@@ -41,6 +41,7 @@ namespace Intent.IdentityServer4.Identity.EFCore.Api
         public class IdentityUser
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "efde089e-21e6-4da1-b086-72d7f6caf389";
 
             public IdentityUser(IStereotype stereotype)
             {

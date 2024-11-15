@@ -15,14 +15,14 @@ namespace Intent.AspNetCore.ODataQuery.Api
     {
         public static ODataQuery GetODataQuery(this QueryModel model)
         {
-            var stereotype = model.GetStereotype("a321ab87-a4a2-4a09-a9ca-2cb6ecd758be");
+            var stereotype = model.GetStereotype(ODataQuery.DefinitionId);
             return stereotype != null ? new ODataQuery(stereotype) : null;
         }
 
 
         public static bool HasODataQuery(this QueryModel model)
         {
-            return model.HasStereotype("a321ab87-a4a2-4a09-a9ca-2cb6ecd758be");
+            return model.HasStereotype(ODataQuery.DefinitionId);
         }
 
         public static bool TryGetODataQuery(this QueryModel model, out ODataQuery stereotype)
@@ -33,13 +33,14 @@ namespace Intent.AspNetCore.ODataQuery.Api
                 return false;
             }
 
-            stereotype = new ODataQuery(model.GetStereotype("a321ab87-a4a2-4a09-a9ca-2cb6ecd758be"));
+            stereotype = new ODataQuery(model.GetStereotype(ODataQuery.DefinitionId));
             return true;
         }
 
         public class ODataQuery
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "a321ab87-a4a2-4a09-a9ca-2cb6ecd758be";
 
             public ODataQuery(IStereotype stereotype)
             {

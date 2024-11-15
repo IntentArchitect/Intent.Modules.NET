@@ -33,7 +33,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e989d79e-d842-4e1f-8cdb-cadc324296db</ProjectId>
+      <ProjectId>9755225b-01c3-4bc2-884e-a10400201ee1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AspNetCore.Identity.AccountController.imodspec</ApplicationRelativeFilePath>
@@ -41,15 +41,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e989d79e-d842-4e1f-8cdb-cadc324296db</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#e989d79e-d842-4e1f-8cdb-cadc324296db</CorrelationId>
+      <ProjectId>9755225b-01c3-4bc2-884e-a10400201ee1</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#9755225b-01c3-4bc2-884e-a10400201ee1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Identity.AccountController.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Identity.AccountController.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e989d79e-d842-4e1f-8cdb-cadc324296db</ProjectId>
+      <ProjectId>9755225b-01c3-4bc2-884e-a10400201ee1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
