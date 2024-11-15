@@ -20,6 +20,7 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
 {
     public class ParamsServiceHttpClient : IParamsService
     {
+        public const string JSON_MEDIA_TYPE = "application/json";
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 
@@ -37,10 +38,10 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
         {
             var relativeUri = $"from-body-test";
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(ids, _serializerOptions);
-            httpRequest.Content = new StringContent(content, Encoding.UTF8, "application/json");
+            httpRequest.Content = new StringContent(content, Encoding.UTF8, JSON_MEDIA_TYPE);
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -55,7 +56,7 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
         {
             var relativeUri = $"params/by-ids-headers-test";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
             httpRequest.Headers.Add("TestHeader", ids.ToString());
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -91,7 +92,7 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
             }
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {

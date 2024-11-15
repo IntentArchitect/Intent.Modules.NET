@@ -23,7 +23,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             var client = new PagingTSServiceHttpClient(CreateClient());
 
             var dataFactory = new TestDataFactory(WebAppFactory);
-            var pagingTSId = await dataFactory.CreatePagingTS();
+            _ = await dataFactory.CreatePagingTS();
 
             // Act
             var pagingTSs = await client.FindPagingTSAsync(1, 10, "Name");

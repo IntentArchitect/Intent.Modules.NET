@@ -1,3 +1,4 @@
+using System;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -18,7 +19,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.CreateCus
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)
-                .NotNull();
+                .NotNull()
+                .Length(3, 50);
 
             RuleFor(v => v.Surname)
                 .NotNull();

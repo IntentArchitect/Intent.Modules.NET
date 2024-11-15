@@ -21,6 +21,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
 {
     public class IntegrationServiceProxyHttpClient : IIntegrationServiceProxy
     {
+        public const string JSON_MEDIA_TYPE = "application/json";
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 
@@ -46,7 +47,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             queryParams.Add("param2", param2.ToString());
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -66,7 +67,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/integration/headerparamop";
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
             httpRequest.Headers.Add("MY-HEADER", param1);
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
@@ -82,7 +83,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/integration/formparamop";
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var formVariables = new List<KeyValuePair<string, string>>();
             formVariables.Add(new KeyValuePair<string, string>("Param1", param1));
@@ -103,7 +104,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/integration/routeparamop/{param1}";
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -118,10 +119,10 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/integration/bodyparamop";
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(param1, _serializerOptions);
-            httpRequest.Content = new StringContent(content, Encoding.UTF8, "application/json");
+            httpRequest.Content = new StringContent(content, Encoding.UTF8, JSON_MEDIA_TYPE);
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -136,7 +137,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/integration/throwsexception";
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -151,7 +152,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/integration/getwrappedprimitiveguid";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -172,7 +173,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/integration/getwrappedprimitivestring";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -193,7 +194,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/integration/getwrappedprimitiveint";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -214,7 +215,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/integration/getprimitiveguid";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -240,7 +241,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/integration/getprimitivestring";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -266,7 +267,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/integration/getprimitiveint";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -292,7 +293,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/integration/getprimitivestringlist";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -312,7 +313,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/integration/getinvoiceopwithreturntypewrapped";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -340,7 +341,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
             }
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {

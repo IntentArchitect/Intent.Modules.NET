@@ -20,6 +20,7 @@ namespace AzureFunctions.NET6.Infrastructure.HttpClients
 {
     public class EnumServiceHttpClient : IEnumService
     {
+        public const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public EnumServiceHttpClient(HttpClient httpClient)
@@ -31,7 +32,7 @@ namespace AzureFunctions.NET6.Infrastructure.HttpClients
         {
             var relativeUri = $"route-enum/{testEnum}/test-route-enum";
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -50,7 +51,7 @@ namespace AzureFunctions.NET6.Infrastructure.HttpClients
             queryParams.Add("testEnum", testEnum.ToString());
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -65,7 +66,7 @@ namespace AzureFunctions.NET6.Infrastructure.HttpClients
         {
             var relativeUri = $"enum/test-header-enum";
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
             httpRequest.Headers.Add("Company-Id", testEnum.ToString());
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))

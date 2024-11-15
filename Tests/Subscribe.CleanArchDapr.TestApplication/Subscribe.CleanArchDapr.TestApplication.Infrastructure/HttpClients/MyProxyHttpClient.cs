@@ -18,6 +18,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure.HttpClients
 {
     public class MyProxyHttpClient : IMyProxy
     {
+        public const string JSON_MEDIA_TYPE = "application/json";
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 
@@ -35,10 +36,10 @@ namespace Subscribe.CleanArchDapr.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/orders/{id}/confirmed";
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(command, _serializerOptions);
-            httpRequest.Content = new StringContent(content, Encoding.UTF8, "application/json");
+            httpRequest.Content = new StringContent(content, Encoding.UTF8, JSON_MEDIA_TYPE);
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {

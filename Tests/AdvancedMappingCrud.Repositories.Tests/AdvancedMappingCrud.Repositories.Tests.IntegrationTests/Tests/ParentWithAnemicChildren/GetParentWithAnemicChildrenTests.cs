@@ -28,7 +28,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             var parentWithAnemicChildren = await client.GetParentWithAnemicChildrenAsync();
 
             // Assert
-            Assert.True(parentWithAnemicChildren.Count != 0);
+            Assert.NotEmpty(parentWithAnemicChildren);
         }
     }
 }

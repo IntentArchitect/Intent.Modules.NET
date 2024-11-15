@@ -11,6 +11,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Concurre
 {
     public class ConcurrencyHttpClient : IConcurrencyService
     {
+        public const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public ConcurrencyHttpClient(HttpClient httpClient)
@@ -22,7 +23,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Concurre
         {
             var relativeUri = $"api/concurrency";
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {

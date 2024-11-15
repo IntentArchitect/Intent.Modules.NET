@@ -22,6 +22,7 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
 {
     public class SampleDomainsServiceHttpClient : ISampleDomainsService
     {
+        public const string JSON_MEDIA_TYPE = "application/json";
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 
@@ -41,10 +42,10 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
         {
             var relativeUri = $"sample-domains";
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(dto, _serializerOptions);
-            httpRequest.Content = new StringContent(content, Encoding.UTF8, "application/json");
+            httpRequest.Content = new StringContent(content, Encoding.UTF8, JSON_MEDIA_TYPE);
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -72,7 +73,7 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
         {
             var relativeUri = $"sample-domains/{id}";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -92,7 +93,7 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
         {
             var relativeUri = $"sample-domains";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -115,10 +116,10 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
         {
             var relativeUri = $"sample-domains/{id}";
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             var content = JsonSerializer.Serialize(dto, _serializerOptions);
-            httpRequest.Content = new StringContent(content, Encoding.UTF8, "application/json");
+            httpRequest.Content = new StringContent(content, Encoding.UTF8, JSON_MEDIA_TYPE);
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -133,7 +134,7 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
         {
             var relativeUri = $"sample-domains/{id}";
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -156,7 +157,7 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
             queryParams.Add("pageSize", pageSize.ToString());
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {

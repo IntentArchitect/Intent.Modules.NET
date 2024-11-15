@@ -28,7 +28,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var products = await client.FindProductsAsync();
 
             // Assert
-            Assert.True(products.Count != 0);
+            Assert.NotEmpty(products);
         }
     }
 }

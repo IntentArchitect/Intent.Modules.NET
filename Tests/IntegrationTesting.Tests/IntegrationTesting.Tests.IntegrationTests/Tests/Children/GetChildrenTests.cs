@@ -29,7 +29,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var children = await client.GetChildrenAsync();
 
             // Assert
-            Assert.True(children.Count != 0);
+            Assert.NotEmpty(children);
         }
     }
 }

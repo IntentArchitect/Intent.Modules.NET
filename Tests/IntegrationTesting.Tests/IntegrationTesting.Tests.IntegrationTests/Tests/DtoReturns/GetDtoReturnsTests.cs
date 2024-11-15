@@ -29,7 +29,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var dtoReturns = await client.GetDtoReturnsAsync();
 
             // Assert
-            Assert.True(dtoReturns.Count != 0);
+            Assert.NotEmpty(dtoReturns);
         }
     }
 }

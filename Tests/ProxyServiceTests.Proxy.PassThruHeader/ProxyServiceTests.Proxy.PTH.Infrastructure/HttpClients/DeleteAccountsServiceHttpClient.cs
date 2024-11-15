@@ -17,6 +17,7 @@ namespace ProxyServiceTests.Proxy.PTH.Infrastructure.HttpClients
 {
     public class DeleteAccountsServiceHttpClient : IDeleteAccountsService
     {
+        public const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public DeleteAccountsServiceHttpClient(HttpClient httpClient)
@@ -28,7 +29,7 @@ namespace ProxyServiceTests.Proxy.PTH.Infrastructure.HttpClients
         {
             var relativeUri = $"api/account/{id}";
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {

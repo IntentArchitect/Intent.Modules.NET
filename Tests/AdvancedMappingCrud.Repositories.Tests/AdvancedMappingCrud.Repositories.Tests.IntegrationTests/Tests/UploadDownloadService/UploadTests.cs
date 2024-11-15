@@ -20,7 +20,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
         {
             //Arrange
             var client = new UploadDownloadServiceHttpClient(CreateClient());
-            string contentType = "text/plain";//"application/octet-stream";
+            string contentType = "text/plain";
             string content = @"
 My File Content
 In Here

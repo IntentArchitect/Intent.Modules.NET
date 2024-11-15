@@ -1,0 +1,1219 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "4.11.0.0",
+        "fileVersion": "4.11.0-3.24365.8 (9e9c7c1d)",
+        "semanticVersion": "4.11.0",
+        "language": "en-US"
+      },
+      "results": [
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Configuration/ApplicationSecurityConfiguration.cs",
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 13,
+                  "endLine": 48,
+                  "endColumn": 100
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1118",
+          "level": "warning",
+          "message": "Add a 'protected' constructor or the 'static' keyword to the class declaration.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Program.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 18,
+                  "endLine": 13,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1481",
+          "level": "warning",
+          "message": "Remove the unused local variable 'hcBuilder'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Configuration/HealthChecksConfiguration.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 17,
+                  "endLine": 20,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6934",
+          "level": "warning",
+          "message": "Specify the RouteAttribute when an HttpMethodAttribute or RouteAttribute is specified at an action level.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OptionalsController.cs",
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 18,
+                  "endLine": 24,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OptionalsController.cs",
+                "region": {
+                  "startLine": 58,
+                  "startColumn": 55,
+                  "endLine": 58,
+                  "endColumn": 70
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OptionalsController.cs",
+                "region": {
+                  "startLine": 42,
+                  "startColumn": 61,
+                  "endLine": 42,
+                  "endColumn": 75
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null
+            }
+          }
+        },
+        {
+          "ruleId": "S6934",
+          "level": "warning",
+          "message": "Specify the RouteAttribute when an HttpMethodAttribute or RouteAttribute is specified at an action level.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/ParentWithAnemicChildrenController.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 18,
+                  "endLine": 27,
+                  "endColumn": 52
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/ParentWithAnemicChildrenController.cs",
+                "region": {
+                  "startLine": 124,
+                  "startColumn": 73,
+                  "endLine": 124,
+                  "endColumn": 100
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/ParentWithAnemicChildrenController.cs",
+                "region": {
+                  "startLine": 110,
+                  "startColumn": 67,
+                  "endLine": 110,
+                  "endColumn": 95
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/ParentWithAnemicChildrenController.cs",
+                "region": {
+                  "startLine": 81,
+                  "startColumn": 41,
+                  "endLine": 81,
+                  "endColumn": 68
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/ParentWithAnemicChildrenController.cs",
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 41,
+                  "endLine": 63,
+                  "endColumn": 68
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/ParentWithAnemicChildrenController.cs",
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 61,
+                  "endLine": 45,
+                  "endColumn": 88
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null
+            }
+          }
+        },
+        {
+          "ruleId": "S6932",
+          "level": "warning",
+          "message": "Use model binding instead of accessing the raw request data",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UploadDownloadController.cs",
+                "region": {
+                  "startLine": 57,
+                  "startColumn": 17,
+                  "endLine": 57,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6932",
+          "level": "warning",
+          "message": "Use IFormFile or IFormFileCollection binding instead",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UploadDownloadController.cs",
+                "region": {
+                  "startLine": 67,
+                  "startColumn": 169,
+                  "endLine": 67,
+                  "endColumn": 187
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6932",
+          "level": "warning",
+          "message": "Use IFormFile or IFormFileCollection binding instead",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UploadDownloadController.cs",
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 28,
+                  "endLine": 69,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6934",
+          "level": "warning",
+          "message": "Specify the RouteAttribute when an HttpMethodAttribute or RouteAttribute is specified at an action level.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UsersController.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 18,
+                  "endLine": 33,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UsersController.cs",
+                "region": {
+                  "startLine": 216,
+                  "startColumn": 50,
+                  "endLine": 216,
+                  "endColumn": 61
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UsersController.cs",
+                "region": {
+                  "startLine": 232,
+                  "startColumn": 63,
+                  "endLine": 232,
+                  "endColumn": 71
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UsersController.cs",
+                "region": {
+                  "startLine": 198,
+                  "startColumn": 63,
+                  "endLine": 198,
+                  "endColumn": 79
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UsersController.cs",
+                "region": {
+                  "startLine": 179,
+                  "startColumn": 57,
+                  "endLine": 179,
+                  "endColumn": 75
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UsersController.cs",
+                "region": {
+                  "startLine": 150,
+                  "startColumn": 41,
+                  "endLine": 150,
+                  "endColumn": 51
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UsersController.cs",
+                "region": {
+                  "startLine": 121,
+                  "startColumn": 41,
+                  "endLine": 121,
+                  "endColumn": 58
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UsersController.cs",
+                "region": {
+                  "startLine": 105,
+                  "startColumn": 41,
+                  "endLine": 105,
+                  "endColumn": 51
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UsersController.cs",
+                "region": {
+                  "startLine": 86,
+                  "startColumn": 41,
+                  "endLine": 86,
+                  "endColumn": 58
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UsersController.cs",
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 61,
+                  "endLine": 68,
+                  "endColumn": 71
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UsersController.cs",
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 61,
+                  "endLine": 51,
+                  "endColumn": 78
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null,
+              "5": null,
+              "6": null,
+              "7": null,
+              "8": null,
+              "9": null
+            }
+          }
+        },
+        {
+          "ruleId": "S6934",
+          "level": "warning",
+          "message": "Specify the RouteAttribute when an HttpMethodAttribute or RouteAttribute is specified at an action level.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OrdersController.cs",
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 18,
+                  "endLine": 33,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OrdersController.cs",
+                "region": {
+                  "startLine": 232,
+                  "startColumn": 64,
+                  "endLine": 232,
+                  "endColumn": 82
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OrdersController.cs",
+                "region": {
+                  "startLine": 216,
+                  "startColumn": 66,
+                  "endLine": 216,
+                  "endColumn": 84
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OrdersController.cs",
+                "region": {
+                  "startLine": 197,
+                  "startColumn": 60,
+                  "endLine": 197,
+                  "endColumn": 81
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OrdersController.cs",
+                "region": {
+                  "startLine": 179,
+                  "startColumn": 51,
+                  "endLine": 179,
+                  "endColumn": 63
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OrdersController.cs",
+                "region": {
+                  "startLine": 150,
+                  "startColumn": 41,
+                  "endLine": 150,
+                  "endColumn": 61
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OrdersController.cs",
+                "region": {
+                  "startLine": 121,
+                  "startColumn": 41,
+                  "endLine": 121,
+                  "endColumn": 52
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OrdersController.cs",
+                "region": {
+                  "startLine": 102,
+                  "startColumn": 41,
+                  "endLine": 102,
+                  "endColumn": 61
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OrdersController.cs",
+                "region": {
+                  "startLine": 86,
+                  "startColumn": 41,
+                  "endLine": 86,
+                  "endColumn": 52
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OrdersController.cs",
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 61,
+                  "endLine": 68,
+                  "endColumn": 81
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OrdersController.cs",
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 61,
+                  "endLine": 51,
+                  "endColumn": 72
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null,
+              "5": null,
+              "6": null,
+              "7": null,
+              "8": null,
+              "9": null
+            }
+          }
+        },
+        {
+          "ruleId": "S6934",
+          "level": "warning",
+          "message": "Specify the RouteAttribute when an HttpMethodAttribute or RouteAttribute is specified at an action level.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/BasicsController.cs",
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 18,
+                  "endLine": 29,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/BasicsController.cs",
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 64,
+                  "endLine": 144,
+                  "endColumn": 73
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/BasicsController.cs",
+                "region": {
+                  "startLine": 126,
+                  "startColumn": 64,
+                  "endLine": 126,
+                  "endColumn": 81
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/BasicsController.cs",
+                "region": {
+                  "startLine": 110,
+                  "startColumn": 51,
+                  "endLine": 110,
+                  "endColumn": 63
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/BasicsController.cs",
+                "region": {
+                  "startLine": 81,
+                  "startColumn": 41,
+                  "endLine": 81,
+                  "endColumn": 52
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/BasicsController.cs",
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 41,
+                  "endLine": 65,
+                  "endColumn": 52
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/BasicsController.cs",
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 61,
+                  "endLine": 47,
+                  "endColumn": 72
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null,
+              "5": null
+            }
+          }
+        },
+        {
+          "ruleId": "S6934",
+          "level": "warning",
+          "message": "Specify the RouteAttribute when an HttpMethodAttribute or RouteAttribute is specified at an action level.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileUploadsController.cs",
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 18,
+                  "endLine": 31,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileUploadsController.cs",
+                "region": {
+                  "startLine": 201,
+                  "startColumn": 49,
+                  "endLine": 201,
+                  "endColumn": 63
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileUploadsController.cs",
+                "region": {
+                  "startLine": 179,
+                  "startColumn": 49,
+                  "endLine": 179,
+                  "endColumn": 61
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileUploadsController.cs",
+                "region": {
+                  "startLine": 134,
+                  "startColumn": 61,
+                  "endLine": 134,
+                  "endColumn": 71
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileUploadsController.cs",
+                "region": {
+                  "startLine": 103,
+                  "startColumn": 47,
+                  "endLine": 103,
+                  "endColumn": 59
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileUploadsController.cs",
+                "region": {
+                  "startLine": 49,
+                  "startColumn": 41,
+                  "endLine": 49,
+                  "endColumn": 57
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null
+            }
+          }
+        },
+        {
+          "ruleId": "S6932",
+          "level": "warning",
+          "message": "Use model binding instead of accessing the raw request data",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileUploadsController.cs",
+                "region": {
+                  "startLine": 141,
+                  "startColumn": 17,
+                  "endLine": 141,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6932",
+          "level": "warning",
+          "message": "Use IFormFile or IFormFileCollection binding instead",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileUploadsController.cs",
+                "region": {
+                  "startLine": 151,
+                  "startColumn": 169,
+                  "endLine": 151,
+                  "endColumn": 187
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6932",
+          "level": "warning",
+          "message": "Use IFormFile or IFormFileCollection binding instead",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileUploadsController.cs",
+                "region": {
+                  "startLine": 153,
+                  "startColumn": 28,
+                  "endLine": 153,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6932",
+          "level": "warning",
+          "message": "Use IFormFile or IFormFileCollection binding instead",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileUploadsController.cs",
+                "region": {
+                  "startLine": 107,
+                  "startColumn": 169,
+                  "endLine": 107,
+                  "endColumn": 187
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6932",
+          "level": "warning",
+          "message": "Use IFormFile or IFormFileCollection binding instead",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileUploadsController.cs",
+                "region": {
+                  "startLine": 109,
+                  "startColumn": 28,
+                  "endLine": 109,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6932",
+          "level": "warning",
+          "message": "Use model binding instead of accessing the raw request data",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileUploadsController.cs",
+                "region": {
+                  "startLine": 66,
+                  "startColumn": 17,
+                  "endLine": 66,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6932",
+          "level": "warning",
+          "message": "Use IFormFile or IFormFileCollection binding instead",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileUploadsController.cs",
+                "region": {
+                  "startLine": 76,
+                  "startColumn": 169,
+                  "endLine": 76,
+                  "endColumn": 187
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6932",
+          "level": "warning",
+          "message": "Use IFormFile or IFormFileCollection binding instead",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/FileUploadsController.cs",
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 28,
+                  "endLine": 78,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6934",
+          "level": "warning",
+          "message": "Specify the RouteAttribute when an HttpMethodAttribute or RouteAttribute is specified at an action level.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 18,
+                  "endLine": 41,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 297,
+                  "startColumn": 67,
+                  "endLine": 297,
+                  "endColumn": 97
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 353,
+                  "startColumn": 60,
+                  "endLine": 353,
+                  "endColumn": 82
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 316,
+                  "startColumn": 60,
+                  "endLine": 316,
+                  "endColumn": 72
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 244,
+                  "startColumn": 54,
+                  "endLine": 244,
+                  "endColumn": 69
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 337,
+                  "startColumn": 46,
+                  "endLine": 337,
+                  "endColumn": 67
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 277,
+                  "startColumn": 67,
+                  "endLine": 277,
+                  "endColumn": 88
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 260,
+                  "startColumn": 60,
+                  "endLine": 260,
+                  "endColumn": 88
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 215,
+                  "startColumn": 41,
+                  "endLine": 215,
+                  "endColumn": 55
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 186,
+                  "startColumn": 41,
+                  "endLine": 186,
+                  "endColumn": 73
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 170,
+                  "startColumn": 41,
+                  "endLine": 170,
+                  "endColumn": 55
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 152,
+                  "startColumn": 41,
+                  "endLine": 152,
+                  "endColumn": 59
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 136,
+                  "startColumn": 41,
+                  "endLine": 136,
+                  "endColumn": 52
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 120,
+                  "startColumn": 41,
+                  "endLine": 120,
+                  "endColumn": 64
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 104,
+                  "startColumn": 61,
+                  "endLine": 104,
+                  "endColumn": 75
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 87,
+                  "startColumn": 41,
+                  "endLine": 87,
+                  "endColumn": 73
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs",
+                "region": {
+                  "startLine": 60,
+                  "startColumn": 41,
+                  "endLine": 60,
+                  "endColumn": 53
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "10": null,
+              "11": null,
+              "12": null,
+              "13": null,
+              "14": null,
+              "15": null,
+              "2": null,
+              "3": null,
+              "4": null,
+              "5": null,
+              "6": null,
+              "7": null,
+              "8": null,
+              "9": null
+            }
+          }
+        }
+      ],
+      "rules": {
+        "S1118": {
+          "id": "S1118",
+          "shortDescription": "Utility classes should not have public constructors",
+          "fullDescription": "Whenever there are portions of code that are duplicated and do not depend on the state of their container class, they can be centralized inside a \"utility class\". A utility class is a class that only has static members, hence it should not be instantiated.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1118",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S125": {
+          "id": "S125",
+          "shortDescription": "Sections of code should not be commented out",
+          "fullDescription": "Commented-out code distracts the focus from the actual executed code. It creates a noise that increases maintenance code. And because it is never executed, it quickly becomes out of date and invalid.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-125",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1481": {
+          "id": "S1481",
+          "shortDescription": "Unused local variables should be removed",
+          "fullDescription": "An unused local variable is a variable that has been declared but is not used anywhere in the block of code where it is defined. It is dead code, contributing to unnecessary complexity and leading to confusion when reading the code. Therefore, it should be removed from your code to maintain clarity and efficiency.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1481",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S6932": {
+          "id": "S6932",
+          "shortDescription": "Use model binding instead of reading raw request data",
+          "fullDescription": "The HttpRequest class provides access to the raw request data through the QueryString, Headers, and Forms properties. However, whenever possible it is recommended to use model binding instead of directly accessing the input data.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6932",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S6934": {
+          "id": "S6934",
+          "shortDescription": "A Route attribute should be added to the controller when a route template is specified at the action level",
+          "fullDescription": "When a route template is defined through an attribute on an action method, conventional routing for that action is disabled. To maintain good practice, it’s recommended not to combine conventional and attribute-based routing within a single controller to avoid unpredicted behavior. As such, the controller should exclude itself from conventional routing by applying a [Route] attribute.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6934",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

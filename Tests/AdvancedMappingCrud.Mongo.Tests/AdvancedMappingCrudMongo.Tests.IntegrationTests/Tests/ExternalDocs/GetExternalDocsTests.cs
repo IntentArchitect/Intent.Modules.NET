@@ -28,7 +28,7 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests
             var externalDocs = await client.GetExternalDocsAsync();
 
             // Assert
-            Assert.True(externalDocs.Count != 0);
+            Assert.NotEmpty(externalDocs);
         }
     }
 }

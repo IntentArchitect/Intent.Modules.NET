@@ -369,7 +369,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Repositories
             var queryable = QueryInternal(filterExpression);
             var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
             var response = transform(projection);
-            return await response.Cast<object>().ToListAsync();
+            return await response.Cast<object>().ToListAsync(cancellationToken);
         }
 
         public async Task<List<TProjection>> FindAllProjectToAsync<TProjection>(
@@ -380,7 +380,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Repositories
             var queryable = QueryInternal(filterExpression);
             var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
             var response = filterProjection(projection);
-            return await response.Cast<TProjection>().ToListAsync();
+            return await response.Cast<TProjection>().ToListAsync(cancellationToken);
         }
     }
 }

@@ -42,11 +42,11 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
             };
             using (MemoryStream ms = new())
             {
-                await content.CopyToAsync(ms);
+                await content.CopyToAsync(ms, cancellationToken);
                 entity.Content = ms.ToArray();
             }
             _fileUploadRepository.Add(entity);
-            await _fileUploadRepository.UnitOfWork.SaveChangesAsync();
+            await _fileUploadRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
 

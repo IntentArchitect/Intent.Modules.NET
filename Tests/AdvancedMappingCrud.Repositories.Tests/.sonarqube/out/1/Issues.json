@@ -1,0 +1,2168 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "4.11.0.0",
+        "fileVersion": "4.11.0-3.24365.8 (9e9c7c1d)",
+        "semanticVersion": "4.11.0",
+        "language": "en-US"
+      },
+      "results": [
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/ExtensiveDomainServices/PerformValueObj/PerformValueObjCommandHandler.cs",
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 27,
+                  "endLine": 26,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/ExtensiveDomainServices/PerformEntityB/PerformEntityBCommandHandler.cs",
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 27,
+                  "endLine": 26,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/ExtensiveDomainServices/PerformEntityA/PerformEntityACommandHandler.cs",
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 27,
+                  "endLine": 26,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/ExtensiveDomainServices/PerformPassthrough/PerformPassthroughCommandHandler.cs",
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 27,
+                  "endLine": 26,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/EventHandlers/EnumMessage/EnumSampleHandler.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 27,
+                  "endLine": 22,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Implementation/Customers/PersonService.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 38,
+                  "endLine": 23,
+                  "endColumn": 51
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/EventHandlers/Customers/QuoteCreatedIntegrationEventHandler.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 27,
+                  "endLine": 22,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8601",
+          "level": "warning",
+          "message": "Possible null reference assignment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/UploadFile/UploadFileCommandHandler.cs",
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 28,
+                  "endLine": 30,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8601",
+          "level": "warning",
+          "message": "Possible null reference assignment.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/UploadFile/UploadFileCommandHandler.cs",
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 31,
+                  "endLine": 31,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/RestrictedUpload/RestrictedUploadCommandHandler.cs",
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 27,
+                  "endLine": 21,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Customers/CreateCorporateFuneralCoverQuote/CreateCorporateFuneralCoverQuoteCommandHandler.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 27,
+                  "endLine": 27,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Customers/CreateQuote/CreateQuoteCommandHandler.cs",
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 27,
+                  "endLine": 26,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCustomerStatistics/GetCustomerStatisticsQueryHandler.cs",
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 32,
+                  "endLine": 25,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2326",
+          "level": "warning",
+          "message": "'T' is not used in the interface.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Mappings/IMapFrom.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 33,
+                  "endLine": 9,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4487",
+          "level": "warning",
+          "message": "Remove this unread private field '_customersServiceProxy' or refactor the code to use its value.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Customers/CreateCustomer/CreateCustomerCommandHandler.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 49,
+                  "endLine": 19,
+                  "endColumn": 71
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Basics/DeleteBasic/DeleteBasicCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Basics/GetBasicById/GetBasicByIdQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Contracts/DeleteContract/DeleteContractCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Basics/GetBasicsNullable/GetBasicsNullableQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Contracts/GetContractById/GetContractByIdQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Contracts/GetContracts/GetContractsQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/UpdateDomainServiceTest/UpdateDomainServiceTestCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/CreateDomainServiceTest/CreateDomainServiceTestCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/MyOpDomainServiceTest/MyOpDomainServiceTestCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Customers/ApproveQuote/ApproveQuoteCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/DeleteDomainServiceTest/DeleteDomainServiceTestCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6966",
+          "level": "warning",
+          "message": "Await PerformEntityBAsync instead.",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/ExtensiveDomainServices/PerformEntityB/PerformEntityBCommandHandler.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 13,
+                  "endLine": 30,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6966",
+          "level": "warning",
+          "message": "Await PerformEntityAAsync instead.",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/ExtensiveDomainServices/PerformEntityA/PerformEntityACommandHandler.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 13,
+                  "endLine": 32,
+                  "endColumn": 15
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6966",
+          "level": "warning",
+          "message": "Await PerformValueObjAsync instead.",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/ExtensiveDomainServices/PerformValueObj/PerformValueObjCommandHandler.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 13,
+                  "endLine": 30,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6966",
+          "level": "warning",
+          "message": "Await PerformPassthroughAsync instead.",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/ExtensiveDomainServices/PerformPassthrough/PerformPassthroughCommandHandler.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 13,
+                  "endLine": 30,
+                  "endColumn": 53
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA2016",
+          "level": "note",
+          "message": "Forward the 'cancellationToken' parameter to the 'CopyToAsync' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/UploadFile/UploadFileCommandHandler.cs",
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 23,
+                  "endLine": 35,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "ArgumentName": "cancellationToken",
+              "ParameterName": null,
+              "ShouldFix": "1"
+            }
+          }
+        },
+        {
+          "ruleId": "CA2016",
+          "level": "note",
+          "message": "Forward the 'cancellationToken' parameter to the 'SaveChangesAsync' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/UploadFile/UploadFileCommandHandler.cs",
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 19,
+                  "endLine": 39,
+                  "endColumn": 68
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "ArgumentName": "cancellationToken",
+              "ParameterName": null,
+              "ShouldFix": "1"
+            }
+          }
+        },
+        {
+          "ruleId": "CA2016",
+          "level": "note",
+          "message": "Forward the 'cancellationToken' parameter to the 'CopyToAsync' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Implementation/UploadDownloadService.cs",
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 23,
+                  "endLine": 45,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "ArgumentName": "cancellationToken",
+              "ParameterName": null,
+              "ShouldFix": "1"
+            }
+          }
+        },
+        {
+          "ruleId": "CA2016",
+          "level": "note",
+          "message": "Forward the 'cancellationToken' parameter to the 'SaveChangesAsync' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Implementation/UploadDownloadService.cs",
+                "region": {
+                  "startLine": 49,
+                  "startColumn": 19,
+                  "endLine": 49,
+                  "endColumn": 68
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "ArgumentName": "cancellationToken",
+              "ParameterName": null,
+              "ShouldFix": "1"
+            }
+          }
+        },
+        {
+          "ruleId": "S2139",
+          "level": "warning",
+          "message": "Either log this exception and handle it, or rethrow it with some contextual information.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs",
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 30,
+                  "endLine": 38,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs",
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 17,
+                  "endLine": 41,
+                  "endColumn": 160
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs",
+                "region": {
+                  "startLine": 42,
+                  "startColumn": 17,
+                  "endLine": 42,
+                  "endColumn": 23
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "Logging statement.",
+              "1": "Thrown exception."
+            }
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/GetDomainServiceTests/GetDomainServiceTestsQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/DownloadFile/DownloadFileQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Optionals/GetOptionalById/GetOptionalByIdQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/GetWarehouses/GetWarehousesQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/GetWarehouseById/GetWarehouseByIdQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/SimpleDownload/SimpleDownloadQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1825",
+          "level": "note",
+          "message": "Avoid unnecessary zero-length array allocations.  Use Array.Empty<string>() instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Models/Result.cs",
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 37,
+                  "endLine": 24,
+                  "endColumn": 53
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1861",
+          "level": "note",
+          "message": "Prefer 'static readonly' fields over constant array arguments if the called method is called repeatedly and is not mutating the passed array",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Models/Result.cs",
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 37,
+                  "endLine": 24,
+                  "endColumn": 53
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "paramName": null
+            }
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/DomainServiceTests/GetDomainServiceTestById/GetDomainServiceTestByIdQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA2016",
+          "level": "note",
+          "message": "Forward the 'cancellationToken' parameter to the 'CopyToAsync' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/SimpleUpload/SimpleUploadCommandHandler.cs",
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 23,
+                  "endLine": 36,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "ArgumentName": "cancellationToken",
+              "ParameterName": null,
+              "ShouldFix": "1"
+            }
+          }
+        },
+        {
+          "ruleId": "CA2016",
+          "level": "note",
+          "message": "Forward the 'cancellationToken' parameter to the 'SaveChangesAsync' method or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/FileUploads/SimpleUpload/SimpleUploadCommandHandler.cs",
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 19,
+                  "endLine": 40,
+                  "endColumn": 68
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "ArgumentName": "cancellationToken",
+              "ParameterName": null,
+              "ShouldFix": "1"
+            }
+          }
+        },
+        {
+          "ruleId": "S107",
+          "level": "warning",
+          "message": "Constructor has 8 parameters, which is greater than the 7 authorized.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Customers/UpdateCorporateFuneralCoverQuote/UpdateCorporateFuneralCoverQuoteCommand.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 55,
+                  "endLine": 21,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Warehouses/DeleteWarehouse/DeleteWarehouseCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCustomers/GetCustomersQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Orders/UpdateOrderOrderItem/UpdateOrderOrderItemCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/GetNestingParents/GetNestingParentsQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCustomersWithParams/GetCustomersWithParamsQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/GetNestingParentById/GetNestingParentByIdQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/DeleteNestingParent/DeleteNestingParentCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Orders/CreateOrderOrderItem/CreateOrderOrderItemCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Orders/DeleteOrder/DeleteOrderCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Orders/DeleteOrderOrderItem/DeleteOrderOrderItemCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Orders/GetOrderById/GetOrderByIdQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Users/DeleteUserAddress/DeleteUserAddressCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Users/DeleteUser/DeleteUserCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Customers/DeactivateCustomer/DeactivateCustomerCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCustomerById/GetCustomerByIdQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Users/GetUserAddressById/GetUserAddressByIdQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S107",
+          "level": "warning",
+          "message": "Constructor has 9 parameters, which is greater than the 7 authorized.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Orders/CreateOrder/CreateOrderCommand.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 34,
+                  "endLine": 23,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/GetParentWithAnemicChildren/GetParentWithAnemicChildrenQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Orders/GetOrderOrderItemById/GetOrderOrderItemByIdQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Orders/GetOrderOrderItems/GetOrderOrderItemsQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Orders/GetOrdersPaginated/GetOrdersPaginatedQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCustomerStatistics/GetCustomerStatisticsQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Users/GetUserAddresses/GetUserAddressesQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1481",
+          "level": "warning",
+          "message": "Remove the unused local variable 'result'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Customers/GetCustomerStatistics/GetCustomerStatisticsQueryHandler.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 17,
+                  "endLine": 27,
+                  "endColumn": 23
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1481",
+          "level": "warning",
+          "message": "Remove the unused local variable 'result'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Customers/CreateFuneralCoverQuote/CreateFuneralCoverQuoteCommandHandler.cs",
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 17,
+                  "endLine": 46,
+                  "endColumn": 23
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/GetParentWithAnemicChildById/GetParentWithAnemicChildByIdQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Users/GetUserById/GetUserByIdQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Users/GetUsers/GetUsersQueryValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1481",
+          "level": "warning",
+          "message": "Remove the unused local variable 'sumPrice'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Implementation/ProductsService.cs",
+                "region": {
+                  "startLine": 109,
+                  "startColumn": 17,
+                  "endLine": 109,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'ConfigureValidationRules' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/ParentWithAnemicChildren/DeleteParentWithAnemicChild/DeleteParentWithAnemicChildCommandValidator.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 22,
+                  "endLine": 18,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3776",
+          "level": "warning",
+          "message": "Refactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 38,
+                  "endLine": 28,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs",
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 13,
+                  "endLine": 32,
+                  "endColumn": 15
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs",
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 17,
+                  "endLine": 35,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs",
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 17,
+                  "endLine": 43,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs",
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 21,
+                  "endLine": 45,
+                  "endColumn": 28
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs",
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 25,
+                  "endLine": 48,
+                  "endColumn": 32
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs",
+                "region": {
+                  "startLine": 51,
+                  "startColumn": 29,
+                  "endLine": 51,
+                  "endColumn": 31
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs",
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 25,
+                  "endLine": 59,
+                  "endColumn": 27
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs",
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 17,
+                  "endLine": 68,
+                  "endColumn": 19
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs",
+                "region": {
+                  "startLine": 70,
+                  "startColumn": 21,
+                  "endLine": 70,
+                  "endColumn": 28
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs",
+                "region": {
+                  "startLine": 74,
+                  "startColumn": 25,
+                  "endLine": 74,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": "+1",
+              "1": "+2 (incl 1 for nesting)",
+              "2": "+2 (incl 1 for nesting)",
+              "3": "+3 (incl 2 for nesting)",
+              "4": "+4 (incl 3 for nesting)",
+              "5": "+5 (incl 4 for nesting)",
+              "6": "+4 (incl 3 for nesting)",
+              "7": "+2 (incl 1 for nesting)",
+              "8": "+3 (incl 2 for nesting)",
+              "9": "+4 (incl 3 for nesting)"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1860",
+          "level": "note",
+          "message": "Prefer comparing 'Count' to 0 rather than using 'Any()', both for clarity and for performance",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs",
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 17,
+                  "endLine": 32,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "DiagnosticPropertyKey": "Count"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1860",
+          "level": "note",
+          "message": "Prefer comparing 'Count' to 0 rather than using 'Any()', both for clarity and for performance",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs",
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 21,
+                  "endLine": 43,
+                  "endColumn": 55
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "DiagnosticPropertyKey": "Count"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1860",
+          "level": "note",
+          "message": "Prefer comparing 'Count' to 0 rather than using 'Any()', both for clarity and for performance",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Application/Common/Behaviours/AuthorizationBehaviour.cs",
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 21,
+                  "endLine": 68,
+                  "endColumn": 58
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "DiagnosticPropertyKey": "Count"
+            }
+          }
+        }
+      ],
+      "rules": {
+        "CA1822": {
+          "id": "CA1822",
+          "shortDescription": "Mark members as static",
+          "fullDescription": "Members that do not access instance data or call instance methods can be marked as static. After you mark the methods as static, the compiler will emit nonvirtual call sites to these members. This can give you a measurable performance gain for performance-sensitive code.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1822",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true,
+            "tags": [
+              "PortedFromFxCop",
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CA1825": {
+          "id": "CA1825",
+          "shortDescription": "Avoid zero-length array allocations",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1825",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CA1860": {
+          "id": "CA1860",
+          "shortDescription": "Avoid using 'Enumerable.Any()' extension method",
+          "fullDescription": "Prefer using 'IsEmpty', 'Count' or 'Length' properties whichever available, rather than calling 'Enumerable.Any()'. The intent is clearer and it is more performant than using 'Enumerable.Any()' extension method.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1860",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CA1861": {
+          "id": "CA1861",
+          "shortDescription": "Avoid constant arrays as arguments",
+          "fullDescription": "Constant arrays passed as arguments are not reused when called repeatedly, which implies a new array is created each time. Consider extracting them to 'static readonly' fields to improve performance if the passed array is not mutated within the called method.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1861",
+          "properties": {
+            "category": "Performance",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CA2016": {
+          "id": "CA2016",
+          "shortDescription": "Forward the 'CancellationToken' parameter to methods",
+          "fullDescription": "Forward the 'CancellationToken' parameter to methods to ensure the operation cancellation notifications gets properly propagated, or pass in 'CancellationToken.None' explicitly to indicate intentionally not propagating the token.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2016",
+          "properties": {
+            "category": "Reliability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CS1998": {
+          "id": "CS1998",
+          "shortDescription": "Async method lacks 'await' operators and will run synchronously",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS1998)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "CS8601": {
+          "id": "CS8601",
+          "shortDescription": "Possible null reference assignment.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8601)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "S107": {
+          "id": "S107",
+          "shortDescription": "Methods should not have too many parameters",
+          "fullDescription": "Methods with a long parameter list are difficult to use because maintainers must figure out the role of each parameter and keep track of their position.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-107",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": false,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S1481": {
+          "id": "S1481",
+          "shortDescription": "Unused local variables should be removed",
+          "fullDescription": "An unused local variable is a variable that has been declared but is not used anywhere in the block of code where it is defined. It is dead code, contributing to unnecessary complexity and leading to confusion when reading the code. Therefore, it should be removed from your code to maintain clarity and efficiency.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1481",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2139": {
+          "id": "S2139",
+          "shortDescription": "Exceptions should be either logged or rethrown but not both",
+          "fullDescription": "When an exception is logged and rethrown, the upstream code may not be aware that the exception has already been logged. As a result, the same exception gets logged multiple times, making it difficult to identify the root cause of the issue. This can be particularly problematic in multi-threaded applications where messages from other threads can be interwoven with the repeated log entries.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2139",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2326": {
+          "id": "S2326",
+          "shortDescription": "Unused type parameters should be removed",
+          "fullDescription": "Type parameters that aren’t used are dead code, which can only distract and possibly confuse developers during maintenance. Therefore, unused type parameters should be removed.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2326",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3776": {
+          "id": "S3776",
+          "shortDescription": "Cognitive Complexity of methods should not be too high",
+          "fullDescription": "This rule raises an issue when the code cognitive complexity of a function is above a certain threshold.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3776",
+          "properties": {
+            "category": "Critical Code Smell",
+            "isEnabledByDefault": false,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S4487": {
+          "id": "S4487",
+          "shortDescription": "Unread \"private\" fields should be removed",
+          "fullDescription": "Private fields which are written but never read are a case of \"dead store\". Changing the value of such a field is useless and most probably indicates an error in the code.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-4487",
+          "properties": {
+            "category": "Critical Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S6966": {
+          "id": "S6966",
+          "shortDescription": "Awaitable method should be used",
+          "fullDescription": "In an async method, any blocking operations should be avoided.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6966",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

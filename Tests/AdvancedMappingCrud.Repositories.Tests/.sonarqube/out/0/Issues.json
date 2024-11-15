@@ -1,0 +1,1959 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "4.11.0.0",
+        "fileVersion": "4.11.0-3.24365.8 (9e9c7c1d)",
+        "semanticVersion": "4.11.0",
+        "language": "en-US"
+      },
+      "results": [
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Line1' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/AnemicChild/AnemicChild.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/AnemicChild/AnemicChild.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Line2' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/AnemicChild/AnemicChild.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/AnemicChild/AnemicChild.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'City' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/AnemicChild/AnemicChild.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 23,
+                  "endLine": 18,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/AnemicChild/AnemicChild.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 23,
+                  "endLine": 18,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Contract.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Contract.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Value1' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/ExtensiveDomainServices/SimpleVO.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 19,
+                  "endLine": 11,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/ExtensiveDomainServices/SimpleVO.cs",
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 23,
+                  "endLine": 21,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Line1' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Address.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 19,
+                  "endLine": 11,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Address.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 23,
+                  "endLine": 23,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Line2' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Address.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 19,
+                  "endLine": 11,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Address.cs",
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 23,
+                  "endLine": 24,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'City' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Address.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 19,
+                  "endLine": 11,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Address.cs",
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 23,
+                  "endLine": 25,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Postal' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Address.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 19,
+                  "endLine": 11,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Address.cs",
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 23,
+                  "endLine": 26,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Customer.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Customer.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Surname' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Customer.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Customer.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Warehouse.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Warehouse.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'BaseAttr' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/ExtensiveDomainServices/BaseEntityA.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/ExtensiveDomainServices/BaseEntityA.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Filename' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/FileUpload.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/FileUpload.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Content' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/FileUpload.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/FileUpload.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'ContentType' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/FileUpload.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 23,
+                  "endLine": 18,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/FileUpload.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 23,
+                  "endLine": 18,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Tag.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 19,
+                  "endLine": 11,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Tag.cs",
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 23,
+                  "endLine": 21,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Value' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Tag.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 19,
+                  "endLine": 11,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Tag.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 23,
+                  "endLine": 22,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Basic.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Basic.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Surname' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Basic.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Basic.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Line1' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/UserDefaultAddress.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/UserDefaultAddress.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Line2' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/UserDefaultAddress.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/UserDefaultAddress.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'ConcreteAttr' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/ExtensiveDomainServices/ConcreteEntityA.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 23,
+                  "endLine": 9,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/ExtensiveDomainServices/ConcreteEntityA.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 23,
+                  "endLine": 9,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Corporate' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/CorporateFuneralCoverQuote.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 16,
+                  "endLine": 10,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/CorporateFuneralCoverQuote.cs",
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 23,
+                  "endLine": 25,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Registration' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/CorporateFuneralCoverQuote.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 16,
+                  "endLine": 10,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/CorporateFuneralCoverQuote.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 23,
+                  "endLine": 27,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Line1' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/UserAddress.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/UserAddress.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Line2' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/UserAddress.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/UserAddress.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'City' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/UserAddress.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 23,
+                  "endLine": 18,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/UserAddress.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 23,
+                  "endLine": 18,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Postal' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/UserAddress.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 23,
+                  "endLine": 20,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/UserAddress.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 23,
+                  "endLine": 20,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Optional.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Optional.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Indexing/FilteredIndex.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Indexing/FilteredIndex.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/MappingTests/NestingParent.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/MappingTests/NestingParent.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Quote' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/User.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 16,
+                  "endLine": 11,
+                  "endColumn": 20
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/User.cs",
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 30,
+                  "endLine": 32,
+                  "endColumn": 35
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'DefaultDeliveryAddress' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/User.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 16,
+                  "endLine": 11,
+                  "endColumn": 20
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/User.cs",
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 43,
+                  "endLine": 36,
+                  "endColumn": 65
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/MappingTests/NestingChildChild.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/MappingTests/NestingChildChild.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Description' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/MappingTests/NestingChild.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/MappingTests/NestingChild.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 23,
+                  "endLine": 12,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'NestingChildChild' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/MappingTests/NestingChild.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 42,
+                  "endLine": 16,
+                  "endColumn": 59
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/MappingTests/NestingChild.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 42,
+                  "endLine": 16,
+                  "endColumn": 59
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/PagingTS.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/PagingTS.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Person.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Person.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Surname' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Person.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Person.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Product' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/QuoteLine.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 16,
+                  "endLine": 10,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/QuoteLine.cs",
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 32,
+                  "endLine": 32,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Name' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Product.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Product.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Product' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/OrderItem.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 32,
+                  "endLine": 22,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/OrderItem.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 32,
+                  "endLine": 22,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'RefNo' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Order.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Order.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 23,
+                  "endLine": 14,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'Customer' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Order.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 33,
+                  "endLine": 22,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Order.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 33,
+                  "endLine": 22,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "Non-nullable property 'DeliveryAddress' must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring the property as nullable.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Order.cs",
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 24,
+                  "endLine": 26,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Order.cs",
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 24,
+                  "endLine": 26,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Services/CustomerManager.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 27,
+                  "endLine": 27,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Services/ExtensiveDomainServices/ExtensiveDomainService.cs",
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 27,
+                  "endLine": 29,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Services/PricingService.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 36,
+                  "endLine": 20,
+                  "endColumn": 56
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Services/ExtensiveDomainServices/ExtensiveDomainService.cs",
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 27,
+                  "endLine": 41,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Services/ExtensiveDomainServices/ExtensiveDomainService.cs",
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 27,
+                  "endLine": 53,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Services/ExtensiveDomainServices/ExtensiveDomainService.cs",
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 27,
+                  "endLine": 65,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'Implement your domain service logic here...' 8 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Services/ExtensiveDomainServices/ExtensiveDomainService.cs",
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 47,
+                  "endLine": 25,
+                  "endColumn": 92
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Services/ExtensiveDomainServices/ExtensiveDomainService.cs",
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 47,
+                  "endLine": 31,
+                  "endColumn": 92
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Services/ExtensiveDomainServices/ExtensiveDomainService.cs",
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 47,
+                  "endLine": 37,
+                  "endColumn": 92
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Services/ExtensiveDomainServices/ExtensiveDomainService.cs",
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 47,
+                  "endLine": 43,
+                  "endColumn": 92
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Services/ExtensiveDomainServices/ExtensiveDomainService.cs",
+                "region": {
+                  "startLine": 49,
+                  "startColumn": 47,
+                  "endLine": 49,
+                  "endColumn": 92
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Services/ExtensiveDomainServices/ExtensiveDomainService.cs",
+                "region": {
+                  "startLine": 55,
+                  "startColumn": 47,
+                  "endLine": 55,
+                  "endColumn": 92
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Services/ExtensiveDomainServices/ExtensiveDomainService.cs",
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 47,
+                  "endLine": 61,
+                  "endColumn": 92
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Services/ExtensiveDomainServices/ExtensiveDomainService.cs",
+                "region": {
+                  "startLine": 67,
+                  "startColumn": 47,
+                  "endLine": 67,
+                  "endColumn": 92
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null,
+              "5": null,
+              "6": null
+            }
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'ClassicOp' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/DomainServices/ClassicDomainServiceTest.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 21,
+                  "endLine": 28,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'MyOp' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/Entities/DomainServices/DomainServiceTest.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 21,
+                  "endLine": 28,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3875",
+          "level": "warning",
+          "message": "Remove this overload of 'operator =='.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.Domain/ValueObject.cs",
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 37,
+                  "endLine": 53,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "CS1998": {
+          "id": "CS1998",
+          "shortDescription": "Async method lacks 'await' operators and will run synchronously",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS1998)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "CS8618": {
+          "id": "CS8618",
+          "shortDescription": "Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8618)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "S1192": {
+          "id": "S1192",
+          "shortDescription": "String literals should not be duplicated",
+          "fullDescription": "Duplicated string literals make the process of refactoring complex and error-prone, as any change would need to be propagated on all occurrences.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1192",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": false,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2325": {
+          "id": "S2325",
+          "shortDescription": "Methods and properties that don't access instance data should be static",
+          "fullDescription": "Methods and properties that don’t access instance data should be marked as static for the following reasons:",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2325",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S3875": {
+          "id": "S3875",
+          "shortDescription": "\"operator==\" should not be overloaded on reference types",
+          "fullDescription": "The use of == to compare two objects is expected to do a reference comparison. That is, it is expected to return true if and only if they are the same object instance. Overloading the operator to do anything else will inevitably lead to the introduction of bugs by callers.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3875",
+          "properties": {
+            "category": "Blocker Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

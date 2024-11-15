@@ -33,11 +33,11 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.SimpleU
             };
             using (MemoryStream ms = new())
             {
-                await request.Content.CopyToAsync(ms);
+                await request.Content.CopyToAsync(ms, cancellationToken);
                 entity.Content = ms.ToArray();
             }
             _fileUploadRepository.Add(entity);
-            await _fileUploadRepository.UnitOfWork.SaveChangesAsync();
+            await _fileUploadRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
     }

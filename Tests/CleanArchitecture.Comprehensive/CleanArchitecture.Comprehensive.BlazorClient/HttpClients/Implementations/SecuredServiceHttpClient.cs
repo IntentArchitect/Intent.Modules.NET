@@ -12,6 +12,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
 {
     public class SecuredServiceHttpClient : ISecuredService
     {
+        public const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public SecuredServiceHttpClient(HttpClient httpClient)
@@ -23,7 +24,7 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Implementatio
         {
             var relativeUri = $"api/secured-service/secured";
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {

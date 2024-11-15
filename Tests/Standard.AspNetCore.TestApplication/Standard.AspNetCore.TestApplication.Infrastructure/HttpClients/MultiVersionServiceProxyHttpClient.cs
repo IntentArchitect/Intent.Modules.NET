@@ -17,6 +17,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
 {
     public class MultiVersionServiceProxyHttpClient : IMultiVersionServiceProxy
     {
+        public const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public MultiVersionServiceProxyHttpClient(HttpClient httpClient)
@@ -28,7 +29,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/v1/multi-version/operation-for-version-one";
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -43,7 +44,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
         {
             var relativeUri = $"api/v2/multi-version/operation-for-version-two";
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {

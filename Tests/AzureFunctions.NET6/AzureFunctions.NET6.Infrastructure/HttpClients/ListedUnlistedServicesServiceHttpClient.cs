@@ -19,6 +19,7 @@ namespace AzureFunctions.NET6.Infrastructure.HttpClients
 {
     public class ListedUnlistedServicesServiceHttpClient : IListedUnlistedServicesService
     {
+        public const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public ListedUnlistedServicesServiceHttpClient(HttpClient httpClient)
@@ -34,7 +35,7 @@ namespace AzureFunctions.NET6.Infrastructure.HttpClients
             queryParams.Add("param", param);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {

@@ -18,6 +18,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
 {
     public class BugFixesServiceHttpClient : IBugFixesService
     {
+        public const string JSON_MEDIA_TYPE = "application/json";
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 
@@ -35,7 +36,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
         {
             var relativeUri = $"api/bug-fixes";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {

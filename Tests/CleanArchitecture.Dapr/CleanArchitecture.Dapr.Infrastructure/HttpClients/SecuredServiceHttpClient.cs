@@ -18,6 +18,7 @@ namespace CleanArchitecture.Dapr.Infrastructure.HttpClients
 {
     public class SecuredServiceHttpClient : ISecuredService
     {
+        public const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public SecuredServiceHttpClient(HttpClient httpClient)
@@ -29,7 +30,7 @@ namespace CleanArchitecture.Dapr.Infrastructure.HttpClients
         {
             var relativeUri = $"api/secured-proxy";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {

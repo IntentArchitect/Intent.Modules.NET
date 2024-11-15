@@ -1,0 +1,189 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "4.11.0.0",
+        "fileVersion": "4.11.0-3.24365.8 (9e9c7c1d)",
+        "semanticVersion": "4.11.0",
+        "language": "en-US"
+      },
+      "results": [
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.IntegrationTests/IntegrationTestWebAppFactory.cs",
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 27,
+                  "endLine": 21,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.IntegrationTests/IntegrationTestWebAppFactory.cs",
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 35,
+                  "endLine": 25,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "xUnit2024",
+          "level": "note",
+          "message": "Do not use Assert.True to test equality against null, numeric, string, or enum literals. Use Assert.NotEqual instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Customers/GetCustomersTests.cs",
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 13,
+                  "endLine": 31,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "LiteralValue": "False",
+              "MethodName": "True",
+              "Replacement": "NotEqual"
+            }
+          }
+        },
+        {
+          "ruleId": "xUnit2024",
+          "level": "note",
+          "message": "Do not use Assert.True to test equality against null, numeric, string, or enum literals. Use Assert.NotEqual instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/ProductsService/FindProductsTests.cs",
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 13,
+                  "endLine": 31,
+                  "endColumn": 45
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "LiteralValue": "False",
+              "MethodName": "True",
+              "Replacement": "NotEqual"
+            }
+          }
+        },
+        {
+          "ruleId": "xUnit2024",
+          "level": "note",
+          "message": "Do not use Assert.True to test equality against null, numeric, string, or enum literals. Use Assert.NotEqual instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Orders/GetOrderOrderItemsTests.cs",
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 13,
+                  "endLine": 32,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "LiteralValue": "False",
+              "MethodName": "True",
+              "Replacement": "NotEqual"
+            }
+          }
+        },
+        {
+          "ruleId": "xUnit2024",
+          "level": "note",
+          "message": "Do not use Assert.True to test equality against null, numeric, string, or enum literals. Use Assert.NotEqual instead.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Dev/Intent.Modules.NET/Tests/AdvancedMappingCrud.Repositories.Tests/AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/ParentWithAnemicChildren/GetParentWithAnemicChildrenTests.cs",
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 13,
+                  "endLine": 31,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "LiteralValue": "False",
+              "MethodName": "True",
+              "Replacement": "NotEqual"
+            }
+          }
+        }
+      ],
+      "rules": {
+        "CS1998": {
+          "id": "CS1998",
+          "shortDescription": "Async method lacks 'await' operators and will run synchronously",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS1998)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "xUnit2024": {
+          "id": "xUnit2024",
+          "shortDescription": "Do not use boolean asserts for simple equality tests",
+          "defaultLevel": "note",
+          "helpUri": "https://xunit.net/xunit.analyzers/rules/xUnit2024",
+          "properties": {
+            "category": "Assertions",
+            "isEnabledByDefault": true
+          }
+        }
+      }
+    }
+  ]
+}

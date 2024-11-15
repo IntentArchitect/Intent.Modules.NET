@@ -285,7 +285,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             var queryable = QueryInternal(filterExpression);
             var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
             var response = filterProjection(projection);
-            return await response.Cast<TProjection>().ToListAsync();
+            return await response.Cast<TProjection>().ToListAsync(cancellationToken);
         }
 
         public async Task<TProjection?> FindProjectToAsync<TProjection>(
@@ -324,7 +324,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             var queryable = QueryInternal(filterExpression);
             var projection = queryable.ProjectTo<TProjection>(_mapper.ConfigurationProvider);
             var response = transform(projection);
-            return await response.Cast<object>().ToListAsync();
+            return await response.Cast<object>().ToListAsync(cancellationToken);
         }
 
         protected virtual IQueryable<TPersistence> QueryInternal(Expression<Func<TPersistence, bool>>? filterExpression)

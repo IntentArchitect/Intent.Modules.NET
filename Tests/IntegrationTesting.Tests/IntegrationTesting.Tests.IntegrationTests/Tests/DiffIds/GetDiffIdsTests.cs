@@ -29,7 +29,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var diffIds = await client.GetDiffIdsAsync();
 
             // Assert
-            Assert.True(diffIds.Count != 0);
+            Assert.NotEmpty(diffIds);
         }
     }
 }

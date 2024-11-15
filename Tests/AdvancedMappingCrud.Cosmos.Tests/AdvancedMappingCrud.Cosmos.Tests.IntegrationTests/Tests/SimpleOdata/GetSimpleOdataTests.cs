@@ -33,7 +33,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
             var simpleOdata = await client.GetSimpleOdataAsync();
 
             // Assert
-            Assert.True(simpleOdata.Count != 0);
+            Assert.NotEmpty(simpleOdata);
         }
     }
 }

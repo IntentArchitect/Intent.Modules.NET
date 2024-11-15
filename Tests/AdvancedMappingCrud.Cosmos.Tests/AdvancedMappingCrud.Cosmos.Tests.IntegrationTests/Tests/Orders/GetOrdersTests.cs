@@ -34,7 +34,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
             var orders = await client.GetOrdersAsync();
 
             // Assert
-            Assert.True(orders.Count != 0);
+            Assert.NotEmpty(orders);
         }
     }
 }

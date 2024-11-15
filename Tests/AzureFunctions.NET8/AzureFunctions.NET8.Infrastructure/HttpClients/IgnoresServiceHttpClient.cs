@@ -18,6 +18,7 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
 {
     public class IgnoresServiceHttpClient : IIgnoresService
     {
+        public const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public IgnoresServiceHttpClient(HttpClient httpClient)
@@ -29,7 +30,7 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
         {
             var relativeUri = $"ignores/command-with-ignore-in-api";
             var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
@@ -44,7 +45,7 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
         {
             var relativeUri = $"ignores/query-with-ignore-in-api";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
             using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
             {
