@@ -2,6 +2,7 @@
 
 - Improvement: Improvements in generated http client code: recommended implementation of `IDisposable pattern`, `JsonSerializerOptions` only added if required, as well as small synatax updates
 - Improvement: Non-nullable properties set in all constructors on `HttpClientRequestException`
+- Improvement: MediaType `constant` defined and reused in http client, instead of duplicated string literals
 
 ### Version 5.2.2
 

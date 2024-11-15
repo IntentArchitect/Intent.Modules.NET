@@ -106,6 +106,11 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                             .AddParameter("HttpClient", "httpClient", p => p.IntroduceReadonlyField());
                     });
 
+                @class.AddField("string", "JSON_MEDIA_TYPE", field =>
+                {
+                    field.PrivateConstant("\"application/json\"");
+                });
+
                 foreach (var endpoint in endpoints)
                 {
                     var inputsBySource = endpoint.Inputs
@@ -170,7 +175,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                         }
 
                         method.AddStatement($"var httpRequest = new HttpRequestMessage(HttpMethod.{endpoint.Verb}, relativeUri);");
-                        method.AddStatement("httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(\"application/json\"));");
+                        method.AddStatement("httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));");
 
                         foreach (var headerParameter in inputsBySource.TryGetValue(HttpInputSource.FromHeader, out var headerParams)
                                      ? headerParams
@@ -234,7 +239,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                             method.AddStatement($"var content = JsonSerializer.Serialize({bodyParam.Name.ToParameterName()}, _serializerOptions);", s => s.SeparatedFromPrevious());
                             // Changed to UTF8 as Default can be sketchy:
                             // https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding.default?view=net-7.0&devlangs=csharp&f1url=%3FappId%3DDev16IDEF1%26l%3DEN-US%26k%3Dk(System.Text.Encoding.Default)%3Bk(DevLang-csharp)%26rd%3Dtrue
-                            method.AddStatement("httpRequest.Content = new StringContent(content, Encoding.UTF8 , \"application/json\");");
+                            method.AddStatement("httpRequest.Content = new StringContent(content, Encoding.UTF8 , JSON_MEDIA_TYPE);");
                             addSerializerOptions = true;
                         }
                         else if (inputsBySource.TryGetValue(HttpInputSource.FromForm, out var formParams))
