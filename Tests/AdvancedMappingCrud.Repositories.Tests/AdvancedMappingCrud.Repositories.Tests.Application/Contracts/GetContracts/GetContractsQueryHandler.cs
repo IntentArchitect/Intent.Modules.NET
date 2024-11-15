@@ -28,7 +28,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Contracts.GetContra
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<ContractDto>> Handle(GetContractsQuery request, CancellationToken cancellationToken)
         {
-            var contracts = await _contractRepository.FindAllAsync(x => x.IsActive == true, cancellationToken);
+            var contracts = await _contractRepository.FindAllAsync(x => x.IsActive, cancellationToken);
             return contracts.MapToContractDtoList(_mapper);
         }
     }

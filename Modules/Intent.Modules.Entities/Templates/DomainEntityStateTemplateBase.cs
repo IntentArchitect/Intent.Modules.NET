@@ -81,7 +81,8 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
         }
     }
 
-    protected void AddProperty(CSharpClass @class, string propertyName, ITypeReference typeReference, IMetadataModel model, IElement element, bool isBaseClass)
+    protected void AddProperty<TModel>(CSharpClass @class, string propertyName, ITypeReference typeReference, TModel model, IElement element, bool isBaseClass)
+        where TModel : IMetadataModel, IHasName
     {
         var isPrivateSetterCollection = typeReference.IsCollection &&
                                             ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters();
@@ -91,18 +92,19 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
                 ? GetTypeName(typeReference, UseType("System.Collections.Generic.IList<{0}>"))
                 : GetTypeName(typeReference);
 
-        @class.AddProperty(propertyType, propertyName.ToPascalCase(), property =>
+        @class.AddProperty(propertyType, model, property =>
         {
+            var metadatamodel = model as IMetadataModel;
+
             property.TryAddXmlDocComments(element);
-            property.AddMetadata("model", model);
-            property.RepresentsModel(model);
+            property.AddMetadata("model", metadatamodel);
 
             if (isPrivateSetterCollection)
             {
                 var fieldName = propertyName.ToPrivateMemberName();
                 @class.AddField(AsListType(), fieldName, field =>
                 {
-                    field.AddMetadata("model", model);
+                    field.AddMetadata("model", metadatamodel);
                     field.WithInstantiation();
                 });
 
@@ -129,11 +131,11 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
                 }
             }
 
-            if (model is AttributeModel attribute && !string.IsNullOrWhiteSpace(attribute.Value))
+            if (metadatamodel is AttributeModel attribute && !string.IsNullOrWhiteSpace(attribute.Value))
             {
                 property.WithInitialValue(attribute.Value);
             }
-            else if (model is AssociationEndModel associationEnd && !string.IsNullOrWhiteSpace(associationEnd.Value))
+            else if (metadatamodel is AssociationEndModel associationEnd && !string.IsNullOrWhiteSpace(associationEnd.Value))
             {
                 property.WithInitialValue(associationEnd.Value);
             }

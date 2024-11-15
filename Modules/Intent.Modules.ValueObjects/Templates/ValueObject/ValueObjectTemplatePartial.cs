@@ -6,6 +6,7 @@ using Intent.Modelers.Domain.ValueObjects.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.Modules.ValueObjects.Settings;
@@ -34,7 +35,7 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
             switch (type)
             {
                 case ValueObjectSettings.ValueObjectTypeOptionsEnum.Class:
-                    DeclareValueObjectClassType();
+                    DeclareValueObjectClassType(outputTarget);
                     break;
                 case ValueObjectSettings.ValueObjectTypeOptionsEnum.Record:
                     DeclareValueObjectRecordType();
@@ -44,10 +45,11 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
             }
         }
 
-        private void DeclareValueObjectClassType()
+        private void DeclareValueObjectClassType(IOutputTarget outputTarget)
         {
             CSharpFile.AddClass(Model.Name, @class =>
             {
+                @class.RepresentsModel(Model);
                 @class.WithBaseType(this.GetValueObjectBaseName());
                 if (Model.HasSerializationSettings())
                 {
@@ -79,6 +81,7 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
                                 {
                                     param.IntroduceProperty(prop =>
                                     {
+                                        prop.RepresentsModel(attribute);
                                         prop.PrivateSetter();
                                         method.AddStatement($"yield return {prop.Name};");
                                     });
@@ -86,6 +89,28 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
                             }
                         });
                 });
+
+                if (Model.Attributes.Any())
+                {
+                    var ctorCount = @class.Constructors.Count;
+                    if (outputTarget.GetProject().IsNullableAwareContext() && outputTarget.GetProject().NullableEnabled)
+                    {
+                        @class.AddNullForgivingConstructor(ctor =>
+                        {
+                            ctor.Protected();
+                        });
+                    }
+
+                    // this is basically for backward compability. If the null forgiving ctor is not added,
+                    // then a private empty ctor is added
+                    if (ctorCount == @class.Constructors.Count)
+                    {
+                        @class.AddConstructor(ctor =>
+                        {
+                            ctor.Protected();
+                        });
+                    }
+                };
             });
         }
 
