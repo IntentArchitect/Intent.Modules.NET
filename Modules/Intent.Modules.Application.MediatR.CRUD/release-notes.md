@@ -1,6 +1,7 @@
 ### Version 6.0.22
 
 - Improvement: Added support for ProjectTo query implementations for DBContext implementation CRUD Scenarios.
+- Improvement: Comparison expressions with `bool` will generate a simplifed expression (e.g. `x.IsActive` instead `x.IsActive == true`)
 
 ### Version 6.0.21
 
