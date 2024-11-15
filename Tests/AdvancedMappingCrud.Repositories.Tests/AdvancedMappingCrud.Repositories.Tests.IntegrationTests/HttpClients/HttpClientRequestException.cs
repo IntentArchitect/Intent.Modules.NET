@@ -10,26 +10,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
     public class HttpClientRequestException : Exception
     {
         private static readonly JsonSerializerOptions _jsonSerializer = new() { WriteIndented = true };
-        public HttpClientRequestException()
-        {
-            RequestUri = new Uri(string.Empty, UriKind.RelativeOrAbsolute);
-            ResponseHeaders = new Dictionary<string, IEnumerable<string>>();
-            ResponseContent = string.Empty;
-        }
 
-        public HttpClientRequestException(string message) : base(message)
-        {
-            RequestUri = new Uri(string.Empty, UriKind.RelativeOrAbsolute);
-            ResponseHeaders = new Dictionary<string, IEnumerable<string>>();
-            ResponseContent = string.Empty;
-        }
-
-        public HttpClientRequestException(string message, Exception innerException) : base(message, innerException)
-        {
-            RequestUri = new Uri(string.Empty, UriKind.RelativeOrAbsolute);
-            ResponseHeaders = new Dictionary<string, IEnumerable<string>>();
-            ResponseContent = string.Empty;
-        }
         public HttpClientRequestException(Uri requestUri,
             HttpStatusCode statusCode,
             IReadOnlyDictionary<string, IEnumerable<string>> responseHeaders,
@@ -53,13 +34,24 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
             }
         }
 
-        public ProblemDetailsWithErrors? ProblemDetails { get; private set; }
+        public HttpClientRequestException()
+        {
+        }
 
-        public Uri RequestUri { get; private set; }
+        public HttpClientRequestException(string message) : base(message)
+        {
+        }
+
+        public HttpClientRequestException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
+        public ProblemDetailsWithErrors? ProblemDetails { get; private set; }
+        public Uri RequestUri { get; private set; } = new Uri(string.Empty, UriKind.RelativeOrAbsolute);
         public HttpStatusCode StatusCode { get; private set; }
-        public IReadOnlyDictionary<string, IEnumerable<string>> ResponseHeaders { get; private set; }
+        public IReadOnlyDictionary<string, IEnumerable<string>> ResponseHeaders { get; private set; } = new Dictionary<string, IEnumerable<string>>();
         public string? ReasonPhrase { get; private set; }
-        public string ResponseContent { get; private set; }
+        public string ResponseContent { get; private set; } = string.Empty;
 
         public static async Task<HttpClientRequestException> Create(
             Uri baseAddress,
