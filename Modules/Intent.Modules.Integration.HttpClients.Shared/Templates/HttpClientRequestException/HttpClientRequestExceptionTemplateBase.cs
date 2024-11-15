@@ -34,13 +34,25 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                     .WithBaseType("Exception")
                     .AddProperty("ProblemDetailsWithErrors?", "ProblemDetails", prop => prop
                         .PrivateSetter()
-                    )                    
+                    )
                     .AddConstructor(c => c
-                        .AddParameter("Uri", "requestUri", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
+                        .AddParameter("Uri", "requestUri", param => param.IntroduceProperty(prop =>
+                        {
+                            prop.PrivateSetter();
+                            prop.WithInitialValue("new Uri(string.Empty, UriKind.RelativeOrAbsolute)");
+                        }))
                         .AddParameter("HttpStatusCode", "statusCode", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
-                        .AddParameter("IReadOnlyDictionary<string, IEnumerable<string>>", "responseHeaders", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
+                        .AddParameter("IReadOnlyDictionary<string, IEnumerable<string>>", "responseHeaders", param => param.IntroduceProperty(prop =>
+                        {
+                            prop.PrivateSetter();
+                            prop.WithInitialValue("new Dictionary<string, IEnumerable<string>>()");
+                        }))
                         .AddParameter("string?", "reasonPhrase", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
-                        .AddParameter("string", "responseContent", param => param.IntroduceProperty(prop => prop.PrivateSetter()))
+                        .AddParameter("string", "responseContent", param => param.IntroduceProperty(prop =>
+                        {
+                            prop.PrivateSetter();
+                            prop.WithInitialValue("string.Empty");
+                        }))
                         .CallsBase(b => b
                             .AddArgument("GetMessage(requestUri, statusCode, reasonPhrase, responseContent)")
                         )
@@ -53,24 +65,19 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientRequ
                                 )
                         )
                     )
-                    .AddConstructor(ctor =>
-                    {
-                        InitializeProperties(ctor);
-                    })
+                    .AddConstructor()
                     .AddConstructor(ctor =>
                     {
                         ctor.AddParameter("string", "message");
                         ctor.CallsBase(b => b.AddArgument("message"));
-                        InitializeProperties(ctor);
                     })
                     .AddConstructor(ctor =>
                     {
                         ctor.AddParameter("string", "message");
                         ctor.AddParameter("Exception", "innerException");
                         ctor.CallsBase(b => b.AddArgument("message").AddArgument("innerException"));
-                        InitializeProperties(ctor);
                     })
-                    
+
                     .AddMethod($"Task<{@class.Name}>", "Create", m => m
                         .Static()
                         .Async()
