@@ -269,7 +269,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement($"var {crudTest.Entity.Name.ToParameterName().Pluralize()} = await client.{crudTest.GetAll!.Name}Async({(crudTest.OwningAggregate is not null ? $"{owningAggregateId}" : "")});")
 
                         .AddStatement("// Assert", s => s.SeparatedFromPrevious())
-                        .AddStatement($"Assert.True({crudTest.Entity.Name.ToParameterName().Pluralize()}.Count != 0);")
+                        .AddStatement($"Assert.NotEmpty({crudTest.Entity.Name.ToParameterName().Pluralize()});")
                         ;
                 });
             });
