@@ -9,7 +9,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
-using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Settings;
@@ -158,7 +157,8 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                                 }
                             }
 
-                            if (ctor.Statements.Count != 0)
+
+                            if (ctor.Statements.Any())
                             {
                                 ctor.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
                             }
@@ -187,9 +187,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 })
                 .AfterBuild(file =>
                 {
-                    var @class = file.Classes.First();
-
-                    foreach (var method in @class.Methods)
+                    foreach (var method in file.Classes.First().Methods)
                     {
                         if (method.IsAbstract)
                             continue;
@@ -201,12 +199,6 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                             method.AddStatement($"// TODO: Implement {method.Name} ({file.Classes.First().Name}) functionality");
                             method.AddStatement(@$"throw new {UseType("System.NotImplementedException")}(""Replace with your implementation..."");");
                         }
-                    }
-
-                    // After the build and all properties have been resolved, then check for null forgiving constructor
-                    if (@class.Constructors.Count == 0 && outputTarget.GetProject().IsNullableAwareContext() && outputTarget.GetProject().NullableEnabled)
-                    {
-                        @class.AddNullForgivingConstructor();
                     }
                 });
 

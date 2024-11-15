@@ -1,42 +1,42 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+	</PropertyGroup>
 
-  <ItemGroup>
-	  <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.4-pre.2" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.11.0" />
-    <PackageReference Include="Intent.Packager" Version="3.4.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.6" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.7.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.3" />
+		<PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.11.0" />
+		<PackageReference Include="Intent.Packager" Version="3.4.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.6" />
+		<PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.7.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.DomainEvents\Intent.Modules.DomainEvents.csproj" />
-    <ProjectReference Include="..\Intent.Modules.DomainServices\Intent.Modules.DomainServices.csproj" />
-    <ProjectReference Include="..\Intent.Modules.Entities.Repositories.Api\Intent.Modules.Entities.Repositories.Api.csproj" />
-    <ProjectReference Include="..\Intent.Modules.Entities\Intent.Modules.Entities.csproj" />
-    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Intent.Modules.DomainEvents\Intent.Modules.DomainEvents.csproj" />
+		<ProjectReference Include="..\Intent.Modules.DomainServices\Intent.Modules.DomainServices.csproj" />
+		<ProjectReference Include="..\Intent.Modules.Entities.Repositories.Api\Intent.Modules.Entities.Repositories.Api.csproj" />
+		<ProjectReference Include="..\Intent.Modules.Entities\Intent.Modules.Entities.csproj" />
+		<ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="FactoryExtensions\Sln\LocalizableStrings.Designer.cs">
-      <DependentUpon>LocalizableStrings.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Update="FactoryExtensions\Sln\LocalizableStrings.Designer.cs">
+			<DependentUpon>LocalizableStrings.resx</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+		</Compile>
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="FactoryExtensions\Sln\LocalizableStrings.resx">
-      <SubType>Designer</SubType>
-      <LastGenOutput>LocalizableStrings.Designer.cs</LastGenOutput>
-      <Generator>ResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="FactoryExtensions\Sln\LocalizableStrings.resx">
+			<SubType>Designer</SubType>
+			<LastGenOutput>LocalizableStrings.Designer.cs</LastGenOutput>
+			<Generator>ResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+	</ItemGroup>
 
 </Project>

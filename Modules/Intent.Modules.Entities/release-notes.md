@@ -1,6 +1,5 @@
 ### Version 5.1.7
 
-- Improvement: Domain `entities` will now get a default constructor (if no other constructor is defined) to set the value of qualifying attributes to `null!`
 - Improvement: Converted `CollectionExtensions` to use Builder pattern
 - Improvement: General code clean up to remove several code warnings.
 

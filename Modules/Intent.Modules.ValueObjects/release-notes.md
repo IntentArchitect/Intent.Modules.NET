@@ -1,7 +1,3 @@
-### Version 4.2.4
-
-- Improvement: `ValueObject`s will now get a default constructor (if no other constructor is defined) to set the value of qualifying attributes to `null!`
-
 ### Version 4.2.3
 
 - Reorder of methods in `ValueObject` according to access level to align with best practices

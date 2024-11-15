@@ -81,30 +81,28 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
         }
     }
 
-    protected void AddProperty<TModel>(CSharpClass @class, string propertyName, ITypeReference typeReference, TModel model, IElement element, bool isBaseClass)
-        where TModel : IMetadataModel, IHasName
+    protected void AddProperty(CSharpClass @class, string propertyName, ITypeReference typeReference, IMetadataModel model, IElement element, bool isBaseClass)
     {
         var isPrivateSetterCollection = typeReference.IsCollection &&
                                             ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters();
         var propertyType = isPrivateSetterCollection
             ? GetTypeName(typeReference, UseType("System.Collections.Generic.IReadOnlyCollection<{0}>"))
-            : typeReference.IsCollection && typeReference.IsPrimitiveType() 
+            : typeReference.IsCollection && typeReference.IsPrimitiveType()
                 ? GetTypeName(typeReference, UseType("System.Collections.Generic.IList<{0}>"))
                 : GetTypeName(typeReference);
 
-        @class.AddProperty(propertyType, model, property =>
+        @class.AddProperty(propertyType, propertyName.ToPascalCase(), property =>
         {
-            var metadatamodel = model as IMetadataModel;
-
             property.TryAddXmlDocComments(element);
-            property.AddMetadata("model", metadatamodel);
+            property.AddMetadata("model", model);
+            property.RepresentsModel(model);
 
             if (isPrivateSetterCollection)
             {
                 var fieldName = propertyName.ToPrivateMemberName();
                 @class.AddField(AsListType(), fieldName, field =>
                 {
-                    field.AddMetadata("model", metadatamodel);
+                    field.AddMetadata("model", model);
                     field.WithInstantiation();
                 });
 
@@ -131,11 +129,11 @@ public abstract class DomainEntityStateTemplateBase : CSharpTemplateBase<ClassMo
                 }
             }
 
-            if (metadatamodel is AttributeModel attribute && !string.IsNullOrWhiteSpace(attribute.Value))
+            if (model is AttributeModel attribute && !string.IsNullOrWhiteSpace(attribute.Value))
             {
                 property.WithInitialValue(attribute.Value);
             }
-            else if (metadatamodel is AssociationEndModel associationEnd && !string.IsNullOrWhiteSpace(associationEnd.Value))
+            else if (model is AssociationEndModel associationEnd && !string.IsNullOrWhiteSpace(associationEnd.Value))
             {
                 property.WithInitialValue(associationEnd.Value);
             }

@@ -1,83 +1,83 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-	<Version>5.1.7-pre.1</Version>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<Version>5.1.6</Version>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.7.3" />
-	<PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.4-pre.2" />
-    <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.11.0" />
-    <PackageReference Include="Intent.Packager" Version="3.4.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.6" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.6.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Intent.Modules.Common" Version="3.7.3" />
+		<PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.3" />
+		<PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.11.0" />
+		<PackageReference Include="Intent.Packager" Version="3.4.2">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.6" />
+		<PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.6.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Templates\DomainEntityInterface\DomainEntityInterfaceDecoratorBase.cs" />
-    <Compile Remove="Templates\DomainEntityInterface\DomainEntityInterfaceTemplate.cs" />
-    <Compile Remove="Templates\DomainEntity\DomainEntityTemplate.cs" />
-    <Compile Update="Templates\CollectionWrapper\CollectionWrapperTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>CollectionWrapperTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\UpdateHelper\UpdateHelperTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UpdateHelperTemplate.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Templates\DomainEntityInterface\DomainEntityInterfaceDecoratorBase.cs" />
+		<Compile Remove="Templates\DomainEntityInterface\DomainEntityInterfaceTemplate.cs" />
+		<Compile Remove="Templates\DomainEntity\DomainEntityTemplate.cs" />
+		<Compile Update="Templates\CollectionWrapper\CollectionWrapperTemplate.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>CollectionWrapperTemplate.tt</DependentUpon>
+		</Compile>
+		<Compile Update="Templates\UpdateHelper\UpdateHelperTemplate.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>UpdateHelperTemplate.tt</DependentUpon>
+		</Compile>
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Remove="Templates\DomainEntityInterface\DomainEntityInterfaceTemplate.tt" />
-    <None Remove="Templates\DomainEntity\DomainEntityTemplate.tt" />
-    <None Update="Templates\CollectionWrapper\CollectionWrapperTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CollectionWrapperTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\UpdateHelper\UpdateHelperTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>UpdateHelperTemplate.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="Templates\DomainEntityInterface\DomainEntityInterfaceTemplate.tt" />
+		<None Remove="Templates\DomainEntity\DomainEntityTemplate.tt" />
+		<None Update="Templates\CollectionWrapper\CollectionWrapperTemplate.tt">
+			<Generator>TextTemplatingFilePreprocessor</Generator>
+			<LastGenOutput>CollectionWrapperTemplate.cs</LastGenOutput>
+		</None>
+		<None Update="Templates\UpdateHelper\UpdateHelperTemplate.tt">
+			<Generator>TextTemplatingFilePreprocessor</Generator>
+			<LastGenOutput>UpdateHelperTemplate.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="Templates\AutofacConfig\AutofacConfigTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>AutofacConfigTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\DomainEnum\DomainEnumTemplate.tt">
-      <LastGenOutput>DomainEnumTemplate.cs</LastGenOutput>
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-    </None>
-    <None Update="Templates\DomainEntityState\DomainEntityStateTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DomainEntityStateTemplate.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="Templates\AutofacConfig\AutofacConfigTemplate.tt">
+			<Generator>TextTemplatingFilePreprocessor</Generator>
+			<LastGenOutput>AutofacConfigTemplate.cs</LastGenOutput>
+		</None>
+		<None Update="Templates\DomainEnum\DomainEnumTemplate.tt">
+			<LastGenOutput>DomainEnumTemplate.cs</LastGenOutput>
+			<Generator>TextTemplatingFilePreprocessor</Generator>
+		</None>
+		<None Update="Templates\DomainEntityState\DomainEntityStateTemplate.tt">
+			<Generator>TextTemplatingFilePreprocessor</Generator>
+			<LastGenOutput>DomainEntityStateTemplate.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Templates\AutofacConfig\AutofacConfigTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AutofacConfigTemplate.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Update="Templates\AutofacConfig\AutofacConfigTemplate.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>AutofacConfigTemplate.tt</DependentUpon>
+		</Compile>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
+	<ItemGroup>
+		<Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
 
-  <Import Project="..\Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems" Label="Shared" />
+	<Import Project="..\Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems" Label="Shared" />
 
 </Project>
