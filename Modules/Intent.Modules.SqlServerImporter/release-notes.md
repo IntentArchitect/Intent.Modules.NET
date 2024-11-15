@@ -1,3 +1,7 @@
+### Version 1.0.7
+
+- Fixed: A "Cannot cast System.DBNull to int?" exception would occur when processing certain schemas.
+
 ### Version 1.0.6
 
 - Improvement: Import Stored Procedures from your SQL Server by name directly on a given Repository in your Domain Designer.
