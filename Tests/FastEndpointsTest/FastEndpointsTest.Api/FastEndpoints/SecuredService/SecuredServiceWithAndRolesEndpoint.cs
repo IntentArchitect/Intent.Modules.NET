@@ -34,8 +34,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.SecuredService
                 b.Produces(StatusCodes.Status204NoContent);
                 b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
             });
-            Roles("Admin", "One");
-            Roles("Admin", "Two");
+            Roles("Admin", "One", "Two");
             Options(x => x.WithVersionSet(">>Api Version<<").MapToApiVersion(new ApiVersion(1.0)));
         }
 

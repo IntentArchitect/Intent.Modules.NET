@@ -1,5 +1,6 @@
 using System;
 using AspNetCore.Controllers.Secured.Application.Common.Interfaces;
+using AspNetCore.Controllers.Secured.Application.Common.Security;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -8,6 +9,7 @@ using MediatR;
 
 namespace AspNetCore.Controllers.Secured.Application.Products.DeleteProduct
 {
+    [Authorize(Roles = "Admin")]
     public class DeleteProductCommand : IRequest, ICommand
     {
         public DeleteProductCommand(Guid id)
