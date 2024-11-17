@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <PackageVersion>6.1.2</PackageVersion>
+    <PackageVersion>7.0.0-pre.0</PackageVersion>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -12,43 +12,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Templates\Controller\ControllerTemplate.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Templates\Controller\ControllerTemplate.tt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Templates\ApiControllerBase\ApiControllerBaseTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ApiControllerBaseTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\JsonResponse\JsonResponseTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>JsonResponseTemplate.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Templates\JsonResponse\JsonResponseTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>JsonResponseTemplate.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.6.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.7.2-pre.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.7.6" />
-    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.5.5" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.7.3" />
+    <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.6.4-pre.0" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.8.2" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.6" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.6.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.7.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,10 +38,6 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="docs\images\" />
   </ItemGroup>
 
 </Project>

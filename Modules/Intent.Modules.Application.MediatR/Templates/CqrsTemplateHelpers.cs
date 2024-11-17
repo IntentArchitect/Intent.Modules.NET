@@ -1,7 +1,11 @@
-﻿using Intent.Modelers.Services.CQRS.Api;
+﻿using Intent.Metadata.Models;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Settings;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Metadata.Security.Models;
 
 namespace Intent.Modules.Application.MediatR.Templates;
 
@@ -33,5 +37,28 @@ internal static class CqrsTemplateHelpers
         return template.ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile()
             ? template.GetNamespace()
             : template.GetNamespace(additionalFolders: template.Model.GetConceptName());
+    }
+
+    public static void AddAuthorization(ICSharpTemplate template, CSharpClass @class, IElement element)
+    {
+        foreach (var securityModel in SecurityModelHelpers.GetSecurityModels(element))
+        {
+            @class.AddAttribute(
+                template.TryGetTypeName("Application.Identity.AuthorizeAttribute", out var @out)
+                    ? @out.RemoveSuffix("Attribute")
+                    : "Authorize",
+                attribute =>
+                {
+                    if (securityModel.Roles.Count > 0)
+                    {
+                        attribute.AddArgument($"Roles = \"{string.Join(',', securityModel.Roles)}\"");
+                    }
+
+                    if (securityModel.Policies.Count > 0)
+                    {
+                        attribute.AddArgument($"Policy = \"{string.Join(',', securityModel.Policies)}\"");
+                    }
+                });
+        }
     }
 }

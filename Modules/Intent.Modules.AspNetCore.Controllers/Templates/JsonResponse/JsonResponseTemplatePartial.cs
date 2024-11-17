@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.WebApi.Api;
-using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -19,10 +16,20 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.JsonResponse
     partial class JsonResponseTemplate : CSharpTemplateBase<object>
     {
         public const string TemplateId = "Intent.AspNetCore.Controllers.JsonResponse";
+        private bool _templateIsRequired;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public JsonResponseTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+        }
+        public void NotifyTemplateIsRequired()
+        {
+            _templateIsRequired = true;
+        }
+
+        public override bool CanRunTemplate()
+        {
+            return _templateIsRequired;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -32,17 +39,6 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.JsonResponse
                 className: $"JsonResponse",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
-        }
-
-        private bool _isTemplateRequired = false;
-        public void NotifyTemplateIsRequired()
-        {
-            _isTemplateRequired = true;
-        }
-
-        public override bool CanRunTemplate()
-        {
-            return _isTemplateRequired;
         }
     }
 }

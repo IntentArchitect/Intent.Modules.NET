@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>4.2.10</Version>
+    <Version>4.3.0-pre.0</Version>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -11,76 +11,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Templates\CommandHandler\CommandHandlerTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CommandHandlerTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\CommandModel\CommandModelTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CommandModelTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\DtoModel\DtoModelTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DtoModelTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\QueryHandler\QueryHandlerTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>QueryHandlerTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\QueryModel\QueryModelTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>QueryModelTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>UnhandledExceptionBehaviourTemplate.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Templates\CommandHandler\CommandHandlerTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>CommandHandlerTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\CommandModel\CommandModelTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>CommandModelTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\DtoModel\DtoModelTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DtoModelTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\QueryHandler\QueryHandlerTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>QueryHandlerTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\QueryModel\QueryModelTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>QueryModelTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\UnhandledExceptionBehaviour\UnhandledExceptionBehaviourTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UnhandledExceptionBehaviourTemplate.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.6.0" />
+    <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.7.2-pre.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.7.6" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.7.3" />
+    <PackageReference Include="Intent.Modules.Metadata.Security" Version="1.0.0-pre.0" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.8.2" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="4.1.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.6" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.6.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.7.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,7 +9,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>8de7db33-7d69-403f-ad45-3b3d753705f2</ProjectId>
+      <ProjectId>91ac5c02-c679-4de7-8e20-779fe8991655</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.MediatR.Behaviours.imodspec</ApplicationRelativeFilePath>
@@ -17,15 +17,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>8de7db33-7d69-403f-ad45-3b3d753705f2</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#8de7db33-7d69-403f-ad45-3b3d753705f2</CorrelationId>
+      <ProjectId>91ac5c02-c679-4de7-8e20-779fe8991655</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#91ac5c02-c679-4de7-8e20-779fe8991655</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.MediatR.Behaviours.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.MediatR.Behaviours.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>8de7db33-7d69-403f-ad45-3b3d753705f2</ProjectId>
+      <ProjectId>91ac5c02-c679-4de7-8e20-779fe8991655</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>

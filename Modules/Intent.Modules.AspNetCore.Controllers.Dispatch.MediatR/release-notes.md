@@ -1,3 +1,11 @@
+### Version 6.0.0
+
+> ?? **NOTE**
+>
+> Depends on `Intent.AspNetCore.Controllers` version `7.0.0` which may cause breaking changes in custom modules. Refer to the [release notes](https://github.com/IntentArchitect/Intent.Modules.NET/blob/improvement/be-able-to-apply-multiple-authorize-attributes/Modules/Intent.Modules.AspNetCore.Controllers/release-notes.md#version-700) for more information. 
+
+- Improvement: Support addeded for applying multiple authorization attributes as well as applying authorization attributes from `Secured` stereotypes which are applied to packages. 
+
 ### Version 5.5.4
 
 - Improvement: Comparison using `Guid`s on the controller will use `Guid.Empty` instead of `default` to be more aligned with best practices

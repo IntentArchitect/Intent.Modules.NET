@@ -33,7 +33,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>863dedbb-b0a4-467e-96ea-f1ee97d7bd10</ProjectId>
+      <ProjectId>063e370f-e33c-444e-8d31-b9f1e9051fb3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AspNetCore.Controllers.imodspec</ApplicationRelativeFilePath>
@@ -41,8 +41,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>863dedbb-b0a4-467e-96ea-f1ee97d7bd10</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#863dedbb-b0a4-467e-96ea-f1ee97d7bd10</CorrelationId>
+      <ProjectId>063e370f-e33c-444e-8d31-b9f1e9051fb3</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#063e370f-e33c-444e-8d31-b9f1e9051fb3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Controllers.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Controllers.csproj</ProjectRelativeFilePath>
@@ -90,19 +90,11 @@
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#2ba2dbf4-0d2b-4add-8b83-ec9bef1db826</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Controller/ControllerDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Controller/ControllerDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e6d82b9e-3868-4b1b-8f55-12f2ce2c0dd8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controller/ControllerTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controller/ControllerTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
@@ -110,7 +102,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controller/ControllerTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Controller/ControllerTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
@@ -130,18 +122,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#28d3d457-970f-465b-b178-ebd1896643e2</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate#28d3d457-970f-465b-b178-ebd1896643e2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/JsonResponse/JsonResponseTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse/JsonResponseTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#28d3d457-970f-465b-b178-ebd1896643e2</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/JsonResponse/JsonResponseTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>JsonResponse/JsonResponseTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

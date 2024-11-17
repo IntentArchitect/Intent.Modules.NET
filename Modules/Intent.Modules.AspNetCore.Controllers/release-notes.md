@@ -1,3 +1,11 @@
+﻿### Version 7.0.0
+
+> ⚠️ **NOTE**
+>
+> `ControllerDecorator` has been removed and any custom modules which use this decorator will need to be updated to use the `ICSharpFileBuilderTemplate` instead. Please don't reach out to our [support](https://github.com/IntentArchitect/Support) should you require any assistance with this.
+
+- Improvement: Support addeded for applying multiple authorization attributes as well as applying authorization attributes from `Secured` stereotypes which are applied to packages. 
+
 ### Version 6.1.2
 
 - Improvement: Added support for multitenancy `route strategy`

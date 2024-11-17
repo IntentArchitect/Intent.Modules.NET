@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -6,14 +6,14 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.Identity" Version="3.4.0" />
-    <PackageReference Include="Intent.Modules.Common" Version="3.6.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.7.2-pre.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.7.6" />
     <PackageReference Include="Intent.Packager" Version="3.4.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.6" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.6.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.7.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,18 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ValidationBehaviourTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>UnitOfWorkBehaviourTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>MessageBusPublishBehaviourTemplate.cs</LastGenOutput>
-    </None>
     <None Update="Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EventBusPublishBehaviourTemplate.cs</LastGenOutput>
@@ -41,21 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\ValidationBehaviour\ValidationBehaviourTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ValidationBehaviourTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\UnitOfWorkBehaviour\UnitOfWorkBehaviourTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UnitOfWorkBehaviourTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Templates\MessageBusPublishBehaviour\MessageBusPublishBehaviourTemplate.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>MessageBusPublishBehaviourTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Update="Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -65,10 +38,6 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Templates\UnhandledExceptionBehaviour\" />
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems" Label="Shared" />

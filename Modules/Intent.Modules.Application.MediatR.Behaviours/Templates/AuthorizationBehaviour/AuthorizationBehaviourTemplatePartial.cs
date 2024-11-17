@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Intent.Engine;
+using Intent.Modules.Application.Identity.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
@@ -9,157 +11,116 @@ using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
-[assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
 namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationBehaviour
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class AuthorizationBehaviourTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.MediatR.Behaviours.AuthorizationBehaviour";
 
-        [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AuthorizationBehaviourTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddUsing("System.Reflection");
-            AddUsing("System.Linq");
-
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("MediatR")
+                .AddUsing("System")
+                .AddUsing("System.Linq")
+                .AddUsing("System.Reflection")
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
                 .AddClass($"AuthorizationBehaviour", @class =>
                 {
-                    @class.AddGenericParameter("TRequest", out var TRequest);
-                    @class.AddGenericParameter("TResponse", out var TResponse);
-                    @class.AddGenericTypeConstraint(TRequest, cfg =>
-                    {
-                        cfg.AddType("notnull");
-                    });
-
-                    @class.ImplementsInterface(UseType("MediatR.IPipelineBehavior<TRequest, TResponse>"));
+                    @class.AddGenericParameter("TRequest", out var tRequest);
+                    @class.AddGenericParameter("TResponse", out var tResponse);
+                    @class.ImplementsInterface($"IPipelineBehavior<{tRequest}, {tResponse}>");
+                    @class.AddGenericTypeConstraint(tRequest, c => c.AddType("notnull"));
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter(GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface"), "currentUserService", param => param.IntroduceReadonlyField());
-                    });
-
-                    @class.AddMethod(UseType($"System.Threading.Tasks.Task<{TResponse}>"), "Handle", method =>
-                    {
-                        method.Async();
-
-                        method.AddParameter($"{TRequest}", "request");
-                        method.AddParameter($"RequestHandlerDelegate<{TResponse}>", "next");
-                        method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
-
-                        method.AddObjectInitStatement("var authorizeAttributes",
-                            new CSharpInvocationStatement(new CSharpInvocationStatement(new CSharpInvocationStatement("request", "GetType").WithoutSemicolon(), "GetCustomAttributes<AuthorizeAttribute>").WithoutSemicolon(), "ToList"));
-
-                        method.AddIfStatement("authorizeAttributes.Count > 0", @if =>
+                        ctor.AddParameter(this.GetCurrentUserServiceInterface(), "currentUserService", param =>
                         {
-                            @if.AddStatement("// Must be authenticated user");
-                            @if.AddIfStatement("_currentUserService.UserId is null", userIf =>
-                            {
-                                userIf.AddStatement($"throw new {UseType("System.UnauthorizedAccessException")}();");
-                                userIf.BeforeSeparator = CSharpCodeSeparatorType.None;
-                            });
-
-                            @if.AddStatement("");
-                            @if.AddStatement("// Role-Based authorization");
-                            @if.AddInvocationStatement("await RoleBasedAuthenticationAsync", invoc =>
-                            {
-                                invoc.AddArgument("authorizeAttributes");
-                            });
-
-                            @if.AddStatement("");
-                            @if.AddStatement("// Policy-based authorization");
-                            @if.AddInvocationStatement("await PolicyBasedAuthenticationAsync", invoc =>
-                            {
-                                invoc.AddArgument("authorizeAttributes");
-                            });
+                            param.IntroduceReadonlyField();
                         });
-
-                        method.AddStatement("");
-                        method.AddStatement("// User is authorized / authorization not required");
-                        method.AddReturn("await next()");
                     });
 
-                    @class.AddMethod("Task", "RoleBasedAuthenticationAsync", method =>
+                    @class.AddMethod(tResponse, "Handle", method =>
                     {
                         method.Async();
-                        method.AddParameter(UseType($"System.Collections.Generic.List<{GetTypeName("Intent.Application.Identity.AuthorizeAttribute")}>"), "authorizeAttributes");
+                        method.AddParameter(tRequest, "request");
+                        method.AddParameter($"RequestHandlerDelegate<{tResponse}>", "next");
+                        method.AddParameter("CancellationToken", "cancellationToken");
 
-                        var fluent = new CSharpStatement("!string.IsNullOrWhiteSpace(a.Roles)");
-                        method.AddObjectInitStatement("var authorizeAttributesWithRoles", new CSharpInvocationStatement(new CSharpInvocationStatement("authorizeAttributes", "Where")
-                            .AddArgument(new CSharpArgument(new CSharpLambdaBlock("a").WithExpressionBody(fluent))).WithoutSemicolon(), "ToList"));
+                        method.AddStatement($"var authorizeAttributes = request.GetType().GetCustomAttributes<{this.GetAuthorizationAttribute()}>();");
 
-                        method.AddIfStatement("authorizeAttributesWithRoles.Count > 0", @roleIf =>
+                        method.AddForEachStatement("authorizeAttribute", "authorizeAttributes", foreachAttribute =>
                         {
-                            @roleIf.AddForEachStatement("roles", "authorizeAttributesWithRoles.Select(a => a.Roles.Split(','))", @for =>
+                            foreachAttribute.AddStatement("// Must be an authenticated user");
+                            foreachAttribute.AddIfStatement("_currentUserService.UserId is null", @if =>
                             {
-                                @for.AddObjectInitStatement("var authorized", "false;");
-                                @for.AddForEachStatement("role", "roles", roleFor =>
+                                @if.SeparatedFromPrevious(false);
+                                @if.AddStatement("throw new UnauthorizedAccessException();");
+                            });
+
+                            foreachAttribute.AddStatement("// Role-based authorization", s => s.SeparatedFromPrevious());
+                            foreachAttribute.AddIfStatement("!string.IsNullOrWhiteSpace(authorizeAttribute.Roles)", ifRoles =>
+                            {
+                                ifRoles.SeparatedFromPrevious(false);
+                                ifRoles.AddStatement("var authorized = false;");
+                                ifRoles.AddStatement("var roles = authorizeAttribute.Roles.Split(\",\").Select(x => x.Trim());");
+
+                                ifRoles.AddForEachStatement("role", "roles", @foreach =>
                                 {
-                                    roleFor.BeforeSeparator = CSharpCodeSeparatorType.None;
-                                    roleFor.AddObjectInitStatement("var isInRole", "await _currentUserService.IsInRoleAsync(role.Trim());");
-                                    roleFor.AddIfStatement("isInRole", inRoleIf =>
+                                    @foreach.AddStatement("var isInRole = await _currentUserService.IsInRoleAsync(role);");
+                                    @foreach.AddIfStatement("isInRole", @if =>
                                     {
-                                        inRoleIf.BeforeSeparator = CSharpCodeSeparatorType.None;
-                                        inRoleIf.AddObjectInitStatement("authorized", "true;");
-                                        inRoleIf.AddStatement("break;");
+                                        @if.SeparatedFromPrevious(false);
+                                        @if.AddStatement("authorized = true;");
+                                        @if.AddStatement("break;");
                                     });
                                 });
 
-                                @for.AddStatement("");
-                                @for.AddStatement("// Must be a member of at least one role in roles");
-                                @for.AddIfStatement("!authorized", notAuthIf =>
+                                ifRoles.AddStatement("// Must be a member of at least one role in roles", s => s.SeparatedFromPrevious());
+                                ifRoles.AddIfStatement("!authorized", @if =>
                                 {
-                                    notAuthIf.BeforeSeparator = CSharpCodeSeparatorType.None;
-                                    notAuthIf.AddStatement($"throw new ForbiddenAccessException();");
+                                    @if.SeparatedFromPrevious(false);
+                                    @if.AddStatement($"throw new {this.GetForbiddenAccessException()}();");
                                 });
                             });
-                        });
-                    });
 
-                    @class.AddMethod("Task", "PolicyBasedAuthenticationAsync", method =>
-                    {
-                        method.Async();
-                        method.AddParameter(UseType($"System.Collections.Generic.List<{GetTypeName("Intent.Application.Identity.AuthorizeAttribute")}>"), "authorizeAttributes");
-
-                        var fluent = new CSharpStatement("!string.IsNullOrWhiteSpace(a.Policy)");
-                        method.AddObjectInitStatement("var authorizeAttributesWithPolicies", new CSharpInvocationStatement(new CSharpInvocationStatement("authorizeAttributes", "Where")
-                            .AddArgument(new CSharpArgument(new CSharpLambdaBlock("a").WithExpressionBody(fluent))).WithoutSemicolon(), "ToList"));
-
-                        method.AddIfStatement("authorizeAttributesWithPolicies.Count > 0", @roleIf =>
-                        {
-                            @roleIf.AddForEachStatement("policy", "authorizeAttributesWithPolicies.Select(a => a.Policy)", @for =>
+                            foreachAttribute.AddStatement("// Policy-based authorization", s => s.SeparatedFromPrevious());
+                            foreachAttribute.AddIfStatement("!string.IsNullOrWhiteSpace(authorizeAttribute.Policy)", ifPolicies =>
                             {
-                                @for.AddObjectInitStatement("var authorized", "await _currentUserService.AuthorizeAsync(policy);");
+                                ifPolicies.SeparatedFromPrevious(false);
+                                ifPolicies.AddStatement("var authorized = false;");
+                                ifPolicies.AddStatement("var policies = authorizeAttribute.Policy.Split(\",\").Select(x => x.Trim());");
 
-                                @for.AddIfStatement("!authorized", notAuthIf =>
+                                ifPolicies.AddForEachStatement("policy", "policies", @foreach =>
                                 {
-                                    notAuthIf.AddStatement($"throw new {GetTypeName("Intent.Application.Identity.ForbiddenAccessException")}();");
+                                    @foreach.AddStatement("var isAuthorized = await _currentUserService.AuthorizeAsync(policy);");
+                                    @foreach.AddIfStatement("isAuthorized", @if =>
+                                    {
+                                        @if.SeparatedFromPrevious(false);
+                                        @if.AddStatement("authorized = true;");
+                                        @if.AddStatement("break;");
+                                    });
+                                });
+
+                                ifPolicies.AddStatement("// Must be authorized by at least one policy", s => s.SeparatedFromPrevious());
+                                ifPolicies.AddIfStatement("!authorized", @if =>
+                                {
+                                    @if.SeparatedFromPrevious(false);
+                                    @if.AddStatement($"throw new {this.GetForbiddenAccessException()}();");
                                 });
                             });
                         });
+
+                        method.AddStatement("// User is authorized / authorization not required", s => s.SeparatedFromPrevious());
+                        method.AddStatement("return await next();");
                     });
                 });
-        }
-
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
-
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        protected override CSharpFileConfig DefineFileConfig()
-        {
-            return new CSharpFileConfig(
-                className: $"AuthorizationBehaviour",
-                @namespace: $"{OutputTarget.GetNamespace()}");
-        }
-
-        [IntentManaged(Mode.Fully)]
-        public override string TransformText()
-        {
-            return CSharpFile.ToString();
         }
 
         public override void BeforeTemplateExecution()
@@ -170,6 +131,21 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
                 .ForConcern("MediatR")
                 .RequiresUsingNamespaces("MediatR")
                 .HasDependency(this));
+        }
+
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
+
+        [IntentManaged(Mode.Fully)]
+        protected override CSharpFileConfig DefineFileConfig()
+        {
+            return CSharpFile.GetConfig();
+        }
+
+        [IntentManaged(Mode.Fully)]
+        public override string TransformText()
+        {
+            return CSharpFile.ToString();
         }
     }
 }

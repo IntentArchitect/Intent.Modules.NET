@@ -1,3 +1,13 @@
+﻿### Version 4.3.0
+
+- Improvement: The `Authorize` stereotype has been removed and its usage has been replaced with the `Security` stereotype. A module migration will automatically convert existing `Authorize` stereotypes to `Secured` stereotypes which should allow everything to continue working without any additional intervention required.
+
+  > ⚠️ **NOTE**
+  >
+  > A consequence of this change is that `Security` stereotype will now also cause `[Authorization]` to be added to generated `Command` and `Query` classes. If prior to upgrading this module you had only `Security` stereotypes applied to `Command` and `Query` element types, generated classes from them will now have `[Authorize]` attributes added to them.
+
+- Improvement: The `Security` Stereotype can now be applied multiple times to an element to represent an `AND` security requirement.
+
 ### Version 4.2.10
 
 - Improvement: `IQuery` and `ICommand` using CSharpFileBuilder paradigm.

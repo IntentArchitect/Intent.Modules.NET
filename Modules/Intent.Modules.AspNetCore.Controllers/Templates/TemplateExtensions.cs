@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentAttribute;
 using Intent.Modules.AspNetCore.Controllers.Templates.BinaryContentFilter;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
@@ -24,12 +23,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates
         {
             return template.GetTypeName(BinaryContentFilterTemplate.TemplateId);
         }
-        public static string GetControllerName<T>(this IIntentTemplate<T> template) where T : ServiceModel
+        public static string GetControllerName<T>(this IIntentTemplate<T> template) where T : IControllerModel
         {
             return template.GetTypeName(ControllerTemplate.TemplateId, template.Model);
         }
 
-        public static string GetControllerName(this IIntentTemplate template, ServiceModel model)
+        public static string GetControllerName(this IIntentTemplate template, IControllerModel model)
         {
             return template.GetTypeName(ControllerTemplate.TemplateId, model);
         }

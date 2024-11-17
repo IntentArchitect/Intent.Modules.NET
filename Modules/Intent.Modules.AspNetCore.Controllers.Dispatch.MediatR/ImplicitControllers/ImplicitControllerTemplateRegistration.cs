@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
@@ -5,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.AspNetCore.Controllers.Settings;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
 using Intent.Modules.Common.Registrations;
@@ -36,6 +38,13 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.ImplicitControl
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IControllerModel> GetModels(IApplication application)
         {
+            var securedByDefault = application.Settings.GetAPISettings().DefaultAPISecurity().AsEnum() switch
+            {
+                APISettings.DefaultAPISecurityOptionsEnum.Secured => true,
+                APISettings.DefaultAPISecurityOptionsEnum.Unsecured => false,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+
             var elementsGroupedByParent = Enumerable.Empty<IElement>()
                 .Concat(_metadataManager.Services(application).GetCommandModels()
                     .Where(x => x.HasHttpSettings())
@@ -45,9 +54,8 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.ImplicitControl
                     .Select(x => x.InternalElement))
                 .GroupBy(x => x.ParentElement);
 
-
             return elementsGroupedByParent
-                .Select(grouping => new CqrsControllerModel(grouping.Key, grouping))
+                .Select(grouping => new CqrsControllerModel(grouping.Key, grouping.First().Package, securedByDefault))
                 .ToArray<IControllerModel>();
         }
     }
