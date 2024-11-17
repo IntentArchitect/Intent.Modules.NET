@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="82df739f-6dc8-4b7c-95f6-1ebfde1db0fe" type="Security Configuration" typeId="35a8b318-fd7e-40ec-b3b7-dd79cf26524a">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>28c42ab0-a0ea-4255-a7ef-7345772b1020</parentFolderId>
+  <packageId>28c42ab0-a0ea-4255-a7ef-7345772b1020</packageId>
+  <packageName>PackageLevelSecurity</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

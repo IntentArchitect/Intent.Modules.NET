@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e1069966-9ffc-4348-aac1-059dea41ac42" type="Role" typeId="d6ce4e4c-fdd1-4fa1-82d8-f3405e114ec5">
+  <name>Role2</name>
+  <display>Role2</display>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>82df739f-6dc8-4b7c-95f6-1ebfde1db0fe</parentFolderId>
+  <packageId>28c42ab0-a0ea-4255-a7ef-7345772b1020</packageId>
+  <packageName>PackageLevelSecurity</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
