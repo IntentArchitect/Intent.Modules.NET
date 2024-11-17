@@ -2,6 +2,7 @@
 
 - Improvement: Updated `LoggingBehavior` and `PerformanceBehavior` to use Builder pattern
 - Improvement: `ILogger<{ClassName}>` is now injected into `LoggingBehavior`, `PerformanceBehavior` and `UnhandledExceptionBehaviour`, instead of `ILogger<TRequest>`
+- Improvement: Refactor of `AuthorizationBehaviour`, including syntax best practice updates
 
 ### Version 4.2.17
 
