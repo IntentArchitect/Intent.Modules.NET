@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="8236c4ec-3185-4641-ae60-edee995dc436" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
   <name>Tooling</name>
-  <display>Tooling (2)</display>
+  <display>Tooling (3)</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <order>13</order>
@@ -63,7 +63,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.8.3" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.8.4-pre.1" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
@@ -117,6 +117,59 @@
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
                 <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="3.5.1" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="5abf218b-aed4-4f71-bf76-70d960498d8c" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>SonarQube</name>
+      <display>SonarQube (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8236c4ec-3185-4641-ae60-edee995dc436</parentFolderId>
+      <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Provides real-time code quality analysis and feedback on the quality, readability and complexity of the code." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d2abf0cd-e9e4-465f-84b1-f756e06ed525" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.SonarQube</name>
+          <display>Intent.SonarQube</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5abf218b-aed4-4f71-bf76-70d960498d8c</parentFolderId>
+          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.0-pre.0" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="3f426089-6e92-49cf-a938-bda52e02b949" display="Install Metadata Only" value="false" isActive="true" />
