@@ -19,7 +19,7 @@ namespace ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure.HttpClients
 {
     public class AccountsServiceHttpClient : IAccountsService
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 

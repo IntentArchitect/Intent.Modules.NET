@@ -21,7 +21,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
 {
     public class QueryDtoParameterServiceHttpClient : IQueryDtoParameterService
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public QueryDtoParameterServiceHttpClient(HttpClient httpClient)

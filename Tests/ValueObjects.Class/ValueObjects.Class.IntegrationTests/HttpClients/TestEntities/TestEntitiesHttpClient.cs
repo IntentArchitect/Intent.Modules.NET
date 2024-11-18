@@ -12,7 +12,7 @@ namespace ValueObjects.Class.IntegrationTests.HttpClients.TestEntities
 {
     public class TestEntitiesHttpClient : ITestEntitiesService
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 

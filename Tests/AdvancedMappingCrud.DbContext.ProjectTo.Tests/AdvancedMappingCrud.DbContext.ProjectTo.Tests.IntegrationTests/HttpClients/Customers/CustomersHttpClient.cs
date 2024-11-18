@@ -12,7 +12,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests.HttpCli
 {
     public class CustomersHttpClient : ICustomersService
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
         private readonly JsonSerializerOptions _serializerOptions;
 

@@ -20,7 +20,7 @@ namespace ProxyServiceTests.Proxy.PTH.Infrastructure.HttpClients
 {
     public class ClientsServiceHttpClient : IClientsService
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 

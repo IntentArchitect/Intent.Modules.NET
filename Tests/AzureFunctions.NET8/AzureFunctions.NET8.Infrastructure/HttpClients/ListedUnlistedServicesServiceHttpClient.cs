@@ -19,7 +19,7 @@ namespace AzureFunctions.NET8.Infrastructure.HttpClients
 {
     public class ListedUnlistedServicesServiceHttpClient : IListedUnlistedServicesService
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public ListedUnlistedServicesServiceHttpClient(HttpClient httpClient)

@@ -13,7 +13,7 @@ namespace MinimalHostingModel.BlazorClient.HttpClients.Implementations
 {
     public class AccountServiceHttpClient : IAccountService
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 

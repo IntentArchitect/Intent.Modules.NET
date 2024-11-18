@@ -22,7 +22,7 @@ namespace AzureFunctions.NET6.Infrastructure.HttpClients
 {
     public class SampleDomainsServiceHttpClient : ISampleDomainsService
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 

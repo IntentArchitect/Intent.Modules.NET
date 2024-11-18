@@ -19,7 +19,7 @@ namespace CleanArchitecture.Dapr.Infrastructure.HttpClients
 {
     public class NamedQueryStringsServiceHttpClient : INamedQueryStringsService
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public NamedQueryStringsServiceHttpClient(HttpClient httpClient)

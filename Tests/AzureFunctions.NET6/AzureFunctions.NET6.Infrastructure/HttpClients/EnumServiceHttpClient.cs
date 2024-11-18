@@ -20,7 +20,7 @@ namespace AzureFunctions.NET6.Infrastructure.HttpClients
 {
     public class EnumServiceHttpClient : IEnumService
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public EnumServiceHttpClient(HttpClient httpClient)

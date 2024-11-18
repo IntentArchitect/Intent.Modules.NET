@@ -17,7 +17,7 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.HttpClients
 {
     public class VersionOneServiceProxyHttpClient : IVersionOneServiceProxy
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public VersionOneServiceProxyHttpClient(HttpClient httpClient)

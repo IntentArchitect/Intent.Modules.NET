@@ -13,7 +13,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
 {
     public class UploadDownloadServiceHttpClient : IUploadDownloadService
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public UploadDownloadServiceHttpClient(HttpClient httpClient)

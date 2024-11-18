@@ -17,7 +17,7 @@ namespace ProxyServiceTests.Proxy.PTH.Infrastructure.HttpClients
 {
     public class DeleteClientsServiceHttpClient : IDeleteClientsService
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public DeleteClientsServiceHttpClient(HttpClient httpClient)

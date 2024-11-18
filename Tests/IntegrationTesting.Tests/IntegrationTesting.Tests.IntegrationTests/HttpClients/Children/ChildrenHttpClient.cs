@@ -12,7 +12,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.HttpClients.Children
 {
     public class ChildrenHttpClient : IChildrenService
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 

@@ -21,7 +21,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.HttpClients
 {
     public class ParamConversionServiceHttpClient : IParamConversionService
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly HttpClient _httpClient;
 
         public ParamConversionServiceHttpClient(HttpClient httpClient)

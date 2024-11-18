@@ -12,7 +12,7 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.HttpClients.ExternalDo
 {
     public class ExternalDocsHttpClient : IExternalDocsService
     {
-        public const string JSON_MEDIA_TYPE = "application/json";
+        private const string JSON_MEDIA_TYPE = "application/json";
         private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
 
