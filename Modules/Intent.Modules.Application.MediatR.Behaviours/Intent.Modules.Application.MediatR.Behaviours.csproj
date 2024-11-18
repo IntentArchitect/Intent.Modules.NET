@@ -22,6 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>AuthorizationBehaviourTemplate.cs</LastGenOutput>
+    </None>
     <None Update="Templates\ValidationBehaviour\ValidationBehaviourTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ValidationBehaviourTemplate.cs</LastGenOutput>
@@ -41,6 +45,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Templates\AuthorizationBehaviour\AuthorizationBehaviourTemplate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AuthorizationBehaviourTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Update="Templates\ValidationBehaviour\ValidationBehaviourTemplate.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

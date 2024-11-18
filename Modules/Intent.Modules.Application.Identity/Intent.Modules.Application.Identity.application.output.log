@@ -130,6 +130,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>dc679d96-e52c-4347-8e1d-2771cac060fb</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#68c81f7f-55ec-4466-961e-3cbdeda66f50</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ResultModel/ResultModelTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResultModel/ResultModelTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc679d96-e52c-4347-8e1d-2771cac060fb</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#68c81f7f-55ec-4466-961e-3cbdeda66f50</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ResultModel/ResultModelTemplate.tt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResultModel/ResultModelTemplate.tt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc679d96-e52c-4347-8e1d-2771cac060fb</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#68c81f7f-55ec-4466-961e-3cbdeda66f50</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ResultModel/ResultModelTemplatePartial.cs</ApplicationRelativeFilePath>

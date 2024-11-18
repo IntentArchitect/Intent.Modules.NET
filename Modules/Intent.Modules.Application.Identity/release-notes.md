@@ -2,7 +2,6 @@
 
 - Improvement: Upgraded AuthorizeAttribute template to use Builder Pattern paradigm
 - Improvement: Additional constructors added to ForbiddenAccessException to more aligned with best practices
-- Improvement: Converted `Result` model to builder pattern with small syntax improvements
 
 ### Version 3.5.3
 
