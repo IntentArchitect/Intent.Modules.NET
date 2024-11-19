@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPC.InheritanceAssociations
 {
     public class TPC_FkDerivedClass : TPC_FkBaseClass
     {
+        public TPC_FkDerivedClass()
+        {
+            DerivedField = null!;
+        }
         public string DerivedField { get; set; }
     }
 }

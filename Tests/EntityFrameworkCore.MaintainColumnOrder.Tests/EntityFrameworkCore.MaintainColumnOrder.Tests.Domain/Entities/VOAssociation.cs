@@ -9,6 +9,13 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Domain.Entities
 {
     public class VOAssociation : IHasDomainEvent
     {
+        public VOAssociation()
+        {
+            Col1 = null!;
+            Col2 = null!;
+            Col3 = null!;
+            InLineColumns = null!;
+        }
         public Guid Id { get; set; }
 
         public string Col1 { get; set; }

@@ -9,6 +9,10 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities
 {
     public class SelfContainedEntity : IHasDomainEvent
     {
+        public SelfContainedEntity()
+        {
+            SelfPartKey = null!;
+        }
         public Guid Id { get; set; }
 
         public string SelfPartKey { get; set; }

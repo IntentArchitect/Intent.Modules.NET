@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Associations
 {
     public class N_CompositeTwo
     {
+        public N_CompositeTwo()
+        {
+            CompositeTwoAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string CompositeTwoAttr { get; set; }

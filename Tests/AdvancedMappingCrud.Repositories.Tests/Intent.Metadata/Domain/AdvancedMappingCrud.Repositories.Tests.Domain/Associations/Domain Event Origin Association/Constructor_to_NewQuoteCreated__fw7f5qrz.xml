@@ -20,7 +20,7 @@
   </sourceEnd>
   <targetEnd id="5016d0c8-8099-4123-a79a-aea1c09540c8" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
     <display>publishes : NewQuoteCreated</display>
-    <order>3</order>
+    <order>5</order>
     <typeReference id="6eb8fba7-77c9-4610-a562-924811444c81">
       <typeId>51da9af6-ef50-4720-9eda-59ecb3cc858c</typeId>
       <isNavigable>true</isNavigable>
@@ -41,13 +41,13 @@
           <mappedEnd>
             <expression>{CorporateFuneralCoverQuote}</expression>
             <path>
-              <target id="51da9af6-ef50-4720-9eda-59ecb3cc858c" name="NewQuoteCreated" type="element" specialization="Domain Event" />
-              <target id="93a29e11-774c-477e-ba13-15b4615a22bb" name="Quote" type="element" specialization="Property" />
+              <target id="51da9af6-ef50-4720-9eda-59ecb3cc858c" name="NewQuoteCreated" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
+              <target id="93a29e11-774c-477e-ba13-15b4615a22bb" name="Quote" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
             </path>
             <sources>
               <source identifier="CorporateFuneralCoverQuote" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
                 <path>
-                  <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
+                  <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
                 </path>
               </source>
             </sources>

@@ -9,6 +9,11 @@ namespace TrainingModel.Tests.Domain.Entities
 {
     public class Order : IHasDomainEvent
     {
+        public Order()
+        {
+            RefNo = null!;
+            Customer = null!;
+        }
         public Guid Id { get; set; }
 
         public string RefNo { get; set; }

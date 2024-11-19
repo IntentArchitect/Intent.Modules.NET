@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.TPT.InheritanceAssoc
 {
     public class TPT_FkDerivedClass : TPT_FkBaseClass
     {
+        public TPT_FkDerivedClass()
+        {
+            DerivedField = null!;
+        }
         public string DerivedField { get; set; }
     }
 }

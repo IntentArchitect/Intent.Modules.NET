@@ -11,6 +11,12 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Entities
     {
         private string? _id;
 
+        public ExplicitETag()
+        {
+            Id = null!;
+            Name = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

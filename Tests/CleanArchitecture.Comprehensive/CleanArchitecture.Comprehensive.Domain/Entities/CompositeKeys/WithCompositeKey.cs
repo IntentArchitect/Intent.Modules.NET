@@ -9,6 +9,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.CompositeKeys
 {
     public class WithCompositeKey : IHasDomainEvent
     {
+        public WithCompositeKey()
+        {
+            Name = null!;
+        }
         public Guid Key1Id { get; set; }
 
         public Guid Key2Id { get; set; }

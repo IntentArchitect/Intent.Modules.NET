@@ -14,6 +14,16 @@ namespace Entities.Constants.TestApplication.Domain.Entities
         public const int VarChar200MaxLength = 200;
         public const int NVarChar300MaxLength = 300;
 
+        public TestClass()
+        {
+            Att100 = null!;
+            VarChar200 = null!;
+            NVarChar300 = null!;
+            AttMax = null!;
+            VarCharMax = null!;
+            NVarCharMax = null!;
+        }
+
         public Guid Id { get; set; }
 
         public string Att100 { get; set; }

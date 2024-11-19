@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.BasicAudit
 {
     public abstract class Audit_BaseClass : IAuditable
     {
+        public Audit_BaseClass()
+        {
+            CreatedBy = null!;
+        }
         public Guid Id { get; set; }
 
         public string CreatedBy { get; set; }

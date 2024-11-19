@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities
 {
     public class SchemaParent
     {
+        public SchemaParent()
+        {
+            Name = null!;
+            SchemaInLineChild = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

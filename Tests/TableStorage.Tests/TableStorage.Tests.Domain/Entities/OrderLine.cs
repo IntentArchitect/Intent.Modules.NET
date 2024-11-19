@@ -6,6 +6,10 @@ namespace TableStorage.Tests.Domain.Entities
 {
     public class OrderLine
     {
+        public OrderLine()
+        {
+            Description = null!;
+        }
         public string Description { get; set; }
 
         public decimal Amount { get; set; }

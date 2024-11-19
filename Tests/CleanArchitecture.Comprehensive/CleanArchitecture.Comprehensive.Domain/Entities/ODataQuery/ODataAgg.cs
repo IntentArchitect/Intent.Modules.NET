@@ -9,6 +9,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.ODataQuery
 {
     public class ODataAgg : IHasDomainEvent
     {
+        public ODataAgg()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

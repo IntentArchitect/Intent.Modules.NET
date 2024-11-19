@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPH.Polymorphic
 {
     public abstract class TPH_Poly_RootAbstract
     {
+        public TPH_Poly_RootAbstract()
+        {
+            AbstractField = null!;
+        }
         public Guid Id { get; set; }
 
         public string AbstractField { get; set; }

@@ -8,6 +8,13 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.NestedAssociations
 {
     public class Branch
     {
+        public Branch()
+        {
+            BranchAttribute = null!;
+            Texture = null!;
+            Internode = null!;
+            Tree = null!;
+        }
         public Guid Id { get; set; }
 
         public string BranchAttribute { get; set; }

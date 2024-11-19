@@ -9,6 +9,11 @@ namespace AdvancedMappingCrudMongo.Tests.Domain.Entities
 {
     public class ExternalDoc : IHasDomainEvent
     {
+        public ExternalDoc()
+        {
+            Name = null!;
+            Thing = null!;
+        }
         public long Id { get; set; }
 
         public string Name { get; set; }

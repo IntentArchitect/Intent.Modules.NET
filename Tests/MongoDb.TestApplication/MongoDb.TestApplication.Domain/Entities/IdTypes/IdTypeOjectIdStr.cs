@@ -8,6 +8,11 @@ namespace MongoDb.TestApplication.Domain.Entities.IdTypes
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class IdTypeOjectIdStr
     {
+        public IdTypeOjectIdStr()
+        {
+            Id = null!;
+            Attribute = null!;
+        }
         public string Id { get; set; }
 
         public string Attribute { get; set; }

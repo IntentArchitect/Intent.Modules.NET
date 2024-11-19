@@ -7,6 +7,10 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
 {
     public class DerivedType : BaseType
     {
+        public DerivedType()
+        {
+            DerivedTypeAggregateId = null!;
+        }
         public string DerivedTypeAggregateId { get; private set; }
     }
 }

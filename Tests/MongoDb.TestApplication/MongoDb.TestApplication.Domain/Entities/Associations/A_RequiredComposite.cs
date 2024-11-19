@@ -8,6 +8,11 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class A_RequiredComposite
     {
+        public A_RequiredComposite()
+        {
+            Id = null!;
+            ReqCompAttribute = null!;
+        }
         public string Id { get; set; }
 
         public string ReqCompAttribute { get; set; }

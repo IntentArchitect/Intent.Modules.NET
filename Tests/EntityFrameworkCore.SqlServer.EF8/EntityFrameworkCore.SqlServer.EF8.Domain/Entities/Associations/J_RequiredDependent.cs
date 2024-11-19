@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Associations
 {
     public class J_RequiredDependent
     {
+        public J_RequiredDependent()
+        {
+            ReqDepAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string ReqDepAttr { get; set; }

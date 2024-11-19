@@ -8,6 +8,10 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entitie
 {
     public class ClassWithVO
     {
+        public ClassWithVO()
+        {
+            TestVO = null!;
+        }
         public Guid Id { get; set; }
 
         public TestVO TestVO { get; set; }

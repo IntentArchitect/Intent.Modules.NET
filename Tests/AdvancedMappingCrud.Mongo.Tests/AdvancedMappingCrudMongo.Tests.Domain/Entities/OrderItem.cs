@@ -9,6 +9,12 @@ namespace AdvancedMappingCrudMongo.Tests.Domain.Entities
     {
         private string? _id;
 
+        public OrderItem()
+        {
+            Id = null!;
+            ProductId = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

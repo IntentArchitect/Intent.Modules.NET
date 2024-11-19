@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.TPH.Polymorphic
 {
     public class TPH_Poly_BaseClassNonAbstract : TPH_Poly_RootAbstract
     {
+        public TPH_Poly_BaseClassNonAbstract()
+        {
+            BaseField = null!;
+        }
         public string BaseField { get; set; }
 
         public Guid? Poly_SecondLevelId { get; set; }

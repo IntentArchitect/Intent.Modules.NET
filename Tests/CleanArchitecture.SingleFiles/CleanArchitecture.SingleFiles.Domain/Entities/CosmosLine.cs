@@ -9,6 +9,12 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
     {
         private string? _id;
 
+        public CosmosLine()
+        {
+            Id = null!;
+            Name = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

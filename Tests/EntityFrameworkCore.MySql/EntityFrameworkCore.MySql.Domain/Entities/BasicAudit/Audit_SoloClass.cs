@@ -8,6 +8,11 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.BasicAudit
 {
     public class Audit_SoloClass : IAuditable
     {
+        public Audit_SoloClass()
+        {
+            SoloAttr = null!;
+            CreatedBy = null!;
+        }
         public Guid Id { get; set; }
 
         public string SoloAttr { get; set; }

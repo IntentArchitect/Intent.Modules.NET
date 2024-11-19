@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPT.InheritanceAssociations
 {
     public class TPT_FkAssociatedClass
     {
+        public TPT_FkAssociatedClass()
+        {
+            AssociatedField = null!;
+            FkDerivedClass = null!;
+        }
         public Guid Id { get; set; }
 
         public string AssociatedField { get; set; }

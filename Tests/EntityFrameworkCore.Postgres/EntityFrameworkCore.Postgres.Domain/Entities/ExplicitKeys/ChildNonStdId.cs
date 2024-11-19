@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.ExplicitKeys
 {
     public class ChildNonStdId
     {
+        public ChildNonStdId()
+        {
+            Name = null!;
+        }
         public Guid DiffId { get; set; }
 
         public string Name { get; set; }

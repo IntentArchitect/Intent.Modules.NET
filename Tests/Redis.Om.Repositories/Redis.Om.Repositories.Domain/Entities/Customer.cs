@@ -10,6 +10,13 @@ namespace Redis.Om.Repositories.Domain.Entities
     public class Customer : IHasDomainEvent
     {
         private string? _id;
+
+        public Customer()
+        {
+            Id = null!;
+            Name = null!;
+            DeliveryAddress = null!;
+        }
         public string Id
         {
             get => _id;

@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.TPH.InheritanceAssociatio
 {
     public class TPH_AbstractBaseClassAssociated
     {
+        public TPH_AbstractBaseClassAssociated()
+        {
+            AssociatedField = null!;
+            AbstractBaseClass = null!;
+        }
         public Guid Id { get; set; }
 
         public string AssociatedField { get; set; }

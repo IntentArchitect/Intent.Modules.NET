@@ -10,6 +10,10 @@ namespace ValueObjects.Class.Domain
     {
         protected Address()
         {
+            Line1 = null!;
+            Line2 = null!;
+            City = null!;
+            Country = null!;
         }
 
         public Address(string line1, string line2, string city, string country, AddressType addressType)

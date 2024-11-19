@@ -12,6 +12,13 @@ namespace CosmosDB.Domain.Entities
         private string? _id;
         private string? _warehouseId;
 
+        public Order()
+        {
+            Id = null!;
+            WarehouseId = null!;
+            RefNo = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

@@ -10,6 +10,8 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.ValueObjects
     {
         protected KeyValuePairSerialized()
         {
+            Key = null!;
+            Value = null!;
         }
 
         public KeyValuePairSerialized(string key, string value)

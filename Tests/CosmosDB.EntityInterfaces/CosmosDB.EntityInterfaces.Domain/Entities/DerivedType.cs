@@ -7,6 +7,10 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
 {
     public class DerivedType : BaseType, IDerivedType
     {
+        public DerivedType()
+        {
+            DerivedTypeAggregateId = null!;
+        }
         public string DerivedTypeAggregateId { get; set; }
     }
 }

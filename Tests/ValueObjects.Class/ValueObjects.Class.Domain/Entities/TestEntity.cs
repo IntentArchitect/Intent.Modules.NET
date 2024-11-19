@@ -9,6 +9,12 @@ namespace ValueObjects.Class.Domain.Entities
 {
     public class TestEntity : IHasDomainEvent
     {
+        public TestEntity()
+        {
+            Name = null!;
+            Amount = null!;
+            Address = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

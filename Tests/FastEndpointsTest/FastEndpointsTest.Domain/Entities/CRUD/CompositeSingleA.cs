@@ -8,6 +8,10 @@ namespace FastEndpointsTest.Domain.Entities.CRUD
 {
     public class CompositeSingleA
     {
+        public CompositeSingleA()
+        {
+            CompositeAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string CompositeAttr { get; set; }

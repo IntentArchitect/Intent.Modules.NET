@@ -7,6 +7,10 @@ namespace Redis.Om.Repositories.Domain.Entities
 {
     public class DerivedTypeAggregate
     {
+        public DerivedTypeAggregate()
+        {
+            AggregateName = null!;
+        }
         public string AggregateName { get; set; }
     }
 }

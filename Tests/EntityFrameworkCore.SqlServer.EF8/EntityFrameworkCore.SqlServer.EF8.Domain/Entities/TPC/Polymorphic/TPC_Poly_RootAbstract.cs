@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.TPC.Polymorphic
 {
     public abstract class TPC_Poly_RootAbstract
     {
+        public TPC_Poly_RootAbstract()
+        {
+            AbstractField = null!;
+        }
         public string AbstractField { get; set; }
 
         public Guid? Poly_RootAbstract_AggrId { get; set; }

@@ -9,6 +9,10 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.FolderCon
 {
     public class FolderEntity : IHasDomainEvent
     {
+        public FolderEntity()
+        {
+            FolderPartKey = null!;
+        }
         public Guid Id { get; set; }
 
         public string FolderPartKey { get; set; }

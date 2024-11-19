@@ -11,6 +11,13 @@ namespace CosmosDB.Domain.Entities
     {
         private string? _id;
 
+        public GetAllImplementationCustomer()
+        {
+            Id = null!;
+            Name = null!;
+            GetAllImplementationOrder = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

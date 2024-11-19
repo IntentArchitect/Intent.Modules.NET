@@ -8,6 +8,10 @@ namespace FastEndpointsTest.Domain.Entities.CRUD
 {
     public class AggregateRootLong : IHasDomainEvent
     {
+        public AggregateRootLong()
+        {
+            Attribute = null!;
+        }
         public long Id { get; set; }
 
         public string Attribute { get; set; }

@@ -7,6 +7,10 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities.Mapping
 {
     public class MappingCompositeMultiple
     {
+        public MappingCompositeMultiple()
+        {
+            MultipleValue = null!;
+        }
         public Guid Id { get; private set; }
 
         public string MultipleValue { get; private set; }

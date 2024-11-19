@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Indexes
 {
     public class DeviationIndex
     {
+        public DeviationIndex()
+        {
+            AttributeName = null!;
+        }
         public Guid Id { get; set; }
 
         public string AttributeName { get; set; }

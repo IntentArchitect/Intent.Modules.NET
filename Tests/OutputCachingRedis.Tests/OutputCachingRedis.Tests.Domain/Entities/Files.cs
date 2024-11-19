@@ -9,6 +9,11 @@ namespace OutputCachingRedis.Tests.Domain.Entities
 {
     public class Files : IHasDomainEvent
     {
+        public Files()
+        {
+            Content = null!;
+            ContentType = null!;
+        }
         public Guid Id { get; set; }
 
         public byte[] Content { get; set; }

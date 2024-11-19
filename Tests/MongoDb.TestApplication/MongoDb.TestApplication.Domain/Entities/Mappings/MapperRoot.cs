@@ -9,6 +9,13 @@ namespace MongoDb.TestApplication.Domain.Entities.Mappings
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class MapperRoot
     {
+        public MapperRoot()
+        {
+            Id = null!;
+            No = null!;
+            MapAggPeerId = null!;
+            MapCompChild = null!;
+        }
         public string Id { get; set; }
 
         public string No { get; set; }

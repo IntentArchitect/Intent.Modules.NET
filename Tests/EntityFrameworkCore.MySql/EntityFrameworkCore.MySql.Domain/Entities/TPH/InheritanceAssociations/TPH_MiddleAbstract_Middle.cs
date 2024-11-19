@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPH.InheritanceAssociations
 {
     public abstract class TPH_MiddleAbstract_Middle : TPH_MiddleAbstract_Root
     {
+        public TPH_MiddleAbstract_Middle()
+        {
+            MiddleAttribute = null!;
+        }
         public string MiddleAttribute { get; set; }
     }
 }

@@ -7,6 +7,11 @@ namespace AspNetCore.Controllers.Secured.Domain.Entities
 {
     public class Product
     {
+        public Product()
+        {
+            Name = null!;
+            Description = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

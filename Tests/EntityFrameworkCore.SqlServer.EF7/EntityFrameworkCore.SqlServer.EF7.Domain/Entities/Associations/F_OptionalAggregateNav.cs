@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.Associations
 {
     public class F_OptionalAggregateNav
     {
+        public F_OptionalAggregateNav()
+        {
+            OptionalAggrNavAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string OptionalAggrNavAttr { get; set; }

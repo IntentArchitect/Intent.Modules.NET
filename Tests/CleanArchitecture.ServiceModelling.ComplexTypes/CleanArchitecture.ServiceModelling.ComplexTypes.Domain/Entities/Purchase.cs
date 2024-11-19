@@ -9,6 +9,10 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Entities
 {
     public class Purchase : IHasDomainEvent
     {
+        public Purchase()
+        {
+            Cost = null!;
+        }
 
         public Guid Id { get; set; }
 

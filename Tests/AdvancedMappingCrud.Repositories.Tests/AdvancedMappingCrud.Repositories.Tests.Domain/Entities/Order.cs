@@ -9,6 +9,14 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 {
     public class Order : IHasDomainEvent
     {
+        public Order()
+        {
+            Id = Guid.NewGuid();
+            DeliveryAddress = new("", "", "", "");
+            RefNo = string.Empty;
+            Customer = new();
+        }
+
         public Guid Id { get; set; }
 
         public string RefNo { get; set; }

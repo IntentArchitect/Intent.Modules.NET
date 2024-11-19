@@ -10,6 +10,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.Geometry
 {
     public class GeometryType : IHasDomainEvent
     {
+        public GeometryType()
+        {
+            Point = null!;
+        }
         public Guid Id { get; set; }
 
         public Point Point { get; set; }

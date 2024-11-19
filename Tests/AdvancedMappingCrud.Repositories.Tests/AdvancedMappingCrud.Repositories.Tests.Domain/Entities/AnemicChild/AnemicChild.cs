@@ -7,6 +7,12 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.AnemicChild
 {
     public class AnemicChild
     {
+        public AnemicChild()
+        {
+            Line1 = null!;
+            Line2 = null!;
+            City = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid ParentWithAnemicChildId { get; set; }

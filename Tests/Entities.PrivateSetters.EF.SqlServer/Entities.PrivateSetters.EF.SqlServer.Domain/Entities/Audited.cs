@@ -8,6 +8,10 @@ namespace Entities.PrivateSetters.EF.SqlServer.Domain.Entities
 {
     public class Audited : IAuditable
     {
+        public Audited()
+        {
+            CreatedBy = null!;
+        }
         public Guid Id { get; private set; }
 
         public string CreatedBy { get; private set; }

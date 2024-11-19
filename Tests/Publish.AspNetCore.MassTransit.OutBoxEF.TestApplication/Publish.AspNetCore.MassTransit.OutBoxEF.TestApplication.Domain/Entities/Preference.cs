@@ -7,6 +7,11 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entitie
 {
     public class Preference
     {
+        public Preference()
+        {
+            Key = null!;
+            Value = null!;
+        }
         public Guid Id { get; set; }
 
         public string Key { get; set; }

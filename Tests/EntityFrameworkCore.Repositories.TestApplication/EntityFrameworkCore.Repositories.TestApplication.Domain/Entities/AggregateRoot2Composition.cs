@@ -9,6 +9,10 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
 {
     public class AggregateRoot2Composition : IHasDomainEvent
     {
+        public AggregateRoot2Composition()
+        {
+            AggregateRoot2Single = null!;
+        }
         public Guid Id { get; set; }
 
         public virtual AggregateRoot2Single AggregateRoot2Single { get; set; }

@@ -10,6 +10,8 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain
     {
         protected ContactDetailsVO()
         {
+            Cell = null!;
+            Email = null!;
         }
 
         public ContactDetailsVO(string cell, string email)

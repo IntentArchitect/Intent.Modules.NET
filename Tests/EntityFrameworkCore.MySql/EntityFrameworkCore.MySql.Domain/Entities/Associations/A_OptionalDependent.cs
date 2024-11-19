@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.Associations
 {
     public class A_OptionalDependent
     {
+        public A_OptionalDependent()
+        {
+            OptionalDepAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string OptionalDepAttr { get; set; }

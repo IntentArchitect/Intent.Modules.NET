@@ -10,6 +10,13 @@ namespace CosmosDB.EnumStrings.Domain.Entities
     {
         private string? _id;
 
+        public RootEntity()
+        {
+            Id = null!;
+            Name = null!;
+            Embedded = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

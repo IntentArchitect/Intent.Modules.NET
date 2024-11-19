@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.TPH.InheritanceAssoc
 {
     public class TPH_DerivedClassForConcrete : TPH_ConcreteBaseClass
     {
+        public TPH_DerivedClassForConcrete()
+        {
+            DerivedAttribute = null!;
+        }
         public string DerivedAttribute { get; set; }
     }
 }

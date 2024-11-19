@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.NestedAssociations
 {
     public class Worm
     {
+        public Worm()
+        {
+            Color = null!;
+        }
         public Guid Id { get; set; }
 
         public string Color { get; set; }

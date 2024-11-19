@@ -7,6 +7,10 @@ namespace MongoDb.TestApplication.Domain.Entities
 {
     public abstract class BaseTypeOfT<T>
     {
+        public BaseTypeOfT()
+        {
+            Id = null!;
+        }
         public string Id { get; set; }
 
         public T BaseAttribute { get; set; }

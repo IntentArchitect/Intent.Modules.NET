@@ -8,6 +8,11 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.NestedAssociations
 {
     public class Leaf
     {
+        public Leaf()
+        {
+            LeafAttribute = null!;
+            Sun = null!;
+        }
         public Guid Id { get; set; }
 
         public string LeafAttribute { get; set; }

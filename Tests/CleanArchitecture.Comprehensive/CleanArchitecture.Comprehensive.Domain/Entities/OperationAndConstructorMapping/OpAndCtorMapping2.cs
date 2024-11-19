@@ -9,6 +9,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.OperationAndConstructo
 {
     public class OpAndCtorMapping2 : IHasDomainEvent
     {
+        public OpAndCtorMapping2()
+        {
+            OpAndCtorMapping1 = null!;
+        }
         public Guid Id { get; set; }
 
         public virtual OpAndCtorMapping1 OpAndCtorMapping1 { get; set; }

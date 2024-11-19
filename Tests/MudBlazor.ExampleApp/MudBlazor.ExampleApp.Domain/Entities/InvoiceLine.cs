@@ -6,6 +6,10 @@ namespace MudBlazor.ExampleApp.Domain.Entities
 {
     public class InvoiceLine
     {
+        public InvoiceLine()
+        {
+            Product = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid InvoiceId { get; set; }

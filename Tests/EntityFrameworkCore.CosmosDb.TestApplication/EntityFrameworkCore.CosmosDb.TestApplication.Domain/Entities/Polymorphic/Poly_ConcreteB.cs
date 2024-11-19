@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Polymorph
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Poly_ConcreteB : Poly_BaseClassNonAbstract
     {
+        public Poly_ConcreteB()
+        {
+            ConcreteField = null!;
+        }
         public string ConcreteField { get; set; }
     }
 }

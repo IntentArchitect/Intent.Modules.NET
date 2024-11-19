@@ -8,6 +8,10 @@ namespace Redis.Om.Repositories.Domain.Entities
 {
     public class Product
     {
+        public Product()
+        {
+            Name = null!;
+        }
         public string Name { get; set; }
 
         public ICollection<Category> Categories { get; set; } = [];

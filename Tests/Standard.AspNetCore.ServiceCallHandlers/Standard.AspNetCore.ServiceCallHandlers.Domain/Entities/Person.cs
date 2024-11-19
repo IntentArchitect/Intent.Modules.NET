@@ -7,6 +7,10 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Domain.Entities
 {
     public class Person
     {
+        public Person()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

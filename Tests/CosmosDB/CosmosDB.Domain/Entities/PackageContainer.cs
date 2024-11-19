@@ -10,6 +10,12 @@ namespace CosmosDB.Domain.Entities
     public class PackageContainer : IHasDomainEvent
     {
         private string? _id;
+
+        public PackageContainer()
+        {
+            Id = null!;
+            PackagePartitionKey = null!;
+        }
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

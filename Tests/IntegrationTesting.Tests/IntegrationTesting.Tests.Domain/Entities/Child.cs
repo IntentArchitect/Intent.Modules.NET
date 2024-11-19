@@ -9,6 +9,11 @@ namespace IntegrationTesting.Tests.Domain.Entities
 {
     public class Child : IHasDomainEvent
     {
+        public Child()
+        {
+            Name = null!;
+            Parent = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

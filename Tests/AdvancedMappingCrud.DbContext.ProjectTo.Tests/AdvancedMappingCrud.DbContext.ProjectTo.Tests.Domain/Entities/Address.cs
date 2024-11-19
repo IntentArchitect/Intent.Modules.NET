@@ -7,6 +7,12 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Domain.Entities
 {
     public class Address
     {
+        public Address()
+        {
+            Line1 = null!;
+            Line2 = null!;
+            City = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid UserId { get; set; }

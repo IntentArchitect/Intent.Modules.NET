@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.NestedAssociations
 {
     public class Texture
     {
+        public Texture()
+        {
+            TextureAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string TextureAttribute { get; set; }

@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.TPC.InheritanceAssoc
 {
     public class TPC_DerivedClassForAbstract : TPC_AbstractBaseClass
     {
+        public TPC_DerivedClassForAbstract()
+        {
+            DerivedAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string DerivedAttribute { get; set; }

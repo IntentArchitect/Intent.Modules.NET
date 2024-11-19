@@ -8,6 +8,11 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritan
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Composite
     {
+        public Composite()
+        {
+            CompositeField1 = null!;
+            PartitionKey = null!;
+        }
         public Guid Id { get; set; }
 
         public string CompositeField1 { get; set; }

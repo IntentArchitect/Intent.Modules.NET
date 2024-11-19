@@ -8,6 +8,10 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Domain.Entities
 {
     public class Role
     {
+        public Role()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.Oracle.TestApplication.Domain.Entities
 {
     public class LineItem
     {
+        public LineItem()
+        {
+            Description = null!;
+        }
         public Guid Id { get; set; }
 
         public string Description { get; set; }

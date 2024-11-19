@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.TPC.InheritanceAssoc
 {
     public class TPC_DerivedClassForConcrete : TPC_ConcreteBaseClass
     {
+        public TPC_DerivedClassForConcrete()
+        {
+            DerivedAttribute = null!;
+        }
         public string DerivedAttribute { get; set; }
     }
 }

@@ -11,6 +11,11 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
     {
         private string? _id;
 
+        public DerivedTypeAggregate()
+        {
+            Id = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

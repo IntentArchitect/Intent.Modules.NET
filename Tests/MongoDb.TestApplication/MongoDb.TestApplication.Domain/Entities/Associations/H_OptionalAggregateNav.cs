@@ -9,6 +9,11 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class H_OptionalAggregateNav
     {
+        public H_OptionalAggregateNav()
+        {
+            Id = null!;
+            Attribute = null!;
+        }
         public string Id { get; set; }
 
         public string Attribute { get; set; }

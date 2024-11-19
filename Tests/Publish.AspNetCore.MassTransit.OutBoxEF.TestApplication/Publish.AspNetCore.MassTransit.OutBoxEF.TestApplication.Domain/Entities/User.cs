@@ -8,6 +8,11 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entitie
 {
     public class User
     {
+        public User()
+        {
+            Email = null!;
+            UserName = null!;
+        }
         public Guid Id { get; set; }
 
         public string Email { get; set; }

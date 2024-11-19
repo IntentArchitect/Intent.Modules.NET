@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Indexes
 {
     public class SortDirectionIndex
     {
+        public SortDirectionIndex()
+        {
+            FieldA = null!;
+            FieldB = null!;
+        }
         public Guid Id { get; set; }
 
         public string FieldA { get; set; }

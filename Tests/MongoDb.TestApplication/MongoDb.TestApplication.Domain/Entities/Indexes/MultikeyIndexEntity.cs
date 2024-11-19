@@ -9,6 +9,11 @@ namespace MongoDb.TestApplication.Domain.Entities.Indexes
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class MultikeyIndexEntity
     {
+        public MultikeyIndexEntity()
+        {
+            Id = null!;
+            SomeField = null!;
+        }
         public string Id { get; set; }
 
         public IList<string> MultiKey { get; set; } = [];

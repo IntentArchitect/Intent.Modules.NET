@@ -10,6 +10,13 @@ namespace CosmosDB.Domain.Entities
     {
         private string? _id;
 
+        public LineItem()
+        {
+            Id = null!;
+            Description = null!;
+            ProductId = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

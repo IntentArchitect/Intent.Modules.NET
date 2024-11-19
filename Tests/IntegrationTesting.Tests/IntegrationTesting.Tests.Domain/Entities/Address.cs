@@ -7,6 +7,10 @@ namespace IntegrationTesting.Tests.Domain.Entities
 {
     public class Address
     {
+        public Address()
+        {
+            Line1 = null!;
+        }
         public Guid Id { get; set; }
 
         public string Line1 { get; set; }

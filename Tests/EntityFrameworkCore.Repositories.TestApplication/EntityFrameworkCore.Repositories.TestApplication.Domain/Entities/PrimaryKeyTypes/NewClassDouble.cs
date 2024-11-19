@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.Prima
 {
     public class NewClassDouble : IHasDomainEvent
     {
+        public NewClassDouble()
+        {
+            DoubleName = null!;
+        }
         public double Id { get; set; }
 
         public string DoubleName { get; set; }

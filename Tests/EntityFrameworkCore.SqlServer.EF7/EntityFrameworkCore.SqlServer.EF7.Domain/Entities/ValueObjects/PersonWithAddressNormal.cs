@@ -8,6 +8,11 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.ValueObjects
 {
     public class PersonWithAddressNormal
     {
+        public PersonWithAddressNormal()
+        {
+            Name = null!;
+            AddressNormal = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

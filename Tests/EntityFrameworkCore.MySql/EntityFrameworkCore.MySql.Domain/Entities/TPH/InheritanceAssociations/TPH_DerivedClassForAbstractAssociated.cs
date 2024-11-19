@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPH.InheritanceAssociations
 {
     public class TPH_DerivedClassForAbstractAssociated
     {
+        public TPH_DerivedClassForAbstractAssociated()
+        {
+            AssociatedField = null!;
+            DerivedClassForAbstract = null!;
+        }
         public Guid Id { get; set; }
 
         public string AssociatedField { get; set; }

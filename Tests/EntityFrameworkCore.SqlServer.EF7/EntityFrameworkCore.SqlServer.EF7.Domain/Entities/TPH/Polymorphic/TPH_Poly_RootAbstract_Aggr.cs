@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.TPH.Polymorphic
 {
     public class TPH_Poly_RootAbstract_Aggr
     {
+        public TPH_Poly_RootAbstract_Aggr()
+        {
+            AggrField = null!;
+        }
         public Guid Id { get; set; }
 
         public string AggrField { get; set; }

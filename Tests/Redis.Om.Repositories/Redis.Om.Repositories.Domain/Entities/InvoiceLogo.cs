@@ -7,6 +7,10 @@ namespace Redis.Om.Repositories.Domain.Entities
 {
     public class InvoiceLogo
     {
+        public InvoiceLogo()
+        {
+            Url = null!;
+        }
         public string Url { get; set; }
     }
 }

@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.ExplicitKeys
 {
     public class ChildNonStdId
     {
+        public ChildNonStdId()
+        {
+            Name = null!;
+        }
         public Guid DiffId { get; set; }
 
         public string Name { get; set; }

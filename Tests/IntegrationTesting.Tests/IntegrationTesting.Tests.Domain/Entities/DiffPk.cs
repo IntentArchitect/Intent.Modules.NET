@@ -8,6 +8,11 @@ namespace IntegrationTesting.Tests.Domain.Entities
 {
     public class DiffPk : IHasDomainEvent
     {
+        public DiffPk()
+        {
+            Id = null!;
+            NAme = null!;
+        }
         public string Id { get; set; }
 
         public string NAme { get; set; }

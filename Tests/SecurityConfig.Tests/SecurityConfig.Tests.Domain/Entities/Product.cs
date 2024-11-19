@@ -9,6 +9,11 @@ namespace SecurityConfig.Tests.Domain.Entities
 {
     public class Product : IHasDomainEvent
     {
+        public Product()
+        {
+            Name = null!;
+            Surname = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

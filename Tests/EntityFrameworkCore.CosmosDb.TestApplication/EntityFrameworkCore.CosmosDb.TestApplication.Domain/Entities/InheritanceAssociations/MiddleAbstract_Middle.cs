@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritan
 {
     public abstract class MiddleAbstract_Middle : MiddleAbstract_Root
     {
+        public MiddleAbstract_Middle()
+        {
+            MiddleAttribute = null!;
+        }
 
         public string MiddleAttribute { get; set; }
     }

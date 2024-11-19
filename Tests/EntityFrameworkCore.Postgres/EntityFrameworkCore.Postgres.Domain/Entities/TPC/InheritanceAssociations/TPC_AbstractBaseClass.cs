@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.TPC.InheritanceAssociatio
 {
     public abstract class TPC_AbstractBaseClass
     {
+        public TPC_AbstractBaseClass()
+        {
+            BaseAttribute = null!;
+        }
         public string BaseAttribute { get; set; }
     }
 }

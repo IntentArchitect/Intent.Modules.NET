@@ -8,6 +8,11 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.DDD
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Account
     {
+        public Account()
+        {
+            AccNumber = null!;
+            Note = null!;
+        }
 
         public Guid Id { get; set; }
 

@@ -9,6 +9,10 @@ namespace Solace.Tests.Domain.Entities
 {
     public class Purchase : IHasDomainEvent
     {
+        public Purchase()
+        {
+            Account = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid AccountId { get; set; }

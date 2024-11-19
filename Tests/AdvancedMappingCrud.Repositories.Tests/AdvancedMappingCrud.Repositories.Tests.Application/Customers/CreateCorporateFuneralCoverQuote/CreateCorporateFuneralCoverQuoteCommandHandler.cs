@@ -29,7 +29,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.CreateCor
             var corporateFuneralCoverQuote = new CorporateFuneralCoverQuote(
                 refNo: request.RefNo,
                 personId: request.PersonId,
-                personEmail: request.PersonEmail)
+                personEmail: request.PersonEmail,
+                corporate: request.Corporate,
+                registration: request.Registration)
             {
                 Corporate = request.Corporate,
                 Registration = request.Registration,

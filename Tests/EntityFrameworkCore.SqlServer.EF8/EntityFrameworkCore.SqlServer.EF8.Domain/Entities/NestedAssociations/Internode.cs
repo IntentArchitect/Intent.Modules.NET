@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.NestedAssociations
 {
     public class Internode
     {
+        public Internode()
+        {
+            InternodeAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string InternodeAttribute { get; set; }

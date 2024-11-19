@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPH.Polymorphic
 {
     public class TPH_Poly_SecondLevel
     {
+        public TPH_Poly_SecondLevel()
+        {
+            SecondField = null!;
+        }
         public Guid Id { get; set; }
 
         public string SecondField { get; set; }

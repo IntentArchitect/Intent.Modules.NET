@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPH.InheritanceAssociations
 {
     public class TPH_FkDerivedClass : TPH_FkBaseClass
     {
+        public TPH_FkDerivedClass()
+        {
+            DerivedField = null!;
+        }
         public string DerivedField { get; set; }
     }
 }

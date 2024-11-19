@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.Geometry
 {
     public class GeometryType
     {
+        public GeometryType()
+        {
+            Point = null!;
+        }
         public Guid Id { get; set; }
 
         public Point Point { get; set; }

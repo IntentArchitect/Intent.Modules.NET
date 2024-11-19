@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.Associations
 {
     public class M_SelfReferenceBiNav
     {
+        public M_SelfReferenceBiNav()
+        {
+            SelfRefBiNavAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string SelfRefBiNavAttr { get; set; }

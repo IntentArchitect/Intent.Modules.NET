@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.Associations
 {
     public class F_OptionalDependent
     {
+        public F_OptionalDependent()
+        {
+            OptionalDepAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string OptionalDepAttr { get; set; }

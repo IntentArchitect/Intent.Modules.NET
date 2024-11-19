@@ -11,6 +11,13 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Entities
     {
         private string? _id;
 
+        public Order()
+        {
+            Id = null!;
+            CustomerId = null!;
+            RefNo = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

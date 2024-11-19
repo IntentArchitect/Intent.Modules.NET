@@ -10,6 +10,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.ExtensiveDomainServices
     {
         protected SimpleVO()
         {
+            Value1 = null!;
         }
 
         public SimpleVO(string value1, int value2)

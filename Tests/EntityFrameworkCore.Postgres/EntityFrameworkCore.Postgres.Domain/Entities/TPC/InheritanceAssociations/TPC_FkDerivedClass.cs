@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.TPC.InheritanceAssociatio
 {
     public class TPC_FkDerivedClass : TPC_FkBaseClass
     {
+        public TPC_FkDerivedClass()
+        {
+            DerivedField = null!;
+        }
         public string DerivedField { get; set; }
     }
 }

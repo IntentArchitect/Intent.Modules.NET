@@ -8,6 +8,12 @@ namespace Application.Identity.AccountController.UserIdentity.Domain.Entities
 {
     public class BespokeUser : IdentityUser
     {
+        public BespokeUser()
+        {
+            Id = null!;
+            FirstName = null!;
+            LastName = null!;
+        }
         public string FirstName { get; set; }
 
         public string LastName { get; set; }

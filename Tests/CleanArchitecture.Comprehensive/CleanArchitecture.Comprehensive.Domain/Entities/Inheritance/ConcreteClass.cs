@@ -6,6 +6,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.Inheritance
 {
     public class ConcreteClass : BaseClass
     {
+        public ConcreteClass()
+        {
+            ConcreteAttr = null!;
+        }
         public string ConcreteAttr { get; set; }
     }
 }

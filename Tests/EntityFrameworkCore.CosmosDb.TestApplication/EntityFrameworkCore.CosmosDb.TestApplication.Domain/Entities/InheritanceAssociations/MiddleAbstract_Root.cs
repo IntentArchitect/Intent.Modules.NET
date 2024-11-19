@@ -9,6 +9,11 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritan
 {
     public class MiddleAbstract_Root : IHasDomainEvent
     {
+        public MiddleAbstract_Root()
+        {
+            PartitionKey = null!;
+            RootAttribute = null!;
+        }
 
         public Guid Id { get; set; }
 

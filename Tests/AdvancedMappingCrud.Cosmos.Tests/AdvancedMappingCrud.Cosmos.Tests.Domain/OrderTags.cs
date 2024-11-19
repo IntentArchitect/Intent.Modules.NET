@@ -10,6 +10,8 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain
     {
         protected OrderTags()
         {
+            Name = null!;
+            Value = null!;
         }
 
         public OrderTags(string name, string value)

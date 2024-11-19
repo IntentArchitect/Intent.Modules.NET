@@ -9,6 +9,10 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
 {
     public class AggregateRoot4AggNullable : IHasDomainEvent
     {
+        public AggregateRoot4AggNullable()
+        {
+            AggregateRoot4Single = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid AggregateRoot4SingleId { get; set; }

@@ -11,6 +11,12 @@ namespace MultipleDocumentStores.Domain.Entities
     {
         private string? _id;
 
+        public CustomerCosmos()
+        {
+            Id = null!;
+            Name = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

@@ -9,6 +9,11 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Domain.Entities
     {
         private string? _id;
 
+        public Order()
+        {
+            Id = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

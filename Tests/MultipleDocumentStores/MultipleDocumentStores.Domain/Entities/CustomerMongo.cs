@@ -9,6 +9,11 @@ namespace MultipleDocumentStores.Domain.Entities
 {
     public class CustomerMongo : IHasDomainEvent
     {
+        public CustomerMongo()
+        {
+            Id = null!;
+            Name = null!;
+        }
 
         public string Id { get; set; }
 

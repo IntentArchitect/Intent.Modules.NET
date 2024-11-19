@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPC.Polymorphic
 {
     public class TPC_Poly_ConcreteB : TPC_Poly_BaseClassNonAbstract
     {
+        public TPC_Poly_ConcreteB()
+        {
+            ConcreteField = null!;
+        }
         public string ConcreteField { get; set; }
     }
 }

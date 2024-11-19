@@ -8,6 +8,11 @@ namespace SqlServerImporterTests.Domain.Entities.Dbo
 {
     public class AspNetRoleClaim : IHasDomainEvent
     {
+        public AspNetRoleClaim()
+        {
+            RoleId = null!;
+            RoleIdAspNetRoles = null!;
+        }
         public int Id { get; set; }
 
         public string RoleId { get; set; }

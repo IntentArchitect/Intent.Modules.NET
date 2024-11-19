@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.Associations
 {
     public class E_RequiredDependent
     {
+        public E_RequiredDependent()
+        {
+            RequiredDepAttr = null!;
+            E_RequiredCompositeNav = null!;
+        }
         public Guid Id { get; set; }
 
         public string RequiredDepAttr { get; set; }

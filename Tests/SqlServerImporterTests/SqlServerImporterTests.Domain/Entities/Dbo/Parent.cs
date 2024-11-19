@@ -9,6 +9,10 @@ namespace SqlServerImporterTests.Domain.Entities.Dbo
 {
     public class Parent : IHasDomainEvent
     {
+        public Parent()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid Id2 { get; set; }

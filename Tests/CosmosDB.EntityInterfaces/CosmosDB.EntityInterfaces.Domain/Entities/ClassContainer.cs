@@ -12,6 +12,12 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
         private string? _id;
         private string? _classPartitionKey;
 
+        public ClassContainer()
+        {
+            Id = null!;
+            ClassPartitionKey = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

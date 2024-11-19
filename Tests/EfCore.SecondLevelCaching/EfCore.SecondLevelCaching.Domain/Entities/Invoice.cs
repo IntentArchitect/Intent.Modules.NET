@@ -7,6 +7,10 @@ namespace EfCore.SecondLevelCaching.Domain.Entities
 {
     public class Invoice
     {
+        public Invoice()
+        {
+            Notes = null!;
+        }
         public Guid Id { get; set; }
 
         public string Notes { get; set; }

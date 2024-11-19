@@ -9,6 +9,10 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 {
     public class O_DestNameDiff : IHasDomainEvent
     {
+        public O_DestNameDiff()
+        {
+            PartitionKey = null!;
+        }
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }

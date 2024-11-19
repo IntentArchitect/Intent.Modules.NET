@@ -6,6 +6,10 @@ namespace FastEndpointsTest.Domain.Entities.CRUD
 {
     public class CompositeOfAggrLong
     {
+        public CompositeOfAggrLong()
+        {
+            Attribute = null!;
+        }
         public long Id { get; set; }
 
         public string Attribute { get; set; }

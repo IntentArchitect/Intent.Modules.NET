@@ -10,6 +10,10 @@ namespace FastEndpointsTest.Domain.Entities.DDD
 {
     public class DataContractClass : IHasDomainEvent
     {
+        public DataContractClass()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

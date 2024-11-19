@@ -9,6 +9,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.DDD
 {
     public class Camera : IHasDomainEvent
     {
+        public Camera()
+        {
+            IdemiaId = null!;
+        }
         public Guid Id { get; set; }
 
         public string IdemiaId { get; set; }

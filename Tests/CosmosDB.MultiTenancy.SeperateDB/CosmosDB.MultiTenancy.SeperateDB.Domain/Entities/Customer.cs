@@ -11,6 +11,12 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Domain.Entities
     {
         private string? _id;
 
+        public Customer()
+        {
+            Id = null!;
+            Name = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

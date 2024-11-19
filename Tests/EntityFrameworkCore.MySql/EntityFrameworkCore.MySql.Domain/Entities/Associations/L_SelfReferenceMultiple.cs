@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.Associations
 {
     public class L_SelfReferenceMultiple
     {
+        public L_SelfReferenceMultiple()
+        {
+            SelfRefMultipleAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string SelfRefMultipleAttr { get; set; }

@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.Associations
 {
     public class G_RequiredCompositeNav
     {
+        public G_RequiredCompositeNav()
+        {
+            ReqCompNavAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string ReqCompNavAttr { get; set; }

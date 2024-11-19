@@ -9,6 +9,10 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
 {
     public class EfInvoice : IHasDomainEvent
     {
+        public EfInvoice()
+        {
+            Description = null!;
+        }
         public Guid Id { get; set; }
 
         public string Description { get; set; }

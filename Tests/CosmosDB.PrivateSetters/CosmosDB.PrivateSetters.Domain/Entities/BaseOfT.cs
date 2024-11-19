@@ -11,6 +11,11 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
     {
         private string? _id;
 
+        public BaseOfT()
+        {
+            Id = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

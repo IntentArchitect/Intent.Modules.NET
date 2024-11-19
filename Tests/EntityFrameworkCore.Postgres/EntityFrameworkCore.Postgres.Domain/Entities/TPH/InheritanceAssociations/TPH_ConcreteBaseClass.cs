@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.TPH.InheritanceAssociatio
 {
     public class TPH_ConcreteBaseClass
     {
+        public TPH_ConcreteBaseClass()
+        {
+            BaseAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string BaseAttribute { get; set; }

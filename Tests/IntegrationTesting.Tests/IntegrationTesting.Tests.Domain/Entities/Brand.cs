@@ -9,6 +9,10 @@ namespace IntegrationTesting.Tests.Domain.Entities
 {
     public class Brand : IHasDomainEvent
     {
+        public Brand()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.Indexes
 {
     public class MultiChildIndex
     {
+        public MultiChildIndex()
+        {
+            Name = null!;
+            Surname = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid ParentIndexId { get; set; }

@@ -9,6 +9,11 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Domain.Entities
 {
     public class Person : IHasDomainEvent
     {
+        public Person()
+        {
+            Name = null!;
+            Surname = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

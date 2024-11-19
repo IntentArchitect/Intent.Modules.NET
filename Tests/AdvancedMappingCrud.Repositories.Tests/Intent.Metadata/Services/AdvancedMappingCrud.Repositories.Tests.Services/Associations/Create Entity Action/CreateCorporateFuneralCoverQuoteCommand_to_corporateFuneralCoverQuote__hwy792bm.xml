@@ -45,14 +45,14 @@
           <mappedEnd>
             <expression>{Corporate}</expression>
             <path>
-              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
-              <target id="b70dde4f-6e17-4d21-a69d-ba8800380d4d" name="Corporate" type="element" specialization="Attribute" />
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="b70dde4f-6e17-4d21-a69d-ba8800380d4d" name="Corporate" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Corporate" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
-                  <target id="06cc6a7f-016e-441f-b308-51f86680c439" name="Corporate" type="element" specialization="DTO-Field" />
+                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="06cc6a7f-016e-441f-b308-51f86680c439" name="Corporate" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -60,14 +60,14 @@
           <mappedEnd>
             <expression>{Registration}</expression>
             <path>
-              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
-              <target id="a845fa44-0735-432e-922a-5329fedb33a0" name="Registration" type="element" specialization="Attribute" />
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a845fa44-0735-432e-922a-5329fedb33a0" name="Registration" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Registration" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
-                  <target id="bd8a4841-f993-425a-ab4e-48c2c7e24097" name="Registration" type="element" specialization="DTO-Field" />
+                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="bd8a4841-f993-425a-ab4e-48c2c7e24097" name="Registration" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -75,13 +75,13 @@
           <mappedEnd>
             <expression>{CreateCorporateFuneralCoverQuoteCommand}</expression>
             <path>
-              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
-              <target id="172cc8df-b269-4c96-8f94-ac176105d459" name="Constructor" type="element" specialization="Class Constructor" />
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="172cc8df-b269-4c96-8f94-ac176105d459" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
             </path>
             <sources>
               <source identifier="CreateCorporateFuneralCoverQuoteCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
                 <path>
-                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
+                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                 </path>
               </source>
             </sources>
@@ -89,15 +89,15 @@
           <mappedEnd>
             <expression>{refNo}</expression>
             <path>
-              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
-              <target id="172cc8df-b269-4c96-8f94-ac176105d459" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="af88a39f-99a1-4862-98a8-c1ead9ef7c35" name="refNo" type="element" specialization="Parameter" />
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="172cc8df-b269-4c96-8f94-ac176105d459" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="af88a39f-99a1-4862-98a8-c1ead9ef7c35" name="refNo" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
             </path>
             <sources>
               <source identifier="refNo" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
-                  <target id="f448d9b9-54d2-4053-a4c5-26b8870a53c5" name="refNo" type="element" specialization="DTO-Field" />
+                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f448d9b9-54d2-4053-a4c5-26b8870a53c5" name="refNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -105,15 +105,15 @@
           <mappedEnd>
             <expression>{personId}</expression>
             <path>
-              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
-              <target id="172cc8df-b269-4c96-8f94-ac176105d459" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="3b5c2926-0e08-478b-a274-acf043df9aca" name="personId" type="element" specialization="Parameter" />
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="172cc8df-b269-4c96-8f94-ac176105d459" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="3b5c2926-0e08-478b-a274-acf043df9aca" name="personId" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
             </path>
             <sources>
               <source identifier="personId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
-                  <target id="0e8ab94c-8104-491a-a0fb-33550c22fbb2" name="personId" type="element" specialization="DTO-Field" />
+                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="0e8ab94c-8104-491a-a0fb-33550c22fbb2" name="personId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -121,15 +121,47 @@
           <mappedEnd>
             <expression>{personEmail}</expression>
             <path>
-              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
-              <target id="172cc8df-b269-4c96-8f94-ac176105d459" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="f406e73d-1f52-4e66-86a3-5ed1e89fb6ee" name="personEmail" type="element" specialization="Parameter" />
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="172cc8df-b269-4c96-8f94-ac176105d459" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="f406e73d-1f52-4e66-86a3-5ed1e89fb6ee" name="personEmail" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
             </path>
             <sources>
               <source identifier="personEmail" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
-                  <target id="ecf631eb-bfa0-4c2c-b9fb-3b57af54052a" name="personEmail" type="element" specialization="DTO-Field" />
+                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="ecf631eb-bfa0-4c2c-b9fb-3b57af54052a" name="personEmail" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Corporate}</expression>
+            <path>
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="172cc8df-b269-4c96-8f94-ac176105d459" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="be66b23f-09b7-4b35-929f-c122e323649f" name="corporate" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="Corporate" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="06cc6a7f-016e-441f-b308-51f86680c439" name="Corporate" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Registration}</expression>
+            <path>
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="172cc8df-b269-4c96-8f94-ac176105d459" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="c6b43b59-e435-4b08-890f-18fa131f6505" name="registration" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="Registration" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="bd8a4841-f993-425a-ab4e-48c2c7e24097" name="Registration" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -137,16 +169,16 @@
           <mappedEnd>
             <expression>{QuoteLines}</expression>
             <path>
-              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
-              <target id="f6f4264b-6354-4c4e-95f6-6d642e510278" name="base" type="association" specialization="Generalization Target End" />
-              <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
-              <target id="b31f5ea2-8153-43d7-a695-1e28d75d14c8" name="QuoteLines" type="association" specialization="Association Target End" />
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="f6f4264b-6354-4c4e-95f6-6d642e510278" name="base" type="association" specialization="Generalization Target End" specializationId="4686cc1d-b4d8-4b99-b45b-f77bd5496946" />
+              <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" specializationId="4686cc1d-b4d8-4b99-b45b-f77bd5496946" />
+              <target id="b31f5ea2-8153-43d7-a695-1e28d75d14c8" name="QuoteLines" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
             </path>
             <sources>
               <source identifier="QuoteLines" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
-                  <target id="f80a5709-2f0c-4eff-a63f-b60f9b02159f" name="QuoteLines" type="element" specialization="DTO-Field" />
+                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f80a5709-2f0c-4eff-a63f-b60f9b02159f" name="QuoteLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -154,16 +186,16 @@
           <mappedEnd>
             <expression>{CreateCorporateFuneralCoverQuoteCommand}</expression>
             <path>
-              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
-              <target id="f6f4264b-6354-4c4e-95f6-6d642e510278" name="base" type="association" specialization="Generalization Target End" />
-              <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
-              <target id="b31f5ea2-8153-43d7-a695-1e28d75d14c8" name="QuoteLines" type="association" specialization="Association Target End" />
-              <target id="1a8de443-e593-4528-b031-decf155ee7c4" name="Constructor" type="element" specialization="Class Constructor" />
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="f6f4264b-6354-4c4e-95f6-6d642e510278" name="base" type="association" specialization="Generalization Target End" specializationId="4686cc1d-b4d8-4b99-b45b-f77bd5496946" />
+              <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" specializationId="4686cc1d-b4d8-4b99-b45b-f77bd5496946" />
+              <target id="b31f5ea2-8153-43d7-a695-1e28d75d14c8" name="QuoteLines" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="1a8de443-e593-4528-b031-decf155ee7c4" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
             </path>
             <sources>
               <source identifier="CreateCorporateFuneralCoverQuoteCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
                 <path>
-                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
+                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                 </path>
               </source>
             </sources>
@@ -171,19 +203,19 @@
           <mappedEnd>
             <expression>{QuoteLines.productId}</expression>
             <path>
-              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" />
-              <target id="f6f4264b-6354-4c4e-95f6-6d642e510278" name="base" type="association" specialization="Generalization Target End" />
-              <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
-              <target id="b31f5ea2-8153-43d7-a695-1e28d75d14c8" name="QuoteLines" type="association" specialization="Association Target End" />
-              <target id="1a8de443-e593-4528-b031-decf155ee7c4" name="Constructor" type="element" specialization="Class Constructor" />
-              <target id="f71370a5-665b-40f6-bebf-3bc07171368f" name="productId" type="element" specialization="Parameter" />
+              <target id="4da701dd-1644-418e-ac1a-19668809b605" name="CorporateFuneralCoverQuote" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="f6f4264b-6354-4c4e-95f6-6d642e510278" name="base" type="association" specialization="Generalization Target End" specializationId="4686cc1d-b4d8-4b99-b45b-f77bd5496946" />
+              <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" specializationId="4686cc1d-b4d8-4b99-b45b-f77bd5496946" />
+              <target id="b31f5ea2-8153-43d7-a695-1e28d75d14c8" name="QuoteLines" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="1a8de443-e593-4528-b031-decf155ee7c4" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
+              <target id="f71370a5-665b-40f6-bebf-3bc07171368f" name="productId" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
             </path>
             <sources>
               <source identifier="QuoteLines.productId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" />
-                  <target id="f80a5709-2f0c-4eff-a63f-b60f9b02159f" name="QuoteLines" type="element" specialization="DTO-Field" />
-                  <target id="e6696d63-6ebd-4fa0-96cb-c1752351e6e0" name="productId" type="element" specialization="DTO-Field" />
+                  <target id="79262db5-d909-4058-90fb-a7e98a0ce1ef" name="CreateCorporateFuneralCoverQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f80a5709-2f0c-4eff-a63f-b60f9b02159f" name="QuoteLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="e6696d63-6ebd-4fa0-96cb-c1752351e6e0" name="productId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

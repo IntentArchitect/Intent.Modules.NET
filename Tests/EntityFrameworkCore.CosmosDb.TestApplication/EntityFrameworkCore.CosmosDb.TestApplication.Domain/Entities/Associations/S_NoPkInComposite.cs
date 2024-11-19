@@ -9,6 +9,12 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 {
     public class S_NoPkInComposite : IHasDomainEvent
     {
+        public S_NoPkInComposite()
+        {
+            PartitionKey = null!;
+            Description = null!;
+            S_NoPkInCompositeDependent = null!;
+        }
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }

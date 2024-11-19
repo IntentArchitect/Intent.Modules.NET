@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.Indexes
 {
     public class DefaultIndex
     {
+        public DefaultIndex()
+        {
+            IndexField = null!;
+        }
         public Guid Id { get; set; }
 
         public string IndexField { get; set; }

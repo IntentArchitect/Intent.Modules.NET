@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPH.InheritanceAssociations
 {
     public class TPH_DerivedClassForConcrete : TPH_ConcreteBaseClass
     {
+        public TPH_DerivedClassForConcrete()
+        {
+            DerivedAttribute = null!;
+        }
         public string DerivedAttribute { get; set; }
     }
 }

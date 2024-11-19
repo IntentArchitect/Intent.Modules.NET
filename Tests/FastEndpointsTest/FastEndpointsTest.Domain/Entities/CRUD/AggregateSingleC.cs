@@ -9,6 +9,10 @@ namespace FastEndpointsTest.Domain.Entities.CRUD
 {
     public class AggregateSingleC : IHasDomainEvent
     {
+        public AggregateSingleC()
+        {
+            AggregationAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string AggregationAttr { get; set; }

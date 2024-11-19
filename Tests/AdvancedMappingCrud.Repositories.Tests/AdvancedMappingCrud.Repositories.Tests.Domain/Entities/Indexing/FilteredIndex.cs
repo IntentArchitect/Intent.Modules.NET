@@ -9,6 +9,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.Indexing
 {
     public class FilteredIndex : IHasDomainEvent
     {
+        public FilteredIndex()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.SoftDelete
 {
     public class ClassWithSoftDelete : ISoftDelete
     {
+        public ClassWithSoftDelete()
+        {
+            Attribute1 = null!;
+        }
         public Guid Id { get; set; }
 
         public string Attribute1 { get; set; }

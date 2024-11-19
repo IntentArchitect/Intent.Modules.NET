@@ -8,6 +8,10 @@ namespace DtoSettings.Class.Protected.Domain.Entities
 {
     public class Invoice
     {
+        public Invoice()
+        {
+            Number = null!;
+        }
         public Guid Id { get; set; }
 
         public string Number { get; set; }

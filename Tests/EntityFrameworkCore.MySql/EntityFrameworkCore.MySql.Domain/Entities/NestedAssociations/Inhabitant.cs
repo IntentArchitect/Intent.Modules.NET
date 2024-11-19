@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.NestedAssociations
 {
     public class Inhabitant
     {
+        public Inhabitant()
+        {
+            InhabitantAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string InhabitantAttribute { get; set; }

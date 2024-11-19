@@ -7,6 +7,11 @@ namespace FastEndpointsTest.Domain.Entities.DDD
 {
     public class Account
     {
+        public Account()
+        {
+            AccNumber = null!;
+            Note = null!;
+        }
         public Guid Id { get; set; }
 
         public string AccNumber { get; set; }

@@ -7,6 +7,11 @@ namespace DtoSettings.Class.Init.Domain.Entities
 {
     public class InvoiceLine
     {
+        public InvoiceLine()
+        {
+            Description = null!;
+            Currency = null!;
+        }
         public Guid Id { get; set; }
 
         public string Description { get; set; }

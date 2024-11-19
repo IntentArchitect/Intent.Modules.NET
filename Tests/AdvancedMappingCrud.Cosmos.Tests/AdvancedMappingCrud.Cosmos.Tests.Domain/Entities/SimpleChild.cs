@@ -9,6 +9,12 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Entities
     {
         private string? _id;
 
+        public SimpleChild()
+        {
+            Id = null!;
+            Thing = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

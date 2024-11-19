@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.TPH.InheritanceAssociatio
 {
     public class TPH_MiddleAbstract_Root
     {
+        public TPH_MiddleAbstract_Root()
+        {
+            RootAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string RootAttribute { get; set; }

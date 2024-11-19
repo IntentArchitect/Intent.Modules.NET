@@ -10,6 +10,9 @@ namespace EntityFrameworkCore.Postgres.Domain.ValueObjects
     {
         protected AddressSerialized()
         {
+            Line1 = null!;
+            Line2 = null!;
+            City = null!;
         }
 
         public AddressSerialized(string line1, string line2, string city)

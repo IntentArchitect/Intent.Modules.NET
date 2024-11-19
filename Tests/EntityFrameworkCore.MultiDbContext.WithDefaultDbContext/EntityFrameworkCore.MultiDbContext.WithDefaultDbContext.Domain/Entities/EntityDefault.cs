@@ -9,6 +9,10 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain.Entitie
 {
     public class EntityDefault : IHasDomainEvent
     {
+        public EntityDefault()
+        {
+            Message = null!;
+        }
         public Guid Id { get; set; }
 
         public string Message { get; set; }

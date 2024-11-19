@@ -10,6 +10,10 @@ namespace BasicAuditing.CustomUserId.Tests.Domain.Entities
 {
     public class Customer : IHasDomainEvent, IAuditable
     {
+        public Customer()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

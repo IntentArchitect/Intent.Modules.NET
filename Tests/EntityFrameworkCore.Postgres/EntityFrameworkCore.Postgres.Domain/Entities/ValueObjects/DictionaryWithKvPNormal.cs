@@ -9,6 +9,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.ValueObjects
 {
     public class DictionaryWithKvPNormal
     {
+        public DictionaryWithKvPNormal()
+        {
+            Title = null!;
+        }
         public Guid Id { get; set; }
 
         public string Title { get; set; }

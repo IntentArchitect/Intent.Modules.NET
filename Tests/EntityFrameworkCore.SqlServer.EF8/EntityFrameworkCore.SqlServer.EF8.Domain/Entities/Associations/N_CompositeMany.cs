@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Associations
 {
     public class N_CompositeMany
     {
+        public N_CompositeMany()
+        {
+            ManyAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string ManyAttr { get; set; }

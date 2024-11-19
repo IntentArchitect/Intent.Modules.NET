@@ -9,6 +9,11 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
 {
     public class AggregateRoot3AggCollection : IHasDomainEvent
     {
+        public AggregateRoot3AggCollection()
+        {
+            AggregateRoot3Single = null!;
+            AggregateRoot3Collection = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid AggregateRoot3SingleId { get; set; }

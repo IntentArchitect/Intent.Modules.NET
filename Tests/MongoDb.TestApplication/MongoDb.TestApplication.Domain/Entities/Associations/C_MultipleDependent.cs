@@ -10,6 +10,12 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
     {
         private string? _id;
 
+        public C_MultipleDependent()
+        {
+            Id = null!;
+            Attribute = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

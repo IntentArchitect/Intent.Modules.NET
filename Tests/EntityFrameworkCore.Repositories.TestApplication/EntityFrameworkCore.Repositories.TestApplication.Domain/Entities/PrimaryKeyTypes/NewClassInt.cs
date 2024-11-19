@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.Prima
 {
     public class NewClassInt : IHasDomainEvent
     {
+        public NewClassInt()
+        {
+            IntName = null!;
+        }
         public int Id { get; set; }
 
         public string IntName { get; set; }

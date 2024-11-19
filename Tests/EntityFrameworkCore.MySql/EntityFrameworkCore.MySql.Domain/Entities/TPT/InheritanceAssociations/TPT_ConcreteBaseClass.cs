@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPT.InheritanceAssociations
 {
     public class TPT_ConcreteBaseClass
     {
+        public TPT_ConcreteBaseClass()
+        {
+            BaseAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string BaseAttribute { get; set; }

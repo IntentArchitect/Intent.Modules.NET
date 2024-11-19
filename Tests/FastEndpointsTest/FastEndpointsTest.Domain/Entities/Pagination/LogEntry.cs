@@ -9,6 +9,10 @@ namespace FastEndpointsTest.Domain.Entities.Pagination
 {
     public class LogEntry : IHasDomainEvent
     {
+        public LogEntry()
+        {
+            Message = null!;
+        }
         public Guid Id { get; set; }
 
         public string Message { get; set; }

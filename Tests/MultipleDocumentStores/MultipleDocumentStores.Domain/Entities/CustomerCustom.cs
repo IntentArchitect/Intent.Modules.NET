@@ -8,6 +8,11 @@ namespace MultipleDocumentStores.Domain.Entities
 {
     public class CustomerCustom : IHasDomainEvent
     {
+        public CustomerCustom()
+        {
+            Id = null!;
+            Name = null!;
+        }
 
         public string Id { get; set; }
 

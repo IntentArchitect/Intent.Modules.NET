@@ -9,6 +9,12 @@ namespace IntegrationTesting.Tests.Domain.Entities
 {
     public class UniqueConVal : IHasDomainEvent
     {
+        public UniqueConVal()
+        {
+            Att1 = null!;
+            Att2 = null!;
+            AttInclude = null!;
+        }
         public Guid Id { get; set; }
 
         public string Att1 { get; set; }

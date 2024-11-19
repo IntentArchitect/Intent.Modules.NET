@@ -7,6 +7,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.ODataQuery
 {
     public class ODataChild
     {
+        public ODataChild()
+        {
+            No = null!;
+        }
         public Guid Id { get; set; }
 
         public string No { get; set; }

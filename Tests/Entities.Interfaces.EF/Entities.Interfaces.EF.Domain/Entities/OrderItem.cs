@@ -7,6 +7,10 @@ namespace Entities.Interfaces.EF.Domain.Entities
 {
     public class OrderItem : IOrderItem
     {
+        public OrderItem()
+        {
+            Description = null!;
+        }
         public Guid Id { get; set; }
 
         public string Description { get; set; }

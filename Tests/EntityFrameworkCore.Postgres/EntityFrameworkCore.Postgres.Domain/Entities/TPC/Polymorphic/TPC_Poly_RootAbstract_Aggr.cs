@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.TPC.Polymorphic
 {
     public class TPC_Poly_RootAbstract_Aggr
     {
+        public TPC_Poly_RootAbstract_Aggr()
+        {
+            AggrField = null!;
+        }
         public Guid Id { get; set; }
 
         public string AggrField { get; set; }

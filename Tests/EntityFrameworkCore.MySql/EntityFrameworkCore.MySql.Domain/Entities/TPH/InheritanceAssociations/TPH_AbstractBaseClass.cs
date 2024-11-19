@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPH.InheritanceAssociations
 {
     public abstract class TPH_AbstractBaseClass
     {
+        public TPH_AbstractBaseClass()
+        {
+            BaseAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string BaseAttribute { get; set; }

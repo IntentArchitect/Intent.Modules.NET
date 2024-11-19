@@ -10,6 +10,7 @@ namespace CleanArchitecture.Comprehensive.Domain.DDD
     {
         protected Money()
         {
+            Currency = null!;
         }
         public Money(string currency, decimal amount)
         {

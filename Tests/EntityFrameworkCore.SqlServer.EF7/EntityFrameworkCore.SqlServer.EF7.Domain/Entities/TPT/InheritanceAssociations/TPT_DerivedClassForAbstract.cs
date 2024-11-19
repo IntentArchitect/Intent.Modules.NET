@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.TPT.InheritanceAssoc
 {
     public class TPT_DerivedClassForAbstract : TPT_AbstractBaseClass
     {
+        public TPT_DerivedClassForAbstract()
+        {
+            DerivedAttribute = null!;
+        }
         public string DerivedAttribute { get; set; }
     }
 }

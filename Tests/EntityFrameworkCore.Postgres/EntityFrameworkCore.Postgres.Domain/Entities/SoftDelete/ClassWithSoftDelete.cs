@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.SoftDelete
 {
     public class ClassWithSoftDelete : ISoftDelete
     {
+        public ClassWithSoftDelete()
+        {
+            Attribute1 = null!;
+        }
         public Guid Id { get; set; }
 
         public string Attribute1 { get; set; }

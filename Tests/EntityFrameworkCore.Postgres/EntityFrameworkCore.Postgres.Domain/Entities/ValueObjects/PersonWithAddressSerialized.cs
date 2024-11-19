@@ -8,6 +8,11 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.ValueObjects
 {
     public class PersonWithAddressSerialized
     {
+        public PersonWithAddressSerialized()
+        {
+            Name = null!;
+            AddressSerialized = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

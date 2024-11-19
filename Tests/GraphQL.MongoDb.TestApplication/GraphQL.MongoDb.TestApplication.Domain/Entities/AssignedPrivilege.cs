@@ -10,6 +10,12 @@ namespace GraphQL.MongoDb.TestApplication.Domain.Entities
     {
         private string? _id;
 
+        public AssignedPrivilege()
+        {
+            Id = null!;
+            PrivilegeId = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

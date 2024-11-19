@@ -8,6 +8,13 @@ namespace SqlServerImporterTests.Domain.Entities.Dbo
 {
     public class AspNetUserLogin : IHasDomainEvent
     {
+        public AspNetUserLogin()
+        {
+            LoginProvider = null!;
+            ProviderKey = null!;
+            UserId = null!;
+            UserIdAspNetUsers = null!;
+        }
         public string LoginProvider { get; set; }
 
         public string ProviderKey { get; set; }

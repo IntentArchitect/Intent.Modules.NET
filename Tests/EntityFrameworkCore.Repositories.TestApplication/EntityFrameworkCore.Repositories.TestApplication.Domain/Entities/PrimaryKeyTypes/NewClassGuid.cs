@@ -9,6 +9,10 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.Prima
 {
     public class NewClassGuid : IHasDomainEvent
     {
+        public NewClassGuid()
+        {
+            GuidName = null!;
+        }
         public Guid Id { get; set; }
 
         public string GuidName { get; set; }

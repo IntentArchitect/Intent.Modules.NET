@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.Prima
 {
     public class NewClassLong : IHasDomainEvent
     {
+        public NewClassLong()
+        {
+            LongName = null!;
+        }
         public long Id { get; set; }
 
         public string LongName { get; set; }

@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.TPH.Polymorphic
 {
     public class TPH_Poly_TopLevel
     {
+        public TPH_Poly_TopLevel()
+        {
+            TopField = null!;
+        }
         public Guid Id { get; set; }
 
         public string TopField { get; set; }

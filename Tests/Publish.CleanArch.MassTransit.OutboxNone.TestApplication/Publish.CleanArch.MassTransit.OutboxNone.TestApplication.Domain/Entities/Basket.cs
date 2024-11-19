@@ -9,6 +9,10 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Entiti
 {
     public class Basket : IHasDomainEvent
     {
+        public Basket()
+        {
+            Number = null!;
+        }
         public Guid Id { get; set; }
 
         public string Number { get; set; }

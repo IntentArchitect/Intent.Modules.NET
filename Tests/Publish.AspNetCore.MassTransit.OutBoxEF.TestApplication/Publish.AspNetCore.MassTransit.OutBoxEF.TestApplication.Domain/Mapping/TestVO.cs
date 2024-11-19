@@ -10,6 +10,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Mapping
     {
         protected TestVO()
         {
+            Name = null!;
         }
 
         public TestVO(string name)

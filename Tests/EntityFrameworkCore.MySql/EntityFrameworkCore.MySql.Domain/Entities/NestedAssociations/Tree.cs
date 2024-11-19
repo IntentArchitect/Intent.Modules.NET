@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.NestedAssociations
 {
     public class Tree
     {
+        public Tree()
+        {
+            TreeAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string TreeAttribute { get; set; }

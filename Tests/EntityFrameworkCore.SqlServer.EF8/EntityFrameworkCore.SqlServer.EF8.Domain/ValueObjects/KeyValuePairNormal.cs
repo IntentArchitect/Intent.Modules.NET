@@ -10,6 +10,8 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.ValueObjects
     {
         protected KeyValuePairNormal()
         {
+            Key = null!;
+            Value = null!;
         }
 
         public KeyValuePairNormal(string key, string value)

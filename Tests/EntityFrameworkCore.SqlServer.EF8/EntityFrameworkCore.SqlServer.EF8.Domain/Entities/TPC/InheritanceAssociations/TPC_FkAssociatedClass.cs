@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.TPC.InheritanceAssoc
 {
     public class TPC_FkAssociatedClass
     {
+        public TPC_FkAssociatedClass()
+        {
+            AssociatedField = null!;
+            FkDerivedClass = null!;
+        }
         public Guid Id { get; set; }
 
         public string AssociatedField { get; set; }

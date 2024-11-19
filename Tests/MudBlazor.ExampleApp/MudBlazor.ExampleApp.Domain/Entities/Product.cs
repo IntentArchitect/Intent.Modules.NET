@@ -7,6 +7,11 @@ namespace MudBlazor.ExampleApp.Domain.Entities
 {
     public class Product : IHasDomainEvent
     {
+        public Product()
+        {
+            Name = null!;
+            Description = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

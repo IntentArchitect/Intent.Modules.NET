@@ -7,6 +7,10 @@ namespace Entities.PrivateSetters.EF.SqlServer.Domain.Entities
 {
     public class Person
     {
+        public Person()
+        {
+            Name = null!;
+        }
         public Guid Id { get; protected set; }
 
         public string Name { get; protected set; }

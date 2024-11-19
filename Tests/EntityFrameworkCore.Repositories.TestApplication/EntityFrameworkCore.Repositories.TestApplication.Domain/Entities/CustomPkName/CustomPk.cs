@@ -9,6 +9,10 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.Custo
 {
     public class CustomPk : IHasDomainEvent
     {
+        public CustomPk()
+        {
+            Name = null!;
+        }
         public Guid MyId { get; set; }
 
         public string Name { get; set; }

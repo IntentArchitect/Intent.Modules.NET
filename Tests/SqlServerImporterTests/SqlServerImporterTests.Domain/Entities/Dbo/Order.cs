@@ -9,6 +9,11 @@ namespace SqlServerImporterTests.Domain.Entities.Dbo
 {
     public class Order : IHasDomainEvent
     {
+        public Order()
+        {
+            RefNo = null!;
+            Customer = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid CustomerId { get; set; }

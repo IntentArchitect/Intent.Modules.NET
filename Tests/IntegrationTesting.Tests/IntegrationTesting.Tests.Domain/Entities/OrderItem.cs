@@ -7,6 +7,11 @@ namespace IntegrationTesting.Tests.Domain.Entities
 {
     public class OrderItem
     {
+        public OrderItem()
+        {
+            Description = null!;
+            Product = null!;
+        }
         public Guid Id { get; set; }
 
         public string Description { get; set; }

@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.TPH.InheritanceAssoc
 {
     public class TPH_MiddleAbstract_Leaf : TPH_MiddleAbstract_Middle
     {
+        public TPH_MiddleAbstract_Leaf()
+        {
+            LeafAttribute = null!;
+        }
         public string LeafAttribute { get; set; }
     }
 }

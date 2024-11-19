@@ -7,6 +7,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 {
     public class UserAddress
     {
+        public UserAddress()
+        {
+            Line1 = null!;
+            Line2 = null!;
+            City = null!;
+            Postal = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid UserId { get; set; }

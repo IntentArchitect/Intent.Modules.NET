@@ -7,6 +7,10 @@ namespace Standard.AspNetCore.TestApplication.Domain.Entities
 {
     public class InvoiceLine
     {
+        public InvoiceLine()
+        {
+            Description = null!;
+        }
         public Guid Id { get; set; }
 
         public string Description { get; set; }

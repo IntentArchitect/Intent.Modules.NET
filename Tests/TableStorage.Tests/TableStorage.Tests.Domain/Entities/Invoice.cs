@@ -9,6 +9,14 @@ namespace TableStorage.Tests.Domain.Entities
 {
     public class Invoice : IHasDomainEvent
     {
+        public Invoice()
+        {
+            PartitionKey = null!;
+            RowKey = null!;
+            OrderPartitionKey = null!;
+            OrderRowKey = null!;
+            Order = null!;
+        }
         public string PartitionKey { get; set; }
 
         public string RowKey { get; set; }

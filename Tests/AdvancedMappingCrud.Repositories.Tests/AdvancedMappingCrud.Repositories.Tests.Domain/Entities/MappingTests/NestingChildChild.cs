@@ -7,6 +7,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.MappingTests
 {
     public class NestingChildChild
     {
+        public NestingChildChild()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

@@ -7,6 +7,10 @@ namespace CleanArchitecture.Dapr.Domain.Entities
 {
     public class DerivedOfT : BaseOfT<int>
     {
+        public DerivedOfT()
+        {
+            DerivedAttribute = null!;
+        }
         public string DerivedAttribute { get; set; }
     }
 }

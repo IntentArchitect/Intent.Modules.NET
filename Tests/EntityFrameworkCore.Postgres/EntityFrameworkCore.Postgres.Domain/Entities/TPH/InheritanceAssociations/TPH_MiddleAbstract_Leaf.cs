@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.TPH.InheritanceAssociatio
 {
     public class TPH_MiddleAbstract_Leaf : TPH_MiddleAbstract_Middle
     {
+        public TPH_MiddleAbstract_Leaf()
+        {
+            LeafAttribute = null!;
+        }
         public string LeafAttribute { get; set; }
     }
 }

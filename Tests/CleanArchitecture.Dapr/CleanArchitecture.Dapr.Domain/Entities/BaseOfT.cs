@@ -10,6 +10,11 @@ namespace CleanArchitecture.Dapr.Domain.Entities
     public abstract class BaseOfT<T> : IHasDomainEvent
     {
         private string? _id;
+
+        public BaseOfT()
+        {
+            Id = null!;
+        }
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

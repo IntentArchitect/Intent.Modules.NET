@@ -6,6 +6,10 @@ namespace Entities.PrivateSetters.EF.SqlServer.Domain.Entities
 {
     public class Customer : Person
     {
+        public Customer()
+        {
+            Status = null!;
+        }
         public string Status { get; private set; }
     }
 }

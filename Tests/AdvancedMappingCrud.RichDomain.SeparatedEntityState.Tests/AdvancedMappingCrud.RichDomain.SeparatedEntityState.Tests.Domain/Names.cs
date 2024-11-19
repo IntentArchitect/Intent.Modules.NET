@@ -10,6 +10,8 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain
     {
         protected Names()
         {
+            First = null!;
+            Last = null!;
         }
 
         public Names(string first, string last)

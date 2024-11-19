@@ -10,6 +10,8 @@ namespace CleanArchitecture.Comprehensive.Domain.BasicMappingMapToValueObjects
     {
         protected Item()
         {
+            Key = null!;
+            Value = null!;
         }
 
         public Item(string key, string value)

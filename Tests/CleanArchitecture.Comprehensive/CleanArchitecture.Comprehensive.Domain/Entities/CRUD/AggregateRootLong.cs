@@ -9,6 +9,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.CRUD
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AggregateRootLong : IHasDomainEvent
     {
+        public AggregateRootLong()
+        {
+            Attribute = null!;
+        }
 
         public long Id { get; set; }
 

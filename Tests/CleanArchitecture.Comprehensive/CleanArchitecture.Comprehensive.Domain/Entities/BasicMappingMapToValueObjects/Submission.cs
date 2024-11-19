@@ -10,6 +10,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.BasicMappingMapToValue
 {
     public class Submission : IHasDomainEvent
     {
+        public Submission()
+        {
+            SubmissionType = null!;
+        }
         public Guid Id { get; set; }
 
         public string SubmissionType { get; set; }

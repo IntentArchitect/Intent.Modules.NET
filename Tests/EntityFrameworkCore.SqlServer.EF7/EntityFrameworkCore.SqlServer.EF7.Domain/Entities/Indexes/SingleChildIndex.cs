@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.Indexes
 {
     public class SingleChildIndex
     {
+        public SingleChildIndex()
+        {
+            Name = null!;
+            Surname = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

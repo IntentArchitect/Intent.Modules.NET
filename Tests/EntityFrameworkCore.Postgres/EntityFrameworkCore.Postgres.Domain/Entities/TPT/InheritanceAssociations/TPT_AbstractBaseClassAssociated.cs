@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.TPT.InheritanceAssociatio
 {
     public class TPT_AbstractBaseClassAssociated
     {
+        public TPT_AbstractBaseClassAssociated()
+        {
+            AssociatedField = null!;
+            AbstractBaseClass = null!;
+        }
         public Guid Id { get; set; }
 
         public string AssociatedField { get; set; }

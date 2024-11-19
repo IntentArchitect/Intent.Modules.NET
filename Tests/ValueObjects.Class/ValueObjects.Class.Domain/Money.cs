@@ -10,6 +10,7 @@ namespace ValueObjects.Class.Domain
     {
         protected Money()
         {
+            Currency = null!;
         }
 
         public Money(decimal amount, string currency)

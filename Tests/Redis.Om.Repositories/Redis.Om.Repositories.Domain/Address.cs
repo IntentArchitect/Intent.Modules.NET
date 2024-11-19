@@ -10,6 +10,10 @@ namespace Redis.Om.Repositories.Domain
     {
         protected Address()
         {
+            Line1 = null!;
+            Line2 = null!;
+            City = null!;
+            PostalAddress = null!;
         }
 
         public Address(string line1, string line2, string city, string postalAddress)

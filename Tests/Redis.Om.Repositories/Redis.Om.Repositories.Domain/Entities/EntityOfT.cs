@@ -10,6 +10,11 @@ namespace Redis.Om.Repositories.Domain.Entities
     public class EntityOfT<T> : IHasDomainEvent
     {
         private string? _id;
+
+        public EntityOfT()
+        {
+            Id = null!;
+        }
         public string Id
         {
             get => _id;

@@ -9,6 +9,10 @@ namespace EntityFramework.SynchronousRepositories.Domain.Entities
 {
     public class Customer : IHasDomainEvent
     {
+        public Customer()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

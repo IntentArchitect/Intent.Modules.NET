@@ -10,6 +10,11 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritan
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class BaseAssociated : IHasDomainEvent
     {
+        public BaseAssociated()
+        {
+            PartitionKey = null!;
+            BaseAssociatedField1 = null!;
+        }
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }

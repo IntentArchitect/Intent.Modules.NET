@@ -7,6 +7,11 @@ namespace MongoDb.TestApplication.Domain.Entities.Mappings
 {
     public class MapImplyOptional
     {
+        public MapImplyOptional()
+        {
+            Id = null!;
+            Description = null!;
+        }
         public string Id { get; set; }
 
         public string Description { get; set; }

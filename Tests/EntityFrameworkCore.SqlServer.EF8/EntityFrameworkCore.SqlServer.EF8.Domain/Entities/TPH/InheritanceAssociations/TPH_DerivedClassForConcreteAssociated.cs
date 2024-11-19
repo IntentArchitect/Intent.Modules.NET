@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.TPH.InheritanceAssoc
 {
     public class TPH_DerivedClassForConcreteAssociated
     {
+        public TPH_DerivedClassForConcreteAssociated()
+        {
+            AssociatedField = null!;
+            DerivedClassForConcrete = null!;
+        }
         public Guid Id { get; set; }
 
         public string AssociatedField { get; set; }

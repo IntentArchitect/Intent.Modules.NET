@@ -8,14 +8,16 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain
 {
     public class Tag : ValueObject
     {
-        protected Tag()
-        {
-        }
-
         public Tag(string name, string value)
         {
             Name = name;
             Value = value;
+        }
+
+        protected Tag()
+        {
+            Name = null!;
+            Value = null!;
         }
 
         public string Name { get; private set; }

@@ -7,6 +7,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.CRUD
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class CompositeOfAggrLong
     {
+        public CompositeOfAggrLong()
+        {
+            Attribute = null!;
+        }
 
         public long Id { get; set; }
 

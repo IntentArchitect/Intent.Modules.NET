@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Indexes
 {
     public class WithBaseIndex : WithBaseIndexBase
     {
+        public WithBaseIndex()
+        {
+            Name = null!;
+        }
         public string Name { get; set; }
     }
 }

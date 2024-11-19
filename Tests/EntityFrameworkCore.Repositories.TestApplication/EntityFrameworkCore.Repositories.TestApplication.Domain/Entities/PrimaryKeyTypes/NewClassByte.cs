@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.Prima
 {
     public class NewClassByte : IHasDomainEvent
     {
+        public NewClassByte()
+        {
+            ByteName = null!;
+        }
         public byte Id { get; set; }
 
         public string ByteName { get; set; }

@@ -9,6 +9,10 @@ namespace EntityFramework.SynchronousRepositories.Domain.Entities
 {
     public class Invoice : IHasDomainEvent
     {
+        public Invoice()
+        {
+            No = null!;
+        }
         public Guid Id { get; set; }
 
         public string No { get; set; }

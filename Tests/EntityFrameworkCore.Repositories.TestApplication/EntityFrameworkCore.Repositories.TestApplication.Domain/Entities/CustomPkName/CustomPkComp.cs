@@ -9,6 +9,11 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.Custo
 {
     public class CustomPkComp : IHasDomainEvent
     {
+        public CustomPkComp()
+        {
+            MyId2 = null!;
+            Name = null!;
+        }
         public Guid MyId { get; set; }
 
         public string MyId2 { get; set; }

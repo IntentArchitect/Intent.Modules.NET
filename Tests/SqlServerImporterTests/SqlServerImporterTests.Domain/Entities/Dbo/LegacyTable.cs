@@ -9,6 +9,10 @@ namespace SqlServerImporterTests.Domain.Entities.Dbo
 {
     public class LegacyTable : IHasDomainEvent
     {
+        public LegacyTable()
+        {
+            LegacyColumn = null!;
+        }
         public int LegacyId { get; set; }
 
         public string LegacyColumn { get; set; }

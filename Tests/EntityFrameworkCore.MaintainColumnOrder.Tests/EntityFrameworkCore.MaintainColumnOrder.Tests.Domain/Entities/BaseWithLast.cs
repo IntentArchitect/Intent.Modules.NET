@@ -9,6 +9,12 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Domain.Entities
 {
     public class BaseWithLast : IHasDomainEvent
     {
+        public BaseWithLast()
+        {
+            Col1 = null!;
+            Last = null!;
+            Last2 = null!;
+        }
         public Guid Id { get; set; }
 
         public string Col1 { get; set; }

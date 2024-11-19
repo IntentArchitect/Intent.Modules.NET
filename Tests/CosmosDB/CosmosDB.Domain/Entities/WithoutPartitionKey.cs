@@ -10,6 +10,11 @@ namespace CosmosDB.Domain.Entities
     public class WithoutPartitionKey : IHasDomainEvent
     {
         private string? _id;
+
+        public WithoutPartitionKey()
+        {
+            Id = null!;
+        }
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

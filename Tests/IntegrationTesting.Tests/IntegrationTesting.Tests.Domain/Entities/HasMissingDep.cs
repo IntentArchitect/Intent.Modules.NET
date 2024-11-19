@@ -9,6 +9,11 @@ namespace IntegrationTesting.Tests.Domain.Entities
 {
     public class HasMissingDep : IHasDomainEvent
     {
+        public HasMissingDep()
+        {
+            Name = null!;
+            MissingDep = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

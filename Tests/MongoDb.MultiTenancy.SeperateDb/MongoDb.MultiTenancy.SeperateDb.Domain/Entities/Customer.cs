@@ -9,6 +9,11 @@ namespace MongoDb.MultiTenancy.SeperateDb.Domain.Entities
 {
     public class Customer : IHasDomainEvent
     {
+        public Customer()
+        {
+            Id = null!;
+            Name = null!;
+        }
         public string Id { get; set; }
 
         public string Name { get; set; }

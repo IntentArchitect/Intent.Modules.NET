@@ -7,6 +7,10 @@ namespace Entities.Interfaces.EF.Domain.Entities
 {
     public class Person : IPerson
     {
+        public Person()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

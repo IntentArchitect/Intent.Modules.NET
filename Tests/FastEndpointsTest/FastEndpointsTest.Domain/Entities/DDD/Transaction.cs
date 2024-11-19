@@ -10,6 +10,12 @@ namespace FastEndpointsTest.Domain.Entities.DDD
 {
     public class Transaction : IHasDomainEvent
     {
+        public Transaction()
+        {
+            Current = null!;
+            Description = null!;
+            Account = null!;
+        }
         public Guid Id { get; set; }
 
         public Money Current { get; set; }

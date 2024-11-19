@@ -7,6 +7,10 @@ namespace CosmosDB.Domain.Entities
 {
     public class InvoiceLogo
     {
+        public InvoiceLogo()
+        {
+            Url = null!;
+        }
         public string Url { get; set; }
     }
 }

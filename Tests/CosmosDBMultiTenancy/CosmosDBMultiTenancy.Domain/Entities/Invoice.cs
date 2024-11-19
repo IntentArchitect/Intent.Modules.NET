@@ -12,6 +12,14 @@ namespace CosmosDBMultiTenancy.Domain.Entities
     {
         private string? _id;
 
+        public Invoice()
+        {
+            Id = null!;
+            Number = null!;
+            TenantId = null!;
+            CreatedBy = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.TPC.InheritanceAssociatio
 {
     public class TPC_DerivedClassForAbstract : TPC_AbstractBaseClass
     {
+        public TPC_DerivedClassForAbstract()
+        {
+            DerivedAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string DerivedAttribute { get; set; }

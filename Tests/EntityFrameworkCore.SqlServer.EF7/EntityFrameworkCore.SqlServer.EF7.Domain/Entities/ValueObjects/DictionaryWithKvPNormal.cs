@@ -9,6 +9,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.ValueObjects
 {
     public class DictionaryWithKvPNormal
     {
+        public DictionaryWithKvPNormal()
+        {
+            Title = null!;
+        }
         public Guid Id { get; set; }
 
         public string Title { get; set; }

@@ -10,6 +10,12 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.BasicAudi
 {
     public class Audit_SoloClass : IHasDomainEvent, IAuditable
     {
+        public Audit_SoloClass()
+        {
+            PartitionKey = null!;
+            SoloAttr = null!;
+            CreatedBy = null!;
+        }
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }

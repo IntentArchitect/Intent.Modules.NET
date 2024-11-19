@@ -7,6 +7,10 @@ namespace MongoDb.TestApplication.Domain.Entities
 {
     public class DerivedOfT : BaseTypeOfT<int>
     {
+        public DerivedOfT()
+        {
+            DerivedAttribute = null!;
+        }
         public string DerivedAttribute { get; set; }
     }
 }

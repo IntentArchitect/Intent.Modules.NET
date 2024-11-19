@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.Associations
 {
     public class C_RequiredComposite
     {
+        public C_RequiredComposite()
+        {
+            RequiredCompAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string RequiredCompAttr { get; set; }

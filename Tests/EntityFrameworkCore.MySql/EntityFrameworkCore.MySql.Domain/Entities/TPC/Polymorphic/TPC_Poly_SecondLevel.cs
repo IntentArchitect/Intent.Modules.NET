@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPC.Polymorphic
 {
     public class TPC_Poly_SecondLevel
     {
+        public TPC_Poly_SecondLevel()
+        {
+            SecondField = null!;
+        }
         public Guid Id { get; set; }
 
         public string SecondField { get; set; }

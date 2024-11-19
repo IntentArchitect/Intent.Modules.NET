@@ -7,6 +7,12 @@ namespace AspNetCore.Controllers.Secured.Domain.Entities
 {
     public class Buyer
     {
+        public Buyer()
+        {
+            Name = null!;
+            Surname = null!;
+            Email = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

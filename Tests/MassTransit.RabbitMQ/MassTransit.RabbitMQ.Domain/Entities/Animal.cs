@@ -10,6 +10,11 @@ namespace MassTransit.RabbitMQ.Domain.Entities
 {
     public class Animal : IHasDomainEvent
     {
+        public Animal()
+        {
+            Name = null!;
+            Type = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

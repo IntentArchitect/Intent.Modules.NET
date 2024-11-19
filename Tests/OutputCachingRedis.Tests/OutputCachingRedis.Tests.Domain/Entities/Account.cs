@@ -9,6 +9,10 @@ namespace OutputCachingRedis.Tests.Domain.Entities
 {
     public class Account : IHasDomainEvent
     {
+        public Account()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

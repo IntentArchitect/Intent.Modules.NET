@@ -7,6 +7,13 @@ namespace TrainingModel.Tests.Domain.Entities
 {
     public class Address
     {
+        public Address()
+        {
+            Line1 = null!;
+            Line2 = null!;
+            City = null!;
+            Postal = null!;
+        }
         public Guid Id { get; set; }
 
         public string Line1 { get; set; }

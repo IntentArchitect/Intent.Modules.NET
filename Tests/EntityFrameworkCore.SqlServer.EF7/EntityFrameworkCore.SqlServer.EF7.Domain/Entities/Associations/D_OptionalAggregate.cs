@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.Associations
 {
     public class D_OptionalAggregate
     {
+        public D_OptionalAggregate()
+        {
+            OptionalAggrAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string OptionalAggrAttr { get; set; }

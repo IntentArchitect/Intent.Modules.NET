@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 {
     public class N_CompositeOne
     {
+        public N_CompositeOne()
+        {
+            PartitionKey = null!;
+            CompositeOneAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }

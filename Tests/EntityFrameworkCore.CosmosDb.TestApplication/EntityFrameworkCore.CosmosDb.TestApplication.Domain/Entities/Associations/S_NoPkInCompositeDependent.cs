@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 {
     public class S_NoPkInCompositeDependent
     {
+        public S_NoPkInCompositeDependent()
+        {
+            Description = null!;
+        }
         public string Description { get; set; }
     }
 }

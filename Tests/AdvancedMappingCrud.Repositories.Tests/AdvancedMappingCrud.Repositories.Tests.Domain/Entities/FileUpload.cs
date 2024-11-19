@@ -9,6 +9,14 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 {
     public class FileUpload : IHasDomainEvent
     {
+        public FileUpload()
+        {
+            Filename = null!;
+            Content = null!;
+            ContentType = null!;
+
+        }
+
         public Guid Id { get; set; }
 
         public string Filename { get; set; }

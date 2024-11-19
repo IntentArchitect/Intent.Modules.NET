@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.TPT.Polymorphic
 {
     public class TPT_Poly_ConcreteB : TPT_Poly_BaseClassNonAbstract
     {
+        public TPT_Poly_ConcreteB()
+        {
+            ConcreteField = null!;
+        }
         public string ConcreteField { get; set; }
     }
 }

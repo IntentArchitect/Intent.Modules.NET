@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.Associations
 {
     public class C_RequiredComposite
     {
+        public C_RequiredComposite()
+        {
+            RequiredCompAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string RequiredCompAttr { get; set; }

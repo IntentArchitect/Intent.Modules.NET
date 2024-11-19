@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.Associations
 {
     public class K_SelfReference
     {
+        public K_SelfReference()
+        {
+            SelfRefAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string SelfRefAttr { get; set; }

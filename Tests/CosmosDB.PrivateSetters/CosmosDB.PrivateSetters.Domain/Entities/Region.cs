@@ -12,6 +12,13 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
         private List<Country> _countries = [];
         private string? _id;
 
+        public Region()
+        {
+            Id = null!;
+            Name = null!;
+            Countries = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

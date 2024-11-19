@@ -9,6 +9,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 {
     public class Warehouse : IHasDomainEvent
     {
+        public Warehouse()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

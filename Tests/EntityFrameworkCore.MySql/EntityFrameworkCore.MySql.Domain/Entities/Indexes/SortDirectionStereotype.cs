@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.Indexes
 {
     public class SortDirectionStereotype
     {
+        public SortDirectionStereotype()
+        {
+            FieldA = null!;
+            FieldB = null!;
+        }
         public Guid Id { get; set; }
 
         public string FieldA { get; set; }

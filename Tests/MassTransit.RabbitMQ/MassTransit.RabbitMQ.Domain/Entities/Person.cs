@@ -10,6 +10,11 @@ namespace MassTransit.RabbitMQ.Domain.Entities
 {
     public class Person : IHasDomainEvent
     {
+        public Person()
+        {
+            FirstName = null!;
+            LastName = null!;
+        }
         public Guid Id { get; set; }
 
         public string FirstName { get; set; }

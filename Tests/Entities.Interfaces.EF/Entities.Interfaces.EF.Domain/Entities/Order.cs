@@ -10,6 +10,10 @@ namespace Entities.Interfaces.EF.Domain.Entities
 {
     public class Order : IOrder
     {
+        public Order()
+        {
+            RefNo = null!;
+        }
         public Guid Id { get; set; }
 
         public string RefNo { get; set; }

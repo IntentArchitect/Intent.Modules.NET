@@ -10,6 +10,9 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain
     {
         protected Address()
         {
+            Line1 = null!;
+            Line2 = null!;
+            City = null!;
         }
 
         public Address(string line1, string line2, string city)

@@ -11,6 +11,12 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
     {
         private string? _id;
 
+        public PackageContainer()
+        {
+            Id = null!;
+            PackagePartitionKey = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

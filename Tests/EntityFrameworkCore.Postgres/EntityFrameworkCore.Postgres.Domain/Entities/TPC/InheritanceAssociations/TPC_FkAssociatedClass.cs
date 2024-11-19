@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.TPC.InheritanceAssociatio
 {
     public class TPC_FkAssociatedClass
     {
+        public TPC_FkAssociatedClass()
+        {
+            AssociatedField = null!;
+            FkDerivedClass = null!;
+        }
         public Guid Id { get; set; }
 
         public string AssociatedField { get; set; }

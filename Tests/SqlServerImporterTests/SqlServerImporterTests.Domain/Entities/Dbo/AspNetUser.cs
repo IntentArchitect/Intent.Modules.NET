@@ -9,6 +9,10 @@ namespace SqlServerImporterTests.Domain.Entities.Dbo
 {
     public class AspNetUser : IHasDomainEvent
     {
+        public AspNetUser()
+        {
+            Id = null!;
+        }
         public string Id { get; set; }
 
         public string? RefreshToken { get; set; }

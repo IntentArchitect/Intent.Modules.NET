@@ -7,6 +7,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 {
     public class OrderItem
     {
+        public OrderItem()
+        {
+            Product = null!;
+        }
         public Guid Id { get; set; }
 
         public int Quantity { get; set; }

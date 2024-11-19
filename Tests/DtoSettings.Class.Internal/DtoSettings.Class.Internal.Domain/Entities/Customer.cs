@@ -6,6 +6,11 @@ namespace DtoSettings.Class.Internal.Domain.Entities
 {
     public class Customer : Person
     {
+        public Customer()
+        {
+            Name = null!;
+            Surname = null!;
+        }
         public string Name { get; set; }
 
         public string Surname { get; set; }

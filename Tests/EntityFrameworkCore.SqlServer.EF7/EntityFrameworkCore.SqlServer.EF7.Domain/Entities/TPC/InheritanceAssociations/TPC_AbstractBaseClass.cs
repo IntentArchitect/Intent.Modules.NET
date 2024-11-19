@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.TPC.InheritanceAssoc
 {
     public abstract class TPC_AbstractBaseClass
     {
+        public TPC_AbstractBaseClass()
+        {
+            BaseAttribute = null!;
+        }
         public string BaseAttribute { get; set; }
     }
 }

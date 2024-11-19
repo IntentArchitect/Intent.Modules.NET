@@ -9,6 +9,10 @@ namespace TrainingModel.Tests.Domain.Entities
 {
     public class Category : IHasDomainEvent
     {
+        public Category()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

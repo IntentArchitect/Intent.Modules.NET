@@ -7,6 +7,11 @@ namespace MudBlazor.ExampleApp.Domain.Entities
 {
     public class Invoice : IHasDomainEvent
     {
+        public Invoice()
+        {
+            InvoiceNo = null!;
+            Customer = null!;
+        }
         public Guid Id { get; set; }
 
         public string InvoiceNo { get; set; }

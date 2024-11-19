@@ -7,6 +7,10 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Entities
 {
     public class OrderItem
     {
+        public OrderItem()
+        {
+            Description = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid OrderId { get; set; }

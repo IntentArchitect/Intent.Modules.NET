@@ -7,6 +7,10 @@ namespace TrainingModel.Tests.Domain.Entities
 {
     public class OrderItem
     {
+        public OrderItem()
+        {
+            Product = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid OrderId { get; set; }

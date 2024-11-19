@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.Associations
 {
     public class B_OptionalDependent
     {
+        public B_OptionalDependent()
+        {
+            OptionalDepAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string OptionalDepAttr { get; set; }

@@ -11,6 +11,14 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
         private List<string> _tags = [];
         private string? _id;
 
+        public LineItem()
+        {
+            Id = null!;
+            Description = null!;
+            ProductId = null!;
+            Tags = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

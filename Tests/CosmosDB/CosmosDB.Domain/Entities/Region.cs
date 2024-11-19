@@ -10,6 +10,12 @@ namespace CosmosDB.Domain.Entities
     public class Region : IHasDomainEvent
     {
         private string? _id;
+
+        public Region()
+        {
+            Id = null!;
+            Name = null!;
+        }
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

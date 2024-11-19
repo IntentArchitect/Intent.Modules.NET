@@ -6,6 +6,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.ExtensiveDomain
 {
     public class ConcreteEntityA : BaseEntityA
     {
+        public ConcreteEntityA()
+        {
+            ConcreteAttr = null!;
+        }
         public string ConcreteAttr { get; set; }
     }
 }

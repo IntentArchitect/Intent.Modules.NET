@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SplitQueries.PostgreSQL.Domain.Entities
 {
     public class Order
     {
+        public Order()
+        {
+            ReferenceNumber = null!;
+        }
         public Guid Id { get; set; }
 
         public string ReferenceNumber { get; set; }

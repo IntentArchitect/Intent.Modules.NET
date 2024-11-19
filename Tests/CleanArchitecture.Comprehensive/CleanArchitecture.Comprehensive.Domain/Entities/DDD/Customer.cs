@@ -9,6 +9,11 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.DDD
 {
     public class Customer : Person
     {
+        public Customer()
+        {
+            Email = null!;
+            Address = null!;
+        }
 
         public string Email { get; set; }
 

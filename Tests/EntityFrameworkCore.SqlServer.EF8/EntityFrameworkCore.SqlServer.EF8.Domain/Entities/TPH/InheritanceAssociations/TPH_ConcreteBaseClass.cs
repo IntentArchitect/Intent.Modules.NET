@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.TPH.InheritanceAssoc
 {
     public class TPH_ConcreteBaseClass
     {
+        public TPH_ConcreteBaseClass()
+        {
+            BaseAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string BaseAttribute { get; set; }

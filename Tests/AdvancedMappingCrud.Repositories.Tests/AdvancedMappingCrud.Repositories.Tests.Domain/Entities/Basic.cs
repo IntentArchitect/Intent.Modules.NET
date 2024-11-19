@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.Marshalling;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common;
 using Intent.RoslynWeaver.Attributes;
 
@@ -9,6 +10,11 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 {
     public class Basic : IHasDomainEvent
     {
+        public Basic()
+        {
+            Name = null!;
+            Surname = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

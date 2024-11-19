@@ -9,6 +9,13 @@ namespace AdvancedMappingCrudMongo.Tests.Domain.Entities
 {
     public class Customer : IHasDomainEvent
     {
+        public Customer()
+        {
+            Id = null!;
+            Name = null!;
+            Surname = null!;
+            Email = null!;
+        }
         public string Id { get; set; }
 
         public string Name { get; set; }

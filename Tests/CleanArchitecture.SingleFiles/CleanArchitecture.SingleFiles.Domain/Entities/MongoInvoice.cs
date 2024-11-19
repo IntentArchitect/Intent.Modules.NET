@@ -9,6 +9,11 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
 {
     public class MongoInvoice : IHasDomainEvent
     {
+        public MongoInvoice()
+        {
+            Id = null!;
+            Description = null!;
+        }
         public string Id { get; set; }
 
         public string Description { get; set; }

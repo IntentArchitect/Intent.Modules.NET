@@ -10,6 +10,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain
     {
         protected Money()
         {
+            Currency = null!;
         }
 
         public Money(decimal amount, string currency)

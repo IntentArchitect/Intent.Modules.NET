@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.Prima
 {
     public class NewClassFloat : IHasDomainEvent
     {
+        public NewClassFloat()
+        {
+            FloatName = null!;
+        }
         public float Id { get; set; }
 
         public string FloatName { get; set; }

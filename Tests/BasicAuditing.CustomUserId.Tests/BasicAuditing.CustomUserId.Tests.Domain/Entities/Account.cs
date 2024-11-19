@@ -12,6 +12,12 @@ namespace BasicAuditing.CustomUserId.Tests.Domain.Entities
     {
         private string? _id;
 
+        public Account()
+        {
+            Id = null!;
+            Name = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

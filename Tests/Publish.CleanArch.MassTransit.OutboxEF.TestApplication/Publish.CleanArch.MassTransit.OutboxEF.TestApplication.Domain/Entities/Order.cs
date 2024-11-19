@@ -9,6 +9,10 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Entities
 {
     public class Order : IHasDomainEvent
     {
+        public Order()
+        {
+            Number = null!;
+        }
         public Guid Id { get; set; }
 
         public string Number { get; set; }

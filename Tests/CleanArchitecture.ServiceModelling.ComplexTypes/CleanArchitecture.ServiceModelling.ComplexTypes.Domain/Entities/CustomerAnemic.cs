@@ -9,6 +9,11 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Entities
 {
     public class CustomerAnemic : IHasDomainEvent
     {
+        public CustomerAnemic()
+        {
+            Name = null!;
+            Address = null!;
+        }
 
         public Guid Id { get; set; }
 

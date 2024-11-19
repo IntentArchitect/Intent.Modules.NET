@@ -9,6 +9,12 @@ namespace FastEndpointsTest.Domain.Entities.UniqueIndexConstraint
 {
     public class AggregateWithUniqueConstraintIndexStereotype : IHasDomainEvent
     {
+        public AggregateWithUniqueConstraintIndexStereotype()
+        {
+            SingleUniqueField = null!;
+            CompUniqueFieldA = null!;
+            CompUniqueFieldB = null!;
+        }
         public Guid Id { get; set; }
 
         public string SingleUniqueField { get; set; }

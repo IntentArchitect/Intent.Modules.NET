@@ -11,6 +11,12 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
     {
         private string? _id;
 
+        public CosmosInvoice()
+        {
+            Id = null!;
+            Description = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.Associations
 {
     public class Book
     {
+        public Book()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

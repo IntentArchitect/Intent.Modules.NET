@@ -7,6 +7,10 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
 {
     public class EfLine
     {
+        public EfLine()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

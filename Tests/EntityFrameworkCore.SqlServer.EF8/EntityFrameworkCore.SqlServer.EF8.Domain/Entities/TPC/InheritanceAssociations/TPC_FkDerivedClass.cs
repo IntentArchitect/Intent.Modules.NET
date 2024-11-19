@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.TPC.InheritanceAssoc
 {
     public class TPC_FkDerivedClass : TPC_FkBaseClass
     {
+        public TPC_FkDerivedClass()
+        {
+            DerivedField = null!;
+        }
         public string DerivedField { get; set; }
     }
 }

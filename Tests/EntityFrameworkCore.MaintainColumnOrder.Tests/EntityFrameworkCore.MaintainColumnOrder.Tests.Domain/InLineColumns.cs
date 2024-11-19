@@ -10,6 +10,8 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Domain
     {
         protected InLineColumns()
         {
+            Col1 = null!;
+            Col2 = null!;
         }
 
         public InLineColumns(string col1, string col2)

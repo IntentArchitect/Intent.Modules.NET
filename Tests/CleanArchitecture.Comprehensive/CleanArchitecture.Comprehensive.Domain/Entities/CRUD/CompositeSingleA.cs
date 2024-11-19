@@ -9,6 +9,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.CRUD
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class CompositeSingleA
     {
+        public CompositeSingleA()
+        {
+            CompositeAttr = null!;
+        }
 
         public Guid Id { get; set; }
 

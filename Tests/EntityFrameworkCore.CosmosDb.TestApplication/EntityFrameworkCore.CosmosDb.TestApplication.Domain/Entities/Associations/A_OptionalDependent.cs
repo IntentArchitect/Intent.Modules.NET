@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class A_OptionalDependent
     {
+        public A_OptionalDependent()
+        {
+            OptionalDependentAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string OptionalDependentAttr { get; set; }

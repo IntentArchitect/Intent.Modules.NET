@@ -7,6 +7,10 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Entiti
 {
     public class BasketItem
     {
+        public BasketItem()
+        {
+            Description = null!;
+        }
         public Guid Id { get; set; }
 
         public string Description { get; set; }

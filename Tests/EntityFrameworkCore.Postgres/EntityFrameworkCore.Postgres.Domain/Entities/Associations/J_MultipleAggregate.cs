@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.Associations
 {
     public class J_MultipleAggregate
     {
+        public J_MultipleAggregate()
+        {
+            MultipleAggrAttr = null!;
+            J_RequiredDependent = null!;
+        }
         public Guid Id { get; set; }
 
         public string MultipleAggrAttr { get; set; }

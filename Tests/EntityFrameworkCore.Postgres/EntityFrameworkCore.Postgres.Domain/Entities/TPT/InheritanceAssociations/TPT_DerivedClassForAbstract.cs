@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.TPT.InheritanceAssociatio
 {
     public class TPT_DerivedClassForAbstract : TPT_AbstractBaseClass
     {
+        public TPT_DerivedClassForAbstract()
+        {
+            DerivedAttribute = null!;
+        }
         public string DerivedAttribute { get; set; }
     }
 }

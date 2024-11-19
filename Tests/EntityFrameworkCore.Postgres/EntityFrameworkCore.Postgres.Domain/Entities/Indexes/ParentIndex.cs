@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.Indexes
 {
     public class ParentIndex
     {
+        public ParentIndex()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

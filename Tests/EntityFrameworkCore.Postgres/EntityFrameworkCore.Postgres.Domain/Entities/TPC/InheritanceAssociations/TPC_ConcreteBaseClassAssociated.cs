@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.TPC.InheritanceAssociatio
 {
     public class TPC_ConcreteBaseClassAssociated
     {
+        public TPC_ConcreteBaseClassAssociated()
+        {
+            AssociatedField = null!;
+            ConcreteBaseClass = null!;
+        }
         public Guid Id { get; set; }
 
         public string AssociatedField { get; set; }

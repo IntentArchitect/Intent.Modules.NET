@@ -9,6 +9,14 @@ namespace SqlServerImporterTests.Domain.Entities.Dbo
 {
     public class Address : IHasDomainEvent
     {
+        public Address()
+        {
+            Line1 = null!;
+            Line2 = null!;
+            City = null!;
+            PostalCode = null!;
+            Customer = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid CustomerId { get; set; }

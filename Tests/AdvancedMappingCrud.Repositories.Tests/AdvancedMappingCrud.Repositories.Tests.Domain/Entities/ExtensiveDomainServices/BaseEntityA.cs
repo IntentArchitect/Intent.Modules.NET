@@ -9,6 +9,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.ExtensiveDomain
 {
     public class BaseEntityA : IHasDomainEvent
     {
+        public BaseEntityA()
+        {
+            BaseAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string BaseAttr { get; set; }

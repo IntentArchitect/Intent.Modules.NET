@@ -8,6 +8,10 @@ namespace AspNetCore.Controllers.Secured.Domain.Entities
 {
     public class OrderLine
     {
+        public OrderLine()
+        {
+            Product = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid OrderId { get; set; }

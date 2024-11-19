@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.Prima
 {
     public class NewClassDecimal : IHasDomainEvent
     {
+        public NewClassDecimal()
+        {
+            DecimalName = null!;
+        }
         public decimal Id { get; set; }
 
         public string DecimalName { get; set; }

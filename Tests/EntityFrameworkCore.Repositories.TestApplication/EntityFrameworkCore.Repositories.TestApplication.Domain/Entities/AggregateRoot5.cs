@@ -9,6 +9,10 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
 {
     public class AggregateRoot5 : IHasDomainEvent
     {
+        public AggregateRoot5()
+        {
+            AggregateRoot5EntityWithRepo = null!;
+        }
         public Guid Id { get; set; }
 
         public virtual AggregateRoot5EntityWithRepo AggregateRoot5EntityWithRepo { get; set; }

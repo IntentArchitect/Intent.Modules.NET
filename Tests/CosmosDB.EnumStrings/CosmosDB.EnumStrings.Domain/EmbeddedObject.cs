@@ -10,6 +10,7 @@ namespace CosmosDB.EnumStrings.Domain
     {
         protected EmbeddedObject()
         {
+            Name = null!;
         }
 
         public EmbeddedObject(string name, EnumExample enumExample, EnumExample? nullableEnumExample)

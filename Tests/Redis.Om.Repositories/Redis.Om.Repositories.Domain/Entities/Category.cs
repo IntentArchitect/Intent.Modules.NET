@@ -9,6 +9,12 @@ namespace Redis.Om.Repositories.Domain.Entities
     {
         private string? _id;
 
+        public Category()
+        {
+            Id = null!;
+            Name = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

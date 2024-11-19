@@ -11,6 +11,11 @@ namespace CosmosDB.Domain.Entities
     {
         private Guid? _id;
 
+        public University()
+        {
+            Name = null!;
+        }
+
         public Guid Id
         {
             get => _id ??= Guid.NewGuid();

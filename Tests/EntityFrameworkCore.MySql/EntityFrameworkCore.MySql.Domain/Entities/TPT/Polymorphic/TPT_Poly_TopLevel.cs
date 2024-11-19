@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPT.Polymorphic
 {
     public class TPT_Poly_TopLevel
     {
+        public TPT_Poly_TopLevel()
+        {
+            TopField = null!;
+        }
         public Guid Id { get; set; }
 
         public string TopField { get; set; }

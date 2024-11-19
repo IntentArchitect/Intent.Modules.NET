@@ -9,6 +9,12 @@ namespace CleanArchitecture.Dapr.Domain.Entities
     public class InvoiceLine
     {
         private string? _id;
+
+        public InvoiceLine()
+        {
+            Id = null!;
+            Description = null!;
+        }
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

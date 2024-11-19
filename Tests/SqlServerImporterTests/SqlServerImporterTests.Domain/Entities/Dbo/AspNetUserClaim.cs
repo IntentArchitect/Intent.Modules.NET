@@ -8,6 +8,11 @@ namespace SqlServerImporterTests.Domain.Entities.Dbo
 {
     public class AspNetUserClaim : IHasDomainEvent
     {
+        public AspNetUserClaim()
+        {
+            UserId = null!;
+            UserIdAspNetUsers = null!;
+        }
         public int Id { get; set; }
 
         public string UserId { get; set; }

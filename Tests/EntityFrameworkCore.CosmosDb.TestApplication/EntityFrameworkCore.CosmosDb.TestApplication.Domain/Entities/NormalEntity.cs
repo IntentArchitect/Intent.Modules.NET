@@ -9,6 +9,10 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities
 {
     public class NormalEntity : IHasDomainEvent
     {
+        public NormalEntity()
+        {
+            PackagePartKey = null!;
+        }
         public Guid Id { get; set; }
 
         public string PackagePartKey { get; set; }

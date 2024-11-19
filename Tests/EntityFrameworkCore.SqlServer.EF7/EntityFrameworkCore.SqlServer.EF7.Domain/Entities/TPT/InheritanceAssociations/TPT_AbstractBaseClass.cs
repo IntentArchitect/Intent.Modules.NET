@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.TPT.InheritanceAssoc
 {
     public abstract class TPT_AbstractBaseClass
     {
+        public TPT_AbstractBaseClass()
+        {
+            BaseAttribute = null!;
+        }
         public Guid Id { get; set; }
 
         public string BaseAttribute { get; set; }

@@ -7,8 +7,14 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 {
     public class CorporateFuneralCoverQuote : FuneralCoverQuote
     {
-        public CorporateFuneralCoverQuote(string refNo, Guid personId, string? personEmail)
+        public CorporateFuneralCoverQuote(string refNo,
+            Guid personId,
+            string? personEmail,
+            string corporate,
+            string registration)
         {
+            Corporate = corporate;
+            Registration = registration;
             base.RefNo = refNo;
             base.PersonId = personId;
             base.PersonEmail = personEmail;

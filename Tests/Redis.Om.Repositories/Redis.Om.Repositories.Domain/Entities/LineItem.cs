@@ -10,6 +10,13 @@ namespace Redis.Om.Repositories.Domain.Entities
     {
         private string? _id;
 
+        public LineItem()
+        {
+            Id = null!;
+            Description = null!;
+            Product = null!;
+        }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

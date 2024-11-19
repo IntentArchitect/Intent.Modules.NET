@@ -8,6 +8,13 @@ namespace TableStorage.Tests.Domain.Entities
 {
     public class Order : IHasDomainEvent
     {
+        public Order()
+        {
+            PartitionKey = null!;
+            RowKey = null!;
+            OrderNo = null!;
+            Customer = null!;
+        }
         public string PartitionKey { get; set; }
 
         public string RowKey { get; set; }

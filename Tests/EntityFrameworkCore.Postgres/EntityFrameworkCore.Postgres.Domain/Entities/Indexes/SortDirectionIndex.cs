@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.Indexes
 {
     public class SortDirectionIndex
     {
+        public SortDirectionIndex()
+        {
+            FieldA = null!;
+            FieldB = null!;
+        }
         public Guid Id { get; set; }
 
         public string FieldA { get; set; }

@@ -11,6 +11,12 @@ namespace CosmosDB.Domain.Entities.Folder
     {
         private string? _id;
         private string? _folderPartitionKey;
+
+        public FolderContainer()
+        {
+            Id = null!;
+            FolderPartitionKey = null!;
+        }
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

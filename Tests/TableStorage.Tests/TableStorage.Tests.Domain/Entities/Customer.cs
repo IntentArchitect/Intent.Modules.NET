@@ -6,6 +6,10 @@ namespace TableStorage.Tests.Domain.Entities
 {
     public class Customer
     {
+        public Customer()
+        {
+            Name = null!;
+        }
         public string Name { get; set; }
     }
 }

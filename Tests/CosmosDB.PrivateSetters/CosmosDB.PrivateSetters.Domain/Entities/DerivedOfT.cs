@@ -7,6 +7,10 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
 {
     public class DerivedOfT : BaseOfT<int>
     {
+        public DerivedOfT()
+        {
+            DerivedAttribute = null!;
+        }
         public string DerivedAttribute { get; private set; }
     }
 }

@@ -9,6 +9,12 @@ namespace SqlServerImporterTests.Domain.Entities.Schema2
 {
     public class Customers : IHasDomainEvent
     {
+        public Customers()
+        {
+            Name = null!;
+            Surname = null!;
+            Email = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

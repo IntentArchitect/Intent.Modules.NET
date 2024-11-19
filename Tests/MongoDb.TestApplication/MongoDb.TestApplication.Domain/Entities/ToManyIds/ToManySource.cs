@@ -8,6 +8,10 @@ namespace MongoDb.TestApplication.Domain.Entities.ToManyIds
 {
     public class ToManySource
     {
+        public ToManySource()
+        {
+            Id = null!;
+        }
         public string Id { get; set; }
 
         public ICollection<ToManyGuid> ToManyGuids { get; set; } = [];

@@ -7,6 +7,11 @@ namespace MongoDb.TestApplication.Domain.Entities
 {
     public class MapperM2M
     {
+        public MapperM2M()
+        {
+            Id = null!;
+            Desc = null!;
+        }
         public string Id { get; set; }
 
         public string Desc { get; set; }

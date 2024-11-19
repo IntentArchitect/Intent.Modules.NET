@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.TPH.Polymorphic
 {
     public class TPH_Poly_SecondLevel
     {
+        public TPH_Poly_SecondLevel()
+        {
+            SecondField = null!;
+        }
         public Guid Id { get; set; }
 
         public string SecondField { get; set; }

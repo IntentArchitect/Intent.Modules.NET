@@ -9,6 +9,11 @@ namespace FastEndpointsTest.Domain.Entities.Pagination
 {
     public class PersonEntry : IHasDomainEvent
     {
+        public PersonEntry()
+        {
+            FirstName = null!;
+            LastName = null!;
+        }
         public Guid Id { get; set; }
 
         public string FirstName { get; set; }

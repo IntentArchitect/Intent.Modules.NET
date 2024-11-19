@@ -10,6 +10,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.CRUD
     [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AggregateTestNoIdReturn : IHasDomainEvent
     {
+        public AggregateTestNoIdReturn()
+        {
+            Attribute = null!;
+        }
 
         public Guid Id { get; set; }
 

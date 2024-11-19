@@ -11,6 +11,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.ValueObjects
     {
         protected KeyValuePairSerialized()
         {
+            Key = null!;
+            Value = null!;
         }
 
         public KeyValuePairSerialized(string key, string value)

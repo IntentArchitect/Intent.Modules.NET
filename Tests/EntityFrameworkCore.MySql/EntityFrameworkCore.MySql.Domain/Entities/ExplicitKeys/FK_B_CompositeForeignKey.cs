@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.ExplicitKeys
 {
     public class FK_B_CompositeForeignKey
     {
+        public FK_B_CompositeForeignKey()
+        {
+            PK_CompositeKey = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid PK_CompositeKeyCompositeKeyA { get; set; }

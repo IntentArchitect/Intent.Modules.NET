@@ -9,6 +9,10 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain.Entities
 {
     public class AppDbEntity : IHasDomainEvent
     {
+        public AppDbEntity()
+        {
+            Message = null!;
+        }
         public Guid Id { get; set; }
 
         public string Message { get; set; }

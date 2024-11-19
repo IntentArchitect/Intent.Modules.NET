@@ -9,6 +9,13 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
 {
     public class N_ComplexRoot : IHasDomainEvent
     {
+        public N_ComplexRoot()
+        {
+            PartitionKey = null!;
+            ComplexAttr = null!;
+            N_CompositeOne = null!;
+            N_CompositeTwo = null!;
+        }
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }

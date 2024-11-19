@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.Associations
 {
     public class Q_DestNameDiff
     {
+        public Q_DestNameDiff()
+        {
+            DestNameDiff = null!;
+        }
         public Guid Id { get; set; }
 
         public virtual Q_DestNameDiffDependent DestNameDiff { get; set; }

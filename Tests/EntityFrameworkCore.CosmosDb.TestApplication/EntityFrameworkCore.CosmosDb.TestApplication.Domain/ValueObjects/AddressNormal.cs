@@ -10,6 +10,9 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.ValueObjects
     {
         protected AddressNormal()
         {
+            Line1 = null!;
+            Line2 = null!;
+            City = null!;
         }
 
         public AddressNormal(string line1, string line2, string city)

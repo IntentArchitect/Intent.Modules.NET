@@ -6,6 +6,10 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Entities.TPH.InheritanceAssoc
 {
     public class TPH_FkDerivedClass : TPH_FkBaseClass
     {
+        public TPH_FkDerivedClass()
+        {
+            DerivedField = null!;
+        }
         public string DerivedField { get; set; }
     }
 }

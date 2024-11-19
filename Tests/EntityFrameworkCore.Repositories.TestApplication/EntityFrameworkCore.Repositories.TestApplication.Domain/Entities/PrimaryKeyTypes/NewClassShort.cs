@@ -8,6 +8,10 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.Prima
 {
     public class NewClassShort : IHasDomainEvent
     {
+        public NewClassShort()
+        {
+            ShortName = null!;
+        }
         public short Id { get; set; }
 
         public string ShortName { get; set; }

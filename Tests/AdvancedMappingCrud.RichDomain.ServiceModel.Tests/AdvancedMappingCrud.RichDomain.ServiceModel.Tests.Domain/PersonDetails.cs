@@ -10,6 +10,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain
     {
         protected PersonDetails()
         {
+            Name = null!;
         }
 
         public PersonDetails(Names name)

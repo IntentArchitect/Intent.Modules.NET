@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPC.Polymorphic
 {
     public class TPC_Poly_BaseClassNonAbstract : TPC_Poly_RootAbstract
     {
+        public TPC_Poly_BaseClassNonAbstract()
+        {
+            BaseField = null!;
+        }
         public Guid Id { get; set; }
 
         public string BaseField { get; set; }

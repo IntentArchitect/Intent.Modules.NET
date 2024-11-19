@@ -7,6 +7,11 @@ namespace EntityFrameworkCore.MySql.Domain.Entities.TPC.InheritanceAssociations
 {
     public class TPC_DerivedClassForConcreteAssociated
     {
+        public TPC_DerivedClassForConcreteAssociated()
+        {
+            AssociatedField = null!;
+            DerivedClassForConcrete = null!;
+        }
         public Guid Id { get; set; }
 
         public string AssociatedField { get; set; }

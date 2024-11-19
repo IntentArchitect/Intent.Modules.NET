@@ -7,6 +7,10 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Domain.Entities
 {
     public class Priviledge
     {
+        public Priviledge()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid RoleId { get; set; }

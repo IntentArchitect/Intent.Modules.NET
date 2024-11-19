@@ -7,6 +7,10 @@ namespace ProxyServiceTests.OriginalServices.Domain.Entities
 {
     public class Client
     {
+        public Client()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

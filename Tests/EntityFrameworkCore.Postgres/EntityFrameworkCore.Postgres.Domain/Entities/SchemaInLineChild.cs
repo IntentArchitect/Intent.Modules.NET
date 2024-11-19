@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities
 {
     public class SchemaInLineChild
     {
+        public SchemaInLineChild()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

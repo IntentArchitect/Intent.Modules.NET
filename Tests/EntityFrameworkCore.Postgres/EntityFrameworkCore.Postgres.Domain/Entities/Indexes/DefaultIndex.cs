@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.Indexes
 {
     public class DefaultIndex
     {
+        public DefaultIndex()
+        {
+            IndexField = null!;
+        }
         public Guid Id { get; set; }
 
         public string IndexField { get; set; }

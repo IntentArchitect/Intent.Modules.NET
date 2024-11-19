@@ -8,6 +8,12 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.Associations
 {
     public class N_ComplexRoot
     {
+        public N_ComplexRoot()
+        {
+            ComplexAttr = null!;
+            N_CompositeOne = null!;
+            N_CompositeTwo = null!;
+        }
         public Guid Id { get; set; }
 
         public string ComplexAttr { get; set; }

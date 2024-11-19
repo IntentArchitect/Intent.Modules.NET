@@ -9,6 +9,10 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Domain.Entitie
 {
     public class Customer : IHasDomainEvent
     {
+        public Customer()
+        {
+            Name = null!;
+        }
         public Guid Id { get; set; }
 
         public string Name { get; set; }

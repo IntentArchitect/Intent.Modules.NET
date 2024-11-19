@@ -9,6 +9,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.Inheritance
 {
     public class BaseClass : IHasDomainEvent
     {
+        public BaseClass()
+        {
+            BaseAttr = null!;
+        }
         public Guid Id { get; set; }
 
         public string BaseAttr { get; set; }

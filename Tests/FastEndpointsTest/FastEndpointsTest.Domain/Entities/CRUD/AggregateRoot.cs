@@ -10,6 +10,12 @@ namespace FastEndpointsTest.Domain.Entities.CRUD
 {
     public class AggregateRoot : IHasDomainEvent
     {
+        public AggregateRoot()
+        {
+            AggregateAttr = null!;
+            LimitedDomain = null!;
+            LimitedService = null!;
+        }
         public Guid Id { get; set; }
 
         public string AggregateAttr { get; set; }

@@ -7,6 +7,10 @@ namespace EntityFrameworkCore.Postgres.Domain.Entities.ExplicitKeys
 {
     public class FK_A_CompositeForeignKey
     {
+        public FK_A_CompositeForeignKey()
+        {
+            PK_A_CompositeKey = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid PK_A_CompositeKeyCompositeKeyA { get; set; }

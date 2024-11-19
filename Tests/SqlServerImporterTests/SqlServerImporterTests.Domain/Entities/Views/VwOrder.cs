@@ -9,6 +9,10 @@ namespace SqlServerImporterTests.Domain.Entities.Views
 {
     public class VwOrder : IHasDomainEvent
     {
+        public VwOrder()
+        {
+            RefNo = null!;
+        }
         public Guid Id { get; set; }
 
         public Guid CustomerId { get; set; }
