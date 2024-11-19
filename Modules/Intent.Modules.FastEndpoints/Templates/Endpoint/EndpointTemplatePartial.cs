@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
 using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
@@ -17,7 +16,6 @@ using Intent.Modules.FastEndpoints.Templates.Endpoint.Models;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -30,19 +28,9 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
         public const string TemplateId = "Intent.FastEndpoints.EndpointTemplate";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public EndpointTemplate(IOutputTarget outputTarget, IEndpointModel model = null) : base(TemplateId, outputTarget, model)
+        public EndpointTemplate(IOutputTarget outputTarget, IEndpointModel? model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.FastEndpoints(OutputTarget));
-
-            SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            AddTypeSource(TemplateRoles.Domain.Enum);
-            AddTypeSource(TemplateRoles.Application.Command);
-            AddTypeSource(TemplateRoles.Application.Query);
-            AddTypeSource(TemplateRoles.Application.Contracts.Dto);
-            AddTypeSource(TemplateRoles.Application.Contracts.Enum);
-            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
-            AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
-
             AddKnownType("FastEndpoints.IEventBus");
 
             var versions = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id).GetApiVersionModels().FirstOrDefault();
@@ -55,6 +43,15 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 .AddUsing("Mode = Intent.RoslynWeaver.Attributes.Mode")
                 .AddClass($"{Model.Name.RemoveSuffix("Endpoint")}Endpoint", @class =>
                     {
+                        SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
+                        AddTypeSource(TemplateRoles.Domain.Enum);
+                        AddTypeSource(TemplateRoles.Application.Command);
+                        AddTypeSource(TemplateRoles.Application.Query);
+                        AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+                        AddTypeSource(TemplateRoles.Application.Contracts.Enum);
+                        AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
+                        AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
+
                         var payloadModel = TryGetRequestTemplate(Model);
 
                         TryResolveRequestModelClassName(payloadModel, out var requestModelClassName);
@@ -320,26 +317,24 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
 
         private void AddSecurity(CSharpClassMethod method)
         {
-            if (!IsEndpointSecured())
+            if (!Model.RequiresAuthorization)
             {
                 method.AddStatement("AllowAnonymous();");
+                return;
             }
 
-            if (!string.IsNullOrWhiteSpace(Model.Authorization?.RolesExpression) &&
-                Model.Authorization.RolesExpression.Contains('+'))
+            // FastEndpoints as this time doesn't allow an ANDing paradigm of a collection of
+            // security models, so we can only do a union of all the roles and/or policies:
+            var roles = Model.SecurityModels.SelectMany(x => x.Roles).Distinct().ToArray();
+            if (roles.Length > 0)
             {
-                var roles = Model.Authorization.RolesExpression.Split('+');
-
-                foreach (var roleGroup in roles)
-                {
-                    var individualRoles = roleGroup.Split(',', StringSplitOptions.RemoveEmptyEntries);
-                    method.AddStatement($@"Roles({string.Join(", ", individualRoles.Select(s => $@"""{s}"""))});");
-                }
+                method.AddStatement($"Roles({string.Join(", ", roles.Select(role => $"\"{role}\""))});");
             }
 
-            if (!string.IsNullOrWhiteSpace(Model.Authorization?.Policy))
+            var policies = Model.SecurityModels.SelectMany(x => x.Policies).Distinct().ToArray();
+            if (policies.Length > 0)
             {
-                method.AddStatement($@"Policies(""{Model.Authorization.Policy}"");");
+                method.AddStatement($"Policies({string.Join(", ", policies.Select(policy => $"\"{policy}\""))});");
             }
         }
 
@@ -358,7 +353,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 .AddArgument(@""">>Api Version<<""")
                 .WithoutSemicolon();
 
-            var versions = Model.ApplicableVersions.Any() ? Model.ApplicableVersions : [new EndpointApiVersionModel("", "V1.0", false)];
+            var versions = Model.ApplicableVersions.Count > 0 ? Model.ApplicableVersions : [new EndpointApiVersionModel("", "V1.0", false)];
 
             foreach (var versionModel in versions)
             {
@@ -369,7 +364,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 inv => inv.AddArgument(new CSharpLambdaBlock("x").WithExpressionBody(versionSet)));
         }
 
-        private void AddHttpInputAttributesToProperty(CSharpProperty property, IEndpointParameterModel parameter)
+        private static void AddHttpInputAttributesToProperty(CSharpProperty property, IEndpointParameterModel parameter)
         {
             if (parameter.Source is HttpInputSource.FromHeader)
             {
@@ -408,30 +403,6 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
         public override string TransformText()
         {
             return CSharpFile.ToString();
-        }
-
-        private bool IsContainerSecured()
-        {
-            // Still to be applied
-            // return ExecutionContext.Settings.GetAPISettings().DefaultAPISecurity().AsEnum() switch
-            // {
-            //     APISettings.DefaultAPISecurityOptionsEnum.Secured => Model.RequiresAuthorization || !Model.AllowAnonymous,
-            //     APISettings.DefaultAPISecurityOptionsEnum.Unsecured => Model.RequiresAuthorization,
-            //     _ => throw new ArgumentOutOfRangeException()
-            // };
-            return Model.Container.RequiresAuthorization || !Model.Container.AllowAnonymous;
-        }
-
-        private bool IsEndpointSecured()
-        {
-            if (!Model.RequiresAuthorization && !Model.AllowAnonymous)
-            {
-                return IsContainerSecured();
-            }
-
-            return IsContainerSecured()
-                ? Model.RequiresAuthorization || !Model.AllowAnonymous
-                : Model.RequiresAuthorization;
         }
     }
 }

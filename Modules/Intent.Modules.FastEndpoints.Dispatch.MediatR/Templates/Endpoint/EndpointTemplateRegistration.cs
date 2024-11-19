@@ -46,7 +46,10 @@ namespace Intent.Modules.FastEndpoints.Dispatch.MediatR.Templates.Endpoint
                 .GroupBy(x => x.ParentElement);
 
             return elementsGroupedByParent
-                .Select(grouping => new MediatREndpointContainerModel(grouping.Key, grouping))
+                .Select(grouping => new MediatREndpointContainerModel(
+                    parentElement: grouping.Key,
+                    elements: grouping,
+                    securedByDefault: false))
                 .SelectMany(container => container.Endpoints)
                 .ToArray();
         }

@@ -4,11 +4,11 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.CQRS.Api;
-using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.FastEndpoints.Templates.Endpoint;
 using Intent.Modules.FastEndpoints.Templates.Endpoint.Models;
+using Intent.Modules.Metadata.Security.Models;
 using Intent.Modules.Metadata.WebApi.Models;
 
 namespace Intent.Modules.FastEndpoints.Dispatch.MediatR.Templates.Endpoint;
@@ -17,89 +17,34 @@ public class MediatREndpointContainerModel : IEndpointContainerModel
 {
     public MediatREndpointContainerModel(
         IElement? parentElement,
-        IEnumerable<IElement> elements)
+        IEnumerable<IElement> elements,
+        bool securedByDefault)
     {
         Id = parentElement?.Id ?? Guid.Empty.ToString();
         Name = parentElement is not null
             ? string.Join(string.Empty,
-                parentElement.GetParentPath().Concat(new[] { parentElement })
+                parentElement.GetParentPath()
+                    .Append(parentElement)
                     .Select(s => s.Name?.Replace(".", "_").ToPascalCase() ?? string.Empty))
             : "Default";
         Folder = parentElement?.ParentElement?.AsFolderModel();
         InternalElement = parentElement;
-        Endpoints = elements.Select(IEndpointModel (operation) => new MediatREndpointModel(this, operation, GetAuthorizationModel(operation))).ToList();
-        AllowAnonymous = true;
-        RequiresAuthorization = false;
+        Endpoints = elements
+            .Select(element => new MediatREndpointModel(
+                containerModel: this,
+                endpoint: element,
+                securedByDefault: securedByDefault,
+                securityModels: SecurityModelHelpers.GetSecurityModels(element).ToArray()))
+            .ToArray();
         ApplicableVersions = [];
     }
 
     public string Id { get; }
-    public FolderModel? Folder { get; }
     public string Name { get; }
+    public FolderModel? Folder { get; }
     public IElement? InternalElement { get; }
-    public IList<IEndpointModel> Endpoints { get; }
-    public bool RequiresAuthorization { get; }
-    public bool AllowAnonymous { get; }
-    public IAuthorizationModel? Authorization { get; }
-    public IList<IApiVersionModel> ApplicableVersions { get; }
-
-    private static bool GetAuthorizationRolesAndPolicies(IElement element, out string roles, out string policy)
-    {
-        roles = null;
-        policy = null;
-        if (!element.HasStereotype("Authorize") && !element.HasStereotype("Secured"))
-        {
-            return false;
-        }
-
-        var auth = element.HasStereotype("Authorize") ? element.GetStereotype("Authorize") : element.GetStereotype("Secured");
-
-        if (!string.IsNullOrEmpty(auth.GetProperty<string>("Roles", null)))
-        {
-            roles = auth.GetProperty<string>("Roles");
-        }
-
-        if (!string.IsNullOrEmpty(auth.GetProperty<string>("Policy", null)))
-        {
-            policy = auth.GetProperty<string>("Policy");
-        }
-
-        if (auth.GetProperty<IElement[]>("Security Roles", null) != null)
-        {
-            var elements = auth.GetProperty<IElement[]>("Security Roles");
-            roles = string.Join(",", elements.Select(e => e.Name));
-        }
-
-        if (auth.GetProperty<IElement[]>("Security Policies", null) != null)
-        {
-            var elements = auth.GetProperty<IElement[]>("Security Policies");
-            policy = string.Join(",", elements.Select(e => e.Name));
-        }
-
-        return roles != null || policy != null;
-    }
-
-    private static AuthorizationModel GetAuthorizationModel(IElement element)
-    {
-        if (!GetAuthorizationRolesAndPolicies(element, out var roles, out var policies))
-        {
-            return null;
-        }
-
-        return new AuthorizationModel
-        {
-            RolesExpression = !string.IsNullOrWhiteSpace(roles)
-                ? @$"{string.Join("+", roles.Split('+', StringSplitOptions.RemoveEmptyEntries)
-                    .Select(group => string.Join(",", group.Trim().Split(',', StringSplitOptions.RemoveEmptyEntries)
-                        .Select(s => s.Trim()))))}"
-                : null,
-            Policy = !string.IsNullOrWhiteSpace(policies)
-                ? @$"{string.Join("+", policies.Split('+', StringSplitOptions.RemoveEmptyEntries)
-                    .Select(group => string.Join(",", group.Trim().Split(',', StringSplitOptions.RemoveEmptyEntries)
-                        .Select(s => s.Trim()))))}"
-                : null
-        };
-    }
+    public IReadOnlyCollection<IEndpointModel> Endpoints { get; }
+    public IReadOnlyCollection<IApiVersionModel> ApplicableVersions { get; }
 }
 
 public class MediatREndpointModel : IEndpointModel
@@ -107,9 +52,17 @@ public class MediatREndpointModel : IEndpointModel
     public MediatREndpointModel(
         MediatREndpointContainerModel containerModel,
         IElement endpoint,
-        IAuthorizationModel authorizationModel)
+        bool securedByDefault,
+        IReadOnlyCollection<ISecurityModel> securityModels)
     {
-        var httpEndpoint = HttpEndpointModelFactory.GetEndpoint(endpoint)!;
+        if (!HttpEndpointModelFactory.TryGetEndpoint(
+                element: endpoint,
+                defaultBasePath: null,
+                securedByDefault: securedByDefault,
+                httpEndpointModel: out var httpEndpoint))
+        {
+            throw new InvalidOperationException("Could not obtain endpoint model");
+        }
 
         Id = endpoint.Id;
         Comment = endpoint.Comment;
@@ -123,7 +76,7 @@ public class MediatREndpointModel : IEndpointModel
         Parameters = httpEndpoint.Inputs.Select(GetInput).ToList();
         RequiresAuthorization = httpEndpoint.RequiresAuthorization;
         AllowAnonymous = httpEndpoint.AllowAnonymous;
-        Authorization = authorizationModel;
+        SecurityModels = securityModels;
         ApplicableVersions = GetApplicableVersions(endpoint);
     }
 
@@ -133,16 +86,18 @@ public class MediatREndpointModel : IEndpointModel
     public ITypeReference TypeReference { get; }
     public ITypeReference? ReturnType => TypeReference.Element != null ? TypeReference : null;
     public HttpVerb Verb { get; }
-    public string Route { get; }
+    public string? Route { get; }
     public HttpMediaType? MediaType { get; }
     public IElement InternalElement { get; }
     public IEndpointContainerModel Container { get; }
     public IList<IEndpointParameterModel> Parameters { get; }
     public bool RequiresAuthorization { get; }
     public bool AllowAnonymous { get; }
-    public IAuthorizationModel? Authorization { get; }
-    public IList<IApiVersionModel> ApplicableVersions { get; }
-    public FolderModel? Folder => new FolderModel(Container.InternalElement, Container.InternalElement.SpecializationType);
+    public IReadOnlyCollection<ISecurityModel> SecurityModels { get; }
+    public IReadOnlyCollection<IApiVersionModel> ApplicableVersions { get; }
+    public FolderModel? Folder => Container.InternalElement != null
+        ? new FolderModel(Container.InternalElement, Container.InternalElement.SpecializationType)
+        : null;
 
     private static IEndpointParameterModel GetInput(IHttpEndpointInputModel model)
     {
@@ -157,7 +112,7 @@ public class MediatREndpointModel : IEndpointModel
             value: model.Value);
     }
 
-    private static IList<IApiVersionModel> GetApplicableVersions(IElement element)
+    private static IApiVersionModel[] GetApplicableVersions(IElement element)
     {
         if (element.IsCommandModel())
         {
@@ -165,7 +120,7 @@ public class MediatREndpointModel : IEndpointModel
                 ?.ApplicableVersions()
                 .Select(s => new EndpointApiVersionModel(s))
                 .Cast<IApiVersionModel>()
-                .ToList() ?? [];
+                .ToArray() ?? [];
         }
 
         if (element.IsQueryModel())
@@ -174,10 +129,10 @@ public class MediatREndpointModel : IEndpointModel
                 ?.ApplicableVersions()
                 .Select(s => new EndpointApiVersionModel(s))
                 .Cast<IApiVersionModel>()
-                .ToList() ?? [];
+                .ToArray() ?? [];
         }
 
-        return new List<IApiVersionModel>();
+        return [];
     }
 }
 

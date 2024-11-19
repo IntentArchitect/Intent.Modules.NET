@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.FastEndpoints.Dispatch.MediatR</id>
-  <version>1.0.0-beta.6</version>
+  <version>1.0.0-beta.7</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Instructs FastEndpoints to dispatch Commands and Queries to a separate handler via MediatR.</summary>
   <description>Instructs FastEndpoints to dispatch Commands and Queries to a separate handler via MediatR.</description>
@@ -14,11 +14,11 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Application.MediatR" version="4.2.8" />
-    <dependency id="Intent.Common" version="3.7.0" />
+    <dependency id="Intent.Application.MediatR" version="4.3.0-pre.0" />
+    <dependency id="Intent.Common" version="3.7.2-pre.0" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="4.0.0" />
-    <dependency id="Intent.FastEndpoints" version="1.0.0-beta.8" />
+    <dependency id="Intent.FastEndpoints" version="1.0.0-beta.9" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
