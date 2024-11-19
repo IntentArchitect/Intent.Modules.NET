@@ -130,6 +130,7 @@ steps:
     feedsToUse: 'select'
     vstsFeed: $(vstsFeed)
     projects: $(targetsToBuild)
+    restoreArguments: --no-cache
 
 - task: PowerShell@2
   displayName: 'Update Project URLs in imodspecs'
