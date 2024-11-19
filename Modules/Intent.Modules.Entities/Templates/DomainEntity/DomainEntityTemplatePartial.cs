@@ -9,7 +9,10 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.TypeResolution;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Settings;
 using Intent.Modules.Entities.Templates.DomainEnum;
@@ -17,6 +20,8 @@ using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
+using AttributeModel = Intent.Modelers.Domain.Api.AttributeModel;
+using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -157,8 +162,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                                 }
                             }
 
-
-                            if (ctor.Statements.Any())
+                            if (ctor.Statements.Count != 0)
                             {
                                 ctor.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
                             }
@@ -187,7 +191,9 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                 })
                 .AfterBuild(file =>
                 {
-                    foreach (var method in file.Classes.First().Methods)
+                    var @class = file.Classes.First();
+
+                    foreach (var method in @class.Methods)
                     {
                         if (method.IsAbstract)
                             continue;
@@ -199,6 +205,12 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                             method.AddStatement($"// TODO: Implement {method.Name} ({file.Classes.First().Name}) functionality");
                             method.AddStatement(@$"throw new {UseType("System.NotImplementedException")}(""Replace with your implementation..."");");
                         }
+                    }
+
+                    // After the build and all properties have been resolved, then check for null forgiving constructor
+                    if (@class.Constructors.Count == 0 && outputTarget.GetProject().IsNullableAwareContext() && outputTarget.GetProject().NullableEnabled)
+                    {
+                        @class.AddNullForgivingConstructor();
                     }
                 });
 

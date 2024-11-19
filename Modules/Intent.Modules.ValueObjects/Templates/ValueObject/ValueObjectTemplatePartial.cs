@@ -6,7 +6,10 @@ using Intent.Modelers.Domain.ValueObjects.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.TypeResolution;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.Modules.ValueObjects.Settings;
 using Intent.RoslynWeaver.Attributes;
@@ -34,7 +37,7 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
             switch (type)
             {
                 case ValueObjectSettings.ValueObjectTypeOptionsEnum.Class:
-                    DeclareValueObjectClassType();
+                    DeclareValueObjectClassType(outputTarget);
                     break;
                 case ValueObjectSettings.ValueObjectTypeOptionsEnum.Record:
                     DeclareValueObjectRecordType();
@@ -44,19 +47,15 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
             }
         }
 
-        private void DeclareValueObjectClassType()
+        private void DeclareValueObjectClassType(IOutputTarget outputTarget)
         {
             CSharpFile.AddClass(Model.Name, @class =>
             {
+                @class.RepresentsModel(Model);
                 @class.WithBaseType(this.GetValueObjectBaseName());
                 if (Model.HasSerializationSettings())
                 {
                     @class.AddMetadata("serialization", Model.GetSerializationSettings().Type().Value);
-                }
-
-                if (Model.Attributes.Any())
-                {
-                    @class.AddConstructor(ctor => { ctor.Protected(); });
                 }
 
                 @class.AddConstructor(ctor =>
@@ -79,6 +78,7 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
                                 {
                                     param.IntroduceProperty(prop =>
                                     {
+                                        prop.RepresentsModel(attribute);
                                         prop.PrivateSetter();
                                         method.AddStatement($"yield return {prop.Name};");
                                     });
@@ -86,6 +86,28 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
                             }
                         });
                 });
+
+                if (Model.Attributes.Any())
+                {
+                    var ctorCount = @class.Constructors.Count;
+                    if (outputTarget.GetProject().IsNullableAwareContext() && outputTarget.GetProject().NullableEnabled)
+                    {
+                        @class.AddNullForgivingConstructor(ctor =>
+                        {
+                            ctor.Protected();
+                        });
+                    }
+
+                    // this is basically for backward compability. If the null forgiving ctor is not added,
+                    // then a private empty ctor is added
+                    if (ctorCount == @class.Constructors.Count)
+                    {
+                        @class.AddConstructor(ctor =>
+                        {
+                            ctor.Protected();
+                        });
+                    }
+                };
             });
         }
 
@@ -106,6 +128,13 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
                     }
                 });
             });
+        }
+
+        private static bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
+        {
+            return !(typeInfo.IsPrimitive
+                     || typeInfo.IsNullable == true
+                     || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel()));
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
