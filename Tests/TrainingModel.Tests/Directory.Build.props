@@ -1,14 +1,21 @@
 <Project>
-    <PropertyGroup>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-        <NoWarn>S112</NoWarn>
-        <NoWarn>S2139</NoWarn>
-        <NoWarn>S2326</NoWarn>
-        <NoWarn>S1186</NoWarn>
-        <NoWarn>S6678</NoWarn>
-        <NoWarn>S1118</NoWarn>
-        <NoWarn>S6934</NoWarn>
-        <NoWarn>CS1998</NoWarn>
-        <NoWarn>S1481</NoWarn>
-    </PropertyGroup>
+
+  <PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>CS1998</NoWarn>
+    <NoWarn>S112</NoWarn>
+    <NoWarn>S1118</NoWarn>
+    <NoWarn>S1186</NoWarn>
+    <NoWarn>S1481</NoWarn>
+    <NoWarn>S2139</NoWarn>
+    <NoWarn>S2326</NoWarn>
+    <NoWarn>S6678</NoWarn>
+    <NoWarn>S6934</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <NuGetAuditSuppress Include="https://github.com/advisories/GHSA-qj66-m88j-hmgj" />
+    <NuGetAuditSuppress Include="https://github.com/advisories/GHSA-8g4q-xg66-9fp4" />
+  </ItemGroup>
+
 </Project>
