@@ -4,12 +4,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4d5052dc-6360-46f0-a1e2-e4b81d90424e</correlationId>
       <path>Intent.Modules.Application.Identity/Templates/AuthorizeAttribute/AuthorizeAttributeTemplatePartial.cs</path>
-      <count>4</count>
+      <count>3</count>
       <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2024-10-24T10:37:12.0842734Z</updatedAt>
-      <deviationsHash>5F19626798EF562F4F7C999B807600AEABBB623F9F281F040CA539B6271AC004</deviationsHash>
-      <fileHash>51FEAE8B981085D10121437CAA43F95A1F60D8646D4BD47EFB2FF953C7E1D832</fileHash>
+      <updatedAt>2024-11-15T13:30:06.0471944Z</updatedAt>
+      <deviationsHash>AE85F758C77E776F0F47B5598AB9D6916FE04687E70CED9938A893CF6E0D142C</deviationsHash>
+      <fileHash>5FE9B474A22942725B2F9877216B00BA38B88CD31A6AE03530BC276D6D407117</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#4d5052dc-6360-46f0-a1e2-e4b81d90424e</correlationId>
@@ -79,15 +79,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#68c81f7f-55ec-4466-961e-3cbdeda66f50</correlationId>
       <path>Intent.Modules.Application.Identity/Templates/ResultModel/ResultModelTemplatePartial.cs</path>
-      <count>3</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-06T09:33:33.6230603Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T11:58:32.362658Z</approvedAt>
-      <deviationsHash>9A48369CCE981823BE316988BA3A91AAA1179403D8F824F81FAFA0CA510B0596</deviationsHash>
-      <fileHash>1C9732F9E0203A934A0813A1D9BC9822D15F1AFD6F323DC1D3A0B266148DFAEB</fileHash>
+      <count>4</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2024-11-15T13:25:25.7875829Z</updatedAt>
+      <deviationsHash>2C95CB2FF62D6D945B40F4C3931C47B8A62F7A9BDF6EBE4AA21D7A0397BC5F25</deviationsHash>
+      <fileHash>512C8B475CDCA437587D8B6B16D4B727EDC9E235BF8712FB9CFB304D7A24578A</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#68c81f7f-55ec-4466-961e-3cbdeda66f50</correlationId>

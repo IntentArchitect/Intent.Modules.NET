@@ -1,3 +1,7 @@
+### Version 3.5.5
+
+- Improvement: Converted `Result` model to builder pattern with small syntax improvements
+
 ### Version 3.5.4
 
 - Improvement: Upgraded AuthorizeAttribute template to use Builder Pattern paradigm

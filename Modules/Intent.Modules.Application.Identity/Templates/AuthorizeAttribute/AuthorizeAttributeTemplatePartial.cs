@@ -19,7 +19,7 @@ namespace Intent.Modules.Application.Identity.Templates.AuthorizeAttribute
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Application.Identity.AuthorizeAttribute";
 
-        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
         public AuthorizeAttributeTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddUsing("System");
