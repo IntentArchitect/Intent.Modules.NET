@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.CustomResponseCodes.Get.Cu
         [IntentManaged(Mode.Merge)]
         public CustomResponse200Validator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -13,13 +13,6 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.GetTestClas
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetTestClassesQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

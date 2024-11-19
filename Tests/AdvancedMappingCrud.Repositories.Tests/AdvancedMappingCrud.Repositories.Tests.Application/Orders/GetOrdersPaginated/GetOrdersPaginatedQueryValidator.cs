@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.GetOrdersPag
         [IntentManaged(Mode.Merge)]
         public GetOrdersPaginatedQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

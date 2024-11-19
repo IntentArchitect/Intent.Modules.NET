@@ -12,12 +12,6 @@ namespace CosmosDB.PrivateSetters.Application.ClassContainers.GetClassContainers
         [IntentManaged(Mode.Merge)]
         public GetClassContainersQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -13,14 +13,7 @@ namespace CleanArchitecture.Comprehensive.Application.IntegrationTriggeringsAnem
         [IntentManaged(Mode.Merge)]
         public DeleteAnemicIntegrationTriggeringCommandValidator()
         {
-            ConfigureValidationRules();
 
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

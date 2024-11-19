@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.NestingParents.GetN
         [IntentManaged(Mode.Merge)]
         public GetNestingParentsQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

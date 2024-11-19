@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Contracts.DeleteCon
         [IntentManaged(Mode.Merge)]
         public DeleteContractCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

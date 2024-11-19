@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.GetOrderOrde
         [IntentManaged(Mode.Merge)]
         public GetOrderOrderItemsQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

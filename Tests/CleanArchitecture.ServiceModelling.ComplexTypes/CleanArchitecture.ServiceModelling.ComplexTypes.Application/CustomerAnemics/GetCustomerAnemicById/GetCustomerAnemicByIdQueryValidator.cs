@@ -13,14 +13,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetCustomerAnemicByIdQueryValidator()
         {
-            ConfigureValidationRules();
 
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

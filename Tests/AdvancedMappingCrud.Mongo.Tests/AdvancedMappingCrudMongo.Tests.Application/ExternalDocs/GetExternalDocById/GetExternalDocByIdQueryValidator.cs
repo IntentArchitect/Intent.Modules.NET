@@ -12,12 +12,6 @@ namespace AdvancedMappingCrudMongo.Tests.Application.ExternalDocs.GetExternalDoc
         [IntentManaged(Mode.Merge)]
         public GetExternalDocByIdQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

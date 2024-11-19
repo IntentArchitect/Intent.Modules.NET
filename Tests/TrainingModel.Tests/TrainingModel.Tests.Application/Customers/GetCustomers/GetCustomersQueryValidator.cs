@@ -12,12 +12,6 @@ namespace TrainingModel.Tests.Application.Customers.GetCustomers
         [IntentManaged(Mode.Merge)]
         public GetCustomersQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

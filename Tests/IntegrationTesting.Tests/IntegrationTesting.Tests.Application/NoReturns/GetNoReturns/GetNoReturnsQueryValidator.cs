@@ -12,12 +12,6 @@ namespace IntegrationTesting.Tests.Application.NoReturns.GetNoReturns
         [IntentManaged(Mode.Merge)]
         public GetNoReturnsQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

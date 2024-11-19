@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Users.TestDCUser
         [IntentManaged(Mode.Merge)]
         public TestDCUserCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

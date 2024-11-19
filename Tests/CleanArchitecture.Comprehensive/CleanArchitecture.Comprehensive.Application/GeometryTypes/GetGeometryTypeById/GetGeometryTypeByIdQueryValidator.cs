@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.GeometryTypes.GetGeometryT
         [IntentManaged(Mode.Merge)]
         public GetGeometryTypeByIdQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

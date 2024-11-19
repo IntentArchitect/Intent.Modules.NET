@@ -12,12 +12,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.AsyncRepo
         [IntentManaged(Mode.Merge)]
         public OperationCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

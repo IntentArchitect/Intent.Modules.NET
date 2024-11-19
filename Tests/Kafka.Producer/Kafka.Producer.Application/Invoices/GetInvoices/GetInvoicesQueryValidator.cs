@@ -12,12 +12,6 @@ namespace Kafka.Producer.Application.Invoices.GetInvoices
         [IntentManaged(Mode.Merge)]
         public GetInvoicesQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

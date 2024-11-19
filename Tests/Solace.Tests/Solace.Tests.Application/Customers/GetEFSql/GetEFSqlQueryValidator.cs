@@ -12,12 +12,6 @@ namespace Solace.Tests.Application.Customers.GetEFSql
         [IntentManaged(Mode.Merge)]
         public GetEFSqlQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

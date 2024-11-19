@@ -12,12 +12,6 @@ namespace SharedKernel.Consumer.Tests.Application.Orders.DeleteOrder
         [IntentManaged(Mode.Merge)]
         public DeleteOrderCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

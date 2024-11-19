@@ -12,12 +12,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.CustomRep
         [IntentManaged(Mode.Merge)]
         public Operation_Params0_ReturnsD_Collection0QueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

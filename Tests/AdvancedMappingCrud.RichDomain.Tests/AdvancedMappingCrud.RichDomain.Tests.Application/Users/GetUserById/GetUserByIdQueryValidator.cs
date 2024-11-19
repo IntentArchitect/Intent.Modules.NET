@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Users.GetUserById
         [IntentManaged(Mode.Merge)]
         public GetUserByIdQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

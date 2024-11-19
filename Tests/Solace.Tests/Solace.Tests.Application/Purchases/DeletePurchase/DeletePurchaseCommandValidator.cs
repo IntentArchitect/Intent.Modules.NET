@@ -12,12 +12,6 @@ namespace Solace.Tests.Application.Purchases.DeletePurchase
         [IntentManaged(Mode.Merge)]
         public DeletePurchaseCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

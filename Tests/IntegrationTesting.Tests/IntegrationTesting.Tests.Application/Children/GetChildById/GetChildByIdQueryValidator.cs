@@ -12,12 +12,6 @@ namespace IntegrationTesting.Tests.Application.Children.GetChildById
         [IntentManaged(Mode.Merge)]
         public GetChildByIdQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

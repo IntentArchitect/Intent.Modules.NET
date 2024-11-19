@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.DeleteOrderO
         [IntentManaged(Mode.Merge)]
         public DeleteOrderOrderItemCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

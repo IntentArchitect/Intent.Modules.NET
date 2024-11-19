@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Products.DeleteProduct
         [IntentManaged(Mode.Merge)]
         public DeleteProductCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

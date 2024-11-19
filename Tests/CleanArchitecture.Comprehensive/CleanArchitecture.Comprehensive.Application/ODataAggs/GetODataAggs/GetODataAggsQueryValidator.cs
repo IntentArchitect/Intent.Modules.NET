@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.ODataAggs.GetODataAggs
         [IntentManaged(Mode.Merge)]
         public GetODataAggsQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

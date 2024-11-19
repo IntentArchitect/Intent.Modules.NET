@@ -12,12 +12,6 @@ namespace TrainingModel.Tests.Application.Customers.GetCustomersPaginated
         [IntentManaged(Mode.Merge)]
         public GetCustomersPaginatedQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

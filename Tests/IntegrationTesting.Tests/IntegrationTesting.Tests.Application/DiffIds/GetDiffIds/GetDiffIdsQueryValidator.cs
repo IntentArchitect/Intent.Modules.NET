@@ -12,12 +12,6 @@ namespace IntegrationTesting.Tests.Application.DiffIds.GetDiffIds
         [IntentManaged(Mode.Merge)]
         public GetDiffIdsQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

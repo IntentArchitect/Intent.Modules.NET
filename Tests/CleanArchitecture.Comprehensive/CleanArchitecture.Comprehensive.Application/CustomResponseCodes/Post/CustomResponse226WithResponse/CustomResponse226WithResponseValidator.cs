@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.CustomResponseCodes.Post.C
         [IntentManaged(Mode.Merge)]
         public CustomResponse226WithResponseValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

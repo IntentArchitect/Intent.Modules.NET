@@ -12,12 +12,6 @@ namespace CosmosDB.EntityInterfaces.Application.Departments.GetDepartmentById
         [IntentManaged(Mode.Merge)]
         public GetDepartmentByIdQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

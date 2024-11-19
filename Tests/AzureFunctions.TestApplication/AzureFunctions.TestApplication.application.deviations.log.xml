@@ -184,58 +184,6 @@
       <fileHash>36D4AF777B19939F4947E6F03A704FDC8EB15C26E2465B23484BEC2C17AE5AAE</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#30029fad-9d4e-4b94-854a-b6b426a28b18</correlationId>
-      <path>AzureFunctions.NET6.Application/Validators/Customers/DeleteCustomer/DeleteCustomerCommandValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:42:04.4543317Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:20:52.0598722Z</approvedAt>
-      <deviationsHash>74A651780EE31B00E4A0BD30BB25DCF578598C433D301438B448085BFA65F9BD</deviationsHash>
-      <fileHash>C87CCF85AA39DD3698FA3BEA356F79B59F21D8E79752F3A6B13042BA327AA502</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#3d847d50-cd55-4778-930f-2d231412be09</correlationId>
-      <path>AzureFunctions.NET6.Application/Validators/Customers/GetCustomerById/GetCustomerByIdQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:42:04.4543659Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:20:52.0569672Z</approvedAt>
-      <deviationsHash>898AB2763DC2E360B2E9B4B46D8193C38A9F572AFBD5A09F55F0EEF7FCBD1E14</deviationsHash>
-      <fileHash>AF7C3F0F1E2CF5A747DE1FF5D3491D4F61CA01B05F6C704EFF0BDFDCD2C972B7</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#b6345a10-400f-423c-97e9-e30ea079b2ca</correlationId>
-      <path>AzureFunctions.NET6.Application/Validators/Customers/GetCustomers/GetCustomersQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:42:04.4543831Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:20:52.0622903Z</approvedAt>
-      <deviationsHash>56F08E703E36AC08C0C672ED063626A94B1C72EC439451929D8911FF84FA00FF</deviationsHash>
-      <fileHash>99B7C24779C6EC91DA69C3575A616AE953375393371C581C923210A672F720C3</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#53463505-a292-44cf-9eb1-d6729db30602</correlationId>
-      <path>AzureFunctions.NET6.Application/Validators/Customers/GetCustomersPaged/GetCustomersPagedQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:42:04.4543777Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:20:52.0647238Z</approvedAt>
-      <deviationsHash>7ADBFCFA0DAA5D98C4DA45A8616755B33908D4BB90491716ED24FF943D1A2AAD</deviationsHash>
-      <fileHash>622AB170FEB94D4E417010EE75E43AC04A8714CD116B7A47FEA6C017C667C9BC</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#c46b5b51-bc6f-4f45-bf94-7e6610874726</correlationId>
       <path>AzureFunctions.NET6.Application/Validators/Customers/GetPagedWithParameters/GetPagedWithParametersValidator.cs</path>
       <count>1</count>
@@ -260,19 +208,6 @@
       <approvedAt>2024-06-20T20:20:52.0696293Z</approvedAt>
       <deviationsHash>86C3882001B0ACA3D8F32BC552A6186DF0BDC164BE35A538F94F4820CF9E843C</deviationsHash>
       <fileHash>3FBB8720CCA069B127BDE443BF52570B108922DDB98570378DF2EEEAE455D9D3</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#28022ad8-0333-42eb-954a-36cf1dbdaf7d</correlationId>
-      <path>AzureFunctions.NET6.Application/Validators/NullableResult/GetCustomerNullable/GetCustomerNullableValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:42:04.4543719Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:20:52.0721352Z</approvedAt>
-      <deviationsHash>1C1B992EDEF80135D952A7E014D626F28B2A7D682EE7618A940F82AC9ECECA2F</deviationsHash>
-      <fileHash>F553BB92D3008BEC449AD6C34480FD098EE146039D9F8FC752E5F8EEAB97ECF4</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#cfb6e9cd-7769-43eb-9de9-ce70565392fe</correlationId>

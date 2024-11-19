@@ -12,12 +12,6 @@ namespace MassTransit.AzureServiceBus.Application.RequestResponse.CQRS.CommandNo
         [IntentManaged(Mode.Merge)]
         public CommandNoParamValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

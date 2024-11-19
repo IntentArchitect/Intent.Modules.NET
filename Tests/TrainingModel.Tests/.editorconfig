@@ -30,5 +30,5 @@ dotnet_diagnostic.S6934.severity = none
 dotnet_diagnostic.CS1998.severity = none
 
 [HealthChecksConfiguration.cs]
-# async method without await
+# unused variable
 dotnet_diagnostic.S1481.severity = none

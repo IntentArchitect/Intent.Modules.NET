@@ -12,12 +12,6 @@ namespace Solace.Tests.Application.Accounts.UpdateAccount
         [IntentManaged(Mode.Merge)]
         public UpdateAccountCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

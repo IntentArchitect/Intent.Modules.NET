@@ -12,12 +12,6 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Application.En
         [IntentManaged(Mode.Merge)]
         public GetEntityAppDefaultsQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

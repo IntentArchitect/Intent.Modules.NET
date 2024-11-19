@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomersPag
         [IntentManaged(Mode.Merge)]
         public GetCustomersPagedQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

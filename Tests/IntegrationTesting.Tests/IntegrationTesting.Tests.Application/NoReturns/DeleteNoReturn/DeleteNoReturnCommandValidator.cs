@@ -12,12 +12,6 @@ namespace IntegrationTesting.Tests.Application.NoReturns.DeleteNoReturn
         [IntentManaged(Mode.Merge)]
         public DeleteNoReturnCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

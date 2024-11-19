@@ -12,12 +12,6 @@ namespace CosmosDB.PrivateSetters.Application.Departments.DeleteDepartment
         [IntentManaged(Mode.Merge)]
         public DeleteDepartmentCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,12 +12,6 @@ namespace IntegrationTesting.Tests.Application.DtoReturns.GetDtoReturns
         [IntentManaged(Mode.Merge)]
         public GetDtoReturnsQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

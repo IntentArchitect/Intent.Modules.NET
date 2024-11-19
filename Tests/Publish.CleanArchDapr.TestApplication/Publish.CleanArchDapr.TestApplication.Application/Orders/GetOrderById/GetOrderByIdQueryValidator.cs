@@ -13,13 +13,6 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.GetOrderById
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetOrderByIdQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

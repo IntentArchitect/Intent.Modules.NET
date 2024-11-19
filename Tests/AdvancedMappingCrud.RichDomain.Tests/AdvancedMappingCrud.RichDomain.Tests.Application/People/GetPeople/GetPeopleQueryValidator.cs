@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.People.GetPeople
         [IntentManaged(Mode.Merge)]
         public GetPeopleQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

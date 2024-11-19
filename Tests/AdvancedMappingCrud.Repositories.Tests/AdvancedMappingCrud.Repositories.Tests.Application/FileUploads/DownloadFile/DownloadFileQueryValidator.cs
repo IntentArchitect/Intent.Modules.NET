@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.Downloa
         [IntentManaged(Mode.Merge)]
         public DownloadFileQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

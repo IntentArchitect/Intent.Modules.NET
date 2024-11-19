@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.BugFixes.GetTaskName
         [IntentManaged(Mode.Merge)]
         public GetTaskNameQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

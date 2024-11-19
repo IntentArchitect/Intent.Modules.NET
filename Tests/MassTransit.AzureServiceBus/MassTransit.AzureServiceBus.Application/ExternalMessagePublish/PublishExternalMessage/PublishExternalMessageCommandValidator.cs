@@ -12,12 +12,6 @@ namespace MassTransit.AzureServiceBus.Application.ExternalMessagePublish.Publish
         [IntentManaged(Mode.Merge)]
         public PublishExternalMessageCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

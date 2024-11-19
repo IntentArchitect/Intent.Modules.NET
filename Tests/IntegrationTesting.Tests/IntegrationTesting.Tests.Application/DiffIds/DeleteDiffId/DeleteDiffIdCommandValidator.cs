@@ -12,12 +12,6 @@ namespace IntegrationTesting.Tests.Application.DiffIds.DeleteDiffId
         [IntentManaged(Mode.Merge)]
         public DeleteDiffIdCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

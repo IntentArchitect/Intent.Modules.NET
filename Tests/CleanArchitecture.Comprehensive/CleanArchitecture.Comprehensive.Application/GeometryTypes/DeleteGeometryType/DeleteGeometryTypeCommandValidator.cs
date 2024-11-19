@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.GeometryTypes.DeleteGeomet
         [IntentManaged(Mode.Merge)]
         public DeleteGeometryTypeCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

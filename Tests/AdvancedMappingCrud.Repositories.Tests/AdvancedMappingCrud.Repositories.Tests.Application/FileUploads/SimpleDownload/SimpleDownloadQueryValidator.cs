@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.SimpleD
         [IntentManaged(Mode.Merge)]
         public SimpleDownloadQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

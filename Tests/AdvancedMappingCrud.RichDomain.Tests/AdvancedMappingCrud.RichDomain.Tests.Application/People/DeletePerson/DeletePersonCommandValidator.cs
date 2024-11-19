@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.People.DeletePerson
         [IntentManaged(Mode.Merge)]
         public DeletePersonCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

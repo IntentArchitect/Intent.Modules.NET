@@ -12,12 +12,6 @@ namespace TrainingModel.Tests.Application.Products.AddPriceProduct
         [IntentManaged(Mode.Merge)]
         public AddPriceProductCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

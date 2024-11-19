@@ -15,19 +15,6 @@
       <fileHash>C8F7366107DAD9CFA4A1469F539E383BF51F5C83D303F912914C256B99A75E08</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#b8fd830b-c7f2-4fb0-abb5-a488b59a5bc2</correlationId>
-      <path>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/DeleteOrder/DeleteOrderCommandValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:14:05.9478938Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:14:05.9478954Z</approvedAt>
-      <deviationsHash>76510944ED54EC2BBFA10AF3A308B816FFCF11ACC016DD80748B1346BBA8616D</deviationsHash>
-      <fileHash>96EE85F1F78A74A9EAF2BA4CD361CCC260DB7F60521FA804F038AE4981EBEA4F</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#fb0f5c28-272b-4485-a20b-41745ce9313d</correlationId>
       <path>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/GetOrderById/GetOrderByIdQueryHandler.cs</path>
       <count>1</count>
@@ -41,19 +28,6 @@
       <fileHash>E71494CA410B21A308F566358C1716D99C8B7D84A4F01C82BF78F1A3010FAC34</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#fb0f5c28-272b-4485-a20b-41745ce9313d</correlationId>
-      <path>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/GetOrderById/GetOrderByIdQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:14:05.950101Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:14:05.950103Z</approvedAt>
-      <deviationsHash>FE9B4160AFA4A8EF4CFC82A3AA3BF403ADC16079B297AB598E8C3A4FCBAA7A0B</deviationsHash>
-      <fileHash>82F6D419546873A908D3E0EBFF8669447E5191FE9E2131B9F0862BA47C86B5C2</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#f6049f06-ccbd-4c1a-a66e-6a8fa2ae1e35</correlationId>
       <path>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/GetOrders/GetOrdersQueryHandler.cs</path>
       <count>1</count>
@@ -65,19 +39,6 @@
       <approvedAt>2024-06-20T20:14:05.951004Z</approvedAt>
       <deviationsHash>E83795F16FB98E53F3AAAFBC9FFB683EDC558F376F4183416D2ACC5D6CACD9EB</deviationsHash>
       <fileHash>E70EC5064833E7C19A0725CB80B35F8BE24BA0A3AB7697CA58113414C26F08EF</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#f6049f06-ccbd-4c1a-a66e-6a8fa2ae1e35</correlationId>
-      <path>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/Orders/GetOrders/GetOrdersQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:14:05.9520618Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:14:05.9520637Z</approvedAt>
-      <deviationsHash>2E87142F49335AA571830F909C8723433BC7DC16E8A65758A14573A33AC77CDD</deviationsHash>
-      <fileHash>63DFD52FD235903E67916A35378D8512A6D4DC7B506758278A8A2777EDCA29BB</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#fc38edd7-56f0-4d61-ae4b-08f4ed576679</correlationId>

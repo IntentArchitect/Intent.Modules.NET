@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Users.DeleteUserAdd
         [IntentManaged(Mode.Merge)]
         public DeleteUserAddressCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

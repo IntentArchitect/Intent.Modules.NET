@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.TestNullablities.GetTestNu
         [IntentManaged(Mode.Merge)]
         public GetTestNullabilityWithNullReturnValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

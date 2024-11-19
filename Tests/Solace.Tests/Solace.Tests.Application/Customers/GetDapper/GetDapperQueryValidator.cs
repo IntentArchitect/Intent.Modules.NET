@@ -12,12 +12,6 @@ namespace Solace.Tests.Application.Customers.GetDapper
         [IntentManaged(Mode.Merge)]
         public GetDapperQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,12 +12,6 @@ namespace FastEndpointsTest.Application.Pagination.GetPeoplePaginated
         [IntentManaged(Mode.Merge)]
         public GetPeoplePaginatedQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Clas
         [IntentManaged(Mode.Merge)]
         public DeleteAggregateWithUniqueConstraintIndexStereotypeCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

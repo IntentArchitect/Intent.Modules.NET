@@ -13,14 +13,7 @@ namespace CleanArchitecture.Comprehensive.Application.AsyncOperationsClasses.Imp
         [IntentManaged(Mode.Merge)]
         public ImplicitAsyncWithReturnCommandValidator()
         {
-            ConfigureValidationRules();
 
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

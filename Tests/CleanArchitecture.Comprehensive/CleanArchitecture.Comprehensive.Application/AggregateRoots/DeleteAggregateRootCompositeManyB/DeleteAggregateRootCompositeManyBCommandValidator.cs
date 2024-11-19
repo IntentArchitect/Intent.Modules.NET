@@ -13,14 +13,7 @@ namespace CleanArchitecture.Comprehensive.Application.AggregateRoots.DeleteAggre
         [IntentManaged(Mode.Merge)]
         public DeleteAggregateRootCompositeManyBCommandValidator()
         {
-            ConfigureValidationRules();
 
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

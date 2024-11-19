@@ -12,12 +12,6 @@ namespace FastEndpointsTest.Application.AggregateWithUniqueConstraintIndexElemen
         [IntentManaged(Mode.Merge)]
         public GetAggregateWithUniqueConstraintIndexElementsQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

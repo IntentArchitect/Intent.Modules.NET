@@ -12,12 +12,6 @@ namespace CosmosDB.EnumStrings.Application.RootEntities.GetRootEntities
         [IntentManaged(Mode.Merge)]
         public GetRootEntitiesQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

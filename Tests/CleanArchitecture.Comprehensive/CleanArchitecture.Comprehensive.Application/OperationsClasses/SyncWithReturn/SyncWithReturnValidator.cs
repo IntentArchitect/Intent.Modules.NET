@@ -13,14 +13,7 @@ namespace CleanArchitecture.Comprehensive.Application.OperationsClasses.SyncWith
         [IntentManaged(Mode.Merge)]
         public SyncWithReturnValidator()
         {
-            ConfigureValidationRules();
 
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

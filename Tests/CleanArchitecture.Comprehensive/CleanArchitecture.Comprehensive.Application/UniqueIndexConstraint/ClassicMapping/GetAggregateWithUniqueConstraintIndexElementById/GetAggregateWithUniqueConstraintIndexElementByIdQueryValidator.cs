@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Clas
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetAggregateWithUniqueConstraintIndexElementByIdQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.Repositories.ProjectTo.Tests.Application.Customers
         [IntentManaged(Mode.Merge)]
         public GetCustomersQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

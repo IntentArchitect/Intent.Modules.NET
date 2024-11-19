@@ -12,12 +12,6 @@ namespace TrainingModel.Tests.Application.Brands.DeactivateBrand
         [IntentManaged(Mode.Merge)]
         public DeactivateBrandCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

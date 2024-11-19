@@ -12,12 +12,6 @@ namespace IntegrationTesting.Tests.Application.HasDateOnlyField.HasDateOnlyField
         [IntentManaged(Mode.Merge)]
         public CreateHasDateOnlyFieldCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

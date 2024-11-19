@@ -13,14 +13,7 @@ namespace CleanArchitecture.Comprehensive.Application.SecuredService.Secured
         [IntentManaged(Mode.Merge)]
         public SecuredCommandValidator()
         {
-            ConfigureValidationRules();
 
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

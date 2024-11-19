@@ -12,13 +12,6 @@ namespace Entities.PrivateSetters.TestApplication.Application.OptionalToManyDest
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetOptionalToManyDestByIdQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,12 +12,6 @@ namespace IntegrationTesting.Tests.Application.Orders.DeleteOrderOrderItem
         [IntentManaged(Mode.Merge)]
         public DeleteOrderOrderItemCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,12 +12,6 @@ namespace IntegrationTesting.Tests.Application.Children.DeleteChild
         [IntentManaged(Mode.Merge)]
         public DeleteChildCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.CustomResponseCodes.Delete
         [IntentManaged(Mode.Merge)]
         public CustomResponseDefaultWithResponseValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

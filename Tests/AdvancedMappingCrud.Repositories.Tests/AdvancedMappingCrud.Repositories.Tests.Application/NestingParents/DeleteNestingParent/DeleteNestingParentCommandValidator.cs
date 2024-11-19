@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.NestingParents.Dele
         [IntentManaged(Mode.Merge)]
         public DeleteNestingParentCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

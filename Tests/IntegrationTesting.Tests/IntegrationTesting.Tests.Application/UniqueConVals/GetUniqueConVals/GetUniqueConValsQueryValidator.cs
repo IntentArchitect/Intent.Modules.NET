@@ -12,12 +12,6 @@ namespace IntegrationTesting.Tests.Application.UniqueConVals.GetUniqueConVals
         [IntentManaged(Mode.Merge)]
         public GetUniqueConValsQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

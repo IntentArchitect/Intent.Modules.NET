@@ -12,12 +12,6 @@ namespace OpenApiImporterTest.Application.Pets.GetPet
         [IntentManaged(Mode.Merge)]
         public GetPetQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

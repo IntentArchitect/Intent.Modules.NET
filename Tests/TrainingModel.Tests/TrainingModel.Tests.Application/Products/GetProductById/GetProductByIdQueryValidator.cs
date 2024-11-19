@@ -12,12 +12,6 @@ namespace TrainingModel.Tests.Application.Products.GetProductById
         [IntentManaged(Mode.Merge)]
         public GetProductByIdQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

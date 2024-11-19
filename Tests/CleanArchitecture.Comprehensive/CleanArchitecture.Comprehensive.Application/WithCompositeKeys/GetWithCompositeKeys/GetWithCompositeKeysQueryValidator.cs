@@ -13,14 +13,7 @@ namespace CleanArchitecture.Comprehensive.Application.WithCompositeKeys.GetWithC
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetWithCompositeKeysQueryValidator()
         {
-            ConfigureValidationRules();
 
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

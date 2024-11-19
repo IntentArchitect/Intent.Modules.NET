@@ -27,18 +27,5 @@
       <deviationsHash>EEFFE92CBF376555EFF5291E6A169AB344AEB7DE9DA94E2D72FE37F06B77A2B5</deviationsHash>
       <fileHash>14B91A1859087704E350F4831AA39993C28A5C3A019C316E74C717BBD714D9AF</fileHash>
     </file>
-    <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#d9bcbcd0-2c66-4a7e-8349-8f5d2dcbb499</correlationId>
-      <path>AzureKeyVault.Application/GetKeyValues/GetKeyValuesValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:41:21.9483129Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:41:21.9483179Z</approvedAt>
-      <deviationsHash>CFC3F055B7DE83086EBC9199C0BD0293A2FE3CA6C8DB5E3DD0D5F11964A2ADB1</deviationsHash>
-      <fileHash>89E36757864E979A05116C255414AE7505762440515DB1D4FE40B92F21F5DA78</fileHash>
-    </file>
   </files>
 </deviationsLog>

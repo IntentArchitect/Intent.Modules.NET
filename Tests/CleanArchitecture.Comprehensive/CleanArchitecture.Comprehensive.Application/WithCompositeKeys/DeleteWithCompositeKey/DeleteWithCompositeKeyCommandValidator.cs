@@ -13,14 +13,7 @@ namespace CleanArchitecture.Comprehensive.Application.WithCompositeKeys.DeleteWi
         [IntentManaged(Mode.Merge)]
         public DeleteWithCompositeKeyCommandValidator()
         {
-            ConfigureValidationRules();
 
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

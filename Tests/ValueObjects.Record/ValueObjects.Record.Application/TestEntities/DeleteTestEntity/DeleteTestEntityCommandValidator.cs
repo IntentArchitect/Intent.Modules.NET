@@ -12,12 +12,6 @@ namespace ValueObjects.Record.Application.TestEntities.DeleteTestEntity
         [IntentManaged(Mode.Merge)]
         public DeleteTestEntityCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

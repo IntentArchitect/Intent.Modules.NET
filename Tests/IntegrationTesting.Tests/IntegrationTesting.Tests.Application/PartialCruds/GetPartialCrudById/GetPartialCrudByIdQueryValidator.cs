@@ -12,12 +12,6 @@ namespace IntegrationTesting.Tests.Application.PartialCruds.GetPartialCrudById
         [IntentManaged(Mode.Merge)]
         public GetPartialCrudByIdQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

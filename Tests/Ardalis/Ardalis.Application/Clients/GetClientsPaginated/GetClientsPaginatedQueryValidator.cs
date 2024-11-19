@@ -12,12 +12,6 @@ namespace Ardalis.Application.Clients.GetClientsPaginated
         [IntentManaged(Mode.Merge)]
         public GetClientsPaginatedQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

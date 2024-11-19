@@ -12,12 +12,6 @@ namespace AdvancedMappingCrudMongo.Tests.Application.ExternalDocs.DeleteExternal
         [IntentManaged(Mode.Merge)]
         public DeleteExternalDocCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

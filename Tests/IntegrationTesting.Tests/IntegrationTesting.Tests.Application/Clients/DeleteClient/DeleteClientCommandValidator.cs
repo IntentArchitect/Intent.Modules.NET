@@ -12,12 +12,6 @@ namespace IntegrationTesting.Tests.Application.Clients.DeleteClient
         [IntentManaged(Mode.Merge)]
         public DeleteClientCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

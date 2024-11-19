@@ -13,13 +13,6 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.DeleteOrder
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public DeleteOrderCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Products.DoManual
         [IntentManaged(Mode.Merge)]
         public DoManualCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

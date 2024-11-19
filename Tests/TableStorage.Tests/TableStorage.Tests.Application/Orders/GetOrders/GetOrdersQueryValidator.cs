@@ -12,12 +12,6 @@ namespace TableStorage.Tests.Application.Orders.GetOrders
         [IntentManaged(Mode.Merge)]
         public GetOrdersQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

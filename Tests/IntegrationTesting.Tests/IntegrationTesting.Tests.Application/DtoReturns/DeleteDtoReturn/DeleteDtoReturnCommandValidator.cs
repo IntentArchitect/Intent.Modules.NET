@@ -12,12 +12,6 @@ namespace IntegrationTesting.Tests.Application.DtoReturns.DeleteDtoReturn
         [IntentManaged(Mode.Merge)]
         public DeleteDtoReturnCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

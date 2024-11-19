@@ -12,12 +12,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.Aggregate
         [IntentManaged(Mode.Merge)]
         public Operation_Params0_ReturnsE_Collection1QueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

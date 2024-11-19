@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.ParamConversion.CheckTypeC
         [IntentManaged(Mode.Merge)]
         public CheckTypeConversionsOnProxyValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

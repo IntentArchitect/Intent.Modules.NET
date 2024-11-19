@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Products.Get
         [IntentManaged(Mode.Merge)]
         public GetProductsQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

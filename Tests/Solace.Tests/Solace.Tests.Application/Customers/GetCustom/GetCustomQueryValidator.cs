@@ -12,12 +12,6 @@ namespace Solace.Tests.Application.Customers.GetCustom
         [IntentManaged(Mode.Merge)]
         public GetCustomQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

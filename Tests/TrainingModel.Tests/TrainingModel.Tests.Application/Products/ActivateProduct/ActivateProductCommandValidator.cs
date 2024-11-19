@@ -12,12 +12,6 @@ namespace TrainingModel.Tests.Application.Products.ActivateProduct
         [IntentManaged(Mode.Merge)]
         public ActivateProductCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

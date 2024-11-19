@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.DomainServiceTests.
         [IntentManaged(Mode.Merge)]
         public MyOpDomainServiceTestCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

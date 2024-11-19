@@ -13,14 +13,7 @@ namespace CleanArchitecture.Comprehensive.Application.RequestSuffixQueriesWithTy
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public MyRequestQueryValidator()
         {
-            ConfigureValidationRules();
 
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

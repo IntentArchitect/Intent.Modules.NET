@@ -80,19 +80,6 @@
       <fileHash>551EFBC275DF98971BC51FA4761E3FCE449C2FE4526835793F98A8E3D406E7DE</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#88416aa1-f432-4d4c-8996-5efaadf53d00</correlationId>
-      <path>CosmosDB.Application/ClassContainers/GetClassContainers/GetClassContainersQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:46:05.7838856Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:46:05.7838885Z</approvedAt>
-      <deviationsHash>38A484995D34C1E94E81C4A0F195048686C35E995F9CD0F94B66AAD62E866333</deviationsHash>
-      <fileHash>3B7DE2677BA9AC17E1296AD0DF25BDE320FFBA2BF1A3DBC0CA1F80E9446D4AAF</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#086355aa-c24c-43d1-a3ac-a9f63f8090a6</correlationId>
       <path>CosmosDB.Application/ClassContainers/UpdateClassContainer/UpdateClassContainerCommandValidator.cs</path>
       <count>1</count>
@@ -197,19 +184,6 @@
       <fileHash>E9217123006066765F693A02586802C187F0F557CAF8200169302DC56AD1D6BB</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#fff0fb87-3aae-479a-a5c6-e217fc10d60a</correlationId>
-      <path>CosmosDB.Application/Clients/GetClients/GetClientsQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:46:05.8008996Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:46:05.8009035Z</approvedAt>
-      <deviationsHash>704DA81EAD805617CC290CA814614362EBDA87F0FD7FD3C9DE47A6AEBAF0F426</deviationsHash>
-      <fileHash>2ECA82DD03D3003D5C1CA2B804E91BE29B75B003D9E65F233C97048CEAD7C9F9</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#67eddab2-86b5-4abe-abcc-56835f7c3f2c</correlationId>
       <path>CosmosDB.Application/Clients/GetClientsPaged/GetClientsPagedQueryHandler.cs</path>
       <count>1</count>
@@ -221,19 +195,6 @@
       <approvedAt>2024-06-20T19:46:05.8030366Z</approvedAt>
       <deviationsHash>60F77FD9F1F59F408203674D38A194F2FCD850A2B2FFDC1E58F4EC041DD70FCF</deviationsHash>
       <fileHash>2ED04703CF939F0D17DA135341A537AB6E235072A41D4DE45D927DEB193A6B73</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#67eddab2-86b5-4abe-abcc-56835f7c3f2c</correlationId>
-      <path>CosmosDB.Application/Clients/GetClientsPaged/GetClientsPagedQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:46:05.8052237Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:46:05.8052267Z</approvedAt>
-      <deviationsHash>49CED74C2AC2C5455D387FCA227D91069F24D0D6C08B371B0C3435EDDA8AD400</deviationsHash>
-      <fileHash>C792D7913D3F5ABD1F46A84B4DB07E271F3152652DD95CCFBCB7EB38B1D690AA</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f806aae9-cddd-4090-8ae4-d6f20cdc3dc8</correlationId>
@@ -312,19 +273,6 @@
       <approvedAt>2024-06-20T19:46:05.8178848Z</approvedAt>
       <deviationsHash>EBE537B66900AE20FE21703B37B9236800C5DF04C9E64EA59EB633D131618FA3</deviationsHash>
       <fileHash>7087D1EF5CD8C03C610232D41E020E11032D2FEFA1D989F003895696E48B44F8</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#04392180-ec8e-4a46-bf91-2271642502a5</correlationId>
-      <path>CosmosDB.Application/DerivedOfTS/GetDerivedOfTS/GetDerivedOfTSQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:46:05.8203119Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:46:05.8203139Z</approvedAt>
-      <deviationsHash>D47A336C1C24EBFBC782095FB149B9F5017669D3DC067C32F70C3ABBEA522EFB</deviationsHash>
-      <fileHash>E672866FFB8D1CC219F4AB6729F1CF5DDC2EA8BCBF10984C5E5501D9B0765511</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#16ec2d6c-74aa-467b-8fc5-f2cadc4454cf</correlationId>
@@ -494,19 +442,6 @@
       <approvedAt>2024-06-20T19:46:05.857251Z</approvedAt>
       <deviationsHash>754788705E8A6D36E9606EBE4107AA611C9B79532D18B1760E8D1371ED123394</deviationsHash>
       <fileHash>AF5ED023DE8F617403064BAA133F5B660E7F77BB2B1C979FC612805BDD3C67A7</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#d79aa109-f320-4734-94a6-6442ddc784d5</correlationId>
-      <path>CosmosDB.Application/Invoices/GetInvoices/GetInvoicesQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:46:05.8740439Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:46:05.8740472Z</approvedAt>
-      <deviationsHash>FAE98738C3729CAB8A12C1AAB034CF33D01E556190ECE7D7D6C88B90107D1908</deviationsHash>
-      <fileHash>BB0D55C065270BC0C3C828E8CC8995A26133EDB208F44A30CEC66B902439C8F5</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#9cd8097c-3ff3-4521-99b4-96394513e8f6</correlationId>

@@ -13,14 +13,7 @@ namespace CleanArchitecture.Comprehensive.Application.ClassWithEnums.DeleteClass
         [IntentManaged(Mode.Merge)]
         public DeleteClassWithEnumsCommandValidator()
         {
-            ConfigureValidationRules();
 
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

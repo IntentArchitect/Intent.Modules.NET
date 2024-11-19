@@ -12,12 +12,6 @@ namespace FastEndpointsTest.Application.AggregateWithUniqueConstraintIndexStereo
         [IntentManaged(Mode.Merge)]
         public GetAggregateWithUniqueConstraintIndexStereotypeByIdQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

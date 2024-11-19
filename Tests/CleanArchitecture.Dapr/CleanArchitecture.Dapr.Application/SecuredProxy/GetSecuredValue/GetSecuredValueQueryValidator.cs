@@ -12,12 +12,6 @@ namespace CleanArchitecture.Dapr.Application.SecuredProxy.GetSecuredValue
         [IntentManaged(Mode.Merge)]
         public GetSecuredValueQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Orders.Updat
         [IntentManaged(Mode.Merge)]
         public UpdateOrderOrderItemCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

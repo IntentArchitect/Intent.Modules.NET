@@ -12,12 +12,6 @@ namespace FastEndpointsTest.Application.AggregateRoots.GetAggregateRootComposite
         [IntentManaged(Mode.Merge)]
         public GetAggregateRootCompositeManyBByIdQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

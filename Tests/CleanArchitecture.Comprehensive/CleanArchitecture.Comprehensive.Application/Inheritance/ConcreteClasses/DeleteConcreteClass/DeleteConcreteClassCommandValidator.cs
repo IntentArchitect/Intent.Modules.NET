@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.Inheritance.ConcreteClasse
         [IntentManaged(Mode.Merge)]
         public DeleteConcreteClassCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

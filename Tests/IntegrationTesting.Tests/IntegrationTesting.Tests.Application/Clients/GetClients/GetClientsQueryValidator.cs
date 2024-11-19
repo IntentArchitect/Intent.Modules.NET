@@ -12,12 +12,6 @@ namespace IntegrationTesting.Tests.Application.Clients.GetClients
         [IntentManaged(Mode.Merge)]
         public GetClientsQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

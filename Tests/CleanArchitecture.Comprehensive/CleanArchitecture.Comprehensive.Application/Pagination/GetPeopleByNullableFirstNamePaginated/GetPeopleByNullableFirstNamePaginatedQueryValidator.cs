@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.Pagination.GetPeopleByNull
         [IntentManaged(Mode.Merge)]
         public GetPeopleByNullableFirstNamePaginatedQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

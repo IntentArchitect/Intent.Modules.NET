@@ -12,12 +12,6 @@ namespace MudBlazor.ExampleApp.Application.Customers.GetCustomersLookup
         [IntentManaged(Mode.Merge)]
         public GetCustomersLookupQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

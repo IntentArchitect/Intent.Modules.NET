@@ -12,13 +12,6 @@ namespace Entities.PrivateSetters.TestApplication.Application.ManyToOneSources.D
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public DeleteManyToOneSourceCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

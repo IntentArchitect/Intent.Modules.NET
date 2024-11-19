@@ -80,45 +80,6 @@
       <fileHash>11839620BD98127166CFE2DF751F5968415C05D14C83064F0CFDC0DF95F958EC</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#afea2217-eb2b-4dc6-bbab-52deeef252d2</correlationId>
-      <path>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/DeleteProduct/DeleteProductCommandValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:02:08.7540123Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:02:08.7540139Z</approvedAt>
-      <deviationsHash>DAAAFB86825462094C46C2F134CA4F524A45C11F3CBDCB8A18568D9B43DECF42</deviationsHash>
-      <fileHash>814259432345E7C54C6A7EDF5BBB5A03A24236570AE97DCEF96711E847D85FB9</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#0642cec8-5948-462a-baa2-806e01d50c6f</correlationId>
-      <path>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/GetProductById/GetProductByIdQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:02:08.7552867Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:02:08.7552893Z</approvedAt>
-      <deviationsHash>FC1FC9BE9A91982BF796E2E2E96A430AF0E893CFD3708E014A6DEF71E52E34B4</deviationsHash>
-      <fileHash>A5A552E2B663CC586F3FB8609D541038D824E559A1FE0416042BC43F73D5C1B6</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#ef643498-90ca-4440-b993-49b95d9c4498</correlationId>
-      <path>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/GetProducts/GetProductsQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:02:08.7565098Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:02:08.7565121Z</approvedAt>
-      <deviationsHash>FD32D32BEA148F42E226DA83E3909357617925E6954031C78B48D8E14F758A9D</deviationsHash>
-      <fileHash>39E10A141CD860D8010EFE75DC8061C0BCEAEA6CE4C3F96C0324F374523C4B75</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#d3203a02-665d-4a6a-ab18-85773dc241cc</correlationId>
       <path>GraphQL.AzureFunction.TestApplication.Application/Validators/Products/UpdateProduct/UpdateProductCommandValidator.cs</path>
       <count>1</count>

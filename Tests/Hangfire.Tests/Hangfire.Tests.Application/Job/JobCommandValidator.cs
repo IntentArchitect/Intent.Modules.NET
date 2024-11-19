@@ -12,12 +12,6 @@ namespace Hangfire.Tests.Application.Job
         [IntentManaged(Mode.Merge)]
         public JobCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

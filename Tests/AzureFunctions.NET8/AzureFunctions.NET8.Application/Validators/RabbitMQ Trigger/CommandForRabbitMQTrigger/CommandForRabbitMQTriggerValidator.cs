@@ -13,12 +13,6 @@ namespace AzureFunctions.NET8.Application.Validators.RabbitMQTrigger.CommandForR
         [IntentManaged(Mode.Merge)]
         public CommandForRabbitMQTriggerValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,12 +12,6 @@ namespace Solace.Tests.Application.Purchases.GetPurchases
         [IntentManaged(Mode.Merge)]
         public GetPurchasesQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,12 +12,6 @@ namespace FastEndpointsTest.Application.ScalarCollectionReturnType.CommandWithCo
         [IntentManaged(Mode.Merge)]
         public CommandWithCollectionReturnValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

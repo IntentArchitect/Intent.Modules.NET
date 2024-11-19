@@ -13,14 +13,7 @@ namespace CleanArchitecture.Comprehensive.Application.AggregateRootLongs.DeleteA
         [IntentManaged(Mode.Merge)]
         public DeleteAggregateRootLongCommandValidator()
         {
-            ConfigureValidationRules();
 
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -28,32 +28,6 @@
       <fileHash>96AAAA976C6884B4FFBBA64279FE43901D06A6B03345088C95EE0347481F05A8</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#9d806019-63e9-47ba-b1e7-de989f5eb1ad</correlationId>
-      <path>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/DeleteBasket/DeleteBasketCommandValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:13:47.7275946Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:13:47.7275968Z</approvedAt>
-      <deviationsHash>037C5D4CF1DEBE0F7440184AEF25ECE3BF8D3BF88149A891BE415D6259FFA97C</deviationsHash>
-      <fileHash>A2315356F8777683CA18C31157523FEB38EFADFE74A0C2CF9BD9650318A4503C</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#728e8466-97df-45b1-94c3-0a71ce334c9f</correlationId>
-      <path>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/DeleteBasketBasketItem/DeleteBasketBasketItemCommandValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:13:47.7285631Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:13:47.7285652Z</approvedAt>
-      <deviationsHash>7D090DA0AE01D1F5F75B1508A5CBBF5AC4A2E50F04DDAF271CA7A8DD0A864573</deviationsHash>
-      <fileHash>F3EEEC8EAC3D80C88BD7A8B9712D7DC7D309B6DAC0EB98BAED0FA9B5D548977A</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#3c7853ea-e050-44d1-bcdc-9b820654b996</correlationId>
       <path>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBasketBasketItemById/GetBasketBasketItemByIdQueryHandler.cs</path>
       <count>1</count>
@@ -65,19 +39,6 @@
       <approvedAt>2024-06-20T20:13:47.7295824Z</approvedAt>
       <deviationsHash>18FEFEFC8014183F200BEDABE66D9D928E67609670514183BE2C47161539EB75</deviationsHash>
       <fileHash>6372514610636055723B50C9A92B89E6A3DA03D8AC66605479E19C02436E96F9</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#3c7853ea-e050-44d1-bcdc-9b820654b996</correlationId>
-      <path>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBasketBasketItemById/GetBasketBasketItemByIdQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:13:47.7306039Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:13:47.7306061Z</approvedAt>
-      <deviationsHash>45B340292F0F88E91EC776A68E63782BA87EF3AF56BBFF1CF605B2402A635C07</deviationsHash>
-      <fileHash>50AA9DE9DE53FAD7B4C702365B47104C1A9B4863717533AD6524B07B8D210141</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#2a2a45c8-049a-4452-9d67-d3013c4692d2</correlationId>
@@ -93,19 +54,6 @@
       <fileHash>803907F61FD3BAC4317466437FF2DE2052859E9EACF6769EB76EBF703ACC0666</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#2a2a45c8-049a-4452-9d67-d3013c4692d2</correlationId>
-      <path>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBasketBasketItems/GetBasketBasketItemsQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:13:47.7324213Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:13:47.7324237Z</approvedAt>
-      <deviationsHash>B1E8CBEE96307B42CC7F10BE9B1D01D20E165F3D96A9C6F05F24363E059925FA</deviationsHash>
-      <fileHash>B2769F945A0C5A9DF3C1EB6D681679FD80F1D7637666EBD2B6982410A83BCDBF</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#d7014bb2-0449-4399-a362-b0358a4a3e31</correlationId>
       <path>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBasketById/GetBasketByIdQueryHandler.cs</path>
       <count>1</count>
@@ -119,19 +67,6 @@
       <fileHash>D6D2E89A0B7002248AF5B5D0FDF02FD0DFE727F0D04D3972AE2741628807CE66</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#d7014bb2-0449-4399-a362-b0358a4a3e31</correlationId>
-      <path>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBasketById/GetBasketByIdQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:13:47.7345992Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:13:47.7346013Z</approvedAt>
-      <deviationsHash>36D6AA3552314A6FFB1DF80600D335724683BFC771DCC70D2625F2A069225EE5</deviationsHash>
-      <fileHash>585CC7A762A4EE5BDF8A304DE51E6ABE8151F867504A3709CD351F2FA42B1A6C</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#7a96783b-914d-4bbd-9e85-75385bc05071</correlationId>
       <path>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBaskets/GetBasketsQueryHandler.cs</path>
       <count>1</count>
@@ -143,19 +78,6 @@
       <approvedAt>2024-06-20T20:13:47.7366641Z</approvedAt>
       <deviationsHash>F667701EE22926662742CA0E27FAD012DD80DA48DC59A56E39783E15FB4EB7B4</deviationsHash>
       <fileHash>D0D0EAA5DA93D07220F54405D1D6EDC2F1BB3C40D082AFEBDA7CC79DD2E9E91E</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.QueryValidator#7a96783b-914d-4bbd-9e85-75385bc05071</correlationId>
-      <path>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/GetBaskets/GetBasketsQueryValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:13:47.7383236Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:13:47.7383261Z</approvedAt>
-      <deviationsHash>5B0A62DD16B2E43DBDFD3B881EF045157FA0BEC3C4DCCC32DBA20A152E42DDCF</deviationsHash>
-      <fileHash>AD9ADE06D32C7ED1491070B7C74307F299690C82A3BA3E52D9A14EEBD6C17FAD</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#92abf7d5-bca6-4fc7-b3bc-20996e8ee237</correlationId>

@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.OpenApiIgnoreAllImplicit.O
         [IntentManaged(Mode.Merge)]
         public OperationAValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

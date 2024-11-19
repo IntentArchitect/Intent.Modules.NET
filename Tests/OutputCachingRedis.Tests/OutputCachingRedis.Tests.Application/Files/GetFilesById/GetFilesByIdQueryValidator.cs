@@ -12,12 +12,6 @@ namespace OutputCachingRedis.Tests.Application.Files.GetFilesById
         [IntentManaged(Mode.Merge)]
         public GetFilesByIdQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

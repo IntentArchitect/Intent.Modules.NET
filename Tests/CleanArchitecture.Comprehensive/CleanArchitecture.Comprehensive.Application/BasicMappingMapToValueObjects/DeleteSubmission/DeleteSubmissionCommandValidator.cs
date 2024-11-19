@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.BasicMappingMapToValueObje
         [IntentManaged(Mode.Merge)]
         public DeleteSubmissionCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,12 +12,6 @@ namespace Ardalis.Application.Clients.GetClientById
         [IntentManaged(Mode.Merge)]
         public GetClientByIdQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

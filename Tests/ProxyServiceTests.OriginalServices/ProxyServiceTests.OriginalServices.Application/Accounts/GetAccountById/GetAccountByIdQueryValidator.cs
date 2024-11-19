@@ -12,12 +12,6 @@ namespace ProxyServiceTests.OriginalServices.Application.Accounts.GetAccountById
         [IntentManaged(Mode.Merge)]
         public GetAccountByIdQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

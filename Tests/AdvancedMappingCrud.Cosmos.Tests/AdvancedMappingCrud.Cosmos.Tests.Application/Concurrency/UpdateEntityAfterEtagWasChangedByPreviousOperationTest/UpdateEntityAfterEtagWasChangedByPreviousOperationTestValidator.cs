@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Concurrency.UpdateEntityA
         [IntentManaged(Mode.Merge)]
         public UpdateEntityAfterEtagWasChangedByPreviousOperationTestValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

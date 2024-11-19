@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.Pagination.GetPeoplePagina
         [IntentManaged(Mode.Merge)]
         public GetPeoplePaginatedQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

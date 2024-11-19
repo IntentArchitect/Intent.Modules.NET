@@ -12,12 +12,6 @@ namespace FastEndpointsTest.Application.Pagination.GetPeopleByNullableFirstNameP
         [IntentManaged(Mode.Merge)]
         public GetPeopleByNullableFirstNamePaginatedQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.SecuredService.SecuredServ
         [IntentManaged(Mode.Merge)]
         public SecuredServiceWithAndRolesValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

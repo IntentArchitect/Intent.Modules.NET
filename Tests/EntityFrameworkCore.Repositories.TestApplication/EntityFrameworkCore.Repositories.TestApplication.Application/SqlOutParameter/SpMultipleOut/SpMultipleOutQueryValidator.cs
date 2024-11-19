@@ -12,12 +12,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.SqlOutPar
         [IntentManaged(Mode.Merge)]
         public SpMultipleOutQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

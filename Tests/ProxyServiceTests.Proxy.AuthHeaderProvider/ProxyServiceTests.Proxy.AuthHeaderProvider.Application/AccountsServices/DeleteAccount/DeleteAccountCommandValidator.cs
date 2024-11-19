@@ -12,12 +12,6 @@ namespace ProxyServiceTests.Proxy.AuthHeaderProvider.Application.AccountsService
         [IntentManaged(Mode.Merge)]
         public DeleteAccountCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,12 +12,6 @@ namespace CloudBlobStorageClients.Application.Tests.TestAwsS3
         [IntentManaged(Mode.Merge)]
         public TestAwsS3CommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

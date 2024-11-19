@@ -12,12 +12,6 @@ namespace CleanArchitecture.Comprehensive.Application.PaginationForProxies.Pagin
         [IntentManaged(Mode.Merge)]
         public PaginatedResultQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,12 +12,6 @@ namespace TrainingModel.Tests.Application.Customers.DeleteCustomer
         [IntentManaged(Mode.Merge)]
         public DeleteCustomerCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

@@ -13,14 +13,7 @@ namespace CleanArchitecture.Comprehensive.Application.AsyncOperationsClasses.Exp
         [IntentManaged(Mode.Merge)]
         public ExplicitCommandValidator()
         {
-            ConfigureValidationRules();
 
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

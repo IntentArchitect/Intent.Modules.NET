@@ -12,12 +12,6 @@ namespace TrainingModel.Tests.Application.Brands.DeleteBrand
         [IntentManaged(Mode.Merge)]
         public DeleteBrandCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

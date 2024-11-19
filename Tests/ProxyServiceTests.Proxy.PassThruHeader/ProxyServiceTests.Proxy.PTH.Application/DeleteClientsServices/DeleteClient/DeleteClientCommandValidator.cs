@@ -12,12 +12,6 @@ namespace ProxyServiceTests.Proxy.PTH.Application.DeleteClientsServices.DeleteCl
         [IntentManaged(Mode.Merge)]
         public DeleteClientCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

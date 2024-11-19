@@ -13,14 +13,7 @@ namespace CleanArchitecture.Comprehensive.Application.RequestSuffixCommandsWithT
         [IntentManaged(Mode.Merge)]
         public MyCommandRequestValidator()
         {
-            ConfigureValidationRules();
 
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

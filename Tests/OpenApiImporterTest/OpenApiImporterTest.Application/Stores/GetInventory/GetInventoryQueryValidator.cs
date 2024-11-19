@@ -12,12 +12,6 @@ namespace OpenApiImporterTest.Application.Stores.GetInventory
         [IntentManaged(Mode.Merge)]
         public GetInventoryQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

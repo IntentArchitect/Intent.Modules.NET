@@ -12,12 +12,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.ParentWithAnemicChi
         [IntentManaged(Mode.Merge)]
         public DeleteParentWithAnemicChildCommandValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

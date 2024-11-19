@@ -13,14 +13,7 @@ namespace CleanArchitecture.Comprehensive.Application.AggregateRootLongs.GetAggr
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetAggregateRootLongsQueryValidator()
         {
-            ConfigureValidationRules();
 
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }

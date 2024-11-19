@@ -12,12 +12,6 @@ namespace TrainingModel.Tests.Application.Brands.GetBrands
         [IntentManaged(Mode.Merge)]
         public GetBrandsQueryValidator()
         {
-            ConfigureValidationRules();
-        }
-
-        private void ConfigureValidationRules()
-        {
-            // Implement custom validation logic here if required
         }
     }
 }
