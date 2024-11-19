@@ -1,3 +1,7 @@
+### Version 3.8.5
+
+- Improvement: Under C# Project Options, Language Version now has an additional option `13.0`.
+
 ### Version 3.8.4
 
 - Improvement: Environment variables values changed in `launchsettings.json` will no longer be overwritten when running the Software Factory

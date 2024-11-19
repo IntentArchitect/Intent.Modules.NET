@@ -308,7 +308,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:30:39.7766811Z</approvedAt>
       <deviationsHash>95F024BBB9B93CC06F17BC55CA2B849AF9EDD9596525892D00915BACFA8C917B</deviationsHash>
-      <fileHash>85E42C66DD7F05251E7260F5E2A7C96B95B55FF2A2608855403ECCD0CD737E9C</fileHash>
+      <fileHash>BA4C787F5718788D21C81DAC8C8060B3E179E77CA9158BE7A54A5065FCBFDA7B</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#e2ec6205-819b-4c6c-8bbd-b15dd573c525</correlationId>
@@ -406,7 +406,7 @@
       <updatedByDisplayName>JP Seini</updatedByDisplayName>
       <updatedAt>2024-10-14T10:37:27.9788435Z</updatedAt>
       <deviationsHash>6AD72C4C8537814BB092DE1D79DFFE0902BB84090819D31067ABCE42AB42DA1C</deviationsHash>
-      <fileHash>002F77E8B0D47A10C41D5327A8F967B988AC13638AE066505189239F184F5363</fileHash>
+      <fileHash>77C4FE8E3948BDEDA5D4B8EC8E0031CCC003A6B5603576D8D0099695DD44161E</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#20d3fffa-8d62-4f26-b4b7-5c9360db382b</correlationId>
