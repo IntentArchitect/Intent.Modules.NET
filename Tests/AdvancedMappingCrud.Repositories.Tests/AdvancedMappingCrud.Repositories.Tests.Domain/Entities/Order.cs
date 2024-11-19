@@ -11,10 +11,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
     {
         public Order()
         {
-            Id = Guid.NewGuid();
-            DeliveryAddress = new("", "", "", "");
-            RefNo = string.Empty;
-            Customer = new();
+            RefNo = null!;
+            Customer = null!;
+            DeliveryAddress = null!;
+
         }
 
         public Guid Id { get; set; }
