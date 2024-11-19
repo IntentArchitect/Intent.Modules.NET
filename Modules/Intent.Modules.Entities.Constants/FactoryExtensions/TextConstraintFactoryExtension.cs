@@ -73,34 +73,37 @@ namespace Intent.Modules.Entities.Constants.FactoryExtensions
                 {
                     var @class = file.Classes.First();
                     var method = @class.FindMethod("ConfigureValidationRules");
-                    foreach (var statement in method.Statements)
+                    if (method != null)
                     {
-                        if (statement is not CSharpMethodChainStatement propertyStatement)
+                        foreach (var statement in method.Statements)
                         {
-                            continue;
-                        }
+                            if (statement is not CSharpMethodChainStatement propertyStatement)
+                            {
+                                continue;
+                            }
 
-                        var maxLengthStatement = propertyStatement.Statements
-                            .FirstOrDefault(s => s.GetText(string.Empty).StartsWith("MaximumLength"));
+                            var maxLengthStatement = propertyStatement.Statements
+                                .FirstOrDefault(s => s.GetText(string.Empty).StartsWith("MaximumLength"));
 
-                        if (maxLengthStatement == null ||
-                            !propertyStatement.TryGetMetadata<DTOFieldModel>("model", out var dtoField) ||
-                            dtoField.Mapping == null ||
-                            !dtoField.Mapping.Element.IsAttributeModel())
-                        {
-                            continue;
-                        }
+                            if (maxLengthStatement == null ||
+                                !propertyStatement.TryGetMetadata<DTOFieldModel>("model", out var dtoField) ||
+                                dtoField.Mapping == null ||
+                                !dtoField.Mapping.Element.IsAttributeModel())
+                            {
+                                continue;
+                            }
 
-                        var attributeModel = dtoField.Mapping.Element.AsAttributeModel();
-                        var entityTypeName = template.GetTypeName(TemplateRoles.Domain.Entity.Primary, attributeModel.Class);
+                            var attributeModel = dtoField.Mapping.Element.AsAttributeModel();
+                            var entityTypeName = template.GetTypeName(TemplateRoles.Domain.Entity.Primary, attributeModel.Class);
 
-                        var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, attributeModel.Class);
-                        var entityOutput = entityTemplate.CSharpFile.Classes.First();
+                            var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, attributeModel.Class);
+                            var entityOutput = entityTemplate.CSharpFile.Classes.First();
 
-                        var constant = entityOutput.Fields.FirstOrDefault(f => f.AccessModifier.Contains(" const") && f.TryGetMetadata<AttributeModel>("model", out var constAttributeModel) && constAttributeModel.Id == attributeModel.Id);
-                        if (constant != null)
-                        {
-                            maxLengthStatement.Replace(new CSharpStatement($"MaximumLength( {entityTypeName}.{constant.Name} )"));
+                            var constant = entityOutput.Fields.FirstOrDefault(f => f.AccessModifier.Contains(" const") && f.TryGetMetadata<AttributeModel>("model", out var constAttributeModel) && constAttributeModel.Id == attributeModel.Id);
+                            if (constant != null)
+                            {
+                                maxLengthStatement.Replace(new CSharpStatement($"MaximumLength( {entityTypeName}.{constant.Name} )"));
+                            }
                         }
                     }
                 });

@@ -1,3 +1,7 @@
+### Version 4.7.3
+
+- Improvement: `ConfigureValidationRules` method is no longer be created on _validators_ if it would be created empty.
+
 ### Version 4.7.2
 
 - Improvement: Comment added to `Command`/`Query` validators to provide context of empty method

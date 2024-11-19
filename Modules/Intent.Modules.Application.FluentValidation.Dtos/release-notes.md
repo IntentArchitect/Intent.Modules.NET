@@ -1,3 +1,7 @@
+### Version 3.10.3
+
+- Improvement: `ConfigureValidationRules` method is no longer be created on _validators_ if it would be created empty.
+
 ### Version 3.10.2
 
 - Fixed: Parent validators are now invoked using dependency injection, and empty validators are no longer generated in some scenarios

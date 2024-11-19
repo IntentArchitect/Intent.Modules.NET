@@ -1,3 +1,7 @@
+### Version 1.2.2
+
+- Improvement: `ConfigureValidationRules` method is no longer be created on _validators_ if it would be created empty.
+
 ### Version 1.2.1
 
 - Improvement: Updated referenced libraries

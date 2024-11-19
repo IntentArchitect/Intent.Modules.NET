@@ -73,20 +73,17 @@ public static class ValidationRulesExtensions
 
                 var indexFields = GetUniqueConstraintFields(dtoModel, associationedElements, uniqueConstraintValidationEnabled);
                 string repositoryFieldName = null;
-
                 @class.AddMethod("void", "ConfigureValidationRules", method =>
                 {
                     method.Private();
-
-
+                        
                     var validationRuleStatements = template.GetValidationRulesStatements(
-                        dtoModel: dtoModel,
-                        dtoTemplateId: dtoTemplateId,
-                        dtoValidatorTemplateId: dtoValidatorTemplateId,
-                        indexFields: indexFields,
-                        customValidationEnabled: customValidationEnabled,
-                        associationedElements: associationedElements);
-
+                            dtoModel: dtoModel,
+                            dtoTemplateId: dtoTemplateId,
+                            dtoValidatorTemplateId: dtoValidatorTemplateId,
+                            indexFields: indexFields,
+                            customValidationEnabled: customValidationEnabled,
+                            associationedElements: associationedElements);
                     foreach (var propertyStatement in validationRuleStatements)
                     {
                         method.AddStatement(propertyStatement);
@@ -222,6 +219,24 @@ public static class ValidationRulesExtensions
                                 .WithExpressionBody(expressionBody))
                             .AddArgument("cancellationToken"));
                     });
+                }
+            }).AfterBuild(file =>
+            {
+                var @class = file.Classes.First();
+                var configureMethod = @class.Methods.FirstOrDefault(m => m.Name == "ConfigureValidationRules");
+                if (configureMethod != null)
+                {
+                    // if the method is empty, or just contains one comment
+                    if(configureMethod.Statements.Count == 0 || (configureMethod.Statements.Count == 1 && (configureMethod.Statements[0].Text?.Trim().StartsWith("//") ?? true)))
+                    {
+                        // remove the method
+                        @class.Methods.Remove(configureMethod);
+
+                        // remove the call to the method
+                        var ctor = @class.Constructors.FirstOrDefault();
+                        ctor?.FindStatements(stmt => stmt.HasMetadata("configure-validation-rules"))
+                                ?.ToList().ForEach(x => x.Remove());
+                    }
                 }
             });
     }
