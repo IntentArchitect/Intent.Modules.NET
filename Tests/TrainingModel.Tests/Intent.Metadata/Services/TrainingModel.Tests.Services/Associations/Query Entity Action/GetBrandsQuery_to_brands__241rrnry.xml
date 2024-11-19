@@ -22,6 +22,9 @@
     <name>brands</name>
     <display>[query] brands: Brand[*]</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="2af1f0ac-66dd-4ea2-9790-8f0a4c7ce011">
       <typeId>0daeae1a-eaf1-4bee-8074-aac56af9ff2a</typeId>
       <isNavigable>true</isNavigable>

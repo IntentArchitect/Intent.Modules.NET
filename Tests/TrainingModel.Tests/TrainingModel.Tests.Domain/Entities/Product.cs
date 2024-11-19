@@ -40,7 +40,7 @@ namespace TrainingModel.Tests.Domain.Entities
 
         public bool IsActive { get; set; }
 
-        public virtual Brand Brand { get; set; }
+        public virtual Brand Brand { get; set; } = null!;
 
         public virtual ICollection<Category> Categories { get; set; } = [];
 

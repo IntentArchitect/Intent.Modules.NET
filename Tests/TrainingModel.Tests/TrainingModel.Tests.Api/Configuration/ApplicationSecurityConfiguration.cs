@@ -44,9 +44,7 @@ namespace TrainingModel.Tests.Api.Configuration
         [IntentManaged(Mode.Ignore)]
         private static void ConfigureAuthorization(AuthorizationOptions options)
         {
-            //Configure policies and other authorization options here. For example:
-            //options.AddPolicy("EmployeeOnly", policy => policy.RequireClaim("role", "employee"));
-            //options.AddPolicy("AdminOnly", policy => policy.RequireClaim("role", "admin"));
+            //Configure policies and other authorization options here
         }
     }
 }

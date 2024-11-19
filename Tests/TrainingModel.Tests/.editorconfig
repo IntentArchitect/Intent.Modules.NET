@@ -1,0 +1,34 @@
+root = true
+
+# All files
+[*]
+indent_style = space
+
+# Xml files
+[*.xml]
+indent_size = 2
+
+# The below are known warnings which still need to be addressed to resolve the warnings
+[*.cs]
+# System.Exception should not be thrown
+dotnet_diagnostic.S112.severity = none
+# Log and handle Exception or rethrow it with additional info
+dotnet_diagnostic.S2139.severity = none
+# Generic T not used on interface IMapFrom
+dotnet_diagnostic.S2326.severity = none
+# Empty method
+dotnet_diagnostic.S1186.severity = none
+# Pascal case for logging placeholders
+dotnet_diagnostic.S6678.severity = none
+# protected or static keyword for Program.cs
+dotnet_diagnostic.S1118.severity = none
+# RouteAttribute required on controllers
+dotnet_diagnostic.S6934.severity = none
+
+[CreateCustomerCommandValidator.cs]
+# async method without await
+dotnet_diagnostic.CS1998.severity = none
+
+[HealthChecksConfiguration.cs]
+# async method without await
+dotnet_diagnostic.S1481.severity = none

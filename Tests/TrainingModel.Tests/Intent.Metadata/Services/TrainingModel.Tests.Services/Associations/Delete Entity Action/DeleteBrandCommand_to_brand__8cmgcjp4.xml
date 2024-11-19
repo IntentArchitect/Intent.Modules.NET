@@ -22,6 +22,9 @@
     <name>brand</name>
     <display>[delete] brand: Brand</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="55ca7d5f-b150-4100-abb7-5fd15d697b0e">
       <typeId>0daeae1a-eaf1-4bee-8074-aac56af9ff2a</typeId>
       <isNavigable>true</isNavigable>

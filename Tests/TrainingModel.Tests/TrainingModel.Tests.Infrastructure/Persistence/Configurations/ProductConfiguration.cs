@@ -26,16 +26,16 @@ namespace TrainingModel.Tests.Infrastructure.Persistence.Configurations
             builder.Property(x => x.IsActive)
                 .IsRequired();
 
-            builder.HasOne(x => x.Brand)
-                .WithMany()
-                .HasForeignKey(x => x.BrandId)
-                .OnDelete(DeleteBehavior.Restrict);
-
             builder.HasMany(x => x.Categories)
                 .WithMany("Products")
                 .UsingEntity(x => x.ToTable("ProductCategories"));
 
             builder.OwnsMany(x => x.Prices, ConfigurePrices);
+
+            builder.HasOne(x => x.Brand)
+                .WithMany()
+                .HasForeignKey(x => x.BrandId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.Ignore(e => e.DomainEvents);
         }

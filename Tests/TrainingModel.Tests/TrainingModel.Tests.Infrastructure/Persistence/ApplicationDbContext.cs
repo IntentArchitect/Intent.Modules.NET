@@ -60,15 +60,7 @@ namespace TrainingModel.Tests.Infrastructure.Persistence
         [IntentManaged(Mode.Ignore)]
         private void ConfigureModel(ModelBuilder modelBuilder)
         {
-            // Seed data
-            // https://rehansaeed.com/migrating-to-entity-framework-core-seed-data/
-            /* Eg.
-            
-            modelBuilder.Entity<Car>().HasData(
-                new Car() { CarId = 1, Make = "Ferrari", Model = "F40" },
-                new Car() { CarId = 2, Make = "Ferrari", Model = "F50" },
-                new Car() { CarId = 3, Make = "Lamborghini", Model = "Countach" });
-            */
+            // Seed data if required
         }
 
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)

@@ -22,6 +22,9 @@
     <name>product</name>
     <display>[update] product: Product</display>
     <order>5</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="957431a2-5851-431b-8b03-78677da56568">
       <typeId>a8c0300d-5cac-4eb7-9134-94ad43f24faa</typeId>
       <isNavigable>true</isNavigable>

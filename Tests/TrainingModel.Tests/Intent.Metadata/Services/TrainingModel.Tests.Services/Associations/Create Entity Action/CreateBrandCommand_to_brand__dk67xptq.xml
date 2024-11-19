@@ -22,6 +22,9 @@
     <name>brand</name>
     <display>[create] brand: Constructor</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="9a9d2718-6ee6-4ee7-8c8d-909d44c47473">
       <typeId>9e0130a0-d034-477f-ac53-e4483d42a128</typeId>
       <isNavigable>true</isNavigable>

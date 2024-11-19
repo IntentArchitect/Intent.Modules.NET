@@ -9,6 +9,9 @@
   <parentFolderId>e64c4e3c-87a1-4909-b981-7dac32550081</parentFolderId>
   <packageId>e64c4e3c-87a1-4909-b981-7dac32550081</packageId>
   <packageName>TrainingModel.Tests.Domain</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>

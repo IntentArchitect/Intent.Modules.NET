@@ -11,8 +11,8 @@
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.Modelers.Services</typePackageName>
-    <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
+    <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+    <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
     <stereotypes />
     <genericTypeParameters>
       <genericTypeParameter id="c535ad38-7ce1-41d9-9702-d9fe6645bf73">
@@ -33,6 +33,10 @@
   <parentFolderId>200ed056-4c02-4f19-a7bd-dcfc0b325582</parentFolderId>
   <packageId>e484efd0-82b7-41b1-b3b9-9a82de60f498</packageId>
   <packageName>TrainingModel.Tests.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
       <addedByDefault>false</addedByDefault>

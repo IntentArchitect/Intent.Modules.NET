@@ -1,0 +1,14 @@
+<Project>
+    <PropertyGroup>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <NoWarn>S112</NoWarn>
+        <NoWarn>S2139</NoWarn>
+        <NoWarn>S2326</NoWarn>
+        <NoWarn>S1186</NoWarn>
+        <NoWarn>S6678</NoWarn>
+        <NoWarn>S1118</NoWarn>
+        <NoWarn>S6934</NoWarn>
+        <NoWarn>CS1998</NoWarn>
+        <NoWarn>S1481</NoWarn>
+    </PropertyGroup>
+</Project>

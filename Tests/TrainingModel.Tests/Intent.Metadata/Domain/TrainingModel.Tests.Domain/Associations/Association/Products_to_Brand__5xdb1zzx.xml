@@ -21,8 +21,9 @@
   </sourceEnd>
   <targetEnd id="4fa69955-d7aa-4acf-859b-58a3eabc11e8" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Brand</name>
-    <display>Brand: Brand</display>
-    <order>11</order>
+    <value>null!</value>
+    <display>Brand: Brand = null!</display>
+    <order>13</order>
     <typeReference id="41823c11-bb26-4a95-8aca-c19e6b267649">
       <typeId>0daeae1a-eaf1-4bee-8074-aac56af9ff2a</typeId>
       <isNavigable>true</isNavigable>
