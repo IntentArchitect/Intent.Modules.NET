@@ -28,15 +28,15 @@
         <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
       </properties>
     </stereotype>
-    <stereotype stereotypeDefinitionId="b06358cd-aed3-4c39-96cf-abb131e4ecde" name="Authorize">
+    <stereotype stereotypeDefinitionId="a9eade71-1d56-4be7-a80c-81046c0c978b" name="Authorize">
       <addedByDefault>false</addedByDefault>
-      <definitionPackageName>Intent.Application.MediatR</definitionPackageName>
-      <definitionPackageId>e92495db-1b26-4389-bf06-cc1b375520b1</definitionPackageId>
+      <definitionPackageName>Intent.Metadata.Security</definitionPackageName>
+      <definitionPackageId>a6fa1088-0064-43e3-a7fc-36c97b2b9285</definitionPackageId>
       <properties>
-        <property name="98f96218-c5a7-4656-96b6-f173947028f7" display="Roles" isActive="false" />
-        <property name="ced1460d-1bd9-4ec2-92b3-51bdbf173315" display="Policy" value="" isActive="false" />
-        <property name="9c5cd2b9-52d8-47a0-96a5-f0026c3b9e48" display="Security Roles" isActive="true" />
-        <property name="2d95351e-d2e5-46da-8361-6c29bc690f98" display="Security Policies" value="[&quot;e1fd449e-95d2-468e-83a1-7166b476b05a&quot;]" isActive="true" />
+        <property name="2b39acef-6079-48c9-b85e-2b0981f9de70" display="Roles" isActive="false" />
+        <property name="ae5251ff-40a1-4e46-be66-6b176f329f98" display="Policy" value="" isActive="false" />
+        <property name="28bbe8bb-8d31-44c7-b642-ff0e279ab85f" display="Security Roles" isActive="true" />
+        <property name="68cbcd05-cd5c-49f3-a982-8ee9caf554bb" display="Security Policies" value="[&quot;e1fd449e-95d2-468e-83a1-7166b476b05a&quot;]" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
