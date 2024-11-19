@@ -21,7 +21,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Common.Model
 
         public static Result Success()
         {
-            return new Result(true, new string[] { });
+            return new Result(true, []);
         }
 
         public static Result Failure(IEnumerable<string> errors)

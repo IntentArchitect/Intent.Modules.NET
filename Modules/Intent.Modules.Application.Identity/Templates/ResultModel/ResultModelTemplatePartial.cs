@@ -46,7 +46,8 @@ namespace Intent.Modules.Application.Identity.Templates.ResultModel
                         method.Static();
                         if (outputTarget.GetProject().GetLanguageVersion().Major < 12)
                         {
-                            method.AddReturn($"new Result(true, {UseType("System.Array.Empty<string>()")}");
+                            AddUsing("System");
+                            method.AddReturn($"new Result(true, Array.Empty<string>())");
                         }
                         else
                         {

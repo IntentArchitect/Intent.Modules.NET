@@ -21,7 +21,7 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application.Co
 
         public static Result Success()
         {
-            return new Result(true, new string[] { });
+            return new Result(true, []);
         }
 
         public static Result Failure(IEnumerable<string> errors)

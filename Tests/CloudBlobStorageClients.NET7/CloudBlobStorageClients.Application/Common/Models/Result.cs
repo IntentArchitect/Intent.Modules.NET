@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.RoslynWeaver.Attributes;
@@ -21,7 +22,7 @@ namespace CloudBlobStorageClients.Application.Common.Models
 
         public static Result Success()
         {
-            return new Result(true, new string[] { });
+            return new Result(true, Array.Empty<string>());
         }
 
         public static Result Failure(IEnumerable<string> errors)
