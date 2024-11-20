@@ -72,7 +72,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.MediatR.Doma
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.DomainEvents", "Intent.Modules.DomainEvents\Intent.Modules.DomainEvents.csproj", "{E484D3DA-E357-43A3-B37B-A43C33A639D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.Interop.DomainEvents", "Intent.Modules.EntityFrameworkCore.Interop.DomainEvents\Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.csproj", "{0ECE1FC5-4AC8-4A07-BF27-B756E8809992}"
+Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.EntityFrameworkCore.Interop.DomainEvents", "Intent.Modules.EntityFrameworkCore.Interop.DomainEvents\Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.csproj", "{0ECE1FC5-4AC8-4A07-BF27-B756E8809992}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.IdentityServer4.SecureTokenServer", "Intent.Modules.IdentityServer4.SecureTokenServer\Intent.Modules.IdentityServer4.SecureTokenServer.csproj", "{7E2CDD36-D086-4401-9CE5-B83F61A6FCE9}"
 EndProject
