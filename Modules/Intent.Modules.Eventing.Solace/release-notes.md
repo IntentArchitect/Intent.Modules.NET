@@ -1,3 +1,7 @@
+### Version 1.0.6
+
+- Improvement: Updated package references
+
 ### Version 1.0.5
 
 - Improvement: Small updated to module internal code
