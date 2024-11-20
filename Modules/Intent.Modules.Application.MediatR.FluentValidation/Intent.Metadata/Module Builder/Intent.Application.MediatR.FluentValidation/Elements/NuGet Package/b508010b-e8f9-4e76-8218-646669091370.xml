@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="6c133300-e15d-4185-84fb-bf8c22556c27" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>11.9.2</name>
-      <display>11.9.2 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <name>11.11.0</name>
+      <display>11.11.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -48,8 +48,8 @@
       <childElements />
     </childElement>
     <childElement id="640690ed-3bb8-4b77-b9a3-59b6e51c7ec6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>11.9.2</name>
-      <display>11.9.2 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>11.11.0</name>
+      <display>11.11.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -71,8 +71,8 @@
       <childElements />
     </childElement>
     <childElement id="f4cabe0a-f2ed-47eb-ac80-4d883ac2dbf3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>11.9.2</name>
-      <display>11.9.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>11.11.0</name>
+      <display>11.11.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -86,6 +86,68 @@
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
             <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="95328c66-24d4-444f-ade1-1304ea75e1ac" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>11.11.0</name>
+      <display>11.11.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b508010b-e8f9-4e76-8218-646669091370</parentFolderId>
+      <packageId>19ac3196-c353-44e0-ba44-2e1930175b1f</packageId>
+      <packageName>Intent.Application.MediatR.FluentValidation</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="3e088c36-3bbd-4900-9562-b055d2e17a10" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Threading.Tasks.Extensions</name>
+          <display>System.Threading.Tasks.Extensions (4.5.4)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.5.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>95328c66-24d4-444f-ade1-1304ea75e1ac</parentFolderId>
+          <packageId>19ac3196-c353-44e0-ba44-2e1930175b1f</packageId>
+          <packageName>Intent.Application.MediatR.FluentValidation</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="4fe51fd6-40ac-4ef3-9826-5bf73ab90424" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>11.11.0</name>
+      <display>11.11.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b508010b-e8f9-4e76-8218-646669091370</parentFolderId>
+      <packageId>19ac3196-c353-44e0-ba44-2e1930175b1f</packageId>
+      <packageName>Intent.Application.MediatR.FluentValidation</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
             <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
           </properties>
         </stereotype>

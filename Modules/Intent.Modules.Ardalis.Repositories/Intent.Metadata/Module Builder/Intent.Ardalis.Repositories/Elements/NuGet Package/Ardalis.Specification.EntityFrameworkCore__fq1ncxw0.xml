@@ -93,5 +93,102 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="7ad265cd-57f8-426e-a595-207c12424343" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>6.1.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>906b64c6-2c6e-4c02-b470-0c3a4d958d1e</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="ee01373a-b952-4d00-b67f-a28f3a63e20e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Ardalis.Specification</name>
+          <isAbstract>false</isAbstract>
+          <value>6.1.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7ad265cd-57f8-426e-a595-207c12424343</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="25a805c1-6492-4be2-899e-6c2e39e6bb9c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore</name>
+          <isAbstract>false</isAbstract>
+          <value>3.1.18</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7ad265cd-57f8-426e-a595-207c12424343</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="561c9a56-15d9-4adc-b478-9ce05c7f9ffb" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>6.1.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>906b64c6-2c6e-4c02-b470-0c3a4d958d1e</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="2712b325-50c0-4c51-b7f6-4b9ceed94f43" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Ardalis.Specification</name>
+          <isAbstract>false</isAbstract>
+          <value>6.1.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>561c9a56-15d9-4adc-b478-9ce05c7f9ffb</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c04fa96d-aadc-45d6-9e8c-d49ee86d9b3d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore</name>
+          <isAbstract>false</isAbstract>
+          <value>5.0.13</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>561c9a56-15d9-4adc-b478-9ce05c7f9ffb</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f63fe05f-def8-4c8b-b176-3c83d3a17608" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <isAbstract>false</isAbstract>
+          <value>5.0.13</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>561c9a56-15d9-4adc-b478-9ce05c7f9ffb</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

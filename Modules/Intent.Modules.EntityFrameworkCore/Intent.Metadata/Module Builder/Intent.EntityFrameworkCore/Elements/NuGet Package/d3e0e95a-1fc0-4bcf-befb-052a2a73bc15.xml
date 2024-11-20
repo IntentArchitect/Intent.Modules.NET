@@ -17,11 +17,189 @@
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
         <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="f2b97a7f-bafc-47aa-a5ae-cb359ffe43aa" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.2.7</name>
+      <display>3.2.7 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d3e0e95a-1fc0-4bcf-befb-052a2a73bc15</parentFolderId>
+      <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+      <packageName>Intent.EntityFrameworkCore</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="db576305-901e-4bdc-8025-6d42ddfdfd32" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (3.1.19)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.1.19</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f2b97a7f-bafc-47aa-a5ae-cb359ffe43aa</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8a2487c8-1d7e-4087-8731-3fca1198930a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MySqlConnector</name>
+          <display>MySqlConnector (0.69.10)</display>
+          <isAbstract>false</isAbstract>
+          <value>0.69.10</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f2b97a7f-bafc-47aa-a5ae-cb359ffe43aa</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4bc12bbc-e074-49cb-9f04-9fd7a1b94fa5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NetTopologySuite</name>
+          <display>NetTopologySuite (2.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f2b97a7f-bafc-47aa-a5ae-cb359ffe43aa</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="25d1ab89-f758-4932-a5a7-837be821786a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Pomelo.EntityFrameworkCore.MySql</name>
+          <display>Pomelo.EntityFrameworkCore.MySql (3.2.7)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.2.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f2b97a7f-bafc-47aa-a5ae-cb359ffe43aa</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8f939ff7-713e-4a3e-a5f2-ccc81a967747" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>5.0.4</name>
+      <display>5.0.4 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d3e0e95a-1fc0-4bcf-befb-052a2a73bc15</parentFolderId>
+      <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+      <packageName>Intent.EntityFrameworkCore</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="e00fd1e5-7a16-44a5-a37b-6c49753cd817" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (5.0.10)</display>
+          <isAbstract>false</isAbstract>
+          <value>5.0.10</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8f939ff7-713e-4a3e-a5f2-ccc81a967747</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="54a3c1db-2251-46c8-8c8b-0de9b35d9b1d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection</name>
+          <display>Microsoft.Extensions.DependencyInjection (5.0.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>5.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8f939ff7-713e-4a3e-a5f2-ccc81a967747</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="54a48058-e90e-4232-bc3e-846514fc4a66" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MySqlConnector</name>
+          <display>MySqlConnector (1.3.13)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.3.13</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8f939ff7-713e-4a3e-a5f2-ccc81a967747</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8e67ee6e-f4c2-4d60-9f67-2147982e7452" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>NetTopologySuite</name>
+          <display>NetTopologySuite (2.2.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8f939ff7-713e-4a3e-a5f2-ccc81a967747</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="af99017b-b788-420d-8a00-c516b0cb3177" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Pomelo.EntityFrameworkCore.MySql</name>
+          <display>Pomelo.EntityFrameworkCore.MySql (5.0.4)</display>
+          <isAbstract>false</isAbstract>
+          <value>5.0.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8f939ff7-713e-4a3e-a5f2-ccc81a967747</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="5f0af147-f3cf-4fad-b588-ab3449ffbaf6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>7.0.0</name>
       <display>7.0.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>

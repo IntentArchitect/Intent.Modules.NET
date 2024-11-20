@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="3b7610db-430b-45fe-9c84-c616f503cc95" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.4</name>
+      <name>9.0.0</name>
       <display>8.0.4 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -45,10 +45,88 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="9e80f7c0-a842-49cf-87c4-96c1df17c4b8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Bcl.AsyncInterfaces</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3b7610db-430b-45fe-9c84-c616f503cc95</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5b34a5b8-3035-4673-b243-dccbd15aa3c8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.IO.Pipelines</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3b7610db-430b-45fe-9c84-c616f503cc95</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="01fc7b04-e633-4d4e-bfe1-b91c761f6c8c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Encodings.Web</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3b7610db-430b-45fe-9c84-c616f503cc95</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c1937a76-4aea-4667-b11e-000938e59d87" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Buffers</name>
+          <isAbstract>false</isAbstract>
+          <value>4.5.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3b7610db-430b-45fe-9c84-c616f503cc95</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="19de7480-0f4a-47a2-8600-9a7eaae1b22c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Memory</name>
+          <isAbstract>false</isAbstract>
+          <value>4.5.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3b7610db-430b-45fe-9c84-c616f503cc95</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3183ee22-cbf9-44f4-afea-5542b2429a79" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Runtime.CompilerServices.Unsafe</name>
+          <isAbstract>false</isAbstract>
+          <value>6.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3b7610db-430b-45fe-9c84-c616f503cc95</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1495474b-c94c-46d1-aea0-884d56a6b689" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Threading.Tasks.Extensions</name>
+          <isAbstract>false</isAbstract>
+          <value>4.5.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3b7610db-430b-45fe-9c84-c616f503cc95</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="1657e452-1018-4393-8a64-92006fcf7d7d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.4</name>
+      <name>9.0.0</name>
       <display>8.0.4 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -70,113 +148,49 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6d5a2c4e-4f2c-4f8c-be62-27684f684e78" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Encodings.Web</name>
-          <display>System.Text.Encodings.Web (8.0.0)</display>
+        <childElement id="9fc06033-978f-4fed-858f-a477e6e15b1f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.IO.Pipelines</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1657e452-1018-4393-8a64-92006fcf7d7d</parentFolderId>
-          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
-          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c3027a63-99cb-427a-8c78-239f34f36140" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Encodings.Web</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1657e452-1018-4393-8a64-92006fcf7d7d</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="1096f053-0974-4e60-a9ed-c2f29b98deec" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.4</name>
-      <display>8.0.4 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+    <childElement id="837d8b77-dc07-430b-8aea-96bd23d133be" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>9.0.0</name>
       <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c8d36485-2d19-491d-a62a-1c446ee66d3a</parentFolderId>
-      <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
-      <packageName>Intent.Integration.HttpClients</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
+          <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
             <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements>
-        <childElement id="563b1fea-d742-438a-97f1-bee7c71a34f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Encodings.Web</name>
-          <display>System.Text.Encodings.Web (8.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1096f053-0974-4e60-a9ed-c2f29b98deec</parentFolderId>
-          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
-          <packageName>Intent.Integration.HttpClients</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="7a2d661c-b7e6-4638-b72e-c175c1fa4a57" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.4</name>
-      <display>8.0.4 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>c8d36485-2d19-491d-a62a-1c446ee66d3a</parentFolderId>
-      <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
-      <packageName>Intent.Integration.HttpClients</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="7c4f86cb-c5da-45c9-ad5e-1c02fdcdd76b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Runtime.CompilerServices.Unsafe</name>
-          <display>System.Runtime.CompilerServices.Unsafe (6.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>7a2d661c-b7e6-4638-b72e-c175c1fa4a57</parentFolderId>
-          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
-          <packageName>Intent.Integration.HttpClients</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="4830dc53-ecc6-4ff4-9045-3e55745b17d2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Encodings.Web</name>
-          <display>System.Text.Encodings.Web (8.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>7a2d661c-b7e6-4638-b72e-c175c1fa4a57</parentFolderId>
-          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
-          <packageName>Intent.Integration.HttpClients</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
+      <childElements />
     </childElement>
   </childElements>
 </class>

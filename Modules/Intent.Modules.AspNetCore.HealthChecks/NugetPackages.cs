@@ -31,6 +31,9 @@ namespace Intent.Modules.AspNetCore.HealthChecks
                 (framework) => framework switch
                     {
                         ( >= 6, 0) => new PackageVersion("8.0.1"),
+                        ( >= 2, 0) => new PackageVersion("8.0.1")
+                            .WithNugetDependency("Microsoft.Azure.Cosmos", "3.37.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspNetCoreHealthChecksCosmosDbPackageName}'"),
                     }
                 );
@@ -38,13 +41,21 @@ namespace Intent.Modules.AspNetCore.HealthChecks
                 (framework) => framework switch
                     {
                         ( >= 6, 0) => new PackageVersion("8.0.1"),
+                        ( >= 2, 0) => new PackageVersion("8.0.1")
+                            .WithNugetDependency("Confluent.Kafka", "2.3.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspNetCoreHealthChecksKafkaPackageName}'"),
                     }
                 );
             NugetRegistry.Register(AspNetCoreHealthChecksMongoDbPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 6, 0) => new PackageVersion("8.0.1"),
+                        ( >= 6, 0) => new PackageVersion("8.1.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
+                            .WithNugetDependency("MongoDB.Driver", "2.28.0"),
+                        ( >= 2, 0) => new PackageVersion("8.1.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
+                            .WithNugetDependency("MongoDB.Driver", "2.28.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspNetCoreHealthChecksMongoDbPackageName}'"),
                     }
                 );
@@ -52,15 +63,24 @@ namespace Intent.Modules.AspNetCore.HealthChecks
                 (framework) => framework switch
                     {
                         ( >= 6, 0) => new PackageVersion("8.0.1"),
+                        ( >= 2, 0) => new PackageVersion("8.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
+                            .WithNugetDependency("MySqlConnector", "2.3.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspNetCoreHealthChecksMySqlPackageName}'"),
                     }
                 );
             NugetRegistry.Register(AspNetCoreHealthChecksNpgSqlPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.1"),
-                        ( >= 7, 0) => new PackageVersion("8.0.1"),
-                        ( >= 6, 0) => new PackageVersion("6.0.2"),
+                        ( >= 8, 0) => new PackageVersion("8.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
+                            .WithNugetDependency("Npgsql", "8.0.3"),
+                        ( >= 7, 0) => new PackageVersion("8.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
+                            .WithNugetDependency("Npgsql", "8.0.3"),
+                        ( >= 2, 0) => new PackageVersion("8.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
+                            .WithNugetDependency("Npgsql", "8.0.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspNetCoreHealthChecksNpgSqlPackageName}'"),
                     }
                 );
@@ -68,6 +88,12 @@ namespace Intent.Modules.AspNetCore.HealthChecks
                 (framework) => framework switch
                     {
                         ( >= 6, 0) => new PackageVersion("8.0.1"),
+                        ( >= 2, 1) => new PackageVersion("8.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
+                            .WithNugetDependency("Oracle.ManagedDataAccess.Core", "3.21.120"),
+                        ( >= 2, 0) => new PackageVersion("8.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
+                            .WithNugetDependency("Oracle.ManagedDataAccess.Core", "2.19.190"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspNetCoreHealthChecksOraclePackageName}'"),
                     }
                 );
@@ -75,6 +101,9 @@ namespace Intent.Modules.AspNetCore.HealthChecks
                 (framework) => framework switch
                     {
                         ( >= 6, 0) => new PackageVersion("8.0.1"),
+                        ( >= 2, 0) => new PackageVersion("8.0.1")
+                            .WithNugetDependency("Microsoft.ApplicationInsights", "2.21.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspNetcoreHealthChecksPublisherApplicationInsightsPackageName}'"),
                     }
                 );
@@ -82,6 +111,9 @@ namespace Intent.Modules.AspNetCore.HealthChecks
                 (framework) => framework switch
                     {
                         ( >= 6, 0) => new PackageVersion("8.0.1"),
+                        ( >= 2, 0) => new PackageVersion("8.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
+                            .WithNugetDependency("StackExchange.Redis", "2.7.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspNetCoreHealthChecksRedisPackageName}'"),
                     }
                 );
@@ -89,6 +121,9 @@ namespace Intent.Modules.AspNetCore.HealthChecks
                 (framework) => framework switch
                     {
                         ( >= 6, 0) => new PackageVersion("8.0.2"),
+                        ( >= 2, 0) => new PackageVersion("8.0.2")
+                            .WithNugetDependency("Microsoft.Data.SqlClient", "5.2.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspNetCoreHealthChecksSqlServerPackageName}'"),
                     }
                 );
@@ -97,6 +132,16 @@ namespace Intent.Modules.AspNetCore.HealthChecks
                     {
                         ( >= 8, 0) => new PackageVersion("8.0.2"),
                         ( >= 6, 0) => new PackageVersion("7.0.2"),
+                        ( >= 2, 0) => new PackageVersion("2.2.35")
+                            .WithNugetDependency("AspNetCore.HealthChecks.UI.Client", "2.2.4")
+                            .WithNugetDependency("Microsoft.AspNetCore.Hosting.Abstractions", "2.2.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore", "2.2.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Design", "2.2.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Sqlite", "2.2.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Sqlite.Design", "1.1.6")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "2.2.0")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "2.2.0")
+                            .WithNugetDependency("Newtonsoft.Json", "11.0.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspNetCoreHealthChecksUIPackageName}'"),
                     }
                 );
@@ -106,6 +151,10 @@ namespace Intent.Modules.AspNetCore.HealthChecks
                         ( >= 8, 0) => new PackageVersion("8.0.1"),
                         ( >= 7, 0) => new PackageVersion("8.0.1"),
                         ( >= 6, 0) => new PackageVersion("8.0.1"),
+                        ( >= 2, 0) => new PackageVersion("2.2.4")
+                            .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.2.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "2.2.0")
+                            .WithNugetDependency("Newtonsoft.Json", "11.0.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspNetCoreHealthChecksUIClientPackageName}'"),
                     }
                 );
@@ -114,13 +163,18 @@ namespace Intent.Modules.AspNetCore.HealthChecks
                     {
                         ( >= 8, 0) => new PackageVersion("8.0.1"),
                         ( >= 6, 0) => new PackageVersion("7.0.0"),
+                        ( >= 2, 0) => new PackageVersion("3.1.2")
+                            .WithNugetDependency("AspNetCore.HealthChecks.UI.Core", "3.1.3")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.InMemory", "3.1.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspNetCoreHealthChecksUIInMemoryStoragePackageName}'"),
                     }
                 );
             NugetRegistry.Register(AspNetCoreHealthChecksUrisPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 6, 0) => new PackageVersion("6.0.3"),
+                        ( >= 2, 0) => new PackageVersion("8.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspNetCoreHealthChecksUrisPackageName}'"),
                     }
                 );

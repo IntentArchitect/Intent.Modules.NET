@@ -23,7 +23,7 @@
   <metadata />
   <childElements>
     <childElement id="870c9b37-723a-4c92-af0c-85fdafc513f6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>13.9.9</name>
+      <name>14.1.0</name>
       <display>13.9.9 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -43,10 +43,44 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="cf6eb73c-0ead-4be7-9829-e53d64f98aa6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.AspNetCore</name>
+          <isAbstract>false</isAbstract>
+          <value>14.1.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>870c9b37-723a-4c92-af0c-85fdafc513f6</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9cb41fdf-b188-4c84-9152-dd7241c22f7b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>ChilliCream.Nitro.App</name>
+          <isAbstract>false</isAbstract>
+          <value>20.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>870c9b37-723a-4c92-af0c-85fdafc513f6</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c92a5f23-d0d2-4abd-af38-faf5b2943a4c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Functions.Extensions</name>
+          <isAbstract>false</isAbstract>
+          <value>1.1.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>870c9b37-723a-4c92-af0c-85fdafc513f6</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="607e1fcb-6cf9-46e4-99f4-758a8bfb8bda" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>13.9.9</name>
+      <name>14.1.0</name>
       <display>13.9.9 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -66,7 +100,41 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="769f440f-7b71-4d1e-a314-a213b4afd59d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate.AspNetCore</name>
+          <isAbstract>false</isAbstract>
+          <value>14.1.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>607e1fcb-6cf9-46e4-99f4-758a8bfb8bda</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="117e6f1d-1564-42e1-a2e4-96050cef4730" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>ChilliCream.Nitro.App</name>
+          <isAbstract>false</isAbstract>
+          <value>20.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>607e1fcb-6cf9-46e4-99f4-758a8bfb8bda</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="689151b4-3362-4593-b205-5ab786c0cb46" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Functions.Extensions</name>
+          <isAbstract>false</isAbstract>
+          <value>1.1.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>607e1fcb-6cf9-46e4-99f4-758a8bfb8bda</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

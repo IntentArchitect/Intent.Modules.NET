@@ -22,6 +22,7 @@ namespace Intent.Modules.Ardalis.Repositories
                         ( >= 8, 0) => new PackageVersion("8.0.0"),
                         ( >= 7, 0) => new PackageVersion("8.0.0"),
                         ( >= 6, 0) => new PackageVersion("8.0.0"),
+                        ( >= 2, 0) => new PackageVersion("8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{ArdalisSpecificationPackageName}'"),
                     }
                 );
@@ -31,6 +32,13 @@ namespace Intent.Modules.Ardalis.Repositories
                         ( >= 8, 0) => new PackageVersion("8.0.0"),
                         ( >= 7, 0) => new PackageVersion("8.0.0"),
                         ( >= 6, 0) => new PackageVersion("8.0.0"),
+                        ( >= 2, 1) => new PackageVersion("6.1.0")
+                            .WithNugetDependency("Ardalis.Specification", "6.1.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore", "5.0.13")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "5.0.13"),
+                        ( >= 2, 0) => new PackageVersion("6.1.0")
+                            .WithNugetDependency("Ardalis.Specification", "6.1.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore", "3.1.18"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{ArdalisSpecificationEntityFrameworkCorePackageName}'"),
                     }
                 );

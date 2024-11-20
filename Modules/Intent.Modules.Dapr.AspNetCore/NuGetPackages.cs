@@ -22,24 +22,36 @@ namespace Intent.Modules.Dapr.AspNetCore
             NugetRegistry.Register(DaprAspNetCorePackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("1.13.1"),
-                        ( >= 6, 0) => new PackageVersion("1.13.1"),
+                        ( >= 8, 0) => new PackageVersion("1.14.0")
+                            .WithNugetDependency("Dapr.Client", "1.14.0"),
+                        ( >= 6, 0) => new PackageVersion("1.14.0")
+                            .WithNugetDependency("Dapr.Client", "1.14.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{DaprAspNetCorePackageName}'"),
                     }
                 );
             NugetRegistry.Register(DaprClientPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("1.13.1"),
-                        ( >= 6, 0) => new PackageVersion("1.13.1"),
+                        ( >= 8, 0) => new PackageVersion("1.14.0")
+                            .WithNugetDependency("Google.Api.CommonProtos", "2.2.0")
+                            .WithNugetDependency("Google.Protobuf", "3.15.0")
+                            .WithNugetDependency("Grpc.Net.Client", "2.52.0"),
+                        ( >= 6, 0) => new PackageVersion("1.14.0")
+                            .WithNugetDependency("Google.Api.CommonProtos", "2.2.0")
+                            .WithNugetDependency("Google.Protobuf", "3.15.0")
+                            .WithNugetDependency("Grpc.Net.Client", "2.52.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{DaprClientPackageName}'"),
                     }
                 );
             NugetRegistry.Register(DaprExtensionsConfigurationPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("1.13.1"),
-                        ( >= 6, 0) => new PackageVersion("1.13.1"),
+                        ( >= 8, 0) => new PackageVersion("1.14.0")
+                            .WithNugetDependency("Dapr.Client", "1.14.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "3.1.2"),
+                        ( >= 6, 0) => new PackageVersion("1.14.0")
+                            .WithNugetDependency("Dapr.Client", "1.14.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "3.1.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{DaprExtensionsConfigurationPackageName}'"),
                     }
                 );
@@ -53,8 +65,11 @@ namespace Intent.Modules.Dapr.AspNetCore
             NugetRegistry.Register(MediatRPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 7, 0) => new PackageVersion("12.4.0"),
                         ( >= 6, 0) => new PackageVersion("12.1.1", locked: true),
+                        ( >= 2, 0) => new PackageVersion("12.4.1")
+                            .WithNugetDependency("MediatR.Contracts", "2.0.1")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MediatRPackageName}'"),
                     }
                 );

@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="e1d24ee7-c5ee-4329-8d1c-ee84a6c3bdd6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.9.0</name>
+      <name>1.10.0</name>
       <display>1.9.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -45,7 +45,203 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="88264210-f0d5-44eb-99ac-b42a9e3d89d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry</name>
+          <isAbstract>false</isAbstract>
+          <value>1.10.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e1d24ee7-c5ee-4329-8d1c-ee84a6c3bdd6</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4972db10-70a8-416b-b944-08c79d6d4a3b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Google.Protobuf</name>
+          <isAbstract>false</isAbstract>
+          <value>3.22.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e1d24ee7-c5ee-4329-8d1c-ee84a6c3bdd6</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6ecc3be0-ce39-4ac7-a3ba-ae1c962d0164" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Grpc.Net.Client</name>
+          <isAbstract>false</isAbstract>
+          <value>2.52.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e1d24ee7-c5ee-4329-8d1c-ee84a6c3bdd6</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="a179ce28-d474-482f-b9dd-2a7a525eb10a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>1.10.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>182ea704-5df2-4343-867f-bd5309eaf895</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="0629f80b-8105-44be-b1d2-8c3a03c4234d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry</name>
+          <isAbstract>false</isAbstract>
+          <value>1.10.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a179ce28-d474-482f-b9dd-2a7a525eb10a</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="64839c6f-81a5-4a3f-9290-db44e76659ce" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Google.Protobuf</name>
+          <isAbstract>false</isAbstract>
+          <value>3.22.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a179ce28-d474-482f-b9dd-2a7a525eb10a</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fcc02923-2fb5-4c4c-bd32-a1f3abc9951a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Grpc.Net.Client</name>
+          <isAbstract>false</isAbstract>
+          <value>2.52.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a179ce28-d474-482f-b9dd-2a7a525eb10a</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="a8927697-b028-46e1-b044-6c84caeea259" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>1.10.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>182ea704-5df2-4343-867f-bd5309eaf895</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="36ae83b4-6e3f-4259-a886-a544cec96bdd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry</name>
+          <isAbstract>false</isAbstract>
+          <value>1.10.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a8927697-b028-46e1-b044-6c84caeea259</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6bca8943-7c0b-4069-b65f-035cf4f19889" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Google.Protobuf</name>
+          <isAbstract>false</isAbstract>
+          <value>3.22.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a8927697-b028-46e1-b044-6c84caeea259</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cdd7e557-b7a2-477e-817b-b32cf6a9259e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Grpc.Net.Client</name>
+          <isAbstract>false</isAbstract>
+          <value>2.52.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a8927697-b028-46e1-b044-6c84caeea259</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="d702b91e-4090-4bec-affe-a029491efa59" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>1.10.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>182ea704-5df2-4343-867f-bd5309eaf895</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="c82d2ffe-1eeb-4644-9a03-85e5a891cec9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry</name>
+          <isAbstract>false</isAbstract>
+          <value>1.10.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d702b91e-4090-4bec-affe-a029491efa59</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e66a71a9-5d4e-4003-aea8-6397a8b6fa0a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Google.Protobuf</name>
+          <isAbstract>false</isAbstract>
+          <value>3.22.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d702b91e-4090-4bec-affe-a029491efa59</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1326fc63-ed97-4e61-ae66-8695c1e0538e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Grpc</name>
+          <isAbstract>false</isAbstract>
+          <value>2.44.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d702b91e-4090-4bec-affe-a029491efa59</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

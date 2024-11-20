@@ -7,6 +7,7 @@
   > A consequence of this change is that `Security` stereotype will now also cause `[Authorization]` to be added to generated `Command` and `Query` classes. If prior to upgrading this module you had only `Security` stereotypes applied to `Command` and `Query` element types, generated classes from them will now have `[Authorize]` attributes added to them.
 
 - Improvement: The `Security` Stereotype can now be applied multiple times to an element to represent an `AND` security requirement.
+- Improvement: Updated NuGet package versions.
 
 ### Version 4.2.10
 

@@ -49,6 +49,7 @@ namespace Intent.Modules.CosmosDB
                 (framework) => framework switch
                     {
                         ( >= 6, 0) => new PackageVersion("13.0.3"),
+                        ( >= 2, 0) => new PackageVersion("13.0.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NewtonsoftJsonPackageName}'"),
                     }
                 );

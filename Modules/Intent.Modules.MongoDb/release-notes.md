@@ -1,3 +1,7 @@
+### Version 1.0.18
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.0.17
 
 - New Feature: Added mutli-tenancy support with Finbuckle for `Seperate Databases` option.

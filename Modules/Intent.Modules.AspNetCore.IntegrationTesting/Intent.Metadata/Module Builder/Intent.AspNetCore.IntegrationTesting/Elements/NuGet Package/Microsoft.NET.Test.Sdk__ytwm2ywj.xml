@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="19f2e215-a2a7-4de9-8a5c-9c3757383e08" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>This doesnt seem to update from NuGet goes to 15.5.0</comment>
-      <name>17.6.0</name>
+      <name>15.5.0</name>
       <display>17.6.0 ( &gt;= Any,Version=v0.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -46,7 +46,30 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="02b1d037-6d68-4e97-97a4-75e630a259b3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.TestPlatform.TestHost</name>
+          <isAbstract>false</isAbstract>
+          <value>15.5.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>19f2e215-a2a7-4de9-8a5c-9c3757383e08</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9ee2cb1f-544f-4ec7-bd29-9877acca2ca4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.CodeCoverage</name>
+          <isAbstract>false</isAbstract>
+          <value>1.0.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>19f2e215-a2a7-4de9-8a5c-9c3757383e08</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

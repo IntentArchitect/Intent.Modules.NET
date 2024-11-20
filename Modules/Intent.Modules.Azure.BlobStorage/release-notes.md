@@ -1,3 +1,7 @@
+### Version 3.4.4
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 3.4.3
 
 - Improvement: Updated module NuGet packages infrastructure.

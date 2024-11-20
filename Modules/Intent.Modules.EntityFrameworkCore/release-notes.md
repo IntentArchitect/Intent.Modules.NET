@@ -1,5 +1,6 @@
 ### Version 5.0.14
 
+- Improvement: Updated NuGet package versions.
 - Improvement: `PagedList.GetPageCount` method, as well as various methods on the entity `Configuration` made static
 
 ### Version 5.0.13

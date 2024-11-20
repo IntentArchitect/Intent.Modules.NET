@@ -1,3 +1,7 @@
+### Version 5.0.1
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.0.0
 
 - New Feature: Azure Functions for Isolated Processes are now accessible by configuring your API project to target .NET 8 and setting the Output Type to `Console` in the Visual Studio designer. This enhancement is introduced for the following reasons:

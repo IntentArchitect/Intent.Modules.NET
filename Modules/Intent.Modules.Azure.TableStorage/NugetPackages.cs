@@ -18,7 +18,9 @@ namespace Intent.Modules.Azure.TableStorage
             NugetRegistry.Register(AzureDataTablesPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 2, 0) => new PackageVersion("12.9.0"),
+                        ( >= 2, 0) => new PackageVersion("12.9.1")
+                            .WithNugetDependency("Azure.Core", "1.43.0")
+                            .WithNugetDependency("System.Text.Json", "6.0.9"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureDataTablesPackageName}'"),
                     }
                 );

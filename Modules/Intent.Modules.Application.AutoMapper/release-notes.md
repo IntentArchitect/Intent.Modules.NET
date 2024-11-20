@@ -1,5 +1,6 @@
 ### Version 5.1.5
 
+- Improvement: Updated NuGet package versions.
 - Improvement: `MappingProfile` and `IMapFrom` files converted to use Builder pattern, while also improving the qualify of generated code.
 - Fixed: `FindProjectToAsync` had the incorrect idenitifier name in some scenarios where the Primary Key name had been changed from `Id`.
 

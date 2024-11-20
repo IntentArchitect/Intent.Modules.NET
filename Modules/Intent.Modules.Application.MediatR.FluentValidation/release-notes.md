@@ -5,6 +5,7 @@
 
 ### Version 4.7.2
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Comment added to `Command`/`Query` validators to provide context of empty method
 
 ### Version 4.7.1

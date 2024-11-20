@@ -1,5 +1,6 @@
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.VisualStudio;
@@ -46,7 +47,7 @@ namespace Intent.Modules.SonarQube.FactoryExtensions
             {
                 if (target.IsVSProject())
                 {
-                    target.GetProject().AddNugetPackages([NugetPackages.SonarAnalyzerCSharp(target)]);
+                    target.GetProject().AddNugetPackageInstalls([new NuGetInstall(NugetPackages.SonarAnalyzerCSharp(target))]);
                 }
             }
         }

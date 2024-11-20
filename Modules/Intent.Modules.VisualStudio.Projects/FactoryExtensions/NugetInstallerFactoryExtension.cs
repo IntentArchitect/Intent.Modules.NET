@@ -7,6 +7,7 @@ using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.VisualStudio;
@@ -264,7 +265,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     var highestRequested = highestRequestedVersions[kvp.Key];
                     if (kvp.Value.Version.MinVersion < highestRequested.MinVersion)
                     {
-                        kvp.Value.Update(highestRequested, null);
+                        kvp.Value.Update(highestRequested, null, null);
                     }
                 }
             }
@@ -312,7 +313,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 var dependantPackages = GetDependantPackages(projectPackage.OutputTarget, GetEnrichedPackageMap(projectToNugetPackageMap, projectPackage));
                 foreach (var dependantPackage in dependantPackages)
                 {
-                    if (projectPackage.RequestedPackages.TryGetValue(dependantPackage.Key, out var packge))
+                    if (projectPackage.RequestedPackages.TryGetValue(dependantPackage.Key, out var package))
                     {
                         //If the package is already installed, don't remove it, so that the request can still update the installed package if required
                         if (projectPackage.InstalledPackages.ContainsKey(dependantPackage.Key))
@@ -322,6 +323,11 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                         //The requested package is higher than the dependent so install the higher version, 
                         //This scenario happens if an implicit version is lower than requested as the explicits are consolodated.
                         if (projectPackage.RequestedPackages[dependantPackage.Key].Version.MinVersion > dependantPackage.Value.MinVersion)
+                        {
+                            continue;
+                        }
+
+                        if (package.Options.ForceInstall)
                         {
                             continue;
                         }
@@ -339,6 +345,16 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                         {
                             if (projectPackage.RequestedPackages.ContainsKey(dependant.Name))
                             {
+                                //If the package is already installed, don't remove it, so that the request can still update the installed package if required
+                                if (projectPackage.InstalledPackages.ContainsKey(dependant.Name))
+                                {
+                                    continue;
+                                }
+                                if (projectPackage.RequestedPackages[dependant.Name].Options.ForceInstall)
+                                {
+                                    continue;
+                                }
+
                                 var dependentVersion = VersionRange.Parse(dependant.Version);
                                 if (projectPackage.RequestedPackages[dependant.Name].Version.MinVersion <= dependentVersion.MinVersion)
                                 {
@@ -488,31 +504,32 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
             var requestedPackages = new Dictionary<string, NuGetPackage>();
 
-            foreach (var package in template.RequestedNugetPackages())
+            var nugetPackageRequests = template.RequestedNugetPackageInstalls().ToList();
+            foreach (var install in nugetPackageRequests)
             {
-                if (!VersionRange.TryParse(package.Version, out var semanticVersion))
+                if (!VersionRange.TryParse(install.Package.Version, out var semanticVersion))
                 {
                     throw new Exception(
-                        $"Could not parse '{package.Version}' from Intent metadata for package '{package.Name}' in project '{template.Name}' as a valid Semantic Version 2.0 'version' value.");
+                        $"Could not parse '{install.Package.Version}' from Intent metadata for package '{install.Package.Name}' in project '{template.Name}' as a valid Semantic Version 2.0 'version' value.");
                 }
 
-                if (!highestVersionsInProject.TryGetValue(package.Name, out var highestVersion) ||
+                if (!highestVersionsInProject.TryGetValue(install.Package.Name, out var highestVersion) ||
                     (highestVersion != null &&
                      highestVersion.MinVersion < semanticVersion.MinVersion))
                 {
-                    highestVersionsInProject[package.Name] = highestVersion = semanticVersion;
+                    highestVersionsInProject[install.Package.Name] = highestVersion = semanticVersion;
                 }
 
-                if (requestedPackages.TryGetValue(package.Name, out var requestedPackage))
+                if (requestedPackages.TryGetValue(install.Package.Name, out var requestedPackage))
                 {
                     if (requestedPackage.Version.MinVersion < semanticVersion.MinVersion)
                     {
-                        requestedPackage.Update(semanticVersion, package);
+                        requestedPackage.Update(semanticVersion, install.Package, requestedPackage.Options);
                     }
                 }
                 else
                 {
-                    requestedPackages.Add(package.Name, NuGetPackage.Create(template.FilePath, package, semanticVersion));
+                    requestedPackages.Add(install.Package.Name, NuGetPackage.Create(template.FilePath, install.Package, install.Options, semanticVersion));
                 }
             }
 

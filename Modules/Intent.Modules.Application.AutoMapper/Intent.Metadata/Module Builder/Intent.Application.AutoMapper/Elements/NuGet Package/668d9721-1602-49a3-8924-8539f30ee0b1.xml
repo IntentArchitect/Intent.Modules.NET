@@ -24,10 +24,103 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="b3f982df-22c1-4254-862d-64a68293a4d0" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+    <childElement id="a22debc7-792a-4e46-a5b5-868c25afe346" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>10.1.1</name>
+      <display>10.1.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>668d9721-1602-49a3-8924-8539f30ee0b1</parentFolderId>
+      <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+      <packageName>Intent.Application.AutoMapper</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="e60a5802-5264-4385-afe3-9a1cd7bee5de" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.CSharp</name>
+          <display>Microsoft.CSharp (4.7.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.7.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a22debc7-792a-4e46-a5b5-868c25afe346</parentFolderId>
+          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+          <packageName>Intent.Application.AutoMapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7aa7cd28-6839-47cb-8ffc-c672eade5cc6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Reflection.Emit</name>
+          <display>System.Reflection.Emit (4.7.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.7.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a22debc7-792a-4e46-a5b5-868c25afe346</parentFolderId>
+          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+          <packageName>Intent.Application.AutoMapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8031176c-7935-4043-9b06-088eb1135e5f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>12.0.1</name>
+      <display>12.0.1 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>668d9721-1602-49a3-8924-8539f30ee0b1</parentFolderId>
+      <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+      <packageName>Intent.Application.AutoMapper</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d46276e4-d174-4331-892f-0a60d06088bb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.CSharp</name>
+          <display>Microsoft.CSharp (4.7.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.7.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>8031176c-7935-4043-9b06-088eb1135e5f</parentFolderId>
+          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+          <packageName>Intent.Application.AutoMapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="2ad67a33-06cb-4139-a0aa-2afc87cc6158" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>13.0.1</name>
       <display>13.0.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>668d9721-1602-49a3-8924-8539f30ee0b1</parentFolderId>
@@ -45,7 +138,22 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="f32b4bf8-6f73-4048-9d43-3aff3514785c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (6.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2ad67a33-06cb-4139-a0aa-2afc87cc6158</parentFolderId>
+          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+          <packageName>Intent.Application.AutoMapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

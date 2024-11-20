@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.VisualStudio;
 using JetBrains.Annotations;
 using NuGet.Versioning;
@@ -12,6 +13,8 @@ internal class NuGetPackage
     {
     }
 
+    public NuGetInstallOptions Options { get; set; }
+
     public VersionRange Version { get; set; }
 
     public List<string> PrivateAssets { get; private set; }
@@ -20,13 +23,14 @@ internal class NuGetPackage
 
     public INugetPackageInfo RequestedPackage { get; private set; }
 
-    public static NuGetPackage Create(string projectPath, [NotNull] INugetPackageInfo nugetPackageInfo, VersionRange version = null)
+    public static NuGetPackage Create(string projectPath, [NotNull] INugetPackageInfo nugetPackageInfo, NuGetInstallOptions options, VersionRange version = null)
     {
         ValidatePackageInformation(projectPath, nugetPackageInfo.Name, nugetPackageInfo.Version);
 
         return new NuGetPackage
         {
             RequestedPackage = nugetPackageInfo,
+            Options = options,
             Version = version ?? VersionRange.Parse(nugetPackageInfo.Version),
             IncludeAssets = new List<string>(nugetPackageInfo.IncludeAssets ?? Array.Empty<string>()),
             PrivateAssets = new List<string>(nugetPackageInfo.PrivateAssets ?? Array.Empty<string>())
@@ -39,6 +43,7 @@ internal class NuGetPackage
 
         return new NuGetPackage
         {
+            Options = new NuGetInstallOptions(),
             Version = VersionRange.TryParse(version, out var parsed)
                 ? parsed
                 : null,
@@ -47,8 +52,13 @@ internal class NuGetPackage
         };
     }
 
-    public void Update(VersionRange highestVersion, INugetPackageInfo nugetPackageInfo)
+    public void Update(VersionRange highestVersion, INugetPackageInfo nugetPackageInfo, NuGetInstallOptions options)
     {
+        if (options != null)
+        {
+            Options.Consolidate(options);
+        }
+        
         if (Version.MinVersion < highestVersion.MinVersion) Version = highestVersion;
 
         if (nugetPackageInfo == null)
@@ -76,6 +86,7 @@ internal class NuGetPackage
     {
         return new NuGetPackage
         {
+            Options = Options,
             Version = version ?? Version,
             PrivateAssets = new List<string>(PrivateAssets),
             IncludeAssets = new List<string>(IncludeAssets)

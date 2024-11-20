@@ -68,5 +68,125 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="a19b0500-c724-4ec4-b86b-bdec1a522ecc" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>2.2.35</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b76aa869-3f67-483c-af44-12512a70a2eb</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="1a7a52d7-e907-402a-b511-9a86fa847f42" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>AspNetCore.HealthChecks.UI.Client</name>
+          <isAbstract>false</isAbstract>
+          <value>2.2.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a19b0500-c724-4ec4-b86b-bdec1a522ecc</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cb7528c3-5bd1-4072-b6b2-ea74f1022ba4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Hosting.Abstractions</name>
+          <isAbstract>false</isAbstract>
+          <value>2.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a19b0500-c724-4ec4-b86b-bdec1a522ecc</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4d888421-c0ac-49d1-a0c4-328a8509afc6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore</name>
+          <isAbstract>false</isAbstract>
+          <value>2.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a19b0500-c724-4ec4-b86b-bdec1a522ecc</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9849d13e-ef6b-449c-88d4-ac8316e01287" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Design</name>
+          <isAbstract>false</isAbstract>
+          <value>2.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a19b0500-c724-4ec4-b86b-bdec1a522ecc</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f72c61fb-7a07-43eb-ad69-0f0744709231" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Sqlite</name>
+          <isAbstract>false</isAbstract>
+          <value>2.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a19b0500-c724-4ec4-b86b-bdec1a522ecc</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="912fca34-501b-4ec9-b29a-64e7bf2316eb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Sqlite.Design</name>
+          <isAbstract>false</isAbstract>
+          <value>1.1.6</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a19b0500-c724-4ec4-b86b-bdec1a522ecc</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a60feda1-917a-4eff-b033-3ff9dddb3683" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Binder</name>
+          <isAbstract>false</isAbstract>
+          <value>2.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a19b0500-c724-4ec4-b86b-bdec1a522ecc</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b0cf1786-ad2d-4e8e-b5db-28c363bd7682" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Http</name>
+          <isAbstract>false</isAbstract>
+          <value>2.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a19b0500-c724-4ec4-b86b-bdec1a522ecc</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bf29614d-c877-49e7-a749-2cb802a6840f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Newtonsoft.Json</name>
+          <isAbstract>false</isAbstract>
+          <value>11.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a19b0500-c724-4ec4-b86b-bdec1a522ecc</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

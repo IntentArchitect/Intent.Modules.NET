@@ -1,6 +1,7 @@
 ### Version 1.0.3
 
 - Improvement: Updated module icon
+- Improvement: Updated NuGet package versions.
 
 ### Version 1.0.2
 

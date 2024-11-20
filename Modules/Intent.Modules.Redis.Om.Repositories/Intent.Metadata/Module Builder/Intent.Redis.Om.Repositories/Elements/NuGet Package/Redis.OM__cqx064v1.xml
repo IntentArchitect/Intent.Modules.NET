@@ -23,7 +23,7 @@
   <metadata />
   <childElements>
     <childElement id="4ebe5972-6a1e-4cde-968b-1fc1d4ace439" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>0.7.4</name>
+      <name>0.7.6</name>
       <display>0.7.4 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -43,7 +43,63 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="1d6aad78-8c5b-451a-a6b0-c2f9f3cbb4e3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Bcl.AsyncInterfaces</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4ebe5972-6a1e-4cde-968b-1fc1d4ace439</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="126a77cd-ad3a-4eb0-8bb1-c667cc41e133" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Newtonsoft.Json</name>
+          <isAbstract>false</isAbstract>
+          <value>13.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4ebe5972-6a1e-4cde-968b-1fc1d4ace439</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0017ccd7-a0f1-4d98-b8c2-99799beacb89" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>StackExchange.Redis</name>
+          <isAbstract>false</isAbstract>
+          <value>2.7.17</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4ebe5972-6a1e-4cde-968b-1fc1d4ace439</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0a788475-6aec-42ee-8ba2-8e81c677049a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Json</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4ebe5972-6a1e-4cde-968b-1fc1d4ace439</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="464d9855-eb5c-447f-b768-a875d60e74cc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Ulid</name>
+          <isAbstract>false</isAbstract>
+          <value>1.2.6</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4ebe5972-6a1e-4cde-968b-1fc1d4ace439</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

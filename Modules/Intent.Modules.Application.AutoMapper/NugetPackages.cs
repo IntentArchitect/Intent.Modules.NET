@@ -18,7 +18,13 @@ namespace Intent.Modules.Application.AutoMapper
             NugetRegistry.Register(AutoMapperPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 6, 0) => new PackageVersion("13.0.1"),
+                        ( >= 6, 0) => new PackageVersion("13.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "6.0.0"),
+                        ( >= 2, 1) => new PackageVersion("12.0.1")
+                            .WithNugetDependency("Microsoft.CSharp", "4.7.0"),
+                        ( >= 2, 0) => new PackageVersion("10.1.1")
+                            .WithNugetDependency("Microsoft.CSharp", "4.7.0")
+                            .WithNugetDependency("System.Reflection.Emit", "4.7.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AutoMapperPackageName}'"),
                     }
                 );

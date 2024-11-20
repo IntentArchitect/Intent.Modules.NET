@@ -68,5 +68,59 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="9adfeda9-3114-4ed9-94f0-71521575dedd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.1.1</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>905c89e9-f795-472b-92e8-c10e379a0ad9</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="842cf4d5-4dd9-4ccb-b0c9-6be2fc3e19d2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Memory</name>
+          <isAbstract>false</isAbstract>
+          <value>4.5.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9adfeda9-3114-4ed9-94f0-71521575dedd</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d05b3e05-3359-461d-bfa4-ce9f96349e6d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Encoding</name>
+          <isAbstract>false</isAbstract>
+          <value>4.3.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9adfeda9-3114-4ed9-94f0-71521575dedd</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="73978603-3ed0-41de-8c84-4ad1274ded5f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Json</name>
+          <isAbstract>false</isAbstract>
+          <value>7.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>9adfeda9-3114-4ed9-94f0-71521575dedd</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

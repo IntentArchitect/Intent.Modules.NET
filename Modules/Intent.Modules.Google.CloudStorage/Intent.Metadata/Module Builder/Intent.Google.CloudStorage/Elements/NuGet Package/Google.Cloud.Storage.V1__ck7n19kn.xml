@@ -24,28 +24,48 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="7e6abd30-1cc7-4e6e-84c7-3b2542a7cb60" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+    <childElement id="f8c3fc97-1382-4a74-9e0c-ef3bf4237d3d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>4.10.0</name>
-      <display>4.10.0 ( &gt;= Any,Version=v0.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c2dd35a7-8bcc-4d4c-a84f-3cd46b344771</parentFolderId>
-      <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
-      <packageName>Intent.Google.CloudStorage</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
+          <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value="Any,Version=v0.0" isActive="true" />
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
             <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="49dbd709-3855-48c0-b3fd-469382ec499f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Google.Api.Gax.Rest</name>
+          <isAbstract>false</isAbstract>
+          <value>4.8.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f8c3fc97-1382-4a74-9e0c-ef3bf4237d3d</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7b256f2b-118e-4050-95f5-a73ee3717033" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Google.Apis.Storage.v1</name>
+          <isAbstract>false</isAbstract>
+          <value>1.67.0.3365</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f8c3fc97-1382-4a74-9e0c-ef3bf4237d3d</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

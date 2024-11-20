@@ -17,11 +17,119 @@
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
         <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="ae3ef807-84ad-4ed0-a181-65b4974830ee" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.19.180</name>
+      <display>3.19.180 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b0b3013b-17e1-4c38-a196-7c0adde7eba7</parentFolderId>
+      <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+      <packageName>Intent.EntityFrameworkCore</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="126a08c0-f701-421a-a090-c6384c00ca12" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (3.1.32)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.1.32</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ae3ef807-84ad-4ed0-a181-65b4974830ee</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a6f6bb2c-c038-4f0c-9eb7-4e8ab86af825" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Oracle.ManagedDataAccess.Core</name>
+          <display>Oracle.ManagedDataAccess.Core (2.19.180)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.19.180</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ae3ef807-84ad-4ed0-a181-65b4974830ee</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="51e5ec8e-3fdd-4218-ab6e-fee569d7ee1a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>5.21.90</name>
+      <display>5.21.90 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b0b3013b-17e1-4c38-a196-7c0adde7eba7</parentFolderId>
+      <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+      <packageName>Intent.EntityFrameworkCore</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="e3cd8b42-07fa-47c2-b973-7b3d8bfb551c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (5.0.17)</display>
+          <isAbstract>false</isAbstract>
+          <value>5.0.17</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>51e5ec8e-3fdd-4218-ab6e-fee569d7ee1a</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="07cc4bd8-3474-4c03-90a9-9f9d8f98a61f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Oracle.ManagedDataAccess.Core</name>
+          <display>Oracle.ManagedDataAccess.Core (3.21.90)</display>
+          <isAbstract>false</isAbstract>
+          <value>3.21.90</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>51e5ec8e-3fdd-4218-ab6e-fee569d7ee1a</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
     <childElement id="dd00d374-ae1c-4cc9-9925-3cb6ee7040f5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>7.21.13</name>
       <display>7.21.13 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
@@ -46,9 +154,10 @@
       <childElements />
     </childElement>
     <childElement id="331bbd63-0848-4a58-8290-32c40e642c0d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.23.50</name>
-      <display>8.23.50 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>8.23.60</name>
+      <display>8.23.60 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b0b3013b-17e1-4c38-a196-7c0adde7eba7</parentFolderId>
@@ -66,7 +175,36 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="7a488617-e66a-42c3-9b34-c262f57df4a2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (8.0.3)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>331bbd63-0848-4a58-8290-32c40e642c0d</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="22e24637-f483-4d3b-ac15-68fa09ad22f7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Oracle.ManagedDataAccess.Core</name>
+          <display>Oracle.ManagedDataAccess.Core (23.6.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>23.6.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>331bbd63-0848-4a58-8290-32c40e642c0d</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

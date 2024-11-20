@@ -23,7 +23,7 @@
   <metadata />
   <childElements>
     <childElement id="eac5341b-b0c7-4a28-9aa4-412f6fcc5ddd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.0.1</name>
+      <name>3.4.0</name>
       <display>3.0.1 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -43,10 +43,22 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="719d66b3-7730-4204-b21a-f828093955e9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web</name>
+          <isAbstract>false</isAbstract>
+          <value>3.4.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>eac5341b-b0c7-4a28-9aa4-412f6fcc5ddd</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="0528715f-11a6-4481-b431-782d4e7ac71a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.0.1</name>
+      <name>3.4.0</name>
       <display>3.0.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -66,10 +78,22 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="ea7dd8d4-43a0-4f39-ad28-b2763b0c6770" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web</name>
+          <isAbstract>false</isAbstract>
+          <value>3.4.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>0528715f-11a6-4481-b431-782d4e7ac71a</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="428d9067-6289-484d-b1cf-7fd92e25973a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.0.1</name>
+      <name>3.4.0</name>
       <display>3.0.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -89,7 +113,51 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="920eca24-4d26-4079-98d8-16ddf8e9bab1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web</name>
+          <isAbstract>false</isAbstract>
+          <value>3.4.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>428d9067-6289-484d-b1cf-7fd92e25973a</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="a9597a76-e537-4bfa-8607-931b554ad2ac" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.4.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f2873657-e4ee-4048-b357-c7e0686773cc</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="f2be2231-3488-482f-a822-84c23e021b51" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Identity.Web</name>
+          <isAbstract>false</isAbstract>
+          <value>3.4.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a9597a76-e537-4bfa-8607-931b554ad2ac</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

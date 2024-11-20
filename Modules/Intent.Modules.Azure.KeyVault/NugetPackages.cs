@@ -20,21 +20,34 @@ namespace Intent.Modules.Azure.KeyVault
             NugetRegistry.Register(AzureExtensionsAspNetCoreConfigurationSecretsPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 2, 0) => new PackageVersion("1.3.1"),
+                        ( >= 2, 0) => new PackageVersion("1.3.2")
+                            .WithNugetDependency("Azure.Core", "1.42.0")
+                            .WithNugetDependency("Azure.Security.KeyVault.Secrets", "4.6.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "2.1.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureExtensionsAspNetCoreConfigurationSecretsPackageName}'"),
                     }
                 );
             NugetRegistry.Register(AzureIdentityPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 2, 0) => new PackageVersion("1.12.0"),
+                        ( >= 2, 0) => new PackageVersion("1.13.1")
+                            .WithNugetDependency("Azure.Core", "1.44.1")
+                            .WithNugetDependency("Microsoft.Identity.Client", "4.66.1")
+                            .WithNugetDependency("Microsoft.Identity.Client.Extensions.Msal", "4.66.1")
+                            .WithNugetDependency("System.Memory", "4.5.5")
+                            .WithNugetDependency("System.Text.Json", "6.0.10")
+                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureIdentityPackageName}'"),
                     }
                 );
             NugetRegistry.Register(AzureSecurityKeyVaultSecretsPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 2, 0) => new PackageVersion("4.6.0"),
+                        ( >= 2, 0) => new PackageVersion("4.7.0")
+                            .WithNugetDependency("Azure.Core", "1.44.1")
+                            .WithNugetDependency("System.Memory", "4.5.5")
+                            .WithNugetDependency("System.Text.Json", "6.0.10")
+                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureSecurityKeyVaultSecretsPackageName}'"),
                     }
                 );

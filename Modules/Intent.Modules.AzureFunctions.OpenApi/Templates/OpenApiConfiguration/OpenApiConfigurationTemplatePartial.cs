@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modules.AzureFunctions.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
@@ -29,6 +30,7 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Templates.OpenApiConfiguration
                     AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsOpenApi(outputTarget));
                     AddNugetDependency(NugetPackages.MicrosoftCodeAnalysisWorkspacesCommon(outputTarget));
                     AddNugetDependency(NugetPackages.MicrosoftCodeAnalysisCSharpWorkspaces(outputTarget));
+                    AddNugetDependency(NugetPackages.MicrosoftCodeAnalysisCommon(outputTarget), new NuGetInstallOptions { ForceInstall = true } );
 
                     ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureWebJobsExtensionsOpenApiPackageName, outputTarget));
                     break;

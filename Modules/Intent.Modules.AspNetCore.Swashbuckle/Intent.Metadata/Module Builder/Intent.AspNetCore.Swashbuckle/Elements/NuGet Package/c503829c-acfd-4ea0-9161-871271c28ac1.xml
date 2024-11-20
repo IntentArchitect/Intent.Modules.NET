@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="4a6fabde-8257-4450-bc75-6880d718d3fa" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>6.7.0</name>
+      <name>7.0.0</name>
       <display>6.7.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -45,7 +45,52 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="f5e283b9-ff09-4840-ade2-54cd1c245dfb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.Swagger</name>
+          <isAbstract>false</isAbstract>
+          <value>7.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4a6fabde-8257-4450-bc75-6880d718d3fa</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f6380482-025b-4698-b3b0-18b509f227b0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.SwaggerGen</name>
+          <isAbstract>false</isAbstract>
+          <value>7.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4a6fabde-8257-4450-bc75-6880d718d3fa</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1605f15f-1992-4a63-bcca-c955d1128442" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.SwaggerUI</name>
+          <isAbstract>false</isAbstract>
+          <value>7.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4a6fabde-8257-4450-bc75-6880d718d3fa</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f88298cf-901f-494a-9d76-19dadf610c8f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.ApiDescription.Server</name>
+          <isAbstract>false</isAbstract>
+          <value>6.0.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4a6fabde-8257-4450-bc75-6880d718d3fa</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

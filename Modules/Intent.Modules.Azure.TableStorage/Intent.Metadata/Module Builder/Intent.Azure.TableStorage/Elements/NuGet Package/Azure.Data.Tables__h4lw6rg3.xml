@@ -23,7 +23,7 @@
   <metadata />
   <childElements>
     <childElement id="becf96ad-c109-411d-bbf7-20a9a5f83a12" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.9.0</name>
+      <name>12.9.1</name>
       <display>12.9.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -43,7 +43,30 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="866f8c65-5a2d-4b97-9b4b-f9762c914fbb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.43.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>becf96ad-c109-411d-bbf7-20a9a5f83a12</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="eaf45bff-efe6-4076-a4ba-bb6e07c923d3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Json</name>
+          <isAbstract>false</isAbstract>
+          <value>6.0.9</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>becf96ad-c109-411d-bbf7-20a9a5f83a12</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

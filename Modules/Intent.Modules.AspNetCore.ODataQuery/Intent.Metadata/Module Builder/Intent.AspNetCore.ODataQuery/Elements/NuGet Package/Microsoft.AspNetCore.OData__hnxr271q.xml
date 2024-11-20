@@ -23,7 +23,7 @@
   <metadata />
   <childElements>
     <childElement id="e8f10244-6880-445a-8771-ae10cdb8cf54" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.2.5</name>
+      <name>8.2.6</name>
       <display>8.2.5 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -43,7 +43,171 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="e5f99be1-d5f0-4480-a32d-c6623ea5151b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.OData.ModelBuilder</name>
+          <isAbstract>false</isAbstract>
+          <value>1.0.9</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e8f10244-6880-445a-8771-ae10cdb8cf54</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7ed2a7db-92dd-4967-830d-5dd52b559b25" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.OData.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>7.20.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e8f10244-6880-445a-8771-ae10cdb8cf54</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b36910ed-7782-40a4-8414-8aac66c4d2e2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.OData.Edm</name>
+          <isAbstract>false</isAbstract>
+          <value>7.20.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e8f10244-6880-445a-8771-ae10cdb8cf54</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="339fbfbd-ffb6-411c-935a-a5e6545c19d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Spatial</name>
+          <isAbstract>false</isAbstract>
+          <value>7.20.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e8f10244-6880-445a-8771-ae10cdb8cf54</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="ca9ffb20-e9b3-415d-b9f6-48dc1808200c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>7.7.7</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>370dcee2-2688-40da-a44b-a75ca955da48</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="2ab12379-7973-41cc-8358-e1e09d436f70" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Mvc.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>2.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ca9ffb20-e9b3-415d-b9f6-48dc1808200c</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="83eb779e-bc49-4208-bcdf-7fd8da69429a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection</name>
+          <isAbstract>false</isAbstract>
+          <value>2.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ca9ffb20-e9b3-415d-b9f6-48dc1808200c</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="98d9da32-8edf-4609-bb08-eb5871d6710d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.OData.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>7.20.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ca9ffb20-e9b3-415d-b9f6-48dc1808200c</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="3cdd177f-f05a-4dc8-8db0-8dd3c1b3082f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>9.1.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>370dcee2-2688-40da-a44b-a75ca955da48</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="f37b98e5-6c66-4907-86ea-84b70943651d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.OData.ModelBuilder</name>
+          <isAbstract>false</isAbstract>
+          <value>2.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3cdd177f-f05a-4dc8-8db0-8dd3c1b3082f</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="13c5f8db-01a3-4270-a525-d21ed6e3d8da" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.OData.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>8.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3cdd177f-f05a-4dc8-8db0-8dd3c1b3082f</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ce56e857-72e4-45ca-9ba2-a737e296dee0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.OData.Edm</name>
+          <isAbstract>false</isAbstract>
+          <value>8.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3cdd177f-f05a-4dc8-8db0-8dd3c1b3082f</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="863eb868-3d98-4d41-89f2-5b9adb8fd228" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Spatial</name>
+          <isAbstract>false</isAbstract>
+          <value>8.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3cdd177f-f05a-4dc8-8db0-8dd3c1b3082f</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

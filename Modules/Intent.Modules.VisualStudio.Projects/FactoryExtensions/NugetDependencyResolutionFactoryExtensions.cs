@@ -13,6 +13,8 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.Utils;
+using Intent.Modules.Common.CSharp.Nuget;
+using Intent.Modules.Common.CSharp.VisualStudio;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 {
@@ -45,10 +47,9 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
             foreach (var outputTarget in application.OutputTargets)
             {
-                // root path is the project itself
-                var project = outputTarget.GetTargetPath()[0];
-
-                project.AddNugetPackages(GetTemplateNugetDependencies(outputTarget));
+                var project = outputTarget.GetProject();
+                
+                project.AddNugetPackageInstalls(GetAllemplateNugetInstalls(outputTarget));
 
                 var assemblyDependencies = outputTarget.TemplateInstances
                         .SelectMany(ti => ti.GetAllAssemblyDependencies())
@@ -62,10 +63,10 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             }
         }
 
-        private IEnumerable<INugetPackageInfo> GetTemplateNugetDependencies(IOutputTarget outputTarget)
+        private IEnumerable<NuGetInstall> GetAllemplateNugetInstalls(IOutputTarget outputTarget)
         {
             return outputTarget.TemplateInstances
-                    .SelectMany(ti => ti.GetAllNugetDependencies())
+                    .SelectMany(ti => ti.GetAllNuGetInstalls())
                     .Distinct()
                     .ToList();
         }

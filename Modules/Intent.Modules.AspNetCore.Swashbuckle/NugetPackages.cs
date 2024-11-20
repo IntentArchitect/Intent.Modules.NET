@@ -18,7 +18,11 @@ namespace Intent.Modules.AspNetCore.Swashbuckle
             NugetRegistry.Register(SwashbuckleAspNetCorePackageName,
                 (framework) => framework switch
                     {
-                        ( >= 2, 0) => new PackageVersion("6.7.0"),
+                        ( >= 2, 0) => new PackageVersion("7.0.0")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "7.0.0")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "7.0.0")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerUI", "7.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.ApiDescription.Server", "6.0.5"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SwashbuckleAspNetCorePackageName}'"),
                     }
                 );

@@ -1,6 +1,7 @@
 ### Version 3.9.5
 
 - Improvement: Updated module icon
+- Improvement: Updated NuGet package versions.
 
 ### Version 3.9.4
 

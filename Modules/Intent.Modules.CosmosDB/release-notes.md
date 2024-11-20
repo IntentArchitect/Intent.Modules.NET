@@ -1,3 +1,7 @@
+### Version 1.2.7
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.2.6
 
 - Improvement: Small updated to module internal code

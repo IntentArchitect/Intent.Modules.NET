@@ -1,6 +1,7 @@
 ﻿### Version 4.3.0
 
 - Improvement: `AuthorizationBehaviour` now supports having multiple attributes being applied and treats them as an `AND` security requirement.
+- Improvement: Updated NuGet package versions.
 
 ### Version 4.2.18
 

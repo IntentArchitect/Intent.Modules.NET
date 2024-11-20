@@ -19,16 +19,44 @@ namespace Intent.Modules.Redis.Om.Repositories
             NugetRegistry.Register(MicrosoftExtensionsHostingAbstractionsPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.0"),
-                        ( >= 7, 0) => new PackageVersion("8.0.0"),
-                        ( >= 6, 0) => new PackageVersion("8.0.0"),
+                        ( >= 9, 0) => new PackageVersion("9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0"),
+                        ( >= 8, 0) => new PackageVersion("9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0"),
+                        ( >= 2, 1) => new PackageVersion("9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0"),
+                        ( >= 2, 0) => new PackageVersion("9.0.0")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
+                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsHostingAbstractionsPackageName}'"),
                     }
                 );
             NugetRegistry.Register(RedisOMPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 2, 0) => new PackageVersion("0.7.4"),
+                        ( >= 2, 0) => new PackageVersion("0.7.6")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")
+                            .WithNugetDependency("Newtonsoft.Json", "13.0.1")
+                            .WithNugetDependency("StackExchange.Redis", "2.7.17")
+                            .WithNugetDependency("System.Text.Json", "8.0.5")
+                            .WithNugetDependency("Ulid", "1.2.6"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{RedisOMPackageName}'"),
                     }
                 );

@@ -19,7 +19,6 @@
     <group id="459a4008-350c-42ec-b43d-9c85000babc0" title="Fluent Validation (Application Layer)" externalReference="459a4008-350c-42ec-b43d-9c85000babc0">
       <settings>
         <setting id="da76a14e-3ea4-4ebb-a262-69cbb0f9889b" title="Unique Constraint Validation" type="select">
-          <isRequired>true</isRequired>
           <defaultValue>default-disabled</defaultValue>
           <options>
             <option value="default-enabled" description="Enabled by default" />

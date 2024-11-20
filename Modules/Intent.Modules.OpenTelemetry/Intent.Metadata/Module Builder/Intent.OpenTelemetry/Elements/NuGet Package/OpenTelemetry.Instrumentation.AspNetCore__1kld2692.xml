@@ -47,5 +47,156 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="40725f53-95ff-4fda-b8e8-6234be95a3f7" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>1.9.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4943ae16-5677-4532-a67d-13d1f5b07120</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="519dbc6f-c4c3-4ccc-8990-f38da19a0443" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
+          <isAbstract>false</isAbstract>
+          <value>1.9.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>40725f53-95ff-4fda-b8e8-6234be95a3f7</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="14bcee9d-a4e2-49c5-a736-002c3dda0b12" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>1.9.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4943ae16-5677-4532-a67d-13d1f5b07120</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="b7124169-b064-4d69-80fa-4feeb98aeff2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
+          <isAbstract>false</isAbstract>
+          <value>1.9.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>14bcee9d-a4e2-49c5-a736-002c3dda0b12</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="713eee29-808e-41b3-80ac-05cd9a80fb83" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>1.9.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4943ae16-5677-4532-a67d-13d1f5b07120</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="f20c28a6-5276-4161-8a23-47c3efe9a435" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Http.Abstractions</name>
+          <isAbstract>false</isAbstract>
+          <value>2.1.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>713eee29-808e-41b3-80ac-05cd9a80fb83</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e40b0bc1-dff0-4ca6-9d6b-dc1daa270cc4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Http.Features</name>
+          <isAbstract>false</isAbstract>
+          <value>2.1.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>713eee29-808e-41b3-80ac-05cd9a80fb83</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="30eca450-645f-4b1d-ada4-26e4ec9c9cfe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>713eee29-808e-41b3-80ac-05cd9a80fb83</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bd398471-64ff-4859-9fa7-9ba5768f96e9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>713eee29-808e-41b3-80ac-05cd9a80fb83</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="93db9e0e-8795-46d5-b436-0a9dbe4024c1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
+          <isAbstract>false</isAbstract>
+          <value>1.9.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>713eee29-808e-41b3-80ac-05cd9a80fb83</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="37a44440-60db-4623-83eb-3b51d9c1b3df" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Encodings.Web</name>
+          <isAbstract>false</isAbstract>
+          <value>4.7.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>713eee29-808e-41b3-80ac-05cd9a80fb83</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

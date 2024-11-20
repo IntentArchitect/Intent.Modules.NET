@@ -1,3 +1,7 @@
+### Version 4.2.4
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.2.3
 
 - Improvement: Small updated to code comments and styling

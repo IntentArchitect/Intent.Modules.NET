@@ -18,8 +18,14 @@ namespace Intent.Modules.HotChocolate.GraphQL.AzureFunctions
             NugetRegistry.Register(HotChocolateAzureFunctionsPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 7, 0) => new PackageVersion("13.9.9"),
-                        ( >= 6, 0) => new PackageVersion("13.9.9"),
+                        ( >= 7, 0) => new PackageVersion("14.1.0")
+                            .WithNugetDependency("HotChocolate.AspNetCore", "14.1.0")
+                            .WithNugetDependency("ChilliCream.Nitro.App", "20.0.2")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Extensions", "1.1.0"),
+                        ( >= 6, 0) => new PackageVersion("14.1.0")
+                            .WithNugetDependency("HotChocolate.AspNetCore", "14.1.0")
+                            .WithNugetDependency("ChilliCream.Nitro.App", "20.0.2")
+                            .WithNugetDependency("Microsoft.Azure.Functions.Extensions", "1.1.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{HotChocolateAzureFunctionsPackageName}'"),
                     }
                 );

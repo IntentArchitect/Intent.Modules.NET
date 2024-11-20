@@ -21,9 +21,21 @@ namespace Intent.Modules.FastEndpoints
             NugetRegistry.Register(FastEndpointsPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 6, 0) => new PackageVersion("5.30.0")
-                            .WithNugetDependency("FastEndpoints.Attributes", "5.30.0")
-                            .WithNugetDependency("FastEndpoints.Messaging.Core", "5.30.0")
+                        ( >= 9, 0) => new PackageVersion("5.31.0")
+                            .WithNugetDependency("FastEndpoints.Attributes", "5.31.0")
+                            .WithNugetDependency("FastEndpoints.Messaging.Core", "5.31.0")
+                            .WithNugetDependency("FluentValidation", "11.10.0"),
+                        ( >= 8, 0) => new PackageVersion("5.31.0")
+                            .WithNugetDependency("FastEndpoints.Attributes", "5.31.0")
+                            .WithNugetDependency("FastEndpoints.Messaging.Core", "5.31.0")
+                            .WithNugetDependency("FluentValidation", "11.10.0"),
+                        ( >= 7, 0) => new PackageVersion("5.31.0")
+                            .WithNugetDependency("FastEndpoints.Attributes", "5.31.0")
+                            .WithNugetDependency("FastEndpoints.Messaging.Core", "5.31.0")
+                            .WithNugetDependency("FluentValidation", "11.10.0"),
+                        ( >= 6, 0) => new PackageVersion("5.31.0")
+                            .WithNugetDependency("FastEndpoints.Attributes", "5.31.0")
+                            .WithNugetDependency("FastEndpoints.Messaging.Core", "5.31.0")
                             .WithNugetDependency("FluentValidation", "11.10.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FastEndpointsPackageName}'"),
                     }
@@ -31,10 +43,20 @@ namespace Intent.Modules.FastEndpoints
             NugetRegistry.Register(FastEndpointsAspVersioningPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 7, 0) => new PackageVersion("5.30.0")
+                        ( >= 9, 0) => new PackageVersion("5.31.0")
+                            .WithNugetDependency("FastEndpoints", "5.31.0")
+                            .WithNugetDependency("Asp.Versioning.Http", "8.1.0")
+                            .WithNugetDependency("Asp.Versioning.Mvc.ApiExplorer", "8.1.0")
+                            .WithNugetDependency("NSwag.Generation.AspNetCore", "14.1.0"),
+                        ( >= 8, 0) => new PackageVersion("5.31.0")
+                            .WithNugetDependency("FastEndpoints", "5.31.0")
+                            .WithNugetDependency("Asp.Versioning.Http", "8.1.0")
+                            .WithNugetDependency("Asp.Versioning.Mvc.ApiExplorer", "8.1.0")
+                            .WithNugetDependency("NSwag.Generation.AspNetCore", "14.1.0"),
+                        ( >= 7, 0) => new PackageVersion("5.31.0")
                             .WithNugetDependency("Asp.Versioning.Http", "7.1.0")
                             .WithNugetDependency("Asp.Versioning.Mvc.ApiExplorer", "7.1.0")
-                            .WithNugetDependency("FastEndpoints", "5.30.0")
+                            .WithNugetDependency("FastEndpoints", "5.31.0")
                             .WithNugetDependency("NSwag.Generation.AspNetCore", "14.1.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FastEndpointsAspVersioningPackageName}'"),
                     }
@@ -42,13 +64,17 @@ namespace Intent.Modules.FastEndpoints
             NugetRegistry.Register(FastEndpointsAttributesPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 2, 0) => new PackageVersion("5.30.0"),
+                        ( >= 2, 0) => new PackageVersion("5.31.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FastEndpointsAttributesPackageName}'"),
                     }
                 );
             NugetRegistry.Register(FastEndpointsSwaggerSwashbucklePackageName,
                 (framework) => framework switch
                     {
+                        ( >= 8, 0) => new PackageVersion("2.3.0")
+                            .WithNugetDependency("FastEndpoints.ApiExplorer", "2.3.0")
+                            .WithNugetDependency("FastEndpoints", "5.22.0")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "6.5.0"),
                         ( >= 6, 0) => new PackageVersion("2.3.0")
                             .WithNugetDependency("FastEndpoints", "5.22.0")
                             .WithNugetDependency("FastEndpoints.ApiExplorer", "2.3.0")

@@ -20,13 +20,19 @@ namespace Intent.Modules.Dapper
                 (framework) => framework switch
                     {
                         ( >= 7, 0) => new PackageVersion("2.1.35"),
+                        ( >= 2, 0) => new PackageVersion("2.1.35")
+                            .WithNugetDependency("System.Reflection.Emit.Lightweight", "4.7.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{DapperPackageName}'"),
                     }
                 );
             NugetRegistry.Register(SystemDataSqlClientPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 2, 0) => new PackageVersion("4.8.6"),
+                        ( >= 8, 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("runtime.native.System.Data.SqlClient.sni", "4.4.0"),
+                        ( >= 6, 0) => new PackageVersion("4.9.0")
+                            .WithNugetDependency("runtime.native.System.Data.SqlClient.sni", "4.4.0"),
+                        ( >= 2, 0) => new PackageVersion("4.9.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SystemDataSqlClientPackageName}'"),
                     }
                 );

@@ -19,16 +19,24 @@ namespace Intent.Modules.Blazor.FluentValidation
             NugetRegistry.Register(FluentValidationPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("11.9.2"),
-                        ( >= 7, 0) => new PackageVersion("11.9.2"),
-                        ( >= 6, 0) => new PackageVersion("11.9.2"),
+                        ( >= 8, 0) => new PackageVersion("11.11.0"),
+                        ( >= 7, 0) => new PackageVersion("11.11.0"),
+                        ( >= 6, 0) => new PackageVersion("11.11.0"),
+                        ( >= 2, 1) => new PackageVersion("11.11.0"),
+                        ( >= 2, 0) => new PackageVersion("11.11.0")
+                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FluentValidationPackageName}'"),
                     }
                 );
             NugetRegistry.Register(FluentValidationDependencyInjectionExtensionsPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 2, 0) => new PackageVersion("11.9.2"),
+                        ( >= 2, 1) => new PackageVersion("11.11.0")
+                            .WithNugetDependency("FluentValidation", "11.11.0")
+                            .WithNugetDependency("Microsoft.Extensions.Dependencyinjection.Abstractions", "2.1.0"),
+                        ( >= 2, 0) => new PackageVersion("11.11.0")
+                            .WithNugetDependency("FluentValidation", "11.11.0")
+                            .WithNugetDependency("Microsoft.Extensions.Dependencyinjection.Abstractions", "2.1.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FluentValidationDependencyInjectionExtensionsPackageName}'"),
                     }
                 );

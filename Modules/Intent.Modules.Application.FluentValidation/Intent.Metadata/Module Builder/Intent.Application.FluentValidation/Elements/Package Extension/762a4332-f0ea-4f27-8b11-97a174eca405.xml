@@ -38,7 +38,7 @@
       <childElements>
         <childElement id="bd391d81-cb6a-4588-9d1f-c16cd6f48119" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <name>On Loaded</name>
-          <display>On Loaded: Script</display>
+          <display>On Loaded: Inline Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="e1d37f07-0eb6-489b-8bad-f4dc7ec80524">
@@ -63,6 +63,7 @@
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
                 <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="lookupTypesOf(&quot;DTO-Field&quot;, false).forEach(element =&gt; {&#xD;&#xA;    const stereotype = element.getStereotype(&quot;Validations&quot;);&#xD;&#xA;    if (stereotype == null ||&#xD;&#xA;        !stereotype.getProperty(&quot;Has Custom Validation&quot;).getValue()) {&#xD;&#xA;        return;&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    stereotype.getProperty(&quot;Has Custom Validation&quot;).setValue(false);&#xD;&#xA;    stereotype.getProperty(&quot;Must&quot;).setValue(true);&#xD;&#xA;});&#xD;&#xA;" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

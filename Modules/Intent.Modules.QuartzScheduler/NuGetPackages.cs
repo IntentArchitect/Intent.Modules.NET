@@ -19,16 +19,32 @@ namespace Intent.Modules.QuartzScheduler
             NugetRegistry.Register(QuartzAspNetCorePackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("3.12.0"),
-                        ( >= 6, 0) => new PackageVersion("3.12.0"),
+                        ( >= 8, 0) => new PackageVersion("3.13.1")
+                            .WithNugetDependency("Quartz.Extensions.Hosting", "3.13.1")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0"),
+                        ( >= 6, 0) => new PackageVersion("3.13.1")
+                            .WithNugetDependency("Quartz.Extensions.Hosting", "3.13.1")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "6.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "6.0.0"),
+                        ( >= 2, 0) => new PackageVersion("3.13.1")
+                            .WithNugetDependency("Quartz.Extensions.Hosting", "3.13.1")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "2.1.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{QuartzAspNetCorePackageName}'"),
                     }
                 );
             NugetRegistry.Register(QuartzExtensionsHostingPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("3.12.0"),
-                        ( >= 6, 0) => new PackageVersion("3.12.0"),
+                        ( >= 8, 0) => new PackageVersion("3.13.1")
+                            .WithNugetDependency("Quartz.Extensions.DependencyInjection", "3.13.1")
+                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "8.0.0"),
+                        ( >= 6, 0) => new PackageVersion("3.13.1")
+                            .WithNugetDependency("Quartz.Extensions.DependencyInjection", "3.13.1")
+                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "6.0.0"),
+                        ( >= 2, 0) => new PackageVersion("3.13.1")
+                            .WithNugetDependency("Quartz.Extensions.DependencyInjection", "3.13.1")
+                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "2.1.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{QuartzExtensionsHostingPackageName}'"),
                     }
                 );

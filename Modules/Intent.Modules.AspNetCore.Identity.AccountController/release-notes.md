@@ -1,5 +1,6 @@
-﻿### Version 4.1.0
+### Version 4.1.0
 
+- Improvement: Updated NuGet package versions.
 > ⚠️ **NOTE**
 > 
 > Claims related changes has been introduced to improve the experience using the `CurrentUserService`.

@@ -19,9 +19,25 @@ namespace Intent.Modules.Blazor.WebAssembly
             NugetRegistry.Register(MicrosoftAspNetCoreComponentsWebAssemblyPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.7"),
+                        ( >= 9, 0) => new PackageVersion("9.0.0")
+                            .WithNugetDependency("Microsoft.JSInterop.WebAssembly", "9.0.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.Components.Web", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Json", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0"),
+                        ( >= 8, 0) => new PackageVersion("8.0.11")
+                            .WithNugetDependency("Microsoft.JSInterop.WebAssembly", "8.0.11")
+                            .WithNugetDependency("Microsoft.AspNetCore.Components.Web", "8.0.11")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "8.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Json", "8.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.1"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
-                        ( >= 6, 0) => new PackageVersion("6.0.32"),
+                        ( >= 6, 0) => new PackageVersion("6.0.36")
+                            .WithNugetDependency("Microsoft.JSInterop.WebAssembly", "6.0.36")
+                            .WithNugetDependency("Microsoft.AspNetCore.Components.Web", "6.0.36")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "6.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Json", "6.0.1")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "6.0.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreComponentsWebAssemblyPackageName}'"),
                     }
                 );

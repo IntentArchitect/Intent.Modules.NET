@@ -23,7 +23,7 @@
   <metadata />
   <childElements>
     <childElement id="41b65e02-6da8-4dd9-a376-eeccec2703a4" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.8.6</name>
+      <name>4.9.0</name>
       <display>4.8.6 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -44,6 +44,70 @@
       </stereotypes>
       <metadata />
       <childElements />
+    </childElement>
+    <childElement id="d1016549-eedd-4374-ae05-ca9c54834385" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>4.9.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>294b8d63-3e6a-4cba-b15b-d4c4630cc39f</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="62c300c3-2794-4c90-b33e-96e31780fee8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>runtime.native.System.Data.SqlClient.sni</name>
+          <isAbstract>false</isAbstract>
+          <value>4.4.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d1016549-eedd-4374-ae05-ca9c54834385</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="77c5039b-3234-40e4-b1ad-71d2f4ecb6b1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>4.9.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>294b8d63-3e6a-4cba-b15b-d4c4630cc39f</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="689a482f-9ea5-4d82-bb04-b3a07e3dfb12" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>runtime.native.System.Data.SqlClient.sni</name>
+          <isAbstract>false</isAbstract>
+          <value>4.4.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>77c5039b-3234-40e4-b1ad-71d2f4ecb6b1</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

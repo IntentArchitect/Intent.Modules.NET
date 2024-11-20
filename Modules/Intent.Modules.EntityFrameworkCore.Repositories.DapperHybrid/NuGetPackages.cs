@@ -19,6 +19,8 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid
                 (framework) => framework switch
                     {
                         ( >= 7, 0) => new PackageVersion("2.1.35"),
+                        ( >= 2, 0) => new PackageVersion("2.1.35")
+                            .WithNugetDependency("System.Reflection.Emit.Lightweight", "4.7.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{DapperPackageName}'"),
                     }
                 );

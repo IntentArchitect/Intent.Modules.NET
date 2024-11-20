@@ -1,5 +1,6 @@
 ### Version 1.0.7
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Improved code quality by making `ValidateODataOptions` static and updating `Array.Any` to `Array.Exists` in `ODataQueryFilter`
 - Improvement: Cancellation token forwarded onto the `ToListAsync` methods
 

@@ -21,9 +21,44 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog
             NugetRegistry.Register(SerilogAspNetCorePackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.2"),
-                        ( >= 7, 0) => new PackageVersion("8.0.2"),
-                        ( >= 6, 0) => new PackageVersion("8.0.2"),
+                        ( >= 8, 0) => new PackageVersion("8.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Serilog", "3.1.1")
+                            .WithNugetDependency("Serilog.Extensions.Hosting", "8.0.0")
+                            .WithNugetDependency("Serilog.Formatting.Compact", "2.0.0")
+                            .WithNugetDependency("Serilog.Settings.Configuration", "8.0.4")
+                            .WithNugetDependency("Serilog.Sinks.Console", "5.0.0")
+                            .WithNugetDependency("Serilog.Sinks.Debug", "2.0.0")
+                            .WithNugetDependency("Serilog.Sinks.File", "5.0.0"),
+                        ( >= 7, 0) => new PackageVersion("8.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Serilog", "3.1.1")
+                            .WithNugetDependency("Serilog.Extensions.Hosting", "8.0.0")
+                            .WithNugetDependency("Serilog.Formatting.Compact", "2.0.0")
+                            .WithNugetDependency("Serilog.Settings.Configuration", "8.0.4")
+                            .WithNugetDependency("Serilog.Sinks.Console", "5.0.0")
+                            .WithNugetDependency("Serilog.Sinks.Debug", "2.0.0")
+                            .WithNugetDependency("Serilog.Sinks.File", "5.0.0"),
+                        ( >= 6, 0) => new PackageVersion("8.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Serilog", "3.1.1")
+                            .WithNugetDependency("Serilog.Extensions.Hosting", "8.0.0")
+                            .WithNugetDependency("Serilog.Formatting.Compact", "2.0.0")
+                            .WithNugetDependency("Serilog.Settings.Configuration", "8.0.4")
+                            .WithNugetDependency("Serilog.Sinks.Console", "5.0.0")
+                            .WithNugetDependency("Serilog.Sinks.Debug", "2.0.0")
+                            .WithNugetDependency("Serilog.Sinks.File", "5.0.0"),
+                        ( >= 2, 0) => new PackageVersion("8.0.3")
+                            .WithNugetDependency("Microsoft.AspNetCore.Hosting.Abstractions", "2.2.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.2.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.0")
+                            .WithNugetDependency("Serilog", "3.1.1")
+                            .WithNugetDependency("Serilog.Extensions.Hosting", "8.0.0")
+                            .WithNugetDependency("Serilog.Formatting.Compact", "2.0.0")
+                            .WithNugetDependency("Serilog.Settings.Configuration", "8.0.4")
+                            .WithNugetDependency("Serilog.Sinks.Console", "5.0.0")
+                            .WithNugetDependency("Serilog.Sinks.Debug", "2.0.0")
+                            .WithNugetDependency("Serilog.Sinks.File", "5.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SerilogAspNetCorePackageName}'"),
                     }
                 );
@@ -32,6 +67,9 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog
                     {
                         ( >= 7, 0) => new PackageVersion("3.1.0"),
                         ( >= 6, 0) => new PackageVersion("3.1.0"),
+                        ( >= 2, 0) => new PackageVersion("3.1.0")
+                            .WithNugetDependency("Serilog", "2.10.0")
+                            .WithNugetDependency("System.Diagnostics.DiagnosticSource", "7.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SerilogEnrichersSpanPackageName}'"),
                     }
                 );
@@ -39,6 +77,9 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog
                 (framework) => framework switch
                     {
                         ( >= 6, 0) => new PackageVersion("4.0.0"),
+                        ( >= 2, 0) => new PackageVersion("4.0.0")
+                            .WithNugetDependency("Microsoft.ApplicationInsights", "2.20.0")
+                            .WithNugetDependency("Serilog", "2.11.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SerilogSinksApplicationInsightsPackageName}'"),
                     }
                 );
@@ -47,6 +88,10 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog
                     {
                         ( >= 7, 0) => new PackageVersion("3.1.1"),
                         ( >= 6, 0) => new PackageVersion("3.1.1"),
+                        ( >= 2, 0) => new PackageVersion("3.1.1")
+                            .WithNugetDependency("System.Memory", "4.5.5")
+                            .WithNugetDependency("System.Text.Encoding", "4.3.0")
+                            .WithNugetDependency("System.Text.Json", "7.0.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SerilogSinksGraylogPackageName}'"),
                     }
                 );

@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="ea9c08b0-dedf-49c8-ac55-355528077e6a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.13.1</name>
+      <name>1.14.0</name>
       <display>1.13.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -45,10 +45,44 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="e0856f59-1401-4da2-86cc-c3b33b87e60f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Google.Api.CommonProtos</name>
+          <isAbstract>false</isAbstract>
+          <value>2.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ea9c08b0-dedf-49c8-ac55-355528077e6a</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4f109565-4411-4093-a810-34eb6a7956a6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Google.Protobuf</name>
+          <isAbstract>false</isAbstract>
+          <value>3.15.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ea9c08b0-dedf-49c8-ac55-355528077e6a</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="09d931ba-376c-4d83-bec4-d042179ff374" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Grpc.Net.Client</name>
+          <isAbstract>false</isAbstract>
+          <value>2.52.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ea9c08b0-dedf-49c8-ac55-355528077e6a</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="b8608d4d-74f7-4ca0-8507-eae18595d1ee" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.13.1</name>
+      <name>1.14.0</name>
       <display>1.13.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -68,7 +102,41 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="7e206f7a-1b42-404d-867d-c31a7e29bd70" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Google.Api.CommonProtos</name>
+          <isAbstract>false</isAbstract>
+          <value>2.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b8608d4d-74f7-4ca0-8507-eae18595d1ee</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="20dc41db-b0c7-4d54-82d0-40967c7828c7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Google.Protobuf</name>
+          <isAbstract>false</isAbstract>
+          <value>3.15.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b8608d4d-74f7-4ca0-8507-eae18595d1ee</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="498aebe0-a136-4018-8431-eb667739105d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Grpc.Net.Client</name>
+          <isAbstract>false</isAbstract>
+          <value>2.52.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b8608d4d-74f7-4ca0-8507-eae18595d1ee</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

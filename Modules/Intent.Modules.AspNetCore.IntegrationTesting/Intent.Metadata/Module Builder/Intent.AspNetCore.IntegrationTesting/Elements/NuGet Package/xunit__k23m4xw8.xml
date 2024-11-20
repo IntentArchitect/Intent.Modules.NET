@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="b291e8ba-2da9-4eba-bb77-d0bb3191e965" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.9.0</name>
+      <name>2.9.2</name>
       <display>2.9.0 ( &gt;= Any,Version=v0.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -45,7 +45,41 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="fe30c620-65f2-409d-b080-af038f908482" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>xunit.core</name>
+          <isAbstract>false</isAbstract>
+          <value>2.9.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b291e8ba-2da9-4eba-bb77-d0bb3191e965</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8eca3161-8add-44e4-9a2a-69025cebc593" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>xunit.assert</name>
+          <isAbstract>false</isAbstract>
+          <value>2.9.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b291e8ba-2da9-4eba-bb77-d0bb3191e965</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="10635000-9505-418e-8048-5d5cfc72495d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>xunit.analyzers</name>
+          <isAbstract>false</isAbstract>
+          <value>1.16.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b291e8ba-2da9-4eba-bb77-d0bb3191e965</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

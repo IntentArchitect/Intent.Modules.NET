@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="de40820f-1cfa-4be0-975c-7bd3130bc795" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.4.0</name>
-      <display>1.4.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>2.0.0</name>
+      <display>2.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,7 +47,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="9a9c5f92-8dc4-4739-9988-5e170989ce04" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4d11fae0-3816-414c-8642-397e36c121a7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
           <display>Azure.Identity (1.12.0)</display>
           <isAbstract>false</isAbstract>
@@ -61,7 +61,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3b5950bd-e2d9-4e0a-b11b-43c205e82a36" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="461be216-4bd0-4dab-bf03-f1d6b20d1d4c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.ApplicationInsights.PerfCounterCollector</name>
           <display>Microsoft.ApplicationInsights.PerfCounterCollector (2.22.0)</display>
           <isAbstract>false</isAbstract>
@@ -75,11 +75,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="dcca71b6-e79f-4412-b552-cfc96fcdfa12" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c6819fd1-fcec-4ee1-9af6-df388a23019d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Core</name>
-          <display>Microsoft.Azure.Functions.Worker.Core (1.19.0)</display>
+          <display>Microsoft.Azure.Functions.Worker.Core (2.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.19.0</value>
+          <value>2.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>de40820f-1cfa-4be0-975c-7bd3130bc795</parentFolderId>
@@ -89,11 +89,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e0a5912b-974a-4339-9bd2-bc27734cdd51" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cf14aa3f-ce44-4121-b187-c2665df6b282" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
-          <display>Microsoft.Bcl.AsyncInterfaces (5.0.0)</display>
+          <display>Microsoft.Bcl.AsyncInterfaces (8.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>5.0.0</value>
+          <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>de40820f-1cfa-4be0-975c-7bd3130bc795</parentFolderId>

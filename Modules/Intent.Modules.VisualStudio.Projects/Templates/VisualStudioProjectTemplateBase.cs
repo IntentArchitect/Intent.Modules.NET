@@ -8,6 +8,7 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Eventing;
+using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
@@ -80,7 +81,8 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
         }));
     }
 
-    public virtual IEnumerable<INugetPackageInfo> RequestedNugetPackages() => OutputTarget.NugetPackages();
+    public virtual IEnumerable<INugetPackageInfo> RequestedNugetPackages() => OutputTarget.NugetPackageInstalls().Select(ni => ni.Package);
+    public virtual IEnumerable<NuGetInstall> RequestedNugetPackageInstalls() => OutputTarget.NugetPackageInstalls();
 
     public IEnumerable<string> GetTargetFrameworks() => Model.TargetFrameworkVersion();
 

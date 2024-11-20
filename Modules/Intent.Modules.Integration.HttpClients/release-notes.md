@@ -7,6 +7,7 @@
 - Improvement: Improvements in generated http client code: recommended implementation of `IDisposable pattern`, `JsonSerializerOptions` only added if required, as well as small synatax updates
 - Improvement: Default values set on non-nullable properties on `HttpClientRequestException`
 - Improvement: MediaType `constant` defined and reused in http client, instead of duplicated string literals
+- Improvement: Updated NuGet package versions.
 
 ### Version 5.2.2
 

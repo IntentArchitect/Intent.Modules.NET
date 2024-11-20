@@ -8,6 +8,7 @@
 - Improvement: Default values set on non-nullable properties on `HttpClientRequestException`
 - Improvement: Updated `Microsoft.NET.Test.Sdk` package to 17.6.0.
 - Improvement: MediaType `constant` defined and reused in http client, instead of duplicated string literals
+- Improvement: Updated NuGet package versions.
 
 ### Version 1.0.9
 

@@ -21,7 +21,14 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis
             NugetRegistry.Register(StackExchangeRedisPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.8"),
+                        ( >= 9, 0) => new PackageVersion("9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.0")
+                            .WithNugetDependency("StackExchange.Redis", "2.7.27"),
+                        ( >= 8, 0) => new PackageVersion("8.0.11")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.2")
+                            .WithNugetDependency("StackExchange.Redis", "2.7.27"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{StackExchangeRedisPackageName}'"),
                     }
                 );

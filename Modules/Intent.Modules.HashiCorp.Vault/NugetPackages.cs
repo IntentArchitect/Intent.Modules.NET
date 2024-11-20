@@ -18,8 +18,14 @@ namespace Intent.Modules.HashiCorp.Vault
             NugetRegistry.Register(VaultSharpPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 7, 0) => new PackageVersion("1.13.0.1"),
-                        ( >= 6, 0) => new PackageVersion("1.13.0.1"),
+                        ( >= 8, 0) => new PackageVersion("1.17.5.1"),
+                        ( >= 7, 0) => new PackageVersion("1.17.5.1"),
+                        ( >= 6, 0) => new PackageVersion("1.17.5.1")
+                            .WithNugetDependency("System.Text.Json", "8.0.4"),
+                        ( >= 2, 1) => new PackageVersion("1.17.5.1")
+                            .WithNugetDependency("System.Text.Json", "8.0.4"),
+                        ( >= 2, 0) => new PackageVersion("1.17.5.1")
+                            .WithNugetDependency("System.Text.Json", "8.0.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{VaultSharpPackageName}'"),
                     }
                 );

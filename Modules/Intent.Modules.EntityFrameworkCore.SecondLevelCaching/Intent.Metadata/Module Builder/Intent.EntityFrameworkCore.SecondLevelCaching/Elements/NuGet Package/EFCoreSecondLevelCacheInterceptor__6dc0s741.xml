@@ -23,7 +23,7 @@
   <metadata />
   <childElements>
     <childElement id="66eca637-6e3a-499d-94bd-e67d8dbe9c69" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.6.0</name>
+      <name>4.8.8</name>
       <display>4.6.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -43,10 +43,66 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="85dfdf1a-e3b6-4bff-adb6-19de09b7d9a3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>AsyncKeyedLock</name>
+          <isAbstract>false</isAbstract>
+          <value>7.1.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>66eca637-6e3a-499d-94bd-e67d8dbe9c69</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e5e44fc7-545f-44b0-a81c-d3ac3390276c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>CacheManager.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>66eca637-6e3a-499d-94bd-e67d8dbe9c69</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="844ae8ff-adde-4515-9b54-a8425d6464b9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>EasyCaching.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.9.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>66eca637-6e3a-499d-94bd-e67d8dbe9c69</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8bd6f13f-86e9-411f-8fc3-c748a5545205" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore</name>
+          <isAbstract>false</isAbstract>
+          <value>7.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>66eca637-6e3a-499d-94bd-e67d8dbe9c69</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2003fc72-5c00-4b01-a621-7995ff436b8b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <isAbstract>false</isAbstract>
+          <value>7.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>66eca637-6e3a-499d-94bd-e67d8dbe9c69</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="4f16df79-a5a4-402a-a9c7-7ec8f3d8e371" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.6.0</name>
+      <name>4.8.8</name>
       <display>4.6.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -66,10 +122,88 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="c313419b-5e8f-45f0-b61d-5d9afddee660" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>AsyncKeyedLock</name>
+          <isAbstract>false</isAbstract>
+          <value>7.1.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="db57e8d8-2911-47e4-aaeb-7c329f0803e3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>CacheManager.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a9207708-3f3e-4741-b637-0687b59e761e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>EasyCaching.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.9.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4c34a4cf-f061-4d8a-92d0-59f6ff1ad4d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="98ae66fa-663f-4dc3-8d47-be54cca03a17" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b0199eae-5a8d-41b6-a594-4ad3478e579e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Memory</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ae0909ae-0118-4926-a1f6-d652d9ee927a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.IO.Hashing</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4f16df79-a5a4-402a-a9c7-7ec8f3d8e371</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="c57002ee-4803-4e44-bdeb-ba8be902ee39" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.6.0</name>
+      <name>4.8.8</name>
       <display>4.6.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -89,7 +223,313 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="33777a82-7123-42e3-9d62-f920e66632de" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>AsyncKeyedLock</name>
+          <isAbstract>false</isAbstract>
+          <value>7.1.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c57002ee-4803-4e44-bdeb-ba8be902ee39</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="498b27e3-acae-4a78-a417-f1b7928e0269" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>CacheManager.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c57002ee-4803-4e44-bdeb-ba8be902ee39</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a017e5ae-a6ff-4993-8192-f1026dc25660" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>EasyCaching.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.9.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c57002ee-4803-4e44-bdeb-ba8be902ee39</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="97382bdb-fbc3-47d9-9796-c49262dad962" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore</name>
+          <isAbstract>false</isAbstract>
+          <value>6.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c57002ee-4803-4e44-bdeb-ba8be902ee39</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5cf02bac-dd23-43fe-9205-b008e417bbb6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <isAbstract>false</isAbstract>
+          <value>6.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c57002ee-4803-4e44-bdeb-ba8be902ee39</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7622bc4b-a4cd-4739-b5f0-15a69694d743" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Memory</name>
+          <isAbstract>false</isAbstract>
+          <value>6.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c57002ee-4803-4e44-bdeb-ba8be902ee39</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>4.8.8</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b0f2945c-ecd9-44e3-ab2a-79971a8eff2b</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="112f2879-4e8c-4a7e-98a1-4cfa0e48c4b5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>AsyncKeyedLock</name>
+          <isAbstract>false</isAbstract>
+          <value>7.1.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5b88e0e6-50b2-4d97-9e7e-ca702e79de8d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>CacheManager.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="44dcaf09-41e0-468a-9068-4bfa3589ac36" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>EasyCaching.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.9.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ade6e48a-a140-406e-ae20-53d6da223bdc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore</name>
+          <isAbstract>false</isAbstract>
+          <value>3.1.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7293f029-8408-49ee-9a90-44c986044d67" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <isAbstract>false</isAbstract>
+          <value>3.1.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00b55ce3-4f09-4aa5-bd40-bbc94bb4bb13</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1ecc377d-3e35-47fa-8951-c30944545093" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>4.8.8</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b0f2945c-ecd9-44e3-ab2a-79971a8eff2b</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.1" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="07f9bc55-c80b-422f-901b-791fc3bba580" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>AsyncKeyedLock</name>
+          <isAbstract>false</isAbstract>
+          <value>7.1.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1ecc377d-3e35-47fa-8951-c30944545093</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1e053112-d1bc-4115-8b88-9d856f25b646" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>CacheManager.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1ecc377d-3e35-47fa-8951-c30944545093</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5044df3f-7e6e-4785-a10f-7385b9a67790" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>EasyCaching.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.9.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1ecc377d-3e35-47fa-8951-c30944545093</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3bc29d7f-97c6-4cb3-b9ea-ee7222ba13e4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore</name>
+          <isAbstract>false</isAbstract>
+          <value>5.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1ecc377d-3e35-47fa-8951-c30944545093</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="633785ba-419b-42ec-8106-8c5aeeeae5db" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <isAbstract>false</isAbstract>
+          <value>5.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1ecc377d-3e35-47fa-8951-c30944545093</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1e608202-359c-4d9a-b998-9f1488db23d6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>4.8.8</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b0f2945c-ecd9-44e3-ab2a-79971a8eff2b</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="ada7ac5f-0e18-44a1-a0b7-88a214371a30" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>AsyncKeyedLock</name>
+          <isAbstract>false</isAbstract>
+          <value>7.1.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1e608202-359c-4d9a-b998-9f1488db23d6</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b8b91aeb-943e-4a38-9798-a096f9e824b5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>CacheManager.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1e608202-359c-4d9a-b998-9f1488db23d6</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="86f75d55-1b00-4fc4-87a0-9e10697ce3de" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>EasyCaching.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.9.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1e608202-359c-4d9a-b998-9f1488db23d6</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bca11010-d3c8-4d6a-86fb-d2da98c39e8f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1e608202-359c-4d9a-b998-9f1488db23d6</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="826e6f74-5bbb-4aaf-aacb-5d466197de6c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1e608202-359c-4d9a-b998-9f1488db23d6</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b4b5f0b6-f6b7-4a8a-96df-8abaa9fce6cb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.IO.Hashing</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1e608202-359c-4d9a-b998-9f1488db23d6</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

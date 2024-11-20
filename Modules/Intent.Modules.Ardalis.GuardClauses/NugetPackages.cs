@@ -18,9 +18,9 @@ namespace Intent.Modules.Ardalis.GuardClauses
             NugetRegistry.Register(ArdalisGuardClausesPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("4.6.0"),
-                        ( >= 7, 0) => new PackageVersion("4.5.0"),
-                        ( >= 6, 0) => new PackageVersion("4.0.1"),
+                        ( >= 8, 0) => new PackageVersion("5.0.0"),
+                        ( >= 2, 1) => new PackageVersion("5.0.0"),
+                        ( >= 2, 0) => new PackageVersion("5.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{ArdalisGuardClausesPackageName}'"),
                     }
                 );

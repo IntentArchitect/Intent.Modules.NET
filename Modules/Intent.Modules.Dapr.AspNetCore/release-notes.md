@@ -1,3 +1,7 @@
+### Version 2.0.7
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.0.6
 
 - Improvement: Split direct dependency on `Intent.Dapr.AspNetCore.ServiceInvocations` on this module.
