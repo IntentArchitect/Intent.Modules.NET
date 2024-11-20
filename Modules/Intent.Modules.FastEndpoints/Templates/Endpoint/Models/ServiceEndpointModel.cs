@@ -5,6 +5,7 @@ using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Metadata.Security.Models;
 using Intent.Modules.Metadata.WebApi.Models;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
@@ -12,10 +13,12 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint.Models;
 
 public class ServiceEndpointModel : IEndpointModel
 {
-    private readonly ServiceModel _serviceModel;
-    private readonly OperationModel _operationModel;
-
-    public ServiceEndpointModel(IEndpointContainerModel container, ServiceModel serviceModel, OperationModel operationModel, IAuthorizationModel? authorizationModel)
+    public ServiceEndpointModel(
+        IEndpointContainerModel container, 
+        ServiceModel serviceModel, 
+        OperationModel operationModel, 
+        bool securedByDefault,
+        IReadOnlyCollection<ISecurityModel> securityModels)
     {
         if (container is null)
         {
@@ -29,11 +32,15 @@ public class ServiceEndpointModel : IEndpointModel
         {
             ArgumentNullException.ThrowIfNull(operationModel);
         }
-        
-        _serviceModel = serviceModel;
-        _operationModel = operationModel;
 
-        var httpEndpoint = HttpEndpointModelFactory.GetEndpoint(operationModel.InternalElement)!;
+        if (!HttpEndpointModelFactory.TryGetEndpoint(
+                element: operationModel.InternalElement,
+                defaultBasePath: null,
+                securedByDefault: securedByDefault,
+                httpEndpointModel: out var httpEndpoint))
+        {
+            throw new InvalidOperationException("Could not obtain endpoint model");
+        }
 
         Id = operationModel.Id;
         Name = httpEndpoint.Name;
@@ -47,12 +54,12 @@ public class ServiceEndpointModel : IEndpointModel
         Parameters = httpEndpoint.Inputs.Select(GetInput).ToList();
         RequiresAuthorization = httpEndpoint.RequiresAuthorization;
         AllowAnonymous = httpEndpoint.AllowAnonymous;
-        Authorization = authorizationModel;
+        SecurityModels = securityModels;
         ApplicableVersions = serviceModel.GetApiVersionSettings()
             ?.ApplicableVersions()
             .Select(s => new EndpointApiVersionModel(s))
             .Cast<IApiVersionModel>()
-            .ToList() ?? new List<IApiVersionModel>();
+            .ToArray() ?? [];
     }
 
     public string Id { get; }
@@ -63,14 +70,16 @@ public class ServiceEndpointModel : IEndpointModel
     public ITypeReference TypeReference { get; }
     public ITypeReference? ReturnType => TypeReference.Element != null ? TypeReference : null;
     public HttpVerb Verb { get; }
-    public string Route { get; }
+    public string? Route { get; }
     public HttpMediaType? MediaType { get; }
     public IList<IEndpointParameterModel> Parameters { get; }
     public bool RequiresAuthorization { get; }
     public bool AllowAnonymous { get; }
-    public IAuthorizationModel? Authorization { get; }
-    public IList<IApiVersionModel> ApplicableVersions { get; }
-    public FolderModel? Folder => new FolderModel(Container.InternalElement, Container.InternalElement.SpecializationType);
+    public IReadOnlyCollection<ISecurityModel> SecurityModels { get; }
+    public IReadOnlyCollection<IApiVersionModel> ApplicableVersions { get; }
+    public FolderModel? Folder => Container.InternalElement != null
+        ? new FolderModel(Container.InternalElement, Container.InternalElement.SpecializationType)
+        : null;
 
     private static IEndpointParameterModel GetInput(IHttpEndpointInputModel model)
     {

@@ -1,11 +1,11 @@
-﻿### Version 4.2.19
+﻿### Version 4.3.0
 
-- Improvement: Refactor of `AuthorizationBehaviour`, including syntax best practice updates
+- Improvement: `AuthorizationBehaviour` now supports having multiple attributes being applied and treats them as an `AND` security requirement.
 
 ### Version 4.2.18
 
-- Improvement: Updated `LoggingBehavior` and `PerformanceBehavior` to use Builder pattern
-- Improvement: `ILogger<{ClassName}>` is now injected into `LoggingBehavior`, `PerformanceBehavior` and `UnhandledExceptionBehaviour`, instead of `ILogger<TRequest>`
+- Improvement: Updated `LoggingBehavior` and `PerformanceBehavior` to use Builder pattern.
+- Improvement: `ILogger<{ClassName}>` is now injected into `LoggingBehavior`, `PerformanceBehavior` and `UnhandledExceptionBehaviour`, instead of `ILogger<TRequest>`.
 
 ### Version 4.2.17
 

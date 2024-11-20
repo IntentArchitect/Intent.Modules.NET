@@ -1,14 +1,15 @@
+#nullable enable
 using System.Collections.Generic;
 using Intent.Metadata.Models;
+using Intent.Modules.Metadata.Security.Models;
 
 namespace Intent.Modules.HotChocolate.GraphQL.Models;
 
 public interface IGraphQLResolverModel : IHasName, IHasTypeReference
 {
-    bool RequiresAuthorization { get; }
-    IAuthorizationModel AuthorizationDetails { get; }
+    IReadOnlyCollection<ISecurityModel>? SecurityModels { get; }
     IEnumerable<IGraphQLParameterModel> Parameters { get; }
-    IElement MappedElement { get; }
+    IElement? MappedElement { get; }
     string Description { get; }
 }
 

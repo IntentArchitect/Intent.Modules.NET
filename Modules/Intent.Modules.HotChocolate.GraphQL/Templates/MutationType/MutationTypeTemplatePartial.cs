@@ -58,21 +58,7 @@ namespace Intent.Modules.HotChocolate.GraphQL.Templates.MutationType
                                 method.AddAttribute("GraphQLDescription", attr => attr.AddArgument($@"""{mutation.Description}"""));
                             }
 
-                            if (mutation.RequiresAuthorization)
-                            {
-                                method.AddAttribute(UseType("HotChocolate.Authorization.Authorize"), attr =>
-                                {
-                                    if (mutation.AuthorizationDetails.Roles?.Any() == true)
-                                    {
-                                        attr.AddArgument($"Roles = new [] {{ {string.Join(", ", mutation.AuthorizationDetails.Roles.Select(x => $"\"{x.Trim()}\""))} }}");
-                                    }
-                                    else if (!string.IsNullOrWhiteSpace(mutation.AuthorizationDetails?.Policy))
-                                    {
-                                        attr.AddArgument($"Policy = \"{mutation.AuthorizationDetails.Policy}\"");
-                                    }
-                                });
-                            }
-
+                            AuthorizationHelper.AddAuthorizeAttributes(this, mutation, method);
                             method.Async();
 
                             foreach (var parameter in mutation.Parameters)

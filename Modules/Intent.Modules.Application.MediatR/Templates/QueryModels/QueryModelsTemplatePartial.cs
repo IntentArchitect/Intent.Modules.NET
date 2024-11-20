@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using Intent.Application.MediatR.Api;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.Settings;
@@ -13,6 +11,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Metadata.Security.Models;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -46,7 +45,7 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                 .AddClass($"{Model.Name}", @class =>
                 {
                     @class.TryAddXmlDocComments(Model.InternalElement);
-                    AddAuthorization(@class);
+                    CqrsTemplateHelpers.AddAuthorization(this, @class, Model.InternalElement);
                     @class.ImplementsInterface($"IRequest<{GetTypeName(Model.TypeReference)}>");
                     @class.ImplementsInterface(this.GetQueryInterfaceName());
 
@@ -83,51 +82,6 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
         public override string TransformText()
         {
             return CSharpFile.ToString();
-        }
-
-        private void AddAuthorization(CSharpClass @class)
-        {
-            if (Model.HasAuthorize())
-            {
-                if (!string.IsNullOrWhiteSpace(Model.GetAuthorize().Roles()) && Model.GetAuthorize().Roles().Contains('+'))
-                {
-                    var roleGroups = Model.GetAuthorize().Roles().Split('+');
-                    foreach (var group in roleGroups)
-                    {
-                        @class.AddAttribute(TryGetTypeName("Application.Identity.AuthorizeAttribute")?.RemoveSuffix("Attribute") ?? "Authorize", att =>
-                        {
-                            att.AddArgument($"Roles = \"{group}\"");
-                        });
-                    }
-                }
-                else
-                {
-                    var rolesPolicies = new List<string>();
-                    if (!string.IsNullOrWhiteSpace(Model.GetAuthorize().Roles()))
-                    {
-                        rolesPolicies.Add($"Roles = \"{Model.GetAuthorize().Roles()}\"");
-                    }
-                    else if (Model.GetAuthorize().SecurityRoles().Any())
-                    {
-                        rolesPolicies.Add($"Roles = \"{string.Join(",", Model.GetAuthorize().SecurityRoles().Select(e => e.Name))}\"");
-                    }
-                    if (!string.IsNullOrWhiteSpace(Model.GetAuthorize().Policy()))
-                    {
-                        rolesPolicies.Add($"Policy = \"{Model.GetAuthorize().Policy()}\"");
-                    }
-                    else if (Model.GetAuthorize().SecurityPolicies().Any())
-                    {
-                        rolesPolicies.Add($"Policy = \"{string.Join(",", Model.GetAuthorize().SecurityPolicies().Select(e => e.Name))}\"");
-                    }
-                    @class.AddAttribute(TryGetTypeName("Application.Identity.AuthorizeAttribute")?.RemoveSuffix("Attribute") ?? "Authorize", att =>
-                    {
-                        foreach (var arg in rolesPolicies)
-                        {
-                            att.AddArgument(arg);
-                        }
-                    });
-                }
-            }
         }
     }
 }

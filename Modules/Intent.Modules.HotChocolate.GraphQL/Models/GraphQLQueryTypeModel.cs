@@ -1,13 +1,14 @@
-using System;
+#nullable enable
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
-using Intent.Modules.Common.Templates;
 using Intent.Modelers.Services.GraphQL.Api;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Metadata.Security.Models;
 
 namespace Intent.Modules.HotChocolate.GraphQL.Models;
 
-class GraphQLQueryTypeModel : IGraphQLQueryTypeModel
+internal class GraphQLQueryTypeModel : IGraphQLQueryTypeModel
 {
     public GraphQLQueryTypeModel(Intent.Modelers.Services.GraphQL.Api.GraphQLQueryTypeModel model)
     {
@@ -21,7 +22,7 @@ class GraphQLQueryTypeModel : IGraphQLQueryTypeModel
     public IEnumerable<IGraphQLResolverModel> Resolvers { get; }
 }
 
-class GraphQLResolverModel : IGraphQLResolverModel
+internal class GraphQLResolverModel : IGraphQLResolverModel
 {
     public GraphQLResolverModel(GraphQLSchemaFieldModel model)
     {
@@ -30,8 +31,7 @@ class GraphQLResolverModel : IGraphQLResolverModel
         MappedElement = model.Mapping?.Element as IElement;
         Parameters = model.Parameters.Select(x => new GraphQLParameterModel(x.Name, x.TypeReference, x.InternalElement.MappedElement, x.Comment)).ToList();
         Description = model.Comment;
-        RequiresAuthorization = false;
-        AuthorizationDetails = null;
+        SecurityModels = null;
     }
 
     public GraphQLResolverModel(GraphQLMutationModel model)
@@ -42,22 +42,20 @@ class GraphQLResolverModel : IGraphQLResolverModel
         MappedElement = model.Mapping?.Element as IElement;
         Parameters = model.Parameters.Select(x => new GraphQLParameterModel(x.Name, x.TypeReference, x.InternalElement.MappedElement, x.Comment)).ToList();
         Description = model.Comment;
-        RequiresAuthorization = false;
-        AuthorizationDetails = null;
+        SecurityModels = null;
     }
 
     public string Name { get; }
     public ITypeReference TypeReference { get; }
-    public bool RequiresAuthorization { get; }
-    public IAuthorizationModel AuthorizationDetails { get; }
+    public IReadOnlyCollection<ISecurityModel>? SecurityModels { get; }
     public IEnumerable<IGraphQLParameterModel> Parameters { get; }
-    public IElement MappedElement { get; }
+    public IElement? MappedElement { get; }
     public string Description { get; }
 }
 
 public class GraphQLParameterModel : IGraphQLParameterModel
 {
-    public GraphQLParameterModel(string name, ITypeReference typeReference, IElement mappedElement, string[] mappedPath, string description)
+    public GraphQLParameterModel(string name, ITypeReference typeReference, IElement? mappedElement, string[]? mappedPath, string description)
     {
         Name = name;
         TypeReference = typeReference;
@@ -73,18 +71,7 @@ public class GraphQLParameterModel : IGraphQLParameterModel
 
     public string Name { get; }
     public ITypeReference TypeReference { get; }
-    public IElement MappedElement { get; }
-    public string[] MappedPath { get; }
+    public IElement? MappedElement { get; }
+    public string[]? MappedPath { get; }
     public string Description { get; }
-}
-
-public class AuthorizationModel : IAuthorizationModel
-{
-    public AuthorizationModel(IEnumerable<string> roles, string policy)
-    {
-        Roles = roles ?? Array.Empty<string>();
-        Policy = policy;
-    }
-    public IEnumerable<string> Roles { get; }
-    public string Policy { get; }
 }

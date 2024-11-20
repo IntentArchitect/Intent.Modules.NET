@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d2d3a575-4d3a-484a-ac61-c293dae2a235" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetBuyersQuery</name>
+  <display>GetBuyersQuery: BuyerDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="38316176-252e-4f62-8aea-9a948bca78f6">
+    <typeId>0b593d32-97b7-440c-b97c-701119128ee1</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>PackageLevelSecurity</typePackageName>
+    <typePackageId>28c42ab0-a0ea-4255-a7ef-7345772b1020</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>e4251ba7-1036-4a2b-b23d-22d286ea81d2</applicationId>
+    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+    <mappingSettingsId>50c4872d-f029-48ec-a818-58b426e8166a</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="70e5734e-33ee-465f-bc96-336bf12f7e3e" name="Buyer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>12a7337f-1096-407c-b8f0-c3d5974158c8</parentFolderId>
+  <packageId>28c42ab0-a0ea-4255-a7ef-7345772b1020</packageId>
+  <packageName>PackageLevelSecurity</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="GET" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/buyers" isActive="true" />
+        <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+        <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="8b65c29e-1448-43ac-a92a-0e0f86efd6c6" name="Unsecured">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.Security</definitionPackageName>
+      <definitionPackageId>a6fa1088-0064-43e3-a7fc-36c97b2b9285</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="baseName" value="Buyers" />
+  </metadata>
+  <childElements />
+</class>

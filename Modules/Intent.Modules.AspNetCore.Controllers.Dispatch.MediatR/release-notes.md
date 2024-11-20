@@ -1,5 +1,10 @@
-### Version 5.5.5
+### Version 6.0.0
 
+> ?? **NOTE**
+>
+> Depends on `Intent.AspNetCore.Controllers` version `7.0.0` which may cause breaking changes in custom modules. Refer to the [release notes](https://github.com/IntentArchitect/Intent.Modules.NET/blob/improvement/be-able-to-apply-multiple-authorize-attributes/Modules/Intent.Modules.AspNetCore.Controllers/release-notes.md#version-700) for more information. 
+
+- Improvement: Support addeded for applying multiple authorization attributes as well as applying authorization attributes from `Secured` stereotypes which are applied to packages. 
 - Improvement: Updated module icon
 
 ### Version 5.5.4

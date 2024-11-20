@@ -25,39 +25,25 @@ namespace MudBlazor.ExampleApp.Application.Common.Behaviours
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
-            var authorizeAttributes = request.GetType().GetCustomAttributes<AuthorizeAttribute>().ToList();
+            var authorizeAttributes = request.GetType().GetCustomAttributes<AuthorizeAttribute>();
 
-            if (authorizeAttributes.Count > 0)
+            foreach (var authorizeAttribute in authorizeAttributes)
             {
-                // Must be authenticated user
+                // Must be an authenticated user
                 if (_currentUserService.UserId is null)
                 {
                     throw new UnauthorizedAccessException();
                 }
 
-                // Role-Based authorization
-                await RoleBasedAuthenticationAsync(authorizeAttributes);
-
-                // Policy-based authorization
-                await PolicyBasedAuthenticationAsync(authorizeAttributes);
-            }
-
-            // User is authorized / authorization not required
-            return await next();
-        }
-
-        public async Task RoleBasedAuthenticationAsync(List<AuthorizeAttribute> authorizeAttributes)
-        {
-            var authorizeAttributesWithRoles = authorizeAttributes.Where(a => !string.IsNullOrWhiteSpace(a.Roles)).ToList();
-
-            if (authorizeAttributesWithRoles.Count > 0)
-            {
-                foreach (var roles in authorizeAttributesWithRoles.Select(a => a.Roles.Split(',')))
+                // Role-based authorization
+                if (!string.IsNullOrWhiteSpace(authorizeAttribute.Roles))
                 {
                     var authorized = false;
+                    var roles = authorizeAttribute.Roles.Split(",").Select(x => x.Trim());
+
                     foreach (var role in roles)
                     {
-                        var isInRole = await _currentUserService.IsInRoleAsync(role.Trim());
+                        var isInRole = await _currentUserService.IsInRoleAsync(role);
                         if (isInRole)
                         {
                             authorized = true;
@@ -71,25 +57,33 @@ namespace MudBlazor.ExampleApp.Application.Common.Behaviours
                         throw new ForbiddenAccessException();
                     }
                 }
-            }
-        }
 
-        public async Task PolicyBasedAuthenticationAsync(List<AuthorizeAttribute> authorizeAttributes)
-        {
-            var authorizeAttributesWithPolicies = authorizeAttributes.Where(a => !string.IsNullOrWhiteSpace(a.Policy)).ToList();
-
-            if (authorizeAttributesWithPolicies.Count > 0)
-            {
-                foreach (var policy in authorizeAttributesWithPolicies.Select(a => a.Policy))
+                // Policy-based authorization
+                if (!string.IsNullOrWhiteSpace(authorizeAttribute.Policy))
                 {
-                    var authorized = await _currentUserService.AuthorizeAsync(policy);
+                    var authorized = false;
+                    var policies = authorizeAttribute.Policy.Split(",").Select(x => x.Trim());
 
+                    foreach (var policy in policies)
+                    {
+                        var isAuthorized = await _currentUserService.AuthorizeAsync(policy);
+                        if (isAuthorized)
+                        {
+                            authorized = true;
+                            break;
+                        }
+                    }
+
+                    // Must be authorized by at least one policy
                     if (!authorized)
                     {
                         throw new ForbiddenAccessException();
                     }
                 }
             }
+
+            // User is authorized / authorization not required
+            return await next();
         }
     }
 }

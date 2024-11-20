@@ -1,95 +1,40 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Common;
 using Intent.Modules.Common.Types.Api;
-using OperationModel = Intent.Modelers.Services.Api.OperationModel;
+using Intent.Modules.Metadata.Security.Models;
 
 namespace Intent.Modules.FastEndpoints.Templates.Endpoint.Models;
 
 public class ServiceEndpointContainerModel : IEndpointContainerModel
 {
-    public ServiceEndpointContainerModel(ServiceModel serviceModel)
+    public ServiceEndpointContainerModel(ServiceModel serviceModel, bool securedByDefault)
     {
         Id = serviceModel.Id;
         Name = serviceModel.Name;
         Folder = serviceModel.Folder;
         InternalElement = serviceModel.InternalElement;
         Endpoints = serviceModel.Operations
-            .Select(IEndpointModel (operation) => new ServiceEndpointModel(this, serviceModel, operation, GetAuthorizationModel(operation.InternalElement)))
-            .ToList();
-        RequiresAuthorization = serviceModel.HasSecured();
-        AllowAnonymous = !serviceModel.HasSecured();
-        Authorization = GetAuthorizationModel(serviceModel.InternalElement);
+            .Select(IEndpointModel (operation) => new ServiceEndpointModel(
+                container: this,
+                serviceModel: serviceModel,
+                operationModel: operation,
+                securedByDefault: securedByDefault,
+                securityModels: SecurityModelHelpers.GetSecurityModels(operation.InternalElement).ToArray()))
+            .ToArray();
         ApplicableVersions = serviceModel.GetApiVersionSettings()
             ?.ApplicableVersions()
             .Select(s => new EndpointApiVersionModel(s))
             .Cast<IApiVersionModel>()
-            .ToList() ?? new List<IApiVersionModel>();
+            .ToArray() ?? [];
     }
-    
+
     public string Id { get; }
     public string Name { get; }
     public FolderModel Folder { get; }
     public IElement InternalElement { get; }
-    public IList<IEndpointModel> Endpoints { get; }
-    public bool RequiresAuthorization { get; }
-    public bool AllowAnonymous { get; }
-    public IAuthorizationModel? Authorization { get; }
-    public IList<IApiVersionModel> ApplicableVersions { get; }
-
-    private static bool GetAuthorizationRolesAndPolicies(IElement element, out string roles, out string policy)
-    {
-        roles = null;
-        policy = null;
-        if (!element.HasStereotype("Authorize") && !element.HasStereotype("Secured"))
-        {
-            return false;
-        }
-        var auth = element.HasStereotype("Authorize") ? element.GetStereotype("Authorize") : element.GetStereotype("Secured");
-
-        if (!string.IsNullOrEmpty(auth.GetProperty<string>("Roles", null)))
-        {
-            roles = auth.GetProperty<string>("Roles");
-        }
-        if (!string.IsNullOrEmpty(auth.GetProperty<string>("Policy", null)))
-        {
-            policy = auth.GetProperty<string>("Policy");
-        }
-        if (auth.GetProperty<IElement[]>("Security Roles", null) != null)
-        {
-            var elements = auth.GetProperty<IElement[]>("Security Roles");
-            roles = string.Join(",", elements.Select(e => e.Name));
-        }
-        if (auth.GetProperty<IElement[]>("Security Policies", null) != null)
-        {
-            var elements = auth.GetProperty<IElement[]>("Security Policies");
-            policy = string.Join(",", elements.Select(e => e.Name));
-        }
-        return roles != null || policy != null;
-    }
-
-    private static AuthorizationModel GetAuthorizationModel(IElement element)
-    {
-        if (!GetAuthorizationRolesAndPolicies(element, out var roles, out var policies))
-        {
-            return null;
-        }
-        return new AuthorizationModel
-        {
-            RolesExpression = !string.IsNullOrWhiteSpace(roles)
-                ? @$"{string.Join("+", roles.Split('+', StringSplitOptions.RemoveEmptyEntries)
-                    .Select(group => string.Join(",", group.Trim().Split(',', StringSplitOptions.RemoveEmptyEntries)
-                        .Select(s => s.Trim()))))}"
-                : null,
-            Policy = !string.IsNullOrWhiteSpace(policies)
-                ? @$"{string.Join("+", policies.Split('+', StringSplitOptions.RemoveEmptyEntries)
-                    .Select(group => string.Join(",", group.Trim().Split(',', StringSplitOptions.RemoveEmptyEntries)
-                        .Select(s => s.Trim()))))}"
-                : null
-        };
-    }
+    public IReadOnlyCollection<IEndpointModel> Endpoints { get; }
+    public IReadOnlyCollection<IApiVersionModel> ApplicableVersions { get; }
 }

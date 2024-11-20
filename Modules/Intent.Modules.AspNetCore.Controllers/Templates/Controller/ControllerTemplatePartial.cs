@@ -5,15 +5,16 @@ using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.AspNetCore.Controllers.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Metadata.Security.Models;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -21,13 +22,13 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
-    public partial class ControllerTemplate : CSharpTemplateBase<IControllerModel, ControllerDecorator>, ICSharpFileBuilderTemplate, IControllerTemplate<IControllerModel>
+    public partial class ControllerTemplate : CSharpTemplateBase<IControllerModel>, ICSharpFileBuilderTemplate, IControllerTemplate<IControllerModel>
     {
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.AspNetCore.Controllers.Controller";
         private readonly bool _isIgnoredForApiExplorer;
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-        public ControllerTemplate(IOutputTarget outputTarget, IControllerModel model) : base(TemplateId, outputTarget, model)
+        public ControllerTemplate(IOutputTarget outputTarget, IControllerModel model = null) : base(TemplateId, outputTarget, model)
         {
             _isIgnoredForApiExplorer =
                 (Model.InternalElement?.TryGetIsIgnoredForApiExplorer(out var isIgnoredForApiExplorer) == true && isIgnoredForApiExplorer) ||
@@ -81,7 +82,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                             }
                             foreach (var parameter in operation.Parameters)
                             {
-                                if (operation.Verb == HttpVerb.Get && parameter.TypeReference != null && parameter.TypeReference.IsCollection && parameter.TypeReference.Element.IsDTOModel())
+                                if (operation.Verb == HttpVerb.Get && parameter.TypeReference is { IsCollection: true } && parameter.TypeReference.Element.IsDTOModel())
                                 {
                                     throw new ElementException(parameter.MappedPayloadProperty as IElement ?? operation.InternalElement, "GET Operations do not support collections on complex objects.");
                                 }
@@ -106,7 +107,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                                 });
                             }
 
-                            if (Utils.IsRouteMultiTenancyConfigured(this, operation) && operation.Verb == HttpVerb.Post)
+                            if (this.IsRouteMultiTenancyConfigured(operation) && operation.Verb == HttpVerb.Post)
                             {
                                 method.AddParameter(UseType("Finbuckle.MultiTenant.ITenantInfo"), "tenantInfo");
                             }
@@ -172,9 +173,9 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         {
             var attributes = new List<CSharpAttribute>();
 
-            if (IsControllerSecured())
+            if (Model.RequiresAuthorization)
             {
-                attributes.AddRange(GetAuthorizationAttributes(Model.AuthorizationModel));
+                attributes.AddRange(GetAuthorizationAttributes(Model.SecurityModels));
             }
             else if (Model.AllowAnonymous)
             {
@@ -184,7 +185,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             if (_isIgnoredForApiExplorer)
             {
                 AddUsing("Microsoft.AspNetCore.Mvc");
-                attributes.Add(new CSharpAttribute($"[ApiExplorerSettings(IgnoreApi = true)]"));
+                attributes.Add(new CSharpAttribute("[ApiExplorerSettings(IgnoreApi = true)]"));
             }
 
             if (Model.Route != null)
@@ -205,11 +206,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             if (!string.IsNullOrWhiteSpace(operation.Comment))
             {
                 lines.AddRange(operation.Comment
-                    .Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Split(['\n', '\r'], StringSplitOptions.RemoveEmptyEntries)
                     .Select(commentLine => $"/// {commentLine}"));
             }
 
-            string returnType = FileTransferHelper.IsFileDownloadOperation(operation) ? "byte[]" : operation.ReturnType != null ? GetTypeName(operation.ReturnType) : "";
+            var returnType = FileTransferHelper.IsFileDownloadOperation(operation) ? "byte[]" : operation.ReturnType != null ? GetTypeName(operation.ReturnType) : "";
             lines.Add("/// </summary>");
             switch (operation.Verb)
             {
@@ -235,7 +236,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 lines.Add("/// <response code=\"400\">One or more validation errors have occurred.</response>");
             }
 
-            if (IsOperationSecured(operation))
+            if (operation.RequiresAuthorization)
             {
                 lines.Add("/// <response code=\"401\">Unauthorized request.</response>");
                 lines.Add("/// <response code=\"403\">Forbidden request.</response>");
@@ -267,20 +268,13 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 GetHttpVerbAndPath(operation)
             };
 
-            if (operation.RequiresAuthorization || operation.AllowAnonymous)
+            if (operation.RequiresAuthorization)
             {
-                if ((!IsControllerSecured() && IsOperationSecured(operation))
-                    || !string.IsNullOrWhiteSpace(operation.AuthorizationModel?.RolesExpression)
-                    || !string.IsNullOrWhiteSpace(operation.AuthorizationModel?.Policy))
-                {
-                    attributes.AddRange(GetAuthorizationAttributes(operation.AuthorizationModel));
-                }
-                else if (IsControllerSecured() &&
-                         !IsOperationSecured(operation) &&
-                         operation.AllowAnonymous)
-                {
-                    attributes.Add(new CSharpAttribute("[AllowAnonymous]"));
-                }
+                attributes.AddRange(GetAuthorizationAttributes(operation.SecurityModels));
+            }
+            else if (operation.AllowAnonymous)
+            {
+                attributes.Add(new CSharpAttribute("[AllowAnonymous]"));
             }
 
             var apiResponse = operation.ReturnType != null ? $"typeof({UseType(GetTypeInfo(operation).WithIsNullable(false))}), " : string.Empty;
@@ -298,22 +292,22 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     apiResponse = $"typeof({this.GetJsonResponseName()}<{GetTypeName(operation)}>), ";
                 }
             }
-            
+
             switch (operation.Verb)
             {
                 case HttpVerb.Get:
-                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{Utils.GetSuccessResponseCodeEnumValue(operation, "Status200OK")})]"));
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{operation.GetSuccessResponseCodeEnumValue("Status200OK")})]"));
                     break;
                 case HttpVerb.Post:
-                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{Utils.GetSuccessResponseCodeEnumValue(operation, "Status201Created")})]"));
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{operation.GetSuccessResponseCodeEnumValue("Status201Created")})]"));
                     break;
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
                     var defaultValue = operation.ReturnType != null ? "Status200OK" : "Status204NoContent";
-                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{Utils.GetSuccessResponseCodeEnumValue(operation, defaultValue)})]"));
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{operation.GetSuccessResponseCodeEnumValue(defaultValue)})]"));
                     break;
                 case HttpVerb.Delete:
-                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{Utils.GetSuccessResponseCodeEnumValue(operation, "Status200OK")})]"));
+                    attributes.Add(new CSharpAttribute($"[ProducesResponseType({apiResponse}StatusCodes.{operation.GetSuccessResponseCodeEnumValue("Status200OK")})]"));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException($"Unknown verb: {operation.Verb}");
@@ -324,7 +318,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 attributes.Add(new CSharpAttribute("[ProducesResponseType(StatusCodes.Status400BadRequest)]"));
             }
 
-            if (IsOperationSecured(operation))
+            if (operation.RequiresAuthorization)
             {
                 attributes.Add(new CSharpAttribute("[ProducesResponseType(StatusCodes.Status401Unauthorized)]"));
                 attributes.Add(new CSharpAttribute("[ProducesResponseType(StatusCodes.Status403Forbidden)]"));
@@ -345,64 +339,25 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return attributes;
         }
 
-        private static IEnumerable<CSharpAttribute> GetAuthorizationAttributes(IAuthorizationModel authorizationModel)
+        private IEnumerable<CSharpAttribute> GetAuthorizationAttributes(IReadOnlyCollection<ISecurityModel> securityModels)
         {
-            var result = new List<CSharpAttribute>();
-            var attribute = new CSharpAttribute("Authorize");
-
-            if (!string.IsNullOrWhiteSpace(authorizationModel?.RolesExpression))
-            {
-                if (authorizationModel.RolesExpression.Contains("+"))
+            return securityModels
+                .Select(model =>
                 {
-                    var roles = authorizationModel.RolesExpression.Split('+');
+                    var attribute = new CSharpAttribute("Authorize");
 
-                    foreach (var roleGroup in roles)
+                    if (model.Roles.Count > 0)
                     {
-                        attribute = new CSharpAttribute("Authorize");
-                        attribute.AddArgument($"Roles = \"{roleGroup}\"");
-                        result.Add(attribute);
+                        attribute.AddArgument($"Roles = \"{string.Join(",", model.Roles)}\"");
                     }
-                    return result;
-                }
-                attribute.AddArgument($"Roles = \"{authorizationModel.RolesExpression}\"");
-            }
 
-            if (!string.IsNullOrWhiteSpace(authorizationModel?.Policy))
-            {
-                attribute.AddArgument($"Policy = \"{authorizationModel.Policy}\"");
-            }
+                    if (model.Policies.Count > 0)
+                    {
+                        attribute.AddArgument($"Policy = \"{string.Join(",", model.Policies)}\"");
+                    }
 
-#pragma warning disable CS0618 // Type or member is obsolete
-            if (!string.IsNullOrWhiteSpace(authorizationModel?.AuthenticationSchemesExpression))
-            {
-                attribute.AddArgument($"AuthenticationSchemes = {authorizationModel.AuthenticationSchemesExpression}");
-            }
-#pragma warning restore CS0618 // Type or member is obsolete
-
-            result.Add(attribute);
-            return result;
-        }
-
-        private bool IsControllerSecured()
-        {
-            return ExecutionContext.Settings.GetAPISettings().DefaultAPISecurity().AsEnum() switch
-            {
-                APISettings.DefaultAPISecurityOptionsEnum.Secured => Model.RequiresAuthorization || !Model.AllowAnonymous,
-                APISettings.DefaultAPISecurityOptionsEnum.Unsecured => Model.RequiresAuthorization,
-                _ => throw new ArgumentOutOfRangeException()
-            };
-        }
-
-        private bool IsOperationSecured(IControllerOperationModel operation)
-        {
-            if (!operation.RequiresAuthorization && !operation.AllowAnonymous)
-            {
-                return IsControllerSecured();
-            }
-
-            return IsControllerSecured()
-                ? operation.RequiresAuthorization || !operation.AllowAnonymous
-                : operation.RequiresAuthorization;
+                    return attribute;
+                });
         }
 
         private CSharpAttribute GetHttpVerbAndPath(IControllerOperationModel o)
