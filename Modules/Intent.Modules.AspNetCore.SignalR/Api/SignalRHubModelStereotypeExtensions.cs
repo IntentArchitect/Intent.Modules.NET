@@ -14,14 +14,14 @@ namespace Intent.AspNetCore.SignalR.Api
     {
         public static HubSettings GetHubSettings(this SignalRHubModel model)
         {
-            var stereotype = model.GetStereotype("ba101028-d276-496d-bab2-5e7b707449a4");
+            var stereotype = model.GetStereotype(HubSettings.DefinitionId);
             return stereotype != null ? new HubSettings(stereotype) : null;
         }
 
 
         public static bool HasHubSettings(this SignalRHubModel model)
         {
-            return model.HasStereotype("ba101028-d276-496d-bab2-5e7b707449a4");
+            return model.HasStereotype(HubSettings.DefinitionId);
         }
 
         public static bool TryGetHubSettings(this SignalRHubModel model, out HubSettings stereotype)
@@ -32,13 +32,14 @@ namespace Intent.AspNetCore.SignalR.Api
                 return false;
             }
 
-            stereotype = new HubSettings(model.GetStereotype("ba101028-d276-496d-bab2-5e7b707449a4"));
+            stereotype = new HubSettings(model.GetStereotype(HubSettings.DefinitionId));
             return true;
         }
 
         public class HubSettings
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "ba101028-d276-496d-bab2-5e7b707449a4";
 
             public HubSettings(IStereotype stereotype)
             {

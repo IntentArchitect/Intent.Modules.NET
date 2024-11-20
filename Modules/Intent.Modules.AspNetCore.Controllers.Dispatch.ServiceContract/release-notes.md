@@ -1,3 +1,7 @@
+### Version 5.2.11
+
+- Improvement: Updated module icon
+
 ### Version 5.2.10
 
 - Improvement: `Guid`s Initialized in a controller will be set to `Guid.Empty` instead of `default(Guid)` to be more aligned with best practices

@@ -87,7 +87,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
         private DTOModel[] GetHieracrchyModels(IApplication applicationManager, List<DTOModel> models)
         {
             var modelIds = models.Select(m => m.Id);
-            
+
             var hierarchyModels = _metadataManager.Services(applicationManager).GetDTOModels()
                 .Where(x =>
                 {

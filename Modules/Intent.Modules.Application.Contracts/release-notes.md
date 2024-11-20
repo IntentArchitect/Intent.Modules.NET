@@ -1,3 +1,7 @@
+### Version 5.0.10
+
+- Improvement: Updated module icon
+
 ### Version 5.0.9
 
 - Improvement: Removed unnecessary implementation of IDisposable 

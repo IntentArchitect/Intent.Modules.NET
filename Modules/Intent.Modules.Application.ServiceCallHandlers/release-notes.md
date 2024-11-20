@@ -1,3 +1,7 @@
+### Version 4.3.3
+
+- Improvement: Updated module icon
+
 ### Version 4.3.2
 
 - Improvement: Updated module NuGet packages infrastructure.

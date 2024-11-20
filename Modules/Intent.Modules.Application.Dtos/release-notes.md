@@ -1,3 +1,7 @@
+### Version 4.4.3
+
+- Improvement: Updated module icon
+
 ### Version 4.4.2
 
 - Fixed : Fixed issue where DTOs with inheritance did not generate correct code.

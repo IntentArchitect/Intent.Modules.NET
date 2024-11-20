@@ -1,3 +1,7 @@
+### Version 6.0.6
+
+- Improvement: Updated module icon
+
 ### Version 6.0.5
 
 - Improvement: Small update to make code standard more consistent.

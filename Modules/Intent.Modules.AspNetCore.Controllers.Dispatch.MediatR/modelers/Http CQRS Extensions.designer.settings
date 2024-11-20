@@ -95,6 +95,7 @@ services.forEach(service =&gt; {
 })</script>
         </macro>
       </macros>
+      <childElementExtensions />
     </packageExtension>
   </packageExtensions>
   <elementSettings />
@@ -104,4 +105,5 @@ services.forEach(service =&gt; {
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
+  <scripts />
 </settings>

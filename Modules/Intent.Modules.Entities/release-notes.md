@@ -1,6 +1,7 @@
 ### Version 5.1.8
 
 - Improvement: Domain `entities` will now get a default constructor (if no other constructor is defined) to set the value of qualifying attributes to `null!`
+- Improvement: Updated module icon
 
 ### Version 5.1.7
 

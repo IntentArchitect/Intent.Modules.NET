@@ -1,3 +1,7 @@
+### Version 1.1.2
+
+- Improvement: Updated module icon
+
 ### Version 1.1.1
 
 - Improvement: Updated referenced libraries

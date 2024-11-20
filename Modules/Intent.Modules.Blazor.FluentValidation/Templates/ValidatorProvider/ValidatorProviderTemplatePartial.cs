@@ -40,6 +40,7 @@ namespace Intent.Modules.Blazor.FluentValidation.Templates.ValidatorProvider
 
 
 
+
         // public override bool CanRunTemplate()
         // {
         //     var validatorTemplates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(DtoValidatorTemplate.TemplateId);

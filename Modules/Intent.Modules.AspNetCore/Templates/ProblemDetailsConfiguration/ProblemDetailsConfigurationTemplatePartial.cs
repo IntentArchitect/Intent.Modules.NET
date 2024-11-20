@@ -122,7 +122,7 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
                         )))
                 .AddStatement("return services;");
         }
-        
+
         public override bool CanRunTemplate()
         {
             return IsExceptionHandlerSupported(OutputTarget);

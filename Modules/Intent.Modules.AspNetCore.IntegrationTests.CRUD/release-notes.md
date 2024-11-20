@@ -1,3 +1,7 @@
+### Version 1.0.12
+
+- Improvement: Updated module icon
+
 ### Version 1.0.11
 
 - Improvement: Improvements in generated http client code: recommended implementation of `IDisposable pattern`, `JsonSerializerOptions` only added if required, as well as small synatax updates

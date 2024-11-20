@@ -1,3 +1,7 @@
+### Version 6.1.3
+
+- Improvement: Updated module icon
+
 ### Version 6.1.2
 
 - Improvement: Added support for multitenancy `route strategy`

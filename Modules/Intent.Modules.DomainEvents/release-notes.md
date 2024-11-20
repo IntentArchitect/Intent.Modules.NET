@@ -1,3 +1,7 @@
+### Version 5.0.7
+
+- Improvement: Updated module icon
+
 ### Version 5.0.6
 
 - Improvement: `DomainEvents` property default value updated to be `[]` when possible

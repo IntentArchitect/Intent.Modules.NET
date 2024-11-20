@@ -1,3 +1,7 @@
+### Version 3.9.5
+
+- Improvement: Updated module icon
+
 ### Version 3.9.4
 
 - Fixed: Stack overflow occurring in rare circumstances where Advanced Mappings and Basic Mappings are interconnected.

@@ -1,3 +1,7 @@
+### Version 5.1.4
+
+- Improvement: Updated module icon
+
 ### Version 5.1.3
 
 - Improvement: `in` keyword added to `IIntegrationEventHandler` generic parameter to improve the quality of generated code

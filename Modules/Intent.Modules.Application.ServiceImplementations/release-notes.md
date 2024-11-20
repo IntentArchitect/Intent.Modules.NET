@@ -1,3 +1,7 @@
+### Version 4.5.9
+
+- Improvement: Updated module icon
+
 ### Version 4.5.8
 
 - Improvement: Removed unnecessary implementation of IDisposable 

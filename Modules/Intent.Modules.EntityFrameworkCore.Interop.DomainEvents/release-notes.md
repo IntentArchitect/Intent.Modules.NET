@@ -1,3 +1,7 @@
+### Version 4.1.3
+
+- Improvement: Updated module icon
+
 ### Version 4.1.2
 
 - Improvement: Updated module references

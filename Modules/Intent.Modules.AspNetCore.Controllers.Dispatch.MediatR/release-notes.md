@@ -1,3 +1,7 @@
+### Version 5.5.5
+
+- Improvement: Updated module icon
+
 ### Version 5.5.4
 
 - Improvement: Comparison using `Guid`s on the controller will use `Guid.Empty` instead of `default` to be more aligned with best practices

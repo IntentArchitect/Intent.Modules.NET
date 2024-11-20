@@ -1,3 +1,7 @@
+### Version 4.1.8
+
+- Improvement: Updated module icon
+
 ### Version 4.1.7
 
 - Fixed: Integration messages pascal-casing namespaces.

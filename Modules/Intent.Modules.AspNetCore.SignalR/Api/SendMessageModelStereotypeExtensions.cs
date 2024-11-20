@@ -14,14 +14,14 @@ namespace Intent.AspNetCore.SignalR.Api
     {
         public static HubSendMessageSettings GetHubSendMessageSettings(this SendMessageModel model)
         {
-            var stereotype = model.GetStereotype("a711f094-48c5-4011-ae90-666e83bd959f");
+            var stereotype = model.GetStereotype(HubSendMessageSettings.DefinitionId);
             return stereotype != null ? new HubSendMessageSettings(stereotype) : null;
         }
 
 
         public static bool HasHubSendMessageSettings(this SendMessageModel model)
         {
-            return model.HasStereotype("a711f094-48c5-4011-ae90-666e83bd959f");
+            return model.HasStereotype(HubSendMessageSettings.DefinitionId);
         }
 
         public static bool TryGetHubSendMessageSettings(this SendMessageModel model, out HubSendMessageSettings stereotype)
@@ -32,13 +32,14 @@ namespace Intent.AspNetCore.SignalR.Api
                 return false;
             }
 
-            stereotype = new HubSendMessageSettings(model.GetStereotype("a711f094-48c5-4011-ae90-666e83bd959f"));
+            stereotype = new HubSendMessageSettings(model.GetStereotype(HubSendMessageSettings.DefinitionId));
             return true;
         }
 
         public class HubSendMessageSettings
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "a711f094-48c5-4011-ae90-666e83bd959f";
 
             public HubSendMessageSettings(IStereotype stereotype)
             {

@@ -12,7 +12,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:08:43.1428056Z</approvedAt>
       <deviationsHash>1B68C46E894DB95B2F5D414E42C75E5DB5E6F0C47CDC196A27CD010B94B83655</deviationsHash>
-      <fileHash>1D4B0ECE337E4391B34D0CE14EEC587B55ACBF4BBD3613D1CD709EA9906FF153</fileHash>
+      <fileHash>25E3B7FA75D8C945FD2BC4C591B09FF1A851CB2C106FCE72D657B86954C72048</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f9eac68b-92fa-42be-b77f-d86812e42d83</correlationId>
@@ -38,7 +38,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:08:43.1473349Z</approvedAt>
       <deviationsHash>3C61B780C0CE1D415622C2E91942D3BA16A91AC2F83A743A66E7A7E51C84688A</deviationsHash>
-      <fileHash>467A0C664A5BBC0E9A4CECC6193EA45FF2A8F27D20E2069ACDA8F9F2712F9CCC</fileHash>
+      <fileHash>618D6CC38753A7A8AA295572B50A92110C927A30CDBFC7286980617683FC5F6C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3986d9ae-05f9-4329-98b6-c8a0e67f7c4b</correlationId>
@@ -64,7 +64,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:08:43.1603643Z</approvedAt>
       <deviationsHash>690951CECD0FF887BE2377E914838CCF6C6F41B7CAEB2B14A98884BFB5A8910E</deviationsHash>
-      <fileHash>34D7485AED5D7EA0783DDA44FDE984724EED433317CA50D0250C6A0FA9865AA4</fileHash>
+      <fileHash>4CA3CF4FA16C62C82AD88206691E2D8D7897B23772D9E8880FEBBDDC7437E40D</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2b0da9ce-a23d-4c7b-8d80-40957e6378cc</correlationId>
@@ -77,7 +77,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:08:43.1620476Z</approvedAt>
       <deviationsHash>CCAE9044D49FC7C8A4BAAEE4DBE9F3D51BDACF58F98813B2A71F0E1BF40EF5B5</deviationsHash>
-      <fileHash>7711F781387E155E08427FE4F6B8E452C8F31BB5A7651C6C2506B93D970E2B33</fileHash>
+      <fileHash>9737BECDE8188F97DF6EF1120910B8A7C14063FA9D36714397B3B49B249B12C3</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9c33352d-d0c8-414d-8335-6b5c28318ae5</correlationId>

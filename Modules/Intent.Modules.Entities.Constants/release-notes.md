@@ -1,7 +1,8 @@
 ### Version 1.0.4
 
 - Improvement: Updated to cater for scenario where the `ConfigureValidationRules` method is not present on a validator
-
+- Improvement: Updated module icon
+ 
 ### Version 1.0.3
 
 - Improvement: Updated module NuGet packages infrastructure.

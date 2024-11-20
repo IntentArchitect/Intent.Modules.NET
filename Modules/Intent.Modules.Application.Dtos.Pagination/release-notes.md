@@ -1,3 +1,7 @@
+### Version 4.0.16
+
+- Improvement: Updated module icon
+
 ### Version 4.0.15
 
 - Improvement: Small updates to XML documentation of IPagedList extension methods
