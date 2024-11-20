@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
@@ -459,7 +460,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet
             {
                 configurePackge(package);
             }
-            dictionary.Add(packageName, NuGetPackage.Create("", package));
+            dictionary.Add(packageName, NuGetPackage.Create("", package, new NuGetInstallOptions()));
         }
 
     }

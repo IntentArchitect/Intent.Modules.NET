@@ -5,6 +5,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Metadata.Models;
+using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions;
@@ -125,6 +126,11 @@ internal static class TestFixtureHelper
         public IVisualStudioProject Project { get; }
         public IOutputTarget OutputTarget { get; }
         public bool TryGetExistingFileContent(out string content) => throw new NotImplementedException();
+
+        public IEnumerable<NuGetInstall> RequestedNugetPackageInstalls()
+        {
+            return _nugetPackagesToInstall.Select(x => new NuGetInstall( new NuGetPackages(x)));
+        }
 
         private class VSProjectOutputTarget : IOutputTarget
         {
