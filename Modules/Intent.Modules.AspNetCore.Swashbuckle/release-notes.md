@@ -1,6 +1,9 @@
-### Version 5.1.3
+### Version 5.1.4
 
 - Improvement: Updated NuGet package versions.
+
+### Version 5.1.3
+
 - Improvement: Aligned `ISchemaFilter` implementation parameter names with the interface declaration.
 
 ### Version 5.1.2

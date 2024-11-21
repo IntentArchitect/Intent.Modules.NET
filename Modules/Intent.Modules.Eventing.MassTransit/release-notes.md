@@ -1,6 +1,9 @@
-### Version 6.2.8
+### Version 6.2.9
 
 - Improvement: Updated NuGet package versions.
+
+### Version 6.2.8
+
 - Improvement: Changed the private class `MessageToSend` to `sealed` inline with best practices
 
 ### Version 6.2.7

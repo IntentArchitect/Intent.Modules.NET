@@ -1,3 +1,7 @@
+### Version 2.2.1
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.2.0
 
 - Improvement: Updated Event subscriptions which are modeled in the Services Designer to implement the subscription using the `IIntegrationEventHandler` similar to our other Eventing models.
