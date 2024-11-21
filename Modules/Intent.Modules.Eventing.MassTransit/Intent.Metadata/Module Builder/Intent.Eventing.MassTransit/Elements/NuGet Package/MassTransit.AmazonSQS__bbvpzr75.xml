@@ -17,6 +17,8 @@
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
         <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
@@ -24,8 +26,9 @@
   <childElements>
     <childElement id="77aa7c20-a7c9-4fac-a1e1-2a71ae3e15a8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.3.1</name>
-      <display>8.2.3 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>8.3.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ead4c295-de31-4b57-9d95-ced2f7e19d55</parentFolderId>
@@ -44,35 +47,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b4f66a63-0f53-45ce-8151-e8a55b48054f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>MassTransit</name>
+        <childElement id="a206728f-ec76-4161-97e0-444f858f136e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>AWSSDK.SimpleNotificationService</name>
+          <display>AWSSDK.SimpleNotificationService (3.7.400.30)</display>
           <isAbstract>false</isAbstract>
-          <value>8.3.1</value>
+          <value>3.7.400.30</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>77aa7c20-a7c9-4fac-a1e1-2a71ae3e15a8</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="0172f78e-2406-42fe-a051-eb87b1cfcb3b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AWSSDK.SQS</name>
+          <display>AWSSDK.SQS (3.7.400.30)</display>
           <isAbstract>false</isAbstract>
           <value>3.7.400.30</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>77aa7c20-a7c9-4fac-a1e1-2a71ae3e15a8</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a206728f-ec76-4161-97e0-444f858f136e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>AWSSDK.SimpleNotificationService</name>
+        <childElement id="b4f66a63-0f53-45ce-8151-e8a55b48054f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MassTransit</name>
+          <display>MassTransit (8.3.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.7.400.30</value>
+          <value>8.3.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>77aa7c20-a7c9-4fac-a1e1-2a71ae3e15a8</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -81,8 +93,9 @@
     </childElement>
     <childElement id="2a9f1155-a8e3-43c2-96fd-069a7b606e7f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.3.1</name>
-      <display>8.2.3 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <display>8.3.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ead4c295-de31-4b57-9d95-ced2f7e19d55</parentFolderId>
@@ -101,35 +114,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2214e1b5-dd8f-48e4-aa2e-80824fd64eed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>MassTransit</name>
+        <childElement id="452d64b8-c48b-4be1-a157-f390f4b00331" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>AWSSDK.SimpleNotificationService</name>
+          <display>AWSSDK.SimpleNotificationService (3.7.400.30)</display>
           <isAbstract>false</isAbstract>
-          <value>8.3.1</value>
+          <value>3.7.400.30</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2a9f1155-a8e3-43c2-96fd-069a7b606e7f</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="bbf16a90-aebb-4563-9c29-3158308cbc59" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AWSSDK.SQS</name>
+          <display>AWSSDK.SQS (3.7.400.30)</display>
           <isAbstract>false</isAbstract>
           <value>3.7.400.30</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2a9f1155-a8e3-43c2-96fd-069a7b606e7f</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="452d64b8-c48b-4be1-a157-f390f4b00331" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>AWSSDK.SimpleNotificationService</name>
+        <childElement id="2214e1b5-dd8f-48e4-aa2e-80824fd64eed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MassTransit</name>
+          <display>MassTransit (8.3.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.7.400.30</value>
+          <value>8.3.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2a9f1155-a8e3-43c2-96fd-069a7b606e7f</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -138,10 +160,14 @@
     </childElement>
     <childElement id="cc899107-ee54-4c9d-a382-ead04170f6c4" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.3.1</name>
+      <display>8.3.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>ead4c295-de31-4b57-9d95-ced2f7e19d55</parentFolderId>
+      <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+      <packageName>Intent.Eventing.MassTransit</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -155,35 +181,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="096dabc0-0f3a-4b40-b188-a7b6da7b9e96" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>MassTransit</name>
+        <childElement id="2e13ba26-573f-447b-8ad1-8b89c9f6fdd3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>AWSSDK.SimpleNotificationService</name>
+          <display>AWSSDK.SimpleNotificationService (3.7.400.30)</display>
           <isAbstract>false</isAbstract>
-          <value>8.3.1</value>
+          <value>3.7.400.30</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cc899107-ee54-4c9d-a382-ead04170f6c4</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="c372fcdb-9552-4ccd-82d7-422b429fffc3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AWSSDK.SQS</name>
+          <display>AWSSDK.SQS (3.7.400.30)</display>
           <isAbstract>false</isAbstract>
           <value>3.7.400.30</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cc899107-ee54-4c9d-a382-ead04170f6c4</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2e13ba26-573f-447b-8ad1-8b89c9f6fdd3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>AWSSDK.SimpleNotificationService</name>
+        <childElement id="096dabc0-0f3a-4b40-b188-a7b6da7b9e96" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MassTransit</name>
+          <display>MassTransit (8.3.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.7.400.30</value>
+          <value>8.3.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cc899107-ee54-4c9d-a382-ead04170f6c4</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />

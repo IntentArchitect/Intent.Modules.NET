@@ -17,6 +17,8 @@
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
         <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
@@ -24,7 +26,7 @@
   <childElements>
     <childElement id="aaaa47ef-0ab4-4e9e-a248-bc2ee57258ec" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>11.11.0</name>
-      <display>11.9.2 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <display>11.11.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -47,7 +49,7 @@
     </childElement>
     <childElement id="1abe5469-4085-403b-bc42-3abe092afcda" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>11.11.0</name>
-      <display>11.9.2 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <display>11.11.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -70,7 +72,7 @@
     </childElement>
     <childElement id="05f01d0f-06be-4c69-a1aa-d9b94e4a0bfe" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>11.11.0</name>
-      <display>11.9.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>11.11.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -93,10 +95,14 @@
     </childElement>
     <childElement id="901ff93e-e6a0-4b81-9214-bc6a23069ca1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>11.11.0</name>
+      <display>11.11.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3104af84-9082-4bff-a773-8e4aa4064a3a</parentFolderId>
+      <packageId>90eb0073-c577-4253-9e76-0039622affa9</packageId>
+      <packageName>Intent.Blazor.FluentValidation</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -112,11 +118,14 @@
       <childElements>
         <childElement id="62132926-224f-4bf7-979f-90c196805085" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
+          <display>System.Threading.Tasks.Extensions (4.5.4)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>901ff93e-e6a0-4b81-9214-bc6a23069ca1</parentFolderId>
+          <packageId>90eb0073-c577-4253-9e76-0039622affa9</packageId>
+          <packageName>Intent.Blazor.FluentValidation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -125,10 +134,13 @@
     </childElement>
     <childElement id="d092f5f4-e1e1-49dd-8cb3-f7204be109fa" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>11.11.0</name>
+      <display>11.11.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3104af84-9082-4bff-a773-8e4aa4064a3a</parentFolderId>
+      <packageId>90eb0073-c577-4253-9e76-0039622affa9</packageId>
+      <packageName>Intent.Blazor.FluentValidation</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>

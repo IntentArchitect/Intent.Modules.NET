@@ -81,9 +81,6 @@ public class AspNetCoreIntegrationExtension : FactoryExtensionBase
         {
             var tenantInfoTemplate = application.FindTemplateInstance<TenantExtendedInfoTemplate>(TenantExtendedInfoTemplate.TemplateId);
 
-
-            //tenantInfoTemplate.SetCanRun(true);
-
             UpdateMultiTenancyConfigurationTemplate(application, configurations.Select(x => x.ConnectionStringName).ToArray());
             UpdateMultiTenantStoreDbContextTemplate(application);
         }

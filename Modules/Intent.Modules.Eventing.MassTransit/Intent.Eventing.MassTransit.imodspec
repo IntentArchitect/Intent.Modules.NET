@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
   <version>6.2.9-pre.1</version>
@@ -119,7 +119,6 @@
     <group id="b1c11f3f-63ce-4917-8ffb-b6c7698346c7" title="Eventing Settings" externalReference="b1c11f3f-63ce-4917-8ffb-b6c7698346c7">
       <settings>
         <setting id="2888b373-0419-4d33-ba56-2d8d0bf98eb9" title="Messaging Service Provider" type="select">
-          <isRequired>true</isRequired>
           <defaultValue>in-memory</defaultValue>
           <options>
             <option value="in-memory" description="In Memory" />
@@ -129,7 +128,6 @@
           </options>
         </setting>
         <setting id="52006faf-54dc-4b4c-8251-284cdaef7b89" title="Outbox Pattern" type="select">
-          <isRequired>true</isRequired>
           <hint>Controls durability of outgoing published messages.</hint>
           <defaultValue>in-memory</defaultValue>
           <options>
@@ -139,7 +137,6 @@
           </options>
         </setting>
         <setting id="4c41cfe0-a2a0-4b67-b8c3-878650f8639f" title="Retry Policy" type="select">
-          <isRequired>true</isRequired>
           <hint>The strategy to use when messages fail to deliver to their destination.</hint>
           <defaultValue>retry-interval</defaultValue>
           <options>

@@ -37,16 +37,6 @@ namespace Intent.Modules.Blazor.FluentValidation.Templates.ValidatorProvider
                 });
         }
 
-
-
-
-
-        // public override bool CanRunTemplate()
-        // {
-        //     var validatorTemplates = ExecutionContext.FindTemplateInstances<ICSharpFileBuilderTemplate>(DtoValidatorTemplate.TemplateId);
-        //     return validatorTemplates.Any(p => p.CSharpFile.Classes.FirstOrDefault()?.Constructors.FirstOrDefault()?.Parameters.Any(q => q.Type.Contains("IValidatorProvider")) == true);
-        // }
-
         public override void BeforeTemplateExecution()
         {
             if (!TryGetTemplate<ITemplate>(ValidatorProviderInterface.ValidatorProviderInterfaceTemplate.TemplateId, out var template))
