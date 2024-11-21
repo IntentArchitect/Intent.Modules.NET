@@ -194,9 +194,7 @@ steps:
   inputs:
     targetType: 'inline'
     pwsh: true
-    script: |
-      Write-Host "Sln : $Env:INTENT_MODULE_SOLUTION_PATH"
-      intent-cli ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_MODULE_SOLUTION_PATH" 
+    script: intent-cli ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_MODULE_SOLUTION_PATH"
 
 - task: PowerShell@2
   displayName: 'Template Testing'
