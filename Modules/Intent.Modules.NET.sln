@@ -70,9 +70,9 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.MediatR.DomainEvents", "Intent.Modules.MediatR.DomainEvents\Intent.Modules.MediatR.DomainEvents.csproj", "{E70FC8AE-5EFF-42C7-8F04-E1F44947B9C0}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.DomainEvents", "Intent.Modules.DomainEvents\Intent.Modules.DomainEvents.csproj", "{E484D3DA-E357-43A3-B37B-A43C33A639D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.DomainEvents", "Intent.Modules.DomainEvents\Intent.Modules.DomainEvents.csproj", "{E484D3DA-E357-43A3-B37B-A43C33A639D1}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.EntityFrameworkCore.Interop.DomainEvents", "Intent.Modules.EntityFrameworkCore.Interop.DomainEvents\Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.csproj", "{0ECE1FC5-4AC8-4A07-BF27-B756E8809992}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.Interop.DomainEvents", "Intent.Modules.EntityFrameworkCore.Interop.DomainEvents\Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.csproj", "{0ECE1FC5-4AC8-4A07-BF27-B756E8809992}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.IdentityServer4.SecureTokenServer", "Intent.Modules.IdentityServer4.SecureTokenServer\Intent.Modules.IdentityServer4.SecureTokenServer.csproj", "{7E2CDD36-D086-4401-9CE5-B83F61A6FCE9}"
 EndProject
@@ -112,7 +112,7 @@ Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AzureFunctio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Dtos.Pagination", "Intent.Modules.Application.Dtos.Pagination\Intent.Modules.Application.Dtos.Pagination.csproj", "{2F154FBE-BD9A-47D5-B1DF-287729FB872B}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.ValueObjects", "Intent.Modules.ValueObjects\Intent.Modules.ValueObjects.csproj", "{BE53D805-6699-498D-A281-05F24E1B3E58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ValueObjects", "Intent.Modules.ValueObjects\Intent.Modules.ValueObjects.csproj", "{BE53D805-6699-498D-A281-05F24E1B3E58}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Azure.BlobStorage", "Intent.Modules.Azure.BlobStorage\Intent.Modules.Azure.BlobStorage.csproj", "{D2C20998-FB57-4C68-B78B-6FAF943C99A3}"
 EndProject
@@ -130,9 +130,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Integration.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Security.MSAL", "Intent.Modules.Security.MSAL\Intent.Modules.Security.MSAL.csproj", "{8F477F9F-0ED7-4768-B2F5-2E473D83C041}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory", "Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory\Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.csproj", "{660CB137-92BC-425B-8ADB-B29CF80291B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory", "Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory\Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory.csproj", "{660CB137-92BC-425B-8ADB-B29CF80291B3}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Eventing.Contracts", "Intent.Modules.Eventing.Contracts\Intent.Modules.Eventing.Contracts.csproj", "{9814251B-AD1B-4598-8ED6-D825633D77D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.Contracts", "Intent.Modules.Eventing.Contracts\Intent.Modules.Eventing.Contracts.csproj", "{9814251B-AD1B-4598-8ED6-D825633D77D9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.CRUD.Eventing", "Intent.Modules.Application.MediatR.CRUD.Eventing\Intent.Modules.Application.MediatR.CRUD.Eventing.csproj", "{AF1800F1-2AFC-4804-84D3-E0E8E2BB51D3}"
 EndProject
@@ -206,7 +206,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.CosmosDB", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ObsoleteModule", "Intent.Modules.ObsoleteModule\Intent.Modules.ObsoleteModule.csproj", "{CD4E31F7-9F5F-4120-B5B1-501C40F3AE1B}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.SignalR", "Intent.Modules.AspNetCore.SignalR\Intent.Modules.AspNetCore.SignalR.csproj", "{DCEEDF9C-F645-408B-8E3C-8E3F214BB797}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.SignalR", "Intent.Modules.AspNetCore.SignalR\Intent.Modules.AspNetCore.SignalR.csproj", "{DCEEDF9C-F645-408B-8E3C-8E3F214BB797}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.HttpClients", "Intent.Modules.Blazor.HttpClients\Intent.Modules.Blazor.HttpClients.csproj", "{CF3D5129-6C5F-4D97-8BD3-B6F0C5F2D29C}"
 EndProject
@@ -226,7 +226,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Dapr.AspNetC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.MassTransit.Scheduling", "Intent.Modules.Eventing.MassTransit.Scheduling\Intent.Modules.Eventing.MassTransit.Scheduling.csproj", "{C29DF89B-FF3A-4A6D-AFDE-FC83C459B1E0}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation", "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation\Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.csproj", "{98A21C3B-18C5-4D9C-8E22-94A186541490}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation", "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation\Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.csproj", "{98A21C3B-18C5-4D9C-8E22-94A186541490}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations", "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations\Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj", "{153F48C5-96FA-437D-AC88-F17033966D4C}"
 EndProject

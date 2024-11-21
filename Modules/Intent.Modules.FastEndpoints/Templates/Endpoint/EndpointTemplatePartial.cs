@@ -27,7 +27,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
     {
         public const string TemplateId = "Intent.FastEndpoints.EndpointTemplate";
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Ignore, Body = Mode.Ignore)]
         public EndpointTemplate(IOutputTarget outputTarget, IEndpointModel? model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.FastEndpoints(OutputTarget));

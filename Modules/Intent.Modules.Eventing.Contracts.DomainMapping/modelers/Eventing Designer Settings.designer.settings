@@ -8,7 +8,6 @@
   <elementSettings />
   <elementExtensions>
     <elementExtension type="Eventing DTO" typeId="544f1d57-27ce-4985-a4ec-cc01568d72b0">
-      <implements />
       <mappingSettings>
         <mappingSetting id="e437007c-33fd-46d5-9293-d4529b4b82e6">
           <name>Map from Domain</name>
@@ -205,7 +204,6 @@ for (const property of properties) {
       </macros>
     </elementExtension>
     <elementExtension type="Integration Command" typeId="7f01ca8e-0e3c-4735-ae23-a45169f71625">
-      <implements />
       <mappingSettings>
         <mappingSetting id="e72001cc-e117-4919-9a7b-bd8d8633f8d7">
           <name>Map From Domain</name>
@@ -435,7 +433,6 @@ for (const property of properties) {
       </macros>
     </elementExtension>
     <elementExtension type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
-      <implements />
       <mappingSettings>
         <mappingSetting id="1b4f670b-4c97-4dd0-a1c5-831f3a695859">
           <name>Map from Domain</name>

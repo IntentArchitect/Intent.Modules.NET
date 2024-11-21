@@ -30,7 +30,7 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Templates.OpenApiConfiguration
                     AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsOpenApi(outputTarget));
                     AddNugetDependency(NugetPackages.MicrosoftCodeAnalysisWorkspacesCommon(outputTarget));
                     AddNugetDependency(NugetPackages.MicrosoftCodeAnalysisCSharpWorkspaces(outputTarget));
-                    AddNugetDependency(NugetPackages.MicrosoftCodeAnalysisCommon(outputTarget), new NuGetInstallOptions { ForceInstall = true } );
+                    AddNugetDependency(NugetPackages.MicrosoftCodeAnalysisCommon(outputTarget), new NuGetInstallOptions { ForceInstall = true });
 
                     ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureWebJobsExtensionsOpenApiPackageName, outputTarget));
                     break;

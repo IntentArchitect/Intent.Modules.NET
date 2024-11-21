@@ -95,7 +95,6 @@ services.forEach(service =&gt; {
 })</script>
         </macro>
       </macros>
-      <childElementExtensions />
     </packageExtension>
   </packageExtensions>
   <elementSettings />
