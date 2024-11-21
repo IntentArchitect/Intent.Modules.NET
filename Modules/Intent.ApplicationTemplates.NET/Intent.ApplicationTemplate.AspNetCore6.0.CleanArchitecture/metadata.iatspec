@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</id>
-  <version>5.0.6-pre.2</version>
+  <version>5.0.6-pre.3</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <displayName>Clean Architecture .NET</displayName>
   <shortDescription>Web application implementation based on Robert Martin's Clean Architecture with a CQRS API and Mediator dispatch pattern in .NET</shortDescription>
@@ -615,6 +615,7 @@
           <defaultValue>f8b1618d-1e64-4c2c-9787-e0725c3633a1</defaultValue>
           <isRequired>true</isRequired>
           <options>
+            <option value="e70e92fe-878e-451d-a196-0062a53216f4" description=".NET 9.0" />
             <option value="f8b1618d-1e64-4c2c-9787-e0725c3633a1" description=".NET 8.0" />
             <option value="0cd4e056-3bc1-4f8c-9cba-7d362d42c33c" description=".NET 7.0" />
             <option value="16d99e3e-7b91-42f8-ae3b-2686edde94b7" description=".NET 6.0" />
