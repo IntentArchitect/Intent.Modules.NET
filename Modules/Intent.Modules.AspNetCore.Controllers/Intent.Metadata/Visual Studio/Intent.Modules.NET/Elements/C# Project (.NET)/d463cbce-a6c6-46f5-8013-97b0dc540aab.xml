@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-<class id="063e370f-e33c-444e-8d31-b9f1e9051fb3" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
-========
 <class id="d463cbce-a6c6-46f5-8013-97b0dc540aab" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
   <name>Intent.Modules.AspNetCore.Controllers</name>
   <display>Intent.Modules.AspNetCore.Controllers</display>
   <isAbstract>false</isAbstract>
@@ -60,11 +56,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-      <parentFolderId>063e370f-e33c-444e-8d31-b9f1e9051fb3</parentFolderId>
-========
       <parentFolderId>d463cbce-a6c6-46f5-8013-97b0dc540aab</parentFolderId>
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
       <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -79,11 +71,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-      <parentFolderId>063e370f-e33c-444e-8d31-b9f1e9051fb3</parentFolderId>
-========
       <parentFolderId>d463cbce-a6c6-46f5-8013-97b0dc540aab</parentFolderId>
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
       <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -99,11 +87,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-      <parentFolderId>063e370f-e33c-444e-8d31-b9f1e9051fb3</parentFolderId>
-========
       <parentFolderId>d463cbce-a6c6-46f5-8013-97b0dc540aab</parentFolderId>
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
       <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -118,11 +102,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-      <parentFolderId>063e370f-e33c-444e-8d31-b9f1e9051fb3</parentFolderId>
-========
       <parentFolderId>d463cbce-a6c6-46f5-8013-97b0dc540aab</parentFolderId>
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
       <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -138,11 +118,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-      <parentFolderId>063e370f-e33c-444e-8d31-b9f1e9051fb3</parentFolderId>
-========
       <parentFolderId>d463cbce-a6c6-46f5-8013-97b0dc540aab</parentFolderId>
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
       <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -158,11 +134,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-      <parentFolderId>063e370f-e33c-444e-8d31-b9f1e9051fb3</parentFolderId>
-========
       <parentFolderId>d463cbce-a6c6-46f5-8013-97b0dc540aab</parentFolderId>
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
       <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -178,11 +150,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-      <parentFolderId>063e370f-e33c-444e-8d31-b9f1e9051fb3</parentFolderId>
-========
       <parentFolderId>d463cbce-a6c6-46f5-8013-97b0dc540aab</parentFolderId>
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
       <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -198,11 +166,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-      <parentFolderId>063e370f-e33c-444e-8d31-b9f1e9051fb3</parentFolderId>
-========
       <parentFolderId>d463cbce-a6c6-46f5-8013-97b0dc540aab</parentFolderId>
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
       <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -218,11 +182,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-      <parentFolderId>063e370f-e33c-444e-8d31-b9f1e9051fb3</parentFolderId>
-========
       <parentFolderId>d463cbce-a6c6-46f5-8013-97b0dc540aab</parentFolderId>
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
       <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -238,11 +198,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-      <parentFolderId>063e370f-e33c-444e-8d31-b9f1e9051fb3</parentFolderId>
-========
       <parentFolderId>d463cbce-a6c6-46f5-8013-97b0dc540aab</parentFolderId>
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
       <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -257,11 +213,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-      <parentFolderId>063e370f-e33c-444e-8d31-b9f1e9051fb3</parentFolderId>
-========
       <parentFolderId>d463cbce-a6c6-46f5-8013-97b0dc540aab</parentFolderId>
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
       <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -274,11 +226,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-      <parentFolderId>063e370f-e33c-444e-8d31-b9f1e9051fb3</parentFolderId>
-========
       <parentFolderId>d463cbce-a6c6-46f5-8013-97b0dc540aab</parentFolderId>
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
       <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -291,11 +239,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-      <parentFolderId>063e370f-e33c-444e-8d31-b9f1e9051fb3</parentFolderId>
-========
       <parentFolderId>d463cbce-a6c6-46f5-8013-97b0dc540aab</parentFolderId>
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
       <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -308,11 +252,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-      <parentFolderId>063e370f-e33c-444e-8d31-b9f1e9051fb3</parentFolderId>
-========
       <parentFolderId>d463cbce-a6c6-46f5-8013-97b0dc540aab</parentFolderId>
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
       <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
@@ -325,11 +265,7 @@
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-<<<<<<<< HEAD:Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/063e370f-e33c-444e-8d31-b9f1e9051fb3.xml
-      <parentFolderId>063e370f-e33c-444e-8d31-b9f1e9051fb3</parentFolderId>
-========
       <parentFolderId>d463cbce-a6c6-46f5-8013-97b0dc540aab</parentFolderId>
->>>>>>>> 4a25d7ccd2 (Modules with no pending changes):Modules/Intent.Modules.AspNetCore.Controllers/Intent.Metadata/Visual Studio/Intent.Modules.NET/Elements/C# Project (.NET)/d463cbce-a6c6-46f5-8013-97b0dc540aab.xml
       <packageId>30096efa-e031-4bd2-9b64-671d36ba6297</packageId>
       <packageName>Intent.Modules.NET</packageName>
       <stereotypes />

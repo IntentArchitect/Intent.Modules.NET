@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -71,10 +71,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.1" />
     <PackageReference Include="Intent.Modules.Metadata.Security" Version="1.0.0-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.8.2" />
-    <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="4.1.0" />
     <PackageReference Include="Intent.Packager" Version="3.4.3">
       <PrivateAssets>all</PrivateAssets>

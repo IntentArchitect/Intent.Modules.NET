@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -24,10 +24,6 @@
     <None Update="Templates\ApiControllerBase\ApiControllerBaseTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ApiControllerBaseTemplate.cs</LastGenOutput>
-    </None>
-    <None Update="Templates\JsonResponse\JsonResponseTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>JsonResponseTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

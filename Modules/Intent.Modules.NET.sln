@@ -4,7 +4,7 @@ VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.Contracts", "Intent.Modules.Application.Contracts\Intent.Modules.Application.Contracts.csproj", "{2972A488-2F67-426D-8762-C85FB36FB32C}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.ServiceCallHandlers", "Intent.Modules.Application.ServiceCallHandlers\Intent.Modules.Application.ServiceCallHandlers.csproj", "{E923CA07-9C38-4D69-B150-2A8FFF6E9100}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.ServiceCallHandlers", "Intent.Modules.Application.ServiceCallHandlers\Intent.Modules.Application.ServiceCallHandlers.csproj", "{E923CA07-9C38-4D69-B150-2A8FFF6E9100}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Constants", "Intent.Modules.Constants\Intent.Modules.Constants.csproj", "{DBADFA28-E995-4E75-9933-215A51E7B580}"
 EndProject
@@ -42,7 +42,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Interop.Angular", "Intent.Modules.AspNetCore.Interop.Angular\Intent.Modules.AspNetCore.Interop.Angular.csproj", "{96AC5884-36A9-4B6D-8E91-3C8D7BA75BB6}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.AspNetCore.Controllers", "Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj", "{863DEDBB-B0A4-467E-96EA-F1EE97D7BD10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Controllers", "Intent.Modules.AspNetCore.Controllers\Intent.Modules.AspNetCore.Controllers.csproj", "{863DEDBB-B0A4-467E-96EA-F1EE97D7BD10}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR", "Intent.Modules.Application.MediatR\Intent.Modules.Application.MediatR.csproj", "{80081361-CC7D-430C-8861-8B2AC9D6E8A7}"
 EndProject
@@ -50,7 +50,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.Identity", "Intent.Modules.Application.Identity\Intent.Modules.Application.Identity.csproj", "{DEDDB78D-352E-4FE1-B7AF-5F1AC59E4F55}"
 EndProject
-Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.MediatR.Behaviours", "Intent.Modules.Application.MediatR.Behaviours\Intent.Modules.Application.MediatR.Behaviours.csproj", "{8DE7DB33-7D69-403F-AD45-3B3D753705F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Application.MediatR.Behaviours", "Intent.Modules.Application.MediatR.Behaviours\Intent.Modules.Application.MediatR.Behaviours.csproj", "{8DE7DB33-7D69-403F-AD45-3B3D753705F2}"
 EndProject
 Project("{52B49DB5-3EA9-4095-B1A7-DF1AC22D7DAE}") = "Intent.Modules.Application.DependencyInjection.MediatR", "Intent.Modules.Application.DependencyInjection.MediatR\Intent.Modules.Application.DependencyInjection.MediatR.csproj", "{237C143B-3123-4722-BDF6-24A34537C85B}"
 EndProject

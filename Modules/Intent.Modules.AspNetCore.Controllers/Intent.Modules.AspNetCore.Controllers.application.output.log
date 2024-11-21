@@ -90,14 +90,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateDecoratorContract#2ba2dbf4-0d2b-4add-8b83-ec9bef1db826</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Controller/ControllerDecorator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Controller/ControllerDecorator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e6d82b9e-3868-4b1b-8f55-12f2ce2c0dd8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Controller/ControllerTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -130,18 +122,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#28d3d457-970f-465b-b178-ebd1896643e2</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate#28d3d457-970f-465b-b178-ebd1896643e2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/JsonResponse/JsonResponseTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse/JsonResponseTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>81e4223c-4744-4227-b3c9-e4bcb9fead7b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpT4Template#28d3d457-970f-465b-b178-ebd1896643e2</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/JsonResponse/JsonResponseTemplate.tt</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>JsonResponse/JsonResponseTemplate.tt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
