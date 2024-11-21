@@ -339,7 +339,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return attributes;
         }
 
-        private IEnumerable<CSharpAttribute> GetAuthorizationAttributes(IReadOnlyCollection<ISecurityModel> securityModels)
+        private static IEnumerable<CSharpAttribute> GetAuthorizationAttributes(IReadOnlyCollection<ISecurityModel> securityModels)
         {
             return securityModels
                 .Select(model =>
@@ -360,7 +360,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 });
         }
 
-        private CSharpAttribute GetHttpVerbAndPath(IControllerOperationModel o)
+        private static CSharpAttribute GetHttpVerbAndPath(IControllerOperationModel o)
         {
             var arguments = new List<string>();
 

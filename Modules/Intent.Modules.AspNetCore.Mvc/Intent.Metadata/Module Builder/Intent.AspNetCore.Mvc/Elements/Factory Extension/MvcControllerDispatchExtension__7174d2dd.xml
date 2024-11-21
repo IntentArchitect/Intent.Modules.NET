@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b8b8db65-4a52-429f-ba42-13860c008f3c" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MvcControllerDispatchExtension</name>
+  <display>MvcControllerDispatchExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>539cecb5-aede-4b55-8dbb-7ba3e8bfd3d5</parentFolderId>
+  <packageId>539cecb5-aede-4b55-8dbb-7ba3e8bfd3d5</packageId>
+  <packageName>Intent.AspNetCore.Mvc</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0e12731d-c107-4a5f-bd9e-750884cb09b9" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
+  <name>Operation Extension</name>
+  <display>Operation Extension: Operation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="56906e8a-108e-477c-bbd9-f8416eb8666b">
+    <typeId>e030c97a-e066-40a7-8188-808c275df3cb</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.Services</typePackageName>
+    <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>711e46ed-af8f-4216-86f1-4ddea6d45f7c</parentFolderId>
+  <packageId>539cecb5-aede-4b55-8dbb-7ba3e8bfd3d5</packageId>
+  <packageName>Intent.AspNetCore.Mvc</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="159cbc8e-a910-40f7-8e45-3edadbb863c2" name="Type Reference Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="35226a83-3965-4224-8aef-20c68a0c5180" display="Mode" value="Inherit" isActive="true" />
+        <property name="7d3859d4-084d-4ff0-8b31-850b4a8f8cd0" display="Display Name" isActive="false" />
+        <property name="17223dbd-8df0-4700-8b81-02274ca3ed7f" display="Hint" isActive="false" />
+        <property name="b2cef034-5706-45d2-8554-f4dc582a18ff" display="Target Types" isActive="false" />
+        <property name="08ec0581-c90a-489b-858f-ee265327c948" display="Target Traits" isActive="true" />
+        <property name="93e4efa9-186d-4e88-ae0a-491bcd6e6f5e" display="Default Type Id" isActive="false" />
+        <property name="7a0c4185-1c08-4d3e-9185-14683d7a3bd0" display="Allow Collection" value="Inherit" isActive="false" />
+        <property name="e3dc90ec-4f5f-4f20-b271-e28a5094dc91" display="Allow Nullable" value="Inherit" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="312eab00-f6db-492e-bbb4-e41383c8d3d8" name="Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="8c964307-9d03-4a14-9fd3-40ea2607955a" display="Display Text Function" value="" isActive="true" />
+        <property name="996ed45f-2318-4587-9618-73db3d7cfed0" display="Validate Function" value="" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="5097bef2-2c55-474b-be8b-f6849e2d5dd0" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+      <name>[context menu]</name>
+      <display>[context menu]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0e12731d-c107-4a5f-bd9e-750884cb09b9</parentFolderId>
+      <packageId>539cecb5-aede-4b55-8dbb-7ba3e8bfd3d5</packageId>
+      <packageName>Intent.AspNetCore.Mvc</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="eec43387-5832-4ed9-a785-732b00f2cbb8" type="Run Script Option" typeId="345d46fb-c500-409a-88c7-26720572c9af">
+          <name>Expose with MVC</name>
+          <display>Expose with MVC: Inline Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="901f8fe7-ca71-4067-9c1b-b364811514b0">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>5097bef2-2c55-474b-be8b-f6849e2d5dd0</parentFolderId>
+          <packageId>539cecb5-aede-4b55-8dbb-7ba3e8bfd3d5</packageId>
+          <packageName>Intent.AspNetCore.Mvc</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="/// &lt;reference path=&quot;../../../typings/elementmacro.context.api.d.ts&quot; /&gt;&#xD;&#xA;const serviceMvcSettingsId = &quot;7bf5b988-bcc6-4e1f-8384-093fa04cbba5&quot;; // From Intent.AspNetCore.Mvc module&#xD;&#xA;const operationMvcSettingsId = &quot;647586e0-09df-444a-9dc4-f13637b0c3ac&quot;; // From Intent.AspNetCore.Mvc module&#xD;&#xA;function getFindAllOperation(service) {&#xD;&#xA;    var _a;&#xD;&#xA;    for (const operation of service.getChildren(&quot;e030c97a-e066-40a7-8188-808c275df3cb&quot;)) {&#xD;&#xA;        if (!operation.getName().startsWith(&quot;Find&quot;) || ((_a = operation.typeReference) === null || _a === void 0 ? void 0 : _a.getIsCollection()) != true) {&#xD;&#xA;            continue;&#xD;&#xA;        }&#xD;&#xA;        return operation;&#xD;&#xA;    }&#xD;&#xA;    return null;&#xD;&#xA;}&#xD;&#xA;function applyToOperation(operation, findAllOperation) {&#xD;&#xA;    if (!operation.hasStereotype(operationMvcSettingsId)) {&#xD;&#xA;        operation.addStereotype(operationMvcSettingsId);&#xD;&#xA;    }&#xD;&#xA;    const mvcSettings = operation.getStereotype(operationMvcSettingsId);&#xD;&#xA;    if (operation.getName().startsWith(&quot;Create&quot;)) {&#xD;&#xA;        mvcSettings.getProperty(&quot;Verb&quot;).setValue(&quot;POST&quot;);&#xD;&#xA;        mvcSettings.getProperty(&quot;Route&quot;).setValue(``);&#xD;&#xA;    }&#xD;&#xA;    else if (operation.getName().startsWith(&quot;Update&quot;)) {&#xD;&#xA;        mvcSettings.getProperty(&quot;Verb&quot;).setValue(&quot;PUT&quot;);&#xD;&#xA;        mvcSettings.getProperty(&quot;Route&quot;).setValue(`${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == &quot;id&quot;) ? `{id}` : &quot;&quot;)}`);&#xD;&#xA;    }&#xD;&#xA;    else if (operation.getName().startsWith(&quot;Delete&quot;)) {&#xD;&#xA;        mvcSettings.getProperty(&quot;Verb&quot;).setValue(&quot;DELETE&quot;);&#xD;&#xA;        mvcSettings.getProperty(&quot;Route&quot;).setValue(`${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == &quot;id&quot;) ? `{id}` : &quot;&quot;)}`);&#xD;&#xA;    }&#xD;&#xA;    else if (operation.getName().startsWith(&quot;Get&quot;) || operation.getName().startsWith(&quot;Find&quot;) || operation.getName().startsWith(&quot;Lookup&quot;)) {&#xD;&#xA;        mvcSettings.getProperty(&quot;Verb&quot;).setValue(&quot;GET&quot;);&#xD;&#xA;        mvcSettings.getProperty(&quot;Route&quot;).setValue(`${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == &quot;id&quot;) ? `{id}` : &quot;&quot;)}`);&#xD;&#xA;    }&#xD;&#xA;    else if (operation.typeReference.getType() != null) {&#xD;&#xA;        mvcSettings.getProperty(&quot;Verb&quot;).setValue(&quot;GET&quot;);&#xD;&#xA;        mvcSettings.getProperty(&quot;Route&quot;).setValue(`${toKebabCase(operation.getName())}${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == &quot;id&quot;) ? `/{id}` : &quot;&quot;)}`);&#xD;&#xA;    }&#xD;&#xA;    else {&#xD;&#xA;        mvcSettings.getProperty(&quot;Verb&quot;).setValue(&quot;POST&quot;);&#xD;&#xA;        mvcSettings.getProperty(&quot;Route&quot;).setValue(`${toKebabCase(operation.getName())}`);&#xD;&#xA;    }&#xD;&#xA;    if (mvcSettings.getProperty(&quot;Verb&quot;).getValue() === &quot;GET&quot;) {&#xD;&#xA;        mvcSettings.getProperty(&quot;Return Type&quot;).setValue(&quot;View&quot;);&#xD;&#xA;        return;&#xD;&#xA;    }&#xD;&#xA;    if (findAllOperation != null) {&#xD;&#xA;        mvcSettings.getProperty(&quot;Return Type&quot;).setValue(&quot;RedirectToAction&quot;);&#xD;&#xA;        mvcSettings.getProperty(&quot;RedirectTo Action&quot;).setValue(findAllOperation.id);&#xD;&#xA;        return;&#xD;&#xA;    }&#xD;&#xA;    mvcSettings.getProperty(&quot;Return Type&quot;).setValue(&quot;Ok&quot;);&#xD;&#xA;}&#xD;&#xA;/// &lt;reference path=&quot;shared.ts&quot; /&gt;&#xD;&#xA;function exposeWithMvc(operation) {&#xD;&#xA;    const findAllOperation = getFindAllOperation(operation.getParent());&#xD;&#xA;    applyToOperation(operation, findAllOperation);&#xD;&#xA;}&#xD;&#xA;/**&#xD;&#xA; * Used by Intent.Modules.NET\Modules\Intent.AspNetCore.MVC&#xD;&#xA; *&#xD;&#xA; * Source code here:&#xD;&#xA; * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-expose-with-mvc/operation/expose-with-mvc.ts&#xD;&#xA; */&#xD;&#xA;exposeWithMvc(element);&#xD;&#xA;" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" value="[]" isActive="true" />
+              </properties>
+            </stereotype>
+            <stereotype stereotypeDefinitionId="cbe77364-d1d0-400b-a8c4-646a4c869612" name="Option Settings">
+              <comment />
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="b2c3a117-23d3-47e5-8b83-5b902c55a226" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDc4ODQ3N2YxLTMzMDYtNGJiMS1iNzdjLTg4ZGQ3YWM2YjBmZSIgeDE9IjI1IiB5MT0iMy4yIiB4Mj0iMjUiIHkyPSI0Ni40IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzAwYzBmMiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDU5OWMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNTQpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJrZXkteWVsbG93Ij4KICAgICAgPHBhdGggZD0iTTMuOSwyMC45aDBzMCwwLDAsMGMwLDAsMC0uMiwwLS4zLDAsMCwwLC4yLDAsLjJaIiBmaWxsPSIjZmYwMDEzIi8+CiAgICAgIDxwYXRoIGQ9Ik00NiwyMC43Yy0uMi0uOC0uNC0xLjYtLjYtMi4zLS40LTEuMi0uOS0yLjQtMS41LTMuNS0uNC0uOC0xLTEuNy0xLjUtMi40LS41LS43LTEuMS0xLjQtMS43LTIuMS0xLjMtMS40LTIuNy0yLjYtNC4zLTMuNi0xLjktMS4yLTQuMS0yLjEtNi4zLTIuNy0uNS0uMS0uOS0uMi0xLjQtLjMtLjgtLjItMS42LS4yLTIuNS0uMy0uNCwwLS45LDAtMS4zLDBzLS45LDAtMS4zLDBjLS44LDAtMS42LjEtMi40LjMtLjUsMC0uOS4yLTEuMy4zLTIuMy41LTQuNCwxLjUtNi40LDIuNy0xLjYsMS0zLDIuMi00LjMsMy42LS42LjctMS4yLDEuMy0xLjcsMi4xLTEuMSwxLjYtMiwzLjMtMi43LDUuMS0uNCwxLS43LDIuMS0uOSwzLjEsMCwwLDAsLjIsMCwuMywwLDAsMCwwLDAsMC0uMywxLjMtLjQsMi43LS40LDRzLjIsMy43LjcsNS40YzEuNCw1LjMsNC44LDkuOSw5LjMsMTIuNywyLDEuMiw0LjIsMi4yLDYuNSwyLjcuNCwwLC44LjIsMS4yLjIuOC4yLDEuNS4yLDIuMy4zLjUsMCwuOSwwLDEuNCwwcy45LDAsMS40LDBjLjgsMCwxLjYtLjEsMi40LS4zLjQsMCwuOC0uMiwxLjItLjIsMi4zLS41LDQuNS0xLjUsNi41LTIuNyw0LjUtMi45LDcuOS03LjQsOS4zLTEyLjcuNS0xLjcuNy0zLjUuNy01LjRzLS4yLTIuOS0uNC00LjNaTTQwLjIsMTRjLjksMS4yLDEuNiwyLjUsMi4yLDMuOS0xLjUsMi4xLTMuNiw0LTYuMiw1LjQtLjEtMi40LS41LTQuNy0xLjEtNi45LDEuOC0uNiwzLjYtMS40LDUuMS0yLjRaTTM4LjUsMTIuMWMtMS4zLjgtMi43LDEuNS00LjMsMi4xLTEtMi43LTIuNS01LjItNC4yLTcuMiwzLjMuOSw2LjIsMi43LDguNSw1LjFaTTMzLjksMjQuNGMtMywxLjMtNi41LDItMTAuMiwycy01LjItLjQtNy42LTEuMXYtLjNjMC0yLjguNC01LjQsMS4yLTcuOSwyLjQuNiw1LDEsNy43LDFzNS4zLS4zLDcuNy0xYy43LDIuMywxLjEsNC43LDEuMSw3LjNaTTI0LjgsNi4zaC40YzIuOCwxLjksNS4yLDQuOSw2LjcsOC42LTIuMi42LTQuNS45LTYuOS45cy00LjctLjMtNi45LS45YzEuNS0zLjcsMy45LTYuNyw2LjctOC42Wk0yMCw3Yy0xLjcsMi0zLjIsNC41LTQuMiw3LjItMS41LS42LTMtMS4zLTQuMy0yLjEsMi4zLTIuNCw1LjItNC4yLDguNS01LjFaTTkuOCwxNGMxLjYsMSwzLjMsMS44LDUuMSwyLjQtLjcsMi41LTEuMSw1LjItMS4yLDguMS0yLjctMS4xLTUtMi42LTYuOS00LjQuNi0yLjIsMS42LTQuMywyLjktNi4xWk02LjcsMjljLS4zLTEuMy0uNC0yLjYtLjQtNHMwLTEuMiwwLTEuOGMyLjEsMS43LDQuNywzLDcuNSw0LC4yLDIuOS44LDUuNywxLjcsOC4yLTMuNy0xLjQtNi44LTMuNi04LjgtNi4zWk05LjEsMzQuOWMyLjIsMS41LDQuOSwyLjcsNy43LDMuNS45LDEuNywxLjksMy4zLDMuMSw0LjctNC41LTEuMy04LjQtNC4yLTEwLjgtOC4yWk0yNS4zLDQzLjdoLS42Yy0xLjctMS4yLTMuMy0yLjgtNC41LTQuNywxLjYuMiwzLjIuNCw0LjguNHMzLjItLjEsNC44LS40Yy0xLjMsMS45LTIuOCwzLjUtNC41LDQuN1pNMjUsMzcuMWMtMi4yLDAtNC40LS4zLTYuNC0uOGgwYy0xLjItMi41LTItNS40LTIuMy04LjQsMi4zLjYsNC44LjksNy40LjlzNy0uNiwxMC4xLTEuN2MtLjIsMy40LTEuMSw2LjUtMi40LDkuMi0yLC41LTQuMi44LTYuNC44Wk0zMC4xLDQzYzEuMi0xLjQsMi4yLTIuOSwzLjEtNC43LDIuOC0uOCw1LjUtMiw3LjctMy41LTIuNCwzLjktNi4yLDYuOC0xMC44LDguMVpNNDMuMywyOWMtMi4xLDIuNy01LjEsNC45LTguOCw2LjMsMS0yLjgsMS42LTYsMS44LTkuMywyLjgtMS4zLDUuMi0zLDcuMS01LC4zLDEuMi40LDIuNS40LDMuOXMtLjIsMi43LS40LDRaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudDc4ODQ3N2YxLTMzMDYtNGJiMS1iNzdjLTg4ZGQ3YWM2YjBmZSkiLz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==&quot;}" isActive="true" />
+                <property name="0abff08a-3986-40b1-a28f-4cc03c4fc1ec" display="Shortcut" isActive="true" />
+                <property name="79f6973f-5e3a-4618-9d4c-d7cc604bffe0" display="Shortcut (macOS)" isActive="true" />
+                <property name="e034a0ca-0101-4594-8384-43048b714578" display="Type Order" isActive="true" />
+                <property name="c03841e5-a1e9-4e95-b699-5a466dde7d7d" display="Is Option Visible Function" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

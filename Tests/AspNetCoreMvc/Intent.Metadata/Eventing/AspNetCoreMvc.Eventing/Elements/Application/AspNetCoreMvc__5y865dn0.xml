@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="443c0156-9c24-49cf-a5af-5f37df351b15" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>AspNetCoreMvc</name>
+  <display>AspNetCoreMvc</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>58351fe3-7bc0-4d1a-8d53-ddaba1e8d564</parentFolderId>
+  <diagram>
+    <targetPackageId>7cfffe8e-be9a-411e-bb66-853b2b96b908</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

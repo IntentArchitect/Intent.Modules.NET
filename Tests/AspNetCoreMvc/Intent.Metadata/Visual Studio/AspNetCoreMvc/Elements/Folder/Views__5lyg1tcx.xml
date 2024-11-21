@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d6cc3051-2bbd-4f8b-9623-a2f134ee1f1e" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Views</name>
+  <display>Views</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a10bb0fe-3294-4eab-92e0-f5b265c0ad88</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ea7f5a13-55b4-4509-bd3e-39caf35935b1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Mvc.MvcViewStub</name>
+      <display>Intent.AspNetCore.Mvc.MvcViewStub</display>
+      <externalReference>Intent.AspNetCore.Mvc</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d6cc3051-2bbd-4f8b-9623-a2f134ee1f1e</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

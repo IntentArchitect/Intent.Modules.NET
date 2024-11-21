@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>711e46ed-af8f-4216-86f1-4ddea6d45f7c</id>
+  <name>Services Extension</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <creationOptions />
+      <scriptOptions>
+        <option>
+          <text>Expose with MVC</text>
+          <icon type="UrlImagePath" source="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDc4ODQ3N2YxLTMzMDYtNGJiMS1iNzdjLTg4ZGQ3YWM2YjBmZSIgeDE9IjI1IiB5MT0iMy4yIiB4Mj0iMjUiIHkyPSI0Ni40IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzAwYzBmMiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDU5OWMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNTQpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJrZXkteWVsbG93Ij4KICAgICAgPHBhdGggZD0iTTMuOSwyMC45aDBzMCwwLDAsMGMwLDAsMC0uMiwwLS4zLDAsMCwwLC4yLDAsLjJaIiBmaWxsPSIjZmYwMDEzIi8+CiAgICAgIDxwYXRoIGQ9Ik00NiwyMC43Yy0uMi0uOC0uNC0xLjYtLjYtMi4zLS40LTEuMi0uOS0yLjQtMS41LTMuNS0uNC0uOC0xLTEuNy0xLjUtMi40LS41LS43LTEuMS0xLjQtMS43LTIuMS0xLjMtMS40LTIuNy0yLjYtNC4zLTMuNi0xLjktMS4yLTQuMS0yLjEtNi4zLTIuNy0uNS0uMS0uOS0uMi0xLjQtLjMtLjgtLjItMS42LS4yLTIuNS0uMy0uNCwwLS45LDAtMS4zLDBzLS45LDAtMS4zLDBjLS44LDAtMS42LjEtMi40LjMtLjUsMC0uOS4yLTEuMy4zLTIuMy41LTQuNCwxLjUtNi40LDIuNy0xLjYsMS0zLDIuMi00LjMsMy42LS42LjctMS4yLDEuMy0xLjcsMi4xLTEuMSwxLjYtMiwzLjMtMi43LDUuMS0uNCwxLS43LDIuMS0uOSwzLjEsMCwwLDAsLjIsMCwuMywwLDAsMCwwLDAsMC0uMywxLjMtLjQsMi43LS40LDRzLjIsMy43LjcsNS40YzEuNCw1LjMsNC44LDkuOSw5LjMsMTIuNywyLDEuMiw0LjIsMi4yLDYuNSwyLjcuNCwwLC44LjIsMS4yLjIuOC4yLDEuNS4yLDIuMy4zLjUsMCwuOSwwLDEuNCwwcy45LDAsMS40LDBjLjgsMCwxLjYtLjEsMi40LS4zLjQsMCwuOC0uMiwxLjItLjIsMi4zLS41LDQuNS0xLjUsNi41LTIuNyw0LjUtMi45LDcuOS03LjQsOS4zLTEyLjcuNS0xLjcuNy0zLjUuNy01LjRzLS4yLTIuOS0uNC00LjNaTTQwLjIsMTRjLjksMS4yLDEuNiwyLjUsMi4yLDMuOS0xLjUsMi4xLTMuNiw0LTYuMiw1LjQtLjEtMi40LS41LTQuNy0xLjEtNi45LDEuOC0uNiwzLjYtMS40LDUuMS0yLjRaTTM4LjUsMTIuMWMtMS4zLjgtMi43LDEuNS00LjMsMi4xLTEtMi43LTIuNS01LjItNC4yLTcuMiwzLjMuOSw2LjIsMi43LDguNSw1LjFaTTMzLjksMjQuNGMtMywxLjMtNi41LDItMTAuMiwycy01LjItLjQtNy42LTEuMXYtLjNjMC0yLjguNC01LjQsMS4yLTcuOSwyLjQuNiw1LDEsNy43LDFzNS4zLS4zLDcuNy0xYy43LDIuMywxLjEsNC43LDEuMSw3LjNaTTI0LjgsNi4zaC40YzIuOCwxLjksNS4yLDQuOSw2LjcsOC42LTIuMi42LTQuNS45LTYuOS45cy00LjctLjMtNi45LS45YzEuNS0zLjcsMy45LTYuNyw2LjctOC42Wk0yMCw3Yy0xLjcsMi0zLjIsNC41LTQuMiw3LjItMS41LS42LTMtMS4zLTQuMy0yLjEsMi4zLTIuNCw1LjItNC4yLDguNS01LjFaTTkuOCwxNGMxLjYsMSwzLjMsMS44LDUuMSwyLjQtLjcsMi41LTEuMSw1LjItMS4yLDguMS0yLjctMS4xLTUtMi42LTYuOS00LjQuNi0yLjIsMS42LTQuMywyLjktNi4xWk02LjcsMjljLS4zLTEuMy0uNC0yLjYtLjQtNHMwLTEuMiwwLTEuOGMyLjEsMS43LDQuNywzLDcuNSw0LC4yLDIuOS44LDUuNywxLjcsOC4yLTMuNy0xLjQtNi44LTMuNi04LjgtNi4zWk05LjEsMzQuOWMyLjIsMS41LDQuOSwyLjcsNy43LDMuNS45LDEuNywxLjksMy4zLDMuMSw0LjctNC41LTEuMy04LjQtNC4yLTEwLjgtOC4yWk0yNS4zLDQzLjdoLS42Yy0xLjctMS4yLTMuMy0yLjgtNC41LTQuNywxLjYuMiwzLjIuNCw0LjguNHMzLjItLjEsNC44LS40Yy0xLjMsMS45LTIuOCwzLjUtNC41LDQuN1pNMjUsMzcuMWMtMi4yLDAtNC40LS4zLTYuNC0uOGgwYy0xLjItMi41LTItNS40LTIuMy04LjQsMi4zLjYsNC44LjksNy40LjlzNy0uNiwxMC4xLTEuN2MtLjIsMy40LTEuMSw2LjUtMi40LDkuMi0yLC41LTQuMi44LTYuNC44Wk0zMC4xLDQzYzEuMi0xLjQsMi4yLTIuOSwzLjEtNC43LDIuOC0uOCw1LjUtMiw3LjctMy41LTIuNCwzLjktNi4yLDYuOC0xMC44LDguMVpNNDMuMywyOWMtMi4xLDIuNy01LjEsNC45LTguOCw2LjMsMS0yLjgsMS42LTYsMS44LTkuMywyLjgtMS4zLDUuMi0zLDcuMS01LC4zLDEuMi40LDIuNS40LDMuOXMtLjIsMi43LS40LDRaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudDc4ODQ3N2YxLTMzMDYtNGJiMS1iNzdjLTg4ZGQ3YWM2YjBmZSkiLz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==" />
+          <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
+const serviceMvcSettingsId = "7bf5b988-bcc6-4e1f-8384-093fa04cbba5"; // From Intent.AspNetCore.Mvc module
+const operationMvcSettingsId = "647586e0-09df-444a-9dc4-f13637b0c3ac"; // From Intent.AspNetCore.Mvc module
+function getFindAllOperation(service) {
+    var _a;
+    for (const operation of service.getChildren("e030c97a-e066-40a7-8188-808c275df3cb")) {
+        if (!operation.getName().startsWith("Find") || ((_a = operation.typeReference) === null || _a === void 0 ? void 0 : _a.getIsCollection()) != true) {
+            continue;
+        }
+        return operation;
+    }
+    return null;
+}
+function applyToOperation(operation, findAllOperation) {
+    if (!operation.hasStereotype(operationMvcSettingsId)) {
+        operation.addStereotype(operationMvcSettingsId);
+    }
+    const mvcSettings = operation.getStereotype(operationMvcSettingsId);
+    if (operation.getName().startsWith("Create")) {
+        mvcSettings.getProperty("Verb").setValue("POST");
+        mvcSettings.getProperty("Route").setValue(``);
+    }
+    else if (operation.getName().startsWith("Update")) {
+        mvcSettings.getProperty("Verb").setValue("PUT");
+        mvcSettings.getProperty("Route").setValue(`${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `{id}` : "")}`);
+    }
+    else if (operation.getName().startsWith("Delete")) {
+        mvcSettings.getProperty("Verb").setValue("DELETE");
+        mvcSettings.getProperty("Route").setValue(`${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `{id}` : "")}`);
+    }
+    else if (operation.getName().startsWith("Get") || operation.getName().startsWith("Find") || operation.getName().startsWith("Lookup")) {
+        mvcSettings.getProperty("Verb").setValue("GET");
+        mvcSettings.getProperty("Route").setValue(`${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `{id}` : "")}`);
+    }
+    else if (operation.typeReference.getType() != null) {
+        mvcSettings.getProperty("Verb").setValue("GET");
+        mvcSettings.getProperty("Route").setValue(`${toKebabCase(operation.getName())}${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `/{id}` : "")}`);
+    }
+    else {
+        mvcSettings.getProperty("Verb").setValue("POST");
+        mvcSettings.getProperty("Route").setValue(`${toKebabCase(operation.getName())}`);
+    }
+    if (mvcSettings.getProperty("Verb").getValue() === "GET") {
+        mvcSettings.getProperty("Return Type").setValue("View");
+        return;
+    }
+    if (findAllOperation != null) {
+        mvcSettings.getProperty("Return Type").setValue("RedirectToAction");
+        mvcSettings.getProperty("RedirectTo Action").setValue(findAllOperation.id);
+        return;
+    }
+    mvcSettings.getProperty("Return Type").setValue("Ok");
+}
+/// &lt;reference path="shared.ts" /&gt;
+function exposeWithMvc(operation) {
+    const findAllOperation = getFindAllOperation(operation.getParent());
+    applyToOperation(operation, findAllOperation);
+}
+/**
+ * Used by Intent.Modules.NET\Modules\Intent.AspNetCore.MVC
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-expose-with-mvc/operation/expose-with-mvc.ts
+ */
+exposeWithMvc(element);
+</script>
+        </option>
+      </scriptOptions>
+      <mappingOptions />
+      <typeOrder />
+      <mappingSettings />
+    </elementExtension>
+    <elementExtension type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+      <creationOptions />
+      <scriptOptions>
+        <option>
+          <text>Expose with MVC</text>
+          <icon type="UrlImagePath" source="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDc4ODQ3N2YxLTMzMDYtNGJiMS1iNzdjLTg4ZGQ3YWM2YjBmZSIgeDE9IjI1IiB5MT0iMy4yIiB4Mj0iMjUiIHkyPSI0Ni40IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzAwYzBmMiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDU5OWMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNTQpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJrZXkteWVsbG93Ij4KICAgICAgPHBhdGggZD0iTTMuOSwyMC45aDBzMCwwLDAsMGMwLDAsMC0uMiwwLS4zLDAsMCwwLC4yLDAsLjJaIiBmaWxsPSIjZmYwMDEzIi8+CiAgICAgIDxwYXRoIGQ9Ik00NiwyMC43Yy0uMi0uOC0uNC0xLjYtLjYtMi4zLS40LTEuMi0uOS0yLjQtMS41LTMuNS0uNC0uOC0xLTEuNy0xLjUtMi40LS41LS43LTEuMS0xLjQtMS43LTIuMS0xLjMtMS40LTIuNy0yLjYtNC4zLTMuNi0xLjktMS4yLTQuMS0yLjEtNi4zLTIuNy0uNS0uMS0uOS0uMi0xLjQtLjMtLjgtLjItMS42LS4yLTIuNS0uMy0uNCwwLS45LDAtMS4zLDBzLS45LDAtMS4zLDBjLS44LDAtMS42LjEtMi40LjMtLjUsMC0uOS4yLTEuMy4zLTIuMy41LTQuNCwxLjUtNi40LDIuNy0xLjYsMS0zLDIuMi00LjMsMy42LS42LjctMS4yLDEuMy0xLjcsMi4xLTEuMSwxLjYtMiwzLjMtMi43LDUuMS0uNCwxLS43LDIuMS0uOSwzLjEsMCwwLDAsLjIsMCwuMywwLDAsMCwwLDAsMC0uMywxLjMtLjQsMi43LS40LDRzLjIsMy43LjcsNS40YzEuNCw1LjMsNC44LDkuOSw5LjMsMTIuNywyLDEuMiw0LjIsMi4yLDYuNSwyLjcuNCwwLC44LjIsMS4yLjIuOC4yLDEuNS4yLDIuMy4zLjUsMCwuOSwwLDEuNCwwcy45LDAsMS40LDBjLjgsMCwxLjYtLjEsMi40LS4zLjQsMCwuOC0uMiwxLjItLjIsMi4zLS41LDQuNS0xLjUsNi41LTIuNyw0LjUtMi45LDcuOS03LjQsOS4zLTEyLjcuNS0xLjcuNy0zLjUuNy01LjRzLS4yLTIuOS0uNC00LjNaTTQwLjIsMTRjLjksMS4yLDEuNiwyLjUsMi4yLDMuOS0xLjUsMi4xLTMuNiw0LTYuMiw1LjQtLjEtMi40LS41LTQuNy0xLjEtNi45LDEuOC0uNiwzLjYtMS40LDUuMS0yLjRaTTM4LjUsMTIuMWMtMS4zLjgtMi43LDEuNS00LjMsMi4xLTEtMi43LTIuNS01LjItNC4yLTcuMiwzLjMuOSw2LjIsMi43LDguNSw1LjFaTTMzLjksMjQuNGMtMywxLjMtNi41LDItMTAuMiwycy01LjItLjQtNy42LTEuMXYtLjNjMC0yLjguNC01LjQsMS4yLTcuOSwyLjQuNiw1LDEsNy43LDFzNS4zLS4zLDcuNy0xYy43LDIuMywxLjEsNC43LDEuMSw3LjNaTTI0LjgsNi4zaC40YzIuOCwxLjksNS4yLDQuOSw2LjcsOC42LTIuMi42LTQuNS45LTYuOS45cy00LjctLjMtNi45LS45YzEuNS0zLjcsMy45LTYuNyw2LjctOC42Wk0yMCw3Yy0xLjcsMi0zLjIsNC41LTQuMiw3LjItMS41LS42LTMtMS4zLTQuMy0yLjEsMi4zLTIuNCw1LjItNC4yLDguNS01LjFaTTkuOCwxNGMxLjYsMSwzLjMsMS44LDUuMSwyLjQtLjcsMi41LTEuMSw1LjItMS4yLDguMS0yLjctMS4xLTUtMi42LTYuOS00LjQuNi0yLjIsMS42LTQuMywyLjktNi4xWk02LjcsMjljLS4zLTEuMy0uNC0yLjYtLjQtNHMwLTEuMiwwLTEuOGMyLjEsMS43LDQuNywzLDcuNSw0LC4yLDIuOS44LDUuNywxLjcsOC4yLTMuNy0xLjQtNi44LTMuNi04LjgtNi4zWk05LjEsMzQuOWMyLjIsMS41LDQuOSwyLjcsNy43LDMuNS45LDEuNywxLjksMy4zLDMuMSw0LjctNC41LTEuMy04LjQtNC4yLTEwLjgtOC4yWk0yNS4zLDQzLjdoLS42Yy0xLjctMS4yLTMuMy0yLjgtNC41LTQuNywxLjYuMiwzLjIuNCw0LjguNHMzLjItLjEsNC44LS40Yy0xLjMsMS45LTIuOCwzLjUtNC41LDQuN1pNMjUsMzcuMWMtMi4yLDAtNC40LS4zLTYuNC0uOGgwYy0xLjItMi41LTItNS40LTIuMy04LjQsMi4zLjYsNC44LjksNy40LjlzNy0uNiwxMC4xLTEuN2MtLjIsMy40LTEuMSw2LjUtMi40LDkuMi0yLC41LTQuMi44LTYuNC44Wk0zMC4xLDQzYzEuMi0xLjQsMi4yLTIuOSwzLjEtNC43LDIuOC0uOCw1LjUtMiw3LjctMy41LTIuNCwzLjktNi4yLDYuOC0xMC44LDguMVpNNDMuMywyOWMtMi4xLDIuNy01LjEsNC45LTguOCw2LjMsMS0yLjgsMS42LTYsMS44LTkuMywyLjgtMS4zLDUuMi0zLDcuMS01LC4zLDEuMi40LDIuNS40LDMuOXMtLjIsMi43LS40LDRaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudDc4ODQ3N2YxLTMzMDYtNGJiMS1iNzdjLTg4ZGQ3YWM2YjBmZSkiLz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==" />
+          <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
+const serviceMvcSettingsId = "7bf5b988-bcc6-4e1f-8384-093fa04cbba5"; // From Intent.AspNetCore.Mvc module
+const operationMvcSettingsId = "647586e0-09df-444a-9dc4-f13637b0c3ac"; // From Intent.AspNetCore.Mvc module
+function getFindAllOperation(service) {
+    var _a;
+    for (const operation of service.getChildren("e030c97a-e066-40a7-8188-808c275df3cb")) {
+        if (!operation.getName().startsWith("Find") || ((_a = operation.typeReference) === null || _a === void 0 ? void 0 : _a.getIsCollection()) != true) {
+            continue;
+        }
+        return operation;
+    }
+    return null;
+}
+function applyToOperation(operation, findAllOperation) {
+    if (!operation.hasStereotype(operationMvcSettingsId)) {
+        operation.addStereotype(operationMvcSettingsId);
+    }
+    const mvcSettings = operation.getStereotype(operationMvcSettingsId);
+    if (operation.getName().startsWith("Create")) {
+        mvcSettings.getProperty("Verb").setValue("POST");
+        mvcSettings.getProperty("Route").setValue(``);
+    }
+    else if (operation.getName().startsWith("Update")) {
+        mvcSettings.getProperty("Verb").setValue("PUT");
+        mvcSettings.getProperty("Route").setValue(`${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `{id}` : "")}`);
+    }
+    else if (operation.getName().startsWith("Delete")) {
+        mvcSettings.getProperty("Verb").setValue("DELETE");
+        mvcSettings.getProperty("Route").setValue(`${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `{id}` : "")}`);
+    }
+    else if (operation.getName().startsWith("Get") || operation.getName().startsWith("Find") || operation.getName().startsWith("Lookup")) {
+        mvcSettings.getProperty("Verb").setValue("GET");
+        mvcSettings.getProperty("Route").setValue(`${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `{id}` : "")}`);
+    }
+    else if (operation.typeReference.getType() != null) {
+        mvcSettings.getProperty("Verb").setValue("GET");
+        mvcSettings.getProperty("Route").setValue(`${toKebabCase(operation.getName())}${(operation.getChildren().some(x =&gt; x.getName().toLowerCase() == "id") ? `/{id}` : "")}`);
+    }
+    else {
+        mvcSettings.getProperty("Verb").setValue("POST");
+        mvcSettings.getProperty("Route").setValue(`${toKebabCase(operation.getName())}`);
+    }
+    if (mvcSettings.getProperty("Verb").getValue() === "GET") {
+        mvcSettings.getProperty("Return Type").setValue("View");
+        return;
+    }
+    if (findAllOperation != null) {
+        mvcSettings.getProperty("Return Type").setValue("RedirectToAction");
+        mvcSettings.getProperty("RedirectTo Action").setValue(findAllOperation.id);
+        return;
+    }
+    mvcSettings.getProperty("Return Type").setValue("Ok");
+}
+/// &lt;reference path="../operation/shared.ts" /&gt;
+function exposeWithMvc(service) {
+    const findAllOperation = getFindAllOperation(service);
+    for (const operation of service.getChildren("Operation")) {
+        applyToOperation(operation, findAllOperation);
+    }
+}
+/**
+ * Used by Intent.Modules.NET\Modules\Intent.AspNetCore.MVC
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-expose-with-mvc/service/expose-with-mvc.ts
+ */
+exposeWithMvc(element);
+</script>
+        </option>
+      </scriptOptions>
+      <mappingOptions />
+      <typeOrder />
+      <mappingSettings />
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+  <scripts />
+</settings>

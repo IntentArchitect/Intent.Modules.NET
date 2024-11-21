@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1ecbd030-9e2c-4232-bc27-0e29f6be2cdc" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>ClientsService</name>
+  <display>ClientsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a988a9ed-40ad-4af0-9333-b2096eccaf21</parentFolderId>
+  <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+  <packageName>AspNetCoreMvc.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="67b2c95b-195e-4197-a868-676aed492233" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateClient</name>
+      <display>CreateClient(dto: ClientCreateDto): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="cc7e6fc7-c5a7-426f-a96c-bf5df2c39b71">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1ecbd030-9e2c-4232-bc27-0e29f6be2cdc</parentFolderId>
+      <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+      <packageName>AspNetCoreMvc.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="647586e0-09df-444a-9dc4-f13637b0c3ac" name="MVC Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AspNetCore.Mvc</definitionPackageName>
+          <definitionPackageId>539cecb5-aede-4b55-8dbb-7ba3e8bfd3d5</definitionPackageId>
+          <properties>
+            <property name="ae0dda3e-f047-48ec-8779-3305e4ec9254" display="Verb" value="POST" isActive="true" />
+            <property name="55641304-6fd1-451e-95f9-bbbc3f9e16f4" display="Route" value="" isActive="true" />
+            <property name="ffbf2921-a1f3-4c23-a584-9055f7cd0402" display="Name" isActive="true" />
+            <property name="8d37a88a-b540-402e-bca2-c4d8ff11c905" display="Return Type" value="RedirectToAction" isActive="true" />
+            <property name="88f938a7-7ac3-473c-b489-a62184ae1409" display="View Name" isActive="false" />
+            <property name="54484630-53f0-415c-a338-ef20bfcf0500" display="RedirectTo Controller" isActive="true" />
+            <property name="1adef718-4dff-47ce-91b1-ec729a1f707a" display="RedirectTo Action" value="1159d4f0-1d5c-4c0f-b3c1-e4f74238bfb8" isActive="true" />
+            <property name="6e2a9abd-9e8a-47c8-ba3d-ec2951b3bbb9" display="RedirectTo Route Values" isActive="true" />
+            <property name="4a40f0aa-b871-48c3-ae6b-73db5c448e42" display="RedirectTo Fragment" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="71cde4f3-11e6-4626-9138-0b0c63020b0b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: ClientCreateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1a15a201-b469-40ad-bd83-fe4458e33b1d">
+            <typeId>4dcbbf94-eb31-4104-987e-fb734818045f</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AspNetCoreMvc.Services</typePackageName>
+            <typePackageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>67b2c95b-195e-4197-a868-676aed492233</parentFolderId>
+          <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+          <packageName>AspNetCoreMvc.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="97514d6a-a7da-4ae6-91fc-5af57b1b795e" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindClientById</name>
+      <display>FindClientById(id: guid): ClientDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="61630ec1-436d-497b-ab73-97b0103465f8">
+        <typeId>bcf5228c-3395-4b15-8214-86ffaf2c7224</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AspNetCoreMvc.Services</typePackageName>
+        <typePackageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1ecbd030-9e2c-4232-bc27-0e29f6be2cdc</parentFolderId>
+      <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+      <packageName>AspNetCoreMvc.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="647586e0-09df-444a-9dc4-f13637b0c3ac" name="MVC Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AspNetCore.Mvc</definitionPackageName>
+          <definitionPackageId>539cecb5-aede-4b55-8dbb-7ba3e8bfd3d5</definitionPackageId>
+          <properties>
+            <property name="ae0dda3e-f047-48ec-8779-3305e4ec9254" display="Verb" value="GET" isActive="true" />
+            <property name="55641304-6fd1-451e-95f9-bbbc3f9e16f4" display="Route" value="{id}" isActive="true" />
+            <property name="ffbf2921-a1f3-4c23-a584-9055f7cd0402" display="Name" isActive="true" />
+            <property name="8d37a88a-b540-402e-bca2-c4d8ff11c905" display="Return Type" value="View" isActive="true" />
+            <property name="88f938a7-7ac3-473c-b489-a62184ae1409" display="View Name" isActive="true" />
+            <property name="54484630-53f0-415c-a338-ef20bfcf0500" display="RedirectTo Controller" isActive="false" />
+            <property name="1adef718-4dff-47ce-91b1-ec729a1f707a" display="RedirectTo Action" isActive="false" />
+            <property name="6e2a9abd-9e8a-47c8-ba3d-ec2951b3bbb9" display="RedirectTo Route Values" isActive="false" />
+            <property name="4a40f0aa-b871-48c3-ae6b-73db5c448e42" display="RedirectTo Fragment" value="" isActive="false" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="a3ee8727-984f-4743-8752-0584d68e8b65" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="b5979964-79a1-4d83-b899-5a230859f113">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>97514d6a-a7da-4ae6-91fc-5af57b1b795e</parentFolderId>
+          <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+          <packageName>AspNetCoreMvc.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1159d4f0-1d5c-4c0f-b3c1-e4f74238bfb8" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindClients</name>
+      <display>FindClients(): ClientDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="6fb778cb-6474-4f75-bff3-ac5944116b46">
+        <typeId>bcf5228c-3395-4b15-8214-86ffaf2c7224</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AspNetCoreMvc.Services</typePackageName>
+        <typePackageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1ecbd030-9e2c-4232-bc27-0e29f6be2cdc</parentFolderId>
+      <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+      <packageName>AspNetCoreMvc.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="647586e0-09df-444a-9dc4-f13637b0c3ac" name="MVC Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AspNetCore.Mvc</definitionPackageName>
+          <definitionPackageId>539cecb5-aede-4b55-8dbb-7ba3e8bfd3d5</definitionPackageId>
+          <properties>
+            <property name="ae0dda3e-f047-48ec-8779-3305e4ec9254" display="Verb" value="GET" isActive="true" />
+            <property name="55641304-6fd1-451e-95f9-bbbc3f9e16f4" display="Route" value="" isActive="true" />
+            <property name="ffbf2921-a1f3-4c23-a584-9055f7cd0402" display="Name" isActive="true" />
+            <property name="8d37a88a-b540-402e-bca2-c4d8ff11c905" display="Return Type" value="View" isActive="true" />
+            <property name="88f938a7-7ac3-473c-b489-a62184ae1409" display="View Name" isActive="true" />
+            <property name="54484630-53f0-415c-a338-ef20bfcf0500" display="RedirectTo Controller" isActive="false" />
+            <property name="1adef718-4dff-47ce-91b1-ec729a1f707a" display="RedirectTo Action" isActive="false" />
+            <property name="6e2a9abd-9e8a-47c8-ba3d-ec2951b3bbb9" display="RedirectTo Route Values" isActive="false" />
+            <property name="4a40f0aa-b871-48c3-ae6b-73db5c448e42" display="RedirectTo Fragment" value="" isActive="false" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="55ef2ca7-fead-4167-bd4a-097d29483595" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateClient</name>
+      <display>UpdateClient(id: guid, dto: ClientUpdateDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="4c000890-f472-4192-b967-322f2cd3257a">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1ecbd030-9e2c-4232-bc27-0e29f6be2cdc</parentFolderId>
+      <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+      <packageName>AspNetCoreMvc.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="647586e0-09df-444a-9dc4-f13637b0c3ac" name="MVC Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AspNetCore.Mvc</definitionPackageName>
+          <definitionPackageId>539cecb5-aede-4b55-8dbb-7ba3e8bfd3d5</definitionPackageId>
+          <properties>
+            <property name="ae0dda3e-f047-48ec-8779-3305e4ec9254" display="Verb" value="PUT" isActive="true" />
+            <property name="55641304-6fd1-451e-95f9-bbbc3f9e16f4" display="Route" value="{id}" isActive="true" />
+            <property name="ffbf2921-a1f3-4c23-a584-9055f7cd0402" display="Name" isActive="true" />
+            <property name="8d37a88a-b540-402e-bca2-c4d8ff11c905" display="Return Type" value="RedirectToAction" isActive="true" />
+            <property name="88f938a7-7ac3-473c-b489-a62184ae1409" display="View Name" isActive="false" />
+            <property name="54484630-53f0-415c-a338-ef20bfcf0500" display="RedirectTo Controller" isActive="true" />
+            <property name="1adef718-4dff-47ce-91b1-ec729a1f707a" display="RedirectTo Action" value="1159d4f0-1d5c-4c0f-b3c1-e4f74238bfb8" isActive="true" />
+            <property name="6e2a9abd-9e8a-47c8-ba3d-ec2951b3bbb9" display="RedirectTo Route Values" isActive="true" />
+            <property name="4a40f0aa-b871-48c3-ae6b-73db5c448e42" display="RedirectTo Fragment" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="6917dfd5-f4ae-40e2-b9c1-3d4f42658453" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="247ca142-fb42-4af7-9cbc-b8370c7f9ae6">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>55ef2ca7-fead-4167-bd4a-097d29483595</parentFolderId>
+          <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+          <packageName>AspNetCoreMvc.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="597c4899-36c0-4073-a68a-b71e03c62df1" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: ClientUpdateDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="846ac691-b057-415c-ae3d-e2365fc9d06e">
+            <typeId>c8c35da6-5915-4c1e-a810-dbc90306feac</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AspNetCoreMvc.Services</typePackageName>
+            <typePackageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>55ef2ca7-fead-4167-bd4a-097d29483595</parentFolderId>
+          <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+          <packageName>AspNetCoreMvc.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="85ed03e8-9cf5-4e10-a76b-0e1b349b5484" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteClient</name>
+      <display>DeleteClient(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="050cd27a-7617-497d-a776-0083f0d2b8e5">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1ecbd030-9e2c-4232-bc27-0e29f6be2cdc</parentFolderId>
+      <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+      <packageName>AspNetCoreMvc.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="647586e0-09df-444a-9dc4-f13637b0c3ac" name="MVC Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AspNetCore.Mvc</definitionPackageName>
+          <definitionPackageId>539cecb5-aede-4b55-8dbb-7ba3e8bfd3d5</definitionPackageId>
+          <properties>
+            <property name="ae0dda3e-f047-48ec-8779-3305e4ec9254" display="Verb" value="DELETE" isActive="true" />
+            <property name="55641304-6fd1-451e-95f9-bbbc3f9e16f4" display="Route" value="{id}" isActive="true" />
+            <property name="ffbf2921-a1f3-4c23-a584-9055f7cd0402" display="Name" isActive="true" />
+            <property name="8d37a88a-b540-402e-bca2-c4d8ff11c905" display="Return Type" value="RedirectToAction" isActive="true" />
+            <property name="88f938a7-7ac3-473c-b489-a62184ae1409" display="View Name" isActive="false" />
+            <property name="54484630-53f0-415c-a338-ef20bfcf0500" display="RedirectTo Controller" isActive="true" />
+            <property name="1adef718-4dff-47ce-91b1-ec729a1f707a" display="RedirectTo Action" value="1159d4f0-1d5c-4c0f-b3c1-e4f74238bfb8" isActive="true" />
+            <property name="6e2a9abd-9e8a-47c8-ba3d-ec2951b3bbb9" display="RedirectTo Route Values" isActive="true" />
+            <property name="4a40f0aa-b871-48c3-ae6b-73db5c448e42" display="RedirectTo Fragment" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="8c58e3f6-f3a9-493d-972f-0d6416a195bc" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>id</name>
+          <display>in : id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2a4928e7-1b41-41d2-a794-d8a4b9864b4f">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>85ed03e8-9cf5-4e10-a76b-0e1b349b5484</parentFolderId>
+          <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+          <packageName>AspNetCoreMvc.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

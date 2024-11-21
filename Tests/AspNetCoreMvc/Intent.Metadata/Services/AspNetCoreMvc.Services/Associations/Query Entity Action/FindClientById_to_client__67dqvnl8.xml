@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a71c465a-7cb7-4057-9a36-c88418aa73cd">
+  <sourceEnd id="7e48e944-e07a-481d-8cca-c79eed471449" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindClientById</display>
+    <order>0</order>
+    <typeReference id="79586528-898e-4f69-a092-a96cf861ba5b">
+      <typeId>97514d6a-a7da-4ae6-91fc-5af57b1b795e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCoreMvc.Services</typePackageName>
+      <typePackageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a71c465a-7cb7-4057-9a36-c88418aa73cd" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>client</name>
+    <display>[query] client: Client</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="65ad992a-6dc9-43f0-9a02-eb20c98b40d2">
+      <typeId>d1be0ca2-f4b8-409b-b162-a1557e005823</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCoreMvc.Domain</typePackageName>
+      <typePackageId>1586d464-cb1a-4792-9902-6219447c420b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="55cacffd-66c7-463c-879d-bb3ce5c3fbd1" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="97514d6a-a7da-4ae6-91fc-5af57b1b795e" location="[AspNetCoreMvc].[Services].[FindClientById]" />
+        <target applicationId="55cacffd-66c7-463c-879d-bb3ce5c3fbd1" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d1be0ca2-f4b8-409b-b162-a1557e005823" location="[AspNetCoreMvc].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="d1be0ca2-f4b8-409b-b162-a1557e005823" name="Client" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3fd22d87-74fa-4654-b366-017bee46a41a" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="97514d6a-a7da-4ae6-91fc-5af57b1b795e" name="FindClientById" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="a3ee8727-984f-4743-8752-0584d68e8b65" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>
