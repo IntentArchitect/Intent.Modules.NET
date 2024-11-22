@@ -5,8 +5,12 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.FluentValidation.Settings;
+using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Constants;
+using Intent.Modules.FluentValidation.Shared;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -36,6 +40,23 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandV
                 .SelectMany(s => s.ChildElements.Where(p => p.SpecializationTypeId == DTOFieldModel.SpecializationTypeId));
 
             var models = _metadataManager.Services(applicationManager).GetCommandModels();
+
+            // only if it could parse the setting and the outcome was false (i.e. don't create stubs) do we do the validation rules check
+            if (bool.TryParse(applicationManager.Settings.GetSetting("459a4008-350c-42ec-b43d-9c85000babc0", "c467d8e6-1aaf-4b19-9e76-9d419e1c0b74")?.Value, out var result) && result == false)
+            {
+                models = models.Where(x =>
+                {
+                    IElement advancedMappingSource = GetAdvancedMappings(dtoFields, x);
+
+                    return ValidationRulesExtensions.HasValidationRules(
+                        dtoModel: new DTOModel(x.InternalElement),
+                        dtoTemplateId: CommandModelsTemplate.TemplateId,
+                        dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
+                        uniqueConstraintValidationEnabled: applicationManager.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
+                        customValidationEnabled: true,
+                        associationedElements: advancedMappingSource?.AssociatedElements);
+                }).ToList();
+            }
 
             foreach (var model in models)
             {

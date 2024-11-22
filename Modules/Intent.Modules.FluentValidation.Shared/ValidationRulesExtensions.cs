@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Intent.Application.FluentValidation.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -13,6 +14,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
 
@@ -76,7 +78,7 @@ public static class ValidationRulesExtensions
                 @class.AddMethod("void", "ConfigureValidationRules", method =>
                 {
                     method.Private();
-                        
+
                     var validationRuleStatements = template.GetValidationRulesStatements(
                             dtoModel: dtoModel,
                             dtoTemplateId: dtoTemplateId,
@@ -222,20 +224,23 @@ public static class ValidationRulesExtensions
                 }
             }).AfterBuild(file =>
             {
-                var @class = file.Classes.First();
-                var configureMethod = @class.Methods.FirstOrDefault(m => m.Name == "ConfigureValidationRules");
-                if (configureMethod != null)
-                {
-                    // if the method is empty, or just contains one comment
-                    if(configureMethod.Statements.Count == 0 || (configureMethod.Statements.Count == 1 && (configureMethod.Statements[0].Text?.Trim().StartsWith("//") ?? true)))
-                    {
-                        // remove the method
-                        @class.Methods.Remove(configureMethod);
+                var @class = file.Classes.FirstOrDefault();
 
-                        // remove the call to the method
-                        var ctor = @class.Constructors.FirstOrDefault();
-                        ctor?.FindStatements(stmt => stmt.HasMetadata("configure-validation-rules"))
-                                ?.ToList().ForEach(x => x.Remove());
+                // if sonar qube module is installed, then add the appropriate attribute to suppress the warning
+                if (@class != null && file.Template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.SonarQube"))
+                {
+                    var method = @class.FindMethod("ConfigureValidationRules");
+                    if(method != null)
+                    {
+                        if(method.Statements.Count == 0 ||  (method.Statements.Count == 1 && method.Statements.First().ToString().Trim().StartsWith("//")))
+                        {
+                            method.AddAttribute("System.Diagnostics.CodeAnalysis.SuppressMessage", cfg =>
+                            {
+                                cfg.AddArgument("\"Performance\"")
+                                .AddArgument("\"CA1822:Mark members as static\"")
+                                .AddArgument("Justification = \"Depends on user code\"");
+                            });
+                        }
                     }
                 }
             });
@@ -285,7 +290,7 @@ public static class ValidationRulesExtensions
                 defaultNullableFormatter: null)
             : template.Types;
 
-        if(TryAddValidationFromParent(template, dtoModel, dtoTemplateId, dtoValidatorTemplateId, out var validationStatement))
+        if (TryAddValidationFromParent(template, dtoModel, dtoTemplateId, dtoValidatorTemplateId, out var validationStatement))
         {
             yield return validationStatement;
         }
@@ -334,16 +339,16 @@ public static class ValidationRulesExtensions
         }
     }
 
-    private static bool TryAddValidationFromParent<TModel>(CSharpTemplateBase<TModel> template, DTOModel model, string dtoTemplateId, 
+    private static bool TryAddValidationFromParent<TModel>(CSharpTemplateBase<TModel> template, DTOModel model, string dtoTemplateId,
         string dtoValidatorTemplateId, out CSharpMethodChainStatement? statement)
     {
-        if(model.ParentDto is null)
+        if (model.ParentDto is null)
         {
             statement = null;
             return false;
         }
 
-        if(template?.TryGetTypeName(
+        if (template?.TryGetTypeName(
             templateId: dtoValidatorTemplateId,
             model: model.ParentDto,
             typeName: out _) == true &&

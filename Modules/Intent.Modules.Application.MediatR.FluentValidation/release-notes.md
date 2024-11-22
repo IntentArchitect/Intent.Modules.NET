@@ -1,7 +1,7 @@
 ### Version 4.7.3
 
 - Improvement: Updated module icon
-- Improvement: `ConfigureValidationRules` method is no longer be created on _validators_ if it would be created empty.
+- Improvement: New fluent validation setting to toggle the creation of empty `Validators` for `Commands` and `Queries`.
 
 ### Version 4.7.2
 

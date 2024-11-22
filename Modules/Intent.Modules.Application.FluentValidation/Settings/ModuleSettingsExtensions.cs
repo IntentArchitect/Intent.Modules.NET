@@ -75,5 +75,7 @@ namespace Intent.Modules.Application.FluentValidation.Settings
             DefaultEnabled,
             DefaultDisabled,
         }
+
+        public bool GenerateStubValidators() => bool.TryParse(_groupSettings.GetSetting("c467d8e6-1aaf-4b19-9e76-9d419e1c0b74")?.Value.ToPascalCase(), out var result) && result;
     }
 }

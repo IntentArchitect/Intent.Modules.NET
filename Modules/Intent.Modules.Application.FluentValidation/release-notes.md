@@ -2,6 +2,7 @@
 
 - Improvement: Updated module icon
 - Improvement: Updated NuGet package versions.
+- Improvement: New fluent validation setting to toggle the creation of empty `Validators` for `Commands` and `Queries`.
 
 ### Version 3.9.4
 
