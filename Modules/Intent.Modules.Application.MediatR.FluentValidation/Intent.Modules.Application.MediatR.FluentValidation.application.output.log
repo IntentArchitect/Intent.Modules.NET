@@ -25,7 +25,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>f70df819-b1a1-460c-ad99-567cf48a1a99</ProjectId>
+      <ProjectId>061a5213-bda7-40ab-916e-cc2a0858abd3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.MediatR.FluentValidation.imodspec</ApplicationRelativeFilePath>
@@ -33,15 +33,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>f70df819-b1a1-460c-ad99-567cf48a1a99</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#f70df819-b1a1-460c-ad99-567cf48a1a99</CorrelationId>
+      <ProjectId>061a5213-bda7-40ab-916e-cc2a0858abd3</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#061a5213-bda7-40ab-916e-cc2a0858abd3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.MediatR.FluentValidation.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.MediatR.FluentValidation.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>f70df819-b1a1-460c-ad99-567cf48a1a99</ProjectId>
+      <ProjectId>061a5213-bda7-40ab-916e-cc2a0858abd3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>

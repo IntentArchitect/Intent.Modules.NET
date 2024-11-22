@@ -25,7 +25,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>27fb946f-391f-4a8a-acc8-2746cbc04889</ProjectId>
+      <ProjectId>caf76cc7-8bfb-4698-999d-a4748122ded9</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Entities.imodspec</ApplicationRelativeFilePath>
@@ -33,8 +33,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>27fb946f-391f-4a8a-acc8-2746cbc04889</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#27fb946f-391f-4a8a-acc8-2746cbc04889</CorrelationId>
+      <ProjectId>caf76cc7-8bfb-4698-999d-a4748122ded9</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#caf76cc7-8bfb-4698-999d-a4748122ded9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Entities.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Entities.csproj</ProjectRelativeFilePath>

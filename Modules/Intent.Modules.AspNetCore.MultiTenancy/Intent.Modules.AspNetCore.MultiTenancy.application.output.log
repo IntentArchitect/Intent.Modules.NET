@@ -33,15 +33,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>4faf05b4-370f-4929-9631-c0dd42a63c8b</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#4faf05b4-370f-4929-9631-c0dd42a63c8b</CorrelationId>
+      <ProjectId>e658a7fb-b6fb-4085-a38a-df531f129b9e</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#e658a7fb-b6fb-4085-a38a-df531f129b9e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.MultiTenancy.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.MultiTenancy.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>4faf05b4-370f-4929-9631-c0dd42a63c8b</ProjectId>
+      <ProjectId>e658a7fb-b6fb-4085-a38a-df531f129b9e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.MultiTenancy.imodspec</ApplicationRelativeFilePath>
@@ -57,7 +57,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>4faf05b4-370f-4929-9631-c0dd42a63c8b</ProjectId>
+      <ProjectId>e658a7fb-b6fb-4085-a38a-df531f129b9e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>

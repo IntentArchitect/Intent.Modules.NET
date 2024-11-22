@@ -5,11 +5,11 @@
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#36c56252-afae-4a84-8cfc-ef61056209d0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Net.sln</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>deddb78d-352e-4fe1-b7af-5f1ac59e4f55</ProjectId>
+      <ProjectId>9c5b0b81-8bae-4365-a55b-be6ce9b9ee90</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Application.Identity.imodspec</ApplicationRelativeFilePath>
@@ -17,8 +17,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>deddb78d-352e-4fe1-b7af-5f1ac59e4f55</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#deddb78d-352e-4fe1-b7af-5f1ac59e4f55</CorrelationId>
+      <ProjectId>9c5b0b81-8bae-4365-a55b-be6ce9b9ee90</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#9c5b0b81-8bae-4365-a55b-be6ce9b9ee90</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Application.Identity.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Application.Identity.csproj</ProjectRelativeFilePath>
@@ -102,7 +102,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ForbiddenAccessException/ForbiddenAccessExceptionTemplate.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ForbiddenAccessException/ForbiddenAccessExceptionTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>dc679d96-e52c-4347-8e1d-2771cac060fb</ProjectId>

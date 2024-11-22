@@ -25,7 +25,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>28f781ad-1cba-42fe-8fcc-d4f40a1edf0f</ProjectId>
+      <ProjectId>26bd8064-5127-4fe6-94c8-cca4995c0d12</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.AzureFunctions.OpenApi.imodspec</ApplicationRelativeFilePath>
@@ -33,15 +33,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>28f781ad-1cba-42fe-8fcc-d4f40a1edf0f</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#28f781ad-1cba-42fe-8fcc-d4f40a1edf0f</CorrelationId>
+      <ProjectId>26bd8064-5127-4fe6-94c8-cca4995c0d12</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#26bd8064-5127-4fe6-94c8-cca4995c0d12</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.OpenApi.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.OpenApi.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>28f781ad-1cba-42fe-8fcc-d4f40a1edf0f</ProjectId>
+      <ProjectId>26bd8064-5127-4fe6-94c8-cca4995c0d12</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>

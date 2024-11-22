@@ -89,15 +89,15 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreLibrary.CSProject#3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb</CorrelationId>
+      <ProjectId>c5f035f7-791e-44cb-945c-a8da230f0326</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#c5f035f7-791e-44cb-945c-a8da230f0326</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.MongoDb.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.MongoDb.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb</ProjectId>
+      <ProjectId>c5f035f7-791e-44cb-945c-a8da230f0326</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.MongoDb.imodspec</ApplicationRelativeFilePath>
@@ -113,7 +113,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb</ProjectId>
+      <ProjectId>c5f035f7-791e-44cb-945c-a8da230f0326</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
