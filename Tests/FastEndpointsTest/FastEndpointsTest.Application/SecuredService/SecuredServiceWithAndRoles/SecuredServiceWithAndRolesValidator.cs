@@ -12,6 +12,12 @@ namespace FastEndpointsTest.Application.SecuredService.SecuredServiceWithAndRole
         [IntentManaged(Mode.Merge)]
         public SecuredServiceWithAndRolesValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

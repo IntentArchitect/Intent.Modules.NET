@@ -13,6 +13,12 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.DeleteCust
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public DeleteCustomerCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

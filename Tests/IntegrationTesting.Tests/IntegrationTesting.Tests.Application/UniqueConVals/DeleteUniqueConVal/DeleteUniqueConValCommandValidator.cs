@@ -12,6 +12,12 @@ namespace IntegrationTesting.Tests.Application.UniqueConVals.DeleteUniqueConVal
         [IntentManaged(Mode.Merge)]
         public DeleteUniqueConValCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

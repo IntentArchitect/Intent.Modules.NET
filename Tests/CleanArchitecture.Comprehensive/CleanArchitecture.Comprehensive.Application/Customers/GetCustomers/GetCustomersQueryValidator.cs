@@ -12,6 +12,13 @@ namespace CleanArchitecture.Comprehensive.Application.Customers.GetCustomers
         [IntentManaged(Mode.Merge)]
         public GetCustomersQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Depends on user code")]
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

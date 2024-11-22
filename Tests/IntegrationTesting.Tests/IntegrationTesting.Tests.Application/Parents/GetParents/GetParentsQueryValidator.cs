@@ -12,6 +12,12 @@ namespace IntegrationTesting.Tests.Application.Parents.GetParents
         [IntentManaged(Mode.Merge)]
         public GetParentsQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

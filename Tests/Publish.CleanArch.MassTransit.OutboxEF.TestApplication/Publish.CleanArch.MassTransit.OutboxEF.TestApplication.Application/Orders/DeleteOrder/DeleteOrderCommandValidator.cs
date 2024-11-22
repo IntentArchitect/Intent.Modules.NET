@@ -13,6 +13,12 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public DeleteOrderCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

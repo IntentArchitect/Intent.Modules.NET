@@ -12,6 +12,12 @@ namespace AdvancedMappingCrudMongo.Tests.Application.Orders.GetOrdersByRefNo
         [IntentManaged(Mode.Merge)]
         public GetOrdersByRefNoQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

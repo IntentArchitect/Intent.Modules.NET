@@ -12,6 +12,12 @@ namespace SharedKernel.Consumer.Tests.Application.Countries.DeleteCountry
         [IntentManaged(Mode.Merge)]
         public DeleteCountryCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

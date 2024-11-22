@@ -12,6 +12,12 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Customers.FindCustomerByN
         [IntentManaged(Mode.Merge)]
         public FindCustomerByNameOrSurnameQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

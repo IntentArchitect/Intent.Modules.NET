@@ -12,6 +12,12 @@ namespace CosmosDB.PrivateSetters.Application.DerivedOfTS.GetDerivedOfTS
         [IntentManaged(Mode.Merge)]
         public GetDerivedOfTSQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,6 +12,12 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Users.DeleteUser
         [IntentManaged(Mode.Merge)]
         public DeleteUserCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

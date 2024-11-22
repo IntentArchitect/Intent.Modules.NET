@@ -12,6 +12,12 @@ namespace ProxyServiceTests.Proxy.TMS.Application.ClientsServices.FindClientById
         [IntentManaged(Mode.Merge)]
         public FindClientByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

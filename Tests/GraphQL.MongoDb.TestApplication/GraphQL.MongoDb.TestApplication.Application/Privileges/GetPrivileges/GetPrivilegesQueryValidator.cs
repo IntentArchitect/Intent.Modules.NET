@@ -13,6 +13,12 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.GetPrivileges
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetPrivilegesQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

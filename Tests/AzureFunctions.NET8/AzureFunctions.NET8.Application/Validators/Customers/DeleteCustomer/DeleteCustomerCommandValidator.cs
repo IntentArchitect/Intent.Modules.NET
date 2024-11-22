@@ -14,6 +14,12 @@ namespace AzureFunctions.NET8.Application.Validators.Customers.DeleteCustomer
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public DeleteCustomerCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

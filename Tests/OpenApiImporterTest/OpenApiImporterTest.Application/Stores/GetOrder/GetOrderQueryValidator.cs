@@ -12,6 +12,12 @@ namespace OpenApiImporterTest.Application.Stores.GetOrder
         [IntentManaged(Mode.Merge)]
         public GetOrderQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

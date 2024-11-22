@@ -13,6 +13,12 @@ namespace CleanArchitecture.Dapr.Application.OldMappingSystem.Tags.GetTags
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetTagsQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

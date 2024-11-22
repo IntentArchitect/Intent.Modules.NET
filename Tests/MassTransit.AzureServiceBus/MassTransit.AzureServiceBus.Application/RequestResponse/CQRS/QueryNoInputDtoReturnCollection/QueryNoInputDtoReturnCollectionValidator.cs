@@ -12,6 +12,12 @@ namespace MassTransit.AzureServiceBus.Application.RequestResponse.CQRS.QueryNoIn
         [IntentManaged(Mode.Merge)]
         public QueryNoInputDtoReturnCollectionValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,6 +12,12 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Users.GetUsers
         [IntentManaged(Mode.Merge)]
         public GetUsersQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

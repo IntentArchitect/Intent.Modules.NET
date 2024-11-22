@@ -12,6 +12,12 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Products.GetProductBy
         [IntentManaged(Mode.Merge)]
         public GetProductByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

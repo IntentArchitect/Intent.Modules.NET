@@ -14,6 +14,12 @@ namespace AzureFunctions.NET8.Application.Validators.Customers.GetCustomersPaged
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetCustomersPagedQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

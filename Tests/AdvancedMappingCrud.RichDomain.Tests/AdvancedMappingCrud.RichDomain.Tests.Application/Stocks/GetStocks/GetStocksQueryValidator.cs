@@ -12,6 +12,12 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Application.Stocks.GetStocks
         [IntentManaged(Mode.Merge)]
         public GetStocksQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

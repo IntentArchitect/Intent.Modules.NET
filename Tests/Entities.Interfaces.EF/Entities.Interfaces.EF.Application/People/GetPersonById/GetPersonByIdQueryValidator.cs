@@ -12,6 +12,12 @@ namespace Entities.Interfaces.EF.Application.People.GetPersonById
         [IntentManaged(Mode.Merge)]
         public GetPersonByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

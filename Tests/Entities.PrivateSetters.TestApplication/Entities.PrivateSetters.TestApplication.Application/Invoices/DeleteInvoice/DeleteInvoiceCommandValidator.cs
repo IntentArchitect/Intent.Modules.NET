@@ -12,6 +12,12 @@ namespace Entities.PrivateSetters.TestApplication.Application.Invoices.DeleteInv
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public DeleteInvoiceCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

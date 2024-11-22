@@ -12,6 +12,12 @@ namespace SharedKernel.Consumer.Tests.Application.Countries.GetCountryById
         [IntentManaged(Mode.Merge)]
         public GetCountryByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

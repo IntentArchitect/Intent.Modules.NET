@@ -12,6 +12,12 @@ namespace SqlServerImporterTests.Application.Orders.GetCustomerOrders
         [IntentManaged(Mode.Merge)]
         public GetCustomerOrdersQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

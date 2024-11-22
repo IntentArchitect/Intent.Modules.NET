@@ -12,6 +12,12 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToManySources.G
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetOneToManySourcesQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

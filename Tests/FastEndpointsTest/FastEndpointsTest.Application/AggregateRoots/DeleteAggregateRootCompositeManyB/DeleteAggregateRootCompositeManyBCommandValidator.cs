@@ -12,6 +12,12 @@ namespace FastEndpointsTest.Application.AggregateRoots.DeleteAggregateRootCompos
         [IntentManaged(Mode.Merge)]
         public DeleteAggregateRootCompositeManyBCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

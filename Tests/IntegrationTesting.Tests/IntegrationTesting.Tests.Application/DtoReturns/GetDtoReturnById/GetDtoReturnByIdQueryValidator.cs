@@ -12,6 +12,12 @@ namespace IntegrationTesting.Tests.Application.DtoReturns.GetDtoReturnById
         [IntentManaged(Mode.Merge)]
         public GetDtoReturnByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

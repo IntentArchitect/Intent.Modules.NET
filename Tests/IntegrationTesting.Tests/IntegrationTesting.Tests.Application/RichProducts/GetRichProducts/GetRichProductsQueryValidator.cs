@@ -12,6 +12,12 @@ namespace IntegrationTesting.Tests.Application.RichProducts.GetRichProducts
         [IntentManaged(Mode.Merge)]
         public GetRichProductsQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

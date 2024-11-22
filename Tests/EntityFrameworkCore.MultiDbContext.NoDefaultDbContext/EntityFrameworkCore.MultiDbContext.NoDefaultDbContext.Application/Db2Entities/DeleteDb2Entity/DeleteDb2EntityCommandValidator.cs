@@ -12,6 +12,12 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Application.Db2E
         [IntentManaged(Mode.Merge)]
         public DeleteDb2EntityCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

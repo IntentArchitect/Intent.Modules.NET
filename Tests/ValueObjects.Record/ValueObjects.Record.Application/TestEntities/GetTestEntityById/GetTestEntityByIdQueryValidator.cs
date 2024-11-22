@@ -12,6 +12,12 @@ namespace ValueObjects.Record.Application.TestEntities.GetTestEntityById
         [IntentManaged(Mode.Merge)]
         public GetTestEntityByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

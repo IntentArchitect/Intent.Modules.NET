@@ -13,6 +13,12 @@ namespace CleanArchitecture.Dapr.Application.OldMappingSystem.Clients.GetClients
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetClientsQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

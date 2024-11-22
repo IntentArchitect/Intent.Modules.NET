@@ -14,6 +14,12 @@ namespace AzureFunctions.NET8.Application.Validators.NullableResult.GetCustomerN
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetCustomerNullableValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

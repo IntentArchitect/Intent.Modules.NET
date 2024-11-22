@@ -12,6 +12,12 @@ namespace IntegrationTesting.Tests.Application.BadSignatures.GetBadSignaturesByI
         [IntentManaged(Mode.Merge)]
         public GetBadSignaturesByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,6 +12,12 @@ namespace IntegrationTesting.Tests.Application.RichProducts.DeleteRichProduct
         [IntentManaged(Mode.Merge)]
         public DeleteRichProductCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

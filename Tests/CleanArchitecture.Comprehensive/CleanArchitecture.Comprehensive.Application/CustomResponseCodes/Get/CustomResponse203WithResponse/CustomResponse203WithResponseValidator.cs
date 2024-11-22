@@ -12,6 +12,13 @@ namespace CleanArchitecture.Comprehensive.Application.CustomResponseCodes.Get.Cu
         [IntentManaged(Mode.Merge)]
         public CustomResponse203WithResponseValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Depends on user code")]
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

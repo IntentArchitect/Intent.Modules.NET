@@ -12,6 +12,12 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Customers.De
         [IntentManaged(Mode.Merge)]
         public DeleteCustomerCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

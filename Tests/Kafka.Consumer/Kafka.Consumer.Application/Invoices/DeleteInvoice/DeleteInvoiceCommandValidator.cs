@@ -12,6 +12,12 @@ namespace Kafka.Consumer.Application.Invoices.DeleteInvoice
         [IntentManaged(Mode.Merge)]
         public DeleteInvoiceCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

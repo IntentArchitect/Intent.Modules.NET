@@ -12,6 +12,12 @@ namespace IntegrationTesting.Tests.Application.HasMissingDeps.GetHasMissingDeps
         [IntentManaged(Mode.Merge)]
         public GetHasMissingDepsQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

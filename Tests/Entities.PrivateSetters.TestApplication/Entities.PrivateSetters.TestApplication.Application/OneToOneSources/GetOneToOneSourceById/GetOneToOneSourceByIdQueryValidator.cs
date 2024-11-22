@@ -12,6 +12,12 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToOneSources.Ge
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetOneToOneSourceByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

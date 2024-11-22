@@ -13,7 +13,14 @@ namespace CleanArchitecture.Comprehensive.Application.TestNullablities.DeleteTes
         [IntentManaged(Mode.Merge)]
         public DeleteTestNullablityCommandValidator()
         {
+            ConfigureValidationRules();
 
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Depends on user code")]
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

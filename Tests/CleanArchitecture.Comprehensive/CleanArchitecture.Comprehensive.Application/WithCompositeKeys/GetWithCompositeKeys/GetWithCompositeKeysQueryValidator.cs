@@ -13,7 +13,14 @@ namespace CleanArchitecture.Comprehensive.Application.WithCompositeKeys.GetWithC
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetWithCompositeKeysQueryValidator()
         {
+            ConfigureValidationRules();
 
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Depends on user code")]
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

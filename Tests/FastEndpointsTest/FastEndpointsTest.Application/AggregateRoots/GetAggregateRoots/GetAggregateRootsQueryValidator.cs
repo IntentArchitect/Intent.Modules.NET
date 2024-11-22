@@ -12,6 +12,12 @@ namespace FastEndpointsTest.Application.AggregateRoots.GetAggregateRoots
         [IntentManaged(Mode.Merge)]
         public GetAggregateRootsQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

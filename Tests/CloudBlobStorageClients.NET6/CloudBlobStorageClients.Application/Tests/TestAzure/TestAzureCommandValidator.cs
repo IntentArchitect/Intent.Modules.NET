@@ -12,6 +12,12 @@ namespace CloudBlobStorageClients.Application.Tests.TestAzure
         [IntentManaged(Mode.Merge)]
         public TestAzureCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

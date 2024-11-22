@@ -13,6 +13,12 @@ namespace CleanArchitecture.Dapr.Application.DerivedOfTS.GetDerivedOfTS
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetDerivedOfTSQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

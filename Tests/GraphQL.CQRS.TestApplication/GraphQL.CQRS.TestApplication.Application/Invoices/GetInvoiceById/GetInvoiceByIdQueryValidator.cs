@@ -13,6 +13,12 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.GetInvoiceById
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetInvoiceByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,6 +12,12 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Customers.GetCustomersLin
         [IntentManaged(Mode.Merge)]
         public GetCustomersLinqQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

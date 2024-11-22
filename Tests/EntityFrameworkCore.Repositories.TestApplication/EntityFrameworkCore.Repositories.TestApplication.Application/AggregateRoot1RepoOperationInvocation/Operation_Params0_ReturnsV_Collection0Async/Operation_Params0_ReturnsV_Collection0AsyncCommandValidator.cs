@@ -12,6 +12,12 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.Aggregate
         [IntentManaged(Mode.Merge)]
         public Operation_Params0_ReturnsV_Collection0AsyncCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

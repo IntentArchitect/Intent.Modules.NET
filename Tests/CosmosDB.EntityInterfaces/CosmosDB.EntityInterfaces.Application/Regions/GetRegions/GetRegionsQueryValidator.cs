@@ -12,6 +12,12 @@ namespace CosmosDB.EntityInterfaces.Application.Regions.GetRegions
         [IntentManaged(Mode.Merge)]
         public GetRegionsQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

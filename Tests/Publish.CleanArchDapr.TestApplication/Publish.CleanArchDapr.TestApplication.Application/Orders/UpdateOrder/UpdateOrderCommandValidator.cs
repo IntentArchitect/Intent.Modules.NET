@@ -13,6 +13,12 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.UpdateOrder
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public UpdateOrderCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

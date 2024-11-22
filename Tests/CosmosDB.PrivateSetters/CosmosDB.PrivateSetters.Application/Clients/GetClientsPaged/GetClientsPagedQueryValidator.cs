@@ -12,6 +12,12 @@ namespace CosmosDB.PrivateSetters.Application.Clients.GetClientsPaged
         [IntentManaged(Mode.Merge)]
         public GetClientsPagedQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

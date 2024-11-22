@@ -12,6 +12,12 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Jobs.MyTimedJob
         [IntentManaged(Mode.Merge)]
         public MyTimedJobCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

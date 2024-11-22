@@ -12,6 +12,12 @@ namespace Entities.PrivateSetters.TestApplication.Application.ManyToManyDests.Ge
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetManyToManyDestByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

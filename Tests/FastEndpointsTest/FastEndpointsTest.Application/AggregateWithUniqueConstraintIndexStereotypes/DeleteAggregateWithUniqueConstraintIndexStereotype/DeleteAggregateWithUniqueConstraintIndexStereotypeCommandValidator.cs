@@ -12,6 +12,12 @@ namespace FastEndpointsTest.Application.AggregateWithUniqueConstraintIndexStereo
         [IntentManaged(Mode.Merge)]
         public DeleteAggregateWithUniqueConstraintIndexStereotypeCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

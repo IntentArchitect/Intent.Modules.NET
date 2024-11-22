@@ -12,6 +12,12 @@ namespace SqlServerImporterTests.Application.Orders.GetOrderById
         [IntentManaged(Mode.Merge)]
         public GetOrderByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

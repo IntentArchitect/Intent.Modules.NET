@@ -12,6 +12,12 @@ namespace MudBlazor.ExampleApp.Application.Customers.GetCustomerById
         [IntentManaged(Mode.Merge)]
         public GetCustomerByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

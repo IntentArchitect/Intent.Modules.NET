@@ -13,7 +13,14 @@ namespace CleanArchitecture.Comprehensive.Application.AsyncOperationsClasses.Imp
         [IntentManaged(Mode.Merge)]
         public ImplicitAsyncWithReturnCommandValidator()
         {
+            ConfigureValidationRules();
 
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Depends on user code")]
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

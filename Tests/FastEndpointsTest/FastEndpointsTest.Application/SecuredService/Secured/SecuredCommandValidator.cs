@@ -12,6 +12,12 @@ namespace FastEndpointsTest.Application.SecuredService.Secured
         [IntentManaged(Mode.Merge)]
         public SecuredCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,6 +12,12 @@ namespace Entities.PrivateSetters.TestApplication.Application.ManyToOneDests.Del
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public DeleteManyToOneDestCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

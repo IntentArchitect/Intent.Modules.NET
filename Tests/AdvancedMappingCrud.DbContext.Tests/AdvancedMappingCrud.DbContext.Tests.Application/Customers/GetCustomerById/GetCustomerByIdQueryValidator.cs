@@ -12,6 +12,12 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Customers.GetCustomerB
         [IntentManaged(Mode.Merge)]
         public GetCustomerByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,6 +12,12 @@ namespace FastEndpointsTest.Application.AggregateWithUniqueConstraintIndexElemen
         [IntentManaged(Mode.Merge)]
         public DeleteAggregateWithUniqueConstraintIndexElementCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

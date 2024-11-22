@@ -14,6 +14,12 @@ namespace AzureFunctions.NET6.Application.Validators.Customers.GetCustomerById
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public GetCustomerByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

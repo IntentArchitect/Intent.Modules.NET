@@ -12,6 +12,12 @@ namespace Solace.Tests.Application.Purchases.CreatePurchase
         [IntentManaged(Mode.Merge)]
         public CreatePurchaseCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

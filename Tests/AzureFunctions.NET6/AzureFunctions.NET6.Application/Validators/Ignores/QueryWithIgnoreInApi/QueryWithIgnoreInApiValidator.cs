@@ -13,6 +13,12 @@ namespace AzureFunctions.NET6.Application.Validators.Ignores.QueryWithIgnoreInAp
         [IntentManaged(Mode.Merge)]
         public QueryWithIgnoreInApiValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

@@ -12,6 +12,12 @@ namespace Solace.Tests.Application.Accounts.CreateAccount
         [IntentManaged(Mode.Merge)]
         public CreateAccountCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

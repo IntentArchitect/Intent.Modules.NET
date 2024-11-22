@@ -12,6 +12,12 @@ namespace FastEndpointsTest.Application.ScalarCollectionReturnType.QueryWithColl
         [IntentManaged(Mode.Merge)]
         public QueryWithCollectionReturnValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

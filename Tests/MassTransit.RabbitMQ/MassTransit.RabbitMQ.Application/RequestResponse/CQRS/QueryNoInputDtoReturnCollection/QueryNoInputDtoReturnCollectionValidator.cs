@@ -12,6 +12,12 @@ namespace MassTransit.RabbitMQ.Application.RequestResponse.CQRS.QueryNoInputDtoR
         [IntentManaged(Mode.Merge)]
         public QueryNoInputDtoReturnCollectionValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

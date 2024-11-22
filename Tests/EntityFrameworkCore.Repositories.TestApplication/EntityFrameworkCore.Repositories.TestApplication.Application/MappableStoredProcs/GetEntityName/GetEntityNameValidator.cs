@@ -12,6 +12,12 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.MappableS
         [IntentManaged(Mode.Merge)]
         public GetEntityNameValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

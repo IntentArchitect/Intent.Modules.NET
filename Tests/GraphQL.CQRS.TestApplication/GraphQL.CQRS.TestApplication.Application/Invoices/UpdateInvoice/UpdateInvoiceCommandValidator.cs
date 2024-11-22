@@ -13,6 +13,12 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.UpdateInvoice
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public UpdateInvoiceCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

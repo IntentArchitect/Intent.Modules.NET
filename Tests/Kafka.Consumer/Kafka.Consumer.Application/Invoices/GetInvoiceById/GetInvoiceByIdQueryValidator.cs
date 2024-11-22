@@ -12,6 +12,12 @@ namespace Kafka.Consumer.Application.Invoices.GetInvoiceById
         [IntentManaged(Mode.Merge)]
         public GetInvoiceByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

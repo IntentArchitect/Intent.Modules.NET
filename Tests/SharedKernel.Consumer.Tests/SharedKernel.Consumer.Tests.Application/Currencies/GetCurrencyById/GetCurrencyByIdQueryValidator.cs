@@ -12,6 +12,12 @@ namespace SharedKernel.Consumer.Tests.Application.Currencies.GetCurrencyById
         [IntentManaged(Mode.Merge)]
         public GetCurrencyByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

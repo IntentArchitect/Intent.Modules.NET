@@ -12,6 +12,12 @@ namespace IntegrationTesting.Tests.Application.NoReturns.GetNoReturnById
         [IntentManaged(Mode.Merge)]
         public GetNoReturnByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

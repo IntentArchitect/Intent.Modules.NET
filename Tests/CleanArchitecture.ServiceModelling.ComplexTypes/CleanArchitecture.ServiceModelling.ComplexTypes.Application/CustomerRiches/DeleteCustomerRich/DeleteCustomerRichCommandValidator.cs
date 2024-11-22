@@ -13,7 +13,13 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
         [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
         public DeleteCustomerRichCommandValidator()
         {
+            ConfigureValidationRules();
 
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

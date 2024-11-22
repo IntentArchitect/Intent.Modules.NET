@@ -12,6 +12,12 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Products.GetProductsPa
         [IntentManaged(Mode.Merge)]
         public GetProductsPaginatedByNameOptionalQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

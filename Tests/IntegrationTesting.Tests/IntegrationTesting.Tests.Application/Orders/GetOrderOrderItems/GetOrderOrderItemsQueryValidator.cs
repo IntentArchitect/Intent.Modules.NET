@@ -12,6 +12,12 @@ namespace IntegrationTesting.Tests.Application.Orders.GetOrderOrderItems
         [IntentManaged(Mode.Merge)]
         public GetOrderOrderItemsQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

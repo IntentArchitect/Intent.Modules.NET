@@ -12,6 +12,12 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Orders.GetOr
         [IntentManaged(Mode.Merge)]
         public GetOrdersQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

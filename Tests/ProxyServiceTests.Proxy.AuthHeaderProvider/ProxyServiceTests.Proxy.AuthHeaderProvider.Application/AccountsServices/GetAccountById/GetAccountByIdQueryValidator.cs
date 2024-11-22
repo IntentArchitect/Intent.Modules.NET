@@ -12,6 +12,12 @@ namespace ProxyServiceTests.Proxy.AuthHeaderProvider.Application.AccountsService
         [IntentManaged(Mode.Merge)]
         public GetAccountByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

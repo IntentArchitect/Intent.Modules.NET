@@ -12,6 +12,12 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Application.Db1E
         [IntentManaged(Mode.Merge)]
         public DeleteDb1EntityCommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

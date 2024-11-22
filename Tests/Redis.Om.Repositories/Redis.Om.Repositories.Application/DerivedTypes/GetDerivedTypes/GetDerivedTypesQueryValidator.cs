@@ -12,6 +12,12 @@ namespace Redis.Om.Repositories.Application.DerivedTypes.GetDerivedTypes
         [IntentManaged(Mode.Merge)]
         public GetDerivedTypesQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

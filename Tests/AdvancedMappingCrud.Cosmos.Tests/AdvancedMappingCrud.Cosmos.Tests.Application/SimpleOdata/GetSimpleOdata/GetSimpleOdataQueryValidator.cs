@@ -12,6 +12,12 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.SimpleOdata.GetSimpleOdat
         [IntentManaged(Mode.Merge)]
         public GetSimpleOdataQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

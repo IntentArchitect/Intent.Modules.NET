@@ -12,6 +12,12 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.CustomRep
         [IntentManaged(Mode.Merge)]
         public Operation_Params0_ReturnsV_Collection0CommandValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

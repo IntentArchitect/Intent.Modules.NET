@@ -12,6 +12,12 @@ namespace Solace.Tests.Application.Purchases.GetPurchaseById
         [IntentManaged(Mode.Merge)]
         public GetPurchaseByIdQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }

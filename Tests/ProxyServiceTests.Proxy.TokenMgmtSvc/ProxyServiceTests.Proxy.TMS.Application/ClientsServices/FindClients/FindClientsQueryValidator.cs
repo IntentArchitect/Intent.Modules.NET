@@ -12,6 +12,12 @@ namespace ProxyServiceTests.Proxy.TMS.Application.ClientsServices.FindClients
         [IntentManaged(Mode.Merge)]
         public FindClientsQueryValidator()
         {
+            ConfigureValidationRules();
+        }
+
+        private void ConfigureValidationRules()
+        {
+            // Implement custom validation logic here if required
         }
     }
 }
