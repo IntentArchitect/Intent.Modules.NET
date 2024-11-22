@@ -1,9 +1,9 @@
-#nullable enable
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
+using Intent.Metadata.Security.Api;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
@@ -13,7 +13,7 @@ using Intent.Modules.Metadata.WebApi.Models;
 namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller.Models;
 
 //Disambiguation
-using Intent.Modelers.Services.Api;
+using Modelers.Services.Api;
 
 public class ServiceControllerModel : IControllerModel
 {
