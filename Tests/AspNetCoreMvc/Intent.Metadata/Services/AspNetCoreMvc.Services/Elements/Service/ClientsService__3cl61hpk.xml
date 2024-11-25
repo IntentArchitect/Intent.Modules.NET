@@ -339,5 +339,46 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="d19fc1bf-a304-4385-81bf-6a0911f5cc0c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>FindClientsWithoutView</name>
+      <display>FindClientsWithoutView(): ClientDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7b97dc62-5af8-4ab0-a477-3b7e2c4a75ee">
+        <typeId>bcf5228c-3395-4b15-8214-86ffaf2c7224</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AspNetCoreMvc.Services</typePackageName>
+        <typePackageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1ecbd030-9e2c-4232-bc27-0e29f6be2cdc</parentFolderId>
+      <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+      <packageName>AspNetCoreMvc.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="647586e0-09df-444a-9dc4-f13637b0c3ac" name="MVC Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AspNetCore.Mvc</definitionPackageName>
+          <definitionPackageId>539cecb5-aede-4b55-8dbb-7ba3e8bfd3d5</definitionPackageId>
+          <properties>
+            <property name="ae0dda3e-f047-48ec-8779-3305e4ec9254" display="Verb" value="GET" isActive="true" />
+            <property name="55641304-6fd1-451e-95f9-bbbc3f9e16f4" display="Route" value="without-view" isActive="true" />
+            <property name="ffbf2921-a1f3-4c23-a584-9055f7cd0402" display="Name" isActive="true" />
+            <property name="8d37a88a-b540-402e-bca2-c4d8ff11c905" display="Return Type" value="(Operation Return Type)" isActive="true" />
+            <property name="88f938a7-7ac3-473c-b489-a62184ae1409" display="View Name" isActive="false" />
+            <property name="54484630-53f0-415c-a338-ef20bfcf0500" display="RedirectTo Controller" isActive="false" />
+            <property name="1adef718-4dff-47ce-91b1-ec729a1f707a" display="RedirectTo Action" isActive="false" />
+            <property name="6e2a9abd-9e8a-47c8-ba3d-ec2951b3bbb9" display="RedirectTo Route Values" isActive="false" />
+            <property name="4a40f0aa-b871-48c3-ae6b-73db5c448e42" display="RedirectTo Fragment" value="" isActive="false" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

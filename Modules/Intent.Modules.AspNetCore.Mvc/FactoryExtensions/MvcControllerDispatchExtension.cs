@@ -157,6 +157,9 @@ namespace Intent.Modules.AspNetCore.Mvc.FactoryExtensions
 
                     switch (mvcSettings.ReturnType().AsEnum())
                     {
+                        case OperationModelStereotypeExtensions.MVCSettings.ReturnTypeOptionsEnum.OperationReturnType:
+                            method.AddStatement($"return result;", s => s.SeparatedFromPrevious());
+                            break;
                         case OperationModelStereotypeExtensions.MVCSettings.ReturnTypeOptionsEnum.Ok:
                             method.AddStatement($"return Ok();", s => s.SeparatedFromPrevious());
                             break;

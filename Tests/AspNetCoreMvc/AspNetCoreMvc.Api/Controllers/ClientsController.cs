@@ -95,5 +95,14 @@ namespace AspNetCoreMvc.Api.Controllers
 
             return RedirectToAction("FindClients");
         }
+
+        [HttpGet("without-view")]
+        public async Task<ActionResult> FindClientsWithoutView(CancellationToken cancellationToken = default)
+        {
+            var result = default(List<ClientDto>);
+            result = await _appService.FindClientsWithoutView(cancellationToken);
+
+            return result;
+        }
     }
 }

@@ -83,5 +83,12 @@ namespace AspNetCoreMvc.Application.Implementation
 
             _clientRepository.Remove(client);
         }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<List<ClientDto>> FindClientsWithoutView(CancellationToken cancellationToken = default)
+        {
+            var clients = await _clientRepository.FindAllAsync(cancellationToken);
+            return clients.MapToClientDtoList(_mapper);
+        }
     }
 }

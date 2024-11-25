@@ -63,11 +63,13 @@
       <placeholder />
       <defaultValue>View</defaultValue>
       <valueOptions>
+        <option>(Operation Return Type)</option>
         <option>RedirectToAction</option>
         <option>View</option>
         <option>Ok</option>
       </valueOptions>
       <lookupTypes />
+      <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="88f938a7-7ac3-473c-b489-a62184ae1409">
       <name>View Name</name>

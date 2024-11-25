@@ -164,12 +164,12 @@ namespace Intent.Modules.AspNetCore.Mvc.Templates.MvcController
                 $"[Http{mvcSettings.Verb().Value.ToLower().ToPascalCase()}{joinedArguments}]");
         }
 
-        private static IEnumerable<CSharpAttribute> GetAuthorizationAttributes(IReadOnlyCollection<ISecurityModel> securityModels)
+        private IEnumerable<CSharpAttribute> GetAuthorizationAttributes(IReadOnlyCollection<ISecurityModel> securityModels)
         {
             return securityModels
                 .Select(model =>
                 {
-                    var attribute = new CSharpAttribute("Authorize");
+                    var attribute = new CSharpAttribute(UseType("Microsoft.AspNetCore.Authorization.Authorize"));
 
                     if (model.Roles.Count > 0)
                     {

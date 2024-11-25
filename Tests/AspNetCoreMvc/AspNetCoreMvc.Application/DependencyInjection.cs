@@ -33,6 +33,7 @@ namespace AspNetCoreMvc.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IClientsService, ClientsService>();
+            services.AddTransient<ISecuredService, SecuredService>();
             return services;
         }
     }

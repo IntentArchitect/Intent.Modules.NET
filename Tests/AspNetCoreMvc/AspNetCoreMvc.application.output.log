@@ -49,6 +49,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>3b317760-8dbe-4f3c-bf25-6527dab78929</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Mvc.MvcController#b66d3e18-c226-4248-97f7-66ba7a7fde9e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Api/Controllers/SecuredController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecuredController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>3a7078c2-8421-4df9-96e1-2af6f7f002e2</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -353,11 +361,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>4ce53bb4-131d-47c3-8748-a23ddf21f644</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#b66d3e18-c226-4248-97f7-66ba7a7fde9e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/Implementation/SecuredService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SecuredService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>c807e055-7d4b-4c30-bb3f-eca36d9c04d2</ProjectId>
       <CorrelationId>Intent.Application.Contracts.ServiceContract#1ecbd030-9e2c-4232-bc27-0e29f6be2cdc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCoreMvc.Application/Interfaces/IClientsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IClientsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c807e055-7d4b-4c30-bb3f-eca36d9c04d2</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#b66d3e18-c226-4248-97f7-66ba7a7fde9e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/Interfaces/ISecuredService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ISecuredService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

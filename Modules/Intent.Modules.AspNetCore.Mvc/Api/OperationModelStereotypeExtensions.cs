@@ -165,6 +165,8 @@ namespace Intent.AspNetCore.Mvc.Api
                 {
                     switch (Value)
                     {
+                        case "(Operation Return Type)":
+                            return ReturnTypeOptionsEnum.OperationReturnType;
                         case "RedirectToAction":
                             return ReturnTypeOptionsEnum.RedirectToAction;
                         case "View":
@@ -174,6 +176,11 @@ namespace Intent.AspNetCore.Mvc.Api
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
+                }
+
+                public bool IsOperationReturnType()
+                {
+                    return Value == "(Operation Return Type)";
                 }
                 public bool IsRedirectToAction()
                 {
@@ -191,6 +198,7 @@ namespace Intent.AspNetCore.Mvc.Api
 
             public enum ReturnTypeOptionsEnum
             {
+                OperationReturnType,
                 RedirectToAction,
                 View,
                 Ok

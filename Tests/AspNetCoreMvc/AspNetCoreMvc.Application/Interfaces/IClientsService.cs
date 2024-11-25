@@ -17,5 +17,6 @@ namespace AspNetCoreMvc.Application.Interfaces
         Task<List<ClientDto>> FindClients(CancellationToken cancellationToken = default);
         Task UpdateClient(Guid id, ClientUpdateDto dto, CancellationToken cancellationToken = default);
         Task DeleteClient(Guid id, CancellationToken cancellationToken = default);
+        Task<List<ClientDto>> FindClientsWithoutView(CancellationToken cancellationToken = default);
     }
 }
