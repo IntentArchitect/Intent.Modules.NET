@@ -97,7 +97,7 @@ namespace AspNetCoreMvc.Api.Controllers
         }
 
         [HttpGet("without-view")]
-        public async Task<ActionResult> FindClientsWithoutView(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<List<ClientDto>>> FindClientsWithoutView(CancellationToken cancellationToken = default)
         {
             var result = default(List<ClientDto>);
             result = await _appService.FindClientsWithoutView(cancellationToken);

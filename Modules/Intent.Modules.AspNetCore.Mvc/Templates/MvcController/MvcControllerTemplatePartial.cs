@@ -73,7 +73,11 @@ namespace Intent.Modules.AspNetCore.Mvc.Templates.MvcController
                     {
                         var mvcSettings = operation.GetMVCSettings();
 
-                        @class.AddMethod("ActionResult", operation.Name.ToPascalCase(), method =>
+                        var resultType = mvcSettings.ReturnType().IsOperationReturnType()
+                            ? $"ActionResult<{GetTypeName(operation)}>"
+                            : "ActionResult";
+
+                        @class.AddMethod(resultType, operation.Name.ToPascalCase(), method =>
                         {
                             method.AddMetadata("model", operation);
                             method.Async();
