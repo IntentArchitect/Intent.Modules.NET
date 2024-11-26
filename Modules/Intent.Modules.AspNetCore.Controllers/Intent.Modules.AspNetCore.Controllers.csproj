@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Intent.Modules.Common" Version="3.7.2-pre.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.7.2" />
 
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.1" />
     <PackageReference Include="Intent.Modules.Metadata.WebApi" Version="4.6.4-pre.1" />

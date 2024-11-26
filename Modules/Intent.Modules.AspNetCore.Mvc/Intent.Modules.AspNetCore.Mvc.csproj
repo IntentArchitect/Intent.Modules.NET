@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Application.Contracts" Version="5.0.4" />
-    <PackageReference Include="Intent.Modules.Common" Version="3.7.2-pre.0" />
+    <PackageReference Include="Intent.Modules.Common" Version="3.7.2" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.1" />
     <PackageReference Include="Intent.Modules.Metadata.Security" Version="1.0.0-pre.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.8.3" />
