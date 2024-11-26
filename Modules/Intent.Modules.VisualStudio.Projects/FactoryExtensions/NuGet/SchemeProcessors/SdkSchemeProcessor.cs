@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Xml;
 using System.Xml.Linq;
 using Intent.Engine;
@@ -44,11 +45,30 @@ internal class SdkSchemeProcessor : INuGetSchemeProcessor
                 group => group.Key,
                 group =>
                 {
+                    string version;
                     var packageReference = group.First();
-                    if (!_directoryPackagesPropsTemplatesBySolutionId.TryGetValue(solutionModelId, out var template) ||
-                        !template.TryGetVersion(group.Key, out var version))
+
+
+                    if (_directoryPackagesPropsTemplatesBySolutionId.TryGetValue(solutionModelId, out var template))
+                    {
+                        if (!template.TryGetVersion(group.Key, out version))
+                        {
+                            version = packageReference.Metadata.SingleOrDefault(x => string.Equals(x.Name, "Version", StringComparison.OrdinalIgnoreCase))?.Value;
+                        }
+
+                        if (version == null)
+                        {
+                            throw new Exception($"Could not determine version for {group.Key} when checking `Directory.Packages.props` file and falling back to .csproj file.");
+                        }
+                    }
+                    else
                     {
                         version = packageReference.Metadata.SingleOrDefault(x => string.Equals(x.Name, "Version", StringComparison.OrdinalIgnoreCase))?.Value;
+
+                        if (version == null)
+                        {
+                            throw new Exception($"Could not determine version for {group.Key} when checking .csproj file.");
+                        }
                     }
 
                     var privateAssetsMetadata = packageReference.Metadata.SingleOrDefault(x => string.Equals(x.Name, "PrivateAssets", StringComparison.OrdinalIgnoreCase));

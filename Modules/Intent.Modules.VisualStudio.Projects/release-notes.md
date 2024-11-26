@@ -1,6 +1,7 @@
 ### Version 3.8.5
 
 - Improvement: Under C# Project Options, Language Version now has an additional option `13.0`.
+- Fixed: A Software Factory exception would occur when a `Directory.Packages.props` wasn't in the same folder as the solution folder (e.g. it was in a parent folder).
 
 ### Version 3.8.4
 

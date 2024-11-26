@@ -144,5 +144,6 @@
     <application id="00727c17-aeb5-470b-991f-68c0b481117e" name="MudBlazor.ExampleApp" relativePath="MudBlazor.ExampleApp/MudBlazor.ExampleApp.application.config" />
     <application id="f2e84d04-0ca7-4e10-aec7-3a2e2d4950ee" name="AdvancedMappingCrud.DbContext.ProjectTo.Tests" relativePath="AdvancedMappingCrud.DbContext.ProjectTo.Tests/AdvancedMappingCrud.DbContext.ProjectTo.Tests.application.config" />
     <application id="55cacffd-66c7-463c-879d-bb3ce5c3fbd1" name="AspNetCoreMvc" relativePath="AspNetCoreMvc/AspNetCoreMvc.application.config" />
+    <application id="9534342e-b577-43f8-86d3-ad489ac18b60" name="CentralPackageManagement" relativePath="CentralPackageManagement/CentralPackageManagement.application.config" />
   </applications>
 </solution>

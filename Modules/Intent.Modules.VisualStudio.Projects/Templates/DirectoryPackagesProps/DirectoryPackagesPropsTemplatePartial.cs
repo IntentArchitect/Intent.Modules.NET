@@ -156,7 +156,25 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
 
             public FileConfig(string fullLocationPath, string modelId)
             {
-                _fullLocationPath = fullLocationPath;
+                var currentDir = fullLocationPath;
+
+                while (true)
+                {
+                    if (string.IsNullOrWhiteSpace(currentDir))
+                    {
+                        _fullLocationPath = fullLocationPath;
+                        break;
+                    }
+
+                    var pathToCheck = Path.Combine(currentDir, $"{FileName}.{FileExtension}");
+                    if (File.Exists(pathToCheck))
+                    {
+                        _fullLocationPath = currentDir;
+                        break;
+                    }
+
+                    currentDir = Directory.GetParent(currentDir)?.FullName;
+                }
 
                 CustomMetadata.Add("CorrelationId", $"{TemplateId}#{modelId}");
             }
