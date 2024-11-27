@@ -28,7 +28,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
         public ProgramTemplate(IOutputTarget outputTarget, object? model = null) : base(TemplateId, outputTarget, model)
         {
             FulfillsRole(TemplateRoles.Blazor.WebAssembly.Program);
-            AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreComponentsWebAssembly(outputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftAspNetCoreComponentsWebAssembly(outputTarget));
 
             var useTopLevelStatements = OutputTarget.GetProject().InternalElement.AsCSharpProjectNETModel()?.GetNETSettings()?.UseTopLevelStatements() == true;
 

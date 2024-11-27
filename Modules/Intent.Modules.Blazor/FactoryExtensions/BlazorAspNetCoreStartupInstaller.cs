@@ -31,7 +31,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
         private void RegisterStartup(IApplication application)
         {
             var startup = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-            startup?.AddNugetDependency(new NugetPackageInfo("Microsoft.AspNetCore.Components.WebAssembly.Server", "8.0.3"));
+            startup?.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreComponentsWebAssemblyServer(startup.OutputTarget));
 
             startup?.CSharpFile.AfterBuild(file =>
             {

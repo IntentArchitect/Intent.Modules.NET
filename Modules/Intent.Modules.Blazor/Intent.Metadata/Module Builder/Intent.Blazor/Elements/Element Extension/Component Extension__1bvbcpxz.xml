@@ -63,7 +63,7 @@
       <childElements>
         <childElement id="8229cbe9-83aa-44d5-a33c-a1f513118d4a" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <name>On Created</name>
-          <display>On Created: Script</display>
+          <display>On Created: Inline Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="863e744a-96b5-416c-a8e0-ed1803615841">
@@ -88,6 +88,7 @@
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
                 <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="createElement(&quot;Component Operation&quot;, &quot;OnInitializedAsync&quot;, element.id);" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -96,7 +97,7 @@
         </childElement>
         <childElement id="3da1cf9e-5884-42e2-9ee2-8405694073bb" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <name>On Name Changed</name>
-          <display>On Name Changed: Script</display>
+          <display>On Name Changed: Inline Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="271c2032-f4b7-44c5-a18e-850c3f9baa27">
@@ -121,6 +122,7 @@
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
                 <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const pageId = &quot;ea4adc09-8978-4ede-ba5f-265debb2b60c&quot;;&#xD;&#xA;const routeId = &quot;9dff9df1-a993-4bf6-9aa7-c16811142228&quot;;&#xD;&#xA;&#xD;&#xA;const folders = element.getParents(&quot;Folder&quot;);&#xD;&#xA;const stereotype = element.getStereotype(pageId)&#xD;&#xA;stereotype?.getProperty(routeId).setValue(&quot;/&quot; + folders.slice(1).map(x =&gt; toKebabCase(x.getName()) + &quot;/&quot;) + toKebabCase(element.getName()))" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

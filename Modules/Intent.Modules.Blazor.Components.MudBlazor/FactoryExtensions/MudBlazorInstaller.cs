@@ -51,7 +51,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
                 return;
             }
 
-            startup.AddNugetDependency(new NugetPackageInfo("MudBlazor", "6.19.1"));
+            startup.AddNugetDependency(NugetPackages.MudBlazor(startup.OutputTarget));
 
             startup.AddUsing("MudBlazor.Services");
 
@@ -75,7 +75,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
                 return;
             }
 
-            program.AddNugetDependency(new NugetPackageInfo("MudBlazor", "6.19.1"));
+            program.AddNugetDependency(NugetPackages.MudBlazor(program.OutputTarget));
 
             program.AddUsing("MudBlazor.Services");
 
