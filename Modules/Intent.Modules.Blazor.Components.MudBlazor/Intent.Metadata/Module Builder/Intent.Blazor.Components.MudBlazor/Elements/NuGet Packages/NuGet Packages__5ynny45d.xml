@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="09533156-cce8-431a-ba6b-8e2c7c0f4ed2" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</parentFolderId>
+  <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+  <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

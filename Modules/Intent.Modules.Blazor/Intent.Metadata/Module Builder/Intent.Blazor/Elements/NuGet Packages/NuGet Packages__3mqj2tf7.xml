@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="585b9d34-eb1c-481e-b86d-ef56114802dd" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</parentFolderId>
+  <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
+  <packageName>Intent.Blazor</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
