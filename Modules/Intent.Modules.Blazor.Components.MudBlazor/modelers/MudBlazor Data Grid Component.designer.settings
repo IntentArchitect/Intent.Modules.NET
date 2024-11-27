@@ -250,7 +250,7 @@ mapping.addMappedEnd(dataMappingTypeId, newProperty.getMappingPath(), element.ge
               </scriptOptions>
             </staticMappableSetting>
             <staticMappableSetting id="a5e50b44-c402-4006-bcea-a25ab7dc0c56" name="Total Items" type="Total Items" typeId="a5e50b44-c402-4006-bcea-a25ab7dc0c56" version="2.0.0">
-              <isRequiredFunction>return true;</isRequiredFunction>
+              <isRequiredFunction>return element.getParent().getChild(x =&gt; x.specializationId == "53a618ca-e5aa-49ca-a993-8cd935683748").getIsMapped();</isRequiredFunction>
               <allowMultipleMappings>true</allowMultipleMappings>
               <isMappableFunction>return true;</isMappableFunction>
               <isTraversable>false</isTraversable>

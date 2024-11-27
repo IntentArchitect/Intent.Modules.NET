@@ -57,8 +57,16 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
                 mudDataGrid.AddAttribute("@ref", refBinding.ToString());
             }
 
-            //mudDataGrid.AddAttribute("Items", $"@{_bindingManager.GetElementBinding(model)}");
-            mudDataGrid.AddAttribute("ServerData", $"Load{model.Name.ToCSharpIdentifier()}Data");
+            var pageRequestMapping = _bindingManager.GetMappedEndFor(model, "53a618ca-e5aa-49ca-a993-8cd935683748");
+            if (pageRequestMapping != null)
+            {
+                mudDataGrid.AddAttribute("ServerData", $"Load{model.Name.ToCSharpIdentifier()}Data");
+            }
+            else
+            {
+                mudDataGrid.AddAttribute("Items", $"@{_bindingManager.GetElementBinding(model)}");
+            }
+
             mudDataGrid.AddAttribute("Hover", "true");
 
             if (!string.IsNullOrWhiteSpace(model.GetInteraction()?.OnRowClick()))
@@ -135,7 +143,6 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
             });
             //}
 
-            var pageRequestMapping = _bindingManager.GetMappedEndFor(model, "53a618ca-e5aa-49ca-a993-8cd935683748");
 
             if (pageRequestMapping != null)
             {
