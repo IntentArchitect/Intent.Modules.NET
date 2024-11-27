@@ -30,7 +30,7 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Common.Mappings
                 var methodInfo = type.GetMethod("Mapping")
                     ?? type.GetInterface("IMapFrom`1")?.GetMethod("Mapping");
 
-                methodInfo?.Invoke(instance, new object[] { this });
+                methodInfo?.Invoke(instance, [this]);
             }
         }
     }

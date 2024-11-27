@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8b8ee47d-cbbc-4161-a697-3609bd4bec6f" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Entities</name>
+  <display>Entities</display>
+  <externalReference>7b3b020c-d9ff-4867-b51a-f5e099055d94</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9a8779f5-92cc-42ef-9987-450ba0dbf76d</parentFolderId>
+  <packageId>47b321f9-5e9d-413f-9115-a63dbdf2982f</packageId>
+  <packageName>Application.Identity.AccountController.UserIdentity</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="bf6795b8-242f-4289-ba8e-cc91ff29ecc4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Identity.AccountController.ApplicationIdentityUser</name>
+      <display>Intent.AspNetCore.Identity.AccountController.ApplicationIdentityUser</display>
+      <externalReference>Intent.AspNetCore.Identity.AccountController</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8b8ee47d-cbbc-4161-a697-3609bd4bec6f</parentFolderId>
+      <packageId>47b321f9-5e9d-413f-9115-a63dbdf2982f</packageId>
+      <packageName>Application.Identity.AccountController.UserIdentity</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="36731268-81f0-4ab1-bccb-e9c1f7e579b2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEntity</name>
+      <display>Intent.Entities.DomainEntity</display>
+      <externalReference>Intent.Entities</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8b8ee47d-cbbc-4161-a697-3609bd4bec6f</parentFolderId>
+      <packageId>47b321f9-5e9d-413f-9115-a63dbdf2982f</packageId>
+      <packageName>Application.Identity.AccountController.UserIdentity</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ab1c29a7-f548-4046-aae0-f0156a36c30a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEntityInterface</name>
+      <display>Intent.Entities.DomainEntityInterface</display>
+      <externalReference>Intent.Entities</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8b8ee47d-cbbc-4161-a697-3609bd4bec6f</parentFolderId>
+      <packageId>47b321f9-5e9d-413f-9115-a63dbdf2982f</packageId>
+      <packageName>Application.Identity.AccountController.UserIdentity</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="678843b5-f5b7-440d-afd2-6c14206c5196" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.DomainEntityState</name>
+      <display>Intent.Entities.DomainEntityState</display>
+      <externalReference>Intent.Entities</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8b8ee47d-cbbc-4161-a697-3609bd4bec6f</parentFolderId>
+      <packageId>47b321f9-5e9d-413f-9115-a63dbdf2982f</packageId>
+      <packageName>Application.Identity.AccountController.UserIdentity</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="b1985618-e140-42b3-9b2d-78c590e57a0d" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Domain.Entity</name>
+      <display>Domain.Entity</display>
+      <externalReference>5c21c2f8-943d-4674-9a82-24919c70a5e2</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8b8ee47d-cbbc-4161-a697-3609bd4bec6f</parentFolderId>
+      <packageId>47b321f9-5e9d-413f-9115-a63dbdf2982f</packageId>
+      <packageName>Application.Identity.AccountController.UserIdentity</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

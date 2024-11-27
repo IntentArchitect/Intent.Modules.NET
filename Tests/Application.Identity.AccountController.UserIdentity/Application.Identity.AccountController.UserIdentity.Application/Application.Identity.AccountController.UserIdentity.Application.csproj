@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
     <Nullable>enable</Nullable>
@@ -18,4 +18,5 @@
   <ItemGroup>
     <ProjectReference Include="..\Application.Identity.AccountController.UserIdentity.Domain\Application.Identity.AccountController.UserIdentity.Domain.csproj" />
   </ItemGroup>
-  </Project>
+
+</Project>

@@ -28,8 +28,8 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Entities
 
         public string Surname { get; set; }
 
-        public ICollection<SimpleChild> SimpleChildren { get; set; } = new List<SimpleChild>();
+        public ICollection<SimpleChild> SimpleChildren { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

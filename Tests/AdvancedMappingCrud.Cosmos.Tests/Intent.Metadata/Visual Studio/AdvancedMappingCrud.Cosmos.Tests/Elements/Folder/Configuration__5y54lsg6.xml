@@ -125,6 +125,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>257af555-85e6-42b4-ac92-bd84458b4e01</parentFolderId>
+      <packageId>941f8521-a7d4-4bbb-86d2-988a78ff25c1</packageId>
+      <packageName>AdvancedMappingCrud.Cosmos.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

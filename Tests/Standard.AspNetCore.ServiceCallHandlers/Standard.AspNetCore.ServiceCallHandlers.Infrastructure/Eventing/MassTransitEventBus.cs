@@ -14,8 +14,8 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Infrastructure.Eventing
 {
     public class MassTransitEventBus : IEventBus
     {
-        private readonly List<object> _messagesToPublish = new List<object>();
-        private readonly List<MessageToSend> _messagesToSend = new List<MessageToSend>();
+        private readonly List<object> _messagesToPublish = [];
+        private readonly List<MessageToSend> _messagesToSend = [];
         private readonly IServiceProvider _serviceProvider;
 
         public MassTransitEventBus(IServiceProvider serviceProvider)

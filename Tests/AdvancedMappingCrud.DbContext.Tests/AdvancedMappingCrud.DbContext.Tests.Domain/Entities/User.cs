@@ -23,8 +23,8 @@ namespace AdvancedMappingCrud.DbContext.Tests.Domain.Entities
 
         public string Email { get; set; }
 
-        public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
+        public virtual ICollection<Address> Addresses { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

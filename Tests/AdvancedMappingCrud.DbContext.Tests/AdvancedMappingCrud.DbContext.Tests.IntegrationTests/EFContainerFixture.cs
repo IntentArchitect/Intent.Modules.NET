@@ -38,11 +38,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.IntegrationTests
             {
                 options.UseSqlServer(
                     _dbContainer.GetConnectionString(),
-                    b =>
-                    {
-                        b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
-                        b.UseDateOnlyTimeOnly();
-                    });
+                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
                 options.UseLazyLoadingProxies();
             });
             //Schema Creation

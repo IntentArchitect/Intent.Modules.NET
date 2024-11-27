@@ -33,6 +33,6 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Entities
 
         public Address ShippingAddress { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

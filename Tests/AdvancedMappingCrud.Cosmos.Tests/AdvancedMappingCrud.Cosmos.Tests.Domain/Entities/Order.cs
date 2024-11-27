@@ -32,10 +32,10 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Entities
 
         public OrderStatus OrderStatus { get; set; }
 
-        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+        public ICollection<OrderItem> OrderItems { get; set; } = [];
 
-        public ICollection<OrderTags> OrderTags { get; set; } = new List<OrderTags>();
+        public ICollection<OrderTags> OrderTags { get; set; } = [];
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

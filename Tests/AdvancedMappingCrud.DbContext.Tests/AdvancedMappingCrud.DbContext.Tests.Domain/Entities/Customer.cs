@@ -22,6 +22,6 @@ namespace AdvancedMappingCrud.DbContext.Tests.Domain.Entities
 
         public bool IsActive { get; set; }
 
-        public List<DomainEvent> DomainEvents { get; set; } = new List<DomainEvent>();
+        public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

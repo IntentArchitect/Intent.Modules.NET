@@ -22,7 +22,7 @@ namespace Application.Identity.AccountController.UserIdentity.Application.Common
 
         public static Result Success()
         {
-            return new Result(true, Array.Empty<string>());
+            return new Result(true, []);
         }
 
         public static Result Failure(IEnumerable<string> errors)

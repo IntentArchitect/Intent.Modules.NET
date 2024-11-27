@@ -18,7 +18,7 @@ namespace Entities.Interfaces.EF.Domain.Entities
 
         public string RefNo { get; set; }
 
-        public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+        public virtual ICollection<OrderItem> OrderItems { get; set; } = [];
 
         ICollection<IOrderItem> IOrder.OrderItems
         {
