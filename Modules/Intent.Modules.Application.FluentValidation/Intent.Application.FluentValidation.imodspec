@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.FluentValidation</id>
-  <version>3.9.5-pre.1</version>
+  <version>3.10.0-alpha.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides support for specifying fluent validation on Services</summary>
   <description>Provides support for specifying fluent validation on Services</description>
@@ -69,10 +69,10 @@
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Modelers.Services" version="3.7.0" />
+    <dependency id="Intent.Modelers.Services" version="3.9.0-alpha.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.3.0" />
   </dependencies>
   <files>
@@ -84,4 +84,5 @@
     <install target="Services" src="Intent.Metadata/Module Builder/Intent.Application.FluentValidation/Intent.Application.FluentValidation.pkg.config" externalReference="55856e5d-8217-4c17-8fbb-082ac75baaf5" />
     <install target="Services" src="modelers/Service Designer Extensions.designer.settings" externalReference="74d0e632-c092-427b-bea3-c8e2cbef069e" />
   </metadata>
+  <migrations />
 </package>

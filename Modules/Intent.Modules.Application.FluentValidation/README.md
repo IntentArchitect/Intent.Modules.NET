@@ -8,17 +8,19 @@ This module does not itself contain templates, but has common logic used by othe
 
 When this module is installed a `Validations` stereotype is automatically applied to all `DTO-Field` in the services designer. Depending the current `Type` selected for the field, different options will show, for example, here are the options for a `guid`:
 
-![guid options](content/images/options-guid.png)
+![guid options](resources/images/options-guid.png)
 
 And here are the options for a `string`:
 
-![string options](content/images/options-string.png)
+![string options](resources/images/options-string.png)
 
 For details on the different rules and how they work, refer to the [FluentValidation Docs](https://docs.fluentvalidation.net/en/latest/built-in-validators.html).
 
 ## Implicit/inferred validation rules
 
 In some cases this module automatically generates particular validation rules to fields when not explicitly specified on the `Validation` stereotype.
+
+These cases include:
 
 ### Max Length
 
