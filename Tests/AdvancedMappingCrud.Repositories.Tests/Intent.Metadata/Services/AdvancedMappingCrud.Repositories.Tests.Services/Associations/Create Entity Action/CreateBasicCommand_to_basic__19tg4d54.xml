@@ -45,12 +45,12 @@
           <mappedEnd>
             <expression>{CreateBasicCommand}</expression>
             <path>
-              <target id="73ba71c6-41c6-41ef-ba80-0d589ea75417" name="Basic" type="element" specialization="Class" />
+              <target id="73ba71c6-41c6-41ef-ba80-0d589ea75417" name="Basic" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
             </path>
             <sources>
               <source identifier="CreateBasicCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
                 <path>
-                  <target id="c78d518f-e15b-4db3-9d90-0d526c4ecf1e" name="CreateBasicCommand" type="element" specialization="Command" />
+                  <target id="c78d518f-e15b-4db3-9d90-0d526c4ecf1e" name="CreateBasicCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                 </path>
               </source>
             </sources>
@@ -58,14 +58,14 @@
           <mappedEnd>
             <expression>{Name}</expression>
             <path>
-              <target id="73ba71c6-41c6-41ef-ba80-0d589ea75417" name="Basic" type="element" specialization="Class" />
-              <target id="6651cf58-58bd-4914-a15d-eb79f58c1f5a" name="Name" type="element" specialization="Attribute" />
+              <target id="73ba71c6-41c6-41ef-ba80-0d589ea75417" name="Basic" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="6651cf58-58bd-4914-a15d-eb79f58c1f5a" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="c78d518f-e15b-4db3-9d90-0d526c4ecf1e" name="CreateBasicCommand" type="element" specialization="Command" />
-                  <target id="23d22cfd-4ce1-4bd0-b143-2a638cdaa2f6" name="Name" type="element" specialization="DTO-Field" />
+                  <target id="c78d518f-e15b-4db3-9d90-0d526c4ecf1e" name="CreateBasicCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="23d22cfd-4ce1-4bd0-b143-2a638cdaa2f6" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -73,14 +73,14 @@
           <mappedEnd>
             <expression>{Surname}</expression>
             <path>
-              <target id="73ba71c6-41c6-41ef-ba80-0d589ea75417" name="Basic" type="element" specialization="Class" />
-              <target id="4cc0c652-f950-427d-90ba-d8d47d25f1c2" name="Surname" type="element" specialization="Attribute" />
+              <target id="73ba71c6-41c6-41ef-ba80-0d589ea75417" name="Basic" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="4cc0c652-f950-427d-90ba-d8d47d25f1c2" name="Surname" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="c78d518f-e15b-4db3-9d90-0d526c4ecf1e" name="CreateBasicCommand" type="element" specialization="Command" />
-                  <target id="8997cdc4-e173-452f-b21d-9514968b13e7" name="Surname" type="element" specialization="DTO-Field" />
+                  <target id="c78d518f-e15b-4db3-9d90-0d526c4ecf1e" name="CreateBasicCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="8997cdc4-e173-452f-b21d-9514968b13e7" name="Surname" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

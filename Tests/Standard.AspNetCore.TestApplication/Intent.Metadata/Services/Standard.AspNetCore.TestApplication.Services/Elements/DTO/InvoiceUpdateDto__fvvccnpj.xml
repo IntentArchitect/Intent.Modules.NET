@@ -12,7 +12,7 @@
     <mappingSettingsId>942eae46-49f1-450e-9274-a92d40ac35fa</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="1f52458c-22a5-4dea-ab63-0776e26fa7b2" name="Invoice" type="element" specialization="Class" />
+      <target id="1f52458c-22a5-4dea-ab63-0776e26fa7b2" name="Invoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>a01b6867-d2c8-4488-ba0d-42b2e19c6c03</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>01d74d4f-e478-4fde-a2f0-9ea92255f3c5</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="194da302-7332-4611-a30b-3049d5479d06" name="Id" type="element" specialization="Attribute" />
+          <target id="194da302-7332-4611-a30b-3049d5479d06" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>f59ba1c8-1706-4569-8f1f-7a2b4cf5bbbd</parentFolderId>
@@ -96,7 +96,7 @@
         <mappingSettingsId>01d74d4f-e478-4fde-a2f0-9ea92255f3c5</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c390c6a4-bf08-42a4-8928-5ef75017be58" name="Number" type="element" specialization="Attribute" />
+          <target id="c390c6a4-bf08-42a4-8928-5ef75017be58" name="Number" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>f59ba1c8-1706-4569-8f1f-7a2b4cf5bbbd</parentFolderId>

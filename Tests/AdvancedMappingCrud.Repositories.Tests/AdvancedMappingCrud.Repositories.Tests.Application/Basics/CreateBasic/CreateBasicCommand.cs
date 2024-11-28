@@ -16,6 +16,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Basics.CreateBasic
             Surname = surname;
         }
 
+        /// <example>John Doe</example>
         public string Name { get; set; }
         public string Surname { get; set; }
     }

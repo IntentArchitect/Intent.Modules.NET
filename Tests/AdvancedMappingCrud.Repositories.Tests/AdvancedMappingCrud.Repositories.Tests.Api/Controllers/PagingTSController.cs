@@ -87,6 +87,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
 
         /// <summary>
         /// </summary>
+        /// <param name="pageNo" example="5"></param>
+        /// <param name="pageSize" example="25"></param>
+        /// <param name="orderBy" example="name"></param>
         /// <response code="200">Returns the specified PagedResult&lt;PagingTSDto&gt;.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpGet]

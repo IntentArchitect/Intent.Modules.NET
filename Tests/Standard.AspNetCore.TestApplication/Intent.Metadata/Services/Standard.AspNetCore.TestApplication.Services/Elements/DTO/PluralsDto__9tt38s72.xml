@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="a6fac94f-2c7f-4638-9ae2-cb0400006809" name="Plurals" type="element" specialization="Class" />
+      <target id="a6fac94f-2c7f-4638-9ae2-cb0400006809" name="Plurals" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>97b5330c-2cc7-4ad1-accb-a8d7834fe1cd</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="7a6217e7-2924-49fb-9bc0-d0554d9a26c9" name="Id" type="element" specialization="Attribute" />
+          <target id="7a6217e7-2924-49fb-9bc0-d0554d9a26c9" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>64db448e-2f3d-44ec-b0af-86b6684c491a</parentFolderId>
