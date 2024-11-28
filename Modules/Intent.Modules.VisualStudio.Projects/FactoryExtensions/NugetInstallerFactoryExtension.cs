@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.ConstrainedExecution;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.VisualStudio;
@@ -20,9 +18,7 @@ using Intent.Modules.VisualStudio.Projects.NuGet;
 using Intent.Modules.VisualStudio.Projects.Settings;
 using Intent.Modules.VisualStudio.Projects.Templates;
 using Intent.Plugins.FactoryExtensions;
-using Intent.Templates;
 using Intent.Utils;
-using Microsoft.Build.Evaluation;
 using NuGet.Versioning;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
@@ -145,7 +141,9 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
             if (change != null)
             {
-                change.ChangeContent(content);
+                change.ChangeContent(
+                    content: content, 
+                    templateOutput: content);
                 return;
             }
 
@@ -156,6 +154,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             }));
         }
 
+        /// <param name="nuGetProjectSchemeProcessors"></param>
         /// <param name="applicationProjects"></param>
         /// <param name="tracing"></param>
         /// <param name="saveProjectDelegate">T1 = path, T2 = content</param>
@@ -230,16 +229,16 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
         /// <summary>
         /// This method does the  following
         /// 1.) Consolidates version numbers across requested packages if required (including Implicit dependencies)
-        /// 2.) Removes Requested Nuget packages if they already present from transative dependencies (including Implicit dependencies)
+        /// 2.) Removes Requested Nuget packages if they already present from transitive dependencies (including Implicit dependencies)
         /// </summary>
         /// <param name="projectPackages"></param>
-        internal void ConsolidateRequestedPackages(IEnumerable<NuGetProject> projectPackages)
+        internal void ConsolidateRequestedPackages(IReadOnlyCollection<NuGetProject> projectPackages)
         {
             ConsolidateVersionsUpfront(projectPackages);
-            RemoveTransativeDependencies(projectPackages);
+            RemoveTransitiveDependencies(projectPackages);
         }
 
-        private void ConsolidateVersionsUpfront(IEnumerable<NuGetProject> projectPackages)
+        private static void ConsolidateVersionsUpfront(IReadOnlyCollection<NuGetProject> projectPackages)
         {
             var highestRequestedVersions = new Dictionary<string, VersionRange>();
             foreach (var projectPackage in projectPackages)
@@ -249,7 +248,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     DetermineHighest(highestRequestedVersions, kvp.Key, kvp.Value.Version);
                     if (kvp.Value.RequestedPackage?.Dependencies?.Any() == true)
                     {
-                        foreach (var dependant in kvp.Value.RequestedPackage?.Dependencies)
+                        foreach (var dependant in kvp.Value.RequestedPackage.Dependencies)
                         {
                             var dependantVersion = VersionRange.Parse(dependant.Version);
                             DetermineHighest(highestRequestedVersions, dependant.Name, dependantVersion);
@@ -287,7 +286,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             }
         }
 
-        private void RemoveTransativeDependencies(IEnumerable<NuGetProject> projectPackages)
+        private void RemoveTransitiveDependencies(IReadOnlyCollection<NuGetProject> projectPackages)
         {
             var projectToNugetPackageMap = new Dictionary<string, Dictionary<string, VersionRange>>();
             foreach (var projectPackage in projectPackages)
@@ -296,15 +295,18 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 foreach (var kvp in projectPackage.RequestedPackages)
                 {
                     AddUpdatePackageVersion(requestedPackages, kvp.Key, kvp.Value.Version);
-                    if (kvp.Value.RequestedPackage?.Dependencies?.Any() == true)
+                    if (kvp.Value.RequestedPackage?.Dependencies?.Any() != true)
                     {
-                        foreach (var dependant in kvp.Value.RequestedPackage?.Dependencies)
-                        {
-                            var dependentVersion = VersionRange.Parse(dependant.Version);
-                            AddUpdatePackageVersion(requestedPackages, dependant.Name, dependentVersion);
-                        }
+                        continue;
+                    }
+
+                    foreach (var dependant in kvp.Value.RequestedPackage.Dependencies)
+                    {
+                        var dependentVersion = VersionRange.Parse(dependant.Version);
+                        AddUpdatePackageVersion(requestedPackages, dependant.Name, dependentVersion);
                     }
                 }
+
                 projectToNugetPackageMap[projectPackage.OutputTarget.Id] = requestedPackages;
             }
 
@@ -321,7 +323,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                             continue;
                         }
                         //The requested package is higher than the dependent so install the higher version, 
-                        //This scenario happens if an implicit version is lower than requested as the explicits are consolodated.
+                        //This scenario happens if an implicit version is lower than requested as the explicits are consolidated.
                         if (projectPackage.RequestedPackages[dependantPackage.Key].Version.MinVersion > dependantPackage.Value.MinVersion)
                         {
                             continue;
@@ -339,28 +341,33 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 List<string> toRemove = [];
                 foreach (var requestedPackage in projectPackage.RequestedPackages)
                 {
-                    if (requestedPackage.Value.RequestedPackage?.Dependencies?.Any() == true)
+                    if (requestedPackage.Value.RequestedPackage?.Dependencies?.Any() != true)
                     {
-                        foreach (var dependant in requestedPackage.Value.RequestedPackage?.Dependencies)
-                        {
-                            if (projectPackage.RequestedPackages.ContainsKey(dependant.Name))
-                            {
-                                //If the package is already installed, don't remove it, so that the request can still update the installed package if required
-                                if (projectPackage.InstalledPackages.ContainsKey(dependant.Name))
-                                {
-                                    continue;
-                                }
-                                if (projectPackage.RequestedPackages[dependant.Name].Options.ForceInstall)
-                                {
-                                    continue;
-                                }
+                        continue;
+                    }
 
-                                var dependentVersion = VersionRange.Parse(dependant.Version);
-                                if (projectPackage.RequestedPackages[dependant.Name].Version.MinVersion <= dependentVersion.MinVersion)
-                                {
-                                    toRemove.Add(dependant.Name);
-                                }
-                            }
+                    foreach (var dependant in requestedPackage.Value.RequestedPackage.Dependencies)
+                    {
+                        if (!projectPackage.RequestedPackages.ContainsKey(dependant.Name))
+                        {
+                            continue;
+                        }
+
+                        //If the package is already installed, don't remove it, so that the request can still update the installed package if required
+                        if (projectPackage.InstalledPackages.ContainsKey(dependant.Name))
+                        {
+                            continue;
+                        }
+
+                        if (projectPackage.RequestedPackages[dependant.Name].Options.ForceInstall)
+                        {
+                            continue;
+                        }
+
+                        var dependentVersion = VersionRange.Parse(dependant.Version);
+                        if (projectPackage.RequestedPackages[dependant.Name].Version.MinVersion <= dependentVersion.MinVersion)
+                        {
+                            toRemove.Add(dependant.Name);
                         }
                     }
                 }
@@ -486,19 +493,19 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
             var projectType = document.ResolveProjectScheme();
             if (!nuGetProjectSchemeProcessors.TryGetValue(projectType, out var processor))
-                throw new ArgumentOutOfRangeException(nameof(projectType), $"No scheme registered for type {projectType}.");
+            {
+                throw new InvalidOperationException($"No scheme registered for type {projectType}.");
+            }
 
             var installedPackages = processor.GetInstalledPackages(template.Project.Solution.Id, template.FilePath, document);
 
             var highestVersionsInProject = new Dictionary<string, VersionRange>();
-            foreach (var installedPackage in installedPackages)
+            foreach (var (packageId, value) in installedPackages)
             {
-                var packageId = installedPackage.Key;
-
                 if (!highestVersionsInProject.TryGetValue(packageId, out var highestVersion) ||
-                    highestVersion.MinVersion < installedPackage.Value.Version.MinVersion)
+                    highestVersion.MinVersion < value.Version.MinVersion)
                 {
-                    highestVersionsInProject[packageId] = installedPackage.Value.Version;
+                    highestVersionsInProject[packageId] = value.Version;
                 }
             }
 
@@ -517,7 +524,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                     (highestVersion != null &&
                      highestVersion.MinVersion < semanticVersion.MinVersion))
                 {
-                    highestVersionsInProject[install.Package.Name] = highestVersion = semanticVersion;
+                    highestVersionsInProject[install.Package.Name] = semanticVersion;
                 }
 
                 if (requestedPackages.TryGetValue(install.Package.Name, out var requestedPackage))
@@ -561,10 +568,10 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                         {
                             requestedPackage.Version = highestVersion.Value;
                         }
-                        
+
                         continue;
                     }
-                    
+
                     if (projectPackage.InstalledPackages.TryGetValue(highestVersion.Key, out var installedPackage) &&
                         installedPackage.Version.MinVersion < highestVersion.Value.MinVersion)
                     {
@@ -640,7 +647,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
             if (xNode.XPathSelectElement($"/{prefix}:Project", namespaceManager) != null)
             {
-                // Even if there is no PackageReference element, so long as there is no packages.config, then we are free to to use
+                // Even if there is no PackageReference element, so long as there is no packages.config, then we are free to use
                 // PackageReferences going forward. In the event there is PackageReference element, then we are of course already
                 // using the PackageReference scheme.
                 return VisualStudioProjectScheme.FrameworkWithPackageReference;
