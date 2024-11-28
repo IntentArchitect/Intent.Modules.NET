@@ -259,7 +259,7 @@ internal static class TestFixtureHelper
         internal NuGetProject Infrastructure { get; set; }
         internal NuGetProject Test { get; set; }
 
-        public IEnumerable<NuGetProject> Projects() => new List<NuGetProject> { Api, Application, Domain, Infrastructure, Test};
+        public IReadOnlyCollection<NuGetProject> Projects() => new List<NuGetProject> { Api, Application, Domain, Infrastructure, Test};
     }
 
     public static string GetPath(VisualStudioProjectScheme? scheme, TestVersion testVersion, int number)
