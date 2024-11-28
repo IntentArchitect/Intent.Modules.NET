@@ -6,6 +6,7 @@
 
 - Improvement: Support addeded for applying multiple authorization attributes as well as applying authorization attributes from `Secured` stereotypes which are applied to packages. 
 - Improvement: Updated module icon
+- Improvement: Updated package references
 
 ### Version 5.5.4
 

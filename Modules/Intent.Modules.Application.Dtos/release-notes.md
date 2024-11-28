@@ -1,5 +1,6 @@
 ### Version 4.4.3
 
+- Improvement: An `OpenAPI Settings` Stereotype can now be applied to the types `DTO Field` and `Parameter`, allowing for example values to be set to reflect in the OpenApi spec.
 - Improvement: Updated module icon
 
 ### Version 4.4.2

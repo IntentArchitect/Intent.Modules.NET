@@ -212,6 +212,17 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
             var returnType = FileTransferHelper.IsFileDownloadOperation(operation) ? "byte[]" : operation.ReturnType != null ? GetTypeName(operation.ReturnType) : "";
             lines.Add("/// </summary>");
+
+            foreach(var param in operation.Parameters)
+            {
+                if(param.MappedPayloadProperty != null && 
+                    param.MappedPayloadProperty.HasStereotype("OpenAPI Settings") && 
+                    !string.IsNullOrWhiteSpace(param.MappedPayloadProperty.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value))
+                {
+                    lines.Add($"/// <param name=\"{param.Name.ToParameterName()}\" example=\"{param.MappedPayloadProperty.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value}\"></param>");
+                }
+            }
+
             switch (operation.Verb)
             {
                 case HttpVerb.Get:
