@@ -21,7 +21,7 @@
   <targetEnd id="e45d4962-9cef-4a34-9b77-c2d71e90578f" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
     <name>client</name>
     <display>[delete] client: Client</display>
-    <order>1</order>
+    <order>2</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>

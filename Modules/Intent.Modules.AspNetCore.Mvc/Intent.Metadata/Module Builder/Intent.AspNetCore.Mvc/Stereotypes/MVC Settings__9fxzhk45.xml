@@ -11,8 +11,8 @@
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>
   <displayFunction>return properties["Route"].value ? `Route("${properties["Route"].value}")` : "";</displayFunction>
-  <displayAsAnnotation>false</displayAsAnnotation>
-  <displayAsText>true</displayAsText>
+  <displayAsAnnotation>true</displayAsAnnotation>
+  <displayAsText>false</displayAsText>
   <autoAdd>false</autoAdd>
   <allowMultipleApplies>false</allowMultipleApplies>
   <parentFolderId>216bb401-5771-4803-a985-06f7c57a5e3d</parentFolderId>

@@ -1,22 +1,25 @@
+using System;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.DtoModel", Version = "1.0")]
 
-namespace AspNetCoreMvc.Application.Clients
+namespace AspNetCoreMvc.Application.ClientsService
 {
-    public class ClientCreateDto
+    public class ClientUpdateDto
     {
-        public ClientCreateDto()
+        public ClientUpdateDto()
         {
         }
 
+        public Guid Id { get; set; }
         public string? Name { get; set; }
 
-        public static ClientCreateDto Create(string? name)
+        public static ClientUpdateDto Create(Guid id, string? name)
         {
-            return new ClientCreateDto
+            return new ClientUpdateDto
             {
+                Id = id,
                 Name = name
             };
         }

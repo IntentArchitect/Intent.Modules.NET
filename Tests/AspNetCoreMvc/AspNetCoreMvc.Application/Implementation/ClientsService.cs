@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AspNetCoreMvc.Application.Clients;
+using AspNetCoreMvc.Application.ClientsService;
 using AspNetCoreMvc.Application.Interfaces;
 using AspNetCoreMvc.Domain.Common.Exceptions;
 using AspNetCoreMvc.Domain.Entities;
@@ -30,7 +30,10 @@ namespace AspNetCoreMvc.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Guid> CreateClient(ClientCreateDto dto, CancellationToken cancellationToken = default)
+        public async Task<Guid> CreateClient(
+            string groupId,
+            ClientCreateDto dto,
+            CancellationToken cancellationToken = default)
         {
             var client = new Client
             {
@@ -43,7 +46,7 @@ namespace AspNetCoreMvc.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<ClientDto> FindClientById(Guid id, CancellationToken cancellationToken = default)
+        public async Task<ClientDto> FindClientById(string groupId, Guid id, CancellationToken cancellationToken = default)
         {
             var client = await _clientRepository.FindByIdAsync(id, cancellationToken);
             if (client is null)
@@ -54,14 +57,18 @@ namespace AspNetCoreMvc.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<ClientDto>> FindClients(CancellationToken cancellationToken = default)
+        public async Task<List<ClientDto>> FindClients(string groupId, CancellationToken cancellationToken = default)
         {
             var clients = await _clientRepository.FindAllAsync(cancellationToken);
             return clients.MapToClientDtoList(_mapper);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task UpdateClient(Guid id, ClientUpdateDto dto, CancellationToken cancellationToken = default)
+        public async Task UpdateClient(
+            string groupId,
+            Guid id,
+            ClientUpdateDto dto,
+            CancellationToken cancellationToken = default)
         {
             var client = await _clientRepository.FindByIdAsync(id, cancellationToken);
             if (client is null)
@@ -73,7 +80,7 @@ namespace AspNetCoreMvc.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task DeleteClient(Guid id, CancellationToken cancellationToken = default)
+        public async Task DeleteClient(string groupId, Guid id, CancellationToken cancellationToken = default)
         {
             var client = await _clientRepository.FindByIdAsync(id, cancellationToken);
             if (client is null)
@@ -85,7 +92,9 @@ namespace AspNetCoreMvc.Application.Implementation
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<List<ClientDto>> FindClientsWithoutView(CancellationToken cancellationToken = default)
+        public async Task<List<ClientDto>> FindClientsWithoutView(
+            string groupId,
+            CancellationToken cancellationToken = default)
         {
             var clients = await _clientRepository.FindAllAsync(cancellationToken);
             return clients.MapToClientDtoList(_mapper);

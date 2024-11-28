@@ -21,7 +21,7 @@
   <targetEnd id="31a69b29-4360-4fc3-942e-89d895811ecb" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
     <name>client</name>
     <display>[create] client: Client</display>
-    <order>1</order>
+    <order>2</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>

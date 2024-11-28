@@ -42,6 +42,7 @@ namespace AspNetCoreMvc.Api
             services.ConfigureApplicationSecurity(Configuration);
             services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
+            services.ConfigureSwagger(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +58,7 @@ namespace AspNetCoreMvc.Api
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSwashbuckle(Configuration);
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

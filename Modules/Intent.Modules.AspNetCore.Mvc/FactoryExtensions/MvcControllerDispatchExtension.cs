@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using Intent.AspNetCore.Mvc.Api;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts.Templates.ServiceContract;
 using Intent.Modules.AspNetCore.Mvc.Templates;
@@ -179,9 +182,9 @@ namespace Intent.Modules.AspNetCore.Mvc.FactoryExtensions
                             {
                                 redirectToArguments.Add(mvcSettings.RedirectToRouteValues());
                             }
-                            else if (operationModel.ReturnType != null)
+                            else if (TryGetRedirectToParameterObject(operationModel, mvcSettings, out var item))
                             {
-                                redirectToArguments.Add("result");
+                                redirectToArguments.Add(item);
                             }
 
                             if (!string.IsNullOrWhiteSpace(mvcSettings.RedirectToFragment()))
@@ -212,6 +215,90 @@ namespace Intent.Modules.AspNetCore.Mvc.FactoryExtensions
                     }
                 }
             });
+        }
+
+        private bool TryGetRedirectToParameterObject(
+            OperationModel sourceOperation,
+            OperationModelStereotypeExtensions.MVCSettings settings,
+            out string result)
+        {
+            var targetOperation = settings.RedirectToAction().AsOperationModel();
+
+            var methodRouteParameters = Regex.Matches(targetOperation.GetMVCSettings()?.Route() ?? string.Empty, "{({*[^{}]*}*)}")
+                .Select(x =>
+                {
+                    var value = x.Groups[1].Value;
+                    var targetParameter = targetOperation.Parameters.SingleOrDefault(y => string.Equals(y.Name, value, StringComparison.OrdinalIgnoreCase));
+                    var sourceParameter = sourceOperation.Parameters.SingleOrDefault(y => string.Equals(y.Name, value, StringComparison.OrdinalIgnoreCase));
+
+                    return new
+                    {
+                        IsControllerRoute = false,
+                        Name = value,
+                        TargetParameter = targetParameter,
+                        SourceParameter = sourceParameter,
+                    };
+                })
+                .ToArray();
+            var controllerRouteParameters = Regex.Matches(targetOperation.ParentService.GetMVCSettings()?.Route() ?? string.Empty, "{({*[^{}]*}*)}")
+                .Select(x =>
+                {
+                    var value = x.Groups[1].Value;
+                    var targetParameter = targetOperation.Parameters.SingleOrDefault(y => string.Equals(y.Name, value, StringComparison.OrdinalIgnoreCase));
+                    var sourceParameter = sourceOperation.Parameters.SingleOrDefault(y => string.Equals(y.Name, value, StringComparison.OrdinalIgnoreCase));
+
+                    return new
+                    {
+                        IsControllerRoute = true,
+                        Name = value,
+                        TargetParameter = targetParameter,
+                        SourceParameter = sourceParameter,
+                    };
+                })
+                .ToArray();
+
+            if (methodRouteParameters.Length == 0 &&
+                controllerRouteParameters.Length == 0)
+            {
+                result = default;
+                return false;
+            }
+
+            var sb = new StringBuilder();
+            sb.Append("new {");
+
+            foreach (var item in methodRouteParameters.Concat(controllerRouteParameters))
+            {
+                if (item.SourceParameter != null &&
+                    item.TargetParameter != null)
+                {
+                    var propertyName = item.Name == item.SourceParameter.Name.ToCamelCase()
+                        ? string.Empty
+                        : $"{item.Name.ToCamelCase()} = ";
+
+                    sb.Append($" {propertyName}{item.Name},");
+                    continue;
+                }
+
+                if (targetOperation.ReturnType != null &&
+                    item.SourceParameter == null)
+                {
+                    sb.Append($" {item.Name} = result,");
+                    continue;
+                }
+
+                throw new ElementException(
+                    sourceOperation.InternalElement,
+                    $"Could not match source parameter \"{{{item.Name}}}\" with route parameter on RedirectToAction destination");
+            }
+
+            // Remove trailing comma
+            sb.Length -= 1;
+
+            sb.Append(" }");
+
+            result = sb.ToString();
+            return true;
         }
 
         private static string GetDefaultValue(string type) => type switch

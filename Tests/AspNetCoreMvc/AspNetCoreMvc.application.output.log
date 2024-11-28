@@ -41,11 +41,35 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>eabf173b-fb94-4838-833f-264cd2573bed</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Api/Configuration/SwashbuckleConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SwashbuckleConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3b317760-8dbe-4f3c-bf25-6527dab78929</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#7c11d087-2588-4639-9b9a-c867119cc5df</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Api/Controllers/ClientsApiController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApiController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>3b317760-8dbe-4f3c-bf25-6527dab78929</ProjectId>
       <CorrelationId>Intent.AspNetCore.Mvc.MvcController#1ecbd030-9e2c-4232-bc27-0e29f6be2cdc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCoreMvc.Api/Controllers/ClientsController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2cc4b658-1778-420b-9ebd-780e6772adc6</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Api/Controllers/ResponseTypes/JsonResponse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -58,10 +82,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>3a7078c2-8421-4df9-96e1-2af6f7f002e2</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Api/Filters/AuthorizeCheckOperationFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AuthorizeCheckOperationFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3a7078c2-8421-4df9-96e1-2af6f7f002e2</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCoreMvc.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ExceptionFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3a7078c2-8421-4df9-96e1-2af6f7f002e2</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -122,34 +162,170 @@
     </FileLog>
     <FileLog>
       <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e5ace2b6-c12e-4d5e-bcbc-3fc699d4e50b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/ClientDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/ClientDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#e5ace2b6-c12e-4d5e-bcbc-3fc699d4e50b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/ClientDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/ClientDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#603e0d63-f213-4ecb-9047-02baded7703f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/CreateClient/CreateClientCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/CreateClient/CreateClientCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#603e0d63-f213-4ecb-9047-02baded7703f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/CreateClient/CreateClientCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/CreateClient/CreateClientCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#603e0d63-f213-4ecb-9047-02baded7703f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/CreateClient/CreateClientCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/CreateClient/CreateClientCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#c6ae4c98-b6aa-422e-b801-7dd765e26773</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/DeleteClient/DeleteClientCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/DeleteClient/DeleteClientCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#c6ae4c98-b6aa-422e-b801-7dd765e26773</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/DeleteClient/DeleteClientCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/DeleteClient/DeleteClientCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#c6ae4c98-b6aa-422e-b801-7dd765e26773</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/DeleteClient/DeleteClientCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/DeleteClient/DeleteClientCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#5ffdbe31-7962-4336-89d7-91ebe4df520f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/GetClientById/GetClientByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/GetClientById/GetClientByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#5ffdbe31-7962-4336-89d7-91ebe4df520f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/GetClientById/GetClientByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/GetClientById/GetClientByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#5ffdbe31-7962-4336-89d7-91ebe4df520f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/GetClientById/GetClientByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/GetClientById/GetClientByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#f36d60d8-7fef-4137-bddf-8bc88c660636</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/GetClients/GetClientsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/GetClients/GetClientsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#f36d60d8-7fef-4137-bddf-8bc88c660636</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/GetClients/GetClientsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/GetClients/GetClientsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#f36d60d8-7fef-4137-bddf-8bc88c660636</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/GetClients/GetClientsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/GetClients/GetClientsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#83036f02-e6e5-49d3-9f2d-cb0bcf94cee8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/UpdateClient/UpdateClientCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/UpdateClient/UpdateClientCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#83036f02-e6e5-49d3-9f2d-cb0bcf94cee8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/UpdateClient/UpdateClientCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/UpdateClient/UpdateClientCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#83036f02-e6e5-49d3-9f2d-cb0bcf94cee8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsApi/UpdateClient/UpdateClientCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsApi/UpdateClient/UpdateClientCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#4dcbbf94-eb31-4104-987e-fb734818045f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/Clients/ClientCreateDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Clients/ClientCreateDto.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsService/ClientCreateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsService/ClientCreateDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#bcf5228c-3395-4b15-8214-86ffaf2c7224</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/Clients/ClientDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Clients/ClientDto.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsService/ClientDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsService/ClientDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
       <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#bcf5228c-3395-4b15-8214-86ffaf2c7224</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/Clients/ClientDtoMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Clients/ClientDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsService/ClientDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsService/ClientDtoMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>0a7a6b05-4fe2-4186-bf89-e683f81e900a</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#c8c35da6-5915-4c1e-a810-dbc90306feac</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/Clients/ClientUpdateDto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Clients/ClientUpdateDto.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AspNetCoreMvc.Application/ClientsService/ClientUpdateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsService/ClientUpdateDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

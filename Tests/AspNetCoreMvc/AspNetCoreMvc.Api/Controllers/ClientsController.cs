@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
-using AspNetCoreMvc.Application.Clients;
+using AspNetCoreMvc.Application.ClientsService;
 using AspNetCoreMvc.Application.Common.Eventing;
 using AspNetCoreMvc.Application.Interfaces;
 using AspNetCoreMvc.Domain.Common.Interfaces;
@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCoreMvc.Api.Controllers
 {
+    [Route("clients/{groupId}")]
     public class ClientsController : Controller
     {
         private readonly IClientsService _appService;
@@ -29,42 +30,56 @@ namespace AspNetCoreMvc.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateClient(ClientCreateDto dto, CancellationToken cancellationToken = default)
+        public async Task<ActionResult> CreateClient(
+            string groupId,
+            ClientCreateDto dto,
+            CancellationToken cancellationToken = default)
         {
             var result = Guid.Empty;
 
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                result = await _appService.CreateClient(dto, cancellationToken);
+                result = await _appService.CreateClient(groupId, dto, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
 
-            return RedirectToAction("FindClients", result);
+            return RedirectToAction("FindClientById", new { id = result, groupId });
+        }
+
+        [IntentIgnore]
+        [HttpGet("create")]
+        public ActionResult CreateNew(string groupId)
+        {
+            return View();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> FindClientById(Guid id, CancellationToken cancellationToken = default)
+        public async Task<ActionResult> FindClientById(
+            string groupId,
+            Guid id,
+            CancellationToken cancellationToken = default)
         {
             var result = default(ClientDto);
-            result = await _appService.FindClientById(id, cancellationToken);
+            result = await _appService.FindClientById(groupId, id, cancellationToken);
 
             return View(result);
         }
 
         [HttpGet]
-        public async Task<ActionResult> FindClients(CancellationToken cancellationToken = default)
+        public async Task<ActionResult> FindClients(string groupId, CancellationToken cancellationToken = default)
         {
             var result = default(List<ClientDto>);
-            result = await _appService.FindClients(cancellationToken);
+            result = await _appService.FindClients(groupId, cancellationToken);
 
             return View(result);
         }
 
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateClient(
+            string groupId,
             Guid id,
             ClientUpdateDto dto,
             CancellationToken cancellationToken = default)
@@ -72,35 +87,37 @@ namespace AspNetCoreMvc.Api.Controllers
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.UpdateClient(id, dto, cancellationToken);
+                await _appService.UpdateClient(groupId, id, dto, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
 
-            return RedirectToAction("FindClients");
+            return RedirectToAction("FindClients", new { groupId });
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteClient(Guid id, CancellationToken cancellationToken = default)
+        public async Task<ActionResult> DeleteClient(string groupId, Guid id, CancellationToken cancellationToken = default)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.DeleteClient(id, cancellationToken);
+                await _appService.DeleteClient(groupId, id, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
             await _eventBus.FlushAllAsync(cancellationToken);
 
-            return RedirectToAction("FindClients");
+            return RedirectToAction("FindClients", new { groupId });
         }
 
         [HttpGet("without-view")]
-        public async Task<ActionResult<List<ClientDto>>> FindClientsWithoutView(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<List<ClientDto>>> FindClientsWithoutView(
+            string groupId,
+            CancellationToken cancellationToken = default)
         {
             var result = default(List<ClientDto>);
-            result = await _appService.FindClientsWithoutView(cancellationToken);
+            result = await _appService.FindClientsWithoutView(groupId, cancellationToken);
 
             return result;
         }

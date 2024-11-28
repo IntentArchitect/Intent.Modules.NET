@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="70a7e673-b940-4bc9-98eb-501b10d5ecd9" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Clients</name>
+  <display>Clients</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7c11d087-2588-4639-9b9a-c867119cc5df</parentFolderId>
+  <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+  <packageName>AspNetCoreMvc.Services</packageName>
+  <diagram>
+    <targetPackageId>70a7e673-b940-4bc9-98eb-501b10d5ecd9</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

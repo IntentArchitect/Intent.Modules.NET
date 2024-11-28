@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.AutoMapper.MappingExtensions", Version = "1.0")]
 
-namespace AspNetCoreMvc.Application.Clients
+namespace AspNetCoreMvc.Application.ClientsService
 {
     public static class ClientDtoMappingExtensions
     {
