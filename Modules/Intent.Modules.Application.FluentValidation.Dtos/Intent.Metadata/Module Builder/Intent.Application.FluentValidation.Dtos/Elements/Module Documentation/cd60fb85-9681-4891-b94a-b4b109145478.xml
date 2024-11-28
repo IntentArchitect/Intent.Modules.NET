@@ -13,8 +13,8 @@
   <metadata />
   <childElements>
     <childElement id="65885a88-61b9-4d66-b8a9-d7a544dd5621" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
-      <name>DTO validation creation</name>
-      <display>DTO validation creation</display>
+      <name>Creating DTO Validators</name>
+      <display>Creating DTO Validators</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -29,10 +29,91 @@
           <properties>
             <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Details the scenarios under which a DTO validator will be generated." isActive="true" />
             <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudGYwYTQ1ZGNiLWRjNzAtNDRjNS1hZWQ2LTk3NDE3ZWI1NzVhYSIgeDE9IjI0LjkiIHkxPSI0OC4yIiB4Mj0iMjQuOSIgeTI9IjEuNyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNjNTFlMTYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjMzZDM2Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMmYwYTQ1ZGNiLWRjNzAtNDRjNS1hZWQ2LTk3NDE3ZWI1NzVhYSIgeDE9IjQ2LjYiIHkxPSIxNi42IiB4Mj0iNDYuNiIgeTI9IjE2IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2YzM2QzNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNjNTFlMTYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNTQpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJMYXllcl8xIj4KICAgICAgPHBhdGggZD0iTTQyLjgsMzEuN2MxLjkuOSwzLjIsMS4zLDQsMS41LTEsMi42LTIuNCw1LTQuMyw3LjEtLjUtLjYtMS4yLTEuMi0yLjctMi4yLTMuOS0yLjktOC01LjYtMTIuMS04LjEsMCw0LjYuMyw5LjMuOCwxMy45LjIsMi4xLjQsMy4yLjYsNC0xLjMuMi0yLjcuNC00LjEuNHMtMi45LS4xLTQuMi0uNGMuMi0uNy4zLTEuNi41LTMuMy41LTQuOS44LTkuOC45LTE0LjYtNC4yLDIuNS04LjIsNS4yLTEyLjEsOC4xLTEuMywxLTIuMSwxLjctMi42LDIuMS0xLjktMi4xLTMuMy00LjYtNC4zLTcuMy44LS4yLDEuOC0uNiwzLjgtMS41LDQuMi0xLjksOC40LTQuMSwxMi41LTYuNC00LjEtMi4zLTguMi00LjUtMTIuNS02LjQtMS45LS45LTMtMS4zLTMuOC0xLjUuOS0yLjcsMi40LTUuMiw0LjItNy4zLjUuNiwxLjIsMS4yLDIuNywyLjIsMy45LDIuOSw4LDUuNiwxMi4xLDguMiwwLTQuNy0uMy05LjMtLjgtMTMuOS0uMi0yLjMtLjQtMy40LS43LTQuMi4yLDAsLjQsMCwuNi0uMSwwLDAsLjIsMCwuMiwwLC4zLDAsLjYsMCwuOS0uMS45LS4xLDEuNy0uMiwyLjYtLjJzMS44LDAsMi42LjJoMGMuNCwwLC44LDAsMS4yLjJoMGMuMSwwLC4yLDAsLjMuMS0uMi43LS40LDEuNi0uNiwzLjUtLjUsNC44LS44LDkuNi0uOSwxNC41LDQuMi0yLjUsOC4yLTUuMiwxMi4xLTguMSwxLjUtMS4xLDIuMy0xLjgsMi44LTIuMywwLDAsLjEsMCwuMi4yLjQuNC43LjksMS4xLDEuMywxLDEuNCwxLjksMywyLjYsNC43LDAsMCwwLDAsMCwwLDAsLjIuMi40LjIuNiwwLC4yLjEuNC4xLjYtLjguMi0xLjguNi00LDEuNS00LjMsMS45LTguNSw0LjEtMTIuNiw2LjUsNC4xLDIuNCw4LjMsNC41LDEyLjYsNi41WiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnRmMGE0NWRjYi1kYzcwLTQ0YzUtYWVkNi05NzQxN2ViNTc1YWEpIi8+CiAgICAgIDxnIGlkPSJMYXllcl8xLTIiIGRhdGEtbmFtZT0iTGF5ZXJfMSI+CiAgICAgICAgPHBhdGggZD0iTTQ2LjcsMTYuNmMwLS4yLS4yLS40LS4yLS42LjEuMi4yLjQuMi42WiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtMmYwYTQ1ZGNiLWRjNzAtNDRjNS1hZWQ2LTk3NDE3ZWI1NzVhYSkiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
-            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.FluentValidation.Dtos/README.md#dto-validation-creation" isActive="true" />
-            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;]" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.FluentValidation.Dtos/README.md#creating-dto-validators" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[]" isActive="true" />
             <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[&quot;fee0edca-4aa0-4f77-a524-6bbd84e78734&quot;,&quot;7baed1fd-469b-4980-8fd9-4cefb8331eb2&quot;]" isActive="true" />
             <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="validation fluent fluentvalidation validations rules automatic implicit validator dto dtofield" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="4a6f90a8-23b1-47fb-94df-d80ffe02ccd9" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Implicit Validation Rules</name>
+      <display>Implicit Validation Rules</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cd60fb85-9681-4891-b94a-b4b109145478</parentFolderId>
+      <packageId>31c500b7-66f0-46fc-8748-23ac58a8c375</packageId>
+      <packageName>Intent.Application.FluentValidation.Dtos</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Details when rules are implicitly applied based on the attribute properties." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudGYwYTQ1ZGNiLWRjNzAtNDRjNS1hZWQ2LTk3NDE3ZWI1NzVhYSIgeDE9IjI0LjkiIHkxPSI0OC4yIiB4Mj0iMjQuOSIgeTI9IjEuNyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNjNTFlMTYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjMzZDM2Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMmYwYTQ1ZGNiLWRjNzAtNDRjNS1hZWQ2LTk3NDE3ZWI1NzVhYSIgeDE9IjQ2LjYiIHkxPSIxNi42IiB4Mj0iNDYuNiIgeTI9IjE2IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2YzM2QzNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNjNTFlMTYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNTQpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJMYXllcl8xIj4KICAgICAgPHBhdGggZD0iTTQyLjgsMzEuN2MxLjkuOSwzLjIsMS4zLDQsMS41LTEsMi42LTIuNCw1LTQuMyw3LjEtLjUtLjYtMS4yLTEuMi0yLjctMi4yLTMuOS0yLjktOC01LjYtMTIuMS04LjEsMCw0LjYuMyw5LjMuOCwxMy45LjIsMi4xLjQsMy4yLjYsNC0xLjMuMi0yLjcuNC00LjEuNHMtMi45LS4xLTQuMi0uNGMuMi0uNy4zLTEuNi41LTMuMy41LTQuOS44LTkuOC45LTE0LjYtNC4yLDIuNS04LjIsNS4yLTEyLjEsOC4xLTEuMywxLTIuMSwxLjctMi42LDIuMS0xLjktMi4xLTMuMy00LjYtNC4zLTcuMy44LS4yLDEuOC0uNiwzLjgtMS41LDQuMi0xLjksOC40LTQuMSwxMi41LTYuNC00LjEtMi4zLTguMi00LjUtMTIuNS02LjQtMS45LS45LTMtMS4zLTMuOC0xLjUuOS0yLjcsMi40LTUuMiw0LjItNy4zLjUuNiwxLjIsMS4yLDIuNywyLjIsMy45LDIuOSw4LDUuNiwxMi4xLDguMiwwLTQuNy0uMy05LjMtLjgtMTMuOS0uMi0yLjMtLjQtMy40LS43LTQuMi4yLDAsLjQsMCwuNi0uMSwwLDAsLjIsMCwuMiwwLC4zLDAsLjYsMCwuOS0uMS45LS4xLDEuNy0uMiwyLjYtLjJzMS44LDAsMi42LjJoMGMuNCwwLC44LDAsMS4yLjJoMGMuMSwwLC4yLDAsLjMuMS0uMi43LS40LDEuNi0uNiwzLjUtLjUsNC44LS44LDkuNi0uOSwxNC41LDQuMi0yLjUsOC4yLTUuMiwxMi4xLTguMSwxLjUtMS4xLDIuMy0xLjgsMi44LTIuMywwLDAsLjEsMCwuMi4yLjQuNC43LjksMS4xLDEuMywxLDEuNCwxLjksMywyLjYsNC43LDAsMCwwLDAsMCwwLDAsLjIuMi40LjIuNiwwLC4yLjEuNC4xLjYtLjguMi0xLjguNi00LDEuNS00LjMsMS45LTguNSw0LjEtMTIuNiw2LjUsNC4xLDIuNCw4LjMsNC41LDEyLjYsNi41WiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnRmMGE0NWRjYi1kYzcwLTQ0YzUtYWVkNi05NzQxN2ViNTc1YWEpIi8+CiAgICAgIDxnIGlkPSJMYXllcl8xLTIiIGRhdGEtbmFtZT0iTGF5ZXJfMSI+CiAgICAgICAgPHBhdGggZD0iTTQ2LjcsMTYuNmMwLS4yLS4yLS40LS4yLS42LjEuMi4yLjQuMi42WiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtMmYwYTQ1ZGNiLWRjNzAtNDRjNS1hZWQ2LTk3NDE3ZWI1NzVhYSkiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.FluentValidation/README.md#implicitinferred-validation-rules" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[&quot;fee0edca-4aa0-4f77-a524-6bbd84e78734&quot;,&quot;7baed1fd-469b-4980-8fd9-4cefb8331eb2&quot;]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="validation fluent fluentvalidation validations rules automatic implicit" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="bf061ffb-5636-43f4-b56b-f4ee4a2013a7" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Setting Up Validation Rules</name>
+      <display>Setting Up Validation Rules</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cd60fb85-9681-4891-b94a-b4b109145478</parentFolderId>
+      <packageId>31c500b7-66f0-46fc-8748-23ac58a8c375</packageId>
+      <packageName>Intent.Application.FluentValidation.Dtos</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="How the validation rules can be applied to the data contract entities." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudGYwYTQ1ZGNiLWRjNzAtNDRjNS1hZWQ2LTk3NDE3ZWI1NzVhYSIgeDE9IjI0LjkiIHkxPSI0OC4yIiB4Mj0iMjQuOSIgeTI9IjEuNyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNjNTFlMTYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjMzZDM2Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMmYwYTQ1ZGNiLWRjNzAtNDRjNS1hZWQ2LTk3NDE3ZWI1NzVhYSIgeDE9IjQ2LjYiIHkxPSIxNi42IiB4Mj0iNDYuNiIgeTI9IjE2IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2YzM2QzNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNjNTFlMTYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNTQpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJMYXllcl8xIj4KICAgICAgPHBhdGggZD0iTTQyLjgsMzEuN2MxLjkuOSwzLjIsMS4zLDQsMS41LTEsMi42LTIuNCw1LTQuMyw3LjEtLjUtLjYtMS4yLTEuMi0yLjctMi4yLTMuOS0yLjktOC01LjYtMTIuMS04LjEsMCw0LjYuMyw5LjMuOCwxMy45LjIsMi4xLjQsMy4yLjYsNC0xLjMuMi0yLjcuNC00LjEuNHMtMi45LS4xLTQuMi0uNGMuMi0uNy4zLTEuNi41LTMuMy41LTQuOS44LTkuOC45LTE0LjYtNC4yLDIuNS04LjIsNS4yLTEyLjEsOC4xLTEuMywxLTIuMSwxLjctMi42LDIuMS0xLjktMi4xLTMuMy00LjYtNC4zLTcuMy44LS4yLDEuOC0uNiwzLjgtMS41LDQuMi0xLjksOC40LTQuMSwxMi41LTYuNC00LjEtMi4zLTguMi00LjUtMTIuNS02LjQtMS45LS45LTMtMS4zLTMuOC0xLjUuOS0yLjcsMi40LTUuMiw0LjItNy4zLjUuNiwxLjIsMS4yLDIuNywyLjIsMy45LDIuOSw4LDUuNiwxMi4xLDguMiwwLTQuNy0uMy05LjMtLjgtMTMuOS0uMi0yLjMtLjQtMy40LS43LTQuMi4yLDAsLjQsMCwuNi0uMSwwLDAsLjIsMCwuMiwwLC4zLDAsLjYsMCwuOS0uMS45LS4xLDEuNy0uMiwyLjYtLjJzMS44LDAsMi42LjJoMGMuNCwwLC44LDAsMS4yLjJoMGMuMSwwLC4yLDAsLjMuMS0uMi43LS40LDEuNi0uNiwzLjUtLjUsNC44LS44LDkuNi0uOSwxNC41LDQuMi0yLjUsOC4yLTUuMiwxMi4xLTguMSwxLjUtMS4xLDIuMy0xLjgsMi44LTIuMywwLDAsLjEsMCwuMi4yLjQuNC43LjksMS4xLDEuMywxLDEuNCwxLjksMywyLjYsNC43LDAsMCwwLDAsMCwwLDAsLjIuMi40LjIuNiwwLC4yLjEuNC4xLjYtLjguMi0xLjguNi00LDEuNS00LjMsMS45LTguNSw0LjEtMTIuNiw2LjUsNC4xLDIuNCw4LjMsNC41LDEyLjYsNi41WiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnRmMGE0NWRjYi1kYzcwLTQ0YzUtYWVkNi05NzQxN2ViNTc1YWEpIi8+CiAgICAgIDxnIGlkPSJMYXllcl8xLTIiIGRhdGEtbmFtZT0iTGF5ZXJfMSI+CiAgICAgICAgPHBhdGggZD0iTTQ2LjcsMTYuNmMwLS4yLS4yLS40LS4yLS42LjEuMi4yLjQuMi42WiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtMmYwYTQ1ZGNiLWRjNzAtNDRjNS1hZWQ2LTk3NDE3ZWI1NzVhYSkiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.FluentValidation/README.md#configuring-validation-rules-for-fields-on-contracts" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[&quot;fee0edca-4aa0-4f77-a524-6bbd84e78734&quot;,&quot;7baed1fd-469b-4980-8fd9-4cefb8331eb2&quot;]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="validation fluent fluentvalidation validations rules automatic contract" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="56b49593-b964-4c6c-8500-ccda7494391c" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>What is FluentValidation?</name>
+      <display>What is FluentValidation?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cd60fb85-9681-4891-b94a-b4b109145478</parentFolderId>
+      <packageId>31c500b7-66f0-46fc-8748-23ac58a8c375</packageId>
+      <packageName>Intent.Application.FluentValidation.Dtos</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Navigates to the FluentValidation official documentation." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudGYwYTQ1ZGNiLWRjNzAtNDRjNS1hZWQ2LTk3NDE3ZWI1NzVhYSIgeDE9IjI0LjkiIHkxPSI0OC4yIiB4Mj0iMjQuOSIgeTI9IjEuNyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNjNTFlMTYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjMzZDM2Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMmYwYTQ1ZGNiLWRjNzAtNDRjNS1hZWQ2LTk3NDE3ZWI1NzVhYSIgeDE9IjQ2LjYiIHkxPSIxNi42IiB4Mj0iNDYuNiIgeTI9IjE2IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2YzM2QzNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNjNTFlMTYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNTQpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJMYXllcl8xIj4KICAgICAgPHBhdGggZD0iTTQyLjgsMzEuN2MxLjkuOSwzLjIsMS4zLDQsMS41LTEsMi42LTIuNCw1LTQuMyw3LjEtLjUtLjYtMS4yLTEuMi0yLjctMi4yLTMuOS0yLjktOC01LjYtMTIuMS04LjEsMCw0LjYuMyw5LjMuOCwxMy45LjIsMi4xLjQsMy4yLjYsNC0xLjMuMi0yLjcuNC00LjEuNHMtMi45LS4xLTQuMi0uNGMuMi0uNy4zLTEuNi41LTMuMy41LTQuOS44LTkuOC45LTE0LjYtNC4yLDIuNS04LjIsNS4yLTEyLjEsOC4xLTEuMywxLTIuMSwxLjctMi42LDIuMS0xLjktMi4xLTMuMy00LjYtNC4zLTcuMy44LS4yLDEuOC0uNiwzLjgtMS41LDQuMi0xLjksOC40LTQuMSwxMi41LTYuNC00LjEtMi4zLTguMi00LjUtMTIuNS02LjQtMS45LS45LTMtMS4zLTMuOC0xLjUuOS0yLjcsMi40LTUuMiw0LjItNy4zLjUuNiwxLjIsMS4yLDIuNywyLjIsMy45LDIuOSw4LDUuNiwxMi4xLDguMiwwLTQuNy0uMy05LjMtLjgtMTMuOS0uMi0yLjMtLjQtMy40LS43LTQuMi4yLDAsLjQsMCwuNi0uMSwwLDAsLjIsMCwuMiwwLC4zLDAsLjYsMCwuOS0uMS45LS4xLDEuNy0uMiwyLjYtLjJzMS44LDAsMi42LjJoMGMuNCwwLC44LDAsMS4yLjJoMGMuMSwwLC4yLDAsLjMuMS0uMi43LS40LDEuNi0uNiwzLjUtLjUsNC44LS44LDkuNi0uOSwxNC41LDQuMi0yLjUsOC4yLTUuMiwxMi4xLTguMSwxLjUtMS4xLDIuMy0xLjgsMi44LTIuMywwLDAsLjEsMCwuMi4yLjQuNC43LjksMS4xLDEuMywxLDEuNCwxLjksMywyLjYsNC43LDAsMCwwLDAsMCwwLDAsLjIuMi40LjIuNiwwLC4yLjEuNC4xLjYtLjguMi0xLjguNi00LDEuNS00LjMsMS45LTguNSw0LjEtMTIuNiw2LjUsNC4xLDIuNCw4LjMsNC41LDEyLjYsNi41WiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnRmMGE0NWRjYi1kYzcwLTQ0YzUtYWVkNi05NzQxN2ViNTc1YWEpIi8+CiAgICAgIDxnIGlkPSJMYXllcl8xLTIiIGRhdGEtbmFtZT0iTGF5ZXJfMSI+CiAgICAgICAgPHBhdGggZD0iTTQ2LjcsMTYuNmMwLS4yLS4yLS40LS4yLS42LjEuMi4yLjQuMi42WiIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQtMmYwYTQ1ZGNiLWRjNzAtNDRjNS1hZWQ2LTk3NDE3ZWI1NzVhYSkiLz4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9zdmc+&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.fluentvalidation.net/en/latest/" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[&quot;fee0edca-4aa0-4f77-a524-6bbd84e78734&quot;,&quot;7baed1fd-469b-4980-8fd9-4cefb8331eb2&quot;]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="validation fluent fluentvalidation validations" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

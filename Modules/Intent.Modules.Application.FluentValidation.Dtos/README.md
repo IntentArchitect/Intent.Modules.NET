@@ -1,15 +1,15 @@
 # Intent.Application.FluentValidation.Dtos
 
-This module contains logic and templates to create `Dto validators` using [FluentValidation](https://fluentvalidation.net/).
+This module provides the logic and templates for creating `DTO validators` using [FluentValidation](https://fluentvalidation.net/).
 
-## DTO validation creation
+## Creating DTO Validators
 
-Intent Architect will only generate a `validator` for a `DTO` under the following scenarios:
+A `validator` is automatically generated for a `DTO` under the following conditions:
 
-- The `DTO` is **inbound**: If the `DTO` is **only outbound**  (returned from a `query` or `operation`) a validator will not be created for it. Only if the `DTO` is inbound (or both inbound and outbound) will the validator be created.
-- The `DTO` validator would **not be generated empty**: If the `validator` would be created empty (i.e contain no validations), then it will not be generated (even if it is for an inbound `DTO`)
+- **Inbound DTO**: A validator is created only if the `DTO` is **inbound** (or both inbound and outbound). If the `DTO` is **only outbound** (i.e., returned from a `query` or `operation`), no validator will be generated.
+- **Non-empty Validator**: A validator will not be generated if it would be created empty (i.e., if it contains no validation rules), even if the `DTO` is inbound.
 
-A validator can contain `implicit/inferred validation` rules or `user configured` validation rules.
+The generated validator can include either `implicit/inferred validation` rules or `user-configured` validation rules.
 
-- `Implicit/inferred validation` rules: more information on when implicit validation rules are applied can be found [here](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.FluentValidation/README.md#implicitinferred-validation-rules)
-- `User configured` rules: these are rules explicitly configured on a `DTO Field` by the user
+- **Implicit/Inferred Validation Rules**: For more information on when implicit validation rules are applied, refer to the [Implicit/Inferred Validation Rules documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.FluentValidation/README.md#implicitinferred-validation-rules).
+- **User-Configured Validation Rules**: These are rules explicitly configured by the user on a `DTO Field`.
