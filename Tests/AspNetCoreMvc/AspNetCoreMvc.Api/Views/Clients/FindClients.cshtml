@@ -1,4 +1,4 @@
-@model System.Collections.Generic.List<AspNetCoreMvc.Application.Clients.ClientDto>
+@model System.Collections.Generic.List<AspNetCoreMvc.Application.ClientsService.ClientDto>
 
 @{
     Layout = null;
@@ -8,11 +8,22 @@
 
 <html>
 <head>
-    <title>title</title>
+    <title>Clients</title>
 </head>
 <body>
-<div>
-      
-</div>
+    <div>
+        <h1>Existing</h1>
+        <table>
+            @foreach (var client in Model)
+            {
+                <tr>
+                    <td>Name</td>
+                    <td>@Html.ActionLink(client.Name, "FindClientById", new { id = client.Id, groupId = "groupId" })</td>
+                </tr>
+            }
+        </table>
+        
+        @Html.ActionLink("Create new", "CreateNew", new { groupId = "groupId" })
+    </div>
 </body>
 </html>

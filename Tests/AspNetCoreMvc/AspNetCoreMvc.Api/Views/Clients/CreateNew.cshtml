@@ -1,0 +1,29 @@
+﻿@model AspNetCoreMvc.Application.ClientsService.ClientDto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+    <h1>Create new</h1>
+
+    @using (Html.BeginForm("CreateClient", null, FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.TextBoxFor(model => model.Name)
+        </div>
+
+        <button type="submit" class="btn btn-default">Create</button>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "FindClients", new { groupId = "groupId" })
+    </div>
+</body>
+</html>

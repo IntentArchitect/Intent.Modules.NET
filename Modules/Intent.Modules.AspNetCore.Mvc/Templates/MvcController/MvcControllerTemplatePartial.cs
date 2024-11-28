@@ -66,7 +66,7 @@ namespace Intent.Modules.AspNetCore.Mvc.Templates.MvcController
                     if (Model.TryGetMVCSettings(out var serviceMvcSettings) &&
                         !string.IsNullOrWhiteSpace(serviceMvcSettings.Route()))
                     {
-                        @class.AddAttribute($"[Route({serviceMvcSettings.Route()})]");
+                        @class.AddAttribute($"[Route(\"{serviceMvcSettings.Route()}\")]");
                     }
 
                     foreach (var operation in Model.Operations.Where(x => x.HasMVCSettings()))

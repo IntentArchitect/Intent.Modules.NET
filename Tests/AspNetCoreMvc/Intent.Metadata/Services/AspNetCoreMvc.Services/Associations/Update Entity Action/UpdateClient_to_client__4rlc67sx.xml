@@ -21,7 +21,7 @@
   <targetEnd id="7d61e344-65d9-427b-a5b2-f61fa789ccca" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
     <name>client</name>
     <display>[update] client: Client</display>
-    <order>2</order>
+    <order>3</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>

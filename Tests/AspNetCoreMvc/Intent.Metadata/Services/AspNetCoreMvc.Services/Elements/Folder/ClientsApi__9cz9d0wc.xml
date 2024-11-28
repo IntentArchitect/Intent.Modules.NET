@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="f661eb7f-2e35-4e18-8692-2e41e1576d4c" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
-  <name>Clients</name>
-  <display>Clients</display>
+<class id="7c11d087-2588-4639-9b9a-c867119cc5df" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>ClientsApi</name>
+  <display>ClientsApi</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />

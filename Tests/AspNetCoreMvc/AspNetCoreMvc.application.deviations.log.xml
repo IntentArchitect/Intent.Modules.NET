@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.AspNetCore.Mvc.MvcController#1ecbd030-9e2c-4232-bc27-0e29f6be2cdc</correlationId>
+      <path>AspNetCoreMvc.Api/Controllers/ClientsController.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-11-28T09:55:51.6926817Z</updatedAt>
+      <deviationsHash>F47E19BE72FFE1D2BAB49A3D40DBC236811943DDC5756FEF01C3349218A3AC1E</deviationsHash>
+      <fileHash>EDC5D499C92388994BDBB98866457802F2B7757A5117F41CED481F428559CF0D</fileHash>
+    </file>
+  </files>
 </deviationsLog>

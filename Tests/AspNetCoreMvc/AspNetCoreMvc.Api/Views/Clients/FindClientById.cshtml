@@ -1,4 +1,4 @@
-@model AspNetCoreMvc.Application.Clients.ClientDto
+@model AspNetCoreMvc.Application.ClientsService.ClientDto
 
 @{
     Layout = null;
@@ -8,11 +8,18 @@
 
 <html>
 <head>
-    <title>title</title>
+    <title>@Model.Name</title>
 </head>
 <body>
-<div>
-      
-</div>
+    <div>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>@Model.Name</td>
+            </tr>
+        </table>
+
+        @Html.ActionLink("Back", "FindClients", new { groupId = "groupId" })
+    </div>
 </body>
 </html>

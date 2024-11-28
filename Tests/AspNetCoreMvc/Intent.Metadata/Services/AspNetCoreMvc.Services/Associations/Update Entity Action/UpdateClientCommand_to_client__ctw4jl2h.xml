@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="75ec3cab-2375-41d3-a3ec-5e10f0f4f9a9">
+  <sourceEnd id="1af1e36b-dd49-440a-a959-a10d4e70a92d" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : ClientsApi.UpdateClientCommand</display>
+    <order>0</order>
+    <typeReference id="96c9eafb-56ab-4be3-b2f8-c219428dbaeb">
+      <typeId>83036f02-e6e5-49d3-9f2d-cb0bcf94cee8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCoreMvc.Services</typePackageName>
+      <typePackageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="75ec3cab-2375-41d3-a3ec-5e10f0f4f9a9" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>client</name>
+    <display>[update] client: Client</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="ba5c545c-0696-42b2-b77f-3321b5050b93">
+      <typeId>d1be0ca2-f4b8-409b-b162-a1557e005823</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCoreMvc.Domain</typePackageName>
+      <typePackageId>1586d464-cb1a-4792-9902-6219447c420b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="55cacffd-66c7-463c-879d-bb3ce5c3fbd1" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="83036f02-e6e5-49d3-9f2d-cb0bcf94cee8" location="[AspNetCoreMvc].[Services].[UpdateClientCommand]" />
+        <target applicationId="55cacffd-66c7-463c-879d-bb3ce5c3fbd1" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d1be0ca2-f4b8-409b-b162-a1557e005823" location="[AspNetCoreMvc].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="d1be0ca2-f4b8-409b-b162-a1557e005823" name="Client" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3fd22d87-74fa-4654-b366-017bee46a41a" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="83036f02-e6e5-49d3-9f2d-cb0bcf94cee8" name="UpdateClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="edd802e6-d03a-43d7-9d64-9104db497825" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="55cacffd-66c7-463c-879d-bb3ce5c3fbd1" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="83036f02-e6e5-49d3-9f2d-cb0bcf94cee8" location="[AspNetCoreMvc].[Services].[UpdateClientCommand]" />
+        <target applicationId="55cacffd-66c7-463c-879d-bb3ce5c3fbd1" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d1be0ca2-f4b8-409b-b162-a1557e005823" location="[AspNetCoreMvc].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="d1be0ca2-f4b8-409b-b162-a1557e005823" name="Client" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="e3f983be-ef5c-4bba-8568-8d28c30f8421" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="83036f02-e6e5-49d3-9f2d-cb0bcf94cee8" name="UpdateClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="808a5a4e-a102-4dff-9652-35c17ad8ab01" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

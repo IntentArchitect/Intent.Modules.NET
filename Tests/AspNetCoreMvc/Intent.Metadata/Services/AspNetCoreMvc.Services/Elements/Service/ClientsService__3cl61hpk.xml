@@ -9,12 +9,21 @@
   <parentFolderId>a988a9ed-40ad-4af0-9333-b2096eccaf21</parentFolderId>
   <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
   <packageName>AspNetCoreMvc.Services</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="7bf5b988-bcc6-4e1f-8384-093fa04cbba5" name="MVC Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.AspNetCore.Mvc</definitionPackageName>
+      <definitionPackageId>539cecb5-aede-4b55-8dbb-7ba3e8bfd3d5</definitionPackageId>
+      <properties>
+        <property name="882bdbb1-b0c0-4d31-8063-08a77c0fa54c" display="Route" value="clients/{groupId}" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="67b2c95b-195e-4197-a868-676aed492233" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>CreateClient</name>
-      <display>CreateClient(dto: ClientCreateDto): guid</display>
+      <display>CreateClient(groupId: string, dto: ClientCreateDto): guid</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -45,7 +54,7 @@
             <property name="8d37a88a-b540-402e-bca2-c4d8ff11c905" display="Return Type" value="RedirectToAction" isActive="true" />
             <property name="88f938a7-7ac3-473c-b489-a62184ae1409" display="View Name" isActive="false" />
             <property name="54484630-53f0-415c-a338-ef20bfcf0500" display="RedirectTo Controller" isActive="true" />
-            <property name="1adef718-4dff-47ce-91b1-ec729a1f707a" display="RedirectTo Action" value="1159d4f0-1d5c-4c0f-b3c1-e4f74238bfb8" isActive="true" />
+            <property name="1adef718-4dff-47ce-91b1-ec729a1f707a" display="RedirectTo Action" value="97514d6a-a7da-4ae6-91fc-5af57b1b795e" isActive="true" />
             <property name="6e2a9abd-9e8a-47c8-ba3d-ec2951b3bbb9" display="RedirectTo Route Values" isActive="true" />
             <property name="4a40f0aa-b871-48c3-ae6b-73db5c448e42" display="RedirectTo Fragment" value="" isActive="true" />
           </properties>
@@ -53,6 +62,30 @@
       </stereotypes>
       <metadata />
       <childElements>
+        <childElement id="18b7bbb8-e143-4b1e-9457-7b2cbc60e3f2" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>groupId</name>
+          <display>in : groupId: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="603e6374-4204-4b53-a41d-d8c0982352de">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>67b2c95b-195e-4197-a868-676aed492233</parentFolderId>
+          <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+          <packageName>AspNetCoreMvc.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="71cde4f3-11e6-4626-9138-0b0c63020b0b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>dto</name>
           <display>in : dto: ClientCreateDto</display>
@@ -81,7 +114,7 @@
     </childElement>
     <childElement id="97514d6a-a7da-4ae6-91fc-5af57b1b795e" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>FindClientById</name>
-      <display>FindClientById(id: guid): ClientDto</display>
+      <display>FindClientById(groupId: string, id: guid): ClientDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -120,6 +153,30 @@
       </stereotypes>
       <metadata />
       <childElements>
+        <childElement id="bf81cd34-e15b-4815-b07d-84858bc945d8" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>groupId</name>
+          <display>in : groupId: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="0680f46b-3735-42e6-ab96-f6559de542e1">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>97514d6a-a7da-4ae6-91fc-5af57b1b795e</parentFolderId>
+          <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+          <packageName>AspNetCoreMvc.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="a3ee8727-984f-4743-8752-0584d68e8b65" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: guid</display>
@@ -148,8 +205,9 @@
     </childElement>
     <childElement id="1159d4f0-1d5c-4c0f-b3c1-e4f74238bfb8" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>FindClients</name>
-      <display>FindClients(): ClientDto[*]</display>
+      <display>FindClients(groupId: string): ClientDto[*]</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="6fb778cb-6474-4f75-bff3-ac5944116b46">
         <typeId>bcf5228c-3395-4b15-8214-86ffaf2c7224</typeId>
@@ -185,11 +243,36 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="a122dfa3-c87f-4816-a3d5-259b46a53186" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>groupId</name>
+          <display>in : groupId: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="bfde61c2-e7bf-48ed-ac16-aa92b9a84956">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1159d4f0-1d5c-4c0f-b3c1-e4f74238bfb8</parentFolderId>
+          <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+          <packageName>AspNetCoreMvc.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="55ef2ca7-fead-4167-bd4a-097d29483595" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>UpdateClient</name>
-      <display>UpdateClient(id: guid, dto: ClientUpdateDto): void</display>
+      <display>UpdateClient(groupId: string, id: guid, dto: ClientUpdateDto): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -225,6 +308,30 @@
       </stereotypes>
       <metadata />
       <childElements>
+        <childElement id="da181a6d-0744-4ab3-ade6-4c307d75a325" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>groupId</name>
+          <display>in : groupId: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="0749d3e7-4209-48ac-9c84-c14c43d55a8e">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>55ef2ca7-fead-4167-bd4a-097d29483595</parentFolderId>
+          <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+          <packageName>AspNetCoreMvc.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="6917dfd5-f4ae-40e2-b9c1-3d4f42658453" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: guid</display>
@@ -277,7 +384,7 @@
     </childElement>
     <childElement id="85ed03e8-9cf5-4e10-a76b-0e1b349b5484" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>DeleteClient</name>
-      <display>DeleteClient(id: guid): void</display>
+      <display>DeleteClient(groupId: string, id: guid): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -313,6 +420,30 @@
       </stereotypes>
       <metadata />
       <childElements>
+        <childElement id="8a8bab85-1ac9-4939-bff2-7e1636805519" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>groupId</name>
+          <display>in : groupId: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="52dc18c6-02dd-4d4e-b72c-8776200960f6">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>85ed03e8-9cf5-4e10-a76b-0e1b349b5484</parentFolderId>
+          <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+          <packageName>AspNetCoreMvc.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
         <childElement id="8c58e3f6-f3a9-493d-972f-0d6416a195bc" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>id</name>
           <display>in : id: guid</display>
@@ -341,8 +472,9 @@
     </childElement>
     <childElement id="d19fc1bf-a304-4385-81bf-6a0911f5cc0c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>FindClientsWithoutView</name>
-      <display>FindClientsWithoutView(): ClientDto[*]</display>
+      <display>FindClientsWithoutView(groupId: string): ClientDto[*]</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="7b97dc62-5af8-4ab0-a477-3b7e2c4a75ee">
         <typeId>bcf5228c-3395-4b15-8214-86ffaf2c7224</typeId>
@@ -378,7 +510,32 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="f9fcb446-642e-441f-a693-30066e1fdff9" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>groupId</name>
+          <display>in : groupId: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="17daac5d-e4e9-4e1c-9cd0-a11f5afebb7a">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>d19fc1bf-a304-4385-81bf-6a0911f5cc0c</parentFolderId>
+          <packageId>a988a9ed-40ad-4af0-9333-b2096eccaf21</packageId>
+          <packageName>AspNetCoreMvc.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>
