@@ -7,9 +7,11 @@ using System.Xml.Linq;
 using Intent.Engine;
 using Intent.Eventing;
 using Intent.Metadata.Models;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.VisualStudio.Projects.FactoryExtensions.NuGet.HelperTypes;
 using Intent.Modules.VisualStudio.Projects.Settings;
 using Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps;
+using Intent.Utils;
 using Microsoft.Build.Construction;
 using Microsoft.Build.Evaluation;
 using NuGet.Versioning;
@@ -40,33 +42,35 @@ internal class SdkSchemeProcessor : INuGetSchemeProcessor
 
         return packageReferenceElements
             .GroupBy(pr => pr.Include, StringComparer.OrdinalIgnoreCase)
-            .ToDictionary(
-                group => group.Key,
+            .Select(
                 group =>
                 {
-                    string version;
                     var packageReference = group.First();
 
-
-                    if (_directoryPackagesPropsTemplatesBySolutionId.TryGetValue(solutionModelId, out var template))
+                    // First try read from the element in the .csproj
+                    var version = packageReference.Metadata.SingleOrDefault(x => string.Equals(x.Name, "Version", StringComparison.OrdinalIgnoreCase))?.Value;
+                    if (string.IsNullOrWhiteSpace(version))
                     {
-                        if (!template.TryGetVersion(group.Key, out version))
+                        if (!_directoryPackagesPropsTemplatesBySolutionId.TryGetValue(solutionModelId, out var centralPackageManagementTemplate))
                         {
-                            version = packageReference.Metadata.SingleOrDefault(x => string.Equals(x.Name, "Version", StringComparison.OrdinalIgnoreCase))?.Value;
+                            Logging.Log.Warning(
+                                $"\"{projectPath}\" has a <PackageReference /> for \"{group.Key}\" with no version specified, " +
+                                $"but no \"Directory.Packages.props\" was found, check that \"Manage Package Versions Centrally\" " +
+                                $"is checked for the Solution with id \"{solutionModelId}\" in the Visual Studio Designer in " +
+                                $"Intent Architect.");
+
+                            return null;
                         }
 
-                        if (version == null)
+                        if (!centralPackageManagementTemplate.TryGetVersion(group.Key, out version))
                         {
-                            throw new Exception($"Could not determine version for {group.Key} when checking `Directory.Packages.props` file and falling back to .csproj file.");
-                        }
-                    }
-                    else
-                    {
-                        version = packageReference.Metadata.SingleOrDefault(x => string.Equals(x.Name, "Version", StringComparison.OrdinalIgnoreCase))?.Value;
+                            Logging.Log.Warning(
+                                $"\"{projectPath}\" has a <PackageReference /> for \"{group.Key}\" with no version specified, " +
+                                $"but no corresponding entry in \"{centralPackageManagementTemplate.GetMetadata().GetFilePath().Replace('/', Path.DirectorySeparatorChar)}\" was found. If this NuGet package " +
+                                $"is managed by a module in Intent Architect it may be added as part of this Software Factory " +
+                                $"execution, otherwise an entry may need to be manually added.");
 
-                        if (version == null)
-                        {
-                            throw new Exception($"Could not determine version for {group.Key} when checking .csproj file.");
+                            return null;
                         }
                     }
 
@@ -85,7 +89,9 @@ internal class SdkSchemeProcessor : INuGetSchemeProcessor
                         : Array.Empty<string>();
 
                     return NuGetPackage.Create(projectPath, packageReference.Include, version, includeAssets, privateAssets);
-                });
+                })
+            .Where(x => x != null)
+            .ToDictionary(x => x.Name, x => x!);
     }
 
     public string InstallPackages(
