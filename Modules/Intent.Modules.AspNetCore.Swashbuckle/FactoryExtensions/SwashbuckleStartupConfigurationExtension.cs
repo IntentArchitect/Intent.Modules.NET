@@ -1,7 +1,9 @@
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Swashbuckle.Templates.SwashbuckleConfiguration;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
@@ -35,7 +37,26 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.FactoryExtensions
             {
                 var startup = template.StartupFile;
                 startup.AddServiceConfiguration(ctx => $"{ctx.Services}.ConfigureSwagger({ctx.Configuration});");
-                startup.AddAppConfiguration(ctx => $"{ctx.App}.UseSwashbuckle({ctx.Configuration});");
+
+                var useSwashbuckleStatement = "{0}.UseSwashbuckle({1});";
+
+                startup.ConfigureApp((statements, ctx) =>
+                {
+                    var statementToAdd = string.Format(useSwashbuckleStatement, ctx.App, ctx.Configuration);
+
+                    // The swagger UI endpoint doesn't work if it is placed after UseEndpoints is called and MVC is set up.
+                    // We do it conditionally to minimize SF noise after an update for clients which aren't using MVC.
+                    var useEndpointStatement = statements.FindStatement(x => x.ToString().Contains("UseEndpoints"));
+                    if (useEndpointStatement != null &&
+                        application.GetInstalledModules().Any(x => string.Equals(x.ModuleId, "Intent.AspNetCore.Mvc")))
+                    {
+                        useEndpointStatement.InsertAbove(statementToAdd);
+                    }
+                    else
+                    {
+                        startup.AddAppConfiguration(context => string.Format(useSwashbuckleStatement, context.App, context.Configuration));
+                    }
+                });
             }, 100);
         }
     }

@@ -1,5 +1,6 @@
 ### Version 5.1.4
 
+- Fixed: `[app].UseEndpoints(..)` will now be called before `.UseEndpoints(...)` during application startup to ensure still works when MVC is installed.
 - Improvement: Updated NuGet package versions.
 
 ### Version 5.1.3
