@@ -45,12 +45,12 @@
           <mappedEnd>
             <expression>{CreateNestingParentCommand}</expression>
             <path>
-              <target id="f0aa66fd-6e42-44d5-879f-5acdb6b9bd36" name="NestingParent" type="element" specialization="Class" />
+              <target id="f0aa66fd-6e42-44d5-879f-5acdb6b9bd36" name="NestingParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
             </path>
             <sources>
               <source identifier="CreateNestingParentCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
                 <path>
-                  <target id="aaf0d2ac-94ac-4827-9592-0f8203157ace" name="CreateNestingParentCommand" type="element" specialization="Command" />
+                  <target id="aaf0d2ac-94ac-4827-9592-0f8203157ace" name="CreateNestingParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                 </path>
               </source>
             </sources>
@@ -58,14 +58,14 @@
           <mappedEnd>
             <expression>{Name}</expression>
             <path>
-              <target id="f0aa66fd-6e42-44d5-879f-5acdb6b9bd36" name="NestingParent" type="element" specialization="Class" />
-              <target id="4916f5b3-dacc-47cd-ab4b-c1485081769d" name="Name" type="element" specialization="Attribute" />
+              <target id="f0aa66fd-6e42-44d5-879f-5acdb6b9bd36" name="NestingParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="4916f5b3-dacc-47cd-ab4b-c1485081769d" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="aaf0d2ac-94ac-4827-9592-0f8203157ace" name="CreateNestingParentCommand" type="element" specialization="Command" />
-                  <target id="4add22c0-d9de-4f00-9cc2-591aadd7bf3d" name="Name" type="element" specialization="DTO-Field" />
+                  <target id="aaf0d2ac-94ac-4827-9592-0f8203157ace" name="CreateNestingParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="4add22c0-d9de-4f00-9cc2-591aadd7bf3d" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -73,14 +73,14 @@
           <mappedEnd>
             <expression>{NestingChildren}</expression>
             <path>
-              <target id="f0aa66fd-6e42-44d5-879f-5acdb6b9bd36" name="NestingParent" type="element" specialization="Class" />
-              <target id="c26902a9-7ecb-4750-ae9b-1558842db39f" name="NestingChildren" type="association" specialization="Association Target End" />
+              <target id="f0aa66fd-6e42-44d5-879f-5acdb6b9bd36" name="NestingParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c26902a9-7ecb-4750-ae9b-1558842db39f" name="NestingChildren" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
             </path>
             <sources>
               <source identifier="NestingChildren" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="aaf0d2ac-94ac-4827-9592-0f8203157ace" name="CreateNestingParentCommand" type="element" specialization="Command" />
-                  <target id="7ad5b66b-67a2-4cab-90f5-537f7e9021d4" name="NestingChildren" type="element" specialization="DTO-Field" />
+                  <target id="aaf0d2ac-94ac-4827-9592-0f8203157ace" name="CreateNestingParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7ad5b66b-67a2-4cab-90f5-537f7e9021d4" name="NestingChildren" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -88,16 +88,16 @@
           <mappedEnd>
             <expression>{NestingChildren.Description}</expression>
             <path>
-              <target id="f0aa66fd-6e42-44d5-879f-5acdb6b9bd36" name="NestingParent" type="element" specialization="Class" />
-              <target id="c26902a9-7ecb-4750-ae9b-1558842db39f" name="NestingChildren" type="association" specialization="Association Target End" />
-              <target id="d273987c-1bed-41bc-8e64-922e8d7e9167" name="Description" type="element" specialization="Attribute" />
+              <target id="f0aa66fd-6e42-44d5-879f-5acdb6b9bd36" name="NestingParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c26902a9-7ecb-4750-ae9b-1558842db39f" name="NestingChildren" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="d273987c-1bed-41bc-8e64-922e8d7e9167" name="Description" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="NestingChildren.Description" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="aaf0d2ac-94ac-4827-9592-0f8203157ace" name="CreateNestingParentCommand" type="element" specialization="Command" />
-                  <target id="7ad5b66b-67a2-4cab-90f5-537f7e9021d4" name="NestingChildren" type="element" specialization="DTO-Field" />
-                  <target id="349edb7b-8cf6-4169-ae4c-f42cdfa84e50" name="Description" type="element" specialization="DTO-Field" />
+                  <target id="aaf0d2ac-94ac-4827-9592-0f8203157ace" name="CreateNestingParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7ad5b66b-67a2-4cab-90f5-537f7e9021d4" name="NestingChildren" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="349edb7b-8cf6-4169-ae4c-f42cdfa84e50" name="Description" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -105,18 +105,18 @@
           <mappedEnd>
             <expression>{NestingChildren.ChildChild.Name}</expression>
             <path>
-              <target id="f0aa66fd-6e42-44d5-879f-5acdb6b9bd36" name="NestingParent" type="element" specialization="Class" />
-              <target id="c26902a9-7ecb-4750-ae9b-1558842db39f" name="NestingChildren" type="association" specialization="Association Target End" />
-              <target id="dc37c8cc-8bed-43f5-82db-b4a8881bee45" name="NestingChildChild" type="association" specialization="Association Target End" />
-              <target id="32dc43aa-8ace-41ee-8234-0bd4f8d9cc12" name="Name" type="element" specialization="Attribute" />
+              <target id="f0aa66fd-6e42-44d5-879f-5acdb6b9bd36" name="NestingParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c26902a9-7ecb-4750-ae9b-1558842db39f" name="NestingChildren" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="dc37c8cc-8bed-43f5-82db-b4a8881bee45" name="NestingChildChild" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="32dc43aa-8ace-41ee-8234-0bd4f8d9cc12" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="NestingChildren.ChildChild.Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="aaf0d2ac-94ac-4827-9592-0f8203157ace" name="CreateNestingParentCommand" type="element" specialization="Command" />
-                  <target id="7ad5b66b-67a2-4cab-90f5-537f7e9021d4" name="NestingChildren" type="element" specialization="DTO-Field" />
-                  <target id="1691d913-fd85-484b-b558-a4487d9e512c" name="ChildChild" type="element" specialization="DTO-Field" />
-                  <target id="dffe8cb0-503c-422e-9038-61c8542a9b26" name="Name" type="element" specialization="DTO-Field" />
+                  <target id="aaf0d2ac-94ac-4827-9592-0f8203157ace" name="CreateNestingParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7ad5b66b-67a2-4cab-90f5-537f7e9021d4" name="NestingChildren" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="1691d913-fd85-484b-b558-a4487d9e512c" name="ChildChild" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="dffe8cb0-503c-422e-9038-61c8542a9b26" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

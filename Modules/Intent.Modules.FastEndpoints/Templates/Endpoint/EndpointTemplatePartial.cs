@@ -154,6 +154,12 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 {
                     @class.AddProperty(GetTypeName(parameter.TypeReference), parameter.Name.ToPropertyName(), prop =>
                     {
+                        if (parameter.MappedPayloadProperty != null &&
+                            parameter.MappedPayloadProperty.HasStereotype("OpenAPI Settings") &&
+                            !string.IsNullOrWhiteSpace(parameter.MappedPayloadProperty.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value))
+                        {
+                            prop.WithComments(xmlComments: $"/// <example>{parameter.MappedPayloadProperty.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value}</example>");
+                        }
                         AddHttpInputAttributesToProperty(prop, parameter);
                     });
                 }

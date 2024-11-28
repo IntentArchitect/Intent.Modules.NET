@@ -12,6 +12,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.PagingTS
             Name = null!;
         }
 
+        /// <example>CustomDefaultExample</example>
         public string Name { get; set; }
 
         public static PagingTSCreateDto Create(string name)

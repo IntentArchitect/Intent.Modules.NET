@@ -14,7 +14,6 @@ using Xunit;
 
 namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
 {
-    [UsesVerify]
     public class SdkSchemeTests
     {
         [Fact]

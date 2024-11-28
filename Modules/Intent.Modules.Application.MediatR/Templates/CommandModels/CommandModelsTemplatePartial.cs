@@ -61,7 +61,17 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                         ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), param =>
                         {
                             param.AddMetadata("model", property);
-                            param.IntroduceProperty(prop => prop.RepresentsModel(property));
+                            param.IntroduceProperty(prop =>
+                            {
+                                prop.RepresentsModel(property);
+
+                                if (property.HasStereotype("OpenAPI Settings")
+                                    && !string.IsNullOrWhiteSpace(property.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value))
+                                {
+                                    prop.WithComments(xmlComments: $"/// <example>{property.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value}</example>");
+                                }
+
+                            });
 
                             // only parameters with a value AFTER the last parameter with a value get the value specified
                             if (property.InternalElement.Order >= lastNonNullable && !string.IsNullOrEmpty(property.Value))

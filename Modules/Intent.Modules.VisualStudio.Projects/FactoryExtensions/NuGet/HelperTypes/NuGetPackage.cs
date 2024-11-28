@@ -15,11 +15,13 @@ internal class NuGetPackage
 
     public NuGetInstallOptions Options { get; set; }
 
+    public string Name { get; set; }
+
     public VersionRange Version { get; set; }
 
-    public List<string> PrivateAssets { get; private set; }
+    public List<string> PrivateAssets { get; private init; }
 
-    public List<string> IncludeAssets { get; private set; }
+    public List<string> IncludeAssets { get; private init; }
 
     public INugetPackageInfo RequestedPackage { get; private set; }
 
@@ -31,9 +33,10 @@ internal class NuGetPackage
         {
             RequestedPackage = nugetPackageInfo,
             Options = options,
+            Name = nugetPackageInfo.Name,
             Version = version ?? VersionRange.Parse(nugetPackageInfo.Version),
-            IncludeAssets = new List<string>(nugetPackageInfo.IncludeAssets ?? Array.Empty<string>()),
-            PrivateAssets = new List<string>(nugetPackageInfo.PrivateAssets ?? Array.Empty<string>())
+            IncludeAssets = [..nugetPackageInfo.IncludeAssets ?? []],
+            PrivateAssets = [..nugetPackageInfo.PrivateAssets ?? []]
         };
     }
 
@@ -44,11 +47,12 @@ internal class NuGetPackage
         return new NuGetPackage
         {
             Options = new NuGetInstallOptions(),
+            Name = packageName,
             Version = VersionRange.TryParse(version, out var parsed)
                 ? parsed
                 : null,
-            IncludeAssets = new List<string>(includeAssets ?? Array.Empty<string>()),
-            PrivateAssets = new List<string>(privateAssets ?? Array.Empty<string>())
+            IncludeAssets = [..includeAssets ?? []],
+            PrivateAssets = [..privateAssets ?? []]
         };
     }
 
@@ -88,8 +92,8 @@ internal class NuGetPackage
         {
             Options = Options,
             Version = version ?? Version,
-            PrivateAssets = new List<string>(PrivateAssets),
-            IncludeAssets = new List<string>(IncludeAssets)
+            PrivateAssets = [..PrivateAssets],
+            IncludeAssets = [..IncludeAssets]
         };
     }
 

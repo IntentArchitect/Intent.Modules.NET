@@ -56,7 +56,16 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                         ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), param =>
                         {
                             param.AddMetadata("model", property);
-                            param.IntroduceProperty(prop => prop.RepresentsModel(property));
+                            param.IntroduceProperty(prop =>
+                            {
+                                prop.RepresentsModel(property);
+
+                                if (property.HasStereotype("OpenAPI Settings")
+                                    && !string.IsNullOrWhiteSpace(property.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value))
+                                {
+                                    prop.WithComments(xmlComments: $"/// <example>{property.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value}</example>");
+                                }
+                            });
                         });
                     }
                 });

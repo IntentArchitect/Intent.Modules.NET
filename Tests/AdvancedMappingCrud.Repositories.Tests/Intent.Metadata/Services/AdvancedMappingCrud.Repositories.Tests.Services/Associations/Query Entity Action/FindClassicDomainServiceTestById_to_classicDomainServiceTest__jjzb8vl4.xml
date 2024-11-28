@@ -45,14 +45,14 @@
           <mappedEnd>
             <expression>{id}</expression>
             <path>
-              <target id="513c7a03-e1d4-44e4-939c-f85848f5acdb" name="ClassicDomainServiceTest" type="element" specialization="Class" />
-              <target id="5c374687-e6e5-466c-9275-b83cc1185295" name="Id" type="element" specialization="Attribute" />
+              <target id="513c7a03-e1d4-44e4-939c-f85848f5acdb" name="ClassicDomainServiceTest" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="5c374687-e6e5-466c-9275-b83cc1185295" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
                 <path>
-                  <target id="584a2a60-1ab8-4dcc-a495-a3d490fad3db" name="FindClassicDomainServiceTestById" type="element" specialization="Operation" />
-                  <target id="8dc77118-d2bf-45ef-ac85-4247d7a7c77b" name="id" type="element" specialization="Parameter" />
+                  <target id="584a2a60-1ab8-4dcc-a495-a3d490fad3db" name="FindClassicDomainServiceTestById" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8dc77118-d2bf-45ef-ac85-4247d7a7c77b" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
                 </path>
               </source>
             </sources>

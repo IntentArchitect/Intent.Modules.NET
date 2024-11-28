@@ -156,6 +156,12 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                             {
                                 property.WithInitialValue(field.Value);
                             }
+
+                            if (field.HasStereotype("OpenAPI Settings")
+                                && !string.IsNullOrWhiteSpace(field.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value))
+                            {
+                                property.WithComments(xmlComments: $"/// <example>{field.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value}</example>");
+                            }
                         });
                     }
 

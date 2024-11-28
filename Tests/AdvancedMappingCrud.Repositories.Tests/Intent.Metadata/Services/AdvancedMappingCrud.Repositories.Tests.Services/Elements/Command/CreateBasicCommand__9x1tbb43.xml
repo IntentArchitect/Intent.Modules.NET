@@ -84,6 +84,14 @@
             <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" isActive="true" />
           </properties>
         </stereotype>
+        <stereotype stereotypeDefinitionId="27f9efb0-dc5d-4347-9c85-238ea6fdec1f" name="OpenAPI Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="c6aa3c9f-ddf0-4aca-83f7-a5d61eb6b65f" display="Example Value" value="John Doe" isActive="true" />
+          </properties>
+        </stereotype>
       </stereotypes>
       <metadata />
       <childElements />

@@ -148,8 +148,8 @@
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>Intent.Modelers.Services</typePackageName>
-        <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
+        <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+        <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
         <stereotypes />
         <genericTypeParameters>
           <genericTypeParameter id="197d6e88-008a-4ebe-88e2-0c22f247e3f1">

@@ -13,6 +13,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.NestingParents
             ChildChild = null!;
         }
 
+        /// <example>Custom Example</example>
         public string Description { get; set; }
         public ManualChildChildDto ChildChild { get; set; }
 
