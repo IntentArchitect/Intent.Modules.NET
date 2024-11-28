@@ -65,12 +65,12 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandModels
                             {
                                 prop.RepresentsModel(property);
 
-                                if(property.HasStereotype("OpenAPI Settings") 
+                                if (property.HasStereotype("OpenAPI Settings")
                                     && !string.IsNullOrWhiteSpace(property.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value))
                                 {
                                     prop.WithComments(xmlComments: $"/// <example>{property.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value}</example>");
                                 }
-                                
+
                             });
 
                             // only parameters with a value AFTER the last parameter with a value get the value specified
