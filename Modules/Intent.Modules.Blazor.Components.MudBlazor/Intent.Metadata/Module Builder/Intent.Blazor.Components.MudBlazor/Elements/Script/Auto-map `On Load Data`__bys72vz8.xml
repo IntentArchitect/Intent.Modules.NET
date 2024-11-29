@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9d86979e-4f2d-453a-834c-92a1f64db398" type="Script" typeId="101fd5b6-3159-4810-9490-a103ef323e9c">
+  <name>Auto-map `On Load Data`</name>
+  <display>Auto-map `On Load Data`</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>30eb8a90-664b-483b-9dfd-794c8e85f9eb</parentFolderId>
+  <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+  <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="da7d632f-b07f-4c83-ab01-bc6175006aa5" name="Script Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="4708b6ef-0671-4ea1-a920-ccec2c9eb3ea" display="Type" value="Inline Script" isActive="true" />
+        <property name="3256efdd-5d71-46f3-bd51-ef08a8d95526" display="Script" value="&#xD;&#xA;function autoMapOnLoadDataBinding(dataGrid, mapping) {&#xD;&#xA;    const invocationMappingTypeId = &quot;e4f0c63b-0f00-42bd-a703-00adf44f3364&quot;;&#xD;&#xA;    const onPageChangedOperation = createElement(&quot;Component Operation&quot;, `Fetch${dataGrid.getName()}Data`, mapping.getSourceElement().id);&#xD;&#xA;    const pageNoParam = createElement(&quot;Parameter&quot;, &quot;pageNo&quot;, onPageChangedOperation.id);&#xD;&#xA;    pageNoParam.typeReference.setType(&quot;fb0a362d-e9e2-40de-b6ff-5ce8167cbe74&quot;); // int&#xD;&#xA;    const pageSizeParam = createElement(&quot;Parameter&quot;, &quot;pageSize&quot;, onPageChangedOperation.id);&#xD;&#xA;    pageSizeParam.typeReference.setType(&quot;fb0a362d-e9e2-40de-b6ff-5ce8167cbe74&quot;); // int&#xD;&#xA;    const sortingParam = createElement(&quot;Parameter&quot;, &quot;sorting&quot;, onPageChangedOperation.id);&#xD;&#xA;&#xD;&#xA;    mapping.addMappedEnd(invocationMappingTypeId, onPageChangedOperation.getMappingPath(), dataGrid.getMappingPath().concat([&quot;53a618ca-e5aa-49ca-a993-8cd935683748&quot;])); // On Load Data&#xD;&#xA;    mapping.addMappingExpression(dataGrid.getMappingPath().concat([&quot;53a618ca-e5aa-49ca-a993-8cd935683748&quot;, pageNoParam.id]), &quot;pageNo&quot;); // On Load Data -&gt; Parameter (synced)&#xD;&#xA;    mapping.addMappingExpression(dataGrid.getMappingPath().concat([&quot;53a618ca-e5aa-49ca-a993-8cd935683748&quot;, pageSizeParam.id]), &quot;pageSize&quot;); // On Load Data-&gt; Parameter (synced)&#xD;&#xA;    mapping.addMappingExpression(dataGrid.getMappingPath().concat([&quot;53a618ca-e5aa-49ca-a993-8cd935683748&quot;, sortingParam.id]), &quot;sorting&quot;); // On Load Data -&gt; Parameter (synced)&#xD;&#xA;}" isActive="true" />
+        <property name="41cc0d56-3141-40fe-ae97-c024866d441e" display="File Path" isActive="false" />
+        <property name="540780ad-f54e-4bd5-95f3-20a58fd59105" display="Dependencies" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>

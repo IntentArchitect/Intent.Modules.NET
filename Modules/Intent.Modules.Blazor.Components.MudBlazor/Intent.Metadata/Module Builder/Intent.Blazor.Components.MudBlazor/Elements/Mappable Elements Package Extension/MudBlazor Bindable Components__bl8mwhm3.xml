@@ -247,6 +247,7 @@
           <name>On Load Data</name>
           <display>On Load Data</display>
           <isAbstract>false</isAbstract>
+          <sort-children>manually</sort-children>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9d4e9c41-b646-4c23-9013-354b3e2daa0f</parentFolderId>
@@ -281,7 +282,55 @@
             </stereotype>
           </stereotypes>
           <metadata />
-          <childElements />
+          <childElements>
+            <childElement id="1bdc3208-987e-47b3-9e2a-cfc3f9ebbb2e" type="Run Script Option" typeId="345d46fb-c500-409a-88c7-26720572c9af">
+              <name>Auto-map to Operation</name>
+              <display>Auto-map to Operation: Inline Script</display>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <typeReference id="9b3e2907-610d-46cc-a5df-83bcfa06be33">
+                <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+                <isNavigable>true</isNavigable>
+                <isNullable>false</isNullable>
+                <isCollection>false</isCollection>
+                <isRequired>true</isRequired>
+                <typePackageName>Intent.ModuleBuilder</typePackageName>
+                <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+                <stereotypes />
+                <genericTypeParameters />
+              </typeReference>
+              <isMapped>false</isMapped>
+              <parentFolderId>53a618ca-e5aa-49ca-a993-8cd935683748</parentFolderId>
+              <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+              <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+              <stereotypes>
+                <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+                  <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+                  <properties>
+                    <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="autoMapOnLoadDataBinding(element.getParent(), mapping);" isActive="true" />
+                    <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" value="[&quot;9d86979e-4f2d-453a-834c-92a1f64db398&quot;]" isActive="true" />
+                  </properties>
+                </stereotype>
+                <stereotype stereotypeDefinitionId="cbe77364-d1d0-400b-a8c4-646a4c869612" name="Option Settings">
+                  <comment />
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+                  <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+                  <properties>
+                    <property name="b2c3a117-23d3-47e5-8b83-5b902c55a226" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC4yLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTWV0aG9kIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiDQoJIHk9IjBweCIgdmlld0JveD0iMCAwIDUwIDUwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MCA1MCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8ZyBpZD0ibGV2ZWwtMSIgZGlzcGxheT0ibm9uZSI+DQoJPGcgZGlzcGxheT0iaW5saW5lIiBvcGFjaXR5PSIwLjc1Ij4NCgkJPHBhdGggb3BhY2l0eT0iMC4xIiBmaWxsPSIjNjkzNkFBIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3ICAgICIgZD0iTTQzLjksMTMuOHYyNEwyNSw0Ni40TDYuMSwzNy44di0yNEwyNSwzLjVMNDMuOSwxMy44eiIvPg0KCQk8cGF0aCBmaWxsPSIjNjkzNkFBIiBkPSJNNDUuNiwxMy44djI0bC0xLDEuNkwyNS43LDQ4aC0xLjRMNS40LDM5LjRsLTEtMS42di0yNGwwLjktMS41bDAuMSwzLjFsMi40LDEuMXYyMC4zbDE1LjUsN1YyMy41bDEsMC41DQoJCQloMS40bDEtMC40djIwLjNsMTUuNC03VjE2LjVsMi40LTEuMWwwLjEtMy4xTDQ1LjYsMTMuOHoiLz4NCgk8L2c+DQoJPHBhdGggZGlzcGxheT0iaW5saW5lIiBvcGFjaXR5PSIwLjEiIGZpbGw9IiM2OTM2QUEiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgICAgIiBkPSJNNDMuOSwxMy44TDI1LDIyLjRMNi4xLDEzLjhMMjUsMy41TDQzLjksMTMuOA0KCQl6Ii8+DQoJPHBhdGggZGlzcGxheT0iaW5saW5lIiBmaWxsPSIjNjkzNkFBIiBkPSJNMjUuOCwyaC0xLjZMNS4zLDEyLjNsMC4xLDMuMUwyNC4zLDI0aDEuNGwxOC45LTguNmwwLjEtMy4xTDI1LjgsMnogTTI1LDIwLjVsLTE1LTYuOQ0KCQlsMTUtOC4ybDE1LDguMkwyNSwyMC41eiIvPg0KPC9nPg0KPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8xXzg5NTYyM2prNDUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMjUiIHkxPSI0My43MDc2IiB4Mj0iMjUiIHkyPSI0LjMwNzYiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgMCA0OSkiPg0KCTxzdG9wICBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiM5NDZCQzciLz4NCgk8c3RvcCAgb2Zmc2V0PSIwLjEzMDIiIHN0eWxlPSJzdG9wLWNvbG9yOiM5NDZCQzciLz4NCgk8c3RvcCAgb2Zmc2V0PSIwLjY2ODYiIHN0eWxlPSJzdG9wLWNvbG9yOiM3MTNGQjAiLz4NCgk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojNjkzNkFBIi8+DQo8L2xpbmVhckdyYWRpZW50Pg0KPHBhdGggb3BhY2l0eT0iMC44IiBmaWxsPSJ1cmwoI1NWR0lEXzFfODk1NjIzams0NSkiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgICAgIiBkPSJNNDQuMSwxMS45TDI1LjUsMi44Yy0wLjMtMC4xLTAuNi0wLjEtMC45LDBMNS45LDExLjkNCgljLTAuNCwwLjItMC42LDAuNS0wLjYsMC45djI0LjNjMCwwLjQsMC4yLDAuNywwLjYsMC45bDE4LjYsOS4yYzAuMSwwLjEsMC4zLDAuMSwwLjUsMC4xczAuMywwLDAuNS0wLjFMNDQuMSwzOA0KCWMwLjQtMC4yLDAuNi0wLjUsMC42LTAuOVYxMi45QzQ0LjcsMTIuNSw0NC41LDEyLjEsNDQuMSwxMS45eiBNMjUsNS45bDE0LDYuOWwtMTQsNi45bC0xNC02LjlMMjUsNS45eiBNOC40LDM1LjlWMTVsMTUuMSw3LjR2MjAuOQ0KCUwxMSwzNy4xTDguNCwzNS45eiBNMjYuNSw0My4zVjIyLjRMNDEuNiwxNXYyMC45TDM5LDM3LjFMMjYuNSw0My4zeiIvPg0KPC9zdmc+DQo=&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+                    <property name="0abff08a-3986-40b1-a28f-4cc03c4fc1ec" display="Shortcut" value="space" isActive="true" />
+                    <property name="79f6973f-5e3a-4618-9d4c-d7cc604bffe0" display="Shortcut (macOS)" isActive="true" />
+                    <property name="e034a0ca-0101-4594-8384-43048b714578" display="Type Order" isActive="true" />
+                    <property name="c03841e5-a1e9-4e95-b699-5a466dde7d7d" display="Is Option Visible Function" isActive="true" />
+                  </properties>
+                </stereotype>
+              </stereotypes>
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
         </childElement>
         <childElement id="af37f461-cedf-41bb-a2e5-778c20fd272e" type="Mappable Element Settings" typeId="62e5b1a9-0d36-4969-9d22-ce748155afbf">
           <name>Column</name>
