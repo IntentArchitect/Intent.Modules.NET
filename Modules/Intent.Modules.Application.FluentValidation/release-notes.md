@@ -1,3 +1,7 @@
+### Version 3.10.0
+
+- Improvement: Help topics added to documention
+
 ### Version 3.9.5
 
 - Improvement: Updated module icon

@@ -1,3 +1,7 @@
+### Version 4.8.0
+
+- Improvement: Help topics added to documention
+
 ### Version 4.7.3
 
 - Improvement: Updated module icon
