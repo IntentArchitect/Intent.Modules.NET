@@ -7,6 +7,7 @@ using MudBlazor.ExampleApp.Api.Controllers.ResponseTypes;
 using MudBlazor.ExampleApp.Application.Common.Pagination;
 using MudBlazor.ExampleApp.Application.Invoices;
 using MudBlazor.ExampleApp.Application.Invoices.CreateInvoice;
+using MudBlazor.ExampleApp.Application.Invoices.CreateInvoiceConvoluted;
 using MudBlazor.ExampleApp.Application.Invoices.DeleteInvoice;
 using MudBlazor.ExampleApp.Application.Invoices.GetInvoiceById;
 using MudBlazor.ExampleApp.Application.Invoices.GetInvoices;
@@ -43,6 +44,22 @@ namespace MudBlazor.ExampleApp.Api.Controllers
         {
             var result = await _mediator.Send(command, cancellationToken);
             return CreatedAtAction(nameof(GetInvoiceById), new { id = result }, new JsonResponse<Guid>(result));
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="201">Successfully created.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpPost("api")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> CreateInvoiceConvoluted(
+            [FromBody] CreateInvoiceConvolutedCommand command,
+            CancellationToken cancellationToken = default)
+        {
+            await _mediator.Send(command, cancellationToken);
+            return Created(string.Empty, null);
         }
 
         /// <summary>

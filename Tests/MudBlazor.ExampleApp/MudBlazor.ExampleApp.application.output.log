@@ -604,6 +604,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>dc41a6ed-6d8f-41df-872d-b94532e31928</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#dbb506ad-f246-4fc7-b655-93862aff6b7d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Invoices/CreateInvoiceConvoluted/CreateInvoiceConvolutedCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/CreateInvoiceConvoluted/CreateInvoiceConvolutedCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc41a6ed-6d8f-41df-872d-b94532e31928</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#dbb506ad-f246-4fc7-b655-93862aff6b7d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Invoices/CreateInvoiceConvoluted/CreateInvoiceConvolutedCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/CreateInvoiceConvoluted/CreateInvoiceConvolutedCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc41a6ed-6d8f-41df-872d-b94532e31928</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#dbb506ad-f246-4fc7-b655-93862aff6b7d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Invoices/CreateInvoiceConvoluted/CreateInvoiceConvolutedCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/CreateInvoiceConvoluted/CreateInvoiceConvolutedCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc41a6ed-6d8f-41df-872d-b94532e31928</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#09847356-eb56-4195-98a7-709a958906f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Invoices/CreateInvoiceConvolutedCommandOrderLinesDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Invoices/CreateInvoiceConvolutedCommandOrderLinesDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc41a6ed-6d8f-41df-872d-b94532e31928</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#986a4350-a2c2-44fb-b985-cb423740781c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Invoices/DeleteInvoice/DeleteInvoiceCommand.cs</ApplicationRelativeFilePath>
@@ -744,6 +776,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/MudBlazor.ExampleApp.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MudBlazor.ExampleApp.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc41a6ed-6d8f-41df-872d-b94532e31928</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#0f0fdd60-7fff-45d3-8aa4-08bcf1195afc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Products/CreateInvoiceDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/CreateInvoiceDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc41a6ed-6d8f-41df-872d-b94532e31928</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#0f0fdd60-7fff-45d3-8aa4-08bcf1195afc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Products/CreateInvoiceDTOValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/CreateInvoiceDTOValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1100,6 +1148,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>8fc80e74-d99a-427b-a9c7-5ad76814c625</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#dbb506ad-f246-4fc7-b655-93862aff6b7d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/CreateInvoiceConvolutedCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Invoices/CreateInvoiceConvolutedCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8fc80e74-d99a-427b-a9c7-5ad76814c625</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#dbb506ad-f246-4fc7-b655-93862aff6b7d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/CreateInvoiceConvolutedCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Invoices/CreateInvoiceConvolutedCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8fc80e74-d99a-427b-a9c7-5ad76814c625</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.DtoContract#02370575-6315-4bc1-9753-616891d39255</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/InvoiceDto.cs</ApplicationRelativeFilePath>
@@ -1160,6 +1224,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Invoices/UpdateInvoiceCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/Invoices/UpdateInvoiceCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8fc80e74-d99a-427b-a9c7-5ad76814c625</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#0f0fdd60-7fff-45d3-8aa4-08bcf1195afc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/CreateInvoiceDTO.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Products/CreateInvoiceDTO.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8fc80e74-d99a-427b-a9c7-5ad76814c625</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator#0f0fdd60-7fff-45d3-8aa4-08bcf1195afc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Products/CreateInvoiceDTOValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Products/CreateInvoiceDTOValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

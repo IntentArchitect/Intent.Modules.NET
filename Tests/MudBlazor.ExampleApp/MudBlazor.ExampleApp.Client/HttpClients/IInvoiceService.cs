@@ -15,5 +15,6 @@ namespace MudBlazor.ExampleApp.Client.HttpClients
         Task UpdateInvoiceAsync(Guid id, UpdateInvoiceCommand command, CancellationToken cancellationToken = default);
         Task<PagedResult<InvoiceDto>> GetInvoicesAsync(int pageNo, int pageSize, string? orderBy, CancellationToken cancellationToken = default);
         Task<InvoiceDto> GetInvoiceByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task CreateInvoiceConvolutedAsync(CreateInvoiceConvolutedCommand command, CancellationToken cancellationToken = default);
     }
 }

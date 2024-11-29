@@ -140,6 +140,26 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Implementations
             }
         }
 
+        public async Task CreateInvoiceConvolutedAsync(
+            CreateInvoiceConvolutedCommand command,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api";
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+
+            var content = JsonSerializer.Serialize(command, _serializerOptions);
+            httpRequest.Content = new StringContent(content, Encoding.UTF8, JSON_MEDIA_TYPE);
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+            }
+        }
+
         public void Dispose()
         {
             Dispose(true);

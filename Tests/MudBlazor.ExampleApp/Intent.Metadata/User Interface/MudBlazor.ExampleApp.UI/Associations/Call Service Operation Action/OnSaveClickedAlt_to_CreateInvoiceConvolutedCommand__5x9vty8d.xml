@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fb2b9055-9406-44b9-b617-f95d5cb288a3">
+  <sourceEnd id="b80887eb-bfa2-4f81-9af9-89bca2a6c29e" type="Call Service Operation Action Source End" typeId="936e090c-8408-429d-b2f6-2eb8deecc428">
+    <display>: OnSaveClickedAlt</display>
+    <order>0</order>
+    <typeReference id="4aa9daf0-76b7-4830-b7c4-3fc1f5ae50d4">
+      <typeId>865aec24-e1bb-4b0f-8684-2d56356aa714</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+      <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fb2b9055-9406-44b9-b617-f95d5cb288a3" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
+    <name>CreateInvoiceConvolutedCommand</name>
+    <display>[call] InvoiceService.CreateInvoiceConvolutedCommand(command: CreateInvoiceConvolutedCommand): void</display>
+    <order>1</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="5edaf365-b50a-4d51-82f6-351eeb1a5399">
+      <typeId>bd9b4806-fcf4-4ca2-a9af-b68ff3c6ea80</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+      <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Call Service Mapping" typeId="e4a4111b-cf13-4efe-8a5d-fea9457ac8ad">
+        <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="fd65838a-6502-4d5f-9282-b6faa6a381fc" location="[MudBlazor.ExampleApp].[User Interface].[InvoiceAdd]" />
+        <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="bd9b4806-fcf4-4ca2-a9af-b68ff3c6ea80" location="[MudBlazor.ExampleApp].[User Interface].[CreateInvoiceConvolutedCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OnSaveClickedAlt.CreateInvoiceConvolutedCommand}</expression>
+            <path>
+              <target id="bd9b4806-fcf4-4ca2-a9af-b68ff3c6ea80" name="CreateInvoiceConvolutedCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+            </path>
+            <sources>
+              <source identifier="OnSaveClickedAlt.CreateInvoiceConvolutedCommand" mappingType="Invocation Mapping" mappingTypeId="ab447316-1252-49bc-a695-f34cb00a3cdc">
+                <path>
+                  <target id="fd65838a-6502-4d5f-9282-b6faa6a381fc" name="InvoiceAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="865aec24-e1bb-4b0f-8684-2d56356aa714" name="OnSaveClickedAlt" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="fb2b9055-9406-44b9-b617-f95d5cb288a3" name="CreateInvoiceConvolutedCommand" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.InvoiceNo}</expression>
+            <path>
+              <target id="bd9b4806-fcf4-4ca2-a9af-b68ff3c6ea80" name="CreateInvoiceConvolutedCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="e3772225-0f4d-4747-993c-77df2015f906" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="94bde0fc-927b-452c-a828-e83a31da8b1c" name="Invoice" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="8b4ad9a6-6408-40e9-afe3-b7a915c82cc7" name="InvoiceNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.InvoiceNo" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="fd65838a-6502-4d5f-9282-b6faa6a381fc" name="InvoiceAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="26bc33ed-71de-48c4-9021-be2f25aa3993" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="42d74e05-3a36-4f2d-b871-d43801f522d1" name="InvoiceNo" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.InvoiceDate}</expression>
+            <path>
+              <target id="bd9b4806-fcf4-4ca2-a9af-b68ff3c6ea80" name="CreateInvoiceConvolutedCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="e3772225-0f4d-4747-993c-77df2015f906" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="94bde0fc-927b-452c-a828-e83a31da8b1c" name="Invoice" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="efa63e97-8e91-4dcf-b370-2f30dd61b513" name="IssuedDate" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.InvoiceDate" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="fd65838a-6502-4d5f-9282-b6faa6a381fc" name="InvoiceAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="26bc33ed-71de-48c4-9021-be2f25aa3993" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="05ea29f1-8013-48c6-a2db-1df1eeeffee5" name="InvoiceDate" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.DueDate}</expression>
+            <path>
+              <target id="bd9b4806-fcf4-4ca2-a9af-b68ff3c6ea80" name="CreateInvoiceConvolutedCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="e3772225-0f4d-4747-993c-77df2015f906" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="94bde0fc-927b-452c-a828-e83a31da8b1c" name="Invoice" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="e7cb1a0d-6a80-4841-b45f-6ae0965c32db" name="DueDate" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.DueDate" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="fd65838a-6502-4d5f-9282-b6faa6a381fc" name="InvoiceAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="26bc33ed-71de-48c4-9021-be2f25aa3993" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="b7a98483-e1c7-4e56-a876-d36297e84801" name="DueDate" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.Reference}</expression>
+            <path>
+              <target id="bd9b4806-fcf4-4ca2-a9af-b68ff3c6ea80" name="CreateInvoiceConvolutedCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="e3772225-0f4d-4747-993c-77df2015f906" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="94bde0fc-927b-452c-a828-e83a31da8b1c" name="Invoice" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="4705c94b-f061-4886-951d-e5b7b864901d" name="Reference" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.Reference" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="fd65838a-6502-4d5f-9282-b6faa6a381fc" name="InvoiceAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="26bc33ed-71de-48c4-9021-be2f25aa3993" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="f99e0c9b-0638-4bc9-8f0a-2c27ec1c8f50" name="Reference" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.CustomerId}</expression>
+            <path>
+              <target id="bd9b4806-fcf4-4ca2-a9af-b68ff3c6ea80" name="CreateInvoiceConvolutedCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="e3772225-0f4d-4747-993c-77df2015f906" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="94bde0fc-927b-452c-a828-e83a31da8b1c" name="Invoice" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="b8f18506-9430-41b0-a87f-04653dc104da" name="CustomerId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.CustomerId" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="fd65838a-6502-4d5f-9282-b6faa6a381fc" name="InvoiceAdd" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="26bc33ed-71de-48c4-9021-be2f25aa3993" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="f015cff2-24f0-4261-9815-5449eff25c9b" name="CustomerId" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation Action</associationType>
+  <associationTypeId>fe5a5cd8-aabd-472f-8d42-f5c233e658dc</associationTypeId>
+  <stereotypes />
+</association>
