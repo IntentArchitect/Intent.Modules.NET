@@ -114,7 +114,7 @@ public static class RazorFileExtensions
                         method.Async();
                     }
 
-                    if (methodName is "OnInitializedAsync" or "OnInitialized")
+                    if (methodName is "OnInitializedAsync" or "OnInitialized") // TODO: add the others...
                     {
                         method.Protected().Override();
                     }

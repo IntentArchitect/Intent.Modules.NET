@@ -2,6 +2,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
 using MudBlazor.ExampleApp.Client.HttpClients;
 using MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Invoices;
+using MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Products;
 using MudBlazor.ExampleApp.Client.Pages.Invoices.Components;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -55,6 +56,30 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices
         private void OnCancelClicked()
         {
             NavigationManager.NavigateTo("/invoices");
+        }
+
+        private async Task OnSaveClickedAlt()
+        {
+            try
+            {
+                NavigationManager.NavigateTo("/invoices");
+                await InvoiceService.CreateInvoiceConvolutedAsync(new CreateInvoiceConvolutedCommand()
+                {
+                    Invoice = new CreateInvoiceDTO
+                    {
+                        InvoiceNo = Model.InvoiceNo,
+                        IssuedDate = Model.InvoiceDate.Value,
+                        DueDate = Model.DueDate.Value,
+                        Reference = Model.Reference,
+                        CustomerId = Model.CustomerId.Value
+                    }
+                });
+            }
+            catch (Exception e)
+            {
+                Snackbar.Add(e.Message, Severity.Error);
+            }
+            StateHasChanged();
         }
     }
 }

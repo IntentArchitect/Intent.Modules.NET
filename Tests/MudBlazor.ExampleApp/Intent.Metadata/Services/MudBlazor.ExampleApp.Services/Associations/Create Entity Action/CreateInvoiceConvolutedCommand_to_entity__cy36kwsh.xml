@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b69ebeac-c742-492d-9e83-c02f036bc3a9">
+  <sourceEnd id="2a4d68ae-4bb2-44c0-b48a-f816aa900e33" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : MudBlazor.ExampleApp.Services.CreateInvoiceConvolutedCommand</display>
+    <order>0</order>
+    <typeReference id="3437c537-8fdf-41c3-9b7a-370b17deb091">
+      <typeId>dbb506ad-f246-4fc7-b655-93862aff6b7d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b69ebeac-c742-492d-9e83-c02f036bc3a9" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>entity</name>
+    <display>[create] entity: Invoice</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="2cbef9e8-465f-4adc-bbec-9f4ccb85f6bf">
+      <typeId>e39439c7-ac0d-4580-9e48-4685730fb787</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.Domain</typePackageName>
+      <typePackageId>18787662-9a09-4c1d-8181-9fae5717b52f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="dbb506ad-f246-4fc7-b655-93862aff6b7d" location="[MudBlazor.ExampleApp].[Services].[CreateInvoiceConvolutedCommand]" />
+        <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="e39439c7-ac0d-4580-9e48-4685730fb787" location="[MudBlazor.ExampleApp].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateInvoiceConvolutedCommand}</expression>
+            <path>
+              <target id="e39439c7-ac0d-4580-9e48-4685730fb787" name="Invoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateInvoiceConvolutedCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="dbb506ad-f246-4fc7-b655-93862aff6b7d" name="CreateInvoiceConvolutedCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Invoice.InvoiceNo}</expression>
+            <path>
+              <target id="e39439c7-ac0d-4580-9e48-4685730fb787" name="Invoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="072f79fa-cf71-49a8-9c70-6c44bd0a0a54" name="InvoiceNo" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Invoice.InvoiceNo" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="dbb506ad-f246-4fc7-b655-93862aff6b7d" name="CreateInvoiceConvolutedCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="94bde0fc-927b-452c-a828-e83a31da8b1c" name="Invoice" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="8b4ad9a6-6408-40e9-afe3-b7a915c82cc7" name="InvoiceNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Invoice.IssuedDate}</expression>
+            <path>
+              <target id="e39439c7-ac0d-4580-9e48-4685730fb787" name="Invoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="07d72094-7682-42e1-af4d-872e9e0eb39e" name="IssuedDate" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Invoice.IssuedDate" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="dbb506ad-f246-4fc7-b655-93862aff6b7d" name="CreateInvoiceConvolutedCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="94bde0fc-927b-452c-a828-e83a31da8b1c" name="Invoice" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="efa63e97-8e91-4dcf-b370-2f30dd61b513" name="IssuedDate" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Invoice.DueDate}</expression>
+            <path>
+              <target id="e39439c7-ac0d-4580-9e48-4685730fb787" name="Invoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="b10c9583-8ada-4ab2-b652-a3b437cefab6" name="DueDate" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Invoice.DueDate" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="dbb506ad-f246-4fc7-b655-93862aff6b7d" name="CreateInvoiceConvolutedCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="94bde0fc-927b-452c-a828-e83a31da8b1c" name="Invoice" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="e7cb1a0d-6a80-4841-b45f-6ae0965c32db" name="DueDate" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Invoice.Reference}</expression>
+            <path>
+              <target id="e39439c7-ac0d-4580-9e48-4685730fb787" name="Invoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="50c35313-4311-4cb7-9320-78673c13cb17" name="Reference" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Invoice.Reference" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="dbb506ad-f246-4fc7-b655-93862aff6b7d" name="CreateInvoiceConvolutedCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="94bde0fc-927b-452c-a828-e83a31da8b1c" name="Invoice" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="4705c94b-f061-4886-951d-e5b7b864901d" name="Reference" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Invoice.CustomerId}</expression>
+            <path>
+              <target id="e39439c7-ac0d-4580-9e48-4685730fb787" name="Invoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="1eccbad2-e7b1-4a85-a9fc-f4c8d4e3d947" name="CustomerId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Invoice.CustomerId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="dbb506ad-f246-4fc7-b655-93862aff6b7d" name="CreateInvoiceConvolutedCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="94bde0fc-927b-452c-a828-e83a31da8b1c" name="Invoice" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="b8f18506-9430-41b0-a87f-04653dc104da" name="CustomerId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

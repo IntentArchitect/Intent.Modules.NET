@@ -175,5 +175,26 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="865aec24-e1bb-4b0f-8684-2d56356aa714" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnSaveClickedAlt</name>
+      <display>OnSaveClickedAlt(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="fe628d3a-2ff0-405b-be2a-ebf8aa05b31b">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>fd65838a-6502-4d5f-9282-b6faa6a381fc</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>
