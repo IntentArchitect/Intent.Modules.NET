@@ -210,7 +210,10 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                     // After the build and all properties have been resolved, then check for null forgiving constructor
                     if (@class.Constructors.Count == 0 && outputTarget.GetProject().IsNullableAwareContext() && outputTarget.GetProject().NullableEnabled)
                     {
-                        @class.AddNullForgivingConstructor();
+                        @class.AddNullForgivingConstructor(ctor =>
+                        {
+                            ctor.AddAttribute("IntentMerge");
+                        });
                     }
                 });
 
