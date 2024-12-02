@@ -28,6 +28,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Persistence
         public DbSet<ChildSimple> ChildSimples { get; set; }
 
         public DbSet<Company> Companies { get; set; }
+        public DbSet<CustomConstructor> CustomConstructors { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<FamilyComplex> FamilyComplexes { get; set; }
         public DbSet<FamilyComplexSkipped> FamilyComplexSkippeds { get; set; }
@@ -62,6 +63,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new ChildParentExcludedConfiguration());
             modelBuilder.ApplyConfiguration(new ChildSimpleConfiguration());
             modelBuilder.ApplyConfiguration(new CompanyConfiguration());
+            modelBuilder.ApplyConfiguration(new CustomConstructorConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new FamilyComplexConfiguration());
             modelBuilder.ApplyConfiguration(new FamilyComplexSkippedConfiguration());

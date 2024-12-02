@@ -2436,6 +2436,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#5da228cf-0ebe-4efa-810a-77f972fec2ae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/CustomConstructor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomConstructor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntityState#5da228cf-0ebe-4efa-810a-77f972fec2ae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/CustomConstructorState.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomConstructorState.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a7ee17d-a4ce-4d6c-8022-2a0940cf7d91</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#7b7cb885-2885-4024-a748-e59f24729938</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Entities/Customer.cs</ApplicationRelativeFilePath>
@@ -2660,6 +2676,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>a6e6fdff-adb1-4a21-9332-79bc29ca5721</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#5da228cf-0ebe-4efa-810a-77f972fec2ae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Repositories/ICustomConstructorRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICustomConstructorRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a6e6fdff-adb1-4a21-9332-79bc29ca5721</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#7b7cb885-2885-4024-a748-e59f24729938</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>
@@ -2876,6 +2900,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>87c58aa5-33e0-4bd7-93c9-3fcab4113c71</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#5da228cf-0ebe-4efa-810a-77f972fec2ae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructure/Persistence/Configurations/CustomConstructorConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomConstructorConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>87c58aa5-33e0-4bd7-93c9-3fcab4113c71</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#7b7cb885-2885-4024-a748-e59f24729938</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs</ApplicationRelativeFilePath>
@@ -2992,6 +3024,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructure/Repositories/CompanyRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CompanyRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>954e4849-a772-450e-a281-149b59ac1c8a</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#5da228cf-0ebe-4efa-810a-77f972fec2ae</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructure/Repositories/CustomConstructorRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomConstructorRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
