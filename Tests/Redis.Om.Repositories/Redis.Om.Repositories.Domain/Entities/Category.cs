@@ -8,7 +8,6 @@ namespace Redis.Om.Repositories.Domain.Entities
     public class Category
     {
         private string? _id;
-
         public Category()
         {
             Id = null!;

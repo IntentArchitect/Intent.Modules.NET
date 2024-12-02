@@ -11,7 +11,6 @@ namespace CleanArchitecture.Dapr.Domain.Entities
     public class Tag : IHasDomainEvent
     {
         private string? _id;
-
         public Tag()
         {
             Id = null!;

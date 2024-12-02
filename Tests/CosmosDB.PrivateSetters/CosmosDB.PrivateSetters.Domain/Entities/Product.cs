@@ -11,7 +11,6 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
     {
         private List<string> _categoriesIds = [];
         private string? _id;
-
         public Product()
         {
             Id = null!;

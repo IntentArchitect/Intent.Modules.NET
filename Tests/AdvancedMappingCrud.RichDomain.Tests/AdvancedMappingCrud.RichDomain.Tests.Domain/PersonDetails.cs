@@ -8,14 +8,14 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain
 {
     public class PersonDetails : ValueObject
     {
-        protected PersonDetails()
-        {
-            Name = null!;
-        }
-
         public PersonDetails(Names name)
         {
             Name = name;
+        }
+
+        protected PersonDetails()
+        {
+            Name = null!;
         }
 
         public Names Name { get; private set; }

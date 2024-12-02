@@ -10,7 +10,6 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
     public class DaprInvoice : IHasDomainEvent
     {
         private string? _id;
-
         public DaprInvoice()
         {
             Id = null!;

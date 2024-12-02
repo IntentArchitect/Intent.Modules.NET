@@ -9,7 +9,6 @@ namespace Redis.Om.Repositories.Domain.Entities
     public class LineItem
     {
         private string? _id;
-
         public LineItem()
         {
             Id = null!;

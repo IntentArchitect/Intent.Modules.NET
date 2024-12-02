@@ -9,7 +9,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Indexes
     public class TextIndexEntityMultiChild
     {
         private string? _id;
-
         public TextIndexEntityMultiChild()
         {
             Id = null!;

@@ -8,7 +8,6 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
     public class MongoLine
     {
         private string? _id;
-
         public MongoLine()
         {
             Id = null!;

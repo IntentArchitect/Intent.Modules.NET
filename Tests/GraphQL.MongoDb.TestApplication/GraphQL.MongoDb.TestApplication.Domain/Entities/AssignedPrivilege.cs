@@ -9,7 +9,6 @@ namespace GraphQL.MongoDb.TestApplication.Domain.Entities
     public class AssignedPrivilege
     {
         private string? _id;
-
         public AssignedPrivilege()
         {
             Id = null!;

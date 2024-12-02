@@ -32,8 +32,7 @@ namespace MongoDb.TestApplication.Application.DerivedOfTS
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<DerivedOfT, DerivedOfTDto>()
-                .ForMember(d => d.BaseAttribute, opt => opt.MapFrom(src => (int)src.BaseAttribute));
+            profile.CreateMap<DerivedOfT, DerivedOfTDto>();
         }
     }
 }

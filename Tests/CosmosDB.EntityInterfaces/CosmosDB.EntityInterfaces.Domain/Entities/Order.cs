@@ -13,7 +13,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
     {
         private string? _id;
         private string? _warehouseId;
-
         public Order()
         {
             Id = null!;

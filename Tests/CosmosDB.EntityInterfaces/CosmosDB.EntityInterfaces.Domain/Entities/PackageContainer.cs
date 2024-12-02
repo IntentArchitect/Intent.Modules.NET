@@ -10,7 +10,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
     public class PackageContainer : IPackageContainer, IHasDomainEvent
     {
         private string? _id;
-
         public PackageContainer()
         {
             Id = null!;

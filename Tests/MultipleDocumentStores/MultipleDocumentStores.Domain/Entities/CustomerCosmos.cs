@@ -10,7 +10,6 @@ namespace MultipleDocumentStores.Domain.Entities
     public class CustomerCosmos : IHasDomainEvent
     {
         private string? _id;
-
         public CustomerCosmos()
         {
             Id = null!;

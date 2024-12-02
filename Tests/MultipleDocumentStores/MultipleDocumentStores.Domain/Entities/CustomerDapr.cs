@@ -10,7 +10,6 @@ namespace MultipleDocumentStores.Domain.Entities
     public class CustomerDapr : IHasDomainEvent
     {
         private string? _id;
-
         public CustomerDapr()
         {
             Id = null!;

@@ -10,7 +10,6 @@ namespace CosmosDB.Domain.Entities
     public class GetAllImplementationCustomer : IHasDomainEvent
     {
         private string? _id;
-
         public GetAllImplementationCustomer()
         {
             Id = null!;

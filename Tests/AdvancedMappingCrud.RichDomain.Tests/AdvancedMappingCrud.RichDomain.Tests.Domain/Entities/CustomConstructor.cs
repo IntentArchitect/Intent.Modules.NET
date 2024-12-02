@@ -9,11 +9,11 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
 {
     public class CustomConstructor : IHasDomainEvent
     {
-        public CustomConstructor()
+        public CustomConstructor(string val1)
         {
-            Col1 = null!;
-            // This should NOT be overwritten by the SF
-            Col2 = string.Empty!;
+            // These values should NOT be updated to null! by the SF
+            Col1 = val1;
+            Col2 = string.Empty;
         }
 
         public Guid Id { get; private set; }

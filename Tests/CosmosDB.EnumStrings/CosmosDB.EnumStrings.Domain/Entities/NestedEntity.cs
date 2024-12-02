@@ -8,7 +8,6 @@ namespace CosmosDB.EnumStrings.Domain.Entities
     public class NestedEntity
     {
         private string? _id;
-
         public NestedEntity()
         {
             Id = null!;

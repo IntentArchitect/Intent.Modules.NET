@@ -10,7 +10,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
     public abstract class BaseOfT<T> : IBaseOfT<T>, IHasDomainEvent
     {
         private string? _id;
-
         public BaseOfT()
         {
             Id = null!;

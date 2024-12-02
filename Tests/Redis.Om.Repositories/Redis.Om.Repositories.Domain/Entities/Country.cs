@@ -8,7 +8,6 @@ namespace Redis.Om.Repositories.Domain.Entities
     public class Country
     {
         private int? _id;
-
         public Country()
         {
             Name = null!;

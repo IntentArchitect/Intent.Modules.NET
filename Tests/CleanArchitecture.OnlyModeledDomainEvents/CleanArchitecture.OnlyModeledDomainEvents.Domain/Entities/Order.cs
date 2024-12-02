@@ -8,7 +8,6 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Domain.Entities
     public class Order
     {
         private string? _id;
-
         public Order()
         {
             Id = null!;

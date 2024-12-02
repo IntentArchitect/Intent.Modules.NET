@@ -10,7 +10,6 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
     public class WithGuidId : IHasDomainEvent
     {
         private Guid? _id;
-
         public WithGuidId()
         {
             Field = null!;

@@ -10,7 +10,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
     public class DerivedTypeAggregate : IDerivedTypeAggregate, IHasDomainEvent
     {
         private string? _id;
-
         public DerivedTypeAggregate()
         {
             Id = null!;

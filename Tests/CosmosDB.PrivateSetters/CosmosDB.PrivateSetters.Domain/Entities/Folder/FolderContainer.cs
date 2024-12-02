@@ -11,7 +11,6 @@ namespace CosmosDB.PrivateSetters.Domain.Entities.Folder
     {
         private string? _id;
         private string? _folderPartitionKey;
-
         public FolderContainer()
         {
             Id = null!;

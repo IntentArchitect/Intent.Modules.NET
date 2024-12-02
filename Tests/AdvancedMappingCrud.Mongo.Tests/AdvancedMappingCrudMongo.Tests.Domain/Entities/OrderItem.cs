@@ -8,7 +8,6 @@ namespace AdvancedMappingCrudMongo.Tests.Domain.Entities
     public class OrderItem
     {
         private string? _id;
-
         public OrderItem()
         {
             Id = null!;

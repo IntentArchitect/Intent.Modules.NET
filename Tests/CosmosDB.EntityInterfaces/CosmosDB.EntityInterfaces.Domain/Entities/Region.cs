@@ -12,7 +12,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
     public class Region : IRegion, IHasDomainEvent
     {
         private string? _id;
-
         public Region()
         {
             Id = null!;

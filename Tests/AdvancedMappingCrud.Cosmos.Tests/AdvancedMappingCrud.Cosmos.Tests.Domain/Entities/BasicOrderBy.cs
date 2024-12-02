@@ -10,7 +10,6 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Entities
     public class BasicOrderBy : IHasDomainEvent
     {
         private string? _id;
-
         public BasicOrderBy()
         {
             Id = null!;

@@ -10,7 +10,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
     public class BaseType : IBaseType, IHasDomainEvent
     {
         private string? _id;
-
         public BaseType()
         {
             Id = null!;

@@ -12,7 +12,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
     public class Product : IProduct, IHasDomainEvent
     {
         private string? _id;
-
         public Product()
         {
             Id = null!;

@@ -10,7 +10,6 @@ namespace CosmosDB.Domain.Entities
     public class IdTesting : IHasDomainEvent
     {
         private string? _identifier;
-
         public IdTesting()
         {
             Identifier = null!;

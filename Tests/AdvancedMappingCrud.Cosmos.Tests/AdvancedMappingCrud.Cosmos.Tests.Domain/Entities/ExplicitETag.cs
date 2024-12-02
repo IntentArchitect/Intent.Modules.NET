@@ -10,7 +10,6 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Entities
     public class ExplicitETag : IHasDomainEvent
     {
         private string? _id;
-
         public ExplicitETag()
         {
             Id = null!;

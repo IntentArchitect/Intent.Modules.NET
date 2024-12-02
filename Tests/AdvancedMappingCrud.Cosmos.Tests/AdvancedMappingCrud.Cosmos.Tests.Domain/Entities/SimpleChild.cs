@@ -8,7 +8,6 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Entities
     public class SimpleChild
     {
         private string? _id;
-
         public SimpleChild()
         {
             Id = null!;

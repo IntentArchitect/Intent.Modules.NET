@@ -8,16 +8,16 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain
 {
     public class ContactDetailsVO : ValueObject
     {
-        protected ContactDetailsVO()
-        {
-            Cell = null!;
-            Email = null!;
-        }
-
         public ContactDetailsVO(string cell, string email)
         {
             Cell = cell;
             Email = email;
+        }
+
+        protected ContactDetailsVO()
+        {
+            Cell = null!;
+            Email = null!;
         }
 
         public string Cell { get; private set; }

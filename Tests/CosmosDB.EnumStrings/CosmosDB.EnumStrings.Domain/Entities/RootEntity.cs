@@ -9,7 +9,6 @@ namespace CosmosDB.EnumStrings.Domain.Entities
     public class RootEntity
     {
         private string? _id;
-
         public RootEntity()
         {
             Id = null!;
