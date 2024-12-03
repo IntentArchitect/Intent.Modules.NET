@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.HotChocolate.GraphQL</id>
-  <version>5.0.0-pre.0</version>
+  <version>5.0.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>GraphQL implementation using Hot Chocolate.</summary>
   <description>GraphQL implementation using Hot Chocolate.</description>
@@ -40,22 +40,22 @@
   <interoperability>
     <detect id="Intent.AspNetCore">
       <install>
-        <package id="Intent.HotChocolate.GraphQL.AspNetCore" version="6.0.0-pre.0" />
+        <package id="Intent.HotChocolate.GraphQL.AspNetCore" version="6.0.0" />
       </install>
     </detect>
     <detect id="Intent.AzureFunctions">
       <install>
-        <package id="Intent.HotChocolate.GraphQL.AzureFunctions" version="2.0.0-pre.0" />
+        <package id="Intent.HotChocolate.GraphQL.AzureFunctions" version="2.0.0" />
       </install>
     </detect>
     <detect id="Intent.Application.Contracts">
       <install>
-        <package id="Intent.HotChocolate.GraphQL.Dispatch.Services" version="2.0.0-pre.0" />
+        <package id="Intent.HotChocolate.GraphQL.Dispatch.Services" version="2.0.0" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR">
       <install>
-        <package id="Intent.HotChocolate.GraphQL.Dispatch.MediatR" version="2.0.0-pre.0" />
+        <package id="Intent.HotChocolate.GraphQL.Dispatch.MediatR" version="2.0.0" />
       </install>
     </detect>
   </interoperability>
@@ -67,7 +67,7 @@
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Metadata.Security" version="1.0.0-pre.0" />
+    <dependency id="Intent.Metadata.Security" version="1.0.0" />
     <dependency id="Intent.Modelers.Domain" version="3.9.0" />
     <dependency id="Intent.Modelers.Services" version="3.8.2" />
     <dependency id="Intent.Modelers.Services.GraphQL" version="1.1.0" />
