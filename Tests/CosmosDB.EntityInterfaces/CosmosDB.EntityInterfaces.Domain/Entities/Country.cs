@@ -8,7 +8,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
     public class Country : ICountry
     {
         private int? _id;
-
         public Country()
         {
             Name = null!;

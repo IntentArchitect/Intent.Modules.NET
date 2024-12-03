@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Integration.HttpClients</id>
-  <version>5.2.4-pre.0</version>
+  <version>5.2.4</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</summary>
   <description>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</description>
@@ -84,7 +84,7 @@
     <group id="f3da943d-d685-47cf-9982-59f1ac7127fd" title="Integration Http Client Settings" externalReference="f3da943d-d685-47cf-9982-59f1ac7127fd">
       <settings>
         <setting id="72a03013-072b-4bb7-a67c-dad65bd14b02" title="Authorization Setup" type="select">
-          <hint>See [documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/README.md) for more information.</hint>
+          <hint>See [documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Integration.HttpClients/README.md) for more information.</hint>
           <defaultValue>client-access-token-management</defaultValue>
           <options>
             <option value="none" description="(None)" />

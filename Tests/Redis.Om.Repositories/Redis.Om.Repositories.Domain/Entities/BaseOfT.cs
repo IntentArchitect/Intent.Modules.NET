@@ -10,7 +10,6 @@ namespace Redis.Om.Repositories.Domain.Entities
     public abstract class BaseOfT<T> : IHasDomainEvent
     {
         private string? _id;
-
         public BaseOfT()
         {
             Id = null!;

@@ -11,7 +11,6 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
     {
         private List<Country> _countries = [];
         private string? _id;
-
         public Region()
         {
             Id = null!;

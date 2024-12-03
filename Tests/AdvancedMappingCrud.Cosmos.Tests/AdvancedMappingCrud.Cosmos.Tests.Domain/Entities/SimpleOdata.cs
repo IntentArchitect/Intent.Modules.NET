@@ -10,7 +10,6 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Entities
     public class SimpleOdata : IHasDomainEvent
     {
         private string? _id;
-
         public SimpleOdata()
         {
             Id = null!;

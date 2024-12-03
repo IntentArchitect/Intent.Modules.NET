@@ -9,7 +9,6 @@ namespace CleanArchitecture.Dapr.Domain.Entities
     public class InvoiceLine
     {
         private string? _id;
-
         public InvoiceLine()
         {
             Id = null!;

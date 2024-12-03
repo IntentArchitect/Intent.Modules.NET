@@ -8,7 +8,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
     public class OrderItem : IOrderItem
     {
         private string? _id;
-
         public OrderItem()
         {
             Id = null!;

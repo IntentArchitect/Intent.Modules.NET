@@ -9,7 +9,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
     public class G_MultipleDependent
     {
         private string? _id;
-
         public G_MultipleDependent()
         {
             Id = null!;

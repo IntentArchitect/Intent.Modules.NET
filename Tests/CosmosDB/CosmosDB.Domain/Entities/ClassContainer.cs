@@ -11,7 +11,6 @@ namespace CosmosDB.Domain.Entities
     {
         private string? _id;
         private string? _classPartitionKey;
-
         public ClassContainer()
         {
             Id = null!;

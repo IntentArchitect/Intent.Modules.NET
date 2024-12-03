@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.HotChocolate.GraphQL.Dispatch.MediatR</id>
-  <version>2.0.0-pre.0</version>
+  <version>2.0.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>GraphQL operation auto-implementations that dispatch Commands and Queries through the MediatR library.</summary>
   <description>GraphQL operation auto-implementations that dispatch Commands and Queries through the MediatR library.</description>
@@ -16,11 +16,11 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Application.MediatR" version="4.3.0-pre.0" />
+    <dependency id="Intent.Application.MediatR" version="4.3.0" />
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.7.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.HotChocolate.GraphQL" version="5.0.0-pre.0" />
+    <dependency id="Intent.HotChocolate.GraphQL" version="5.0.0" />
     <dependency id="Intent.Modelers.Domain" version="3.4.0" />
     <dependency id="Intent.Modelers.Services" version="3.3.9" />
     <dependency id="Intent.Modelers.Services.CQRS" version="4.1.0" />

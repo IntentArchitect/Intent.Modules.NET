@@ -10,7 +10,6 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Entities
     public class Customer : IHasDomainEvent
     {
         private string? _id;
-
         public Customer()
         {
             Id = null!;

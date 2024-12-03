@@ -11,7 +11,6 @@ namespace CleanArchitecture.Dapr.Domain.Entities
     public class Client : IHasDomainEvent
     {
         private string? _id;
-
         public Client()
         {
             Id = null!;

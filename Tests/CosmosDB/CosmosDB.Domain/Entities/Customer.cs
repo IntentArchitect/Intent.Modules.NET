@@ -10,7 +10,6 @@ namespace CosmosDB.Domain.Entities
     public class Customer : IHasDomainEvent
     {
         private string? _id;
-
         public Customer()
         {
             Id = null!;

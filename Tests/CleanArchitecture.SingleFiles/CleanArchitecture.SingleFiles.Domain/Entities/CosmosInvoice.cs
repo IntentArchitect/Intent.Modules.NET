@@ -10,7 +10,6 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
     public class CosmosInvoice : IHasDomainEvent
     {
         private string? _id;
-
         public CosmosInvoice()
         {
             Id = null!;

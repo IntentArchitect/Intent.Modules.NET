@@ -8,7 +8,6 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
     public class CosmosLine
     {
         private string? _id;
-
         public CosmosLine()
         {
             Id = null!;

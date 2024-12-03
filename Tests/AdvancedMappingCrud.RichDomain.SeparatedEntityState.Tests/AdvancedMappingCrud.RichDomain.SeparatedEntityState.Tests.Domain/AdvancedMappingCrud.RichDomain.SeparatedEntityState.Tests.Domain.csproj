@@ -95,6 +95,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>FamilyComplex.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\CustomConstructorState.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CustomConstructor.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>

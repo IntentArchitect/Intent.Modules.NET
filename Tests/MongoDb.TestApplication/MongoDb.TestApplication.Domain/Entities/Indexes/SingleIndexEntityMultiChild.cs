@@ -9,7 +9,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Indexes
     public class SingleIndexEntityMultiChild
     {
         private string? _id;
-
         public SingleIndexEntityMultiChild()
         {
             Id = null!;

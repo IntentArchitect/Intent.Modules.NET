@@ -8,7 +8,6 @@ namespace CleanArchitecture.SingleFiles.Domain.Entities
     public class DaprLine
     {
         private string? _id;
-
         public DaprLine()
         {
             Id = null!;

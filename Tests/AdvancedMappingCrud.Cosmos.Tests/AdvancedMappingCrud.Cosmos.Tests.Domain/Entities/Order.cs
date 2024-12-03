@@ -10,7 +10,6 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Domain.Entities
     public class Order : IHasDomainEvent
     {
         private string? _id;
-
         public Order()
         {
             Id = null!;

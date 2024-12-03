@@ -10,7 +10,6 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
     public class Category : IHasDomainEvent
     {
         private string? _id;
-
         public Category()
         {
             Id = null!;

@@ -8,16 +8,16 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain
 {
     public class Names : ValueObject
     {
-        protected Names()
-        {
-            First = null!;
-            Last = null!;
-        }
-
         public Names(string first, string last)
         {
             First = first;
             Last = last;
+        }
+
+        protected Names()
+        {
+            First = null!;
+            Last = null!;
         }
 
         public string First { get; private set; }

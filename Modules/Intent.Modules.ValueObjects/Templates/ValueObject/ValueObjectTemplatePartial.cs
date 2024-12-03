@@ -94,6 +94,7 @@ namespace Intent.Modules.ValueObjects.Templates.ValueObject
                     {
                         @class.AddNullForgivingConstructor(ctor =>
                         {
+                            ctor.AddAttribute("IntentMerge");
                             ctor.Protected();
                         });
                     }

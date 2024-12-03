@@ -10,7 +10,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
     public class EntityOfT<T> : IEntityOfT<T>, IHasDomainEvent
     {
         private string? _id;
-
         public EntityOfT()
         {
             Id = null!;

@@ -11,7 +11,6 @@ namespace BasicAuditing.CustomUserId.Tests.Domain.Entities
     public class Account : IHasDomainEvent, IAuditable
     {
         private string? _id;
-
         public Account()
         {
             Id = null!;

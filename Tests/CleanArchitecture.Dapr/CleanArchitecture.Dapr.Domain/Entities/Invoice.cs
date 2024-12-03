@@ -11,7 +11,6 @@ namespace CleanArchitecture.Dapr.Domain.Entities
     public class Invoice : IHasDomainEvent
     {
         private string? _id;
-
         public Invoice()
         {
             Id = null!;

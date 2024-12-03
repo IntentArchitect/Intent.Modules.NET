@@ -9,7 +9,6 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
     public class LineItem : ILineItem
     {
         private string? _id;
-
         public LineItem()
         {
             Id = null!;

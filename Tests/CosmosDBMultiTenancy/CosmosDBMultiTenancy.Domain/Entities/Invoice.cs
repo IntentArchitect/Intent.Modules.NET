@@ -11,7 +11,6 @@ namespace CosmosDBMultiTenancy.Domain.Entities
     public class Invoice : IHasDomainEvent, IAuditable
     {
         private string? _id;
-
         public Invoice()
         {
             Id = null!;

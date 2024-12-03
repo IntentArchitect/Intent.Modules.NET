@@ -12,7 +12,6 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
         private List<OrderItem> _orderItems = [];
         private string? _id;
         private string? _warehouseId;
-
         public Order()
         {
             Id = null!;

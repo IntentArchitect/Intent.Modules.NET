@@ -28,6 +28,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure
             services.AddTransient<IChildParentExcludedRepository, ChildParentExcludedRepository>();
             services.AddTransient<IChildSimpleRepository, ChildSimpleRepository>();
             services.AddTransient<ICompanyRepository, CompanyRepository>();
+            services.AddTransient<ICustomConstructorRepository, CustomConstructorRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IFamilyComplexRepository, FamilyComplexRepository>();
             services.AddTransient<IFamilyComplexSkippedRepository, FamilyComplexSkippedRepository>();

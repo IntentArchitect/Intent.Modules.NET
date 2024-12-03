@@ -10,7 +10,6 @@ namespace CleanArchitecture.Dapr.Domain.Entities
     public abstract class BaseType : IHasDomainEvent
     {
         private string? _id;
-
         public BaseType()
         {
             Id = null!;
