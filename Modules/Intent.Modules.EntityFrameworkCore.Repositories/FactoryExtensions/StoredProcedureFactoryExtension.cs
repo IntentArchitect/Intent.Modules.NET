@@ -33,7 +33,8 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
         {
             var repositoryModels = application.MetadataManager.Domain(application).GetRepositoryModels();
 
-            if (TryGetTemplate<ICSharpFileBuilderTemplate>(application, TemplateRoles.Infrastructure.Data.DbContext, out var dbContextTemplate))
+            var dbContextTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.ConnectionStringDbContext);
+            foreach (var dbContextTemplate in dbContextTemplates)
             {
                 var hasTypeDefinitionResults = repositoryModels
                     .SelectMany(StoredProcedureHelpers.GetStoredProcedureModels)
@@ -52,6 +53,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                             method.AddParameter("string", "rawSql");
                             method.AddParameter($"{dbContextTemplate.UseType("System.Data.Common.DbParameter")}[]?", "parameters", p => p.WithParamsParameterModifier());
 
+                            method.AddStatement("var connectionWasOpened = false;");
                             method.AddStatement("var connection = Database.GetDbConnection();");
                             method.AddStatement("await using var command = connection.CreateCommand();");
 
@@ -65,8 +67,26 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                                 });
                             });
 
-                            method.AddStatement("await connection.OpenAsync();", s => s.SeparatedFromPrevious());
-                            method.AddStatement($"return ({t}?)await command.ExecuteScalarAsync();");
+                            // https://stackoverflow.com/a/57646090
+                            // We cannot assume that we own the connection,
+                            // if we open it we need to close it, it needs to be open for ExecuteScalarAsync to work.
+                            method.AddIfStatement("connection.State != System.Data.ConnectionState.Open", @if =>
+                            {
+                                @if.AddStatement("await connection.OpenAsync();");
+                                @if.AddStatement("connectionWasOpened = true;");
+                                @if.SeparatedFromPrevious();
+                            });
+                            method.AddTryBlock(block =>
+                            {
+                                block.AddStatement($"return ({t}?)await command.ExecuteScalarAsync();");
+                            });
+                            method.AddFinallyBlock(block =>
+                            {
+                                block.AddIfStatement("connectionWasOpened && connection.State == System.Data.ConnectionState.Open", @if =>
+                                {
+                                    @if.AddStatement("await connection.CloseAsync();");
+                                });
+                            });
                         });
                     });
                 }
@@ -119,6 +139,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     {
                         application.RegisterTemplateInRoleForModel(role, repository, interfaceTemplate);
                     }
+
                     // so that this template can be found when searched for by Id and the repository model (e.g. DomainInteractions with repositories):
                     application.RegisterTemplateInRoleForModel(interfaceTemplate.Id, repository, interfaceTemplate);
                     StoredProcedureHelpers.ApplyInterfaceMethods<EntityRepositoryInterfaceTemplate, ClassModel>(interfaceTemplate, storedProcedures);

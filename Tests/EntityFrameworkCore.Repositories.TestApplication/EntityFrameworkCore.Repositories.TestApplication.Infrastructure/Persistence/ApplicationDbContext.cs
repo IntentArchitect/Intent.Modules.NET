@@ -139,6 +139,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
 
         public async Task<T?> ExecuteScalarAsync<T>(string rawSql, params DbParameter[]? parameters)
         {
+            var connectionWasOpened = false;
             var connection = Database.GetDbConnection();
             await using var command = connection.CreateCommand();
 
@@ -152,8 +153,23 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
                 }
             }
 
-            await connection.OpenAsync();
-            return (T?)await command.ExecuteScalarAsync();
+            if (connection.State != System.Data.ConnectionState.Open)
+            {
+                await connection.OpenAsync();
+                connectionWasOpened = true;
+            }
+
+            try
+            {
+                return (T?)await command.ExecuteScalarAsync();
+            }
+            finally
+            {
+                if (connectionWasOpened && connection.State == System.Data.ConnectionState.Open)
+                {
+                    await connection.CloseAsync();
+                }
+            }
         }
     }
 }

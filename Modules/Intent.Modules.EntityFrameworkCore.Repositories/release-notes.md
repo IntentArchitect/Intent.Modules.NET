@@ -1,3 +1,8 @@
+### Version 4.7.4
+
+- Fixed: The generated `ExecuteScalarAsync` methods on a DbContext didn't robustly manage connections to Open and Close when needed.
+- Fixed: The generated `ExecuteScalarAsync` methods didn't get generated inside all instances of DbContexts.
+
 ### Version 4.7.3
 
 - Improvement: Pass `null` to `filterExpression` instead of `x => true` on `RespositoryBase` for method overloads which have no `filterExpression` or `queryOptions` parameters.
