@@ -96,69 +96,27 @@ If you are using the `Store enums as strings` setting you will get the following
     builder.ToTable(tb => tb.HasCheckConstraint("customer_customer_type_check", $"\"CustomerType\" IN ({string.Join(",", customerTypeEnumValues)})"));
 ```
 
-Intent will automatically do the Column ordering but if you want to get very specific you can use the `DataColumn` stereotype to explicitly set the ordering. 
+Intent will automatically do the Column ordering but if you want to get very specific you can use the `DataColumn` stereotype to explicitly set the ordering.
 This can also be using for forcing columns in base class to go to the end by assigning them a arbitrary large number.
 
 ## Domain Designer modeling
 
 The `Domain Designer` has been extended with many stereotypes for modeling RDBMS technology specific concepts in your domain.
 
-### Primary Key - Attribute stereotype
+Please see the [RDBMS README](https://github.com/IntentArchitect/Intent.Modules/blob/master/Modules/Intent.Modules.Metadata.RDBMS/README.md) for additional information on modeling RDBMS concepts in the `Domain Designer`, including, but not limited to:
 
-The `Primary Key` stereotype indicates that an `Attribute` is the database table's primary key.
-
-By default any `Class`'s added to your domain will have an `Attribute` added named `Id` with the `Primary Key` stereotype applied to it. The type of this attribute will default to the configured 'Database Settings > Key Type', which can be configured in your application settings.
-
-This stereotype can be manually applied to `Attribute`s and can be applied to multiple `Attribute`s in the case of composite primary keys. This stereotype is visualized as a golden key icon.
-
-![Primary Key visual](./docs/images/primary-key-stereotype.png)
-
-### Foreign Key - Attribute stereotype
-
-The `Foreign Key` stereotype indicates an `Attribute` has been introduced to a `Class` as a result of a modeled `Association`, for example:
-
-![Foreign Key visual](./docs/images/foreign-key-stereotype.png)
-
-In this diagram you can see the `CustomerId` attribute has been introduced, with the `Foreign Key` stereotype, as a result of the many-to-one relationship between `Basket` and `Customer`.
-
-The `Foreign Key` stereotypes are automatically managed when modeling associations. This stereotype is visualized as a silver key icon.
-
-### Text Constraint - Attribute Stereotype
-
-The `Text Constraint` stereotype allows you to configure the specifics of how an `Attribute` of type `string` should be realized in the database.
-
-This stereotype can be used to specify:
-
-* Maxlength, the maximum storage size of the string.
-* SQL Datatype, the SQL Datatype for the database.
-
-By default `strings` are realized in SQL as `nvarchar(max)`. The `Text Constraint` stereotype is automatically applied to any attributes of type `string`. This stereotype is visualized by the `[{size}]` text after the `string` type.
-
-![Text Constraint visual](./docs/images/text-constraint-stereotype.png)
-
-### Decimal Constraint - Attribute stereotype
-
-The `Decimal Constraint` stereotype allows you to configure the precision and scale for your `decimal` type attributes.
-
-The `Decimal Constraint` stereotype can be manually applied to any attribute of type `decimal`. This stereotype is visualized by the `({precision},{scale})` text after the `decimal` type.
-
-![Decimal Constraint visual](./docs/images/decimal-constraint-stereotype.png)
-
-### Computed Value - Attribute stereotype
-
-The `Computed Value` stereotype allows you to model SQL computed columns.
-
-The `Computed Value` stereotype can be manually applied to an attribute, allowing you to specify the formula for the calculation and whether or not the calculated result is persisted in the database. This stereotype is visualized by the blue computed column icon.
-
-![Computed Value visual](./docs/images/computed-value-stereotype.png)
-
-### Column - Attribute stereotype
-
-The `Column` stereotype allows you to override the SQL column details from your model, if required.
-
-The `Column` stereotype can be manually applied to an attribute, allowing you to specify the SQL column name and / or SQL column type. This stereotype is visualized by the stereotype's icon.
-
-![Column visual](./docs/images/column-stereotype.png)
+* **Modifying Table defaults**
+* **Modifying Column defaults**
+* **Primary Keys**
+* **Foreign Keys**
+* **Text Constraints**
+* **Decimal Constraints**
+* **Computed Value**
+* **Default Constraints**
+* **Table Join Constraints**
+* **Indexes**
+* **Schemas**
+* **Views**
 
 ### Row Version - Attribute stereotype
 
@@ -167,77 +125,6 @@ The `Row Version` stereotype when applied to a byte[] `Attribute`, denotes that 
 The `Row Version` stereotype can be manually applied. This stereotype is visualized by the time stamp icon.
 
 ![Column visual](./docs/images/row-version-stereotype.png)
-
-### Default Constraint - Attribute stereotype
-
-The `Default Constraint` stereotype allows you to specify SQL column defaults in your model, if required.
-
-The `Default Constraint` stereotype can be manually applied to an attribute, allowing you to specify either a default value or a default SQL expression. This stereotype is visualized by stereotype's icon.
-
-![Default Constraint visual](./docs/images/default-constraint-stereotype.png)
-
-### Join Table Constraint - Association stereotype
-
-The `Join Table` stereotype allows you to specify SQL table name for the joining table implied by a `many to many` relationship in your model, if required.
-
-The `Join Table` stereotype can be manually applied to an association, allowing you to specify the joining table's name. This stereotype is visualized by stereotype's icon.
-
-![Join Table visual](./docs/images/jointable.png)
-
-### Schema - Entity / Package / Folder stereotype
-
-The `Schema` stereotype allows you to specify the SQL Schema for your tables / views , if required.
-
-The `Schema` stereotype can be manually applied to a `Class`, `Folder` or `Package`.
-
-The `Schema` stereotype can be applied hierarchically i.e. if you apply it to a `Package` all tables / views in the package will belong to that schema.
-Similarly you can apply the `Schema` stereotype to a folder, all tables / views under that folder belong to that schema.
-
-The "Closest" `Schema` stereotype to the `Class` will apply to the class.
-
-Note. If you have `Table` or `View` stereotypes with schema's specified these are more specific and will override the `Schema` stereotype. If you do not fill the schema in on these stereotypes, the schema name will fall back to the "Closest" `Schema` stereotype.
-
-![Schema visual](./docs/images/schema-stereotype.png)
-
-### Table - Entity stereotype
-
-The `Table` stereotype allows you to specify a SQL tables name and/or schema name , if required.
-
-By default SQL table names will be the pluralized version of the `Class` name, and go into the `dbo` schema.
-
-The `Table` stereotype can be manually applied to a `Class`. If `Name` or `Schema` are not populated the default value will be used. This stereotype is visualized by stereotype's icon on the top right of the `Class`.
-
-![Table visual](./docs/images/table-stereotype.png)
-
-### View - Entity stereotype
-
-If you have SQL Views in you database which you want to reference in you domain, you can model those views as `Class`s and apply the `View` stereotype to them. This will allow you to access these views through Entity Framework.
-
-On the `View` stereotype you can specify the `Name` and `Schema` for the view, if they are not specified they will default to the pluralized version of the `Class` name, and the `dbo` schema. The SQL view must exist in the database for this to work.
-
-The `View` stereotype can be manually applied to a `Class`. This stereotype is visualized by stereotype's icon on the top right of the `Class`.
-
-![View visual](./docs/images/view-stereotype.png)
-
-### Creating SQL Indexes
-
-You can also model your SQL indexes in the `Domain Designer`.
-
-* Find the `Class` you want to add an Index to, in the `Domain Designer` tree panel.
-* Right-click the `Class` and select `Add Index`.
-
-![Select Add Index](./docs/images/index-add-context.png)
-
-* In dialog box, select the attributes you want to include in the index.
-
-![Select Attributes which make up your Index](./docs/images/index-choose-attributes.png)
-
-* Click `Done`.
-
-![See Index Added](./docs/images/index-created.png)
-
-You will see an `Index` has been added to the `Class`. If the order of the attributes in the index is not correct, you can re-order them by dragging them around.
-You can also configure the Sort Direction on the Index Columns, this is ascending by default.
 
 ### Modeling Inheritance
 
@@ -300,7 +187,6 @@ Changing the Connection String name will allow you to specify a connection strin
 > [!NOTE]
 >
 > For this release, the unit of work pattern still only applies to the main `ApplicationDbContext`, for the additional `DbContext`s the `SaveChanges` methods will need to be called manually. Should you have a project which requires the unit of work pattern to apply to additional `DbContext`s, please each out to us at [Intent Architect Support](https://github.com/IntentArchitect/Support).
-
 
 ## Code Generation Artifacts (Templates, Factory Extensions)
 
@@ -487,8 +373,6 @@ namespace {{Application Name}}.Infrastructure
 Primitive data types (examples include `string`, `int`, `bool` etc) can now be modelled as collections in the `Domain Designer` and will leverage Entity Framework's [Primitive collection properties](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew#primitive-collection-properties) functionality to persist the data as a JSON column in the database.
 
 ![Primitive Collection](docs/images/primitive-collection.png)
-
-For additional details, see the []()
 
 The collection can be mapped using the `Services Designer` using existing mapping functionality:
 
