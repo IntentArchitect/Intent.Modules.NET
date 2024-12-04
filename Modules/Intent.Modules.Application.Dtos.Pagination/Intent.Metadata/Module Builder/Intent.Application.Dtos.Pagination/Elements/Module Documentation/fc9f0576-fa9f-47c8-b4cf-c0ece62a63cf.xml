@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fc9f0576-fa9f-47c8-b4cf-c0ece62a63cf" type="Module Documentation" typeId="a869a2c4-bf24-477c-9d19-87fb24d4209f">
+  <name>Documentation</name>
+  <display>Documentation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9baa3476-269d-4a87-a854-34e150a93bc8</parentFolderId>
+  <packageId>9baa3476-269d-4a87-a854-34e150a93bc8</packageId>
+  <packageName>Intent.Application.Dtos.Pagination</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="7ddbbe3d-1aae-4ec3-adb3-e640b685c231" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Paginate an Endpoint</name>
+      <display>Paginate an Endpoint</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fc9f0576-fa9f-47c8-b4cf-c0ece62a63cf</parentFolderId>
+      <packageId>9baa3476-269d-4a87-a854-34e150a93bc8</packageId>
+      <packageName>Intent.Application.Dtos.Pagination</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="How to implement pagination on an endpoint." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/application-development/modelling/services-designer/modeling-services/modeling-services.html#paginate-accelerator" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[&quot;e71b0662-e29d-4db2-868b-8a12464b25d0&quot;,&quot;e042bb67-a1df-480c-9935-b26210f78591&quot;]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="http endpoint paging pagination paginate sort sorting query operation api rest page" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

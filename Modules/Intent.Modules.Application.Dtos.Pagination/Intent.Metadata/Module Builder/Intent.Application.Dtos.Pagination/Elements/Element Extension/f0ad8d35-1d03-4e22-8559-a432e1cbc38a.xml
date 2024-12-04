@@ -97,11 +97,14 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="b2c3a117-23d3-47e5-8b83-5b902c55a226" display="Icon" value="{&quot;source&quot;:&quot;angle-double-right&quot;,&quot;type&quot;:2,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+                <property name="b2c3a117-23d3-47e5-8b83-5b902c55a226" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
                 <property name="0abff08a-3986-40b1-a28f-4cc03c4fc1ec" display="Shortcut" value="ctrl + shift + g" isActive="true" />
                 <property name="79f6973f-5e3a-4618-9d4c-d7cc604bffe0" display="Shortcut (macOS)" isActive="true" />
-                <property name="e034a0ca-0101-4594-8384-43048b714578" display="Type Order" isActive="true" />
+                <property name="6087e660-9599-47fb-9ff4-1ad901ce2a00" display="Trigger On Double-Click" value="false" isActive="true" />
                 <property name="c03841e5-a1e9-4e95-b699-5a466dde7d7d" display="Is Option Visible Function" value="return typeReference.getIsCollection();" isActive="true" />
+                <property name="e034a0ca-0101-4594-8384-43048b714578" display="Order" isActive="true" />
+                <property name="3e93529e-2110-414e-aec1-2656e1a99b22" display="Top Divider" value="false" isActive="true" />
+                <property name="d2572c08-f02e-40b2-8a06-4d5251bb3352" display="Bottom Divider" value="false" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

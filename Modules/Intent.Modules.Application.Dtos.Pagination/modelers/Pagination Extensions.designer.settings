@@ -8,12 +8,69 @@
   <elementSettings />
   <elementExtensions>
     <elementExtension type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <creationOptions />
-      <scriptOptions>
-        <option>
+      <contextMenuOptions>
+        <runScript type="run-script">
           <text>Paginate</text>
           <shortcut>ctrl + shift + g</shortcut>
-          <icon type="FontAwesome" source="angle-double-right" />
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
+          <isOptionVisibleFunction>return typeReference.getIsCollection();</isOptionVisibleFunction>
+          <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
+function changeReturnType(element) {
+    const pagedResultType = "9204e067-bdc8-45e7-8970-8a833fdc5253";
+    let currentReturnType = element.typeReference.typeId;
+    element.typeReference.setType(pagedResultType, [{ typeId: currentReturnType, isCollection: false, isNullable: false }]);
+    element.typeReference.setIsCollection(false);
+    element.typeReference.setIsNullable(false);
+}
+function addPagingParameters(element, childElementType) {
+    var _a;
+    const commonTypes = {
+        guid: "6b649125-18ea-48fd-a6ba-0bfff0d8f488",
+        long: "33013006-E404-48C2-AC46-24EF5A5774FD",
+        int: "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74",
+        string: "d384db9c-a279-45e1-801e-e4e8099625f2"
+    };
+    var pageOffsetAttributes = ["pageno", "pageindex"];
+    if (!element.getChildren(childElementType).find(x =&gt; pageOffsetAttributes.includes(x.getName().toLowerCase()))) {
+        let pageSize = createElement(childElementType, "PageNo", element.id);
+        pageSize.typeReference.setType(commonTypes.int);
+    }
+    if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "pagesize")) {
+        let pageSize = createElement(childElementType, "PageSize", element.id);
+        pageSize.typeReference.setType(commonTypes.int);
+    }
+    // Dynamic OrderBy doesn't work for Mongo have logged a ticket 
+    //https://github.com/TurnerSoftware/MongoFramework/issues/383
+    if (application.installedModules.find(m =&gt; m.id == "Intent.MongoDb")) {
+        return;
+    }
+    if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "orderby")) {
+        let pageSize = createElement(childElementType, "OrderBy", element.id);
+        pageSize.typeReference.setType(commonTypes.string);
+        (_a = pageSize.typeReference) === null || _a === void 0 ? void 0 : _a.setIsNullable(true);
+    }
+}
+/// &lt;reference path="../common/common-paginate.ts" /&gt;
+/**
+ * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/service/add-pagination-service.ts
+ */
+function addPagination(element) {
+    addPagingParameters(element, "Parameter");
+    changeReturnType(element);
+}
+addPagination(element);
+</script>
+        </runScript>
+      </contextMenuOptions>
+      <creationOptions />
+      <scriptOptions>
+        <option type="run-script">
+          <text>Paginate</text>
+          <shortcut>ctrl + shift + g</shortcut>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
           <isOptionVisibleFunction>return typeReference.getIsCollection();</isOptionVisibleFunction>
           <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
 function changeReturnType(element) {
@@ -71,12 +128,69 @@ addPagination(element);
       <mappingSettings />
     </elementExtension>
     <elementExtension type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
-      <creationOptions />
-      <scriptOptions>
-        <option>
+      <contextMenuOptions>
+        <runScript type="run-script">
           <text>Paginate</text>
           <shortcut>ctrl + shift + g</shortcut>
-          <icon type="FontAwesome" source="angle-double-right" />
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
+          <isOptionVisibleFunction>return typeReference.getIsCollection();</isOptionVisibleFunction>
+          <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
+function changeReturnType(element) {
+    const pagedResultType = "9204e067-bdc8-45e7-8970-8a833fdc5253";
+    let currentReturnType = element.typeReference.typeId;
+    element.typeReference.setType(pagedResultType, [{ typeId: currentReturnType, isCollection: false, isNullable: false }]);
+    element.typeReference.setIsCollection(false);
+    element.typeReference.setIsNullable(false);
+}
+function addPagingParameters(element, childElementType) {
+    var _a;
+    const commonTypes = {
+        guid: "6b649125-18ea-48fd-a6ba-0bfff0d8f488",
+        long: "33013006-E404-48C2-AC46-24EF5A5774FD",
+        int: "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74",
+        string: "d384db9c-a279-45e1-801e-e4e8099625f2"
+    };
+    var pageOffsetAttributes = ["pageno", "pageindex"];
+    if (!element.getChildren(childElementType).find(x =&gt; pageOffsetAttributes.includes(x.getName().toLowerCase()))) {
+        let pageSize = createElement(childElementType, "PageNo", element.id);
+        pageSize.typeReference.setType(commonTypes.int);
+    }
+    if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "pagesize")) {
+        let pageSize = createElement(childElementType, "PageSize", element.id);
+        pageSize.typeReference.setType(commonTypes.int);
+    }
+    // Dynamic OrderBy doesn't work for Mongo have logged a ticket 
+    //https://github.com/TurnerSoftware/MongoFramework/issues/383
+    if (application.installedModules.find(m =&gt; m.id == "Intent.MongoDb")) {
+        return;
+    }
+    if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "orderby")) {
+        let pageSize = createElement(childElementType, "OrderBy", element.id);
+        pageSize.typeReference.setType(commonTypes.string);
+        (_a = pageSize.typeReference) === null || _a === void 0 ? void 0 : _a.setIsNullable(true);
+    }
+}
+/// &lt;reference path="../common/common-paginate.ts" /&gt;
+/**
+ * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/cqrs/add-pagination-cqrs.ts
+ */
+function addPagination(element) {
+    addPagingParameters(element, "DTO-Field");
+    changeReturnType(element);
+}
+addPagination(element);
+</script>
+        </runScript>
+      </contextMenuOptions>
+      <creationOptions />
+      <scriptOptions>
+        <option type="run-script">
+          <text>Paginate</text>
+          <shortcut>ctrl + shift + g</shortcut>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
           <isOptionVisibleFunction>return typeReference.getIsCollection();</isOptionVisibleFunction>
           <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
 function changeReturnType(element) {
