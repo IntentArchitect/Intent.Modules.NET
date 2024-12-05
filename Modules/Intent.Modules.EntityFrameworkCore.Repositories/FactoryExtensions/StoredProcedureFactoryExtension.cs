@@ -53,36 +53,32 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                             method.AddParameter("string", "rawSql");
                             method.AddParameter($"{dbContextTemplate.UseType("System.Data.Common.DbParameter")}[]?", "parameters", p => p.WithParamsParameterModifier());
 
-                            method.AddStatement("var connectionWasOpened = false;");
                             method.AddStatement("var connection = Database.GetDbConnection();");
-                            method.AddStatement("await using var command = connection.CreateCommand();");
-
-                            method.AddStatement("command.CommandText = rawSql;", s => s.SeparatedFromPrevious());
-
-                            method.AddIfStatement("parameters != null", @if =>
+                            
+                            method.AddStatement("// As per the note at https://learn.microsoft.com/ef/core/performance/advanced-performance-topics#managing-state-in-pooled-contexts,");
+                            method.AddStatement("// we are responsible for leaving DbConnection states in the same way we found them.");
+                            method.AddStatement($"var wasOpen = connection.State == {dbContextTemplate.UseType("System.Data.ConnectionState")}.Open;");
+                            method.AddIfStatement("!wasOpen", @if =>
                             {
-                                @if.AddForEachStatement("parameter", "parameters", @foreach =>
+                                @if.AddStatement("await connection.OpenAsync();");
+                                @if.SeparatedFromPrevious();
+                            });
+                            
+                            method.AddTryBlock(block =>
+                            {
+                                block.AddStatement("await using var command = connection.CreateCommand();");
+
+                                block.AddStatement("command.CommandText = rawSql;", s => s.SeparatedFromPrevious());
+
+                                block.AddForEachStatement("parameter", "parameters ?? []", @foreach =>
                                 {
                                     @foreach.AddStatement("command.Parameters.Add(parameter);");
                                 });
-                            });
-
-                            // https://stackoverflow.com/a/57646090
-                            // We cannot assume that we own the connection,
-                            // if we open it we need to close it, it needs to be open for ExecuteScalarAsync to work.
-                            method.AddIfStatement("connection.State != System.Data.ConnectionState.Open", @if =>
-                            {
-                                @if.AddStatement("await connection.OpenAsync();");
-                                @if.AddStatement("connectionWasOpened = true;");
-                                @if.SeparatedFromPrevious();
-                            });
-                            method.AddTryBlock(block =>
-                            {
                                 block.AddStatement($"return ({t}?)await command.ExecuteScalarAsync();");
                             });
                             method.AddFinallyBlock(block =>
                             {
-                                block.AddIfStatement("connectionWasOpened && connection.State == System.Data.ConnectionState.Open", @if =>
+                                block.AddIfStatement("!wasOpen", @if =>
                                 {
                                     @if.AddStatement("await connection.CloseAsync();");
                                 });

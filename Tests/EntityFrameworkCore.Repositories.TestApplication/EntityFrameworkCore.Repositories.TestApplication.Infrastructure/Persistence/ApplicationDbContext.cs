@@ -1,3 +1,4 @@
+using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Threading;
@@ -139,33 +140,31 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
 
         public async Task<T?> ExecuteScalarAsync<T>(string rawSql, params DbParameter[]? parameters)
         {
-            var connectionWasOpened = false;
             var connection = Database.GetDbConnection();
-            await using var command = connection.CreateCommand();
+            // As per the note at https://learn.microsoft.com/ef/core/performance/advanced-performance-topics#managing-state-in-pooled-contexts,
+            // we are responsible for leaving DbConnection states in the same way we found them.
+            var wasOpen = connection.State == ConnectionState.Open;
 
-            command.CommandText = rawSql;
-
-            if (parameters != null)
-            {
-                foreach (var parameter in parameters)
-                {
-                    command.Parameters.Add(parameter);
-                }
-            }
-
-            if (connection.State != System.Data.ConnectionState.Open)
+            if (!wasOpen)
             {
                 await connection.OpenAsync();
-                connectionWasOpened = true;
             }
 
             try
             {
+                await using var command = connection.CreateCommand();
+
+                command.CommandText = rawSql;
+
+                foreach (var parameter in parameters ?? [])
+                {
+                    command.Parameters.Add(parameter);
+                }
                 return (T?)await command.ExecuteScalarAsync();
             }
             finally
             {
-                if (connectionWasOpened && connection.State == System.Data.ConnectionState.Open)
+                if (!wasOpen)
                 {
                     await connection.CloseAsync();
                 }
