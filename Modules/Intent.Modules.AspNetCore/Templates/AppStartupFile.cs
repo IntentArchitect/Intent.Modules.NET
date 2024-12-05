@@ -634,7 +634,7 @@ internal class AppStartupFile : IAppStartupFile
                 switch (parameter)
                 {
                     case ApplicationBuilderRegistrationRequest.ParameterType.Configuration:
-                        parameterList.Add("Configuration");
+                        parameterList.Add(ctx.Configuration);
                         break;
                     case ApplicationBuilderRegistrationRequest.ParameterType.HostEnvironment:
                     case ApplicationBuilderRegistrationRequest.ParameterType.WebHostEnvironment:
