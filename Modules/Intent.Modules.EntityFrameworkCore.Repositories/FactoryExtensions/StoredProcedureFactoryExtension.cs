@@ -54,7 +54,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                             method.AddParameter($"{dbContextTemplate.UseType("System.Data.Common.DbParameter")}[]?", "parameters", p => p.WithParamsParameterModifier());
 
                             method.AddStatement("var connection = Database.GetDbConnection();");
-                            
+
                             method.AddStatement("// As per the note at https://learn.microsoft.com/ef/core/performance/advanced-performance-topics#managing-state-in-pooled-contexts,");
                             method.AddStatement("// we are responsible for leaving DbConnection states in the same way we found them.");
                             method.AddStatement($"var wasOpen = connection.State == {dbContextTemplate.UseType("System.Data.ConnectionState")}.Open;");
@@ -63,7 +63,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                                 @if.AddStatement("await connection.OpenAsync();");
                                 @if.SeparatedFromPrevious();
                             });
-                            
+
                             method.AddTryBlock(block =>
                             {
                                 block.AddStatement("await using var command = connection.CreateCommand();");
