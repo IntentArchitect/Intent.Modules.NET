@@ -171,14 +171,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>6964125b-0b54-4eab-a826-3ff7057b8a3b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Hangfire.Tests.Api/Startup.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>20d94b02-2fde-4068-b4b7-2ff8de62d40a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
