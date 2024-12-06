@@ -151,16 +151,28 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     implementationTemplate.CSharpFile.AfterBuild(file =>
                     {
                         var @class = file.Classes.First();
+                        var hasField = @class.Fields.Any(x => x.Name == "_dbContext");
 
-                        var parameters = @class.Constructors
-                            .SelectMany(x => x.Parameters)
-                            .Where(x => x.Name == "dbContext");
-
-                        foreach (var parameter in parameters)
+                        foreach (var ctor in @class.Constructors)
                         {
-                            parameter.IntroduceReadonlyField();
+                            var dbContextParameter = ctor.Parameters.SingleOrDefault(x => x.Name == "dbContext");
+                            if (dbContextParameter == null)
+                            {
+                                continue;
+                            }
+
+                            if (!hasField)
+                            {
+                                dbContextParameter.IntroduceReadonlyField();
+                                hasField = true;
+                            }
+
+                            if (ctor.Statements.All(x => !string.Equals(x.ToString(), "_dbContext = dbContext;")))
+                            {
+                                ctor.AddStatement("_dbContext = dbContext;");
+                            }
                         }
-                    });
+                    }, 10);
                 }
 
                 StoredProcedureHelpers.ApplyImplementationMethods<RepositoryTemplate, ClassModel>(implementationTemplate, storedProcedures, DbContextManager.GetDbContext(entity));

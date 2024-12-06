@@ -20,6 +20,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
     public class AggregateRoot1Repository : RepositoryBase<AggregateRoot1, AggregateRoot1, ApplicationDbContext>, IAggregateRoot1Repository
     {
         private readonly ApplicationDbContext _dbContext;
+
         public AggregateRoot1Repository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
             _dbContext = dbContext;
@@ -35,90 +36,105 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void Operation_Params0_ReturnsV_Collection0()
         {
+            // TODO: Implement Operation_Params0_ReturnsV_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SpResult Operation_Params0_ReturnsD_Collection0()
         {
+            // TODO: Implement Operation_Params0_ReturnsD_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public List<SpResult> Operation_Params0_ReturnsD_Collection1()
         {
+            // TODO: Implement Operation_Params0_ReturnsD_Collection1 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AggregateRoot1 Operation_Params0_ReturnsE_Collection0()
         {
+            // TODO: Implement Operation_Params0_ReturnsE_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public List<AggregateRoot1> Operation_Params0_ReturnsE_Collection1()
         {
+            // TODO: Implement Operation_Params0_ReturnsE_Collection1 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task Operation_Params0_ReturnsV_Collection0Async(CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation_Params0_ReturnsV_Collection0Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<SpResult> Operation_Params0_ReturnsD_Collection0Async(CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation_Params0_ReturnsD_Collection0Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<List<SpResult>> Operation_Params0_ReturnsD_Collection1Async(CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation_Params0_ReturnsD_Collection1Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<AggregateRoot1> Operation_Params0_ReturnsE_Collection0Async(CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation_Params0_ReturnsE_Collection0Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<List<AggregateRoot1>> Operation_Params0_ReturnsE_Collection1Async(CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation_Params0_ReturnsE_Collection1Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void Operation_Params1_ReturnsV_Collection0(SpParameter param)
         {
+            // TODO: Implement Operation_Params1_ReturnsV_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SpResult Operation_Params1_ReturnsD_Collection0(SpParameter param)
         {
+            // TODO: Implement Operation_Params1_ReturnsD_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public List<SpResult> Operation_Params1_ReturnsD_Collection1(SpParameter param)
         {
+            // TODO: Implement Operation_Params1_ReturnsD_Collection1 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AggregateRoot1 Operation_Params1_ReturnsE_Collection0(SpParameter param)
         {
+            // TODO: Implement Operation_Params1_ReturnsE_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public List<AggregateRoot1> Operation_Params1_ReturnsE_Collection1(SpParameter param)
         {
+            // TODO: Implement Operation_Params1_ReturnsE_Collection1 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
@@ -127,6 +143,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             SpParameter param,
             CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation_Params1_ReturnsV_Collection0Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
@@ -135,6 +152,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             SpParameter param,
             CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation_Params1_ReturnsD_Collection0Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
@@ -143,6 +161,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             SpParameter param,
             CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation_Params1_ReturnsD_Collection1Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
@@ -151,6 +170,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             SpParameter param,
             CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation_Params1_ReturnsE_Collection0Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
@@ -159,18 +179,21 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             SpParameter param,
             CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation_Params1_ReturnsE_Collection1Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void Operation_Params3_ReturnsV_Collection0(SpParameter param, AggregateRoot1 aggrParam, string strParam)
         {
+            // TODO: Implement Operation_Params3_ReturnsV_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SpResult Operation_Params3_ReturnsD_Collection0(SpParameter param, AggregateRoot1 aggrParam, string strParam)
         {
+            // TODO: Implement Operation_Params3_ReturnsD_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
@@ -180,6 +203,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             AggregateRoot1 aggrParam,
             string strParam)
         {
+            // TODO: Implement Operation_Params3_ReturnsD_Collection1 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
@@ -189,6 +213,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             AggregateRoot1 aggrParam,
             string strParam)
         {
+            // TODO: Implement Operation_Params3_ReturnsE_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
@@ -198,6 +223,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             AggregateRoot1 aggrParam,
             string strParam)
         {
+            // TODO: Implement Operation_Params3_ReturnsE_Collection1 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
@@ -208,6 +234,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             string strParam,
             CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation_Params3_ReturnsV_Collection0Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
@@ -218,6 +245,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             string strParam,
             CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation_Params3_ReturnsD_Collection0Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
@@ -228,6 +256,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             string strParam,
             CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation_Params3_ReturnsD_Collection1Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
@@ -238,6 +267,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             string strParam,
             CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation_Params3_ReturnsE_Collection0Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
@@ -248,17 +278,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             string strParam,
             CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation_Params3_ReturnsE_Collection1Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
-        }
-
-        public async Task<AggregateRoot1?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
-        {
-            return await FindAsync(x => x.Id == id, cancellationToken);
-        }
-
-        public async Task<List<AggregateRoot1>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
-        {
-            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }
 
         public async Task<SpResult> Sp_params0_returnsD_collection0_schemaName0(CancellationToken cancellationToken = default)
@@ -591,6 +612,16 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             CancellationToken cancellationToken = default)
         {
             await _dbContext.Database.ExecuteSqlInterpolatedAsync($"EXECUTE dbo.sp_custom {param1}, {param2}", cancellationToken);
+        }
+
+        public async Task<AggregateRoot1?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, cancellationToken);
+        }
+
+        public async Task<List<AggregateRoot1>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
+        {
+            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
         }
     }
 }
