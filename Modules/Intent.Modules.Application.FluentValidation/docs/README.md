@@ -8,11 +8,11 @@ While this module does not contain templates on its own, it includes common logi
 
 When this module is installed, a `Validations` stereotype is automatically applied to all `DTO-Field` items in the Services Designer. Depending on the selected `Type` for the field, different options will be displayed. For example, here are the options for a `guid` field:
 
-![guid options](resources/images/options-guid.png)
+![guid options](images/options-guid.png)
 
 And here are the options for a `string` field:
 
-![string options](resources/images/options-string.png)
+![string options](images/options-string.png)
 
 ### Custom Validation Rules
 
