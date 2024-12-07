@@ -53,11 +53,6 @@ namespace Intent.Hangfire.Api
                 return _stereotype.GetProperty<bool>("Enabled");
             }
 
-            public JobTypeOptions JobType()
-            {
-                return new JobTypeOptions(_stereotype.GetProperty<string>("Job Type"));
-            }
-
             public string CronSchedule()
             {
                 return _stereotype.GetProperty<string>("Cron Schedule");
@@ -96,51 +91,6 @@ namespace Intent.Hangfire.Api
             public IElement Queue()
             {
                 return _stereotype.GetProperty<IElement>("Queue");
-            }
-
-            public class JobTypeOptions
-            {
-                public readonly string Value;
-
-                public JobTypeOptions(string value)
-                {
-                    Value = value;
-                }
-
-                public JobTypeOptionsEnum AsEnum()
-                {
-                    switch (Value)
-                    {
-                        case "Recurring":
-                            return JobTypeOptionsEnum.Recurring;
-                        case "Delayed":
-                            return JobTypeOptionsEnum.Delayed;
-                        case "Fire and Forget":
-                            return JobTypeOptionsEnum.FireAndForget;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
-                }
-
-                public bool IsRecurring()
-                {
-                    return Value == "Recurring";
-                }
-                public bool IsDelayed()
-                {
-                    return Value == "Delayed";
-                }
-                public bool IsFireAndForget()
-                {
-                    return Value == "Fire and Forget";
-                }
-            }
-
-            public enum JobTypeOptionsEnum
-            {
-                Recurring,
-                Delayed,
-                FireAndForget
             }
             public class DelayTimeFrameOptions
             {

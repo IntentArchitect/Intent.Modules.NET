@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Hangfire.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Hangfire.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -16,17 +16,13 @@ using Intent.Templates;
 namespace Intent.Modules.Hangfire.Templates.HangfireDashboardAuthFilter
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class HangfireDashboardAuthFilterTemplate : CSharpTemplateBase<IList<HangfireConfigurationModel>>, ICSharpFileBuilderTemplate
+    public partial class HangfireDashboardAuthFilterTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Hangfire.HangfireDashboardAuthFilter";
 
-        private readonly IList<HangfireConfigurationModel> _model;
-
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public HangfireDashboardAuthFilterTemplate(IOutputTarget outputTarget, IList<HangfireConfigurationModel> model) : base(TemplateId, outputTarget, model)
+        public HangfireDashboardAuthFilterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            _model = model;
-
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Hangfire.Dashboard")
                 .AddClass($"HangfireDashboardAuthFilter", @class =>
@@ -56,13 +52,8 @@ namespace Intent.Modules.Hangfire.Templates.HangfireDashboardAuthFilter
 
         public override bool CanRunTemplate()
         {
-            if (_model.Count == 0)
-            {
-                return false;
-            }
-
             // showdashboard must be checked AND it must be a web application
-            return _model.First().HasHangfireOptions() && _model.First().GetHangfireOptions().ShowDashboard()
+            return ExecutionContext.Settings.GetHangfireSettings().ShowDashboard()
                 && ExecutionContext.InstalledModules.Any(p => p.ModuleId == "Intent.AspNetCore");
         }
 
