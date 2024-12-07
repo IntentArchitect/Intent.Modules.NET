@@ -1,4 +1,3 @@
-using System;
 using Hangfire;
 using Hangfire.Tests.Api.Filters;
 using Hangfire.Tests.Api.HangfireJobs;
@@ -38,8 +37,6 @@ namespace Hangfire.Tests.Api.Configuration
             };
 
             app.UseHangfireDashboard("/hfjobs", dashboardOptions);
-            app.ApplicationServices.GetService<IBackgroundJobClient>().Schedule<Delayed>(j => j.ExecuteAsync(), TimeSpan.FromMinutes(5));
-            app.ApplicationServices.GetService<IBackgroundJobClient>().Enqueue<FireAndForget>(j => j.ExecuteAsync());
             app.ApplicationServices.GetService<IRecurringJobManager>().AddOrUpdate<PriorityRecurring>("PriorityRecurring", "priority", j => j.ExecuteAsync(), configuration.GetValue<string?>($"Hangfire:Jobs:PriorityRecurring:CronSchedule") ?? "* * * * *");
             app.ApplicationServices.GetService<IRecurringJobManager>().AddOrUpdate<PublishCommandJob>("PublishCommandJob", j => j.ExecuteAsync(), configuration.GetValue<string?>($"Hangfire:Jobs:PublishCommandJob:CronSchedule") ?? "* * * * *");
             app.ApplicationServices.GetService<IRecurringJobManager>().AddOrUpdate<Recurring>("Recurring", j => j.ExecuteAsync(), configuration.GetValue<string?>($"Hangfire:Jobs:Recurring:CronSchedule") ?? "* * * * *");

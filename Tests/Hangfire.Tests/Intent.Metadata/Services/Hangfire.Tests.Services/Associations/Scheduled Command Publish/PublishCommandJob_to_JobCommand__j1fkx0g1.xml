@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="32702de8-347f-41e0-86bb-9cc8f2021bcf">
   <sourceEnd id="0151108d-463e-4c2b-8405-7af3076e90fe" type="Scheduled Command Publish Source End" typeId="8fb7e1f2-a7f1-441d-8189-2af97986d4ea">
-    <display>publishes: Hangfire Configuration.PublishCommandJob</display>
+    <display>publishes: Hangfire.Tests.Services.PublishCommandJob</display>
     <order>0</order>
     <typeReference id="684ec4a0-e402-4b8d-90bf-317fcd8f92d5">
       <typeId>3ff3cb37-8e6c-451d-b780-cae9fa1f1b5b</typeId>
