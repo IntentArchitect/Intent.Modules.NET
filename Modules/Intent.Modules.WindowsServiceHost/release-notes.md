@@ -1,3 +1,7 @@
+### Version 1.0.4
+
+- Fixed: When using minimal hosting model some service registration statements would be generated after application configuration statements.
+
 ### Version 1.0.3
 
 - Improvement: Updated module icon

@@ -39,156 +39,91 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
             AddNugetDependency(NugetPackages.MicrosoftExtensionsDependencyInjection(outputTarget));
             AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationAbstractions(outputTarget));
             AddNugetDependency(NugetPackages.MicrosoftExtensionsConfigurationBinder(outputTarget));
-            switch (true, useTopLevelStatements)
+            if (!useTopLevelStatements)
             {
-                // Generic hosting model with Program class and Main method
-                case (false, false):
+                CSharpFile
+                    .AddUsing("Microsoft.Extensions.Hosting")
+                    .AddUsing("Microsoft.Extensions.Logging")
+                    .AddUsing("Microsoft.Extensions.Logging.EventLog")
+                    .AddUsing("Microsoft.Extensions.Logging.Configuration")
+                    .AddUsing("Microsoft.Extensions.DependencyInjection")
+                    .AddClass("Program", @class =>
                     {
-                        CSharpFile
-                            .AddUsing("Microsoft.Extensions.Hosting")
-                            .AddUsing("Microsoft.Extensions.Logging")
-                            .AddUsing("Microsoft.Extensions.Logging.EventLog")
-                            .AddUsing("Microsoft.Extensions.Logging.Configuration")
-                            .AddUsing("Microsoft.Extensions.DependencyInjection")
+                        AddApplicationLoggingConfig();
+                        @class.AddMethod("void", "Main", method =>
+                        {
+                            method.Static();
+                            method.AddParameter("string[]", "args");
 
-                            .AddClass("Program", @class =>
-                            {
-                                AddApplicationLoggingConfig();
-                                @class.AddMethod("void", "Main", method =>
-                                {
-                                    method.Static();
-                                    method.AddParameter("string[]", "args");
-                                    AddGenericModelMainStatements(method);
-                                });
-                                @class.AddMethod("void", "ConfigureServices", method =>
-                                {
-                                    method.Static();
-                                    method.AddParameter("IServiceCollection", "services");
-                                    method.AddParameter("IConfiguration", "Configuration");
-                                    method.AddStatement($@"services.AddWindowsService(options =>
-            {{
-                options.ServiceName = ""{ExecutionContext.GetApplicationConfig().Name}"";
-            }});");
-                                    method.AddStatement("LoggerProviderOptions.RegisterProviderOptions<EventLogSettings, EventLogLoggerProvider>(services);");
-                                    method.AddStatement("services.AddHostedService<WindowsBackgroundService>();");
-                                });
-                                @class.AddMethod("void", "Configure", method =>
-                                {
-                                    method.Static();
-                                    method.AddParameter("HostApplicationBuilder", "app");
-                                });
-                            }, priority: int.MinValue);
-                        break;
-                    }
-                // Generic hosting model with top-level statements
-                case (false, true):
-                    {
-                        CSharpFile
-                            .AddUsing("Microsoft.AspNetCore.Hosting")
-                            .AddUsing("Microsoft.Extensions.Hosting")
-                            .AddTopLevelStatements(tls =>
-                            {
-                                AddApplicationLoggingConfig();
-                                AddGenericModelMainStatements(tls);
-                                tls.AddLocalMethod("IHostBuilder", "CreateHostBuilder", method =>
-                                {
-                                    method.Static();
-                                    method.AddParameter("string[]", "args");
-                                    method.WithExpressionBody(GetGenericModelCreateHostStatement());
-                                });
-                            }, priority: int.MinValue);
-                        break;
-                    }
-                // Minimal hosting model with Program class and Main method
-                case (true, false):
-                    {
-                        CSharpFile
-                            .AddUsing("Microsoft.Extensions.Hosting")
-                            .AddUsing("Microsoft.Extensions.Logging")
-                            .AddUsing("Microsoft.Extensions.Logging.EventLog")
-                            .AddUsing("Microsoft.Extensions.Logging.Configuration")
-                            .AddUsing("Microsoft.Extensions.DependencyInjection")
-                            .AddClass("Program", @class =>
-                            {
-                                AddApplicationLoggingConfig();
-                                @class.AddMethod("void", "Main", method =>
-                                {
-                                    method.Static();
-                                    method.AddParameter("string[]", "args");
-                                    AddMinimalModelStatements(this, method);
-                                });
-                            }, priority: int.MinValue);
-                        break;
-                    }
-                // Minimal hosting model with top-level statements
-                default:
-                    {
+                            ApplyMinimalHostingModelStatements(_startupFile!, CSharpFile);
+                        });
+                    }, priority: int.MinValue);
+            }
+            else
+            {
+                CSharpFile
+                    .AddUsing("Microsoft.AspNetCore.Builder")
+                    .AddUsing("Microsoft.Extensions.DependencyInjection")
+                    .AddUsing("Microsoft.Extensions.Hosting")
+                    .AddTopLevelStatements();
 
-                        CSharpFile
-                            .AddUsing("Microsoft.AspNetCore.Builder")
-                            .AddUsing("Microsoft.Extensions.DependencyInjection")
-                            .AddUsing("Microsoft.Extensions.Hosting")
-                            //.AddTopLevelStatements(AddMinimalModelStatements, priority: int.MinValue)
-                            ;
-                        break;
-                    }
+                ApplyMinimalHostingModelStatements(_startupFile!, CSharpFile);
             }
         }
 
         public IAppStartupFile StartupFile =>
-    _startupFile ?? throw new InvalidOperationException(
-        $"Based on options chosen in the Visual Studio designer, \"{TemplateId}\" " +
-        $"is not responsible for app startup, ensure that you resolve the template with " +
-        $"the role \"{IAppStartupTemplate.RoleName}\" to get the correct template.");
+        _startupFile ?? throw new InvalidOperationException(
+            $"Based on options chosen in the Visual Studio designer, \"{TemplateId}\" " +
+            $"is not responsible for app startup, ensure that you resolve the template with " +
+            $"the role \"{IAppStartupTemplate.RoleName}\" to get the correct template.");
 
-        private static void AddMinimalModelStatements(ICSharpFileBuilderTemplate template, IHasCSharpStatements hasStatements)
+        private void ApplyMinimalHostingModelStatements(IAppStartupFile startupFile, CSharpFile cSharpFile)
         {
-            hasStatements.AddStatement("HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);", s => s
-                .AddMetadata("is-builder-statement", true));
-            hasStatements.AddStatement($@"builder.Services.AddWindowsService(options =>
+            startupFile.ConfigureServices((hasStatements, _) =>
+            {
+                hasStatements.AddStatement("HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);",
+                    s => s.AddMetadata("is-builder-statement", true));
+                hasStatements.AddStatement($@"builder.Services.AddWindowsService(options =>
             {{
-                options.ServiceName = ""{template.ExecutionContext.GetApplicationConfig().Name}"";
+                options.ServiceName = ""{ExecutionContext.GetApplicationConfig().Name}"";
             }});");
-            hasStatements.AddStatement("LoggerProviderOptions.RegisterProviderOptions<EventLogSettings, EventLogLoggerProvider>(builder.Services);");
-            hasStatements.AddStatement("builder.Services.AddHostedService<WindowsBackgroundService>();");
+                hasStatements.AddStatement("LoggerProviderOptions.RegisterProviderOptions<EventLogSettings, EventLogLoggerProvider>(builder.Services);");
 
+                var addHostedServiceStatement = new CSharpStatement("builder.Services.AddHostedService<WindowsBackgroundService>();");
+                hasStatements.AddStatement(addHostedServiceStatement);
 
-            hasStatements.AddStatement("// Add services to the container.", s => s
-                .AddMetadata("is-add-services-to-container-comment", true)
-                .SeparatedFromPrevious());
+                var addServicesComment = new CSharpStatement("// Add services to the container.");
+                hasStatements.AddStatement(addServicesComment, s => s
+                    .AddMetadata("is-add-services-to-container-comment", true)
+                    .SeparatedFromPrevious());
 
-            hasStatements.AddStatement("var app = builder.Build();", s => s
-                .SeparatedFromPrevious());
+                cSharpFile.AfterBuild(_ =>
+                {
+                    var statements = hasStatements.Statements;
 
-            hasStatements.AddStatement("// Configure the HTTP request pipeline.", s => s
-                .AddMetadata("is-configure-request-pipeline-comment", true)
-                .SeparatedFromPrevious());
+                    statements.Remove(addServicesComment);
+                    addHostedServiceStatement.InsertBelow(addServicesComment);
 
-            hasStatements.AddStatement("app.Run();", s => s
-                .SeparatedFromPrevious());
-        }
+                    var index = statements.IndexOf(addServicesComment);
+                    if (statements.Count > index + 1)
+                    {
+                        statements[index + 1].BeforeSeparator = CSharpCodeSeparatorType.NewLine;
+                    }
+                }, 100_000);
+            });
 
-        private static void AddGenericModelMainStatements(IHasCSharpStatements hasStatements)
-        {
-            ;
+            startupFile.ConfigureApp((hasStatements, _) =>
+            {
+                hasStatements.AddStatement("var app = builder.Build();", s => s
+                    .SeparatedFromPrevious());
 
-            hasStatements.AddStatement("HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);",
-                stmt => stmt.AddMetadata("host-run", true));
-            hasStatements.AddStatement("ConfigureServices(builder.Services, builder.Configuration);");
-            hasStatements.AddStatement("Configure(builder);");
-            hasStatements.AddStatement("builder.Build().Run();");
-        }
+                hasStatements.AddStatement("// Configure the HTTP request pipeline.", s => s
+                    .AddMetadata("is-configure-request-pipeline-comment", true)
+                    .SeparatedFromPrevious());
 
-        private CSharpStatement GetGenericModelCreateHostStatement()
-        {
-            return new CSharpStatement("");
-            /*
-			return new CSharpMethodChainStatement("Host.CreateDefaultBuilder(args)")
-				.AddChainStatement(new CSharpInvocationStatement("ConfigureWebHostDefaults")
-					.AddArgument(new CSharpLambdaBlock("webBuilder")
-						.AddStatement($"webBuilder.UseStartup<{this.GetStartupName()}>();"))
-					.WithoutSemicolon()
-				);*/
+                hasStatements.AddStatement("app.Run();", s => s
+                    .SeparatedFromPrevious());
+            });
         }
 
         private void AddApplicationLoggingConfig()
@@ -199,8 +134,6 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
             this.ApplyAppSetting("Logging:EventLog:LogLevel:Microsoft", "Warning");
             this.ApplyAppSetting("Logging:EventLog:LogLevel:Microsoft.Hosting.Lifetime", "Information");
         }
-
-        private bool UseMinimalHostingModel => OutputTarget.GetProject().InternalElement.AsCSharpProjectNETModel()?.GetNETSettings()?.UseMinimalHostingModel() == true;
 
         public IProgramFile ProgramFile { get; }
 
