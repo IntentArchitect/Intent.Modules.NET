@@ -1,3 +1,7 @@
+### Version 3.8.6
+
+- Fixed: Fixed Software Factory error when an application is using the `ASP.NET Core Web Application` project type.
+
 ### Version 3.8.5
 
 - Improvement: Under C# Project Options, Language Version now has an additional option `13.0`.

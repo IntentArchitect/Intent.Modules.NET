@@ -28,7 +28,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
             foreach (var modelId in modelIds)
             {
                 var project = application.Projects.Single(x => x.Id == modelId);
-                registry.Register(TemplateId, project, p => new LaunchSettingsJsonTemplate(p, project.Application.EventDispatcher));
+                registry.Register(TemplateId, project, p => new LaunchSettingsJsonTemplate(p, project.Application.EventDispatcher, application));
             }
         }
     }
