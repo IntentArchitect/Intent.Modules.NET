@@ -1,4 +1,4 @@
-# Intent.Modules.Application.MediatR.FluentValidation
+# Intent.Application.MediatR.FluentValidation
 
 This module provides the logic and templates for creating `Command` and `Query` validators using [FluentValidation](https://fluentvalidation.net/).
 
