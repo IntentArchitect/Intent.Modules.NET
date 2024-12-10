@@ -5,7 +5,6 @@ using Hangfire.Tests.Application;
 using Hangfire.Tests.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
@@ -30,6 +29,7 @@ namespace Hangfire.Tests.Api
             {
                 var builder = WebApplication.CreateBuilder(args);
 
+                // Add services to the container.
                 builder.Host.UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
                     .ReadFrom.Services(services));
@@ -47,8 +47,6 @@ namespace Hangfire.Tests.Api
                 builder.Services.ConfigureHangfire(builder.Configuration);
                 builder.Services.AddInfrastructure(builder.Configuration);
                 builder.Services.ConfigureSwagger(builder.Configuration);
-
-                // Add services to the container.
 
                 var app = builder.Build();
 

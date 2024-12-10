@@ -9,9 +9,10 @@ using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.ConfigureProblemDetails();
-
 // Add services to the container.
+builder.Services.ConfigureProblemDetails();
+builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
 
 var app = builder.Build();
 
@@ -24,6 +25,4 @@ app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
 app.Run();
-builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor();
 app.UseStaticFiles();
