@@ -17,6 +17,8 @@
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
         <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
@@ -24,10 +26,14 @@
   <childElements>
     <childElement id="ef7bef0e-463c-4fce-92df-c50af30ac9e6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>1.0.0</name>
+      <display>1.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f9786e2d-4636-4fe7-a06e-73856a6873fa</parentFolderId>
+      <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
+      <packageName>Intent.Hangfire</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -43,11 +49,14 @@
       <childElements>
         <childElement id="ea2c9d3b-5f2f-475a-b38b-365d39eaec46" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Hangfire.Core</name>
+          <display>Hangfire.Core (1.8.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.8.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ef7bef0e-463c-4fce-92df-c50af30ac9e6</parentFolderId>
+          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
+          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />

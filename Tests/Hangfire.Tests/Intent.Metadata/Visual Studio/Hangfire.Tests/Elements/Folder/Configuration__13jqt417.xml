@@ -3,20 +3,34 @@
   <name>Configuration</name>
   <display>Configuration</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>6964125b-0b54-4eab-a826-3ff7057b8a3b</parentFolderId>
-  <stereotypes />
+  <packageId>80215f41-5b64-44e1-a9b6-5c276b1dff99</packageId>
+  <packageName>Hangfire.Tests</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="a4664549-8c59-4c6f-abb4-5f7510905e56" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
-      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
-      <externalReference>Intent.AspNetCore</externalReference>
+    <childElement id="03ce1945-3aca-422a-b0e4-63dba4421082" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.ApplicationSecurityConfiguration</name>
+      <display>Intent.Application.Identity.ApplicationSecurityConfiguration</display>
+      <externalReference>Intent.Application.Identity</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c8111f10-784e-47c2-842f-6f7b29f03a34</parentFolderId>
+      <packageId>80215f41-5b64-44e1-a9b6-5c276b1dff99</packageId>
+      <packageName>Hangfire.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,34 +45,24 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c8111f10-784e-47c2-842f-6f7b29f03a34</parentFolderId>
+      <packageId>80215f41-5b64-44e1-a9b6-5c276b1dff99</packageId>
+      <packageName>Hangfire.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="30f1be8c-13a2-45d2-8a6c-d845a8cb469b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</name>
-      <display>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</display>
-      <externalReference>Intent.AspNetCore.Versioning</externalReference>
+    <childElement id="a4664549-8c59-4c6f-abb4-5f7510905e56" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
+      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
+      <externalReference>Intent.AspNetCore</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c8111f10-784e-47c2-842f-6f7b29f03a34</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="ef9eafb4-e227-4059-a32c-4d8a9b9b1b3e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</name>
-      <display>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</display>
-      <externalReference>Intent.AspNetCore.Versioning</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>c8111f10-784e-47c2-842f-6f7b29f03a34</parentFolderId>
+      <packageId>80215f41-5b64-44e1-a9b6-5c276b1dff99</packageId>
+      <packageName>Hangfire.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,20 +77,40 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c8111f10-784e-47c2-842f-6f7b29f03a34</parentFolderId>
+      <packageId>80215f41-5b64-44e1-a9b6-5c276b1dff99</packageId>
+      <packageName>Hangfire.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="03ce1945-3aca-422a-b0e4-63dba4421082" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Identity.ApplicationSecurityConfiguration</name>
-      <display>Intent.Application.Identity.ApplicationSecurityConfiguration</display>
-      <externalReference>Intent.Application.Identity</externalReference>
+    <childElement id="30f1be8c-13a2-45d2-8a6c-d845a8cb469b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</display>
+      <externalReference>Intent.AspNetCore.Versioning</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c8111f10-784e-47c2-842f-6f7b29f03a34</parentFolderId>
+      <packageId>80215f41-5b64-44e1-a9b6-5c276b1dff99</packageId>
+      <packageName>Hangfire.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="ef9eafb4-e227-4059-a32c-4d8a9b9b1b3e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</display>
+      <externalReference>Intent.AspNetCore.Versioning</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c8111f10-784e-47c2-842f-6f7b29f03a34</parentFolderId>
+      <packageId>80215f41-5b64-44e1-a9b6-5c276b1dff99</packageId>
+      <packageName>Hangfire.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -101,6 +125,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c8111f10-784e-47c2-842f-6f7b29f03a34</parentFolderId>
+      <packageId>80215f41-5b64-44e1-a9b6-5c276b1dff99</packageId>
+      <packageName>Hangfire.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

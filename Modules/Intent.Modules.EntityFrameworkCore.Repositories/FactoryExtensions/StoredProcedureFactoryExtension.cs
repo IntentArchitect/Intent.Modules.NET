@@ -33,7 +33,8 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
         {
             var repositoryModels = application.MetadataManager.Domain(application).GetRepositoryModels();
 
-            if (TryGetTemplate<ICSharpFileBuilderTemplate>(application, TemplateRoles.Infrastructure.Data.DbContext, out var dbContextTemplate))
+            var dbContextTemplates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.ConnectionStringDbContext);
+            foreach (var dbContextTemplate in dbContextTemplates)
             {
                 var hasTypeDefinitionResults = repositoryModels
                     .SelectMany(StoredProcedureHelpers.GetStoredProcedureModels)
@@ -53,20 +54,35 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                             method.AddParameter($"{dbContextTemplate.UseType("System.Data.Common.DbParameter")}[]?", "parameters", p => p.WithParamsParameterModifier());
 
                             method.AddStatement("var connection = Database.GetDbConnection();");
-                            method.AddStatement("await using var command = connection.CreateCommand();");
 
-                            method.AddStatement("command.CommandText = rawSql;", s => s.SeparatedFromPrevious());
-
-                            method.AddIfStatement("parameters != null", @if =>
+                            method.AddStatement("// As per the note at https://learn.microsoft.com/ef/core/performance/advanced-performance-topics#managing-state-in-pooled-contexts,");
+                            method.AddStatement("// we are responsible for leaving DbConnection states in the same way we found them.");
+                            method.AddStatement($"var wasOpen = connection.State == {dbContextTemplate.UseType("System.Data.ConnectionState")}.Open;");
+                            method.AddIfStatement("!wasOpen", @if =>
                             {
-                                @if.AddForEachStatement("parameter", "parameters", @foreach =>
+                                @if.AddStatement("await connection.OpenAsync();");
+                                @if.SeparatedFromPrevious();
+                            });
+
+                            method.AddTryBlock(block =>
+                            {
+                                block.AddStatement("await using var command = connection.CreateCommand();");
+
+                                block.AddStatement("command.CommandText = rawSql;", s => s.SeparatedFromPrevious());
+
+                                block.AddForEachStatement("parameter", "parameters ?? []", @foreach =>
                                 {
                                     @foreach.AddStatement("command.Parameters.Add(parameter);");
                                 });
+                                block.AddStatement($"return ({t}?)await command.ExecuteScalarAsync();");
                             });
-
-                            method.AddStatement("await connection.OpenAsync();", s => s.SeparatedFromPrevious());
-                            method.AddStatement($"return ({t}?)await command.ExecuteScalarAsync();");
+                            method.AddFinallyBlock(block =>
+                            {
+                                block.AddIfStatement("!wasOpen", @if =>
+                                {
+                                    @if.AddStatement("await connection.CloseAsync();");
+                                });
+                            });
                         });
                     });
                 }
@@ -119,6 +135,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     {
                         application.RegisterTemplateInRoleForModel(role, repository, interfaceTemplate);
                     }
+
                     // so that this template can be found when searched for by Id and the repository model (e.g. DomainInteractions with repositories):
                     application.RegisterTemplateInRoleForModel(interfaceTemplate.Id, repository, interfaceTemplate);
                     StoredProcedureHelpers.ApplyInterfaceMethods<EntityRepositoryInterfaceTemplate, ClassModel>(interfaceTemplate, storedProcedures);
@@ -134,16 +151,28 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     implementationTemplate.CSharpFile.AfterBuild(file =>
                     {
                         var @class = file.Classes.First();
+                        var hasField = @class.Fields.Any(x => x.Name == "_dbContext");
 
-                        var parameters = @class.Constructors
-                            .SelectMany(x => x.Parameters)
-                            .Where(x => x.Name == "dbContext");
-
-                        foreach (var parameter in parameters)
+                        foreach (var ctor in @class.Constructors)
                         {
-                            parameter.IntroduceReadonlyField();
+                            var dbContextParameter = ctor.Parameters.SingleOrDefault(x => x.Name == "dbContext");
+                            if (dbContextParameter == null)
+                            {
+                                continue;
+                            }
+
+                            if (!hasField)
+                            {
+                                dbContextParameter.IntroduceReadonlyField();
+                                hasField = true;
+                            }
+
+                            if (ctor.Statements.All(x => !string.Equals(x.ToString(), "_dbContext = dbContext;")))
+                            {
+                                ctor.AddStatement("_dbContext = dbContext;");
+                            }
                         }
-                    });
+                    }, 10);
                 }
 
                 StoredProcedureHelpers.ApplyImplementationMethods<RepositoryTemplate, ClassModel>(implementationTemplate, storedProcedures, DbContextManager.GetDbContext(entity));

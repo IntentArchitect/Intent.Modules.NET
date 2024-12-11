@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Hangfire</id>
-  <version>1.0.0-beta.5</version>
+  <version>1.0.0-beta.6</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Perform time based and fire-and-forget background processing jobs using Hangfire</summary>
   <description>Perform time based and fire-and-forget background processing jobs using Hangfire</description>
@@ -38,7 +38,50 @@
   </templates>
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="51fa8230-f836-453f-bdbf-1aef2e3a41cb" title="Hangfire Settings" externalReference="51fa8230-f836-453f-bdbf-1aef2e3a41cb">
+      <settings>
+        <setting id="66b854a5-3a68-40bf-a283-8eff57f29a35" title="Storage" type="select">
+          <hint>The storage provider for the Hangfire jobs</hint>
+          <defaultValue>InMemory</defaultValue>
+          <options>
+            <option value="None" description="Settings Option" />
+            <option value="InMemory" description="In Memory" />
+            <option value="SQLServer" description="SQL Server" />
+          </options>
+        </setting>
+        <setting id="0f98d51a-8b18-477d-995f-677b3dd7d5b4" title="Show Dashboard" type="switch">
+          <hint>Should the application expose the Hangfire dashboard?</hint>
+          <defaultValue>true</defaultValue>
+        </setting>
+        <setting id="929eb3fd-8fd5-4852-9029-a5b7c45dd3a4" title="Dashboard URL" type="text">
+          <hint>Set the Hangfire dashboard URL</hint>
+          <defaultValue>/hangfire</defaultValue>
+          <isActiveFunction>return ShowDashboard == true;</isActiveFunction>
+        </setting>
+        <setting id="e19d4511-ee3a-4f5e-8e78-16a1ac9e6dc6" title="Dashboard Title" type="text">
+          <hint>Set the Hangfire dashboard title</hint>
+          <isActiveFunction>return ShowDashboard == true;</isActiveFunction>
+        </setting>
+        <setting id="c5ccd7bb-381c-4a63-86cb-827f11a0654c" title="Read Only Dashboard" type="switch">
+          <hint>Should theHangfire dashboard be read-only?</hint>
+          <defaultValue>false</defaultValue>
+          <isActiveFunction>return ShowDashboard == true;</isActiveFunction>
+        </setting>
+        <setting id="bbffbc72-af03-4848-8842-dd061f1a00dd" title="Configure as Hangfire Server" type="switch">
+          <hint>Configure the application as a Hangfire server (the application will execute jobs)</hint>
+          <defaultValue>true</defaultValue>
+        </setting>
+        <setting id="e1b8de14-a59e-4323-ad77-259397d2c4e0" title="Worker Count" type="number">
+          <hint>Number of Hangfire workers. Recommended leaving blank and letting Hangfire calculate the optimal number of workers</hint>
+        </setting>
+        <setting id="792db502-f103-47ab-af9b-066183720124" title="Job Retention Hours" type="number">
+          <hint>The number of hours successful or deleted jobs are retained before being deleted</hint>
+          <defaultValue>24</defaultValue>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.6.0" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />

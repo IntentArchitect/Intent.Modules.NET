@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
+using Intent.Modules.Common.Types.Api;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,21 +12,21 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Hangfire.Api
 {
     [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
-    public class HangfireConfigurationExtensionModel : HangfireConfigurationModel
+    public class FolderExtensionModel : FolderModel
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public HangfireConfigurationExtensionModel(IElement element) : base(element)
+        public FolderExtensionModel(IElement element) : base(element)
         {
         }
-
-        public IList<HangfireJobModel> Jobs => _element.ChildElements
-            .GetElementsOfType(HangfireJobModel.SpecializationTypeId)
-            .Select(x => new HangfireJobModel(x))
-            .ToList();
 
         public IList<HangfireQueueModel> Queues => _element.ChildElements
             .GetElementsOfType(HangfireQueueModel.SpecializationTypeId)
             .Select(x => new HangfireQueueModel(x))
+            .ToList();
+
+        public IList<HangfireJobModel> Jobs => _element.ChildElements
+            .GetElementsOfType(HangfireJobModel.SpecializationTypeId)
+            .Select(x => new HangfireJobModel(x))
             .ToList();
 
     }

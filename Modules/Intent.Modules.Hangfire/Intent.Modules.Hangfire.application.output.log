@@ -18,26 +18,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>da58eb88-504b-45ec-b50f-370b79a47ad9</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#7188c898-6b96-4a53-b2e4-ce2d6ae3a3fa</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#ffde8523-3675-4c56-bd94-d50f93614c8d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/HangfireConfigurationExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HangfireConfigurationExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>da58eb88-504b-45ec-b50f-370b79a47ad9</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#2debe83d-5a45-431b-ba43-b236894135cc</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/HangfireConfigurationModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HangfireConfigurationModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>da58eb88-504b-45ec-b50f-370b79a47ad9</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#2debe83d-5a45-431b-ba43-b236894135cc</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/HangfireConfigurationModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HangfireConfigurationModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Api/FolderExtensionModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FolderExtensionModel.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -129,6 +113,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>0241dfca-6513-44cd-9719-fd19bbc6aaae</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#fda30066-088b-48e0-9189-6cad1c70af13</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7e6e7fdb-ad7f-4852-9190-b329c04d682a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#45ecdc92-439b-4a8a-8824-9b1d587bc984</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -138,7 +130,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7e6e7fdb-ad7f-4852-9190-b329c04d682a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#45ecdc92-439b-4a8a-8824-9b1d587bc984</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#45ecdc92-439b-4a8a-8824-9b1d587bc984</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/HangfireConfiguration/HangfireConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HangfireConfiguration/HangfireConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -154,7 +146,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7e6e7fdb-ad7f-4852-9190-b329c04d682a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#8afb7368-e6b3-47b7-a807-949d55c9ac20</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#8afb7368-e6b3-47b7-a807-949d55c9ac20</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/HangfireDashboardAuthFilter/HangfireDashboardAuthFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HangfireDashboardAuthFilter/HangfireDashboardAuthFilterTemplateRegistration.cs</ProjectRelativeFilePath>

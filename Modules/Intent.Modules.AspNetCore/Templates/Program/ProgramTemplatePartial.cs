@@ -95,19 +95,23 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                                 {
                                     method.Static();
                                     method.AddParameter("string[]", "args");
-                                    AddMinimalModelStatements(method);
+
+                                    ApplyMinimalHostingModelStatements(_startupFile!, CSharpFile);
                                 });
                             }, priority: int.MinValue);
                         break;
                     }
                 // Minimal hosting model with top-level statements
-                default:
+                case (true, true):
                     {
                         CSharpFile
                             .AddUsing("Microsoft.AspNetCore.Builder")
                             .AddUsing("Microsoft.Extensions.DependencyInjection")
                             .AddUsing("Microsoft.Extensions.Hosting")
-                            .AddTopLevelStatements(AddMinimalModelStatements, priority: int.MinValue);
+                            .AddTopLevelStatements();
+
+                        ApplyMinimalHostingModelStatements(_startupFile!, CSharpFile);
+
                         break;
                     }
             }
@@ -119,24 +123,46 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                 $"is not responsible for app startup, ensure that you resolve the template with " +
                 $"the role \"{IAppStartupTemplate.RoleName}\" to get the correct template.");
 
-        private static void AddMinimalModelStatements(IHasCSharpStatements hasStatements)
+        private static void ApplyMinimalHostingModelStatements(IAppStartupFile startupFile, CSharpFile cSharpFile)
         {
-            hasStatements.AddStatement("var builder = WebApplication.CreateBuilder(args);", s => s
-                .AddMetadata("is-builder-statement", true));
+            startupFile.ConfigureServices((hasStatements, _) =>
+            {
+                var builderCreationStatement = new CSharpStatement("var builder = WebApplication.CreateBuilder(args);");
+                var addServicesComment = new CSharpStatement("// Add services to the container.");
 
-            hasStatements.AddStatement("// Add services to the container.", s => s
-                .AddMetadata("is-add-services-to-container-comment", true)
-                .SeparatedFromPrevious());
+                hasStatements.AddStatement(builderCreationStatement, s => s.AddMetadata("is-builder-statement", true));
 
-            hasStatements.AddStatement("var app = builder.Build();", s => s
-                .SeparatedFromPrevious());
+                hasStatements.AddStatement(addServicesComment, s => s
+                    .AddMetadata("is-add-services-to-container-comment", true)
+                    .SeparatedFromPrevious());
 
-            hasStatements.AddStatement("// Configure the HTTP request pipeline.", s => s
-                .AddMetadata("is-configure-request-pipeline-comment", true)
-                .SeparatedFromPrevious());
+                cSharpFile.AfterBuild(_ =>
+                {
+                    var statements = hasStatements.Statements;
 
-            hasStatements.AddStatement("app.Run();", s => s
-                .SeparatedFromPrevious());
+                    statements.Remove(addServicesComment);
+                    builderCreationStatement.InsertBelow(addServicesComment);
+
+                    var index = statements.IndexOf(addServicesComment);
+                    if (statements.Count > index + 1)
+                    {
+                        statements[index + 1].BeforeSeparator = CSharpCodeSeparatorType.NewLine;
+                    }
+                }, 100_000);
+            });
+
+            startupFile.ConfigureApp((hasStatements, _) =>
+            {
+                hasStatements.AddStatement("var app = builder.Build();", s => s
+                    .SeparatedFromPrevious());
+
+                hasStatements.AddStatement("// Configure the HTTP request pipeline.", s => s
+                    .AddMetadata("is-configure-request-pipeline-comment", true)
+                    .SeparatedFromPrevious());
+
+                hasStatements.AddStatement("app.Run();", s => s
+                    .SeparatedFromPrevious());
+            });
         }
 
         private static void AddGenericModelMainStatements(IHasCSharpStatements hasStatements)

@@ -55,6 +55,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure
             services.AddTransient<IAggregateRoot4SingleRepository, AggregateRoot4SingleRepository>();
             services.AddTransient<IAggregateRoot5Repository, AggregateRoot5Repository>();
             services.AddTransient<IAggregateRoot5EntityWithRepoRepository, AggregateRoot5EntityWithRepoRepository>();
+            services.AddTransient<IEntityWithNoPkRepository, EntityWithNoPkRepository>();
             services.AddTransient<ICustomPkRepository, CustomPkRepository>();
             services.AddTransient<ICustomPkCompRepository, CustomPkCompRepository>();
             services.AddTransient<IMockEntityRepository, MockEntityRepository>();

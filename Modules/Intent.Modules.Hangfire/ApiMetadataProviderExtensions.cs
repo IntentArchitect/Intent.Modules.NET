@@ -11,12 +11,6 @@ namespace Intent.Hangfire.Api
 {
     public static class ApiMetadataProviderExtensions
     {
-        public static IList<HangfireConfigurationModel> GetHangfireConfigurationModels(this IDesigner designer)
-        {
-            return designer.GetElementsOfType(HangfireConfigurationModel.SpecializationTypeId)
-                .Select(x => new HangfireConfigurationModel(x))
-                .ToList();
-        }
         public static IList<HangfireJobModel> GetHangfireJobModels(this IDesigner designer)
         {
             return designer.GetElementsOfType(HangfireJobModel.SpecializationTypeId)

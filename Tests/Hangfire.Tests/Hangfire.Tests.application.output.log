@@ -108,22 +108,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>b4e642b5-3e39-4cfa-b77f-b2623dab2381</ProjectId>
-      <CorrelationId>Intent.Hangfire.HangfireJobs#f83699ef-e281-4f24-ac60-b7081bacc2a3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Hangfire.Tests.Api/HangfireJobs/Delayed.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Delayed.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b4e642b5-3e39-4cfa-b77f-b2623dab2381</ProjectId>
-      <CorrelationId>Intent.Hangfire.HangfireJobs#938af280-a18d-44f5-8e03-386a28dc22bd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Hangfire.Tests.Api/HangfireJobs/FireAndForget.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>FireAndForget.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b4e642b5-3e39-4cfa-b77f-b2623dab2381</ProjectId>
       <CorrelationId>Intent.Hangfire.HangfireJobs#8824f057-df3c-42fa-a565-566a9f439897</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Hangfire.Tests.Api/HangfireJobs/PriorityRecurring.cs</ApplicationRelativeFilePath>
@@ -168,14 +152,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Hangfire.Tests.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6964125b-0b54-4eab-a826-3ff7057b8a3b</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Hangfire.Tests.Api/Startup.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -17,6 +17,8 @@
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
         <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
@@ -24,8 +26,9 @@
   <childElements>
     <childElement id="4ff08158-0736-4cad-b1df-0b42b6f6456b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>1.8.15</name>
-      <display>1.8.14 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>1.8.15 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9d6df365-4d46-4a43-b996-41b29b2eb52f</parentFolderId>
@@ -46,11 +49,14 @@
       <childElements>
         <childElement id="eb825b39-3f42-4b22-8d08-62f15013e557" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Newtonsoft.Json</name>
+          <display>Newtonsoft.Json (11.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>11.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4ff08158-0736-4cad-b1df-0b42b6f6456b</parentFolderId>
+          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
+          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />

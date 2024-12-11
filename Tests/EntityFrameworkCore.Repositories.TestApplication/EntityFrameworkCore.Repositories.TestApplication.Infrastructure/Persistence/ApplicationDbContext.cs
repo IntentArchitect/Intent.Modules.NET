@@ -1,3 +1,4 @@
+using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Threading;
@@ -46,6 +47,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
         public DbSet<AggregateRoot4Nullable> AggregateRoot4Nullables { get; set; }
         public DbSet<AggregateRoot4Single> AggregateRoot4Singles { get; set; }
         public DbSet<AggregateRoot5> AggregateRoot5s { get; set; }
+        public DbSet<EntityWithNoPk> EntityWithNoPks { get; set; }
         public DbSet<CustomPk> CustomPks { get; set; }
         public DbSet<CustomPkComp> CustomPkComps { get; set; }
         public DbSet<MockEntity> MockEntities { get; set; }
@@ -72,6 +74,39 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
+        public async Task<T?> ExecuteScalarAsync<T>(string rawSql, params DbParameter[]? parameters)
+        {
+            var connection = Database.GetDbConnection();
+            // As per the note at https://learn.microsoft.com/ef/core/performance/advanced-performance-topics#managing-state-in-pooled-contexts,
+            // we are responsible for leaving DbConnection states in the same way we found them.
+            var wasOpen = connection.State == ConnectionState.Open;
+
+            if (!wasOpen)
+            {
+                await connection.OpenAsync();
+            }
+
+            try
+            {
+                await using var command = connection.CreateCommand();
+
+                command.CommandText = rawSql;
+
+                foreach (var parameter in parameters ?? [])
+                {
+                    command.Parameters.Add(parameter);
+                }
+                return (T?)await command.ExecuteScalarAsync();
+            }
+            finally
+            {
+                if (!wasOpen)
+                {
+                    await connection.CloseAsync();
+                }
+            }
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -90,6 +125,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
             modelBuilder.ApplyConfiguration(new AggregateRoot4NullableConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot4SingleConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot5Configuration());
+            modelBuilder.ApplyConfiguration(new EntityWithNoPkConfiguration());
             modelBuilder.ApplyConfiguration(new CustomPkConfiguration());
             modelBuilder.ApplyConfiguration(new CustomPkCompConfiguration());
             modelBuilder.ApplyConfiguration(new MockEntityConfiguration());
@@ -135,25 +171,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
                 domainEventEntity.IsPublished = true;
                 await _domainEventService.Publish(domainEventEntity, cancellationToken);
             }
-        }
-
-        public async Task<T?> ExecuteScalarAsync<T>(string rawSql, params DbParameter[]? parameters)
-        {
-            var connection = Database.GetDbConnection();
-            await using var command = connection.CreateCommand();
-
-            command.CommandText = rawSql;
-
-            if (parameters != null)
-            {
-                foreach (var parameter in parameters)
-                {
-                    command.Parameters.Add(parameter);
-                }
-            }
-
-            await connection.OpenAsync();
-            return (T?)await command.ExecuteScalarAsync();
         }
     }
 }

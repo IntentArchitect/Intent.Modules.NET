@@ -35,17 +35,17 @@ namespace Intent.Modules.AspNetCore.Templates
         public IProgramFile ConfigureHostBuilderChainStatement(
             string methodName,
             IEnumerable<string> parameters,
-            HostBuilderChainStatementConfiguration configure = null,
+            HostBuilderChainStatementConfiguration? configure = null,
             int priority = 0)
         {
             var parametersAsArray = parameters.ToArray();
 
             if (!UsesMinimalHostingModel)
             {
-                var hostBuilder = (IHasCSharpStatements)_cSharpFile.TopLevelStatements?.FindMethod("CreateHostBuilder") ??
+                var hostBuilder = (IHasCSharpStatements?)_cSharpFile.TopLevelStatements?.FindMethod("CreateHostBuilder") ??
                                   _cSharpFile.Classes.First().FindMethod("CreateHostBuilder");
 
-                var hostBuilderChain = (CSharpMethodChainStatement)hostBuilder.Statements.First();
+                var hostBuilderChain = (CSharpMethodChainStatement)hostBuilder!.Statements.First();
                 var appConfigurationBlock = (CSharpInvocationStatement)hostBuilderChain
                     .FindStatement(stmt => stmt.ToString()!.StartsWith(methodName));
 
@@ -67,31 +67,32 @@ namespace Intent.Modules.AspNetCore.Templates
             }
             else
             {
-                var targetBlock = _usesTopLevelStatements
-                    ? (IHasCSharpStatements)_cSharpFile.TopLevelStatements
-                    : _cSharpFile.Classes.First().Methods.First(x => x.Name == "Main");
+                var startupTemplate = (IAppStartupTemplate)_template.ExecutionContext.FindTemplateInstance(IAppStartupTemplate.RoleName);
 
-                var statementsToCheck = new List<CSharpStatement>();
-                ExtractPossibleStatements(targetBlock, statementsToCheck);
-                var appConfigurationBlock = statementsToCheck.OfType<CSharpInvocationStatement>().FirstOrDefault(x => x.ToString()!.TrimStart().StartsWith($"builder.Host.{methodName}("));
-                
-                var lambda = EnsureWeHaveEditableLambdaBlock(appConfigurationBlock);
-
-                if (appConfigurationBlock == null)
+                startupTemplate.StartupFile.ConfigureServices((targetBlock, _) =>
                 {
-                    lambda = new EditableCSharpLambdaBlock("()");
+                    var statementsToCheck = new List<CSharpStatement>();
+                    ExtractPossibleStatements(targetBlock, statementsToCheck);
+                    var appConfigurationBlock = statementsToCheck.OfType<CSharpInvocationStatement>().FirstOrDefault(x => x.ToString()!.TrimStart().StartsWith($"builder.Host.{methodName}("));
 
-                    var statementToInsertBelow = targetBlock.Statements.LastOrDefault(x => x.HasMetadata("is-host-builder-configuration-statement")) ??
-                                                 targetBlock.FindStatement(x => x.HasMetadata("is-builder-statement"));
+                    var lambda = EnsureWeHaveEditableLambdaBlock(appConfigurationBlock);
 
-                    statementToInsertBelow.InsertBelow(new CSharpInvocationStatement($"builder.Host.{methodName}")
-                        .AddArgument(lambda)
-                        .SeparatedFromPrevious()
-                        .AddMetadata("is-host-builder-configuration-statement", true));
-                }
+                    if (appConfigurationBlock == null)
+                    {
+                        lambda = new EditableCSharpLambdaBlock("()");
 
-                SetParameters(lambda, parametersAsArray);
-                configure?.Invoke(lambda, (IReadOnlyList<string>)lambda.Metadata["parameters"]);
+                        var statementToInsertBelow = targetBlock.Statements.LastOrDefault(x => x.HasMetadata("is-host-builder-configuration-statement")) ??
+                                                     targetBlock.FindStatement(x => x.HasMetadata("is-builder-statement"));
+
+                        statementToInsertBelow.InsertBelow(new CSharpInvocationStatement($"builder.Host.{methodName}")
+                            .AddArgument(lambda)
+                            .SeparatedFromPrevious()
+                            .AddMetadata("is-host-builder-configuration-statement", true));
+                    }
+
+                    SetParameters(lambda, parametersAsArray);
+                    configure?.Invoke(lambda, (IReadOnlyList<string>)lambda.Metadata["parameters"]);
+                });
             }
 
             return this;
@@ -133,20 +134,20 @@ namespace Intent.Modules.AspNetCore.Templates
                     }
                 }
             }
-            
+
             static EditableCSharpLambdaBlock EnsureWeHaveEditableLambdaBlock(CSharpInvocationStatement appConfigurationBlock)
             {
-                EditableCSharpLambdaBlock lambda;
+                EditableCSharpLambdaBlock? lambda;
                 var configBlockStatement = appConfigurationBlock?.Statements.First();
                 if (configBlockStatement is CSharpLambdaBlock lambdaConfig and not EditableCSharpLambdaBlock)
                 {
                     lambda = EditableCSharpLambdaBlock.CreateFrom(lambdaConfig);
-                    appConfigurationBlock.Statements.RemoveAt(0);
+                    appConfigurationBlock!.Statements.RemoveAt(0);
                     appConfigurationBlock.AddArgument(lambda);
                 }
                 else
                 {
-                    lambda = (EditableCSharpLambdaBlock)appConfigurationBlock?.Statements.First();
+                    lambda = (EditableCSharpLambdaBlock?)appConfigurationBlock?.Statements.First();
                 }
 
                 return lambda;
@@ -155,7 +156,7 @@ namespace Intent.Modules.AspNetCore.Templates
 
         public IProgramFile AddHostBuilderConfigurationStatement<TStatement>(
             TStatement statement,
-            Action<TStatement> configure = null,
+            Action<TStatement>? configure = null,
             int priority = 0) where TStatement : CSharpStatement
         {
             if (!UsesMinimalHostingModel)
@@ -165,7 +166,6 @@ namespace Intent.Modules.AspNetCore.Templates
 
             _cSharpFile.OnBuild(file =>
             {
-
                 var targetBlock = _usesTopLevelStatements
                     ? (IHasCSharpStatements)file.TopLevelStatements
                     : file.Classes.First().Methods.First(x => x.Name == "Main");
@@ -198,7 +198,7 @@ namespace Intent.Modules.AspNetCore.Templates
         public IProgramFile AddMethod(
             string returnType,
             string name,
-            Action<IStartupMethod> configure = null,
+            Action<IStartupMethod>? configure = null,
             int priority = 0)
         {
             StartupMethod.CreateOn(_template, returnType, name, configure, priority);

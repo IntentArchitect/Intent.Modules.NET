@@ -30,21 +30,6 @@
       <valueOptions />
       <lookupTypes />
     </property>
-    <property id="1f4905ea-0c33-4dd6-b0e5-f7926f599f92">
-      <hint>The type of Hangfire job</hint>
-      <name>Job Type</name>
-      <type>string</type>
-      <controlType>select</controlType>
-      <optionsSource>options</optionsSource>
-      <placeholder />
-      <defaultValue>Recurring</defaultValue>
-      <valueOptions>
-        <option>Recurring</option>
-        <option>Delayed</option>
-        <option>Fire and Forget</option>
-      </valueOptions>
-      <lookupTypes />
-    </property>
     <property id="153f01ba-f229-4a2e-8f44-0ecd39924073">
       <hint>The cron schedule on which the job will execute</hint>
       <name>Cron Schedule</name>
@@ -55,7 +40,7 @@
       <defaultValue>* * * * *</defaultValue>
       <valueOptions />
       <lookupTypes />
-      <isActiveFunction>return JobType === "Recurring";</isActiveFunction>
+      <isActiveFunction />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="e5a5f7ad-80f9-471c-9e0f-835f8286ffab">
@@ -75,7 +60,7 @@
         <option>Ticks</option>
       </valueOptions>
       <lookupTypes />
-      <isActiveFunction>return JobType === "Delayed";</isActiveFunction>
+      <isActiveFunction>return false;</isActiveFunction>
     </property>
     <property id="8220c0e1-203d-43f5-9155-ae73a87bf324">
       <hint />
@@ -87,7 +72,7 @@
       <defaultValue>5</defaultValue>
       <valueOptions />
       <lookupTypes />
-      <isActiveFunction>return JobType === "Delayed";</isActiveFunction>
+      <isActiveFunction>return false;</isActiveFunction>
     </property>
     <property id="0aa4b661-211b-40e2-a917-abfc4fef1b03">
       <hint>Only execute this job once the previous instance is completed.</hint>

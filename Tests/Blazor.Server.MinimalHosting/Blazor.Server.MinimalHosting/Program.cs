@@ -14,9 +14,10 @@ namespace Blazor.Server.MinimalHosting
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.ConfigureProblemDetails();
-
             // Add services to the container.
+            builder.Services.ConfigureProblemDetails();
+            builder.Services.AddRazorPages();
+            builder.Services.AddServerSideBlazor();
 
             var app = builder.Build();
 
@@ -25,13 +26,10 @@ namespace Blazor.Server.MinimalHosting
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
-
             app.MapBlazorHub();
             app.MapFallbackToPage("/_Host");
 
             app.Run();
-            builder.Services.AddRazorPages();
-            builder.Services.AddServerSideBlazor();
             app.UseStaticFiles();
         }
     }

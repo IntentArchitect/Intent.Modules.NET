@@ -25,6 +25,7 @@ try
 {
     var builder = WebApplication.CreateBuilder(args);
 
+    // Add services to the container.
     builder.Host.UseSerilog((context, services, configuration) => configuration
         .ReadFrom.Configuration(context.Configuration)
         .ReadFrom.Services(services));
@@ -47,8 +48,6 @@ try
     builder.Services.AddInfrastructure(builder.Configuration);
     builder.Services.ConfigureSwagger(builder.Configuration);
     builder.Services.ConfigureMultiTenancy(builder.Configuration);
-
-    // Add services to the container.
 
     var app = builder.Build();
 

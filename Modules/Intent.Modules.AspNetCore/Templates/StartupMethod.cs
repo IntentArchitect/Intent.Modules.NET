@@ -18,7 +18,7 @@ internal class StartupMethod : IStartupMethod
         CSharpTemplateBase<object> template,
         string returnType,
         string name,
-        Action<IStartupMethod> configure,
+        Action<IStartupMethod>? configure,
         int? priority)
     {
         if (template is not ICSharpFileBuilderTemplate fileBuilderTemplate)

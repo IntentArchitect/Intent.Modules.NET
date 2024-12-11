@@ -1,3 +1,11 @@
+### Version 6.0.8
+
+- Fixed: When using minimal hosting model some service registration statements would be generated after application configuration statements.
+
+### Version 6.0.7
+
+- Fixed: `Configuration` not resolving correctly for Application Builder registrations
+
 ### Version 6.0.6
 
 - Improvement: Updated module icon

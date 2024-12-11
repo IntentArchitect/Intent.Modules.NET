@@ -3,10 +3,9 @@
   <name>Priority</name>
   <display>Priority</display>
   <isAbstract>false</isAbstract>
-  <order>0</order>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>42b1f464-c2b6-4fb8-bd5b-c67970a53e77</parentFolderId>
+  <parentFolderId>ff35c9a1-30d0-4862-b7f9-eb966064c91f</parentFolderId>
   <packageId>ff35c9a1-30d0-4862-b7f9-eb966064c91f</packageId>
   <packageName>Hangfire.Tests.Services</packageName>
   <stereotypes />

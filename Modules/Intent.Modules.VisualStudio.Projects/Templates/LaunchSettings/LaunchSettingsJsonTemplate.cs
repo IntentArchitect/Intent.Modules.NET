@@ -9,6 +9,7 @@ using Intent.Modules.Common.Configuration;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.SdkEvolutionHelpers;
@@ -22,17 +23,17 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
         private int _randomSslPort;
         private string _defaultLaunchUrlPath = string.Empty;
         private bool _launchProfileHttpPortRequired;
-        private CSharpProjectNETModel _model;
+        private IVisualStudioProject? _model;
 
         private readonly List<EnvironmentVariableRegistrationRequest> _environmentVariables = new();
         private bool _noDefaultLaunchSettingsFile;
 
         public const string Identifier = "Intent.VisualStudio.Projects.CoreWeb.LaunchSettings";
 
-        public LaunchSettingsJsonTemplate(IOutputTarget outputTarget, IApplicationEventDispatcher applicationEventDispatcher)
+        public LaunchSettingsJsonTemplate(IOutputTarget outputTarget, IApplicationEventDispatcher applicationEventDispatcher, IApplication application)
             : base(Identifier, outputTarget, null)
         {
-            _model = ExecutionContext.MetadataManager.VisualStudio(ExecutionContext.GetApplicationConfig().Id).GetCSharpProjectNETModels().First(m => m.Id == OutputTarget.Id);
+            _model = ExecutionContext.MetadataManager.GetAllProjectModels(application).FirstOrDefault(m => m.Id == OutputTarget.Id);
 
             ExecutionContext.EventDispatcher.Subscribe<EnvironmentVariableRegistrationRequest>(HandleEnvironmentVariable);
             ExecutionContext.EventDispatcher.Subscribe<LaunchProfileRegistrationRequest>(HandleLaunchProfileRegistration);
@@ -250,7 +251,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.LaunchSettings
 
         private bool IsMicrosoftNETSdkWorker()
         {
-            return _model.HasNETSettings() && _model.GetNETSettings().SDK().IsMicrosoftNETSdkWorker();
+            return _model is not null && _model.HasNETSettings() && _model.GetNETSettings().SDK().IsMicrosoftNETSdkWorker();
         }
 
         private LaunchSettings GetDefaultLaunchSettings()

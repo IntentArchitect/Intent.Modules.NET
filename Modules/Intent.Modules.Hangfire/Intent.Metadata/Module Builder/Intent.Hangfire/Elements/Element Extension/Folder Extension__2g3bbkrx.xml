@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="7188c898-6b96-4a53-b2e4-ce2d6ae3a3fa" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
-  <name>Hangfire Configuration Extension</name>
-  <display>Hangfire Configuration Extension: Hangfire Configuration</display>
+<class id="ffde8523-3675-4c56-bd94-d50f93614c8d" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
+  <name>Folder Extension</name>
+  <display>Folder Extension: Folder</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <typeReference id="c3aae17e-0fa7-4355-8c23-c5eca026fd80">
-    <typeId>2debe83d-5a45-431b-ba43-b236894135cc</typeId>
+  <typeReference id="7ccb7662-e48b-4496-ac03-cef3459e6156">
+    <typeId>4d95d53a-8855-4f35-aa82-e312643f5c5f</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.Hangfire</typePackageName>
-    <typePackageId>fda30066-088b-48e0-9189-6cad1c70af13</typePackageId>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>
@@ -48,26 +48,26 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="b562d74d-e683-4a8b-b703-e1848dfeee84" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+    <childElement id="f6212552-cf63-4fdd-9790-94a522692a11" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
       <name>[context menu]</name>
       <display>[context menu]</display>
       <isAbstract>false</isAbstract>
       <sort-children>manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>7188c898-6b96-4a53-b2e4-ce2d6ae3a3fa</parentFolderId>
+      <parentFolderId>ffde8523-3675-4c56-bd94-d50f93614c8d</parentFolderId>
       <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
       <packageName>Intent.Hangfire</packageName>
       <stereotypes />
       <metadata />
       <childElements>
-        <childElement id="e38f3949-767c-477e-a8c0-67468efccde6" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
-          <name>Add Job</name>
-          <display>Add Job: Hangfire Job</display>
+        <childElement id="3b7e09fe-6691-4f99-ace9-4fa9a363ede1" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+          <name>Add Queue</name>
+          <display>Add Queue: Hangfire Queue</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="de0b8ae0-8d2c-4836-b787-550b596e0e41">
-            <typeId>995f1902-4efb-42ba-b089-a5e856c48943</typeId>
+          <typeReference id="10a0298a-a891-44f5-9f01-598480821570">
+            <typeId>18b0f37e-43da-4d94-b65a-8cff601339ac</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -78,7 +78,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>b562d74d-e683-4a8b-b703-e1848dfeee84</parentFolderId>
+          <parentFolderId>f6212552-cf63-4fdd-9790-94a522692a11</parentFolderId>
           <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
           <packageName>Intent.Hangfire</packageName>
           <stereotypes>
@@ -88,7 +88,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="9df41a97-0a8b-42c6-9d95-becf3d6d1e0b" display="Shortcut" isActive="true" />
+                <property name="9df41a97-0a8b-42c6-9d95-becf3d6d1e0b" display="Shortcut" value="" isActive="true" />
                 <property name="5572d05e-dd37-47f6-944a-73710c07f4f1" display="Shortcut (macOS)" isActive="true" />
                 <property name="ba8a3ecd-0f08-499e-bb5b-929d40f56a45" display="Default Name" value="" isActive="true" />
                 <property name="A43F388B-DAFF-422C-BD8D-FB433EFEC51B" display="Type Order" isActive="true" />
@@ -101,13 +101,13 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5533bfdf-1063-4707-9c23-c19f3da2c9b1" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
-          <name>Add Queue</name>
-          <display>Add Queue: Hangfire Queue</display>
+        <childElement id="2cf4fcac-ce50-47ad-b4c4-5dc28ea4fb0d" type="Element Creation Option" typeId="5fa12f89-da1e-49c5-b8e9-427b22407f19">
+          <name>Add Job</name>
+          <display>Add Job: Hangfire Job</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="cea8c971-1cfc-4aa8-9aad-41e58ee1d63a">
-            <typeId>18b0f37e-43da-4d94-b65a-8cff601339ac</typeId>
+          <typeReference id="6326ef8b-28fc-4b0a-91be-44671e7318d4">
+            <typeId>995f1902-4efb-42ba-b089-a5e856c48943</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
             <isCollection>false</isCollection>
@@ -118,7 +118,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>b562d74d-e683-4a8b-b703-e1848dfeee84</parentFolderId>
+          <parentFolderId>f6212552-cf63-4fdd-9790-94a522692a11</parentFolderId>
           <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
           <packageName>Intent.Hangfire</packageName>
           <stereotypes>

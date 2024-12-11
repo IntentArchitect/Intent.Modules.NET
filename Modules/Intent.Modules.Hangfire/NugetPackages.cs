@@ -23,9 +23,9 @@ namespace Intent.Modules.Hangfire
                 (framework) => framework switch
                     {
                         ( >= 2, 0) => new PackageVersion("1.8.15")
-                            .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.0.0")
+                            .WithNugetDependency("Hangfire.NetCore", "1.8.15")
                             .WithNugetDependency("Microsoft.AspNetCore.Antiforgery", "2.0.0")
-                            .WithNugetDependency("Hangfire.NetCore", "1.8.15"),
+                            .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{HangfireAspNetCorePackageName}'"),
                     }
                 );
@@ -57,56 +57,56 @@ namespace Intent.Modules.Hangfire
                 (framework) => framework switch
                     {
                         ( >= 8, 0) => new PackageVersion("5.2.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "5.2.0")
                             .WithNugetDependency("Azure.Identity", "1.11.4")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "5.2.0")
                             .WithNugetDependency("Microsoft.Identity.Client", "4.61.3")
-                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "6.35.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "6.35.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "6.35.0")
                             .WithNugetDependency("Microsoft.SqlServer.Server", "1.0.0")
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "8.0.0")
                             .WithNugetDependency("System.Runtime.Caching", "8.0.0"),
                         ( >= 6, 0) => new PackageVersion("5.2.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "5.2.0")
                             .WithNugetDependency("Azure.Identity", "1.11.4")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "5.2.0")
                             .WithNugetDependency("Microsoft.Identity.Client", "4.61.3")
-                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "6.35.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "6.35.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "6.35.0")
                             .WithNugetDependency("Microsoft.SqlServer.Server", "1.0.0")
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "6.0.1")
                             .WithNugetDependency("System.Runtime.Caching", "6.0.0"),
                         ( >= 2, 1) => new PackageVersion("5.2.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "5.2.0")
                             .WithNugetDependency("Azure.Identity", "1.11.4")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "5.2.0")
                             .WithNugetDependency("Microsoft.Identity.Client", "4.61.3")
-                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "6.35.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "6.35.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "6.35.0")
                             .WithNugetDependency("Microsoft.SqlServer.Server", "1.0.0")
                             .WithNugetDependency("Microsoft.Win32.Registry", "5.0.0")
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "6.0.1")
                             .WithNugetDependency("System.Diagnostics.DiagnosticSource", "6.0.1")
                             .WithNugetDependency("System.Runtime.Caching", "6.0.0")
-                            .WithNugetDependency("System.Text.Encoding.CodePages", "6.0.0")
-                            .WithNugetDependency("System.Text.Encodings.Web", "6.0.0")
                             .WithNugetDependency("System.Runtime.Loader", "4.3.0")
                             .WithNugetDependency("System.Security.Cryptography.Cng", "5.0.0")
-                            .WithNugetDependency("System.Security.Principal.Windows", "5.0.0"),
+                            .WithNugetDependency("System.Security.Principal.Windows", "5.0.0")
+                            .WithNugetDependency("System.Text.Encoding.CodePages", "6.0.0")
+                            .WithNugetDependency("System.Text.Encodings.Web", "6.0.0"),
                         ( >= 2, 0) => new PackageVersion("5.2.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "5.2.0")
                             .WithNugetDependency("Azure.Identity", "1.11.4")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "5.2.0")
                             .WithNugetDependency("Microsoft.Identity.Client", "4.61.3")
-                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "6.35.0")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "6.35.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "6.35.0")
                             .WithNugetDependency("Microsoft.SqlServer.Server", "1.0.0")
                             .WithNugetDependency("Microsoft.Win32.Registry", "5.0.0")
                             .WithNugetDependency("System.Buffers", "4.5.1")
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "6.0.1")
                             .WithNugetDependency("System.Diagnostics.DiagnosticSource", "6.0.1")
                             .WithNugetDependency("System.Runtime.Caching", "6.0.0")
-                            .WithNugetDependency("System.Text.Encoding.CodePages", "6.0.0")
-                            .WithNugetDependency("System.Text.Encodings.Web", "6.0.0")
                             .WithNugetDependency("System.Runtime.Loader", "4.3.0")
                             .WithNugetDependency("System.Security.Cryptography.Cng", "5.0.0")
-                            .WithNugetDependency("System.Security.Principal.Windows", "5.0.0"),
+                            .WithNugetDependency("System.Security.Principal.Windows", "5.0.0")
+                            .WithNugetDependency("System.Text.Encoding.CodePages", "6.0.0")
+                            .WithNugetDependency("System.Text.Encodings.Web", "6.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftDataSqlClientPackageName}'"),
                     }
                 );

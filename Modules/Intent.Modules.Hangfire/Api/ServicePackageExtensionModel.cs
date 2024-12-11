@@ -20,10 +20,16 @@ namespace Intent.Hangfire.Api
         }
 
         [IntentManaged(Mode.Fully)]
-        public HangfireConfigurationModel Hangfire => UnderlyingPackage.ChildElements
-            .GetElementsOfType(HangfireConfigurationModel.SpecializationTypeId)
-            .Select(x => new HangfireConfigurationModel(x))
-            .SingleOrDefault();
+        public IList<HangfireJobModel> Jobs => UnderlyingPackage.ChildElements
+            .GetElementsOfType(HangfireJobModel.SpecializationTypeId)
+            .Select(x => new HangfireJobModel(x))
+            .ToList();
+
+        [IntentManaged(Mode.Fully)]
+        public IList<HangfireQueueModel> Queues => UnderlyingPackage.ChildElements
+            .GetElementsOfType(HangfireQueueModel.SpecializationTypeId)
+            .Select(x => new HangfireQueueModel(x))
+            .ToList();
 
     }
 }
