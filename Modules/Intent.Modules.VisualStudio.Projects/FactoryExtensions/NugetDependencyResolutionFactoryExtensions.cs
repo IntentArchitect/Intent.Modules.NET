@@ -1,42 +1,42 @@
-﻿using Intent.Modules.Common.Plugins;
-using Intent.SoftwareFactory;
-using Intent.Engine;
-using Intent.Plugins.FactoryExtensions;
-using Intent.Templates;
-using System.Collections.Generic;
-using System;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using Intent.Modules.Common;
-using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.VisualStudio;
-using Intent.Modules.Constants;
-using Intent.Utils;
+using Intent.Engine;
 using Intent.Modules.Common.CSharp.Nuget;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
+using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.VisualStudio;
+using Intent.Plugins.FactoryExtensions;
+using Intent.Utils;
 
 namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 {
     [Description("Visual Studio Dependancy Resolver")]
-    public class NugetDependencyResolutionFactoryExtensions : FactoryExtensionBase, IExecutionLifeCycle
+    public class NugetDependencyResolutionFactoryExtensions : FactoryExtensionBase
     {
         public override string Id => "Intent.VSProjects.NuGetDependencyResolver";
 
         public override int Order => 1000;
 
-        public void OnStep(IApplication application, string step)
+        public override void OnStep(IApplication application, string step)
         {
-            if (step == ExecutionLifeCycleSteps.AfterTemplateRegistrations)
+            switch (step)
             {
-                foreach (var project in application.OutputTargets.Where(x => x.IsVSProject()))
+                case ExecutionLifeCycleSteps.AfterTemplateRegistrations:
                 {
-                    project.InitializeVSMetadata();
+                    foreach (var project in application.OutputTargets.Where(x => x.IsVSProject()))
+                    {
+                        project.InitializeVSMetadata();
+                    }
+
+                    break;
                 }
-            }
-            if (step == ExecutionLifeCycleSteps.BeforeTemplateExecution)
-            {
-                ResolveNuGetDependencies(application);
+                case ExecutionLifeCycleSteps.BeforeTemplateExecution:
+                {
+                    ResolveNuGetDependencies(application);
+                    break;
+                }
             }
         }
 
@@ -48,8 +48,8 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             foreach (var outputTarget in application.OutputTargets)
             {
                 var project = outputTarget.GetProject();
-                
-                project.AddNugetPackageInstalls(GetAllemplateNugetInstalls(outputTarget));
+
+                project.AddNugetPackageInstalls(GetAllTemplateNuGetInstalls(outputTarget));
 
                 var assemblyDependencies = outputTarget.TemplateInstances
                         .SelectMany(ti => ti.GetAllAssemblyDependencies())
@@ -63,7 +63,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             }
         }
 
-        private IEnumerable<NuGetInstall> GetAllemplateNugetInstalls(IOutputTarget outputTarget)
+        private static IEnumerable<NuGetInstall> GetAllTemplateNuGetInstalls(IOutputTarget outputTarget)
         {
             return outputTarget.TemplateInstances
                     .SelectMany(ti => ti.GetAllNuGetInstalls())
