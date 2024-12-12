@@ -134,7 +134,7 @@ public static class RazorFileExtensions
                         var mappingManager = template.CreateMappingManager();
                         mappingManager.SetFromReplacement(operation, null);
                         var mappings = template.BindingManager.ViewBinding.MappedEnds.Where(x => x.SourceElement?.Id == operation.Id).ToList() ?? new();
-                        var mappedButton = mappings.FirstOrDefault(x => x.TargetPath.Any(p => p.Element.SpecializationType == "Button"));
+                        //var mappedButton = mappings.FirstOrDefault(x => x.TargetPath.Any(p => p.Element.SpecializationType == "Button"));
 
                         foreach (var action in operation.GetProcessingActions())
                         {
@@ -251,6 +251,12 @@ public static class RazorFileExtensions
                                     .AddArgument("new DialogOptions() { FullWidth = true }"))));
                                 method.AddStatement(new CSharpAssignmentStatement("var result", new CSharpAwaitExpression(new CSharpStatement($"dialog.Result;"))));
                                 method.AddStatement(new CSharpIfStatement("result.Canceled").AddStatement("return;"));
+                                
+                                const string StaticMappableResponseId = "f815a2ce-59e4-4e53-bea1-dd4ba46a8b7a";
+                                
+                                mappingManager.SetFromReplacement(navigationModel, null);
+                                mappingManager.SetFromReplacement(new StaticMetadata(StaticMappableResponseId), "result.Data");
+                                
                                 continue;
                             }
                         }
