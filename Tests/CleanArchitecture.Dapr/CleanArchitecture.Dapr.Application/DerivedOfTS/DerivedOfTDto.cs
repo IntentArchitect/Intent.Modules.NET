@@ -32,8 +32,7 @@ namespace CleanArchitecture.Dapr.Application.DerivedOfTS
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<DerivedOfT, DerivedOfTDto>()
-                .ForMember(d => d.GenericTypeAttribute, opt => opt.MapFrom(src => (int)src.GenericTypeAttribute));
+            profile.CreateMap<DerivedOfT, DerivedOfTDto>();
         }
     }
 }
