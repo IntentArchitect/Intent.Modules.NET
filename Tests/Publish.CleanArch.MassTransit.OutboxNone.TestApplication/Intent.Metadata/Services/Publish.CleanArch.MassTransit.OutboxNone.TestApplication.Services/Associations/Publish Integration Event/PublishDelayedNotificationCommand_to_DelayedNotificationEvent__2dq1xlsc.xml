@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8c15df22-c32c-4d65-8327-909fd556f2fe">
+  <sourceEnd id="2029e896-912d-43a6-9332-5192ab54d069" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Scheduled.PublishDelayedNotificationCommand</display>
+    <order>0</order>
+    <typeReference id="d02fd7da-9b8f-45e3-b2f4-26232aa25aa5">
+      <typeId>de788e31-dfbf-441f-a18a-df6d5ae9b5da</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Services</typePackageName>
+      <typePackageId>a05a4bdf-10ae-40b6-8616-8268d15d00d1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8c15df22-c32c-4d65-8327-909fd556f2fe" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] DelayedNotificationEvent</display>
+    <order>1</order>
+    <typeReference id="b2442cf4-c40a-49df-99ce-937a0932d110">
+      <typeId>d788a26e-930b-4ffb-af58-b7247a14e6d4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source elementId="de788e31-dfbf-441f-a18a-df6d5ae9b5da" location="[Publish.CleanArch.MassTransit.OutboxNone.TestApplication].[Services].[PublishDelayedNotificationCommand]" />
+        <target applicationId="71eac626-755a-4c5d-89f1-e66511d4df64" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="d788a26e-930b-4ffb-af58-b7247a14e6d4" location="[Publish.CleanArch.MassTransit.OutboxNone.TestApplication].[Services].[DelayedNotificationEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="d788a26e-930b-4ffb-af58-b7247a14e6d4" name="DelayedNotificationEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="868d177c-374f-4379-8a09-af17b6ad8052" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="de788e31-dfbf-441f-a18a-df6d5ae9b5da" name="PublishDelayedNotificationCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="339d642e-59e6-47b1-8ff9-081b1d0299f4" name="Message" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

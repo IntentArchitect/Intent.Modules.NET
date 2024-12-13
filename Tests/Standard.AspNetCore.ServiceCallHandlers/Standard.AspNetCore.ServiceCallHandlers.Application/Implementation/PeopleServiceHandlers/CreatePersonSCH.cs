@@ -31,14 +31,14 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Implementation.Peo
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(PersonCreateDto dto, CancellationToken cancellationToken = default)
         {
-            var newPerson = new Person
+            var person = new Person
             {
-                Name = dto.Name,
+                Name = dto.Name
             };
-            _personRepository.Add(newPerson);
+
+            _personRepository.Add(person);
             await _personRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            _eventBus.Publish(newPerson.MapToPersonCreatedEvent());
-            return newPerson.Id;
+            return person.Id;
         }
     }
 }

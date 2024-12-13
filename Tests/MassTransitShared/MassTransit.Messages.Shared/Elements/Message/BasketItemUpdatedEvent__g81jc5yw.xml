@@ -12,7 +12,7 @@
     <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="65fe0448-94b2-4c97-9746-0088607c147a" name="BasketItem" type="element" specialization="Class" />
+      <target id="65fe0448-94b2-4c97-9746-0088607c147a" name="BasketItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>29f4e1f5-a4e6-4ba5-aeea-cf52b4526788</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="1c8e7cd7-2e44-4d17-a2f0-84399d9b5c5d" name="Id" type="element" specialization="Attribute" />
+          <target id="1c8e7cd7-2e44-4d17-a2f0-84399d9b5c5d" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>7b3353ce-2dfc-4037-b2c7-6c289ccc8f80</parentFolderId>
@@ -73,7 +73,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="9bb88a51-a1cf-4524-9df9-9abcd83ac2ed" name="Description" type="element" specialization="Attribute" />
+          <target id="9bb88a51-a1cf-4524-9df9-9abcd83ac2ed" name="Description" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>7b3353ce-2dfc-4037-b2c7-6c289ccc8f80</parentFolderId>
@@ -104,7 +104,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="aae0cd36-3854-4fb8-be65-73b20632eb42" name="Amount" type="element" specialization="Attribute" />
+          <target id="aae0cd36-3854-4fb8-be65-73b20632eb42" name="Amount" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>7b3353ce-2dfc-4037-b2c7-6c289ccc8f80</parentFolderId>
@@ -135,7 +135,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="64fc19b0-7b7d-4dc9-b402-7d50d673fe3b" name="BasketId" type="element" specialization="Attribute" />
+          <target id="64fc19b0-7b7d-4dc9-b402-7d50d673fe3b" name="BasketId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>7b3353ce-2dfc-4037-b2c7-6c289ccc8f80</parentFolderId>

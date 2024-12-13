@@ -30,15 +30,28 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateBasketCommand request, CancellationToken cancellationToken)
         {
-            var newBasket = new Basket
+            var basket = new Basket
             {
-                Number = request.Number,
+                Number = request.Number
             };
 
-            _basketRepository.Add(newBasket);
+            _basketRepository.Add(basket);
             await _basketRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            _eventBus.Publish(newBasket.MapToBasketCreatedEvent());
-            return newBasket.Id;
+            _eventBus.Publish(new BasketCreatedEvent
+            {
+                Id = basket.Id,
+                Number = basket.Number,
+                BasketItems = basket.BasketItems
+                    .Select(bi => new BasketItemDto
+                    {
+                        Id = bi.Id,
+                        Description = bi.Description,
+                        Amount = bi.Amount,
+                        BasketId = bi.BasketId
+                    })
+                    .ToList()
+            });
+            return basket.Id;
         }
     }
 }

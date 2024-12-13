@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="66adbb2c-83c0-423c-be08-a4252a0cd467">
+  <sourceEnd id="e0647edb-1117-48ed-9528-8f04a3a3eb1c" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Orders.UpdateOrderCommand</display>
+    <order>0</order>
+    <typeReference id="6597a9a0-0f2e-43af-849e-9ed47cae11de">
+      <typeId>fc38edd7-56f0-4d61-ae4b-08f4ed576679</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Services</typePackageName>
+      <typePackageId>e34283b3-859f-4000-8713-1d68ff426fdb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="66adbb2c-83c0-423c-be08-a4252a0cd467" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderUpdatedEvent</display>
+    <order>4</order>
+    <typeReference id="f7681ea9-8791-4c72-8b07-49f6f5d4068e">
+      <typeId>8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="cb6c20ce-8d48-4013-ae35-4e3310784497" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="fc38edd7-56f0-4d61-ae4b-08f4ed576679" location="[Publish.CleanArch.MassTransit.OutboxEF.TestApplication].[Services].[UpdateOrderCommand]" />
+        <target applicationId="71eac626-755a-4c5d-89f1-e66511d4df64" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed" location="[Publish.CleanArch.MassTransit.OutboxEF.TestApplication].[Services].[OrderUpdatedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{order.Id}</expression>
+            <path>
+              <target id="8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed" name="OrderUpdatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="4e1635e0-ca5f-4431-a9c3-626c56441173" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="order.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="fc38edd7-56f0-4d61-ae4b-08f4ed576679" name="UpdateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="2c98b31f-6d66-4438-9374-76630381e3d5" name="order" type="association" specialization="Update Entity Action Target End" specializationId="516069f6-09cc-4de8-8e31-3c71ca823452" />
+                  <target id="6c2d95bd-f98e-49eb-b344-eb0167b6e317" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{order.Number}</expression>
+            <path>
+              <target id="8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed" name="OrderUpdatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="7ffd9b35-f9f6-4f52-8c17-9b397ba17c0e" name="Number" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="order.Number" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="fc38edd7-56f0-4d61-ae4b-08f4ed576679" name="UpdateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="2c98b31f-6d66-4438-9374-76630381e3d5" name="order" type="association" specialization="Update Entity Action Target End" specializationId="516069f6-09cc-4de8-8e31-3c71ca823452" />
+                  <target id="089840d0-43a0-41a4-af66-c8f037c6b55c" name="Number" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{order.OrderItems}</expression>
+            <path>
+              <target id="8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed" name="OrderUpdatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="1e95a630-e3d7-4457-bdd4-478f8552535a" name="OrderItems" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="order.OrderItems" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="fc38edd7-56f0-4d61-ae4b-08f4ed576679" name="UpdateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="2c98b31f-6d66-4438-9374-76630381e3d5" name="order" type="association" specialization="Update Entity Action Target End" specializationId="516069f6-09cc-4de8-8e31-3c71ca823452" />
+                  <target id="3dce6e16-909e-48fd-bc46-94ca2128faff" name="OrderItems" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{order.OrderItems.Id}</expression>
+            <path>
+              <target id="8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed" name="OrderUpdatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="1e95a630-e3d7-4457-bdd4-478f8552535a" name="OrderItems" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="c1548a94-0622-482c-96f5-0a0ece5dacd8" name="Id" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="order.OrderItems.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="fc38edd7-56f0-4d61-ae4b-08f4ed576679" name="UpdateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="2c98b31f-6d66-4438-9374-76630381e3d5" name="order" type="association" specialization="Update Entity Action Target End" specializationId="516069f6-09cc-4de8-8e31-3c71ca823452" />
+                  <target id="3dce6e16-909e-48fd-bc46-94ca2128faff" name="OrderItems" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                  <target id="60ae65d6-c86d-4e1b-882b-5cfc2e3ee41c" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{order.OrderItems.OrderId}</expression>
+            <path>
+              <target id="8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed" name="OrderUpdatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="1e95a630-e3d7-4457-bdd4-478f8552535a" name="OrderItems" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="3b58cf69-cb6d-44ad-89f8-507691bb626b" name="OrderId" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="order.OrderItems.OrderId" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="fc38edd7-56f0-4d61-ae4b-08f4ed576679" name="UpdateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="2c98b31f-6d66-4438-9374-76630381e3d5" name="order" type="association" specialization="Update Entity Action Target End" specializationId="516069f6-09cc-4de8-8e31-3c71ca823452" />
+                  <target id="3dce6e16-909e-48fd-bc46-94ca2128faff" name="OrderItems" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                  <target id="15a9d122-48a6-46f6-8727-d0f1627c03fe" name="OrderId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{order.OrderItems.Description}</expression>
+            <path>
+              <target id="8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed" name="OrderUpdatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="1e95a630-e3d7-4457-bdd4-478f8552535a" name="OrderItems" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="539e12a6-e882-464b-b970-c3e6cb41e142" name="Description" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="order.OrderItems.Description" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="fc38edd7-56f0-4d61-ae4b-08f4ed576679" name="UpdateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="2c98b31f-6d66-4438-9374-76630381e3d5" name="order" type="association" specialization="Update Entity Action Target End" specializationId="516069f6-09cc-4de8-8e31-3c71ca823452" />
+                  <target id="3dce6e16-909e-48fd-bc46-94ca2128faff" name="OrderItems" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                  <target id="588ce8d5-043e-43ef-b656-01853f8cd0f8" name="Description" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{order.OrderItems.Amount}</expression>
+            <path>
+              <target id="8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed" name="OrderUpdatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="1e95a630-e3d7-4457-bdd4-478f8552535a" name="OrderItems" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="a1636612-11f6-490f-a74e-9b1aebf13eb3" name="Amount" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="order.OrderItems.Amount" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="fc38edd7-56f0-4d61-ae4b-08f4ed576679" name="UpdateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="2c98b31f-6d66-4438-9374-76630381e3d5" name="order" type="association" specialization="Update Entity Action Target End" specializationId="516069f6-09cc-4de8-8e31-3c71ca823452" />
+                  <target id="3dce6e16-909e-48fd-bc46-94ca2128faff" name="OrderItems" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                  <target id="e5283acd-1870-47f5-857c-c1ca9c49e338" name="Amount" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

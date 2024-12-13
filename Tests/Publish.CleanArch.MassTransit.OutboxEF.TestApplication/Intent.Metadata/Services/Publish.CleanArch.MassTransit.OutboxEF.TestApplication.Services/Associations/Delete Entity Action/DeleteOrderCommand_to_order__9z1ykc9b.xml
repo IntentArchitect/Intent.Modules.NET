@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="bc0d4190-2aa5-4642-b0a4-5c78ccc64221">
+  <sourceEnd id="a4e3c240-e91c-4cb2-b1af-e7b434412290" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Orders.DeleteOrderCommand</display>
+    <order>0</order>
+    <typeReference id="93c38989-ddb6-496f-8a15-d5c8975dc19b">
+      <typeId>b8fd830b-c7f2-4fb0-abb5-a488b59a5bc2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Services</typePackageName>
+      <typePackageId>e34283b3-859f-4000-8713-1d68ff426fdb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="bc0d4190-2aa5-4642-b0a4-5c78ccc64221" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>order</name>
+    <display>[delete] order: Order</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="ee7dddc2-7a86-40da-be98-e95d548e5d89">
+      <typeId>f742cf87-1a4a-4b0e-a3bc-2b495809270d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain</typePackageName>
+      <typePackageId>9003d23c-6a13-4706-9d29-ce915fa57a90</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="cb6c20ce-8d48-4013-ae35-4e3310784497" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b8fd830b-c7f2-4fb0-abb5-a488b59a5bc2" location="[Publish.CleanArch.MassTransit.OutboxEF.TestApplication].[Services].[DeleteOrderCommand]" />
+        <target applicationId="cb6c20ce-8d48-4013-ae35-4e3310784497" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f742cf87-1a4a-4b0e-a3bc-2b495809270d" location="[Publish.CleanArch.MassTransit.OutboxEF.TestApplication].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="f742cf87-1a4a-4b0e-a3bc-2b495809270d" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="6c2d95bd-f98e-49eb-b344-eb0167b6e317" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="b8fd830b-c7f2-4fb0-abb5-a488b59a5bc2" name="DeleteOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6236fddf-2a0c-4818-a166-9e061eb3b563" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

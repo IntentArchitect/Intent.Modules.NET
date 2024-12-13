@@ -180,26 +180,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>ba737611-e467-44c9-8804-74cc04cc14fa</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.DtoExtensions#676bbe1f-dd7e-4ea8-a9fd-ea523603f406</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/PriviledgeDtoExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Roles/PriviledgeDtoExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ba737611-e467-44c9-8804-74cc04cc14fa</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#624a4efe-d55a-4935-acd6-b94c9c794a30</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleCreatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Roles/RoleCreatedEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ba737611-e467-44c9-8804-74cc04cc14fa</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#624a4efe-d55a-4935-acd6-b94c9c794a30</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleCreatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Roles/RoleCreatedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -212,26 +196,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>ba737611-e467-44c9-8804-74cc04cc14fa</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#c39fb238-316f-4f29-810f-57dbc7e042af</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleDeletedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Roles/RoleDeletedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ba737611-e467-44c9-8804-74cc04cc14fa</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#d642905f-8484-47cd-a0ee-c0b04e29e9c4</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleUpdatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Roles/RoleUpdatedEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ba737611-e467-44c9-8804-74cc04cc14fa</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#d642905f-8484-47cd-a0ee-c0b04e29e9c4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/IntegrationEvents/Roles/RoleUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Roles/RoleUpdatedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -264,14 +232,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/PriviledgeDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Roles/PriviledgeDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cab6970-9672-43e7-80e3-ba2d1e954e0b</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#df224fcd-ad09-47ac-9077-c9af664e5335</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxNone.Application/Roles/PriviledgeDtoMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Roles/PriviledgeDtoMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

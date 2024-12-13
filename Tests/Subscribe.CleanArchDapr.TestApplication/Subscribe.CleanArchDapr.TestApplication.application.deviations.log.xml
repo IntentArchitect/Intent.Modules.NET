@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Dapr.AspNetCore.Pubsub.EventHandler#eaf4ea64-a790-4498-87cf-c395d7a7f1ca</correlationId>
+      <path>Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEventHandlers/OrderCreatedEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2024-12-13T11:36:02.5919647Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2024-12-13T11:39:47.6008921Z</approvedAt>
+      <deviationsHash>4604D3C920B510E3CA11F0081AB4D643DB87B51E6957C0E13A4C15BF6D9A6ED2</deviationsHash>
+      <fileHash>625323F2655B39BC09BAE503827E7D739E17D8F2EC3B502C2C6EF6AD371CDC67</fileHash>
+    </file>
+  </files>
 </deviationsLog>

@@ -13,19 +13,6 @@ namespace CleanArchitecture.Comprehensive.Application.Tests.ConventionBasedEvent
 {
     public static class IntegrationTriggeringAssertions
     {
-        public static void AssertEquivalent(
-            CreateAnemicIntegrationTriggeringCommand expectedDto,
-            IntegrationTriggering actualEntity)
-        {
-            if (expectedDto == null)
-            {
-                actualEntity.Should().BeNull();
-                return;
-            }
-
-            actualEntity.Should().NotBeNull();
-            actualEntity.Value.Should().Be(expectedDto.Value);
-        }
 
         public static void AssertEquivalent(
             UpdateAnemicIntegrationTriggeringCommand expectedDto,

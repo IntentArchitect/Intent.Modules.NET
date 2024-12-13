@@ -53,7 +53,10 @@ namespace CleanArchitecture.SingleFiles.Application.MongoInvoices
             existingMongoInvoice.Description = request.Description;
 
             _mongoInvoiceRepository.Update(existingMongoInvoice);
-            _eventBus.Publish(existingMongoInvoice.MapToMongoInvoiceUpdatedEvent());
+            _eventBus.Publish(new MongoInvoiceUpdatedEvent
+            {
+                Description = request.Description
+            });
         }
     }
 

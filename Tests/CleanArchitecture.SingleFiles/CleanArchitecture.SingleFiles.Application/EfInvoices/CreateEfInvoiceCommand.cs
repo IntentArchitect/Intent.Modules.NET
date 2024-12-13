@@ -49,7 +49,10 @@ namespace CleanArchitecture.SingleFiles.Application.EfInvoices
 
             _efInvoiceRepository.Add(newEfInvoice);
             await _efInvoiceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            _eventBus.Publish(newEfInvoice.MapToEfInvoiceCreatedEvent());
+            _eventBus.Publish(new EfInvoiceCreatedEvent
+            {
+                Description = request.Description
+            });
             return newEfInvoice.Id;
         }
     }

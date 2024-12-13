@@ -10,7 +10,7 @@ using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Entities;
 
 namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Users
 {
-    public class PreferenceDto : IMapFrom<Preference>
+    public class PreferenceDto
     {
         public PreferenceDto()
         {
@@ -23,20 +23,15 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Us
         public Guid UserId { get; set; }
         public Guid Id { get; set; }
 
-        public static PreferenceDto Create(string key, string value, Guid userId, Guid id)
+        public static PreferenceDto Create(Guid id, string key, string value, Guid userId)
         {
             return new PreferenceDto
             {
+                Id = id,
                 Key = key,
                 Value = value,
-                UserId = userId,
-                Id = id
+                UserId = userId
             };
-        }
-
-        public void Mapping(Profile profile)
-        {
-            profile.CreateMap<Preference, PreferenceDto>();
         }
     }
 }

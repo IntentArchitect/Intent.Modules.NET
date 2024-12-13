@@ -31,22 +31,28 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(UpdateBasketBasketItemCommand request, CancellationToken cancellationToken)
         {
-            var aggregateRoot = await _basketRepository.FindByIdAsync(request.BasketId, cancellationToken);
-            if (aggregateRoot is null)
+            var basket = await _basketRepository.FindByIdAsync(request.BasketId, cancellationToken);
+            if (basket is null)
             {
-                throw new NotFoundException($"{nameof(Basket)} of Id '{request.BasketId}' could not be found");
+                throw new NotFoundException($"Could not find BasketItem '{request.BasketId}'");
             }
 
-            var existingBasketItem = aggregateRoot.BasketItems.FirstOrDefault(p => p.Id == request.Id);
-            if (existingBasketItem is null)
+            var basketItem = basket.BasketItems.FirstOrDefault(x => x.Id == request.Id);
+            if (basketItem is null)
             {
-                throw new NotFoundException($"{nameof(BasketItem)} of Id '{request.Id}' could not be found associated with {nameof(Basket)} of Id '{request.BasketId}'");
+                throw new NotFoundException($"Could not find BasketItem '{request.Id}'");
             }
 
-            existingBasketItem.BasketId = request.BasketId;
-            existingBasketItem.Description = request.Description;
-            existingBasketItem.Amount = request.Amount;
-            _eventBus.Publish(existingBasketItem.MapToBasketItemUpdatedEvent());
+            basketItem.Description = request.Description;
+            basketItem.Amount = request.Amount;
+            basketItem.BasketId = request.BasketId;
+            _eventBus.Publish(new BasketItemUpdatedEvent
+            {
+                Id = basketItem.Id,
+                Description = basketItem.Description,
+                Amount = basketItem.Amount,
+                BasketId = basketItem.BasketId
+            });
 
         }
     }

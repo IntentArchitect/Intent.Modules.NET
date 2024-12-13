@@ -34,6 +34,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IIntegrationEventHandler<CustomerCreatedEvent>, CustomerCreatedHandler>();
+            services.AddTransient<IIntegrationEventHandler<OrderCreatedEvent>, OrderCreatedEventHandler>();
             return services;
         }
     }

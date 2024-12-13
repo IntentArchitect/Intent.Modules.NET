@@ -31,12 +31,16 @@ namespace CleanArchitecture.Comprehensive.Application.IntegrationTriggeringsDdd.
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateDddIntegrationTriggeringCommand request, CancellationToken cancellationToken)
         {
-            var newIntegrationTriggering = new IntegrationTriggering(request.Value);
+            var integrationTriggering = new IntegrationTriggering(
+                value: request.Value);
 
-            _integrationTriggeringRepository.Add(newIntegrationTriggering);
+            _integrationTriggeringRepository.Add(integrationTriggering);
             await _integrationTriggeringRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            _eventBus.Publish(newIntegrationTriggering.MapToIntegrationTriggeringCreatedEvent());
-            return newIntegrationTriggering.Id;
+            _eventBus.Publish(new IntegrationTriggeringCreatedEvent
+            {
+                Id = integrationTriggering.Id
+            });
+            return integrationTriggering.Id;
         }
     }
 }

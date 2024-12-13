@@ -49,7 +49,10 @@ namespace CleanArchitecture.SingleFiles.Application.DaprInvoices
 
             _daprInvoiceRepository.Add(newDaprInvoice);
             await _daprInvoiceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            _eventBus.Publish(newDaprInvoice.MapToDaprInvoiceCreatedEvent());
+            _eventBus.Publish(new DaprInvoiceCreatedEvent
+            {
+                Description = request.Description
+            });
             return newDaprInvoice.Id;
         }
     }

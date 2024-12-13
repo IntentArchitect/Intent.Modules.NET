@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="0b4a0422-c7b3-477d-8800-a0664b9344d4" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Priviledges</name>
-    <display>Priviledges: Priviledge[*]   [1 --&gt; *]</display>
+    <display>Priviledges: Priviledge[*]</display>
     <order>2</order>
     <typeReference id="49329c84-295f-4e10-8cdf-a01d02b919e5">
       <typeId>ffedc600-be57-4e3a-a2db-b8e76f1bd20b</typeId>

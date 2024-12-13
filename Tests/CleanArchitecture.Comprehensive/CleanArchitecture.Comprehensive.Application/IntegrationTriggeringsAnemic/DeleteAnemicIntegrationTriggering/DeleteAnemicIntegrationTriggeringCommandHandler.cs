@@ -37,7 +37,10 @@ namespace CleanArchitecture.Comprehensive.Application.IntegrationTriggeringsAnem
             }
 
             _integrationTriggeringRepository.Remove(existingIntegrationTriggering);
-            _eventBus.Publish(existingIntegrationTriggering.MapToIntegrationTriggeringDeletedEvent());
+            _eventBus.Publish(new IntegrationTriggeringDeletedEvent
+            {
+                Id = request.Id
+            });
 
         }
     }

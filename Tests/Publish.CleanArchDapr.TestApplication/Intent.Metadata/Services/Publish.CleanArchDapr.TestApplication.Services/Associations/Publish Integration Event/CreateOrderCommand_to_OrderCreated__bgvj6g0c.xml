@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a30fa097-1ec8-49c8-b218-4befec11ec3a">
+  <sourceEnd id="f8c6deed-0a91-4574-933b-a07cd1aad156" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Orders.CreateOrderCommand</display>
+    <order>0</order>
+    <typeReference id="f753ed9c-73e8-4068-b28d-b15c16866576">
+      <typeId>4101ba51-3730-4272-87bf-5ae91a535d93</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArchDapr.TestApplication.Services</typePackageName>
+      <typePackageId>3f763df0-a134-4460-b12c-76f0df862016</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a30fa097-1ec8-49c8-b218-4befec11ec3a" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderCreated</display>
+    <order>2</order>
+    <typeReference id="e7e7f6af-7363-4986-b664-8a3c5bef8b72">
+      <typeId>7b93e001-85a0-4e3d-8333-9777a4789c9e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArchDapr.TestApplication.Eventing.Messages</typePackageName>
+      <typePackageId>ffccc440-6691-4fa5-99f6-bb5444ad4dac</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="11c8cc47-1133-4a1f-84a2-cbf0c097e62c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4101ba51-3730-4272-87bf-5ae91a535d93" location="[Publish.CleanArchDapr.TestApplication].[Services].[CreateOrderCommand]" />
+        <target applicationId="11c8cc47-1133-4a1f-84a2-cbf0c097e62c" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="7b93e001-85a0-4e3d-8333-9777a4789c9e" location="[Publish.CleanArchDapr.TestApplication].[Services].[OrderCreated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{order.Id}</expression>
+            <path>
+              <target id="7b93e001-85a0-4e3d-8333-9777a4789c9e" name="OrderCreated" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="0387b957-c21d-43e5-8541-953835fadb6a" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="order.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="4101ba51-3730-4272-87bf-5ae91a535d93" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7a7d75d4-7d60-44fa-87af-f9ec0ba15403" name="order" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="a9dfbba9-0d07-44ee-bdb7-55e80fabe292" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{order.CustomerId}</expression>
+            <path>
+              <target id="7b93e001-85a0-4e3d-8333-9777a4789c9e" name="OrderCreated" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="1b36e80b-63d8-4b5f-bcbc-19705c430e34" name="CustomerId" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="order.CustomerId" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="4101ba51-3730-4272-87bf-5ae91a535d93" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7a7d75d4-7d60-44fa-87af-f9ec0ba15403" name="order" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="f50ccafc-8b8e-4916-850c-ee94f1a937bd" name="CustomerId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

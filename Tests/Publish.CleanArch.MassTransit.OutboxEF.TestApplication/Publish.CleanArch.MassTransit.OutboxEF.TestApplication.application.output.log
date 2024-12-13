@@ -340,26 +340,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d894fd6-a8d0-4250-8167-0e06de40e9bd</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#83d7f774-bef9-4411-a728-614c1c39e77d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/Orders/OrderCreatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Orders/OrderCreatedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6d894fd6-a8d0-4250-8167-0e06de40e9bd</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#649c4a3e-bd59-4af6-b858-5a452cf6fda0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/Orders/OrderDeletedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Orders/OrderDeletedEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6d894fd6-a8d0-4250-8167-0e06de40e9bd</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#649c4a3e-bd59-4af6-b858-5a452cf6fda0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/Orders/OrderDeletedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Orders/OrderDeletedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -372,26 +356,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d894fd6-a8d0-4250-8167-0e06de40e9bd</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.DtoExtensions#a4470d5a-1d53-43c0-89d2-cf6cddfb31ba</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/Orders/OrderItemDtoExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Orders/OrderItemDtoExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6d894fd6-a8d0-4250-8167-0e06de40e9bd</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/Orders/OrderUpdatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Orders/OrderUpdatedEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6d894fd6-a8d0-4250-8167-0e06de40e9bd</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application/IntegrationEvents/Orders/OrderUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Orders/OrderUpdatedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

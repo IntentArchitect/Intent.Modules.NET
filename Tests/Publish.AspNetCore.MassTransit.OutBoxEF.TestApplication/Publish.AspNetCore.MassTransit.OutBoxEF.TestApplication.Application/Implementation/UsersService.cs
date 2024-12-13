@@ -37,16 +37,38 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Im
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> CreateUser(UserCreateDto dto, CancellationToken cancellationToken = default)
         {
-            var newUser = new User
+            var user = new User
             {
                 Email = dto.Email,
                 UserName = dto.UserName,
-                Preferences = dto.Preferences.Select(CreatePreference).ToList(),
+                Preferences = dto.Preferences
+                    .Select(p => new Preference
+                    {
+                        Key = p.Key,
+                        Value = p.Value
+                    })
+                    .ToList()
             };
-            _userRepository.Add(newUser);
+
+            _userRepository.Add(user);
             await _userRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            _eventBus.Publish(newUser.MapToUserCreatedEvent());
-            return newUser.Id;
+            _eventBus.Publish(new UserCreatedEvent
+            {
+                Id = user.Id,
+                Email = user.Email,
+                UserName = user.UserName,
+                Type = user.Type,
+                Preferences = user.Preferences
+                    .Select(p => new global::MassTransit.Messages.Shared.PreferenceDto
+                    {
+                        Id = p.Id,
+                        Key = p.Key,
+                        Value = p.Value,
+                        UserId = p.UserId
+                    })
+                    .ToList()
+            });
+            return user.Id;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -71,55 +93,57 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Im
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task UpdateUser(Guid id, UserUpdateDto dto, CancellationToken cancellationToken = default)
         {
-            var existingUser = await _userRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingUser is null)
+            var user = await _userRepository.FindByIdAsync(id, cancellationToken);
+            if (user is null)
             {
-                throw new NotFoundException($"Could not find User {id}");
+                throw new NotFoundException($"Could not find User '{id}'");
             }
-            existingUser.Email = dto.Email;
-            existingUser.UserName = dto.UserName;
-            existingUser.Preferences = UpdateHelper.CreateOrUpdateCollection(existingUser.Preferences, dto.Preferences, (e, d) => e.Id == d.Id, CreateOrUpdatePreference);
-            _eventBus.Publish(existingUser.MapToUserUpdatedEvent());
+
+            user.Email = dto.Email;
+            user.UserName = dto.UserName;
+            user.Preferences = UpdateHelper.CreateOrUpdateCollection(user.Preferences, dto.Preferences, (e, d) => e.Id == d.Id, CreateOrUpdatePreference);
+            _eventBus.Publish(new UserUpdatedEvent
+            {
+                Id = user.Id,
+                Email = user.Email,
+                UserName = user.UserName,
+                Type = user.Type,
+                Preferences = user.Preferences
+                    .Select(p => new global::MassTransit.Messages.Shared.PreferenceDto
+                    {
+                        Id = p.Id,
+                        Key = p.Key,
+                        Value = p.Value,
+                        UserId = p.UserId
+                    })
+                    .ToList()
+            });
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteUser(Guid id, CancellationToken cancellationToken = default)
         {
-            var existingUser = await _userRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingUser is null)
+            var user = await _userRepository.FindByIdAsync(id, cancellationToken);
+            if (user is null)
             {
-                throw new NotFoundException($"Could not find User {id}");
+                throw new NotFoundException($"Could not find User '{id}'");
             }
-            _userRepository.Remove(existingUser);
-            _eventBus.Publish(existingUser.MapToUserDeletedEvent());
-        }
 
-        [IntentManaged(Mode.Fully)]
-        private Preference CreatePreference(Users.PreferenceDto dto)
-        {
-            return new Preference
+            _userRepository.Remove(user);
+            _eventBus.Publish(new UserDeletedEvent
             {
-                Key = dto.Key,
-                Value = dto.Value,
-                UserId = dto.UserId,
-            };
+                Id = user.Id
+            });
         }
 
         [IntentManaged(Mode.Fully)]
         private static Preference CreateOrUpdatePreference(Preference? entity, Users.PreferenceDto dto)
         {
-            if (dto == null)
-            {
-                return null;
-            }
 
             entity ??= new Preference();
+            entity.Id = dto.Id;
             entity.Key = dto.Key;
             entity.Value = dto.Value;
-            entity.UserId = dto.UserId;
-
             return entity;
         }
     }

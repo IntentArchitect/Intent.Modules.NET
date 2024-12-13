@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 using MassTransit.AzureServiceBus.Application.Common.Eventing;
 using MassTransit.AzureServiceBus.Application.IntegrationServices;
 using MassTransit.AzureServiceBus.Application.IntegrationServices.Contracts.Services.RequestResponse.CQRS;
-using MassTransit.AzureServiceBus.Eventing.Messages;
+using MassTransit.AzureServiceBus.Services.External;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

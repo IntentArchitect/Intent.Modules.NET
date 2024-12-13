@@ -35,20 +35,20 @@
     <stereotypes />
     <mappings>
       <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
-        <source elementId="a84d074b-cae3-4709-9de2-57eed7071fae" location="[Publish.CleanArchDapr.TestApplication].[Services].[CreateCustomerCommand]" />
+        <source applicationId="11c8cc47-1133-4a1f-84a2-cbf0c097e62c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a84d074b-cae3-4709-9de2-57eed7071fae" location="[Publish.CleanArchDapr.TestApplication].[Services].[CreateCustomerCommand]" />
         <target applicationId="11c8cc47-1133-4a1f-84a2-cbf0c097e62c" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="115837d7-a8d5-4f87-befe-c68fbab0d6f5" location="[Publish.CleanArchDapr.TestApplication].[Services].[CustomerCreated]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{Name}</expression>
             <path>
-              <target id="115837d7-a8d5-4f87-befe-c68fbab0d6f5" name="CustomerCreated" type="element" specialization="Message" />
-              <target id="53987996-5cf4-4fb3-9a69-2b11c35d6b4c" name="Name" type="element" specialization="Property" />
+              <target id="115837d7-a8d5-4f87-befe-c68fbab0d6f5" name="CustomerCreated" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="53987996-5cf4-4fb3-9a69-2b11c35d6b4c" name="Name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
             </path>
             <sources>
               <source identifier="Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
                 <path>
-                  <target id="a84d074b-cae3-4709-9de2-57eed7071fae" name="CreateCustomerCommand" type="element" specialization="Command" />
-                  <target id="ed6f288a-c7d0-4f62-af7d-d6af21585b21" name="Name" type="element" specialization="DTO-Field" />
+                  <target id="a84d074b-cae3-4709-9de2-57eed7071fae" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="ed6f288a-c7d0-4f62-af7d-d6af21585b21" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

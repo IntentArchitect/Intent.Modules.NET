@@ -22,6 +22,9 @@
     <name>mongoInvoices</name>
     <display>[query] mongoInvoices: MongoInvoice[*]</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="ecf77d20-cb83-434c-b90e-41edc834bf7b">
       <typeId>ce04f551-7e6b-4d47-9eba-48822fb12b65</typeId>
       <isNavigable>true</isNavigable>

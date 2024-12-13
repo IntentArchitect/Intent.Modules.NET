@@ -22,6 +22,9 @@
     <name>entity</name>
     <display>[create] entity: Animal</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="015f5331-cc8a-4db9-b6f1-3cd2deeea743">
       <typeId>d98f67a2-2d52-47cf-b019-17d83244e9ba</typeId>
       <isNavigable>true</isNavigable>

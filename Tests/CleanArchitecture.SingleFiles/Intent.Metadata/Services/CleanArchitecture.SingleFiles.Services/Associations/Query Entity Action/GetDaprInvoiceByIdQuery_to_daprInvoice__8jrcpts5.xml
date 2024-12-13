@@ -22,6 +22,9 @@
     <name>daprInvoice</name>
     <display>[query] daprInvoice: DaprInvoice</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="60f4c730-485c-4540-8e57-f68c0c940146">
       <typeId>47198a38-4f68-4a44-852b-e3b12186852a</typeId>
       <isNavigable>true</isNavigable>

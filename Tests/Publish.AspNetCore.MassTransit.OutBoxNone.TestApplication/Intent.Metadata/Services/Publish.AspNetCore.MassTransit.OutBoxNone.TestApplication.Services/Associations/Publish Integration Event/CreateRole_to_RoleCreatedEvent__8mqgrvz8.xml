@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b3b2f57c-99af-4c0e-8867-9dba3302c66b">
+  <sourceEnd id="0d6cef2f-4862-48f2-8342-895e632ce08b" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : RolesService.CreateRole</display>
+    <order>0</order>
+    <typeReference id="a1ed888a-e8c1-45e9-8134-a2da392d730b">
+      <typeId>88d82b13-7e72-496e-af1c-b6cfe8304b8b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication.Services</typePackageName>
+      <typePackageId>0164f6ff-9c9f-4b33-a3fe-4534c7350a33</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b3b2f57c-99af-4c0e-8867-9dba3302c66b" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] RoleCreatedEvent</display>
+    <order>2</order>
+    <typeReference id="9dc5dda0-11d2-4bea-9be9-0de5ab19cdee">
+      <typeId>624a4efe-d55a-4935-acd6-b94c9c794a30</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="5ffa2a75-821a-41f2-8232-af7df2460b0b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="88d82b13-7e72-496e-af1c-b6cfe8304b8b" location="[Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication].[Services].[CreateRole]" />
+        <target applicationId="71eac626-755a-4c5d-89f1-e66511d4df64" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="624a4efe-d55a-4935-acd6-b94c9c794a30" location="[Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication].[Services].[RoleCreatedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{role.Id}</expression>
+            <path>
+              <target id="624a4efe-d55a-4935-acd6-b94c9c794a30" name="RoleCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="3b774df4-1bb2-45ab-adbc-ba04d9fdc75b" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="role.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="88d82b13-7e72-496e-af1c-b6cfe8304b8b" name="CreateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8948d6d2-509b-4dfc-a8de-f108d933c057" name="role" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="b9f6720d-4523-4042-90cf-7552ab80aea0" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{role.Name}</expression>
+            <path>
+              <target id="624a4efe-d55a-4935-acd6-b94c9c794a30" name="RoleCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="d31dc54e-5288-4759-accf-4a55306ccb40" name="Name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="role.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="88d82b13-7e72-496e-af1c-b6cfe8304b8b" name="CreateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8948d6d2-509b-4dfc-a8de-f108d933c057" name="role" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="f68a4e7e-5e27-491f-9609-c570f5cf58e7" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{role.Priviledges}</expression>
+            <path>
+              <target id="624a4efe-d55a-4935-acd6-b94c9c794a30" name="RoleCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="1be26497-3d92-40bf-8e5f-01fd86d4e17d" name="Priviledges" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="role.Priviledges" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="88d82b13-7e72-496e-af1c-b6cfe8304b8b" name="CreateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8948d6d2-509b-4dfc-a8de-f108d933c057" name="role" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="0b4a0422-c7b3-477d-8800-a0664b9344d4" name="Priviledges" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{role.Priviledges.Id}</expression>
+            <path>
+              <target id="624a4efe-d55a-4935-acd6-b94c9c794a30" name="RoleCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="1be26497-3d92-40bf-8e5f-01fd86d4e17d" name="Priviledges" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="63948ab8-c994-4838-a6a3-0e5df9c38a74" name="Id" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="role.Priviledges.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="88d82b13-7e72-496e-af1c-b6cfe8304b8b" name="CreateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8948d6d2-509b-4dfc-a8de-f108d933c057" name="role" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="0b4a0422-c7b3-477d-8800-a0664b9344d4" name="Priviledges" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                  <target id="25d36e9b-d041-42b1-8b3e-4cd6a01a035e" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{role.Priviledges.RoleId}</expression>
+            <path>
+              <target id="624a4efe-d55a-4935-acd6-b94c9c794a30" name="RoleCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="1be26497-3d92-40bf-8e5f-01fd86d4e17d" name="Priviledges" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="8c0f47f1-819a-441f-a440-d0eaf711bfdb" name="RoleId" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="role.Priviledges.RoleId" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="88d82b13-7e72-496e-af1c-b6cfe8304b8b" name="CreateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8948d6d2-509b-4dfc-a8de-f108d933c057" name="role" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="0b4a0422-c7b3-477d-8800-a0664b9344d4" name="Priviledges" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                  <target id="632de6e9-9619-424b-a784-a0f08d35fe6d" name="RoleId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{role.Priviledges.Name}</expression>
+            <path>
+              <target id="624a4efe-d55a-4935-acd6-b94c9c794a30" name="RoleCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="1be26497-3d92-40bf-8e5f-01fd86d4e17d" name="Priviledges" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="7a5ed70c-5e13-4db8-bdf4-a9a0619ace9d" name="Name" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="role.Priviledges.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="88d82b13-7e72-496e-af1c-b6cfe8304b8b" name="CreateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8948d6d2-509b-4dfc-a8de-f108d933c057" name="role" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="0b4a0422-c7b3-477d-8800-a0664b9344d4" name="Priviledges" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                  <target id="44a516aa-b12a-464a-8fc5-3cc8498d37cb" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a54f072d-1634-4629-a8f5-6ddd05cb69b5">
+  <sourceEnd id="77e4133a-2c35-44d6-9c1d-606f61885c6a" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: Subscribe.MassTransit.OutboxEF.Services.OrderUpdatedEventHandler</display>
+    <order>0</order>
+    <typeReference id="6d3b0df1-c495-4cc7-9216-77d3ec39fd8b">
+      <typeId>07305294-6a30-4727-bec0-ed65d280ebc6</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Subscribe.MassTransit.OutboxEF.Services</typePackageName>
+      <typePackageId>f328eaed-fc7d-4b85-ae0e-07f4c9cc3ee6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a54f072d-1634-4629-a8f5-6ddd05cb69b5" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: OrderUpdatedEvent</display>
+    <order>0</order>
+    <typeReference id="85d638dd-9f0d-44aa-91eb-c2614797ed2b">
+      <typeId>8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

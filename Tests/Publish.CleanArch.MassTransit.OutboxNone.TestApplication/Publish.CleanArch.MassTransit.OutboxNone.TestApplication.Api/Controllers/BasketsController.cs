@@ -131,27 +131,28 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Api.Controlle
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateBasketBasketItem(
-            [FromRoute] Guid basketId,
             [FromRoute] Guid id,
+            [FromRoute] Guid basketId,
             [FromBody] UpdateBasketBasketItemCommand command,
             CancellationToken cancellationToken = default)
         {
-            if (command.BasketId == Guid.Empty)
-            {
-                command.BasketId = basketId;
-            }
 
             if (command.Id == Guid.Empty)
             {
                 command.Id = id;
             }
 
-            if (basketId != command.BasketId)
+            if (command.BasketId == Guid.Empty)
+            {
+                command.BasketId = basketId;
+            }
+
+            if (id != command.Id)
             {
                 return BadRequest();
             }
 
-            if (id != command.Id)
+            if (basketId != command.BasketId)
             {
                 return BadRequest();
             }

@@ -30,14 +30,27 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(UpdateBasketCommand request, CancellationToken cancellationToken)
         {
-            var existingBasket = await _basketRepository.FindByIdAsync(request.Id, cancellationToken);
-            if (existingBasket is null)
+            var basket = await _basketRepository.FindByIdAsync(request.Id, cancellationToken);
+            if (basket is null)
             {
                 throw new NotFoundException($"Could not find Basket '{request.Id}'");
             }
 
-            existingBasket.Number = request.Number;
-            _eventBus.Publish(existingBasket.MapToBasketUpdatedEvent());
+            basket.Number = request.Number;
+            _eventBus.Publish(new BasketUpdatedEvent
+            {
+                Id = basket.Id,
+                Number = basket.Number,
+                BasketItems = basket.BasketItems
+                    .Select(bi => new BasketItemDto
+                    {
+                        Id = bi.Id,
+                        Description = bi.Description,
+                        Amount = bi.Amount,
+                        BasketId = bi.BasketId
+                    })
+                    .ToList()
+            });
 
         }
     }

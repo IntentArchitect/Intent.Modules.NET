@@ -30,26 +30,35 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
-            var newOrder = new Order
+            var order = new Order
             {
                 Number = request.Number,
-                OrderItems = request.OrderItems.Select(CreateOrderItem).ToList(),
+                OrderItems = request.OrderItems
+                    .Select(oi => new OrderItem
+                    {
+                        Description = oi.Description,
+                        Amount = oi.Amount
+                    })
+                    .ToList()
             };
 
-            _orderRepository.Add(newOrder);
+            _orderRepository.Add(order);
             await _orderRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            _eventBus.Publish(newOrder.MapToOrderCreatedEvent());
-            return newOrder.Id;
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private static OrderItem CreateOrderItem(CreateOrderOrderItemDto dto)
-        {
-            return new OrderItem
+            _eventBus.Publish(new OrderCreatedEvent
             {
-                Description = dto.Description,
-                Amount = dto.Amount,
-            };
+                Id = order.Id,
+                Number = order.Number,
+                OrderItems = order.OrderItems
+                    .Select(oi => new OrderItemDto
+                    {
+                        Id = oi.Id,
+                        OrderId = oi.OrderId,
+                        Description = oi.Description,
+                        Amount = oi.Amount
+                    })
+                    .ToList()
+            });
+            return order.Id;
         }
     }
 }

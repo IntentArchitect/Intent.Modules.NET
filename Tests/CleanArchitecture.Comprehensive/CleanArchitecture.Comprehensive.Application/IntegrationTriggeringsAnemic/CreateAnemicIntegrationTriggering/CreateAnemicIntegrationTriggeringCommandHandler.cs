@@ -33,15 +33,18 @@ namespace CleanArchitecture.Comprehensive.Application.IntegrationTriggeringsAnem
             CreateAnemicIntegrationTriggeringCommand request,
             CancellationToken cancellationToken)
         {
-            var newIntegrationTriggering = new IntegrationTriggering
+            var entity = new IntegrationTriggering
             {
-                Value = request.Value,
+                Value = request.Value
             };
 
-            _integrationTriggeringRepository.Add(newIntegrationTriggering);
+            _integrationTriggeringRepository.Add(entity);
             await _integrationTriggeringRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            _eventBus.Publish(newIntegrationTriggering.MapToIntegrationTriggeringCreatedEvent());
-            return newIntegrationTriggering.Id;
+            _eventBus.Publish(new IntegrationTriggeringCreatedEvent
+            {
+                Id = entity.Id
+            });
+            return entity.Id;
         }
     }
 }

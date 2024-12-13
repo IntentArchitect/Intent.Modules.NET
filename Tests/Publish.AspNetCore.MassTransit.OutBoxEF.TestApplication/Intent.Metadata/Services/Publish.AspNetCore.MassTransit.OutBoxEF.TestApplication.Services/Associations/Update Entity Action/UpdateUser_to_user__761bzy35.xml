@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="33da1a68-e48d-44d6-8a7f-42daa651ddf1">
+  <sourceEnd id="963dde95-6463-4fcb-ae68-6c37d7f688ec" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : UsersService.UpdateUser</display>
+    <order>0</order>
+    <typeReference id="67c4aa9a-8168-4246-958c-3b245c4da7f4">
+      <typeId>e43f6b87-2bc7-4df3-bf83-923f082db314</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Services</typePackageName>
+      <typePackageId>e9544fc5-b8fe-49da-92fb-5af5ec1055fb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="33da1a68-e48d-44d6-8a7f-42daa651ddf1" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>user</name>
+    <display>[update] user: User</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="e60447c7-b9d3-4ec6-bb42-e5c9d8813073">
+      <typeId>91fb6c87-66e4-4483-8eb2-942588f2b3e1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain</typePackageName>
+      <typePackageId>b3f2655d-7d9f-46d5-a3d4-d1771666e964</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source elementId="e43f6b87-2bc7-4df3-bf83-923f082db314" location="[Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication].[Services].[UpdateUser]" />
+        <target elementId="91fb6c87-66e4-4483-8eb2-942588f2b3e1" location="[Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication].[Services].[User]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="91fb6c87-66e4-4483-8eb2-942588f2b3e1" name="User" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="67684dcc-6489-4c10-b5b6-04f0f8822aaf" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="e43f6b87-2bc7-4df3-bf83-923f082db314" name="UpdateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="7978d827-de11-47df-bcdb-2e30385a7c79" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source elementId="e43f6b87-2bc7-4df3-bf83-923f082db314" location="[Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication].[Services].[UpdateUser]" />
+        <target elementId="91fb6c87-66e4-4483-8eb2-942588f2b3e1" location="[Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication].[Services].[User]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.Email}</expression>
+            <path>
+              <target id="91fb6c87-66e4-4483-8eb2-942588f2b3e1" name="User" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="89b25296-34e8-49c8-9a85-161b3608f8ab" name="Email" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Email" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="e43f6b87-2bc7-4df3-bf83-923f082db314" name="UpdateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="64c912e3-8e96-4879-a0b3-1468fdcaa21a" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="e29dcf20-f6bf-4f3c-b866-62566eb792e4" name="Email" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.UserName}</expression>
+            <path>
+              <target id="91fb6c87-66e4-4483-8eb2-942588f2b3e1" name="User" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="8afc514a-a201-4a88-a9f4-ffc734c5781c" name="UserName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.UserName" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="e43f6b87-2bc7-4df3-bf83-923f082db314" name="UpdateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="64c912e3-8e96-4879-a0b3-1468fdcaa21a" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="cc614324-d2ef-4c4b-bb2b-5948f6be54aa" name="UserName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Preferences}</expression>
+            <path>
+              <target id="91fb6c87-66e4-4483-8eb2-942588f2b3e1" name="User" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="6bbfa91d-9f25-40ed-807b-4e21feab8a88" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+            </path>
+            <sources>
+              <source identifier="dto.Preferences" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="e43f6b87-2bc7-4df3-bf83-923f082db314" name="UpdateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="64c912e3-8e96-4879-a0b3-1468fdcaa21a" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="4a986512-1513-4062-b088-f413e95df70c" name="Preferences" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Preferences.Id}</expression>
+            <path>
+              <target id="91fb6c87-66e4-4483-8eb2-942588f2b3e1" name="User" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="6bbfa91d-9f25-40ed-807b-4e21feab8a88" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="87c8bf75-12c8-46e8-8782-a428e44ca928" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Preferences.Id" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="e43f6b87-2bc7-4df3-bf83-923f082db314" name="UpdateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="64c912e3-8e96-4879-a0b3-1468fdcaa21a" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="4a986512-1513-4062-b088-f413e95df70c" name="Preferences" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="0d0ce147-ff98-4b37-8ad7-b0ef0a1e3d4a" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Preferences.Key}</expression>
+            <path>
+              <target id="91fb6c87-66e4-4483-8eb2-942588f2b3e1" name="User" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="6bbfa91d-9f25-40ed-807b-4e21feab8a88" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="58d35f1b-a702-48f8-92da-3f2b2a6f46d9" name="Key" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Preferences.Key" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="e43f6b87-2bc7-4df3-bf83-923f082db314" name="UpdateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="64c912e3-8e96-4879-a0b3-1468fdcaa21a" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="4a986512-1513-4062-b088-f413e95df70c" name="Preferences" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="372151ba-ab93-4e08-bbfd-565b4c113696" name="Key" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Preferences.Value}</expression>
+            <path>
+              <target id="91fb6c87-66e4-4483-8eb2-942588f2b3e1" name="User" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="6bbfa91d-9f25-40ed-807b-4e21feab8a88" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="0a6aa682-9752-4e68-b881-ef56d9881f70" name="Value" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Preferences.Value" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="e43f6b87-2bc7-4df3-bf83-923f082db314" name="UpdateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="64c912e3-8e96-4879-a0b3-1468fdcaa21a" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="4a986512-1513-4062-b088-f413e95df70c" name="Preferences" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="23519351-6e45-4533-8e32-2d7ea640d229" name="Value" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

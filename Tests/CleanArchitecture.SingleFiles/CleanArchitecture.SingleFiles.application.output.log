@@ -988,26 +988,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>83c19f79-5259-4525-821e-ebd637807e02</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#0816829f-fd3a-4d13-8cc5-d756de507ad9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/IntegrationEvents/CosmosInvoiceCreatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CosmosInvoiceCreatedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>83c19f79-5259-4525-821e-ebd637807e02</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#a835180b-d003-4096-8f3b-21c88fba18fc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/IntegrationEvents/CosmosInvoiceUpdatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CosmosInvoiceUpdatedEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>83c19f79-5259-4525-821e-ebd637807e02</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#a835180b-d003-4096-8f3b-21c88fba18fc</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/IntegrationEvents/CosmosInvoiceUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CosmosInvoiceUpdatedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1020,26 +1004,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>83c19f79-5259-4525-821e-ebd637807e02</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#f92041e4-f3e7-4450-87c3-59408e696e5e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/IntegrationEvents/DaprInvoiceCreatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DaprInvoiceCreatedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>83c19f79-5259-4525-821e-ebd637807e02</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#8847c5f9-5af3-4553-8f91-945aaea98eba</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/IntegrationEvents/DaprInvoiceUpdatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DaprInvoiceUpdatedEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>83c19f79-5259-4525-821e-ebd637807e02</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#8847c5f9-5af3-4553-8f91-945aaea98eba</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/IntegrationEvents/DaprInvoiceUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DaprInvoiceUpdatedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1052,26 +1020,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>83c19f79-5259-4525-821e-ebd637807e02</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#7ad0a7a7-100d-4c04-9106-4feb25e8a53e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/IntegrationEvents/EfInvoiceCreatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EfInvoiceCreatedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>83c19f79-5259-4525-821e-ebd637807e02</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#e0796af3-4276-4bbf-a97b-f4f9052e0874</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/IntegrationEvents/EfInvoiceUpdatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>EfInvoiceUpdatedEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>83c19f79-5259-4525-821e-ebd637807e02</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#e0796af3-4276-4bbf-a97b-f4f9052e0874</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/IntegrationEvents/EfInvoiceUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EfInvoiceUpdatedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1084,26 +1036,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>83c19f79-5259-4525-821e-ebd637807e02</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#1a96190d-6c42-4ec1-abcc-7039ba2247d6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/IntegrationEvents/MongoInvoiceCreatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoInvoiceCreatedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>83c19f79-5259-4525-821e-ebd637807e02</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#e05fe85c-cbb1-47b6-b8aa-68a9cfbb530f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/IntegrationEvents/MongoInvoiceUpdatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MongoInvoiceUpdatedEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>83c19f79-5259-4525-821e-ebd637807e02</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#e05fe85c-cbb1-47b6-b8aa-68a9cfbb530f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/IntegrationEvents/MongoInvoiceUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MongoInvoiceUpdatedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

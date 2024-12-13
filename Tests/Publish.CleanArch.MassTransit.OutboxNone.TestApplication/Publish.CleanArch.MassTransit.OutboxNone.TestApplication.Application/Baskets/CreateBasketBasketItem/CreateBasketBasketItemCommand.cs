@@ -10,11 +10,11 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
 {
     public class CreateBasketBasketItemCommand : IRequest<Guid>, ICommand
     {
-        public CreateBasketBasketItemCommand(Guid basketId, string description, decimal amount)
+        public CreateBasketBasketItemCommand(string description, decimal amount, Guid basketId)
         {
-            BasketId = basketId;
             Description = description;
             Amount = amount;
+            BasketId = basketId;
         }
 
         public Guid BasketId { get; set; }

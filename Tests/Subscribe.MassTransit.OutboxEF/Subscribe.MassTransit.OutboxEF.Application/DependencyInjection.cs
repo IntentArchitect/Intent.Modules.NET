@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Subscribe.MassTransit.OutboxEF.Application.Common.Behaviours;
 using Subscribe.MassTransit.OutboxEF.Application.Common.Eventing;
 using Subscribe.MassTransit.OutboxEF.Application.Common.Validation;
-using Subscribe.MassTransit.OutboxEF.Application.IntegrationEventHandlers;
+using Subscribe.MassTransit.OutboxEF.Application.IntegrationEvents.EventHandlers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -33,11 +33,11 @@ namespace Subscribe.MassTransit.OutboxEF.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IIntegrationEventHandler<OrderCreatedEvent>, OrderCreatedEventHandler>();
-            services.AddTransient<IIntegrationEventHandler<OrderUpdatedEvent>, OrderUpdatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<OrderDeletedEvent>, OrderDeletedEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<OrderUpdatedEvent>, OrderUpdatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<UserCreatedEvent>, UserCreatedEventHandler>();
-            services.AddTransient<IIntegrationEventHandler<UserUpdatedEvent>, UserUpdatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<UserDeletedEvent>, UserDeletedEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<UserUpdatedEvent>, UserUpdatedEventHandler>();
             return services;
         }
     }

@@ -604,26 +604,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#2d3248eb-14ef-4f74-ba54-771e5713b7e0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/BasketItems/BasketItemCreatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BasketItems/BasketItemCreatedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#cbdebdf9-bfea-43a2-816c-39302e94812f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/BasketItems/BasketItemDeletedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BasketItems/BasketItemDeletedEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#cbdebdf9-bfea-43a2-816c-39302e94812f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/BasketItems/BasketItemDeletedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BasketItems/BasketItemDeletedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -636,26 +620,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#7b3353ce-2dfc-4037-b2c7-6c289ccc8f80</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/BasketItems/BasketItemUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>BasketItems/BasketItemUpdatedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#ddac5caa-5754-4917-a198-e4f538e4b1ca</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Baskets/BasketCreatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Baskets/BasketCreatedEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#ddac5caa-5754-4917-a198-e4f538e4b1ca</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Baskets/BasketCreatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Baskets/BasketCreatedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -668,14 +636,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#08220e54-1dd6-4efb-be0c-398044e4bc93</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Baskets/BasketDeletedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Baskets/BasketDeletedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventDto#16b0450c-28df-4988-9838-57b25b6e53a8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Baskets/BasketItemDto.cs</ApplicationRelativeFilePath>
@@ -684,26 +644,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.DtoExtensions#16b0450c-28df-4988-9838-57b25b6e53a8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Baskets/BasketItemDtoExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Baskets/BasketItemDtoExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#417ad362-5e9e-4638-9e13-c7d1df82873b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Baskets/BasketUpdatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Baskets/BasketUpdatedEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ff1547c6-4abd-4b00-98ef-d6451bfff7de</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#417ad362-5e9e-4638-9e13-c7d1df82873b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/IntegrationEvents/Baskets/BasketUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Baskets/BasketUpdatedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

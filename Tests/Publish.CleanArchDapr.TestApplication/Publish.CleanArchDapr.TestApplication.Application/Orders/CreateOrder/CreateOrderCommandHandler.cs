@@ -30,15 +30,19 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.CreateOrder
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
-            var newOrder = new Order
+            var order = new Order
             {
-                CustomerId = request.CustomerId,
+                CustomerId = request.CustomerId
             };
 
-            _orderRepository.Add(newOrder);
+            _orderRepository.Add(order);
             await _orderRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            _eventBus.Publish(newOrder.MapToOrderCreatedEvent());
-            return newOrder.Id;
+            _eventBus.Publish(new OrderCreatedEvent
+            {
+                Id = order.Id,
+                CustomerId = order.CustomerId
+            });
+            return order.Id;
         }
     }
 }

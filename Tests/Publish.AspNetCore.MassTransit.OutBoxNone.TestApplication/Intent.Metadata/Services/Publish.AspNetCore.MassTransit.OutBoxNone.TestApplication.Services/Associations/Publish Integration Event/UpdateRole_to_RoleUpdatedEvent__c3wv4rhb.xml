@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0ce5faa0-0bdb-4ae2-b9fe-493dadee68e9">
+  <sourceEnd id="c834da91-488b-457c-a558-7894add0ac93" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : RolesService.UpdateRole</display>
+    <order>0</order>
+    <typeReference id="058c66d9-af29-4027-a8ec-6f64b818c48b">
+      <typeId>3f976d5b-c90c-4c59-9a62-43891a6a4147</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication.Services</typePackageName>
+      <typePackageId>0164f6ff-9c9f-4b33-a3fe-4534c7350a33</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0ce5faa0-0bdb-4ae2-b9fe-493dadee68e9" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] RoleUpdatedEvent</display>
+    <order>3</order>
+    <typeReference id="4e8699a2-8d71-4b9b-90e5-ca46ba9741d1">
+      <typeId>d642905f-8484-47cd-a0ee-c0b04e29e9c4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="5ffa2a75-821a-41f2-8232-af7df2460b0b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3f976d5b-c90c-4c59-9a62-43891a6a4147" location="[Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication].[Services].[UpdateRole]" />
+        <target applicationId="71eac626-755a-4c5d-89f1-e66511d4df64" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="d642905f-8484-47cd-a0ee-c0b04e29e9c4" location="[Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication].[Services].[RoleUpdatedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{role.Id}</expression>
+            <path>
+              <target id="d642905f-8484-47cd-a0ee-c0b04e29e9c4" name="RoleUpdatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="fac3424d-2110-4eae-821c-0cffe6592c15" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="role.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="3f976d5b-c90c-4c59-9a62-43891a6a4147" name="UpdateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="fb0c0f6b-1c95-4473-9a29-ea934276383d" name="role" type="association" specialization="Update Entity Action Target End" specializationId="516069f6-09cc-4de8-8e31-3c71ca823452" />
+                  <target id="b9f6720d-4523-4042-90cf-7552ab80aea0" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{role.Name}</expression>
+            <path>
+              <target id="d642905f-8484-47cd-a0ee-c0b04e29e9c4" name="RoleUpdatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="465e6c4a-490f-4d6e-92fc-41276411e630" name="Name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="role.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="3f976d5b-c90c-4c59-9a62-43891a6a4147" name="UpdateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="fb0c0f6b-1c95-4473-9a29-ea934276383d" name="role" type="association" specialization="Update Entity Action Target End" specializationId="516069f6-09cc-4de8-8e31-3c71ca823452" />
+                  <target id="f68a4e7e-5e27-491f-9609-c570f5cf58e7" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{role.Priviledges}</expression>
+            <path>
+              <target id="d642905f-8484-47cd-a0ee-c0b04e29e9c4" name="RoleUpdatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="3a7670e8-cf84-4ea8-95cb-7ea376fb3a47" name="Priviledges" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="role.Priviledges" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="3f976d5b-c90c-4c59-9a62-43891a6a4147" name="UpdateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="fb0c0f6b-1c95-4473-9a29-ea934276383d" name="role" type="association" specialization="Update Entity Action Target End" specializationId="516069f6-09cc-4de8-8e31-3c71ca823452" />
+                  <target id="0b4a0422-c7b3-477d-8800-a0664b9344d4" name="Priviledges" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{role.Priviledges.Id}</expression>
+            <path>
+              <target id="d642905f-8484-47cd-a0ee-c0b04e29e9c4" name="RoleUpdatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="3a7670e8-cf84-4ea8-95cb-7ea376fb3a47" name="Priviledges" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="63948ab8-c994-4838-a6a3-0e5df9c38a74" name="Id" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="role.Priviledges.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="3f976d5b-c90c-4c59-9a62-43891a6a4147" name="UpdateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="fb0c0f6b-1c95-4473-9a29-ea934276383d" name="role" type="association" specialization="Update Entity Action Target End" specializationId="516069f6-09cc-4de8-8e31-3c71ca823452" />
+                  <target id="0b4a0422-c7b3-477d-8800-a0664b9344d4" name="Priviledges" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                  <target id="25d36e9b-d041-42b1-8b3e-4cd6a01a035e" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{role.Priviledges.RoleId}</expression>
+            <path>
+              <target id="d642905f-8484-47cd-a0ee-c0b04e29e9c4" name="RoleUpdatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="3a7670e8-cf84-4ea8-95cb-7ea376fb3a47" name="Priviledges" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="8c0f47f1-819a-441f-a440-d0eaf711bfdb" name="RoleId" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="role.Priviledges.RoleId" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="3f976d5b-c90c-4c59-9a62-43891a6a4147" name="UpdateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="fb0c0f6b-1c95-4473-9a29-ea934276383d" name="role" type="association" specialization="Update Entity Action Target End" specializationId="516069f6-09cc-4de8-8e31-3c71ca823452" />
+                  <target id="0b4a0422-c7b3-477d-8800-a0664b9344d4" name="Priviledges" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                  <target id="632de6e9-9619-424b-a784-a0f08d35fe6d" name="RoleId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{role.Priviledges.Name}</expression>
+            <path>
+              <target id="d642905f-8484-47cd-a0ee-c0b04e29e9c4" name="RoleUpdatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="3a7670e8-cf84-4ea8-95cb-7ea376fb3a47" name="Priviledges" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="7a5ed70c-5e13-4db8-bdf4-a9a0619ace9d" name="Name" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="role.Priviledges.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="3f976d5b-c90c-4c59-9a62-43891a6a4147" name="UpdateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="fb0c0f6b-1c95-4473-9a29-ea934276383d" name="role" type="association" specialization="Update Entity Action Target End" specializationId="516069f6-09cc-4de8-8e31-3c71ca823452" />
+                  <target id="0b4a0422-c7b3-477d-8800-a0664b9344d4" name="Priviledges" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                  <target id="44a516aa-b12a-464a-8fc5-3cc8498d37cb" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

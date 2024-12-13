@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="07305294-6a30-4727-bec0-ed65d280ebc6" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>OrderUpdatedEventHandler</name>
+  <display>OrderUpdatedEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f328eaed-fc7d-4b85-ae0e-07f4c9cc3ee6</parentFolderId>
+  <packageId>f328eaed-fc7d-4b85-ae0e-07f4c9cc3ee6</packageId>
+  <packageName>Subscribe.MassTransit.OutboxEF.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -19,6 +19,10 @@
   <parentFolderId>ac781ec5-5afd-4bf1-8943-33063dbf59a1</parentFolderId>
   <packageId>13f85863-e934-4433-8ce6-ff5b15c25868</packageId>
   <packageName>MassTransit.AzureServiceBus.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="5150384d-18a3-4c7e-a716-599e6658abde" name="Message Triggered">
       <addedByDefault>false</addedByDefault>

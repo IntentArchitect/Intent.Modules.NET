@@ -49,7 +49,10 @@ namespace CleanArchitecture.SingleFiles.Application.CosmosInvoices
 
             _cosmosInvoiceRepository.Add(newCosmosInvoice);
             await _cosmosInvoiceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            _eventBus.Publish(newCosmosInvoice.MapToCosmosInvoiceCreatedEvent());
+            _eventBus.Publish(new CosmosInvoiceCreatedEvent
+            {
+                Description = request.Description
+            });
             return newCosmosInvoice.Id;
         }
     }

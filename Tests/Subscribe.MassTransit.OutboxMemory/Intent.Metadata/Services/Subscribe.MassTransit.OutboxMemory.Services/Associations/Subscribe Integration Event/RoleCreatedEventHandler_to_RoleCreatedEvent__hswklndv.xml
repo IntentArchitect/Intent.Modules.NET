@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3277a7e4-6bbf-45c0-8ac7-61d847a8c5da">
+  <sourceEnd id="9b163ab3-5060-452d-8319-dc092a019a03" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: Subscribe.MassTransit.OutboxMemory.Services.RoleCreatedEventHandler</display>
+    <order>0</order>
+    <typeReference id="16a931e4-6b35-459f-81b8-9f0f3745c3f6">
+      <typeId>c0831ddf-6e53-41e1-8c87-fa0fdcd73c0d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Subscribe.MassTransit.OutboxMemory.Services</typePackageName>
+      <typePackageId>ee67d54f-5862-4801-86d0-2430f3f16e6a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3277a7e4-6bbf-45c0-8ac7-61d847a8c5da" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: RoleCreatedEvent</display>
+    <order>0</order>
+    <typeReference id="ca5c6ad1-a3ad-4d2d-bc36-e6d96a67caae">
+      <typeId>624a4efe-d55a-4935-acd6-b94c9c794a30</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

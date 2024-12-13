@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5ff5dbee-83c2-433c-bea6-abb04f569ea8">
+  <sourceEnd id="33c35647-6281-4958-853e-89deed141378" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : PeopleService.UpdatePerson</display>
+    <order>0</order>
+    <typeReference id="869f8b82-6153-4523-9ca9-7f3fbf5eafe3">
+      <typeId>86476342-6e20-42a1-9f64-1b30bd29245f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Services</typePackageName>
+      <typePackageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5ff5dbee-83c2-433c-bea6-abb04f569ea8" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] PersonUpdatedEvent</display>
+    <order>3</order>
+    <typeReference id="26c39119-c09d-4408-be72-694a872e8a76">
+      <typeId>aa8cb996-35f7-4602-90e9-da48c8d3c0d3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Eventing.Messages</typePackageName>
+      <typePackageId>32b18a86-0725-42f4-bc56-f890ff8fdeb5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="86476342-6e20-42a1-9f64-1b30bd29245f" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[UpdatePerson]" />
+        <target applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="aa8cb996-35f7-4602-90e9-da48c8d3c0d3" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[PersonUpdatedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{person.Id}</expression>
+            <path>
+              <target id="aa8cb996-35f7-4602-90e9-da48c8d3c0d3" name="PersonUpdatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="9796b5c9-a5a8-436d-a11a-b2b3a5c43d08" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="person.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="86476342-6e20-42a1-9f64-1b30bd29245f" name="UpdatePerson" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="76ed5640-32ea-47b5-9ff8-38199f1f32cc" name="person" type="association" specialization="Update Entity Action Target End" specializationId="516069f6-09cc-4de8-8e31-3c71ca823452" />
+                  <target id="649d216f-7b76-4f8b-921c-4f0e5607adc4" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{person.Name}</expression>
+            <path>
+              <target id="aa8cb996-35f7-4602-90e9-da48c8d3c0d3" name="PersonUpdatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="926a50eb-7395-4ae6-9f6f-8b7993dfb8ed" name="Name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="person.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="86476342-6e20-42a1-9f64-1b30bd29245f" name="UpdatePerson" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="76ed5640-32ea-47b5-9ff8-38199f1f32cc" name="person" type="association" specialization="Update Entity Action Target End" specializationId="516069f6-09cc-4de8-8e31-3c71ca823452" />
+                  <target id="36075680-dc2f-4238-8451-e5e7309fd4b5" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

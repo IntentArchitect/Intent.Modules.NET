@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="ce04f551-7e6b-4d47-9eba-48822fb12b65" name="MongoInvoice" type="element" specialization="Class" />
+      <target id="ce04f551-7e6b-4d47-9eba-48822fb12b65" name="MongoInvoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>efa50b70-89f8-4212-b19b-907c595ac3d5</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="7725caa0-920a-42f0-8530-341491483a2e" name="Id" type="element" specialization="Attribute" />
+          <target id="7725caa0-920a-42f0-8530-341491483a2e" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>0ad87afb-a8ee-4a64-99a4-a902cca00e59</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c4da2549-276c-4fd4-95b6-b1db8170e2ee" name="Description" type="element" specialization="Attribute" />
+          <target id="c4da2549-276c-4fd4-95b6-b1db8170e2ee" name="Description" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>0ad87afb-a8ee-4a64-99a4-a902cca00e59</parentFolderId>

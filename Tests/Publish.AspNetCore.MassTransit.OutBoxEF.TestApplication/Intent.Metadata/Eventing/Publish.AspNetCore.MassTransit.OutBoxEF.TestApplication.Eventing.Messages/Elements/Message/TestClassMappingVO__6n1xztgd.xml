@@ -12,7 +12,7 @@
     <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="5a494225-e06b-4ecd-a879-5f2622d91f16" name="ClassWithVO" type="element" specialization="Class" />
+      <target id="5a494225-e06b-4ecd-a879-5f2622d91f16" name="ClassWithVO" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>761ad7ea-050f-4076-9172-4ec47ffcf4ca</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="123b6381-5b1e-4560-95d7-f58dfe83921a" name="TestVO" type="association" specialization="Association Target End" />
+          <target id="123b6381-5b1e-4560-95d7-f58dfe83921a" name="TestVO" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>05cf2d60-11ec-4a3a-ad11-0c23ea9abb7a</parentFolderId>

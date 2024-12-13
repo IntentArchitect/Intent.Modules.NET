@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a32ef1c6-e5d7-4456-9d47-4501fb166b32">
+  <sourceEnd id="8f355562-2141-468e-883e-bc9f92e5ddb3" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : UsersService.DeleteUser</display>
+    <order>0</order>
+    <typeReference id="878564bb-93b1-4049-8434-7c1e343c3385">
+      <typeId>0a042b74-80cd-41a5-ad26-2e85c83bab33</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Services</typePackageName>
+      <typePackageId>e9544fc5-b8fe-49da-92fb-5af5ec1055fb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a32ef1c6-e5d7-4456-9d47-4501fb166b32" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>user</name>
+    <display>[delete] user: User</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="6f556b38-8541-456e-8c4f-cce1c60b5881">
+      <typeId>91fb6c87-66e4-4483-8eb2-942588f2b3e1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain</typePackageName>
+      <typePackageId>b3f2655d-7d9f-46d5-a3d4-d1771666e964</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source elementId="0a042b74-80cd-41a5-ad26-2e85c83bab33" location="[Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication].[Services].[DeleteUser]" />
+        <target elementId="91fb6c87-66e4-4483-8eb2-942588f2b3e1" location="[Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication].[Services].[User]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="91fb6c87-66e4-4483-8eb2-942588f2b3e1" name="User" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="67684dcc-6489-4c10-b5b6-04f0f8822aaf" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="0a042b74-80cd-41a5-ad26-2e85c83bab33" name="DeleteUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="b16607eb-d379-4e7b-8f41-28badd679fb1" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

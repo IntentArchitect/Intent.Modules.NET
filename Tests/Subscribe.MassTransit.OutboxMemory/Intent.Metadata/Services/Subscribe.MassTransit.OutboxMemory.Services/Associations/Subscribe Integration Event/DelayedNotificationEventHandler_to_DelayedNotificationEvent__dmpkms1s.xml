@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c79ad2b6-fa7f-469c-9e83-41ff6ee4f405">
+  <sourceEnd id="7ba5ff0a-4400-412e-9dcf-cf987c339749" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: NewDiagram.DelayedNotificationEventHandler</display>
+    <order>0</order>
+    <typeReference id="b604afd4-1843-4e26-b242-a109e1f82b9b">
+      <typeId>40578201-1b91-4c82-901e-6b07fcf5d7d1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Subscribe.MassTransit.OutboxMemory.Services</typePackageName>
+      <typePackageId>ee67d54f-5862-4801-86d0-2430f3f16e6a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c79ad2b6-fa7f-469c-9e83-41ff6ee4f405" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: DelayedNotificationEvent</display>
+    <order>0</order>
+    <typeReference id="97262a03-b84a-4c23-a1e0-046fbdc3227b">
+      <typeId>d788a26e-930b-4ffb-af58-b7247a14e6d4</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

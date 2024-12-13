@@ -12,7 +12,7 @@
     <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="29ccb8cb-4860-4366-881b-cd0655b9453c" name="Basket" type="element" specialization="Class" />
+      <target id="29ccb8cb-4860-4366-881b-cd0655b9453c" name="Basket" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>6fb3b007-f3a6-4664-a792-fdefa1f970a0</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="b4016195-ba16-4eb6-9dd7-01aaace2fe20" name="Id" type="element" specialization="Attribute" />
+          <target id="b4016195-ba16-4eb6-9dd7-01aaace2fe20" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>417ad362-5e9e-4638-9e13-c7d1df82873b</parentFolderId>
@@ -73,7 +73,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="ecac241b-033b-4f02-a807-a31524dcb400" name="Number" type="element" specialization="Attribute" />
+          <target id="ecac241b-033b-4f02-a807-a31524dcb400" name="Number" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>417ad362-5e9e-4638-9e13-c7d1df82873b</parentFolderId>
@@ -104,7 +104,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="372476c8-aa08-49ae-b4e0-85d0e411a264" name="BasketItems" type="association" specialization="Association Target End" />
+          <target id="372476c8-aa08-49ae-b4e0-85d0e411a264" name="BasketItems" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>417ad362-5e9e-4638-9e13-c7d1df82873b</parentFolderId>

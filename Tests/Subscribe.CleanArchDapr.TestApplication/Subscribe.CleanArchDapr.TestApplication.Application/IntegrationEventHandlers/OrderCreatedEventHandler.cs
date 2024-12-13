@@ -4,16 +4,17 @@ using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Publish.CleanArchDapr.TestApplication.Eventing.Messages;
+using Subscribe.CleanArchDapr.TestApplication.Application.Common.Eventing;
 using Subscribe.CleanArchDapr.TestApplication.Application.IntegrationServices;
 using Subscribe.CleanArchDapr.TestApplication.Application.IntegrationServices.Publish.CleanArchDapr.TestApplication.Services.Orders;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Dapr.AspNetCore.Pubsub.EventHandlerImplementation", Version = "2.0")]
+[assembly: IntentTemplate("Intent.Dapr.AspNetCore.Pubsub.EventHandler", Version = "1.0")]
 
 namespace Subscribe.CleanArchDapr.TestApplication.Application.IntegrationEventHandlers
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class OrderCreatedEventHandler : IRequestHandler<OrderCreatedEvent>
+    public class OrderCreatedEventHandler : IIntegrationEventHandler<OrderCreatedEvent>
     {
         private readonly IMyProxy _myProxy;
 
@@ -24,9 +25,9 @@ namespace Subscribe.CleanArchDapr.TestApplication.Application.IntegrationEventHa
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task Handle(OrderCreatedEvent @event, CancellationToken cancellationToken)
+        public async Task HandleAsync(OrderCreatedEvent message, CancellationToken cancellationToken = default)
         {
-            await _myProxy.OrderConfirmedAsync(@event.Id, new OrderConfirmed() { RefNo = "Bob", Id = @event.Id }, cancellationToken);
+            await _myProxy.OrderConfirmedAsync(message.Id, new OrderConfirmed() { RefNo = "Bob", Id = message.Id }, cancellationToken);
 
         }
     }

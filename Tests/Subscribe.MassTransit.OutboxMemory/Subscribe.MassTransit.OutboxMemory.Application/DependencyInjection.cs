@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Subscribe.MassTransit.OutboxMemory.Application.Common.Behaviours;
 using Subscribe.MassTransit.OutboxMemory.Application.Common.Eventing;
 using Subscribe.MassTransit.OutboxMemory.Application.Common.Validation;
-using Subscribe.MassTransit.OutboxMemory.Application.IntegrationEventHandlers;
+using Subscribe.MassTransit.OutboxMemory.Application.IntegrationEvents.EventHandlers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -34,15 +34,15 @@ namespace Subscribe.MassTransit.OutboxMemory.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IIntegrationEventHandler<BasketCreatedEvent>, BasketCreatedEventHandler>();
-            services.AddTransient<IIntegrationEventHandler<BasketUpdatedEvent>, BasketUpdatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<BasketDeletedEvent>, BasketDeletedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<BasketItemCreatedEvent>, BasketItemCreatedEventHandler>();
-            services.AddTransient<IIntegrationEventHandler<BasketItemUpdatedEvent>, BasketItemUpdatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<BasketItemDeletedEvent>, BasketItemDeletedEventHandler>();
-            services.AddTransient<IIntegrationEventHandler<RoleCreatedEvent>, RoleCreatedEventHandler>();
-            services.AddTransient<IIntegrationEventHandler<RoleUpdatedEvent>, RoleUpdatedEventHandler>();
-            services.AddTransient<IIntegrationEventHandler<RoleDeletedEvent>, RoleDeletedEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<BasketItemUpdatedEvent>, BasketItemUpdatedEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<BasketUpdatedEvent>, BasketUpdatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<DelayedNotificationEvent>, DelayedNotificationEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<RoleCreatedEvent>, RoleCreatedEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<RoleDeletedEvent>, RoleDeletedEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<RoleUpdatedEvent>, RoleUpdatedEventHandler>();
             return services;
         }
     }

@@ -12,7 +12,7 @@
     <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="91fb6c87-66e4-4483-8eb2-942588f2b3e1" name="User" type="element" specialization="Class" />
+      <target id="91fb6c87-66e4-4483-8eb2-942588f2b3e1" name="User" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>1f1b15de-7db1-4add-a5c6-fdef0d82da1e</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="67684dcc-6489-4c10-b5b6-04f0f8822aaf" name="Id" type="element" specialization="Attribute" />
+          <target id="67684dcc-6489-4c10-b5b6-04f0f8822aaf" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>ce6abaa1-358c-4337-863b-0608803aaca0</parentFolderId>
@@ -73,7 +73,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="89b25296-34e8-49c8-9a85-161b3608f8ab" name="Email" type="element" specialization="Attribute" />
+          <target id="89b25296-34e8-49c8-9a85-161b3608f8ab" name="Email" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>ce6abaa1-358c-4337-863b-0608803aaca0</parentFolderId>
@@ -104,38 +104,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="8afc514a-a201-4a88-a9f4-ffc734c5781c" name="UserName" type="element" specialization="Attribute" />
-        </mappedPath>
-      </mappedClass>
-      <parentFolderId>ce6abaa1-358c-4337-863b-0608803aaca0</parentFolderId>
-      <packageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</packageId>
-      <packageName>MassTransit.Messages.Shared</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="cb5a0ca7-3aa2-435b-a4ef-4e5a69688528" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
-      <name>Preferences</name>
-      <display>Preferences: PreferenceDto[*]</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <typeReference id="e2f0b302-2bd6-4467-b988-dcbbb6518f26">
-        <typeId>29bfe9aa-f467-4149-8c54-fa7f84aa3a03</typeId>
-        <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
-        <isCollection>true</isCollection>
-        <isRequired>true</isRequired>
-        <typePackageName>MassTransit.Messages.Shared</typePackageName>
-        <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
-        <stereotypes />
-        <genericTypeParameters />
-      </typeReference>
-      <isMapped>true</isMapped>
-      <mappedClass>
-        <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
-        <autoSyncTypeReference>false</autoSyncTypeReference>
-        <mappedPath>
-          <target id="6bbfa91d-9f25-40ed-807b-4e21feab8a88" name="Preferences" type="association" specialization="Association Target End" />
+          <target id="8afc514a-a201-4a88-a9f4-ffc734c5781c" name="UserName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>ce6abaa1-358c-4337-863b-0608803aaca0</parentFolderId>
@@ -166,7 +135,38 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="9706a3f9-8b23-4a91-80a6-33fae28617e5" name="Type" type="element" specialization="Attribute" />
+          <target id="9706a3f9-8b23-4a91-80a6-33fae28617e5" name="Type" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>ce6abaa1-358c-4337-863b-0608803aaca0</parentFolderId>
+      <packageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</packageId>
+      <packageName>MassTransit.Messages.Shared</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="cb5a0ca7-3aa2-435b-a4ef-4e5a69688528" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>Preferences</name>
+      <display>Preferences: PreferenceDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e2f0b302-2bd6-4467-b988-dcbbb6518f26">
+        <typeId>29bfe9aa-f467-4149-8c54-fa7f84aa3a03</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>MassTransit.Messages.Shared</typePackageName>
+        <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
+        <autoSyncTypeReference>false</autoSyncTypeReference>
+        <mappedPath>
+          <target id="6bbfa91d-9f25-40ed-807b-4e21feab8a88" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>ce6abaa1-358c-4337-863b-0608803aaca0</parentFolderId>

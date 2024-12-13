@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="719a7d03-fda4-462d-828d-d94953709668">
+  <sourceEnd id="85ded8ad-6f8f-463d-b919-d8b31057e6e6" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : IntegrationTriggeringsAnemic.DeleteAnemicIntegrationTriggeringCommand</display>
+    <order>0</order>
+    <typeReference id="8108d552-da20-4bd7-adf5-af592adae776">
+      <typeId>17814ef9-7153-4fe1-8ed5-8f14359dd401</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="719a7d03-fda4-462d-828d-d94953709668" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] IntegrationTriggeringDeleted</display>
+    <order>1</order>
+    <typeReference id="938eb8f3-3b7f-4138-9171-a99f6236b3d6">
+      <typeId>81ebe2ea-a0c6-4934-af3a-a8a4558936bf</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Eventing.Messages</typePackageName>
+      <typePackageId>c07640e3-d918-45e2-b43d-93d04c45400c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="17814ef9-7153-4fe1-8ed5-8f14359dd401" location="[CleanArchitecture.Comprehensive].[Services].[DeleteAnemicIntegrationTriggeringCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="81ebe2ea-a0c6-4934-af3a-a8a4558936bf" location="[CleanArchitecture.Comprehensive].[Services].[IntegrationTriggeringDeleted]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="81ebe2ea-a0c6-4934-af3a-a8a4558936bf" name="IntegrationTriggeringDeleted" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="4897e852-f7c0-4d62-938d-24f9e452d226" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="17814ef9-7153-4fe1-8ed5-8f14359dd401" name="DeleteAnemicIntegrationTriggeringCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="67fc9f08-6099-4530-97eb-d3b6c7739ad9" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

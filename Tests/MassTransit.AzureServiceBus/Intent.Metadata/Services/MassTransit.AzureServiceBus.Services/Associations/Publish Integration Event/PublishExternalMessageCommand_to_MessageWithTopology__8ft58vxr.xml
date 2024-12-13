@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="ca28337a-c84f-4194-88ac-8fd3b2d67b1f">
   <sourceEnd id="5ad976a6-c504-442a-955b-28f713381052" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
-    <display>published by : ExternalMessage.PublishExternalMessageCommand</display>
+    <display>published by : ExternalMessagePublish.PublishExternalMessageCommand</display>
     <order>0</order>
     <typeReference id="8b0cd656-e9d0-4224-97b0-7f485f8000d7">
       <typeId>6cee1019-f3ea-4bde-99e5-00ca6a6f3da3</typeId>

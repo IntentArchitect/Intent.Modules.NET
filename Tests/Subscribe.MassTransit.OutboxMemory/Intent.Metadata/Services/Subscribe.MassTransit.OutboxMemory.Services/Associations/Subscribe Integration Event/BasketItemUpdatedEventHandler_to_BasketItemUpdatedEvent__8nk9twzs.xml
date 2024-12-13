@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ae4c597d-3aae-47d1-8314-10b83b084e46">
+  <sourceEnd id="2a3635ba-c4b5-4656-a2d0-f8ec0e197664" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: NewDiagram.BasketItemUpdatedEventHandler</display>
+    <order>0</order>
+    <typeReference id="adc3b2bd-cbfe-4264-a518-2c73d63888d1">
+      <typeId>a1a7e0f9-5710-41b4-a782-7d822b2c8dec</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Subscribe.MassTransit.OutboxMemory.Services</typePackageName>
+      <typePackageId>ee67d54f-5862-4801-86d0-2430f3f16e6a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ae4c597d-3aae-47d1-8314-10b83b084e46" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: BasketItemUpdatedEvent</display>
+    <order>0</order>
+    <typeReference id="acf1406f-1ab3-4a1e-a3b2-cf36c243f1ea">
+      <typeId>7b3353ce-2dfc-4037-b2c7-6c289ccc8f80</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

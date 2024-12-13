@@ -13,19 +13,14 @@
     <stereotypes />
     <genericTypeParameters />
   </typeReference>
-  <isMapped>true</isMapped>
-  <mappedClass>
-    <applicationId>dbd2618d-2650-47a1-9fdc-1a1c18aecf53</applicationId>
-    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
-    <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
-    <autoSyncTypeReference>true</autoSyncTypeReference>
-    <mappedPath>
-      <target id="29ccb8cb-4860-4366-881b-cd0655b9453c" name="Basket" type="element" specialization="Class" />
-    </mappedPath>
-  </mappedClass>
+  <isMapped>false</isMapped>
   <parentFolderId>18fa2223-34ba-4a11-8f7d-486fac0f0d4f</parentFolderId>
   <packageId>a05a4bdf-10ae-40b6-8616-8268d15d00d1</packageId>
   <packageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
       <addedByDefault>false</addedByDefault>
@@ -35,6 +30,7 @@
         <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="PUT" isActive="true" />
         <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="api/baskets/{id}" isActive="true" />
         <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+        <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
@@ -58,14 +54,7 @@
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
-      <isMapped>true</isMapped>
-      <mappedClass>
-        <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
-        <autoSyncTypeReference>true</autoSyncTypeReference>
-        <mappedPath>
-          <target id="b4016195-ba16-4eb6-9dd7-01aaace2fe20" name="Id" type="element" specialization="Attribute" />
-        </mappedPath>
-      </mappedClass>
+      <isMapped>false</isMapped>
       <parentFolderId>92abf7d5-bca6-4fc7-b3bc-20996e8ee237</parentFolderId>
       <packageId>a05a4bdf-10ae-40b6-8616-8268d15d00d1</packageId>
       <packageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Services</packageName>
@@ -82,11 +71,14 @@
             <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="false" />
             <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
             <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" isActive="true" />
             <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
             <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="false" />
             <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
             <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
             <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -109,14 +101,7 @@
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
-      <isMapped>true</isMapped>
-      <mappedClass>
-        <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
-        <autoSyncTypeReference>true</autoSyncTypeReference>
-        <mappedPath>
-          <target id="ecac241b-033b-4f02-a807-a31524dcb400" name="Number" type="element" specialization="Attribute" />
-        </mappedPath>
-      </mappedClass>
+      <isMapped>false</isMapped>
       <parentFolderId>92abf7d5-bca6-4fc7-b3bc-20996e8ee237</parentFolderId>
       <packageId>a05a4bdf-10ae-40b6-8616-8268d15d00d1</packageId>
       <packageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Services</packageName>
@@ -133,11 +118,14 @@
             <property name="cbd52384-0f1e-4f41-9e98-314231b731e1" display="Max Length" isActive="true" />
             <property name="f9802e6b-b033-4280-ad83-e4b064943d87" display="Min" isActive="false" />
             <property name="aca206a8-cb7e-4537-b3f5-c5c301863c14" display="Max" isActive="false" />
+            <property name="ad0c1113-ee22-4275-8177-576494ecfa45" display="Regular Expression" isActive="true" />
             <property name="9023c463-1cce-4f11-baa5-96561697fc7f" display="Predicate" isActive="true" />
             <property name="13d364d0-975e-47e9-ae0c-a3137326ee60" display="Predicate Message" isActive="false" />
+            <property name="85282cb5-5e12-4eb0-9568-7ccee0685e12" display="Email Address" value="false" isActive="true" />
             <property name="e441d802-9aea-4d74-b5f9-1cd2527f3719" display="Has Custom Validation" value="false" isActive="false" />
             <property name="e94008f2-3d5b-4157-ba72-69b3d6812617" display="Custom" value="false" isActive="true" />
             <property name="60e7953f-29b8-4e56-a2c9-c02fae7de91e" display="Must" value="false" isActive="true" />
+            <property name="9ce77ae5-9ad5-4436-8ae0-c6c296de8492" display="CascadeMode" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

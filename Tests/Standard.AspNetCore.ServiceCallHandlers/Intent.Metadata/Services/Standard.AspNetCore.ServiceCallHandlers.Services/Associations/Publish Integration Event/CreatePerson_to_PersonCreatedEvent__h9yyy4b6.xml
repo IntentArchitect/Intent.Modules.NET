@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="cc66b0dd-0961-4c1c-802b-ac87c2a236c8">
+  <sourceEnd id="bb305681-fc03-4148-a3d7-431de9172b8c" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : PeopleService.CreatePerson</display>
+    <order>0</order>
+    <typeReference id="91e99d2d-7853-4806-adfb-f448f4ef08dc">
+      <typeId>2a8432bd-728d-476a-892a-fda3858db898</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Services</typePackageName>
+      <typePackageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="cc66b0dd-0961-4c1c-802b-ac87c2a236c8" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] PersonCreatedEvent</display>
+    <order>2</order>
+    <typeReference id="5bf25323-cf4f-44e7-a6a1-722045d59c3c">
+      <typeId>f5c80641-83ea-485b-8db4-a06cbec0a425</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Eventing.Messages</typePackageName>
+      <typePackageId>32b18a86-0725-42f4-bc56-f890ff8fdeb5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2a8432bd-728d-476a-892a-fda3858db898" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[CreatePerson]" />
+        <target applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="f5c80641-83ea-485b-8db4-a06cbec0a425" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[PersonCreatedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{person.Id}</expression>
+            <path>
+              <target id="f5c80641-83ea-485b-8db4-a06cbec0a425" name="PersonCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="284a051f-a559-4aa4-b31a-77673ccb6851" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="person.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="2a8432bd-728d-476a-892a-fda3858db898" name="CreatePerson" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="12ef6e58-dbdf-4aa8-8a3e-8fd0d5c36cf7" name="person" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="649d216f-7b76-4f8b-921c-4f0e5607adc4" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{person.Name}</expression>
+            <path>
+              <target id="f5c80641-83ea-485b-8db4-a06cbec0a425" name="PersonCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="da12b943-303f-4c98-9482-d98bb390027e" name="Name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="person.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="2a8432bd-728d-476a-892a-fda3858db898" name="CreatePerson" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="12ef6e58-dbdf-4aa8-8a3e-8fd0d5c36cf7" name="person" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="36075680-dc2f-4238-8451-e5e7309fd4b5" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

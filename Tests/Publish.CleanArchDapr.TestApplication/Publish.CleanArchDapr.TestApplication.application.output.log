@@ -523,14 +523,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3e2c5d5d-050d-4908-83db-ae5c5275ea43</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#7b93e001-85a0-4e3d-8333-9777a4789c9e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/IntegrationEvents/OrderCreatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OrderCreatedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>ee58cf18-6a03-45fe-a2df-4b7e7f8e7a6b</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#4101ba51-3730-4272-87bf-5ae91a535d93</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

@@ -16,16 +16,7 @@
     <stereotypes />
     <genericTypeParameters />
   </typeReference>
-  <isMapped>true</isMapped>
-  <mappedClass isRoot="true">
-    <applicationId>83f258e8-1f5c-4785-9c9b-c679a771126f</applicationId>
-    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
-    <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
-    <autoSyncTypeReference>true</autoSyncTypeReference>
-    <mappedPath>
-      <target id="3a1a50c6-21ce-4caf-b953-c2484b3f851b" name="IntegrationTriggering" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-    </mappedPath>
-  </mappedClass>
+  <isMapped>false</isMapped>
   <parentFolderId>5355c4ab-3cc6-40e3-a16f-a8e0c7bdbf07</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.Comprehensive.Services</packageName>
@@ -66,14 +57,7 @@
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
-      <isMapped>true</isMapped>
-      <mappedClass>
-        <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
-        <autoSyncTypeReference>true</autoSyncTypeReference>
-        <mappedPath>
-          <target id="37417a52-5846-4606-be7f-fb05038b60e4" name="Value" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
-        </mappedPath>
-      </mappedClass>
+      <isMapped>false</isMapped>
       <parentFolderId>b217966f-d4df-4126-bef4-816f2f7376f0</parentFolderId>
       <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
       <packageName>CleanArchitecture.Comprehensive.Services</packageName>

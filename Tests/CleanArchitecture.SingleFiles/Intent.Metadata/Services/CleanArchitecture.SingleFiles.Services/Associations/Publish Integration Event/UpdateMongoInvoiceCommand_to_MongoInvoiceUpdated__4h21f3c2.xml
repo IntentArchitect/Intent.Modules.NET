@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="dd98e840-617a-4b09-92ff-987062c937c1">
+  <sourceEnd id="e7577cb2-108f-4df4-ae33-5aa001d728c9" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : MongoInvoices.UpdateMongoInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="fe753048-f0d3-4205-af85-7bbbfa1b8253">
+      <typeId>d8591556-c290-4252-8e34-5f9166821c99</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+      <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="dd98e840-617a-4b09-92ff-987062c937c1" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] MongoInvoiceUpdated</display>
+    <order>2</order>
+    <typeReference id="a6896f31-c0e6-4c8b-8aa7-40c4f93bd783">
+      <typeId>e05fe85c-cbb1-47b6-b8aa-68a9cfbb530f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Messages</typePackageName>
+      <typePackageId>94081eb4-5a9e-4db2-a03f-ebb0d2136f0c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d8591556-c290-4252-8e34-5f9166821c99" location="[CleanArchitecture.SingleFiles].[Services].[UpdateMongoInvoiceCommand]" />
+        <target applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="e05fe85c-cbb1-47b6-b8aa-68a9cfbb530f" location="[CleanArchitecture.SingleFiles].[Services].[MongoInvoiceUpdated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Description}</expression>
+            <path>
+              <target id="e05fe85c-cbb1-47b6-b8aa-68a9cfbb530f" name="MongoInvoiceUpdated" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="9d0de675-357d-487a-98d9-7971c33dbb12" name="Description" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Description" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="d8591556-c290-4252-8e34-5f9166821c99" name="UpdateMongoInvoiceCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="1a5c4389-a2c5-4501-9062-2be1e353dfe4" name="Description" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

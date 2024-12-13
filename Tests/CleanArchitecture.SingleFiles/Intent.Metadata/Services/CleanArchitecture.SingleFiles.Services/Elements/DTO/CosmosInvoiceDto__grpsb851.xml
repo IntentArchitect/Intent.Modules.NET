@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="6788a348-5d20-4831-93c8-5872106be0a8" name="CosmosInvoice" type="element" specialization="Class" />
+      <target id="6788a348-5d20-4831-93c8-5872106be0a8" name="CosmosInvoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>7a3eff35-877e-4ebc-bf0a-8cb0aeaaf425</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="09fd4717-9361-4ff2-ad3f-08e0a6f7f816" name="Id" type="element" specialization="Attribute" />
+          <target id="09fd4717-9361-4ff2-ad3f-08e0a6f7f816" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>6896a1d5-ef4c-4cc1-8cbe-8746968e8f9f</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="b0a072d7-7122-4801-93e4-25f3992e8786" name="Description" type="element" specialization="Attribute" />
+          <target id="b0a072d7-7122-4801-93e4-25f3992e8786" name="Description" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>6896a1d5-ef4c-4cc1-8cbe-8746968e8f9f</parentFolderId>

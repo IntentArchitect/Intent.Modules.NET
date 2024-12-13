@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5cca800e-a319-44c0-853d-1e8d24629fc1">
+  <sourceEnd id="8d5f2294-1ae5-43a3-af13-4af7c9a5ebb8" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : PeopleService.DeletePerson</display>
+    <order>0</order>
+    <typeReference id="f0dd0988-472e-4725-95fc-a4359310484f">
+      <typeId>2fa830ef-492e-4f75-9f27-c76f2ea47bdd</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Services</typePackageName>
+      <typePackageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5cca800e-a319-44c0-853d-1e8d24629fc1" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] PersonDeletedEvent</display>
+    <order>2</order>
+    <typeReference id="c0ff55b2-c5e1-4d36-b84e-4fb95cb018e6">
+      <typeId>da0b23e2-7bc7-4d69-9929-9295a540fdb0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Eventing.Messages</typePackageName>
+      <typePackageId>32b18a86-0725-42f4-bc56-f890ff8fdeb5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2fa830ef-492e-4f75-9f27-c76f2ea47bdd" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[DeletePerson]" />
+        <target applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="da0b23e2-7bc7-4d69-9929-9295a540fdb0" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[PersonDeletedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{person.Id}</expression>
+            <path>
+              <target id="da0b23e2-7bc7-4d69-9929-9295a540fdb0" name="PersonDeletedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="fbd8ab01-77d1-4c67-8722-f3a52acf7566" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="person.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="2fa830ef-492e-4f75-9f27-c76f2ea47bdd" name="DeletePerson" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="a2e3b30e-cdc3-40d4-971e-5c3490bbabb6" name="person" type="association" specialization="Delete Entity Action Target End" specializationId="4a04cfc2-5841-438c-9c16-fb58b784b365" />
+                  <target id="649d216f-7b76-4f8b-921c-4f0e5607adc4" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{person.Name}</expression>
+            <path>
+              <target id="da0b23e2-7bc7-4d69-9929-9295a540fdb0" name="PersonDeletedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="b6e82827-704c-4b01-a3b3-9305a3f7cc55" name="Name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="person.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="2fa830ef-492e-4f75-9f27-c76f2ea47bdd" name="DeletePerson" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="a2e3b30e-cdc3-40d4-971e-5c3490bbabb6" name="person" type="association" specialization="Delete Entity Action Target End" specializationId="4a04cfc2-5841-438c-9c16-fb58b784b365" />
+                  <target id="36075680-dc2f-4238-8451-e5e7309fd4b5" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

@@ -40,7 +40,8 @@ namespace Subscribe.CleanArchDapr.TestApplication.Api.Controllers
         [Topic(OrderCreatedEvent.PubsubName, OrderCreatedEvent.TopicName)]
         public async Task HandleOrderCreatedEvent(OrderCreatedEvent @event, CancellationToken cancellationToken)
         {
-            await _mediatr.Send(@event, cancellationToken);
+            var handler = _serviceProvider.GetRequiredService<IIntegrationEventHandler<OrderCreatedEvent>>();
+            await handler.HandleAsync(@event, cancellationToken);
         }
     }
 }

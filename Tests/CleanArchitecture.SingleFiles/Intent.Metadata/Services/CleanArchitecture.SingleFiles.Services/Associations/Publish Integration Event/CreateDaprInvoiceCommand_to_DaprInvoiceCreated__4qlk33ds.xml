@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8aa06c44-1e5b-4dcd-99b3-10699aa79d2c">
+  <sourceEnd id="19a7d55e-7b52-487b-8a06-b3d30c242243" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : DaprInvoices.CreateDaprInvoiceCommand</display>
+    <order>0</order>
+    <typeReference id="853cbf95-1d4f-41d6-9a83-502d9137933c">
+      <typeId>c1a24553-a2f3-4a70-a50b-2a6863813bef</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Services</typePackageName>
+      <typePackageId>3024d147-8f45-4d7b-8b07-b1bb1313be48</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8aa06c44-1e5b-4dcd-99b3-10699aa79d2c" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] DaprInvoiceCreated</display>
+    <order>1</order>
+    <typeReference id="d0799717-fbf7-4961-ae7a-56f1ca7c915f">
+      <typeId>f92041e4-f3e7-4450-87c3-59408e696e5e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.SingleFiles.Messages</typePackageName>
+      <typePackageId>94081eb4-5a9e-4db2-a03f-ebb0d2136f0c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c1a24553-a2f3-4a70-a50b-2a6863813bef" location="[CleanArchitecture.SingleFiles].[Services].[CreateDaprInvoiceCommand]" />
+        <target applicationId="5370419a-032b-47fb-a618-e03898c0eee4" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="f92041e4-f3e7-4450-87c3-59408e696e5e" location="[CleanArchitecture.SingleFiles].[Services].[DaprInvoiceCreated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Description}</expression>
+            <path>
+              <target id="f92041e4-f3e7-4450-87c3-59408e696e5e" name="DaprInvoiceCreated" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="ade915ae-8961-44f3-a0fe-77d0e40d8ada" name="Description" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Description" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="c1a24553-a2f3-4a70-a50b-2a6863813bef" name="CreateDaprInvoiceCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="265462f6-e3df-48ef-a65a-dbcda45865c6" name="Description" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

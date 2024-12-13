@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="60d26626-3860-4695-b48e-5c6381e3028d">
+  <sourceEnd id="723b7b3a-a2db-4b0d-bf87-c24ce22c25f0" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: Subscribe.MassTransit.OutboxMemory.Services.RoleDeletedEventHandler</display>
+    <order>0</order>
+    <typeReference id="97046bf7-bff8-471b-b1c9-b3795e791b53">
+      <typeId>00eb21f4-53d2-42ea-bcd5-72ee1c24df82</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Subscribe.MassTransit.OutboxMemory.Services</typePackageName>
+      <typePackageId>ee67d54f-5862-4801-86d0-2430f3f16e6a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="60d26626-3860-4695-b48e-5c6381e3028d" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: RoleDeletedEvent</display>
+    <order>0</order>
+    <typeReference id="b81223ff-5962-4af6-adbc-1ecb1a0168c2">
+      <typeId>c39fb238-316f-4f29-810f-57dbc7e042af</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

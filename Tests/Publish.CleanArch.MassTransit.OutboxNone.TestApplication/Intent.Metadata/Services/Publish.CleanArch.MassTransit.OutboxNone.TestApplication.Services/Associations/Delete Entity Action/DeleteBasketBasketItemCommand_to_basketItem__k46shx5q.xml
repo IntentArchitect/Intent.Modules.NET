@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="73d7f1f7-c310-4c75-81e3-159fb2e125e8">
+  <sourceEnd id="109926ea-de0b-4fd3-be62-8d9fc3998e6b" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Baskets.DeleteBasketBasketItemCommand</display>
+    <order>0</order>
+    <typeReference id="12ae2caa-e698-4666-a4b3-e3ba448d1961">
+      <typeId>728e8466-97df-45b1-94c3-0a71ce334c9f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Services</typePackageName>
+      <typePackageId>a05a4bdf-10ae-40b6-8616-8268d15d00d1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="73d7f1f7-c310-4c75-81e3-159fb2e125e8" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>basketItem</name>
+    <display>[delete] basketItem: BasketItem</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="14ec3745-c539-4ca8-b879-33c692d94c1c">
+      <typeId>65fe0448-94b2-4c97-9746-0088607c147a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain</typePackageName>
+      <typePackageId>4364c544-7a74-40d1-a76b-9de314ee334c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source elementId="728e8466-97df-45b1-94c3-0a71ce334c9f" location="[Publish.CleanArch.MassTransit.OutboxNone.TestApplication].[Services].[DeleteBasketBasketItemCommand]" />
+        <target applicationId="dbd2618d-2650-47a1-9fdc-1a1c18aecf53" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="65fe0448-94b2-4c97-9746-0088607c147a" location="[Publish.CleanArch.MassTransit.OutboxNone.TestApplication].[Services].[BasketItem]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="65fe0448-94b2-4c97-9746-0088607c147a" name="BasketItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="1c8e7cd7-2e44-4d17-a2f0-84399d9b5c5d" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="728e8466-97df-45b1-94c3-0a71ce334c9f" name="DeleteBasketBasketItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="62fa894e-7db2-493a-b759-6a7613af22d0" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

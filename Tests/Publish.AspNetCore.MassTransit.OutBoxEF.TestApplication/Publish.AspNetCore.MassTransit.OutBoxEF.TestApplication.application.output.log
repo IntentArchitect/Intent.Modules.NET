@@ -172,50 +172,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#05cf2d60-11ec-4a3a-ad11-0c23ea9abb7a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/TestClassMappingVOEvent.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestClassMappingVOEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#05cf2d60-11ec-4a3a-ad11-0c23ea9abb7a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/TestClassMappingVOEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestClassMappingVOEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventDto#72d52b5e-65f3-4de2-924f-9b46dd5948ed</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/TestVODto.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestVODto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.DtoExtensions#72d52b5e-65f3-4de2-924f-9b46dd5948ed</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/TestVODtoExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestVODtoExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventDto#29bfe9aa-f467-4149-8c54-fa7f84aa3a03</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/Users/PreferenceDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Users/PreferenceDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.DtoExtensions#29bfe9aa-f467-4149-8c54-fa7f84aa3a03</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/Users/PreferenceDtoExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/PreferenceDtoExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -228,14 +188,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#ce6abaa1-358c-4337-863b-0608803aaca0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/Users/UserCreatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/UserCreatedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#db361f24-a0bc-4284-b03a-5de071d08a70</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/Users/UserDeletedEvent.cs</ApplicationRelativeFilePath>
@@ -244,26 +196,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#db361f24-a0bc-4284-b03a-5de071d08a70</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/Users/UserDeletedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/UserDeletedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#ea2dd8fc-1453-4a6d-ba44-498c5de53bf2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/Users/UserUpdatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Users/UserUpdatedEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2cb5195c-bce6-4d4d-b972-9e0eb5b77401</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#ea2dd8fc-1453-4a6d-ba44-498c5de53bf2</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/IntegrationEvents/Users/UserUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/UserUpdatedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -296,14 +232,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/PreferenceDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Users/PreferenceDto.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c0af0524-cd07-469a-ae19-b21a5d7e0aaf</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#eef0e2ce-9726-46f0-b58e-818de6323ba5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/PreferenceDtoMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Users/PreferenceDtoMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

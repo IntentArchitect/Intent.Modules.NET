@@ -31,20 +31,26 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(DeleteBasketBasketItemCommand request, CancellationToken cancellationToken)
         {
-            var aggregateRoot = await _basketRepository.FindByIdAsync(request.BasketId, cancellationToken);
-            if (aggregateRoot is null)
+            var basket = await _basketRepository.FindByIdAsync(request.BasketId, cancellationToken);
+            if (basket is null)
             {
-                throw new NotFoundException($"{nameof(Basket)} of Id '{request.BasketId}' could not be found");
+                throw new NotFoundException($"Could not find BasketItem '{request.BasketId}'");
             }
 
-            var existingBasketItem = aggregateRoot.BasketItems.FirstOrDefault(p => p.Id == request.Id);
-            if (existingBasketItem is null)
+            var basketItem = basket.BasketItems.FirstOrDefault(x => x.Id == request.Id);
+            if (basketItem is null)
             {
-                throw new NotFoundException($"{nameof(BasketItem)} of Id '{request.Id}' could not be found associated with {nameof(Basket)} of Id '{request.BasketId}'");
+                throw new NotFoundException($"Could not find BasketItem '{request.Id}'");
             }
 
-            aggregateRoot.BasketItems.Remove(existingBasketItem);
-            _eventBus.Publish(existingBasketItem.MapToBasketItemDeletedEvent());
+            basket.BasketItems.Remove(basketItem);
+            _eventBus.Publish(new BasketItemDeletedEvent
+            {
+                Id = basketItem.Id,
+                Description = basketItem.Description,
+                Amount = basketItem.Amount,
+                BasketId = basketItem.BasketId
+            });
 
         }
     }

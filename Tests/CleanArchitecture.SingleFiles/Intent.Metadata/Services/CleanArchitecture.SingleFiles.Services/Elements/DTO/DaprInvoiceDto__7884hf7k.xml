@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="47198a38-4f68-4a44-852b-e3b12186852a" name="DaprInvoice" type="element" specialization="Class" />
+      <target id="47198a38-4f68-4a44-852b-e3b12186852a" name="DaprInvoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>9d45a6c2-45fa-4768-aeb1-45f56a8265d8</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="0f5e8c4f-9eee-426e-9a1a-712d990ef027" name="Id" type="element" specialization="Attribute" />
+          <target id="0f5e8c4f-9eee-426e-9a1a-712d990ef027" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d5ff2369-8831-4026-bb84-839d5dac8ae3</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="be79cf2f-eeca-4e81-99b6-39f926da7610" name="Description" type="element" specialization="Attribute" />
+          <target id="be79cf2f-eeca-4e81-99b6-39f926da7610" name="Description" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d5ff2369-8831-4026-bb84-839d5dac8ae3</parentFolderId>

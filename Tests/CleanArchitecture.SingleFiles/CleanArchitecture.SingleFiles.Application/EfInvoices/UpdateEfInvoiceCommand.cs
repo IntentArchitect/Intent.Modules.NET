@@ -51,7 +51,10 @@ namespace CleanArchitecture.SingleFiles.Application.EfInvoices
             }
 
             existingEfInvoice.Description = request.Description;
-            _eventBus.Publish(existingEfInvoice.MapToEfInvoiceUpdatedEvent());
+            _eventBus.Publish(new EfInvoiceUpdatedEvent
+            {
+                Description = request.Description
+            });
         }
     }
 

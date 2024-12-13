@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a1a7e0f9-5710-41b4-a782-7d822b2c8dec" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>BasketItemUpdatedEventHandler</name>
+  <display>BasketItemUpdatedEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ee67d54f-5862-4801-86d0-2430f3f16e6a</parentFolderId>
+  <packageId>ee67d54f-5862-4801-86d0-2430f3f16e6a</packageId>
+  <packageName>Subscribe.MassTransit.OutboxMemory.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

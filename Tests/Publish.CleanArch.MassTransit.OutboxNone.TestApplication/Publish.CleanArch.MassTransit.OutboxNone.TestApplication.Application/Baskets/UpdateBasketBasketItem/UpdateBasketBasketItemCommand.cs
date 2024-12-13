@@ -10,12 +10,12 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
 {
     public class UpdateBasketBasketItemCommand : IRequest, ICommand
     {
-        public UpdateBasketBasketItemCommand(Guid basketId, Guid id, string description, decimal amount)
+        public UpdateBasketBasketItemCommand(Guid id, string description, decimal amount, Guid basketId)
         {
-            BasketId = basketId;
             Id = id;
             Description = description;
             Amount = amount;
+            BasketId = basketId;
         }
 
         public Guid BasketId { get; set; }

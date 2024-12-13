@@ -22,6 +22,9 @@
     <name>efInvoices</name>
     <display>[query] efInvoices: EfInvoice[*]</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="d5ed2057-4f9a-4d05-99fb-10bcf8875532">
       <typeId>cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f</typeId>
       <isNavigable>true</isNavigable>

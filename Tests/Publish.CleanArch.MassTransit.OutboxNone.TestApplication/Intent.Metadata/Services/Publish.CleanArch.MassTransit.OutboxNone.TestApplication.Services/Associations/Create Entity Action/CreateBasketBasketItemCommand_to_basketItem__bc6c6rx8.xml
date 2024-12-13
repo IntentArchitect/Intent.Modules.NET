@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0de4eb95-1b05-462e-83ea-5bd86a36afc3">
+  <sourceEnd id="25929183-8fe7-43e6-9171-bab557590d10" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Baskets.CreateBasketBasketItemCommand</display>
+    <order>0</order>
+    <typeReference id="a8d1d5cc-df8b-48da-b8a3-9a3f81f6b59b">
+      <typeId>e0b74cb1-6add-4474-ad10-b563acf4816e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Services</typePackageName>
+      <typePackageId>a05a4bdf-10ae-40b6-8616-8268d15d00d1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0de4eb95-1b05-462e-83ea-5bd86a36afc3" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>basketItem</name>
+    <display>[create] basketItem: BasketItem</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="066b27af-39ad-48ec-8df8-e0f125ca0314">
+      <typeId>65fe0448-94b2-4c97-9746-0088607c147a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain</typePackageName>
+      <typePackageId>4364c544-7a74-40d1-a76b-9de314ee334c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source elementId="e0b74cb1-6add-4474-ad10-b563acf4816e" location="[Publish.CleanArch.MassTransit.OutboxNone.TestApplication].[Services].[CreateBasketBasketItemCommand]" />
+        <target applicationId="dbd2618d-2650-47a1-9fdc-1a1c18aecf53" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="65fe0448-94b2-4c97-9746-0088607c147a" location="[Publish.CleanArch.MassTransit.OutboxNone.TestApplication].[Services].[BasketItem]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateBasketBasketItemCommand}</expression>
+            <path>
+              <target id="65fe0448-94b2-4c97-9746-0088607c147a" name="BasketItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateBasketBasketItemCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="e0b74cb1-6add-4474-ad10-b563acf4816e" name="CreateBasketBasketItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Description}</expression>
+            <path>
+              <target id="65fe0448-94b2-4c97-9746-0088607c147a" name="BasketItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="9bb88a51-a1cf-4524-9df9-9abcd83ac2ed" name="Description" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Description" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="e0b74cb1-6add-4474-ad10-b563acf4816e" name="CreateBasketBasketItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="bb3b4bac-8fc9-4394-81ad-f2b5bba72641" name="Description" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Amount}</expression>
+            <path>
+              <target id="65fe0448-94b2-4c97-9746-0088607c147a" name="BasketItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="aae0cd36-3854-4fb8-be65-73b20632eb42" name="Amount" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Amount" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="e0b74cb1-6add-4474-ad10-b563acf4816e" name="CreateBasketBasketItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="bc43040b-0155-4801-8a1a-16edc718fa2a" name="Amount" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{BasketId}</expression>
+            <path>
+              <target id="65fe0448-94b2-4c97-9746-0088607c147a" name="BasketItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="64fc19b0-7b7d-4dc9-b402-7d50d673fe3b" name="BasketId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="BasketId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="e0b74cb1-6add-4474-ad10-b563acf4816e" name="CreateBasketBasketItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3731a7f9-166f-494e-8486-c963f45f451b" name="BasketId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

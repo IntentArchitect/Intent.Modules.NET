@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7ec5b62d-e9ec-4633-b5e6-393e892732ad">
+  <sourceEnd id="7468d3f9-ccbf-4c12-8c18-701b88b3ae7a" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Orders.DeleteOrderCommand</display>
+    <order>0</order>
+    <typeReference id="863da208-733f-430c-9df4-1ad5c1c34741">
+      <typeId>b8fd830b-c7f2-4fb0-abb5-a488b59a5bc2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Services</typePackageName>
+      <typePackageId>e34283b3-859f-4000-8713-1d68ff426fdb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7ec5b62d-e9ec-4633-b5e6-393e892732ad" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderDeletedEvent</display>
+    <order>2</order>
+    <typeReference id="af6bfa16-3928-4759-9731-d2f83c78ed28">
+      <typeId>649c4a3e-bd59-4af6-b858-5a452cf6fda0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="cb6c20ce-8d48-4013-ae35-4e3310784497" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b8fd830b-c7f2-4fb0-abb5-a488b59a5bc2" location="[Publish.CleanArch.MassTransit.OutboxEF.TestApplication].[Services].[DeleteOrderCommand]" />
+        <target applicationId="71eac626-755a-4c5d-89f1-e66511d4df64" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="649c4a3e-bd59-4af6-b858-5a452cf6fda0" location="[Publish.CleanArch.MassTransit.OutboxEF.TestApplication].[Services].[OrderDeletedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{order.Id}</expression>
+            <path>
+              <target id="649c4a3e-bd59-4af6-b858-5a452cf6fda0" name="OrderDeletedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="5096e4b1-5266-4b56-a6fc-b51e57796e38" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="order.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="b8fd830b-c7f2-4fb0-abb5-a488b59a5bc2" name="DeleteOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="bc0d4190-2aa5-4642-b0a4-5c78ccc64221" name="order" type="association" specialization="Delete Entity Action Target End" specializationId="4a04cfc2-5841-438c-9c16-fb58b784b365" />
+                  <target id="6c2d95bd-f98e-49eb-b344-eb0167b6e317" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{order.Number}</expression>
+            <path>
+              <target id="649c4a3e-bd59-4af6-b858-5a452cf6fda0" name="OrderDeletedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="f9ba1a46-5439-46dd-b12a-54fdbeb98557" name="Number" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="order.Number" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="b8fd830b-c7f2-4fb0-abb5-a488b59a5bc2" name="DeleteOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="bc0d4190-2aa5-4642-b0a4-5c78ccc64221" name="order" type="association" specialization="Delete Entity Action Target End" specializationId="4a04cfc2-5841-438c-9c16-fb58b784b365" />
+                  <target id="089840d0-43a0-41a4-af66-c8f037c6b55c" name="Number" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

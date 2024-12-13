@@ -53,7 +53,10 @@ namespace CleanArchitecture.SingleFiles.Application.DaprInvoices
             existingDaprInvoice.Description = request.Description;
 
             _daprInvoiceRepository.Update(existingDaprInvoice);
-            _eventBus.Publish(existingDaprInvoice.MapToDaprInvoiceUpdatedEvent());
+            _eventBus.Publish(new DaprInvoiceUpdatedEvent
+            {
+                Description = request.Description
+            });
         }
     }
 

@@ -10,7 +10,7 @@ using Publish.AspNetCore.MassTransit.OutBoxNone.Domain.Entities;
 
 namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Roles
 {
-    public class PriviledgeDto : IMapFrom<Priviledge>
+    public class PriviledgeDto
     {
         public PriviledgeDto()
         {
@@ -21,19 +21,14 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Roles
         public string Name { get; set; }
         public Guid Id { get; set; }
 
-        public static PriviledgeDto Create(Guid roleId, string name, Guid id)
+        public static PriviledgeDto Create(Guid id, Guid roleId, string name)
         {
             return new PriviledgeDto
             {
+                Id = id,
                 RoleId = roleId,
-                Name = name,
-                Id = id
+                Name = name
             };
-        }
-
-        public void Mapping(Profile profile)
-        {
-            profile.CreateMap<Priviledge, PriviledgeDto>();
         }
     }
 }

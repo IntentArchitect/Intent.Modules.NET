@@ -62,7 +62,7 @@
     </childElement>
     <childElement id="bec7adf3-bfb6-4054-9e06-790da05f9ac7" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
       <name>DateOfBirth</name>
-      <display>DateOfBirth: date</display>
+      <display>DateOfBirth: datetime</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="e53c1259-2028-4d68-be76-e4be4049495e">

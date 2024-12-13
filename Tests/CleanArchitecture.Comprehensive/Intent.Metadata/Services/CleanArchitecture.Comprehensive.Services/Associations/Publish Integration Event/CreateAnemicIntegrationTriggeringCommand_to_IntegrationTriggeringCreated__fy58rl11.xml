@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6fcdb6c9-17ab-4410-b23d-fbb4f53afc93">
+  <sourceEnd id="f116eeaf-0ae7-497a-86a4-c6a97b417c8e" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : IntegrationTriggeringsAnemic.CreateAnemicIntegrationTriggeringCommand</display>
+    <order>0</order>
+    <typeReference id="68f568fc-bba0-4698-bf7b-9ebce9a15e2e">
+      <typeId>b217966f-d4df-4126-bef4-816f2f7376f0</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="6fcdb6c9-17ab-4410-b23d-fbb4f53afc93" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] IntegrationTriggeringCreated</display>
+    <order>2</order>
+    <typeReference id="547ace92-a0fd-44db-84a4-9ef61a4b6f81">
+      <typeId>cb515ce1-7756-4170-94a7-8a68803e7bb7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Eventing.Messages</typePackageName>
+      <typePackageId>c07640e3-d918-45e2-b43d-93d04c45400c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b217966f-d4df-4126-bef4-816f2f7376f0" location="[CleanArchitecture.Comprehensive].[Services].[CreateAnemicIntegrationTriggeringCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="cb515ce1-7756-4170-94a7-8a68803e7bb7" location="[CleanArchitecture.Comprehensive].[Services].[IntegrationTriggeringCreated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{entity.Id}</expression>
+            <path>
+              <target id="cb515ce1-7756-4170-94a7-8a68803e7bb7" name="IntegrationTriggeringCreated" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="82ea238b-a753-4afe-8652-b8eddd90fcb9" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="entity.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="b217966f-d4df-4126-bef4-816f2f7376f0" name="CreateAnemicIntegrationTriggeringCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f44fd4f0-33ec-4a9e-9318-19aa48043024" name="entity" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="2fa54e79-f33f-45ca-a385-f820da9fdb78" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

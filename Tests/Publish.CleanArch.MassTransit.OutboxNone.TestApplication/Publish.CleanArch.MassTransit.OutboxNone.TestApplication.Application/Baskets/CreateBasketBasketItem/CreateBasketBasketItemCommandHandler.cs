@@ -31,23 +31,28 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateBasketBasketItemCommand request, CancellationToken cancellationToken)
         {
-            var aggregateRoot = await _basketRepository.FindByIdAsync(request.BasketId, cancellationToken);
-            if (aggregateRoot is null)
+            var basket = await _basketRepository.FindByIdAsync(request.BasketId, cancellationToken);
+            if (basket is null)
             {
-                throw new NotFoundException($"{nameof(Basket)} of Id '{request.BasketId}' could not be found");
+                throw new NotFoundException($"Could not find BasketItem '{request.BasketId}'");
             }
-
-            var newBasketItem = new BasketItem
+            var basketItem = new BasketItem
             {
-                BasketId = request.BasketId,
                 Description = request.Description,
                 Amount = request.Amount,
+                BasketId = request.BasketId
             };
 
-            aggregateRoot.BasketItems.Add(newBasketItem);
+            basket.BasketItems.Add(basketItem);
             await _basketRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            _eventBus.Publish(newBasketItem.MapToBasketItemCreatedEvent());
-            return newBasketItem.Id;
+            _eventBus.Publish(new BasketItemCreatedEvent
+            {
+                Id = basketItem.Id,
+                Description = basketItem.Description,
+                Amount = basketItem.Amount,
+                BasketId = basketItem.BasketId
+            });
+            return basketItem.Id;
         }
     }
 }

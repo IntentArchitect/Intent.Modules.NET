@@ -22,6 +22,9 @@
     <name>cosmosInvoice</name>
     <display>[delete] cosmosInvoice: CosmosInvoice</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="67188bd6-3f2c-48fe-9ddc-a2daeada7356">
       <typeId>6788a348-5d20-4831-93c8-5872106be0a8</typeId>
       <isNavigable>true</isNavigable>

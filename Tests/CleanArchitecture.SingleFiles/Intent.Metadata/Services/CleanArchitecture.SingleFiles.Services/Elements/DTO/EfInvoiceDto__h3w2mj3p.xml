@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f" name="EfInvoice" type="element" specialization="Class" />
+      <target id="cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f" name="EfInvoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>d0123c0d-cb16-4960-ad56-06d73650492c</parentFolderId>
@@ -44,7 +44,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c2a76572-b2be-4060-ab86-8c12bef702a4" name="Id" type="element" specialization="Attribute" />
+          <target id="c2a76572-b2be-4060-ab86-8c12bef702a4" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>cf5fd8da-f11c-4938-9f10-7b8acaa3040b</parentFolderId>
@@ -98,7 +98,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c40affe4-9f2f-42c7-a3b1-d862269b41f7" name="Description" type="element" specialization="Attribute" />
+          <target id="c40affe4-9f2f-42c7-a3b1-d862269b41f7" name="Description" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>cf5fd8da-f11c-4938-9f10-7b8acaa3040b</parentFolderId>

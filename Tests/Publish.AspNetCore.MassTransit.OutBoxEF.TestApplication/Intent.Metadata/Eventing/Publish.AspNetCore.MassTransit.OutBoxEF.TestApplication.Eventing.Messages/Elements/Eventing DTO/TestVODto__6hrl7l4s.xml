@@ -12,7 +12,7 @@
     <mappingSettingsId>e437007c-33fd-46d5-9293-d4529b4b82e6</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="aec628f1-dcb0-4754-9b01-5bfc451f12ce" name="TestVO" type="element" specialization="Value Object" />
+      <target id="aec628f1-dcb0-4754-9b01-5bfc451f12ce" name="TestVO" type="element" specialization="Value Object" specializationId="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>761ad7ea-050f-4076-9172-4ec47ffcf4ca</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>e437007c-33fd-46d5-9293-d4529b4b82e6</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="5cf777de-52a8-4bf4-8d83-ff1aac6f0901" name="Name" type="element" specialization="Attribute" />
+          <target id="5cf777de-52a8-4bf4-8d83-ff1aac6f0901" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>72d52b5e-65f3-4de2-924f-9b46dd5948ed</parentFolderId>

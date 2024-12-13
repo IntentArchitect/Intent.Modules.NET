@@ -11,6 +11,7 @@ namespace MassTransit.Messages.Shared
         {
             Message = null!;
         }
+
         public string Message { get; init; }
     }
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3670c7de-78a4-4277-bb39-33ecd26197ed">
+  <sourceEnd id="bad1dc9a-9e83-44a5-b21f-455f3beea175" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: MassTransit.RabbitMQ.Services.TestMessageEventHandler</display>
+    <order>0</order>
+    <typeReference id="df42d82a-40f7-49ef-839b-f338770cf10e">
+      <typeId>0b477704-dedd-41ef-87cf-b04ad7aca56d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3670c7de-78a4-4277-bb39-33ecd26197ed" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: TestMessage</display>
+    <order>0</order>
+    <typeReference id="b510db1f-15a5-4ca9-a7ba-30b942707279">
+      <typeId>5e2c82e2-52f3-4f0a-9f18-b5e0f6608eee</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Eventing.Messages</typePackageName>
+      <typePackageId>94e661e3-c275-4bdb-bf9e-cf097adfa1af</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

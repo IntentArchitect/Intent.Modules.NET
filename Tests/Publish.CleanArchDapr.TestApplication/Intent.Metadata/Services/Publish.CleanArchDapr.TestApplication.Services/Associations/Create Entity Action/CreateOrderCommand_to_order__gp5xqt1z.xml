@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7a7d75d4-7d60-44fa-87af-f9ec0ba15403">
+  <sourceEnd id="f5c62977-35b5-4775-aed8-ddb87ba0c912" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Orders.CreateOrderCommand</display>
+    <order>0</order>
+    <typeReference id="5bf2baa4-3f92-4fa2-a7bb-3fb1f4975d5f">
+      <typeId>4101ba51-3730-4272-87bf-5ae91a535d93</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArchDapr.TestApplication.Services</typePackageName>
+      <typePackageId>3f763df0-a134-4460-b12c-76f0df862016</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7a7d75d4-7d60-44fa-87af-f9ec0ba15403" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>order</name>
+    <display>[create] order: Order</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="384902cb-2999-4008-b661-f5beef3ed895">
+      <typeId>008652e2-30b9-471a-a9ce-fd80c45713a5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArchDapr.TestApplication.Domain</typePackageName>
+      <typePackageId>2e1d5a3d-f79d-4595-b773-2e75538910d5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="11c8cc47-1133-4a1f-84a2-cbf0c097e62c" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4101ba51-3730-4272-87bf-5ae91a535d93" location="[Publish.CleanArchDapr.TestApplication].[Services].[CreateOrderCommand]" />
+        <target applicationId="11c8cc47-1133-4a1f-84a2-cbf0c097e62c" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="008652e2-30b9-471a-a9ce-fd80c45713a5" location="[Publish.CleanArchDapr.TestApplication].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateOrderCommand}</expression>
+            <path>
+              <target id="008652e2-30b9-471a-a9ce-fd80c45713a5" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateOrderCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="4101ba51-3730-4272-87bf-5ae91a535d93" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{CustomerId}</expression>
+            <path>
+              <target id="008652e2-30b9-471a-a9ce-fd80c45713a5" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="f50ccafc-8b8e-4916-850c-ee94f1a937bd" name="CustomerId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="CustomerId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="4101ba51-3730-4272-87bf-5ae91a535d93" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="2b5cd961-9008-4424-ac0b-a77231d81077" name="CustomerId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

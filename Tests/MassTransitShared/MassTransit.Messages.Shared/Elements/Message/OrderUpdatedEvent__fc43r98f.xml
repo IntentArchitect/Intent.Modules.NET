@@ -12,7 +12,7 @@
     <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="f742cf87-1a4a-4b0e-a3bc-2b495809270d" name="Order" type="element" specialization="Class" />
+      <target id="f742cf87-1a4a-4b0e-a3bc-2b495809270d" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>b6d3adc1-3402-4d2e-ae6e-5f1e4611400f</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="6c2d95bd-f98e-49eb-b344-eb0167b6e317" name="Id" type="element" specialization="Attribute" />
+          <target id="6c2d95bd-f98e-49eb-b344-eb0167b6e317" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed</parentFolderId>
@@ -73,7 +73,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="089840d0-43a0-41a4-af66-c8f037c6b55c" name="Number" type="element" specialization="Attribute" />
+          <target id="089840d0-43a0-41a4-af66-c8f037c6b55c" name="Number" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed</parentFolderId>
@@ -104,7 +104,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="3dce6e16-909e-48fd-bc46-94ca2128faff" name="OrderItems" type="association" specialization="Association Target End" />
+          <target id="3dce6e16-909e-48fd-bc46-94ca2128faff" name="OrderItems" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>8e8e4bc1-77e4-48f4-8c05-0ee3ec5bb8ed</parentFolderId>

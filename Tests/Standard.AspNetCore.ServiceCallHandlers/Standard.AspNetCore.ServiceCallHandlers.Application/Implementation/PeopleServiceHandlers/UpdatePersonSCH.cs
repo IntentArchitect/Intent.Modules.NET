@@ -19,26 +19,23 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Implementation.Peo
     public class UpdatePersonSCH
     {
         private readonly IPersonRepository _personRepository;
-        private readonly IEventBus _eventBus;
 
         [IntentManaged(Mode.Merge)]
-        public UpdatePersonSCH(IPersonRepository personRepository, IEventBus eventBus)
+        public UpdatePersonSCH(IPersonRepository personRepository)
         {
             _personRepository = personRepository;
-            _eventBus = eventBus;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(Guid id, PersonUpdateDto dto, CancellationToken cancellationToken = default)
         {
-            var existingPerson = await _personRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingPerson is null)
+            var person = await _personRepository.FindByIdAsync(id, cancellationToken);
+            if (person is null)
             {
-                throw new NotFoundException($"Could not find Person {id}");
+                throw new NotFoundException($"Could not find Person '{id}'");
             }
-            existingPerson.Name = dto.Name;
-            _eventBus.Publish(existingPerson.MapToPersonUpdatedEvent());
+
+            person.Name = dto.Name;
         }
     }
 }

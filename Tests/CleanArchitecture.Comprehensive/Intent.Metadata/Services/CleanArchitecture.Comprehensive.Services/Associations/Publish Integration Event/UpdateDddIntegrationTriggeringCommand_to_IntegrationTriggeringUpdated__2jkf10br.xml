@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="5524ab24-e5fe-478f-9a98-009339dbc38b">
+  <sourceEnd id="712df616-dff4-44d6-8423-1de380bcc64c" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : IntegrationTriggeringsDdd.UpdateDddIntegrationTriggeringCommand</display>
+    <order>0</order>
+    <typeReference id="0942b777-777b-4bf2-b3b1-a94d8f91b2af">
+      <typeId>11c76da5-7766-448e-85dc-b35af494ce8f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="5524ab24-e5fe-478f-9a98-009339dbc38b" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] IntegrationTriggeringUpdated</display>
+    <order>2</order>
+    <typeReference id="ddc210c9-0e70-4b37-80c5-c0a41ead7435">
+      <typeId>26ba25fb-cf2f-48b9-bbf0-ef5bc2a46ac6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Eventing.Messages</typePackageName>
+      <typePackageId>c07640e3-d918-45e2-b43d-93d04c45400c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="11c76da5-7766-448e-85dc-b35af494ce8f" location="[CleanArchitecture.Comprehensive].[Services].[UpdateDddIntegrationTriggeringCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="26ba25fb-cf2f-48b9-bbf0-ef5bc2a46ac6" location="[CleanArchitecture.Comprehensive].[Services].[IntegrationTriggeringUpdated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="26ba25fb-cf2f-48b9-bbf0-ef5bc2a46ac6" name="IntegrationTriggeringUpdated" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="96bdc0c8-c8f5-4944-bb30-40edac11d40d" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="11c76da5-7766-448e-85dc-b35af494ce8f" name="UpdateDddIntegrationTriggeringCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="59c8c211-11a5-4b87-b96a-f2d9d95b63b3" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

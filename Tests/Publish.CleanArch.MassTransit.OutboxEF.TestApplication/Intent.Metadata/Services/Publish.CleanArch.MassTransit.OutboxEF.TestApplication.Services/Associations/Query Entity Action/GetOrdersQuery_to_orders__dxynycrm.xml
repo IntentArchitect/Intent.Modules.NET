@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="573c25bb-c394-44e9-bedd-a0488d10b6e2">
+  <sourceEnd id="afbea7ef-c203-4296-80b5-c543ca04df74" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetOrdersQuery</display>
+    <order>0</order>
+    <typeReference id="282a20c7-9140-4835-9575-6e52cfca5637">
+      <typeId>f6049f06-ccbd-4c1a-a66e-6a8fa2ae1e35</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Services</typePackageName>
+      <typePackageId>e34283b3-859f-4000-8713-1d68ff426fdb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="573c25bb-c394-44e9-bedd-a0488d10b6e2" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>orders</name>
+    <display>[query] orders: Order[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="cb402648-54af-4c99-8501-7389dd11e1b5">
+      <typeId>f742cf87-1a4a-4b0e-a3bc-2b495809270d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain</typePackageName>
+      <typePackageId>9003d23c-6a13-4706-9d29-ce915fa57a90</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="cb6c20ce-8d48-4013-ae35-4e3310784497" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f6049f06-ccbd-4c1a-a66e-6a8fa2ae1e35" location="[Publish.CleanArch.MassTransit.OutboxEF.TestApplication].[Services].[GetOrdersQuery]" />
+        <target applicationId="cb6c20ce-8d48-4013-ae35-4e3310784497" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f742cf87-1a4a-4b0e-a3bc-2b495809270d" location="[Publish.CleanArch.MassTransit.OutboxEF.TestApplication].[Services].[Order]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

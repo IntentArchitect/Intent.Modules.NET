@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fb0c0f6b-1c95-4473-9a29-ea934276383d">
+  <sourceEnd id="717ea40a-b220-4ba0-9cc7-aeb2705bc160" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : RolesService.UpdateRole</display>
+    <order>0</order>
+    <typeReference id="e15ec587-c4f2-472b-8c7f-a5bf20944345">
+      <typeId>3f976d5b-c90c-4c59-9a62-43891a6a4147</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication.Services</typePackageName>
+      <typePackageId>0164f6ff-9c9f-4b33-a3fe-4534c7350a33</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fb0c0f6b-1c95-4473-9a29-ea934276383d" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>role</name>
+    <display>[update] role: Role</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="5ec21272-457d-41c6-8b4c-52b20486518c">
+      <typeId>c9985584-a2d2-496e-beb2-fde2bd8d6bef</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication.Domain</typePackageName>
+      <typePackageId>e18d3147-ee5b-4ac4-9f8f-0e8c199a9254</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="5ffa2a75-821a-41f2-8232-af7df2460b0b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3f976d5b-c90c-4c59-9a62-43891a6a4147" location="[Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication].[Services].[UpdateRole]" />
+        <target applicationId="5ffa2a75-821a-41f2-8232-af7df2460b0b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c9985584-a2d2-496e-beb2-fde2bd8d6bef" location="[Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication].[Services].[Role]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="c9985584-a2d2-496e-beb2-fde2bd8d6bef" name="Role" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="b9f6720d-4523-4042-90cf-7552ab80aea0" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="3f976d5b-c90c-4c59-9a62-43891a6a4147" name="UpdateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="3cad60cf-08f2-4a73-8d9a-2b2311deab2b" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="5ffa2a75-821a-41f2-8232-af7df2460b0b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3f976d5b-c90c-4c59-9a62-43891a6a4147" location="[Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication].[Services].[UpdateRole]" />
+        <target applicationId="5ffa2a75-821a-41f2-8232-af7df2460b0b" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c9985584-a2d2-496e-beb2-fde2bd8d6bef" location="[Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication].[Services].[Role]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.Name}</expression>
+            <path>
+              <target id="c9985584-a2d2-496e-beb2-fde2bd8d6bef" name="Role" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="f68a4e7e-5e27-491f-9609-c570f5cf58e7" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="3f976d5b-c90c-4c59-9a62-43891a6a4147" name="UpdateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="f3998068-c235-4dfc-80ea-342bd8594368" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="e6d100fd-237e-4b40-b5b7-3543f9edfff5" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Priviledges}</expression>
+            <path>
+              <target id="c9985584-a2d2-496e-beb2-fde2bd8d6bef" name="Role" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="0b4a0422-c7b3-477d-8800-a0664b9344d4" name="Priviledges" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+            </path>
+            <sources>
+              <source identifier="dto.Priviledges" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="3f976d5b-c90c-4c59-9a62-43891a6a4147" name="UpdateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="f3998068-c235-4dfc-80ea-342bd8594368" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="71e9a45c-c6fd-43f6-ba6f-74fe75704856" name="Priviledges" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Priviledges.Id}</expression>
+            <path>
+              <target id="c9985584-a2d2-496e-beb2-fde2bd8d6bef" name="Role" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="0b4a0422-c7b3-477d-8800-a0664b9344d4" name="Priviledges" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="25d36e9b-d041-42b1-8b3e-4cd6a01a035e" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Priviledges.Id" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="3f976d5b-c90c-4c59-9a62-43891a6a4147" name="UpdateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="f3998068-c235-4dfc-80ea-342bd8594368" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="71e9a45c-c6fd-43f6-ba6f-74fe75704856" name="Priviledges" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="054b1f9f-3b0d-4cb8-a306-b04fe4bb50d0" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Priviledges.Name}</expression>
+            <path>
+              <target id="c9985584-a2d2-496e-beb2-fde2bd8d6bef" name="Role" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="0b4a0422-c7b3-477d-8800-a0664b9344d4" name="Priviledges" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="44a516aa-b12a-464a-8fc5-3cc8498d37cb" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Priviledges.Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="3f976d5b-c90c-4c59-9a62-43891a6a4147" name="UpdateRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="f3998068-c235-4dfc-80ea-342bd8594368" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="71e9a45c-c6fd-43f6-ba6f-74fe75704856" name="Priviledges" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="ea6fd1a9-44cf-4e5f-bd73-84a4d0022afe" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

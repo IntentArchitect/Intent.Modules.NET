@@ -364,7 +364,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>e8982e12-4d12-4736-87bb-8c6c671d3e3d</ProjectId>
-      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.EventHandlerImplementation#7b93e001-85a0-4e3d-8333-9777a4789c9e</CorrelationId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.EventHandler#eaf4ea64-a790-4498-87cf-c395d7a7f1ca</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.CleanArchDapr.TestApplication.Application/IntegrationEventHandlers/OrderCreatedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OrderCreatedEventHandler.cs</ProjectRelativeFilePath>

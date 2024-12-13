@@ -4,9 +4,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
+using Standard.AspNetCore.ServiceCallHandlers.Application.Common.Eventing;
 using Standard.AspNetCore.ServiceCallHandlers.Application.Implementation.PeopleServiceHandlers;
 using Standard.AspNetCore.ServiceCallHandlers.Application.Interfaces;
 using Standard.AspNetCore.ServiceCallHandlers.Application.People;
+using Standard.AspNetCore.ServiceCallHandlers.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.ServiceImplementations.ServiceImplementation", Version = "1.0")]
@@ -17,11 +19,13 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Implementation
     public class PeopleService : IPeopleService
     {
         private readonly IServiceProvider _serviceProvider;
+        private readonly IEventBus _eventBus;
 
         [IntentManaged(Mode.Merge)]
-        public PeopleService(IServiceProvider serviceProvider)
+        public PeopleService(IServiceProvider serviceProvider, IEventBus eventBus)
         {
             _serviceProvider = serviceProvider;
+            _eventBus = eventBus;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

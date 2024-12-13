@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d59fc428-d27c-47df-a8b3-49e3e614536f">
+  <sourceEnd id="717a02a6-d02b-4517-a8cd-ab62c2510526" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : UsersService.CreateUser</display>
+    <order>0</order>
+    <typeReference id="bfce6975-3b28-42f3-81df-1eb0397d90b5">
+      <typeId>af94766d-b7a3-4008-aa39-904d689f941a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Services</typePackageName>
+      <typePackageId>e9544fc5-b8fe-49da-92fb-5af5ec1055fb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d59fc428-d27c-47df-a8b3-49e3e614536f" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] UserCreatedEvent</display>
+    <order>2</order>
+    <typeReference id="5d1f1ca2-45b5-41b6-a4a4-ae269c44dccc">
+      <typeId>ce6abaa1-358c-4337-863b-0608803aaca0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source elementId="af94766d-b7a3-4008-aa39-904d689f941a" location="[Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication].[Services].[CreateUser]" />
+        <target applicationId="71eac626-755a-4c5d-89f1-e66511d4df64" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="ce6abaa1-358c-4337-863b-0608803aaca0" location="[Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication].[Services].[UserCreatedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{user.Id}</expression>
+            <path>
+              <target id="ce6abaa1-358c-4337-863b-0608803aaca0" name="UserCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="d5c7d3ca-4a47-43a8-a14d-32dd91cc7b57" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="user.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="af94766d-b7a3-4008-aa39-904d689f941a" name="CreateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="b6e98629-8e83-4775-b96c-cc87c3153520" name="user" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="67684dcc-6489-4c10-b5b6-04f0f8822aaf" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{user.Email}</expression>
+            <path>
+              <target id="ce6abaa1-358c-4337-863b-0608803aaca0" name="UserCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="9f3c0416-7f11-4771-8fd3-5ef7ee9aafa6" name="Email" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="user.Email" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="af94766d-b7a3-4008-aa39-904d689f941a" name="CreateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="b6e98629-8e83-4775-b96c-cc87c3153520" name="user" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="89b25296-34e8-49c8-9a85-161b3608f8ab" name="Email" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{user.UserName}</expression>
+            <path>
+              <target id="ce6abaa1-358c-4337-863b-0608803aaca0" name="UserCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="4d98442d-95bf-459f-904d-a8744702c492" name="UserName" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="user.UserName" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="af94766d-b7a3-4008-aa39-904d689f941a" name="CreateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="b6e98629-8e83-4775-b96c-cc87c3153520" name="user" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="8afc514a-a201-4a88-a9f4-ffc734c5781c" name="UserName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{user.Type}</expression>
+            <path>
+              <target id="ce6abaa1-358c-4337-863b-0608803aaca0" name="UserCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="87b75cf1-d0ff-4599-a30d-9cd50827a884" name="Type" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="user.Type" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="af94766d-b7a3-4008-aa39-904d689f941a" name="CreateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="b6e98629-8e83-4775-b96c-cc87c3153520" name="user" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="9706a3f9-8b23-4a91-80a6-33fae28617e5" name="Type" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{user.Preferences}</expression>
+            <path>
+              <target id="ce6abaa1-358c-4337-863b-0608803aaca0" name="UserCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="cb5a0ca7-3aa2-435b-a4ef-4e5a69688528" name="Preferences" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="user.Preferences" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="af94766d-b7a3-4008-aa39-904d689f941a" name="CreateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="b6e98629-8e83-4775-b96c-cc87c3153520" name="user" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="6bbfa91d-9f25-40ed-807b-4e21feab8a88" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{user.Preferences.Id}</expression>
+            <path>
+              <target id="ce6abaa1-358c-4337-863b-0608803aaca0" name="UserCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="cb5a0ca7-3aa2-435b-a4ef-4e5a69688528" name="Preferences" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="19dba09a-44f6-4fad-a428-eb17cf3cd62c" name="Id" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="user.Preferences.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="af94766d-b7a3-4008-aa39-904d689f941a" name="CreateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="b6e98629-8e83-4775-b96c-cc87c3153520" name="user" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="6bbfa91d-9f25-40ed-807b-4e21feab8a88" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                  <target id="87c8bf75-12c8-46e8-8782-a428e44ca928" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{user.Preferences.Key}</expression>
+            <path>
+              <target id="ce6abaa1-358c-4337-863b-0608803aaca0" name="UserCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="cb5a0ca7-3aa2-435b-a4ef-4e5a69688528" name="Preferences" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="e4159a86-a977-4cd3-a37f-e5c79d910dfa" name="Key" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="user.Preferences.Key" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="af94766d-b7a3-4008-aa39-904d689f941a" name="CreateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="b6e98629-8e83-4775-b96c-cc87c3153520" name="user" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="6bbfa91d-9f25-40ed-807b-4e21feab8a88" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                  <target id="58d35f1b-a702-48f8-92da-3f2b2a6f46d9" name="Key" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{user.Preferences.Value}</expression>
+            <path>
+              <target id="ce6abaa1-358c-4337-863b-0608803aaca0" name="UserCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="cb5a0ca7-3aa2-435b-a4ef-4e5a69688528" name="Preferences" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="7c6fe82f-537f-4cfe-8dac-12455f74a1d7" name="Value" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="user.Preferences.Value" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="af94766d-b7a3-4008-aa39-904d689f941a" name="CreateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="b6e98629-8e83-4775-b96c-cc87c3153520" name="user" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="6bbfa91d-9f25-40ed-807b-4e21feab8a88" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                  <target id="0a6aa682-9752-4e68-b881-ef56d9881f70" name="Value" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{user.Preferences.UserId}</expression>
+            <path>
+              <target id="ce6abaa1-358c-4337-863b-0608803aaca0" name="UserCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="cb5a0ca7-3aa2-435b-a4ef-4e5a69688528" name="Preferences" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="2c854f03-72f1-4798-9250-8ae3032c5862" name="UserId" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="user.Preferences.UserId" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="af94766d-b7a3-4008-aa39-904d689f941a" name="CreateUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="b6e98629-8e83-4775-b96c-cc87c3153520" name="user" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="6bbfa91d-9f25-40ed-807b-4e21feab8a88" name="Preferences" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+                  <target id="091fe88c-7cbf-404f-98d8-a7d5473147c6" name="UserId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

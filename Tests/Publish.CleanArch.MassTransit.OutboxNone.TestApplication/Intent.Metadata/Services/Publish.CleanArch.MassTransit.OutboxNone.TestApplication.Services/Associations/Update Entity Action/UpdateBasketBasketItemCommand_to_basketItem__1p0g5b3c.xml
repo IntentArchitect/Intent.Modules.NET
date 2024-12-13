@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="cb174718-b80b-4f92-a47d-722a6fbdcad2">
+  <sourceEnd id="ecc6ab4b-8971-4929-b19c-ff28f7cfb84b" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Baskets.UpdateBasketBasketItemCommand</display>
+    <order>0</order>
+    <typeReference id="d0278e3c-8455-4a3b-aa0a-51ca5b67777d">
+      <typeId>99c296d0-1666-40bf-bc05-1e8bf5b20a45</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Services</typePackageName>
+      <typePackageId>a05a4bdf-10ae-40b6-8616-8268d15d00d1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="cb174718-b80b-4f92-a47d-722a6fbdcad2" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>basketItem</name>
+    <display>[update] basketItem: BasketItem</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="374192d2-3a5a-4911-a2ec-911010ee0cce">
+      <typeId>65fe0448-94b2-4c97-9746-0088607c147a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain</typePackageName>
+      <typePackageId>4364c544-7a74-40d1-a76b-9de314ee334c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source elementId="99c296d0-1666-40bf-bc05-1e8bf5b20a45" location="[Publish.CleanArch.MassTransit.OutboxNone.TestApplication].[Services].[UpdateBasketBasketItemCommand]" />
+        <target applicationId="dbd2618d-2650-47a1-9fdc-1a1c18aecf53" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="65fe0448-94b2-4c97-9746-0088607c147a" location="[Publish.CleanArch.MassTransit.OutboxNone.TestApplication].[Services].[BasketItem]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="65fe0448-94b2-4c97-9746-0088607c147a" name="BasketItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="1c8e7cd7-2e44-4d17-a2f0-84399d9b5c5d" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="99c296d0-1666-40bf-bc05-1e8bf5b20a45" name="UpdateBasketBasketItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="289b5c15-ad8e-4659-a3fd-4e54a7400ada" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source elementId="99c296d0-1666-40bf-bc05-1e8bf5b20a45" location="[Publish.CleanArch.MassTransit.OutboxNone.TestApplication].[Services].[UpdateBasketBasketItemCommand]" />
+        <target applicationId="dbd2618d-2650-47a1-9fdc-1a1c18aecf53" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="65fe0448-94b2-4c97-9746-0088607c147a" location="[Publish.CleanArch.MassTransit.OutboxNone.TestApplication].[Services].[BasketItem]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Description}</expression>
+            <path>
+              <target id="65fe0448-94b2-4c97-9746-0088607c147a" name="BasketItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="9bb88a51-a1cf-4524-9df9-9abcd83ac2ed" name="Description" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Description" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="99c296d0-1666-40bf-bc05-1e8bf5b20a45" name="UpdateBasketBasketItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="8fd3f688-aae4-4107-b4c7-c8f71cb9877f" name="Description" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Amount}</expression>
+            <path>
+              <target id="65fe0448-94b2-4c97-9746-0088607c147a" name="BasketItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="aae0cd36-3854-4fb8-be65-73b20632eb42" name="Amount" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Amount" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="99c296d0-1666-40bf-bc05-1e8bf5b20a45" name="UpdateBasketBasketItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="adc748db-6e19-46db-aaee-3d43e985e7cd" name="Amount" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{BasketId}</expression>
+            <path>
+              <target id="65fe0448-94b2-4c97-9746-0088607c147a" name="BasketItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="64fc19b0-7b7d-4dc9-b402-7d50d673fe3b" name="BasketId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="BasketId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="99c296d0-1666-40bf-bc05-1e8bf5b20a45" name="UpdateBasketBasketItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7ea9a6fb-2f08-4207-951b-59d62c1a40a5" name="BasketId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

@@ -33,14 +33,13 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Implementation.Peo
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(Guid id, CancellationToken cancellationToken = default)
         {
-            var existingPerson = await _personRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingPerson is null)
+            var person = await _personRepository.FindByIdAsync(id, cancellationToken);
+            if (person is null)
             {
-                throw new NotFoundException($"Could not find Person {id}");
+                throw new NotFoundException($"Could not find Person '{id}'");
             }
-            _personRepository.Remove(existingPerson);
-            _eventBus.Publish(existingPerson.MapToPersonDeletedEvent());
+
+            _personRepository.Remove(person);
         }
     }
 }

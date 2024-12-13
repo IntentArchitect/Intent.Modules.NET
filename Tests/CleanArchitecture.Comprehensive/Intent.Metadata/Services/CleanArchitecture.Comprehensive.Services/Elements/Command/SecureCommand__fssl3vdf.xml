@@ -22,7 +22,7 @@
     <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
   </traits>
   <stereotypes>
-    <stereotype stereotypeDefinitionId="a9eade71-1d56-4be7-a80c-81046c0c978b" name="Authorize">
+    <stereotype stereotypeDefinitionId="a9eade71-1d56-4be7-a80c-81046c0c978b" name="Secured">
       <addedByDefault>false</addedByDefault>
       <definitionPackageName>Intent.Metadata.Security</definitionPackageName>
       <definitionPackageId>a6fa1088-0064-43e3-a7fc-36c97b2b9285</definitionPackageId>

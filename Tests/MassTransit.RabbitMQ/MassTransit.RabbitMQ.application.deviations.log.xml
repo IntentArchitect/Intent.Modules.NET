@@ -2,17 +2,17 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation#e8a03011-719b-4553-a06e-48d7a7a174ca</correlationId>
-      <path>MassTransit.RabbitMQ.Application/IntegrationEventHandlers/TestMessageEventHandler.cs</path>
-      <count>1</count>
+      <correlationId>Intent.Eventing.MassTransit.IntegrationEventHandler#0b477704-dedd-41ef-87cf-b04ad7aca56d</correlationId>
+      <path>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/TestMessageEventHandler.cs</path>
+      <count>2</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-05T15:12:59.4202802Z</updatedAt>
+      <updatedAt>2024-12-13T04:15:22.749618Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:17:12.2001626Z</approvedAt>
-      <deviationsHash>57CF5033B965E9E627D5D87FC45815FEA1301B5A4AEFAF0EAC7B46674ED0B894</deviationsHash>
-      <fileHash>06CCB5549DA50E0F0DBA2C55E68F1FEDB50F7AA025BD624E79FE09D2C4BB5527</fileHash>
+      <approvedAt>2024-12-13T12:33:24.4605166Z</approvedAt>
+      <deviationsHash>D61792B5C8BA191099CC8AB381B6D92BE6155F028BD80F9FD7A89D27F052664F</deviationsHash>
+      <fileHash>2DC0E2A39EEBEEA3D39AD3B68D120F26ADC98E41331CF031DD74CA6BE9188FF9</fileHash>
     </file>
   </files>
 </deviationsLog>

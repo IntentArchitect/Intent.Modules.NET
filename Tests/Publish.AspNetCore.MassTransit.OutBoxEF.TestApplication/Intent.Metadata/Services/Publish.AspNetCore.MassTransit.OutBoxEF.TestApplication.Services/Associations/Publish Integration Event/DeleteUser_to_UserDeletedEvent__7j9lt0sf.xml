@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b087e56c-772e-4dd5-bef7-3a76148758e2">
+  <sourceEnd id="502d2d87-4b28-41ec-851f-79962077afe4" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : UsersService.DeleteUser</display>
+    <order>0</order>
+    <typeReference id="e5fc3869-b4b4-4214-8c1c-fc65e92461d6">
+      <typeId>0a042b74-80cd-41a5-ad26-2e85c83bab33</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Services</typePackageName>
+      <typePackageId>e9544fc5-b8fe-49da-92fb-5af5ec1055fb</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b087e56c-772e-4dd5-bef7-3a76148758e2" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] UserDeletedEvent</display>
+    <order>2</order>
+    <typeReference id="209f46f8-22db-4f73-9c35-5fe16d4350d7">
+      <typeId>db361f24-a0bc-4284-b03a-5de071d08a70</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source elementId="0a042b74-80cd-41a5-ad26-2e85c83bab33" location="[Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication].[Services].[DeleteUser]" />
+        <target applicationId="71eac626-755a-4c5d-89f1-e66511d4df64" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="db361f24-a0bc-4284-b03a-5de071d08a70" location="[Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication].[Services].[UserDeletedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{user.Id}</expression>
+            <path>
+              <target id="db361f24-a0bc-4284-b03a-5de071d08a70" name="UserDeletedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="3bb39885-0530-46bc-9f8b-d2103b22f1f1" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="user.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="0a042b74-80cd-41a5-ad26-2e85c83bab33" name="DeleteUser" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="a32ef1c6-e5d7-4456-9d47-4501fb166b32" name="user" type="association" specialization="Delete Entity Action Target End" specializationId="4a04cfc2-5841-438c-9c16-fb58b784b365" />
+                  <target id="67684dcc-6489-4c10-b5b6-04f0f8822aaf" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

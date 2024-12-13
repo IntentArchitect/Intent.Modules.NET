@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="192560c4-b212-4688-a10c-23ed43800e32" name="MongoLine" type="element" specialization="Class" />
+      <target id="192560c4-b212-4688-a10c-23ed43800e32" name="MongoLine" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>efa50b70-89f8-4212-b19b-907c595ac3d5</parentFolderId>
@@ -91,7 +91,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="52818ca8-0c8b-48b6-bb40-c6081dc0bb41" name="Id" type="element" specialization="Attribute" />
+          <target id="52818ca8-0c8b-48b6-bb40-c6081dc0bb41" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>ff0d4b5a-6e20-4a22-bdc1-0ea608ea8a48</parentFolderId>
@@ -145,7 +145,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="6539e77e-1fd0-43b2-9ccf-b5948b78151e" name="Name" type="element" specialization="Attribute" />
+          <target id="6539e77e-1fd0-43b2-9ccf-b5948b78151e" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>ff0d4b5a-6e20-4a22-bdc1-0ea608ea8a48</parentFolderId>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f44fd4f0-33ec-4a9e-9318-19aa48043024">
+  <sourceEnd id="a7eafe4a-769e-4767-9b48-d227f971907d" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : IntegrationTriggeringsAnemic.CreateAnemicIntegrationTriggeringCommand</display>
+    <order>0</order>
+    <typeReference id="6a52512c-3855-40d5-ad50-d74fe625a49a">
+      <typeId>b217966f-d4df-4126-bef4-816f2f7376f0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f44fd4f0-33ec-4a9e-9318-19aa48043024" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>entity</name>
+    <display>[create] entity: IntegrationTriggering</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="9bc74992-664a-4602-aa3d-cd0253fb18bb">
+      <typeId>3a1a50c6-21ce-4caf-b953-c2484b3f851b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b217966f-d4df-4126-bef4-816f2f7376f0" location="[CleanArchitecture.Comprehensive].[Services].[CreateAnemicIntegrationTriggeringCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="3a1a50c6-21ce-4caf-b953-c2484b3f851b" location="[CleanArchitecture.Comprehensive].[Services].[IntegrationTriggering]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Value}</expression>
+            <path>
+              <target id="3a1a50c6-21ce-4caf-b953-c2484b3f851b" name="IntegrationTriggering" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="37417a52-5846-4606-be7f-fb05038b60e4" name="Value" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Value" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="b217966f-d4df-4126-bef4-816f2f7376f0" name="CreateAnemicIntegrationTriggeringCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="2517726f-9423-4b8c-ae52-c759aa2df49b" name="Value" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

@@ -22,6 +22,9 @@
     <name>mongoInvoice</name>
     <display>[create] mongoInvoice: MongoInvoice</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="802d63f5-674a-4517-82aa-4f6644032763">
       <typeId>ce04f551-7e6b-4d47-9eba-48822fb12b65</typeId>
       <isNavigable>true</isNavigable>
@@ -42,12 +45,12 @@
           <mappedEnd>
             <expression>{CreateMongoInvoiceCommand}</expression>
             <path>
-              <target id="ce04f551-7e6b-4d47-9eba-48822fb12b65" name="MongoInvoice" type="element" specialization="Class" />
+              <target id="ce04f551-7e6b-4d47-9eba-48822fb12b65" name="MongoInvoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
             </path>
             <sources>
               <source identifier="CreateMongoInvoiceCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
                 <path>
-                  <target id="67578f34-3bee-415b-a2f6-893fb9ffb40d" name="CreateMongoInvoiceCommand" type="element" specialization="Command" />
+                  <target id="67578f34-3bee-415b-a2f6-893fb9ffb40d" name="CreateMongoInvoiceCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                 </path>
               </source>
             </sources>
@@ -55,14 +58,14 @@
           <mappedEnd>
             <expression>{Description}</expression>
             <path>
-              <target id="ce04f551-7e6b-4d47-9eba-48822fb12b65" name="MongoInvoice" type="element" specialization="Class" />
-              <target id="c4da2549-276c-4fd4-95b6-b1db8170e2ee" name="Description" type="element" specialization="Attribute" />
+              <target id="ce04f551-7e6b-4d47-9eba-48822fb12b65" name="MongoInvoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c4da2549-276c-4fd4-95b6-b1db8170e2ee" name="Description" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Description" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="67578f34-3bee-415b-a2f6-893fb9ffb40d" name="CreateMongoInvoiceCommand" type="element" specialization="Command" />
-                  <target id="d0776eaa-ecee-4c48-b434-4048d955665e" name="Description" type="element" specialization="DTO-Field" />
+                  <target id="67578f34-3bee-415b-a2f6-893fb9ffb40d" name="CreateMongoInvoiceCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d0776eaa-ecee-4c48-b434-4048d955665e" name="Description" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

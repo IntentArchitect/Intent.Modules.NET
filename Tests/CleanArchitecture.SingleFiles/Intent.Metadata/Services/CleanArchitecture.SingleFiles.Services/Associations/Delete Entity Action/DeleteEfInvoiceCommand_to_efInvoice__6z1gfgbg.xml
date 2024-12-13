@@ -22,6 +22,9 @@
     <name>efInvoice</name>
     <display>[delete] efInvoice: EfInvoice</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="baddb618-d684-458f-adca-694b102a4ad6">
       <typeId>cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f</typeId>
       <isNavigable>true</isNavigable>

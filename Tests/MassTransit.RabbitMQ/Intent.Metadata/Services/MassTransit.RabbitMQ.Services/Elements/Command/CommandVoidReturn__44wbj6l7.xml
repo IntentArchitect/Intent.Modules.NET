@@ -17,6 +17,10 @@
   <parentFolderId>b52a4db9-27b0-44eb-9a99-a52ff2b0c2e1</parentFolderId>
   <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
   <packageName>MassTransit.RabbitMQ.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="5150384d-18a3-4c7e-a716-599e6658abde" name="Message Triggered">
       <addedByDefault>false</addedByDefault>

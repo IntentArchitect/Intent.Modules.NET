@@ -6,13 +6,13 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>true</isMapped>
-  <mappedClass>
+  <mappedClass isRoot="true">
     <applicationId>1873dc5a-9d89-4d77-9c08-46f5471cc3f7</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
     <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f" name="EfInvoice" type="element" specialization="Class" />
+      <target id="cf43c00d-8c52-4ee6-a0c8-3b98dffb3c9f" name="EfInvoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>94081eb4-5a9e-4db2-a03f-ebb0d2136f0c</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1b4f670b-4c97-4dd0-a1c5-831f3a695859</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c40affe4-9f2f-42c7-a3b1-d862269b41f7" name="Description" type="element" specialization="Attribute" />
+          <target id="c40affe4-9f2f-42c7-a3b1-d862269b41f7" name="Description" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>7ad0a7a7-100d-4c04-9106-4feb25e8a53e</parentFolderId>

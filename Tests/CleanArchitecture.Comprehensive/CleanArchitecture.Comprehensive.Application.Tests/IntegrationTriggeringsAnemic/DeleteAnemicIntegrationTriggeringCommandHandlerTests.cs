@@ -10,6 +10,7 @@ using CleanArchitecture.Comprehensive.Domain.Common;
 using CleanArchitecture.Comprehensive.Domain.Common.Exceptions;
 using CleanArchitecture.Comprehensive.Domain.Entities.ConventionBasedEventPublishing;
 using CleanArchitecture.Comprehensive.Domain.Repositories.ConventionBasedEventPublishing;
+using CleanArchitecture.Comprehensive.Eventing.Messages;
 using FluentAssertions;
 using Intent.RoslynWeaver.Attributes;
 using NSubstitute;

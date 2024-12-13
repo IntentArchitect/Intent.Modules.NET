@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d5e97829-1c63-4e59-908d-a486e03545d8">
+  <sourceEnd id="8120461c-dab1-41ab-ba95-bee473edb5e5" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : IntegrationTriggeringsDdd.CreateDddIntegrationTriggeringCommand</display>
+    <order>0</order>
+    <typeReference id="f765d9e1-dfd2-4780-8f36-60804c216dff">
+      <typeId>eb13d010-5b89-40ff-b35f-9a730c76c89b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d5e97829-1c63-4e59-908d-a486e03545d8" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] IntegrationTriggeringCreated</display>
+    <order>2</order>
+    <typeReference id="1fb4d3cf-e530-43dd-b9f6-29bc139313f0">
+      <typeId>cb515ce1-7756-4170-94a7-8a68803e7bb7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Eventing.Messages</typePackageName>
+      <typePackageId>c07640e3-d918-45e2-b43d-93d04c45400c</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="eb13d010-5b89-40ff-b35f-9a730c76c89b" location="[CleanArchitecture.Comprehensive].[Services].[CreateDddIntegrationTriggeringCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="cb515ce1-7756-4170-94a7-8a68803e7bb7" location="[CleanArchitecture.Comprehensive].[Services].[IntegrationTriggeringCreated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{integrationTriggering.Id}</expression>
+            <path>
+              <target id="cb515ce1-7756-4170-94a7-8a68803e7bb7" name="IntegrationTriggeringCreated" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="82ea238b-a753-4afe-8652-b8eddd90fcb9" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="integrationTriggering.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="eb13d010-5b89-40ff-b35f-9a730c76c89b" name="CreateDddIntegrationTriggeringCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="fda5b2ac-b3fd-421c-a0d4-7077d8098a9c" name="integrationTriggering" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="2fa54e79-f33f-45ca-a385-f820da9fdb78" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

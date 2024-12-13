@@ -49,7 +49,10 @@ namespace CleanArchitecture.SingleFiles.Application.MongoInvoices
 
             _mongoInvoiceRepository.Add(newMongoInvoice);
             await _mongoInvoiceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            _eventBus.Publish(newMongoInvoice.MapToMongoInvoiceCreatedEvent());
+            _eventBus.Publish(new MongoInvoiceCreatedEvent
+            {
+                Description = request.Description
+            });
             return newMongoInvoice.Id;
         }
     }

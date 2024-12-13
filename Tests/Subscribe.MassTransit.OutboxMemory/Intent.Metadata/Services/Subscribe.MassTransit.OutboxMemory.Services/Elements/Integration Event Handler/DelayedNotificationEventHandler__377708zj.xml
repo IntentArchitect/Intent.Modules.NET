@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="40578201-1b91-4c82-901e-6b07fcf5d7d1" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>DelayedNotificationEventHandler</name>
+  <display>DelayedNotificationEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ee67d54f-5862-4801-86d0-2430f3f16e6a</parentFolderId>
+  <packageId>ee67d54f-5862-4801-86d0-2430f3f16e6a</packageId>
+  <packageName>Subscribe.MassTransit.OutboxMemory.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

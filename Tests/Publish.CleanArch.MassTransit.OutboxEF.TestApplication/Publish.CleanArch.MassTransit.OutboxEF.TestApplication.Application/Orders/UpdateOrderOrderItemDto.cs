@@ -19,14 +19,14 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
         public decimal Amount { get; set; }
         public Guid Id { get; set; }
 
-        public static UpdateOrderOrderItemDto Create(Guid orderId, string description, decimal amount, Guid id)
+        public static UpdateOrderOrderItemDto Create(Guid id, Guid orderId, string description, decimal amount)
         {
             return new UpdateOrderOrderItemDto
             {
+                Id = id,
                 OrderId = orderId,
                 Description = description,
-                Amount = amount,
-                Id = id
+                Amount = amount
             };
         }
     }

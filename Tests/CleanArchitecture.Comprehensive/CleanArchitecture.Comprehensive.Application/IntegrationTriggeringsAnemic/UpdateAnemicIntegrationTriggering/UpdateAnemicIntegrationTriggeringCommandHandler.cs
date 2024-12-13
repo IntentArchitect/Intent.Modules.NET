@@ -38,7 +38,10 @@ namespace CleanArchitecture.Comprehensive.Application.IntegrationTriggeringsAnem
             }
 
             existingIntegrationTriggering.Value = request.Value;
-            _eventBus.Publish(existingIntegrationTriggering.MapToIntegrationTriggeringUpdatedEvent());
+            _eventBus.Publish(new IntegrationTriggeringUpdatedEvent
+            {
+                Id = request.Id
+            });
 
         }
     }

@@ -12,7 +12,7 @@
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="6c807d48-696a-4a34-9e65-90a3d4a1139c" name="DaprLine" type="element" specialization="Class" />
+      <target id="6c807d48-696a-4a34-9e65-90a3d4a1139c" name="DaprLine" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>505e6ca9-ca3d-496b-9e67-403ed56f586f</parentFolderId>
@@ -91,7 +91,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="5a9bde90-a8c1-4df1-8ab6-520078168505" name="Id" type="element" specialization="Attribute" />
+          <target id="5a9bde90-a8c1-4df1-8ab6-520078168505" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>78f322f1-dfc3-4177-ae90-744a8d868ee7</parentFolderId>
@@ -145,7 +145,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="579efdfd-cedf-480b-831d-36e0b1efefbe" name="Name" type="element" specialization="Attribute" />
+          <target id="579efdfd-cedf-480b-831d-36e0b1efefbe" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>78f322f1-dfc3-4177-ae90-744a8d868ee7</parentFolderId>

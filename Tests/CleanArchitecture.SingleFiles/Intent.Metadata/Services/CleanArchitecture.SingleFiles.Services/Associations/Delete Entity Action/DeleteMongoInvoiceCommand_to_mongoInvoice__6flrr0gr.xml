@@ -22,6 +22,9 @@
     <name>mongoInvoice</name>
     <display>[delete] mongoInvoice: MongoInvoice</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="8dd482da-4fa5-4391-a258-54bbbfb12890">
       <typeId>ce04f551-7e6b-4d47-9eba-48822fb12b65</typeId>
       <isNavigable>true</isNavigable>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a2e3b30e-cdc3-40d4-971e-5c3490bbabb6">
+  <sourceEnd id="3ece577e-5375-461f-ba9e-24520bd4fb83" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : PeopleService.DeletePerson</display>
+    <order>0</order>
+    <typeReference id="3998875b-b877-4efc-afbb-78c7b0d37e44">
+      <typeId>2fa830ef-492e-4f75-9f27-c76f2ea47bdd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Services</typePackageName>
+      <typePackageId>344bc1bc-a4a6-4fb0-ab91-949b7ba4a55e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a2e3b30e-cdc3-40d4-971e-5c3490bbabb6" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>person</name>
+    <display>[delete] person: Person</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="e5216357-e462-4eac-8c41-76da64dc6ac4">
+      <typeId>dae4966e-ded7-4c54-9362-332816989698</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.ServiceCallHandlers.Domain</typePackageName>
+      <typePackageId>94033a31-4f5e-40cf-897f-b1cf565edce1</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2fa830ef-492e-4f75-9f27-c76f2ea47bdd" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[DeletePerson]" />
+        <target applicationId="082fa5cd-1a81-468f-b7ce-46c47709d532" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="dae4966e-ded7-4c54-9362-332816989698" location="[Standard.AspNetCore.ServiceCallHandlers].[Services].[Person]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="dae4966e-ded7-4c54-9362-332816989698" name="Person" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="649d216f-7b76-4f8b-921c-4f0e5607adc4" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="2fa830ef-492e-4f75-9f27-c76f2ea47bdd" name="DeletePerson" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="1312f4b7-be01-4000-a244-04b26abad485" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

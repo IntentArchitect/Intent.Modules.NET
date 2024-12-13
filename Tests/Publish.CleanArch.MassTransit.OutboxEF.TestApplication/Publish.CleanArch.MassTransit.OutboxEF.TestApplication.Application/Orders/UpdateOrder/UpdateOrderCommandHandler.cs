@@ -32,15 +32,28 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
         {
-            var existingOrder = await _orderRepository.FindByIdAsync(request.Id, cancellationToken);
-            if (existingOrder is null)
+            var order = await _orderRepository.FindByIdAsync(request.Id, cancellationToken);
+            if (order is null)
             {
                 throw new NotFoundException($"Could not find Order '{request.Id}'");
             }
 
-            existingOrder.Number = request.Number;
-            existingOrder.OrderItems = UpdateHelper.CreateOrUpdateCollection(existingOrder.OrderItems, request.OrderItems, (e, d) => e.Id == d.Id, CreateOrUpdateOrderItem);
-            _eventBus.Publish(existingOrder.MapToOrderUpdatedEvent());
+            order.Number = request.Number;
+            order.OrderItems = UpdateHelper.CreateOrUpdateCollection(order.OrderItems, request.OrderItems, (e, d) => e.Id == d.Id, CreateOrUpdateOrderItem);
+            _eventBus.Publish(new OrderUpdatedEvent
+            {
+                Id = order.Id,
+                Number = order.Number,
+                OrderItems = order.OrderItems
+                    .Select(oi => new OrderItemDto
+                    {
+                        Id = oi.Id,
+                        OrderId = oi.OrderId,
+                        Description = oi.Description,
+                        Amount = oi.Amount
+                    })
+                    .ToList()
+            });
 
         }
 
@@ -48,10 +61,9 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
         private static OrderItem CreateOrUpdateOrderItem(OrderItem? entity, UpdateOrderOrderItemDto dto)
         {
             entity ??= new OrderItem();
-            entity.OrderId = dto.OrderId;
+            entity.Id = dto.Id;
             entity.Description = dto.Description;
             entity.Amount = dto.Amount;
-
             return entity;
         }
     }

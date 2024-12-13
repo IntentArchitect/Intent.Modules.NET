@@ -200,7 +200,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/PeopleService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PeopleService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>7f450fec-eff4-41b8-a19e-660645525363</ProjectId>
@@ -252,14 +252,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>6c86c3d5-ec7b-4bc1-95b6-7b998a6a2571</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#f5c80641-83ea-485b-8db4-a06cbec0a425</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/IntegrationEvents/PersonCreatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PersonCreatedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6c86c3d5-ec7b-4bc1-95b6-7b998a6a2571</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#da0b23e2-7bc7-4d69-9929-9295a540fdb0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/IntegrationEvents/PersonDeletedEvent.cs</ApplicationRelativeFilePath>
@@ -268,26 +260,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>6c86c3d5-ec7b-4bc1-95b6-7b998a6a2571</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#da0b23e2-7bc7-4d69-9929-9295a540fdb0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/IntegrationEvents/PersonDeletedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PersonDeletedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6c86c3d5-ec7b-4bc1-95b6-7b998a6a2571</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#aa8cb996-35f7-4602-90e9-da48c8d3c0d3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/IntegrationEvents/PersonUpdatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PersonUpdatedEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6c86c3d5-ec7b-4bc1-95b6-7b998a6a2571</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#aa8cb996-35f7-4602-90e9-da48c8d3c0d3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.ServiceCallHandlers.Application/IntegrationEvents/PersonUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PersonUpdatedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

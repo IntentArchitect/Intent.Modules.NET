@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="bbc65f4b-1c22-4f18-bd43-d0fb3171375b">
+  <sourceEnd id="d4f5a217-2963-4231-9cb4-57c0c549dcd1" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : RolesService.DeleteRole</display>
+    <order>0</order>
+    <typeReference id="71bf413e-470c-4d36-8fab-f03de2152a33">
+      <typeId>82e74ee7-24b1-4b74-a345-27197f5f1634</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication.Services</typePackageName>
+      <typePackageId>0164f6ff-9c9f-4b33-a3fe-4534c7350a33</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="bbc65f4b-1c22-4f18-bd43-d0fb3171375b" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] RoleDeletedEvent</display>
+    <order>2</order>
+    <typeReference id="d68834be-5a70-4c7f-8f90-28ca17d240b8">
+      <typeId>c39fb238-316f-4f29-810f-57dbc7e042af</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.Messages.Shared</typePackageName>
+      <typePackageId>3f65ad5a-47b6-4ea4-b6bb-3bbf4ca6b12f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="5ffa2a75-821a-41f2-8232-af7df2460b0b" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="82e74ee7-24b1-4b74-a345-27197f5f1634" location="[Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication].[Services].[DeleteRole]" />
+        <target applicationId="71eac626-755a-4c5d-89f1-e66511d4df64" designerId="822e4254-9ced-4dd1-ad56-500b861f7e4d" elementId="c39fb238-316f-4f29-810f-57dbc7e042af" location="[Publish.AspNetCore.MassTransit.OutBoxNone.TestApplication].[Services].[RoleDeletedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{role.Id}</expression>
+            <path>
+              <target id="c39fb238-316f-4f29-810f-57dbc7e042af" name="RoleDeletedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="1151f04b-6dbf-47ff-8df6-d5e1cd54b627" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="role.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="82e74ee7-24b1-4b74-a345-27197f5f1634" name="DeleteRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="a4dea716-e7cd-482c-842e-830bf96c2f8e" name="role" type="association" specialization="Delete Entity Action Target End" specializationId="4a04cfc2-5841-438c-9c16-fb58b784b365" />
+                  <target id="b9f6720d-4523-4042-90cf-7552ab80aea0" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{role.Name}</expression>
+            <path>
+              <target id="c39fb238-316f-4f29-810f-57dbc7e042af" name="RoleDeletedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="632b0932-19ab-4aaf-a67e-151af54142ce" name="Name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="role.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="82e74ee7-24b1-4b74-a345-27197f5f1634" name="DeleteRole" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="a4dea716-e7cd-482c-842e-830bf96c2f8e" name="role" type="association" specialization="Delete Entity Action Target End" specializationId="4a04cfc2-5841-438c-9c16-fb58b784b365" />
+                  <target id="f68a4e7e-5e27-491f-9609-c570f5cf58e7" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

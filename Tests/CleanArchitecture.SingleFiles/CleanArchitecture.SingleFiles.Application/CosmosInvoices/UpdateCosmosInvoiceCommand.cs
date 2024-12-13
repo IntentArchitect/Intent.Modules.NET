@@ -53,7 +53,10 @@ namespace CleanArchitecture.SingleFiles.Application.CosmosInvoices
             existingCosmosInvoice.Description = request.Description;
 
             _cosmosInvoiceRepository.Update(existingCosmosInvoice);
-            _eventBus.Publish(existingCosmosInvoice.MapToCosmosInvoiceUpdatedEvent());
+            _eventBus.Publish(new CosmosInvoiceUpdatedEvent
+            {
+                Description = request.Description
+            });
         }
     }
 

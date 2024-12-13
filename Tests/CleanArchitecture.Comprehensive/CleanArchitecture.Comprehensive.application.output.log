@@ -1020,22 +1020,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.CreateCommandHandlerTests#b217966f-d4df-4126-bef4-816f2f7376f0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application.Tests/IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggeringCommandHandlerTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CRUD.Tests.FluentValidation.FluentValidationTest#b217966f-d4df-4126-bef4-816f2f7376f0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application.Tests/IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggeringCommandValidatorTests.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringsAnemic/CreateAnemicIntegrationTriggeringCommandValidatorTests.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1cf87c41-b94e-43f0-a9b1-f0e4db4d366a</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CRUD.Tests.Owner.DeleteCommandHandlerTests#17814ef9-7153-4fe1-8ed5-8f14359dd401</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application.Tests/IntegrationTriggeringsAnemic/DeleteAnemicIntegrationTriggeringCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -6356,14 +6340,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>860fb8e9-f80a-42fd-97c0-d3b939e20ed3</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#cb515ce1-7756-4170-94a7-8a68803e7bb7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/IntegrationEvents/IntegrationTriggeringCreatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringCreatedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>860fb8e9-f80a-42fd-97c0-d3b939e20ed3</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#81ebe2ea-a0c6-4934-af3a-a8a4558936bf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/IntegrationEvents/IntegrationTriggeringDeletedEvent.cs</ApplicationRelativeFilePath>
@@ -6372,26 +6348,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>860fb8e9-f80a-42fd-97c0-d3b939e20ed3</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#81ebe2ea-a0c6-4934-af3a-a8a4558936bf</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/IntegrationEvents/IntegrationTriggeringDeletedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringDeletedEventExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>860fb8e9-f80a-42fd-97c0-d3b939e20ed3</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#26ba25fb-cf2f-48b9-bbf0-ef5bc2a46ac6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/IntegrationEvents/IntegrationTriggeringUpdatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IntegrationTriggeringUpdatedEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>860fb8e9-f80a-42fd-97c0-d3b939e20ed3</ProjectId>
-      <CorrelationId>Intent.Eventing.Contracts.DomainMapping.MessageExtensions#26ba25fb-cf2f-48b9-bbf0-ef5bc2a46ac6</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/IntegrationEvents/IntegrationTriggeringUpdatedEventExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IntegrationTriggeringUpdatedEventExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
