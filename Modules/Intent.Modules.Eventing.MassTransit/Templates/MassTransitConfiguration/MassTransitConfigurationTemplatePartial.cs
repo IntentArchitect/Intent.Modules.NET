@@ -137,16 +137,16 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .Select(x => x.TypeReference.Element.AsMessageModel());
         var legacyPublishMessages = eventApplications.SelectMany(x => x.PublishedMessages())
             .Select(x => x.TypeReference.Element.AsMessageModel());
-
-        var serviceIntegrationMessages = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id)
-            .GetMessageModels()
-            .Where(p => p.InternalElement.AssociatedElements.Any());
+        var serviceIntegrationMessages = ExecutionContext.MetadataManager.GetAssociatedMessageModels(OutputTarget.Application);
 
         var filtered = legacySubscriptionMessages
             .Union(legacyPublishMessages)
             .Union(serviceIntegrationMessages);
 
-        var result = filtered.ToList();
+        var result = filtered
+            .OrderBy(x => x.Name)
+            .ThenBy(x => x.Id)
+            .ToList();
         return result;
     }
 

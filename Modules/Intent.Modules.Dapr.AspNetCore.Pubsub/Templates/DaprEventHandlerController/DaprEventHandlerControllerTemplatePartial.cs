@@ -77,7 +77,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
                     //Service Designer
                     var eventSubscriptionTemplates = ExecutionContext.FindTemplateInstances<EventHandlerTemplate>(TemplateDependency.OfType<EventHandlerTemplate>())
                         .ToArray();
-                    if (eventHandlerTemplates.Any())
+                    if (eventSubscriptionTemplates.Length > 0)
                     {
                         AddUsing("System");
                         AddUsing("Microsoft.Extensions.DependencyInjection");
@@ -134,11 +134,13 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
 
         public override bool CanRunTemplate()
         {
-            var eventHandlerTemplates = ExecutionContext
-                .FindTemplateInstances<EventHandlerImplementationTemplate>(TemplateDependency.OfType<EventHandlerImplementationTemplate>())
-                .ToArray();
+            if (!ExecutionContext.FindTemplateInstances<EventHandlerImplementationTemplate>(TemplateDependency.OfType<EventHandlerImplementationTemplate>()).Any() &&
+                !ExecutionContext.FindTemplateInstances<EventHandlerTemplate>(TemplateDependency.OfType<EventHandlerTemplate>()).Any())
+            {
+                return false;
+            }
 
-            return eventHandlerTemplates.Any() && base.CanRunTemplate();
+            return base.CanRunTemplate();
         }
 
         [IntentManaged(Mode.Fully)]

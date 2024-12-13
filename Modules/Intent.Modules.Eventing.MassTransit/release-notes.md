@@ -1,3 +1,7 @@
+### Version 6.2.10
+
+- Fixed: Message topologies would not be detected for messages in the Services Designer unless they were in a package which was loaded as non-external.
+
 ### Version 6.2.9
 
 - Improvement: Updated NuGet package versions.

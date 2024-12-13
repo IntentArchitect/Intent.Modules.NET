@@ -1,3 +1,7 @@
+### Version 2.2.2
+
+- Fixed: `DaprEventHandlerController` would not be generated when there was no Event Designer installed.
+
 ### Version 2.2.1
 
 - Improvement: Updated NuGet package versions.
