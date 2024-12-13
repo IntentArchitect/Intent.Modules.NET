@@ -713,7 +713,7 @@ internal class AppStartupFile : IAppStartupFile
 
         public override string GetText(string indentation)
         {
-            return indentation + RelativeIndentation + Statements.ConcatCode($"{indentation}{RelativeIndentation}    ").TrimStart();
+            return indentation + RelativeIndentation + Statements.ConcatCode($"{indentation}{RelativeIndentation}").TrimStart();
         }
 
         bool IHasCSharpStatementsActual.IsCodeBlock => true;
