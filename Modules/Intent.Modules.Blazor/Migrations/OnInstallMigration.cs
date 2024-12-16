@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,6 +8,10 @@ using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
 using Intent.Metadata;
 using Intent.Plugins;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration", Version = "1.0")]
 
 namespace Intent.Modules.Blazor.Migrations
 {
@@ -24,6 +28,9 @@ namespace Intent.Modules.Blazor.Migrations
             _configurationProvider = configurationProvider;
             _metadataInstaller = metadataInstaller;
         }
+
+        [IntentFully]
+        public string ModuleId => "Intent.Blazor";
 
         public void OnInstall()
         {
@@ -72,7 +79,5 @@ namespace Intent.Modules.Blazor.Migrations
             //    }
             //}
         }
-
-        public string ModuleId => "Intent.Blazor";
     }
 }

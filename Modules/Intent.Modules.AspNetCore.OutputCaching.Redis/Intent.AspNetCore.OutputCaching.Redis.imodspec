@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.OutputCaching.Redis</id>
   <version>1.1.2</version>
@@ -44,4 +44,7 @@
     <install target="Services;Module Builder" src="modelers/Caching Policy Extensions.designer.settings" externalReference="c94dde06-fcac-41c0-b28f-a320e772629c" />
     <install target="Services;Module Builder" src="Intent.Metadata/Module Builder/Intent.AspNetCore.OutputCaching.Redis/Intent.AspNetCore.OutputCaching.Redis.pkg.config" externalReference="bf2555fa-08da-4a33-b203-c29cd6302ffc" />
   </metadata>
+  <migrations>
+    <migration version="1.1.0-pre.0" />
+  </migrations>
 </package>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR</id>
   <version>4.3.0</version>
@@ -154,4 +154,7 @@
   </moduleSettings>
   <moduleSettingsExtensions />
   <factoryExtensions />
+  <migrations>
+    <migration version="4.3.0-pre.0" />
+  </migrations>
 </package>

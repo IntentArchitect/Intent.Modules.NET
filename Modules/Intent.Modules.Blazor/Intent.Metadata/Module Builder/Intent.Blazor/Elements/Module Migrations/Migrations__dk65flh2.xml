@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7c23dc05-1b7d-4103-bbae-20271400fdf3" type="Module Migrations" typeId="8cfd2eab-c1bf-46bc-a86f-3ed0263a380f">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</parentFolderId>
+  <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
+  <packageName>Intent.Blazor</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

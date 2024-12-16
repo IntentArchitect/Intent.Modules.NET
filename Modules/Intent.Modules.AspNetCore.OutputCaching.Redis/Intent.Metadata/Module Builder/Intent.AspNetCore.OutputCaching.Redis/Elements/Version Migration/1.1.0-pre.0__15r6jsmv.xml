@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7b002711-a837-4b95-bebb-ecf7584e5193" type="Version Migration" typeId="03f24c57-66d8-4868-95a7-6daef900dc7f">
+  <name>1.1.0-pre.0</name>
+  <display>1.1.0-pre.0</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>67eaeec8-d2f0-486e-9219-975a95be0c80</parentFolderId>
+  <packageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</packageId>
+  <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

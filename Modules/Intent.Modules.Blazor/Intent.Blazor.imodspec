@@ -138,4 +138,5 @@
   <metadata>
     <install src="modelers/Blazor UI Extensions.designer.settings" externalReference="07ebdd16-a83c-401c-95bc-0ec02d4c7daf" target="User Interface" />
   </metadata>
+  <migrations has-on-install-migration="true" />
 </package>

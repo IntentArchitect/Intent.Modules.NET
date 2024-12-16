@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="060a55b1-d06c-477d-8a7c-aff7f40db488" type="Version Migration" typeId="03f24c57-66d8-4868-95a7-6daef900dc7f">
+  <name>4.3.0-pre.0</name>
+  <display>4.3.0-pre.0</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2adf1adb-b8e0-4b78-b9c1-0105ca043c47</parentFolderId>
+  <packageId>e92495db-1b26-4389-bf06-cc1b375520b1</packageId>
+  <packageName>Intent.Application.MediatR</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

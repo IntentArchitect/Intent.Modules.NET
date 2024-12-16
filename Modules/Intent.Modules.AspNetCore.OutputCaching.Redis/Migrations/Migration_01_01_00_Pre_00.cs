@@ -1,33 +1,32 @@
-﻿using Intent.Engine;
-using Intent.IArchitect.Agent.Persistence.Model;
-using Intent.Plugins;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Intent.Engine;
+using Intent.IArchitect.Agent.Persistence.Model;
+using Intent.Plugins;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration", Version = "1.0")]
 
 namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Migrations
 {
-    public class Migration_01_01_00_Pre_00_cs : IModuleMigration
+    public class Migration_01_01_00_Pre_00 : IModuleMigration
     {
         private readonly IApplicationConfigurationProvider _configurationProvider;
         private readonly string CachingPolicyTypeId = "1425f74f-3aa9-4dfd-8676-baa7e8d00a17";
         private readonly string CachingPoliciesTypeId = "4cd00683-9b6e-4340-a4be-6c6a4e36a274";
-        
 
-        public Migration_01_01_00_Pre_00_cs(IApplicationConfigurationProvider configurationProvider)
+        public Migration_01_01_00_Pre_00(IApplicationConfigurationProvider configurationProvider)
         {
             _configurationProvider = configurationProvider;
         }
 
+        [IntentFully]
         public string ModuleId => "Intent.AspNetCore.OutputCaching.Redis";
 
+        [IntentFully]
         public string ModuleVersion => "1.1.0-pre.0";
-
-        public void Down()
-        {
-        }
 
         public void Up()
         {
@@ -62,6 +61,10 @@ namespace Intent.Modules.AspNetCore.OutputCaching.Redis.Migrations
 
                 package.Save(true);
             }
+        }
+
+        public void Down()
+        {
         }
 
         private static IEnumerable<ElementPersistable> GetMatchedElements(IList<ElementPersistable> elements, Predicate<ElementPersistable> predicate)

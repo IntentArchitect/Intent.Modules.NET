@@ -1,23 +1,29 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
 using Intent.Plugins;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Merge)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration", Version = "1.0")]
 
 namespace Intent.Modules.Application.MediatR.Migrations
 {
-    public class Migration_04_03_00_Pre_00_cs : IModuleMigration
+    public class Migration_04_03_00_Pre_00 : IModuleMigration
     {
         private readonly IApplicationConfigurationProvider _configurationProvider;
 
-        public Migration_04_03_00_Pre_00_cs(IApplicationConfigurationProvider configurationProvider)
+        public Migration_04_03_00_Pre_00(IApplicationConfigurationProvider configurationProvider)
         {
             _configurationProvider = configurationProvider;
         }
 
+        [IntentFully]
         public string ModuleId => "Intent.Application.MediatR";
 
+        [IntentFully]
         public string ModuleVersion => "4.3.0-pre.0";
 
         public void Down()

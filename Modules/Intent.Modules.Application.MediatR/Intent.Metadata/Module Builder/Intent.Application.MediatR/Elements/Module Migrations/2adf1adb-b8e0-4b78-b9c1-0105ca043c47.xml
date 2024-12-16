@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2adf1adb-b8e0-4b78-b9c1-0105ca043c47" type="Module Migrations" typeId="8cfd2eab-c1bf-46bc-a86f-3ed0263a380f">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e92495db-1b26-4389-bf06-cc1b375520b1</parentFolderId>
+  <packageId>e92495db-1b26-4389-bf06-cc1b375520b1</packageId>
+  <packageName>Intent.Application.MediatR</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
