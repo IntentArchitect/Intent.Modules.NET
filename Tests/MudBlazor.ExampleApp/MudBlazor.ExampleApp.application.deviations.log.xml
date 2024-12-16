@@ -4,15 +4,15 @@
     <file>
       <correlationId>Intent.Blazor.Templates.Server.AppRazorTemplate</correlationId>
       <path>MudBlazor.ExampleApp.Api/Components/App.razor</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-11-05T06:39:34.1809196Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-11-08T09:17:29.1134218Z</approvedAt>
-      <deviationsHash>893C9908022B9CC7B3AD652648668F510AB887D1A33888EF4F789DB8DAC66DEE</deviationsHash>
-      <fileHash>407461FC5DFA335346CD880C5827179482F0D6B779B16E660BA40C7E96646066</fileHash>
+      <count>2</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2024-12-16T12:53:30.6798589Z</updatedAt>
+      <approvedByAccountName>gareth.baars@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Gareth Baars</approvedByDisplayName>
+      <approvedAt>2024-12-16T14:39:48.8056242Z</approvedAt>
+      <deviationsHash>894578E057A1DB7FCC8595B943E4980CBB34D1044635C0594EF67640BF02A7FF</deviationsHash>
+      <fileHash>B20BC384A632E5ED5EA47B9BD7B19B47E39A185BC32197CC8EBAB7C699C3524F</fileHash>
     </file>
   </files>
 </deviationsLog>

@@ -25,7 +25,7 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
     public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode)
     {
         var layoutModel = new LayoutModel(component);
-        parentNode.AddChildNode(new HtmlElement("MudThemingProvider", _componentTemplate.RazorFile));
+        parentNode.AddChildNode(new HtmlElement("MudThemeProvider", _componentTemplate.RazorFile));
         var popoverProvider = new HtmlElement("MudPopoverProvider", _componentTemplate.RazorFile);
         //popoverProvider.AddAttribute("@rendermode", "InteractiveServer"); // throws exception. Check with Dom
         parentNode.AddChildNode(popoverProvider);
