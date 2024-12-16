@@ -18,11 +18,11 @@ namespace Intent.Modules.Blazor.Components.MudBlazor
             NugetRegistry.Register(MudBlazorPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("6.21.0", locked: true)
+                        ( >= 8, 0) => new PackageVersion("7.15.0")
                             .WithNugetDependency("Microsoft.AspNetCore.Components", "8.0.8")
                             .WithNugetDependency("Microsoft.AspNetCore.Components.Web", "8.0.8")
                             .WithNugetDependency("Microsoft.Extensions.Localization", "8.0.8"),
-                        ( >= 7, 0) => new PackageVersion("6.21.0", locked: true)
+                        ( >= 7, 0) => new PackageVersion("7.15.0")
                             .WithNugetDependency("Microsoft.AspNetCore.Components", "7.0.20")
                             .WithNugetDependency("Microsoft.AspNetCore.Components.Web", "7.0.20")
                             .WithNugetDependency("Microsoft.Extensions.Localization", "7.0.20"),

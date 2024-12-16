@@ -134,15 +134,27 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
                 routes.AddBelow(new HtmlElement("script", app)
                     .AddAttribute("src", "_content/MudBlazor/MudBlazor.min.js"));
 
-
-                // Remove Bootstrap:
-                //foreach (var link in file.SelectHtmlElements("/head/link"))
-                //{
-                //    if (link.HasAttribute("rel", "stylesheet") && link.GetAttribute("href")?.Value.StartsWith("bootstrap") == true)
-                //    {
-                //        link.Remove();
-                //    }
-                //}
+                foreach (var link in file.SelectHtmlElements("/html/head/link"))
+                {
+                    // Remove Bootstrap:
+                    if (link.HasAttribute("rel", "stylesheet") && link.GetAttribute("href")?.Value.StartsWith("bootstrap") == true)
+                    {
+                        link.Remove();
+                        continue;
+                    }
+                    // Remove app.css:
+                    if (link.HasAttribute("rel", "stylesheet") && link.GetAttribute("href")?.Value.StartsWith("app.css") == true)
+                    {
+                        link.Remove();
+                        continue;
+                    }
+                    // Remove *.styles.css:
+                    if (link.HasAttribute("rel", "stylesheet") && link.GetAttribute("href")?.Value.EndsWith(".styles.css") == true)
+                    {
+                        link.Remove();
+                        continue;
+                    }
+                }
             });
         }
 
@@ -152,7 +164,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
 
             if (routes == null)
             {
-                Logging.Log.Warning("Unable to install Blazorise. Program class could not be found.");
+                Logging.Log.Warning("Unable to install MudBlazor. Program class could not be found.");
                 return;
             }
 
