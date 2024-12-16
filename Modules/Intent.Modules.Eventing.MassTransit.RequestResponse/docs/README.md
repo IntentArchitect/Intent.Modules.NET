@@ -24,7 +24,7 @@ Once that is done, you can choose to specify their queue names if you don't want
 
 ![Exposed Commands and Queries](docs/images/receiver-app-commands-queries-exposed.png)
 
-> ⚠️ **NOTE**
+> [!IMPORTANT]
 > 
 > The generated Messages that will be used to travel across the message-broker will use the Package name as the Namespace. This is because MassTransit requires that Messages have exactly the same Name and Namespaces for both the sender and receiver.
  
@@ -77,6 +77,6 @@ public class PerformFunctionCommandHandler : IRequestHandler<PerformFunctionComm
 }
 ```
 
-> ⚠️ **NOTE**
+> [!NOTE]
 > 
 > These proxy invocations are "synchronous" in nature even though it has the async/await capabilities. The operation completes once it has received a reply from the Receiving application.

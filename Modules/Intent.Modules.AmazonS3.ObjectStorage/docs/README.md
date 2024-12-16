@@ -92,11 +92,11 @@ For local development, developers can simulate an Amazon S3 environment using an
     "ForcePathStyle": true
    }
    ```
-> **Note:**
+> [!NOTE]
 >
 > Ensure to create the necessary buckets using the S3 Ninja UI prior to performing any operations with them.
 
-> **Important:**
+> [!IMPORTANT]
 >
 > Due to limitations in the S3 Ninja emulator, the `ForcePathStyle` setting must be enabled to ensure proper API access.
 > This does mean that using operations on the Amazon S3 Object Store that requires a `URI` parameter will not work. This is due to the fact that the different path style cannot be parsed by the S3 client in order to know what the bucket name and object key is. The methods that require `bucket name` and `key` parameters work as per normal.

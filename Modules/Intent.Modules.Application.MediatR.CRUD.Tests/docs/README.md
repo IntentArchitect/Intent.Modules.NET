@@ -82,7 +82,7 @@ public class CreateInvoiceCommandHandlerTests
 }
 ```
 
-> ** NOTE **
+> [!NOTE]
 >
 > `GetSuccessfulResultTestData` can be Intent-Ignored in order for user-defined tests data to be supplied.
 
@@ -147,6 +147,6 @@ public class CreateInvoiceCommandValidatorTests
 }
 ```
 
-> ** NOTE **
+> [!NOTE]
 >
 > `GetSuccessfulResultTestData`, `GetFailedResultTestData` can be Intent-Ignored in order for user-defined tests data to be supplied. `GetValidationBehaviour` can also be Intent-Ignored in order to control how a Validator is constructed especially when user-defined services are being injected in the constructor.

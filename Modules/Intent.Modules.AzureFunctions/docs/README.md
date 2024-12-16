@@ -59,8 +59,8 @@ public async Task Run(
 
 ```
 
-> **NOTE**
-> I you model a `Command` or a `Service` which accepts a non-collection argument, the dispatching will be batched as per the example below.
+> [!NOTE]
+> If you model a `Command` or a `Service` which accepts a non-collection argument, the dispatching will be batched as per the example below.
 
 ```csharp
 

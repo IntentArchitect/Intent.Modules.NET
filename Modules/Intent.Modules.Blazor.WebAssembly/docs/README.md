@@ -35,7 +35,7 @@ This module adds sample content implementations as per Visual Studio templates.
 
 This module wires up an appsetting.json, to use for application settings. 
 
-> ⚠️ **WARNING**
+> [!IMPORTANT]
 >
 > You should not store sensitive information in  Blazor WebAssembly appsetting.json as this file is available client side. For more information read the official [documentation](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/configuration?view=aspnetcore-7.0).
 

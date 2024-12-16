@@ -40,6 +40,6 @@ On the `Security Configuration` element, Right Click and select `Convert from 't
 
 This will created `Role`s and `Policy`s based on the current text configuration, write up you security stereotypes to point to these new `Element`s.
 
-> **Note:**
+> [!NOTE]
 >
 > If you are using `+` notation, this is not currently supported. Please reach out to us at https://github.com/IntentArchitect/Support should you need this support added."

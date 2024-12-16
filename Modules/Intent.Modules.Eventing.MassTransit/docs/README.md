@@ -25,7 +25,7 @@ From version `6.0.0` of this Module, modeling Integration Events can be achieved
 
 This module automatically installs the `Intent.Modelers.Eventing` module which provides designer modeling capabilities for integration events and commands. For details on modeling integration events and commands, refer to its [README](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Modelers.Eventing/README.md).
 
-> ⚠️ **IMPORTANT**
+> [!IMPORTANT]
 >
 > MassTransit requires that both the Publisher and Subscriber have Messages with the exact same Names and Namespaces.
 
@@ -52,7 +52,7 @@ Configure what your underlying message broker is, the supported options are:
 * Azure Service Bus
 * Amazon SQS
 
-> ⚠️ **NOTE**
+> [!IMPORTANT]
 >
 > The in-memory transport is a great tool for testing, as it doesn't require a message broker to be installed or running. It's also very fast. But it isn't durable, and messages are gone if the bus is stopped or the process terminates. So, it's generally not a smart option for a production system
 
@@ -64,7 +64,7 @@ Configure your Outbox pattern implementation, the supported options are:
 * [In Memory](https://masstransit.io/documentation/patterns/in-memory-outbox)
 * [Entity Framework](https://masstransit.io/documentation/patterns/transactional-outbox)
 
-> ⚠️ **NOTE**
+> [!IMPORTANT]
 >
 > Using an Outbox pattern for Consumers will also introduce idempotency to ensure that the same messages doesn't get processed more than once.
 

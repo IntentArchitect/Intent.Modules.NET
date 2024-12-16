@@ -47,7 +47,7 @@ builder.Services.AddHttpClients(builder.Configuration);
 
 `https://localhost:44321/` should be replaced with the URL of your application's `Api` project, in development you can get this url from the `Api` project's `Properties/launchsettings.json` file.
 
-> **Note**
+> [!NOTE]
 >
 > The above example is using a [Memory Configuration Source](https://learn.microsoft.com/aspnet/core/blazor/fundamentals/configuration?view=aspnetcore-7.0#memory-configuration-source) to add the configuration, but any configuration source providing the appropriate key will work.
 

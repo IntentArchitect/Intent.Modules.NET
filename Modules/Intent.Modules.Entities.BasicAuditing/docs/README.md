@@ -2,7 +2,7 @@
 
 Basic auditing in database management is a pattern used to track key information about the creation and last modification of records. This involves adding fields to your SQL table such as `CreatedBy`, `CreatedDate`, `UpdatedBy` and `UpdatedDate`. This pattern offers a straightforward way to capture and display who initially created a record and who last modified it, along with the relevant timestamps. However, it is important to note that this approach provides a snapshot of the most recent actions rather than a comprehensive audit trail of all changes made over time.
 
-> **Note**
+> [!NOTE]
 >
 > This is not an Audit Trail but merely a way to determine who touched an Entity and when.
 
@@ -23,7 +23,7 @@ Your Entity will now be extended with the following attributes:
 * UpdatedBy - User Identity that updated this Entity instance.
 * UpdatedDate - Timestamp when creation took place.
 
-> **Note**
+> [!NOTE]
 >
 > It is worth noting that the "updated" attributes remain null upon creation and only get populated when an update has taken place.
 
@@ -59,7 +59,7 @@ This setting allows you to specify what the type of the UserId on the `ICurrentU
 
 The Audit fields of `CreatedBy` and `UpdatedBy` will respect the above settings.
 
-> **Note**
+> [!NOTE]
 >
 > If you adjust the above settings after you have already modeled `Class`es with basic auditing, you can `Right Click` on any Audited class and select the `Synchronize Auditing Identifiers` option. This will update your existing `Domain Model` such that the `CreatedBy` and `UpdatedBy` attributes have the newly configured types.
 
