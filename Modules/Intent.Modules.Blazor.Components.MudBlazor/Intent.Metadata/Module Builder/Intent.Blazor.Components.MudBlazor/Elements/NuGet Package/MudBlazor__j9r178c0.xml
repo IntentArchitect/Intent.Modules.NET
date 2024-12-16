@@ -144,78 +144,10 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="c327321e-d9de-4cae-a080-d48ef79973b0" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <comment>Upgrading to v7.x seems to break the CSS. Need to investigate</comment>
-      <name>6.21.0</name>
-      <display>6.21.0 ( &gt;= .NETCoreApp,Version=v7.0 ) [locked]</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>96ce0dec-1629-4ed4-8965-939c8e02967b</parentFolderId>
-      <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-      <packageName>Intent.Blazor.Components.MudBlazor</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="true" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="c267fd2c-afee-4a16-a4d4-20272fa62ef1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.AspNetCore.Components</name>
-          <display>Microsoft.AspNetCore.Components (7.0.20)</display>
-          <isAbstract>false</isAbstract>
-          <value>7.0.20</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c327321e-d9de-4cae-a080-d48ef79973b0</parentFolderId>
-          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="ff7cc201-ba1f-4815-8eb5-9b9faa3890cc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.AspNetCore.Components.Web</name>
-          <display>Microsoft.AspNetCore.Components.Web (7.0.20)</display>
-          <isAbstract>false</isAbstract>
-          <value>7.0.20</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c327321e-d9de-4cae-a080-d48ef79973b0</parentFolderId>
-          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="488a96be-fce4-42de-958a-5c6a4e686106" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Localization</name>
-          <display>Microsoft.Extensions.Localization (7.0.20)</display>
-          <isAbstract>false</isAbstract>
-          <value>7.0.20</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c327321e-d9de-4cae-a080-d48ef79973b0</parentFolderId>
-          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="e8c1514a-7083-432d-b3dd-3e3ffc053468" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <comment>Upgrading to v7.x seems to break the CSS. Need to investigate</comment>
-      <name>6.21.0</name>
-      <display>6.21.0 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
+      <comment />
+      <name>7.15.0</name>
+      <display>7.15.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -230,13 +162,13 @@
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
             <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="true" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="7c946a34-fb74-4422-be1c-1044de94271c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="777902ba-46d1-425e-a74f-0de3ae28d225" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components</name>
           <display>Microsoft.AspNetCore.Components (8.0.8)</display>
           <isAbstract>false</isAbstract>
@@ -250,7 +182,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="87e2a884-bcb8-445a-a247-2d60c771b22e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="abbf070b-2c18-465d-a893-d217e4c8747d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
           <display>Microsoft.AspNetCore.Components.Web (8.0.8)</display>
           <isAbstract>false</isAbstract>
@@ -264,7 +196,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b7d93c55-f7f6-4361-b456-1c5a63120125" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7a53a163-42f5-4cc9-9734-3e849383411e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Localization</name>
           <display>Microsoft.Extensions.Localization (8.0.8)</display>
           <isAbstract>false</isAbstract>
@@ -272,6 +204,74 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e8c1514a-7083-432d-b3dd-3e3ffc053468</parentFolderId>
+          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="c327321e-d9de-4cae-a080-d48ef79973b0" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <comment />
+      <name>7.15.0</name>
+      <display>7.15.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>96ce0dec-1629-4ed4-8965-939c8e02967b</parentFolderId>
+      <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+      <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="9ba3f3d2-6b64-496e-8cc6-ff467917af49" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Components</name>
+          <display>Microsoft.AspNetCore.Components (7.0.20)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.20</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c327321e-d9de-4cae-a080-d48ef79973b0</parentFolderId>
+          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bd4bab63-fb50-48ea-97e5-845b05bfbca4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Components.Web</name>
+          <display>Microsoft.AspNetCore.Components.Web (7.0.20)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.20</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c327321e-d9de-4cae-a080-d48ef79973b0</parentFolderId>
+          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fa631d36-18d3-4fcf-8d1d-93ea31f47688" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Localization</name>
+          <display>Microsoft.Extensions.Localization (7.0.20)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.20</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c327321e-d9de-4cae-a080-d48ef79973b0</parentFolderId>
           <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
           <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
