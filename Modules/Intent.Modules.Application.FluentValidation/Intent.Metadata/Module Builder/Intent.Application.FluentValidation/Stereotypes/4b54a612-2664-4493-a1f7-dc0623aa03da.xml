@@ -27,6 +27,7 @@ return "";</displayFunction>
   <order>0</order>
   <packageId>55856e5d-8217-4c17-8fbb-082ac75baaf5</packageId>
   <packageName>Intent.Application.FluentValidation</packageName>
+  <validateFunction />
   <properties>
     <property id="d144e1aa-b506-407a-b60b-716ce38b70bb">
       <name>Not Empty</name>
@@ -118,6 +119,19 @@ return type ? type.getName() == "int" || type.getName() == "long" || type.getNam
       <valueOptions />
       <lookupTypes />
     </property>
+    <property id="a4fdee2f-36d9-463c-bb2e-54579a16083e">
+      <name>Regular Expression Message</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>const validations = element.getStereotype("4b54a612-2664-4493-a1f7-dc0623aa03da")
+const regExValue = validations.getProperty("Regular Expression").getValue();
+
+return regExValue?.length &gt; 0;</isActiveFunction>
+    </property>
     <property id="9023c463-1cce-4f11-baa5-96561697fc7f">
       <hint>e.g. surname =&gt; surname == "Foo"</hint>
       <name>Predicate</name>
@@ -185,6 +199,19 @@ return type ? type.getName() == "string" : false;</isActiveFunction>
       <defaultValue>false</defaultValue>
       <valueOptions />
       <lookupTypes />
+    </property>
+    <property id="f43fcab6-5f8f-42e4-96d2-83d79cedfab9">
+      <name>Must Message</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>const validations = element.getStereotype("4b54a612-2664-4493-a1f7-dc0623aa03da")
+const regExValue = validations.getProperty("Must").getValue()
+
+return regExValue;</isActiveFunction>
     </property>
     <property id="9ce77ae5-9ad5-4436-8ae0-c6c296de8492">
       <name>CascadeMode</name>

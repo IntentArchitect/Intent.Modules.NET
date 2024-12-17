@@ -1,3 +1,7 @@
+### Version 1.0.2
+
+- Improvement: Abililty to set a custom message on `Regular Expression` and `Must` validations
+
 ### Version 1.0.1
 
 - Improvement: Updated module icon

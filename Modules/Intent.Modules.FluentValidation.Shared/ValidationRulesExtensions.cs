@@ -419,6 +419,11 @@ public static class ValidationRulesExtensions
         if (!string.IsNullOrWhiteSpace(validations.RegularExpression()))
         {
             validationRuleChain.AddChainStatement($@"Matches(@""{validations.RegularExpression()}"")");
+
+            if(!string.IsNullOrWhiteSpace(validations.RegularExpressionMessage()))
+            {
+                validationRuleChain.AddChainStatement($@"WithMessage(""{validations.RegularExpressionMessage()}"")");
+            }
         }
 
         if (validations.EmailAddress())
@@ -443,6 +448,11 @@ public static class ValidationRulesExtensions
                 validations.Must())
             {
                 validationRuleChain.AddChainStatement($"MustAsync(Validate{field.Name.ToPascalCase()}Async)");
+
+                if (!string.IsNullOrWhiteSpace(validations.MustMessage()))
+                {
+                    validationRuleChain.AddChainStatement($@"WithMessage(""{validations.MustMessage()}"")");
+                }
             }
         }
     }

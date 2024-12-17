@@ -1,3 +1,7 @@
+### Version 3.10.1
+
+- Improvement: Abililty to set a custom message on `Regular Expression` and `Must` validations
+
 ### Version 3.10.0
 
 - Improvement: Help topics added to documention

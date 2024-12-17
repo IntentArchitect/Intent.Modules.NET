@@ -90,6 +90,11 @@ namespace Intent.Application.FluentValidation.Api
                 return _stereotype.GetProperty<string>("Regular Expression");
             }
 
+            public string RegularExpressionMessage()
+            {
+                return _stereotype.GetProperty<string>("Regular Expression Message");
+            }
+
             public string Predicate()
             {
                 return _stereotype.GetProperty<string>("Predicate");
@@ -118,6 +123,11 @@ namespace Intent.Application.FluentValidation.Api
             public bool Must()
             {
                 return _stereotype.GetProperty<bool>("Must");
+            }
+
+            public string MustMessage()
+            {
+                return _stereotype.GetProperty<string>("Must Message");
             }
 
             public CascadeModeOptions CascadeMode()
