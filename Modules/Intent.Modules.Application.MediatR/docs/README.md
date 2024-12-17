@@ -19,17 +19,17 @@ This module produces the following artifacts:
 
 When set to `disabled` (the default), each command/query is generated into its own sub-folder with its handler and validator (when applicable) alongside it in the same sub-folder.
 
-![File view when consolidation disabled](docs/cqrs-consolidate-disabled.png)
+![File view when consolidation disabled](images/cqrs-consolidate-disabled.png)
 
 When set to `enabled`, commands and queries no longer have their own sub-folders and files which used to be generated alongside them are now instead generated into the handler/command file itself.
 
-![File view when consolidation enabled](docs/cqrs-consolidate-enabled.png)
+![File view when consolidation enabled](images/cqrs-consolidate-enabled.png)
 
 ## Examples
 
 This module consumes:
 
-![CQRTS Modelling](docs/images/cqrs-modeling.png)
+![CQRTS Modelling](images/cqrs-modeling.png)
 
 And produce artifacts similar to:
 
