@@ -91,6 +91,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>c4ce562d-1f7b-4e2d-bf8d-1df12dc222ec</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#7408993a-3a25-47f0-9b28-5ed5ff021925</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Api/Controllers/ServiceTesting/ClientsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceTesting/ClientsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>07e37433-d16d-4131-a898-e2d85f366b82</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#07e37433-d16d-4131-a898-e2d85f366b82</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -448,6 +456,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Application/Clients/GetClients/GetClientsQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Clients/GetClients/GetClientsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#c9a47494-b81c-40a6-94f0-858efabbba42</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Clients/GetClientsFiltered/GetClientsFilteredQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/GetClientsFiltered/GetClientsFilteredQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#c9a47494-b81c-40a6-94f0-858efabbba42</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Clients/GetClientsFiltered/GetClientsFilteredQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/GetClientsFiltered/GetClientsFilteredQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b7a6db15-e1c5-461c-a475-981a79392809</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#c9a47494-b81c-40a6-94f0-858efabbba42</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Clients/GetClientsFiltered/GetClientsFilteredQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/GetClientsFiltered/GetClientsFilteredQueryValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1216,6 +1248,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.Application/GetAllImplementation.Customers/GetGetallimplementationCustomerGetallimplementationOrders/GetGetallimplementationCustomerGetallimplementationOrdersQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>GetAllImplementation.Customers/GetGetallimplementationCustomerGetallimplementationOrders/GetGetallimplementationCustomerGetallimplementationOrdersQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>575f1493-d4e0-458f-bb53-0fafc4553d0d</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#7408993a-3a25-47f0-9b28-5ed5ff021925</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Implementation/ServiceTesting/ClientsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceTesting/ClientsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>98e51680-67c4-40cf-bb17-9769a05c5fb6</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#7408993a-3a25-47f0-9b28-5ed5ff021925</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.Application/Interfaces/ServiceTesting/IClientsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceTesting/IClientsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

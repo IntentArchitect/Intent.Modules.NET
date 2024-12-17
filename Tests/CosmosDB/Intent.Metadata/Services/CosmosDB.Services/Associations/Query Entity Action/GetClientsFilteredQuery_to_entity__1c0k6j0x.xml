@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="72999c13-dfad-4cea-8a47-6bff4dc84742">
+  <sourceEnd id="10f9ee3b-103a-4b7f-9881-9b6fb06f590f" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetClientsFilteredQuery</display>
+    <order>0</order>
+    <typeReference id="8b4153e3-6034-427a-8b3d-9cbe1add47c1">
+      <typeId>7c3abd54-b358-43bc-8ba1-e8adb00907a8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Services</typePackageName>
+      <typePackageId>e326ac1c-237a-4369-afc9-e661453c5460</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="72999c13-dfad-4cea-8a47-6bff4dc84742" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>entity</name>
+    <display>[query] entity: Client[*]</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="e07f906e-109b-4982-a577-466f5689c8b2">
+      <typeId>d929830c-66b5-41d7-8354-ff99c7c1410c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CosmosDB.Domain</typePackageName>
+      <typePackageId>eca90396-0828-43f5-9bbd-32c16ba595e4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="eb8a85e0-59cb-434e-9c7d-56a07d44261f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="7c3abd54-b358-43bc-8ba1-e8adb00907a8" location="[CosmosDB].[Services].[GetClientsFilteredQuery]" />
+        <target applicationId="b0cfe26a-d338-4d6d-a8df-a97c4e78f647" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d929830c-66b5-41d7-8354-ff99c7c1410c" location="[CosmosDB].[Services].[Client]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{type}</expression>
+            <path>
+              <target id="d929830c-66b5-41d7-8354-ff99c7c1410c" name="Client" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="7436efa7-7895-4cfe-803b-549e14340a15" name="Type" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="type" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="7c3abd54-b358-43bc-8ba1-e8adb00907a8" name="GetClientsFilteredQuery" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="0cca445c-8d8a-4a51-955e-e56646c0436b" name="type" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{name}</expression>
+            <path>
+              <target id="d929830c-66b5-41d7-8354-ff99c7c1410c" name="Client" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="460a1bd7-d876-4294-a8a0-7897160fce72" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="name" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="7c3abd54-b358-43bc-8ba1-e8adb00907a8" name="GetClientsFilteredQuery" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="1df5d1d2-17b2-47d5-890f-d7cc72146ce9" name="name" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,3 +1,13 @@
+### Version 5.0.20
+
+- Fixed: For certain persistence technologies generated filter methods incorrectly used the concrete type of the entity as opposed to the document interface type resulting in un-compilable code.
+
+  > [!NOTE]
+  >
+  > The corresponding module updates for the persistence technology will also need to be installed in order for the fix to be fully applied:
+  >
+  > - **Intent.CosmosDB**: 1.2.8
+
 ### Version 5.0.19
 
 - Improvement: Improved code quality by making `DomainEventService.GetNotificationCorrespondingToDomainEvent` static.

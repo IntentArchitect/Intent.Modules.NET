@@ -112,8 +112,11 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryInterface
             foreach (var model in Model)
             {
                 var template = GetTemplate<ICSharpFileBuilderTemplate>(EntityRepositoryInterfaceTemplate.TemplateId, model.Id);
+
+                template.CSharpFile.OnBuild(file => file.Metadata["entity-state-template-id"] = CosmosDBDocumentInterfaceTemplate.TemplateId);
                 template.CSharpFile.AfterBuild(file =>
                 {
+
                     var @interface = file.Interfaces.Single();
                     @interface.Interfaces.Clear();
                     var genericTypeParameters = model.GenericTypes.Any()
