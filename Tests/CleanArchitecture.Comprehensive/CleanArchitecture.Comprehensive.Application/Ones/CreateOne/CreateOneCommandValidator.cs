@@ -33,8 +33,7 @@ namespace CleanArchitecture.Comprehensive.Application.Ones.CreateOne
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         private async Task<bool> ValidateOneIdAsync(CreateOneCommand command, int value, CancellationToken cancellationToken)
         {
-            // TODO: Implement ValidateOneIdAsync (CreateOneCommandValidator) functionality
-            throw new NotImplementedException("Your custom validation rules here...");
+            return true;
         }
     }
 }

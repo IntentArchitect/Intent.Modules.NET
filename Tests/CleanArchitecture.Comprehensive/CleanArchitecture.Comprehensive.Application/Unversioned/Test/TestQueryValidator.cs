@@ -31,8 +31,7 @@ namespace CleanArchitecture.Comprehensive.Application.Unversioned.Test
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         private async Task<bool> ValidateValueAsync(TestQuery command, string value, CancellationToken cancellationToken)
         {
-            // TODO: Implement ValidateValueAsync (TestQueryValidator) functionality
-            throw new NotImplementedException("Your custom validation rules here...");
+            return true;
         }
     }
 }
