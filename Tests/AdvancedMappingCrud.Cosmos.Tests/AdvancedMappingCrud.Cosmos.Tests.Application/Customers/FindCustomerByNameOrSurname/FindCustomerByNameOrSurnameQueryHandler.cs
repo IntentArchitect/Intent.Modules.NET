@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Common.Exceptions;
-using AdvancedMappingCrud.Cosmos.Tests.Domain.Entities;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories.Documents;
 using AutoMapper;
