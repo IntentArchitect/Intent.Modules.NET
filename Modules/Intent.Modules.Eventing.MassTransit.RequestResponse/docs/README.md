@@ -18,11 +18,11 @@ For more information on MassTransit's Request feature, check out their [official
 
 In your application that will be used to expose your Commands / Queries for message-broker consumption; select them, right-click and select `Expose as Message Triggered`.
 
-![Expose as Message Triggered](docs/images/receiver-app-expose-commands-queries.png)
+![Expose as Message Triggered](images/receiver-app-expose-commands-queries.png)
 
 Once that is done, you can choose to specify their queue names if you don't want them to use the default naming convention.
 
-![Exposed Commands and Queries](docs/images/receiver-app-commands-queries-exposed.png)
+![Exposed Commands and Queries](images/receiver-app-commands-queries-exposed.png)
 
 > [!IMPORTANT]
 > 
@@ -32,27 +32,27 @@ Once that is done, you can choose to specify their queue names if you don't want
 
 In your application that will be used to communicate with the Receiver application, you will need to open the Service Proxy designer and create a new package.
 
-![New Package](docs/images/sender-app-create-service-proxy-dialog.png)
+![New Package](images/sender-app-create-service-proxy-dialog.png)
 
 Once done, you will need to add a reference to the Receiver app's Service package.
 
-![Add reference](docs/images/sender-app-add-service-reference.png)
+![Add reference](images/sender-app-add-service-reference.png)
 
 Locate and select the Service package of the Receiver app.
 
-![Select service package](docs/images/sender-app-add-service-reference-dialog.png)
+![Select service package](images/sender-app-add-service-reference-dialog.png)
 
 Right click on the Service Proxy package and select `New Service Proxy`.
 
-![New Service Proxy](docs/images/sender-app-create-proxy.png)
+![New Service Proxy](images/sender-app-create-proxy.png)
 
 Choose the Commands / Queries you wish to invoke using this Service Proxy.
 
-![Select Commands/Queries](docs/images/sender-app-create-proxy-dialog.png)
+![Select Commands/Queries](images/sender-app-create-proxy-dialog.png)
 
 This is what the Service Proxy will look like once its created.
 
-![Proxies created](docs/images/sender-app-service-proxies-created.png)
+![Proxies created](images/sender-app-service-proxies-created.png)
 
 ## Using Service Proxies in your Code
 

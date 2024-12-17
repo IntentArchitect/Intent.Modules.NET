@@ -36,7 +36,7 @@ On the `Cosmos DB Trigger` stereotype configure the following :
 * LeaseContainerName, the name of the container used to store leases.
 * CreateLeaseContainerIfNotExists, when set to true, the leases container is automatically created when it doesn't already exist. The default value is false. When using Azure AD identities if you set the value to true, creating containers is not an allowed operation and your Function won't be able to start.
 
-![Configured Cosmos DB Trigger](docs/images/cosmosdb-trigger-service.png)
+![Configured Cosmos DB Trigger](images/cosmosdb-trigger-service.png)
 
 Your generated Azure Function will look similar to this:-
 
@@ -103,7 +103,7 @@ Configure the Azure Function Stereotype:
 * Queue Name, the name of the queue consume.
 * Connection, name of the Azure Queue Storage connection string configured in your app.settings.
 
-![Queue Trigger Command](docs/images/queue-trigger-default.png)
+![Queue Trigger Command](images/queue-trigger-default.png)
 
 Producing an azure function as follows:
 
@@ -134,7 +134,7 @@ public async Task Run(
 
 If you configure your `Queue Trigger` Azure function with a result, an additional stereotype will be added to the service `Queue Output Binding`. This stereotype allows you to configure which queue you would like the result of the service to be written to.
 
-![Queue Trigger Response](docs/images/queue-trigger-response.png)
+![Queue Trigger Response](images/queue-trigger-response.png)
 
 Producing an azure function as follows:
 
