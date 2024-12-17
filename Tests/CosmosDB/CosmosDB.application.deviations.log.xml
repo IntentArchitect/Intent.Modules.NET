@@ -301,16 +301,6 @@
       <fileHash>B99DC17CE41E46DE2A54EF86306875E5124FFC255FB7A739C3C3E2DF5D910ED3</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#7408993a-3a25-47f0-9b28-5ed5ff021925</correlationId>
-      <path>CosmosDB.Application/Implementation/ServiceTesting/ClientsService.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-12-17T12:15:51.9393474Z</updatedAt>
-      <deviationsHash>8ED586B0AD99F531D482C21666B9F933782E9C086A326AF79281692B98D92DD7</deviationsHash>
-      <fileHash>F75B94FDBEB447D218BA4BE712AFC4519119DA05AD87674628D3A67A7FF2D7B4</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#26e29abb-d35e-4719-95d9-8171c6c70958</correlationId>
       <path>CosmosDB.Application/Invoices/CreateInvoice/CreateInvoiceCommandValidator.cs</path>
       <count>1</count>

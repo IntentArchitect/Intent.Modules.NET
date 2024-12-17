@@ -22,7 +22,7 @@ namespace CosmosDB.Application.Implementation.ServiceTesting
         private readonly IClientRepository _clientRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public ClientsService(IClientRepository clientRepository, IMapper mapper)
         {
             _clientRepository = clientRepository;

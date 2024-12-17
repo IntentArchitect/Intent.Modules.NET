@@ -11,10 +11,12 @@ using CosmosDB.PrivateSetters.Application.Clients.DeleteClient;
 using CosmosDB.PrivateSetters.Application.Clients.GetClientById;
 using CosmosDB.PrivateSetters.Application.Clients.GetClientByName;
 using CosmosDB.PrivateSetters.Application.Clients.GetClients;
+using CosmosDB.PrivateSetters.Application.Clients.GetClientsFiltered;
 using CosmosDB.PrivateSetters.Application.Clients.GetClientsPaged;
 using CosmosDB.PrivateSetters.Application.Clients.UpdateClient;
 using CosmosDB.PrivateSetters.Application.Clients.UpdateClientByOp;
 using CosmosDB.PrivateSetters.Application.Common.Pagination;
+using CosmosDB.PrivateSetters.Domain;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -179,6 +181,23 @@ namespace CosmosDB.PrivateSetters.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetClientByNameQuery(searchText: searchText), cancellationToken);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;ClientDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("api/clients/filtered")]
+        [ProducesResponseType(typeof(List<ClientDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<ClientDto>>> GetClientsFiltered(
+            [FromQuery] ClientType? type,
+            [FromQuery] string? name,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetClientsFilteredQuery(type: type, name: name), cancellationToken);
             return Ok(result);
         }
 
