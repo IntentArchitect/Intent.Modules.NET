@@ -58,6 +58,7 @@ if (element.hasStereotype(stereotypeId)) {
         createElement("Attribute", "IsDeleted", element.id);
     isDeleteAttr.typeReference.setType(boolTypeId);
     isDeleteAttr.setMetadata("soft-delete", true);
+    isDeleteAttr.setMetadata("set-by-infrastructure", "true");
     return;
 }
 
@@ -72,4 +73,8 @@ if (isDeleteAttr) {
   </elementExtensions>
   <associationSettings />
   <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+  <scripts />
 </settings>

@@ -18,6 +18,7 @@ namespace Intent.Modules.EntityFrameworkCore.SoftDelete.Templates.SoftDeleteInte
     {
         public override string TemplateId => SoftDeleteInterfaceTemplate.TemplateId;
 
+        [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
             return new SoftDeleteInterfaceTemplate(outputTarget);
