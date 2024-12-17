@@ -2,7 +2,7 @@
 
 > ⚠️ **NOTE**
 >
-> `ControllerDecorator` has been removed and any custom modules which use this decorator will need to be updated to use the `ICSharpFileBuilderTemplate` instead. Please don't reach out to our [support](https://github.com/IntentArchitect/Support) should you require any assistance with this.
+> `ControllerDecorator` has been removed and any custom modules which use this decorator will need to be updated to use the `ICSharpFileBuilderTemplate` instead. Please don't hesistate to reach out to our [support](https://github.com/IntentArchitect/Support) should you require any assistance with this.
 
 - Improvement: Support addeded for applying multiple authorization attributes as well as applying authorization attributes from `Secured` stereotypes which are applied to packages. 
 - Improvement: An `OpenAPI Settings` Stereotype can now be applied to the types `DTO Field` and `Parameter`, allowing for example values to be set to reflect in the OpenApi spec.
