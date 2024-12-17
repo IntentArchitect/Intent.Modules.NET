@@ -21,7 +21,9 @@ namespace CleanArchitecture.Comprehensive.Application.AccountHolders.UpdateNoteA
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Note)
-                .NotNull();
+                .NotNull()
+                .Matches(@"^[a-z]*$")
+                .WithMessage("Lower case only notes");
         }
     }
 }

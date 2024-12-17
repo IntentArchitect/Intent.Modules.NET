@@ -1,3 +1,6 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 using CleanArchitecture.Comprehensive.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -18,9 +21,20 @@ namespace CleanArchitecture.Comprehensive.Application.Ones.CreateOne
 
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
+            RuleFor(v => v.OneId)
+                .MustAsync(ValidateOneIdAsync)
+                .WithMessage("A must custom message");
+
             RuleFor(v => v.Twos)
                 .NotNull()
                 .ForEach(x => x.SetValidator(provider.GetValidator<CreateOneCommandTwosDto>()!));
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        private async Task<bool> ValidateOneIdAsync(CreateOneCommand command, int value, CancellationToken cancellationToken)
+        {
+            // TODO: Implement ValidateOneIdAsync (CreateOneCommandValidator) functionality
+            throw new NotImplementedException("Your custom validation rules here...");
         }
     }
 }
