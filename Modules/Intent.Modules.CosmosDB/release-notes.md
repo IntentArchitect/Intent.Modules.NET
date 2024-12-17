@@ -1,3 +1,15 @@
+### Version 1.2.8
+
+- Fixed: CRUD modules would generate filter methods using the concrete type of the entity as opposed to the document interface type resulting in un-compilable code.
+
+  > [!NOTE]
+  >
+  > You will need to ensure that corresponding CRUD modules have also been updated to at least the following minimum versions:
+  >
+  > - **Intent.Application.MediatR.CRUD**: 6.0.23
+  > - **Intent.Application.ServiceImplementations.Conventions.CRUD**: 5.0.20
+  > - **Intent.MediatR.DomainEvents**: 5.0.20
+
 ### Version 1.2.7
 
 - Improvement: Updated NuGet package versions.

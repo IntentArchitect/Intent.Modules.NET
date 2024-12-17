@@ -154,8 +154,20 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
             return new FilterExpressionResult(false, expression);
         }
 
-        var typeName = _template.GetTypeName((IElement)queryMapping.TargetElement);
-        var filterName = $"Filter{typeName.Pluralize()}";
+        var elementId = queryMapping.TargetElement.Id;
+
+        string typeName;
+        if (_template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Repository.Interface.Entity, elementId, out var repositoryInterfaceTemplate) &&
+            repositoryInterfaceTemplate.CSharpFile.TryGetMetadata<string>("entity-state-template-id", out var entityStateTemplateId))
+        {
+            typeName = _template.GetTypeName(entityStateTemplateId, elementId);
+        }
+        else
+        {
+            typeName = _template.GetTypeName((IElement)queryMapping.TargetElement);
+        }
+
+        var filterName = $"Filter{queryMapping.TargetElement.Name.ToPascalCase().Pluralize()}";
         var block = new CSharpLocalMethod($"{_template.UseType("System.Linq.IQueryable")}<{typeName}>", filterName, _template.CSharpFile);
         block.AddParameter($"{_template.UseType("System.Linq.IQueryable")}<{typeName}>", "queryable");
         if (!string.IsNullOrWhiteSpace(expression))

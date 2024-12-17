@@ -2,6 +2,8 @@ using System.Reflection;
 using AutoMapper;
 using CosmosDB.Application.Common.Behaviours;
 using CosmosDB.Application.Common.Validation;
+using CosmosDB.Application.Implementation.ServiceTesting;
+using CosmosDB.Application.Interfaces.ServiceTesting;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -30,6 +32,7 @@ namespace CosmosDB.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<IClientsService, ClientsService>();
             return services;
         }
     }
