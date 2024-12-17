@@ -15,14 +15,14 @@ namespace Intent.EntityFrameworkCore.SoftDelete.Api
     {
         public static SoftDeleteEntity GetSoftDeleteEntity(this ClassModel model)
         {
-            var stereotype = model.GetStereotype("Soft Delete Entity");
+            var stereotype = model.GetStereotype(SoftDeleteEntity.DefinitionId);
             return stereotype != null ? new SoftDeleteEntity(stereotype) : null;
         }
 
 
         public static bool HasSoftDeleteEntity(this ClassModel model)
         {
-            return model.HasStereotype("Soft Delete Entity");
+            return model.HasStereotype(SoftDeleteEntity.DefinitionId);
         }
 
         public static bool TryGetSoftDeleteEntity(this ClassModel model, out SoftDeleteEntity stereotype)
@@ -33,13 +33,14 @@ namespace Intent.EntityFrameworkCore.SoftDelete.Api
                 return false;
             }
 
-            stereotype = new SoftDeleteEntity(model.GetStereotype("Soft Delete Entity"));
+            stereotype = new SoftDeleteEntity(model.GetStereotype(SoftDeleteEntity.DefinitionId));
             return true;
         }
 
         public class SoftDeleteEntity
         {
             private IStereotype _stereotype;
+            public const string DefinitionId = "65860af3-8805-4a63-9fb9-3884b80f4380";
 
             public SoftDeleteEntity(IStereotype stereotype)
             {

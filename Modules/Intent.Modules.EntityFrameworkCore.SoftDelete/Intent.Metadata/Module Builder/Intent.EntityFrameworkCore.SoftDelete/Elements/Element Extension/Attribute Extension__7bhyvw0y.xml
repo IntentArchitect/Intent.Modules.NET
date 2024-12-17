@@ -11,8 +11,8 @@
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
-    <typePackageName>Intent.Modelers.Domain</typePackageName>
-    <typePackageId>6572b98d-5e13-4d4b-9ffc-820057da974e</typePackageId>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>
@@ -30,6 +30,7 @@
         <property name="7d3859d4-084d-4ff0-8b31-850b4a8f8cd0" display="Display Name" isActive="false" />
         <property name="17223dbd-8df0-4700-8b81-02274ca3ed7f" display="Hint" isActive="false" />
         <property name="b2cef034-5706-45d2-8554-f4dc582a18ff" display="Target Types" isActive="false" />
+        <property name="08ec0581-c90a-489b-858f-ee265327c948" display="Target Traits" isActive="true" />
         <property name="93e4efa9-186d-4e88-ae0a-491bcd6e6f5e" display="Default Type Id" isActive="false" />
         <property name="7a0c4185-1c08-4d3e-9185-14683d7a3bd0" display="Allow Collection" value="Inherit" isActive="false" />
         <property name="e3dc90ec-4f5f-4f20-b271-e28a5094dc91" display="Allow Nullable" value="Inherit" isActive="false" />
@@ -62,7 +63,7 @@
       <childElements>
         <childElement id="e78218b5-daf3-4d58-a605-89719ac660c8" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <name>On Changed</name>
-          <display>On Changed: Script</display>
+          <display>On Changed: Inline Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="8b9e19fc-09d2-4aac-877c-076551539dae">
@@ -87,6 +88,7 @@
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
                 <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const stereotypeId = &quot;65860af3-8805-4a63-9fb9-3884b80f4380&quot;;&#xD;&#xA;const boolTypeId = &quot;e6f92b09-b2c5-4536-8270-a4d9e5bbd930&quot;;&#xD;&#xA;&#xD;&#xA;if (!element.getParent().hasStereotype(stereotypeId)) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;let isDeleteAttr = element.getParent().getChildren(&quot;Attribute&quot;).filter(x =&gt; x.hasMetadata(&quot;soft-delete&quot;))[0];&#xD;&#xA;if (!isDeleteAttr) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;isDeleteAttr.setName(&quot;IsDeleted&quot;);&#xD;&#xA;isDeleteAttr.typeReference.setType(boolTypeId);" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -95,7 +97,7 @@
         </childElement>
         <childElement id="703da92c-4992-4764-9cad-982cbd13a32c" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <name>On Deleted</name>
-          <display>On Deleted: Script</display>
+          <display>On Deleted: Inline Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="4a2ec353-9030-492b-815e-e8a448279c38">
@@ -120,6 +122,7 @@
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
                 <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const stereotypeId = &quot;65860af3-8805-4a63-9fb9-3884b80f4380&quot;;&#xD;&#xA;const boolTypeId = &quot;e6f92b09-b2c5-4536-8270-a4d9e5bbd930&quot;;&#xD;&#xA;&#xD;&#xA;if (element.getParent().hasStereotype(stereotypeId)) {&#xD;&#xA;    let isDeleteAttr = element.getParent().getChildren(&quot;Attribute&quot;).filter(x =&gt; x.hasMetadata(&quot;soft-delete&quot;))[0] ||&#xD;&#xA;        createElement(&quot;Attribute&quot;, &quot;IsDeleted&quot;, element.id);&#xD;&#xA;    isDeleteAttr.typeReference.setType(boolTypeId);&#xD;&#xA;    isDeleteAttr.setMetadata(&quot;soft-delete&quot;, true);&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;let isDeleteAttr = element.getParent().getChildren(&quot;Attribute&quot;).filter(x =&gt; x.hasMetadata(&quot;soft-delete&quot;))[0];&#xD;&#xA;if (isDeleteAttr) {&#xD;&#xA;    isDeleteAttr.delete();&#xD;&#xA;}&#xD;&#xA;" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

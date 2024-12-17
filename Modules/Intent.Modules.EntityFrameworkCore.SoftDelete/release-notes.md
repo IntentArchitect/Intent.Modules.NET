@@ -1,3 +1,7 @@
+### Version 1.0.4
+
+- Fixed: Considers `Is Deleted` as set by infrastructure so it cannot be accidentally set by mapping systems.
+
 ### Version 1.0.3
 
 - Improvement: Updated module NuGet packages infrastructure.
