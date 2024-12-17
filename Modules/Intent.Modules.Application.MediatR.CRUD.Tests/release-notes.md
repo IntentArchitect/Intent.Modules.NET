@@ -1,3 +1,7 @@
+### Version 1.3.8
+
+- Improvement: Updated module references.
+
 ### Version 1.3.7
 
 - Improvement: Updated module NuGet packages infrastructure.
