@@ -38,12 +38,16 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(), this)
             .AddInterface($"I{Model.Name.RemoveSuffix("RestController", "Controller", "Service")}Service", @interface =>
             {
+                @interface.AddMetadata("model", Model);
                 @interface.RepresentsModel(Model);
                 @interface.TryAddXmlDocComments(Model.InternalElement);
                 foreach (var operation in Model.Operations)
                 {
                     @interface.AddMethod(operation, method =>
                     {
+                        // Don't add the represents model as it will clash with the concrete version
+                        //method.RepresentsModel(operation);
+                        method.AddMetadata("model", operation);
                         foreach (var genericType in operation.GenericTypes)
                         {
                             @method.AddGenericParameter(genericType);
@@ -92,6 +96,7 @@ public partial class ServiceContractTemplate : CSharpTemplateBase<ServiceModel, 
                 var param = new CSharpParameter(GetTypeName(paramModel.InternalElement.TypeReference), entry.Param.Name, method);
                 param.WithDefaultValue(entry.Param.DefaultValue);
                 param.WithXmlDocComment(entry.Param.XmlDocComment);
+                param.AddMetadata("model", paramModel);
                 foreach (var attribute in entry.Param.Attributes)
                 {
                     param.Attributes.Add(attribute);
