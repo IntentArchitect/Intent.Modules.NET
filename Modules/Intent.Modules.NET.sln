@@ -326,6 +326,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.SonarQube", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Mvc", "Intent.Modules.AspNetCore.Mvc\Intent.Modules.AspNetCore.Mvc.csproj", "{E734455F-4103-4EF0-932C-28948E7F2E94}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.TemporalTables", "Intent.Modules.EntityFrameworkCore.TemporalTables\Intent.Modules.EntityFrameworkCore.TemporalTables.csproj", "{9FBA18DB-714D-46C4-B79C-3AC436375C26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -904,6 +906,10 @@ Global
 		{E734455F-4103-4EF0-932C-28948E7F2E94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E734455F-4103-4EF0-932C-28948E7F2E94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E734455F-4103-4EF0-932C-28948E7F2E94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FBA18DB-714D-46C4-B79C-3AC436375C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FBA18DB-714D-46C4-B79C-3AC436375C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FBA18DB-714D-46C4-B79C-3AC436375C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FBA18DB-714D-46C4-B79C-3AC436375C26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1064,6 +1070,7 @@ Global
 		{5DC7B676-CBCC-43DF-AE9D-8961F7F75ED9} = {1595E08E-BAD2-4F90-8BD9-65F6A846526B}
 		{8DE64EE3-7CA6-464B-A5F6-976512DC3265} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{E734455F-4103-4EF0-932C-28948E7F2E94} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{9FBA18DB-714D-46C4-B79C-3AC436375C26} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b2cd1fcc-1ce4-422a-81f0-6cd62ca01f13" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EfConfigurationExtension</name>
+  <display>EfConfigurationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1585256a-0514-4990-b997-4c198e9d7ffa</parentFolderId>
+  <packageId>1585256a-0514-4990-b997-4c198e9d7ffa</packageId>
+  <packageName>Intent.EntityFrameworkCore.TemporalTables</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
