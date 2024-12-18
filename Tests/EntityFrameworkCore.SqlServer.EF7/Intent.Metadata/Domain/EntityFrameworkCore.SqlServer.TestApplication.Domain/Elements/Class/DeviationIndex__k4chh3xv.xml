@@ -96,7 +96,7 @@
         <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="d6fd03f8-9970-4846-ab9d-9285579418a4" name="DeviationIndex" type="element" specialization="Class" />
+          <target id="d6fd03f8-9970-4846-ab9d-9285579418a4" name="DeviationIndex" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d6fd03f8-9970-4846-ab9d-9285579418a4</parentFolderId>
@@ -128,7 +128,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="aa34b945-2d7a-4359-b862-88bf322e0534" name="AttributeName" type="element" specialization="Attribute" />
+              <target id="aa34b945-2d7a-4359-b862-88bf322e0534" name="AttributeName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>328bf435-4d03-416e-b1e0-476c39b641f7</parentFolderId>

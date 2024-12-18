@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="65f515d5-bb73-4d74-ac48-f3ded44f0ebe" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>TemporalProduct</name>
+  <display>TemporalProduct</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0755ab5a-efdf-466e-b976-9a19935af1ca</parentFolderId>
+  <packageId>0755ab5a-efdf-466e-b976-9a19935af1ca</packageId>
+  <packageName>LocalDomain</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="abd54fa8-f51e-4cd9-b3ce-6512968c2d0c" name="Temporal Table">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.EntityFrameworkCore.TemporalTables</definitionPackageName>
+      <definitionPackageId>1585256a-0514-4990-b997-4c198e9d7ffa</definitionPackageId>
+      <properties>
+        <property name="2982900b-2f11-4980-bb4d-1982c7ca755e" display="Period Start Column Name" value="StartDate" isActive="true" />
+        <property name="bef0c148-17f7-47f1-baf8-952d4fc30a63" display="Period End Column Name" value="EndDate" isActive="true" />
+        <property name="97dc9f2e-6ba9-4faa-8119-9adce2aabcb6" display="History Table Name" value="ProductArchive" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="76438350-945c-4ca8-86d2-5858be9d89fb" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id1</name>
+      <display>Id1: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="53e643ac-f14c-4a40-b1a9-bab019141026">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>65f515d5-bb73-4d74-ac48-f3ded44f0ebe</parentFolderId>
+      <packageId>0755ab5a-efdf-466e-b976-9a19935af1ca</packageId>
+      <packageName>LocalDomain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="820ecbb0-38c5-4a94-bd8e-3ff130132522" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2289efb2-7cdf-43b8-9180-8e681595cd93">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>65f515d5-bb73-4d74-ac48-f3ded44f0ebe</parentFolderId>
+      <packageId>0755ab5a-efdf-466e-b976-9a19935af1ca</packageId>
+      <packageName>LocalDomain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5f1a8fdb-d746-4894-9ea0-a4a1de79e64a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3199ea5e-5fbd-48a6-835f-6252f8ac9892">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>65f515d5-bb73-4d74-ac48-f3ded44f0ebe</parentFolderId>
+      <packageId>0755ab5a-efdf-466e-b976-9a19935af1ca</packageId>
+      <packageName>LocalDomain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8fded47c-3f40-436a-aa79-41af010a1c03" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Price</name>
+      <display>Price: decimal</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f492332e-a1e6-4dc3-a127-132435ceab63">
+        <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>65f515d5-bb73-4d74-ac48-f3ded44f0ebe</parentFolderId>
+      <packageId>0755ab5a-efdf-466e-b976-9a19935af1ca</packageId>
+      <packageName>LocalDomain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

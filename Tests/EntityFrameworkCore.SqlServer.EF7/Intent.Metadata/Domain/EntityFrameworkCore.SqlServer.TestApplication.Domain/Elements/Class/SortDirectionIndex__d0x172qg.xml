@@ -131,7 +131,7 @@
         <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="2f4a0dae-0db9-4243-9726-2402c34e4414" name="SortDirectionIndex" type="element" specialization="Class" />
+          <target id="2f4a0dae-0db9-4243-9726-2402c34e4414" name="SortDirectionIndex" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>2f4a0dae-0db9-4243-9726-2402c34e4414</parentFolderId>
@@ -163,7 +163,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="82e3c773-ba15-4f11-a488-2d56a8c4c79f" name="FieldA" type="element" specialization="Attribute" />
+              <target id="82e3c773-ba15-4f11-a488-2d56a8c4c79f" name="FieldA" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>55442d99-f7f6-4000-99e3-2b2a45e5fd28</parentFolderId>
@@ -193,7 +193,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="92e328fe-322d-4cc0-8be2-92bd1dcf8467" name="FieldB" type="element" specialization="Attribute" />
+              <target id="92e328fe-322d-4cc0-8be2-92bd1dcf8467" name="FieldB" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>55442d99-f7f6-4000-99e3-2b2a45e5fd28</parentFolderId>

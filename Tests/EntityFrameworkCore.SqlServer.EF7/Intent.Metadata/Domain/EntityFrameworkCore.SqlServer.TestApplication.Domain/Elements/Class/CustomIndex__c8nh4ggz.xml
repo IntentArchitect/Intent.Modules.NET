@@ -85,7 +85,7 @@
         <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="05fb33a3-4cde-432a-86df-b40b0332911a" name="CustomIndex" type="element" specialization="Class" />
+          <target id="05fb33a3-4cde-432a-86df-b40b0332911a" name="CustomIndex" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>05fb33a3-4cde-432a-86df-b40b0332911a</parentFolderId>
@@ -117,7 +117,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="647d9f5b-6c15-4065-afbf-a5d51e6cdc5f" name="indexField" type="element" specialization="Attribute" />
+              <target id="647d9f5b-6c15-4065-afbf-a5d51e6cdc5f" name="indexField" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>22de584a-e447-42bc-8652-069df78bea49</parentFolderId>

@@ -844,6 +844,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f14e5807-38a1-4118-bb43-edab9c63e55f</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#65f515d5-bb73-4d74-ac48-f3ded44f0ebe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF8.Domain/Entities/TemporalProduct.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemporalProduct.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f14e5807-38a1-4118-bb43-edab9c63e55f</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#dd480935-6046-4c0c-b012-4c3bd324667e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF8.Domain/Entities/TimeConcepts/TimeEntity.cs</ApplicationRelativeFilePath>
@@ -1872,6 +1880,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF8.Domain/Repositories/ITableRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ITableRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>626e2e0b-6359-4926-9798-5cb6d78eaea7</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#65f515d5-bb73-4d74-ac48-f3ded44f0ebe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF8.Domain/Repositories/ITemporalProductRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ITemporalProductRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3060,6 +3076,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6aaedea6-1f33-4884-b3c8-9314ffce70ff</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#65f515d5-bb73-4d74-ac48-f3ded44f0ebe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF8.Infrastructure/Persistence/Configurations/TemporalProductConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemporalProductConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6aaedea6-1f33-4884-b3c8-9314ffce70ff</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#dd480935-6046-4c0c-b012-4c3bd324667e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF8.Infrastructure/Persistence/Configurations/TimeConcepts/TimeEntityConfiguration.cs</ApplicationRelativeFilePath>
@@ -4096,6 +4120,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF8.Infrastructure/Repositories/TableRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TableRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e756ec92-4ab6-4c2a-b9f0-77357be95601</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#65f515d5-bb73-4d74-ac48-f3ded44f0ebe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF8.Infrastructure/Repositories/TemporalProductRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemporalProductRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

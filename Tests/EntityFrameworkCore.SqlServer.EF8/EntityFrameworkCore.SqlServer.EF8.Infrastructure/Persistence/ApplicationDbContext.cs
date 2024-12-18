@@ -65,6 +65,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence
         public DbSet<TableExplicitSchema> TableExplicitSchemas { get; set; }
         public DbSet<TableOverride> TableOverrides { get; set; }
         public DbSet<TablePlain> TablePlains { get; set; }
+        public DbSet<TemporalProduct> TemporalProducts { get; set; }
         public DbSet<View> Views { get; set; }
         public DbSet<ViewExplicitSchema> ViewExplicitSchemas { get; set; }
         public DbSet<ViewOverride> ViewOverrides { get; set; }
@@ -220,6 +221,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new TableExplicitSchemaConfiguration());
             modelBuilder.ApplyConfiguration(new TableOverrideConfiguration());
             modelBuilder.ApplyConfiguration(new TablePlainConfiguration());
+            modelBuilder.ApplyConfiguration(new TemporalProductConfiguration());
             modelBuilder.ApplyConfiguration(new ViewConfiguration());
             modelBuilder.ApplyConfiguration(new ViewExplicitSchemaConfiguration());
             modelBuilder.ApplyConfiguration(new ViewOverrideConfiguration());

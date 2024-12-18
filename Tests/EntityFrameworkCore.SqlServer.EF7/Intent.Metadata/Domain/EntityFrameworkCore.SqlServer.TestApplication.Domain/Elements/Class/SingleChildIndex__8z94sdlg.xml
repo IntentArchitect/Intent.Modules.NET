@@ -142,7 +142,7 @@
         <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="31b5e481-aea5-4bbb-9511-4f798d15ab7d" name="SingleChildIndex" type="element" specialization="Class" />
+          <target id="31b5e481-aea5-4bbb-9511-4f798d15ab7d" name="SingleChildIndex" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>31b5e481-aea5-4bbb-9511-4f798d15ab7d</parentFolderId>
@@ -174,7 +174,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="40fa0a59-550b-4d27-ae0c-e3444aed6c77" name="Surname" type="element" specialization="Attribute" />
+              <target id="40fa0a59-550b-4d27-ae0c-e3444aed6c77" name="Surname" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>8f87163c-9be3-42e2-a8a5-e5a208103af1</parentFolderId>

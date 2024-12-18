@@ -69,6 +69,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure
             services.AddTransient<ITableExplicitSchemaRepository, TableExplicitSchemaRepository>();
             services.AddTransient<ITableOverrideRepository, TableOverrideRepository>();
             services.AddTransient<ITablePlainRepository, TablePlainRepository>();
+            services.AddTransient<ITemporalProductRepository, TemporalProductRepository>();
             services.AddTransient<IViewRepository, ViewRepository>();
             services.AddTransient<IViewExplicitSchemaRepository, ViewExplicitSchemaRepository>();
             services.AddTransient<IViewOverrideRepository, ViewOverrideRepository>();
