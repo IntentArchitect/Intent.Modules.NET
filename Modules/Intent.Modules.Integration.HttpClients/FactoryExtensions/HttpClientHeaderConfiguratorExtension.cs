@@ -81,7 +81,7 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
                 {
                     var proxyModel = proxyConfiguration.GetMetadata<ServiceProxyModel>("model");
 
-                    if (RequiresSecurity(proxyModel))
+                    if (RequiresSecurity(proxyModel, application))
                     {
                         proxyConfiguration.AddChainStatement(new CSharpInvocationStatement($"AddClientAccessTokenHandler")
                             .AddArgument($@"configuration.GetValue<string>(""{HttpClientConfigurationTemplate.GetConfigKey(proxyModel, KeyType.Service, "IdentityClientKey")}"") ?? 
@@ -92,11 +92,20 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
             });
         }
 
-
-
-
-        private bool RequiresSecurity(ServiceProxyModel proxy)
+        private static bool RequiresSecurity(ServiceProxyModel proxy, IApplication application)
         {
+            // This will work for ALL services, but we need to exempt anonymous operations from this...
+            // var targetAppId = proxy.InternalElement.MappedElement?.ApplicationId;
+            // var defaultApiSecuritySetting = application.GetSolutionConfig().GetApplicationConfig(targetAppId)
+            //     .ModuleSetting
+            //     .FirstOrDefault(p => p.Id == "4bd0b4e9-7b53-42a9-bb4a-277abb92a0eb") // APISettings
+            //     ?.GetSetting("061a559a-0d54-4eb1-8c70-ed0baa238a59"); //DefaultAPISecurityOptions
+            //
+            // if (defaultApiSecuritySetting?.Value == "secured")
+            // {
+            //     return true;
+            // }
+            
             var parentSecured = default(bool?);
             return !ServiceProxyHelpers.GetMappedEndpoints(proxy)
                 .All(x => !x.RequiresAuthorization && (parentSecured ??= x.InternalElement.ParentElement?.TryGetSecured(out _)) != true);
