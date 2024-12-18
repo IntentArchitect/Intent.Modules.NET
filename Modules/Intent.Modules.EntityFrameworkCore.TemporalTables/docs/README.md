@@ -1,4 +1,4 @@
-﻿# Intent.EntityFrameworkCore.TemporalTables
+# Intent.EntityFrameworkCore.TemporalTables
 
 This modules adds support for [SQL Server temporal tables](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/temporal-tables). in Entity Framework Core. Temporal tables allow you to automatically track historical data changes, enabling you to easily query historical states of your data.
 

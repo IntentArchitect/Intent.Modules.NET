@@ -19,6 +19,15 @@
   <order>0</order>
   <packageId>1585256a-0514-4990-b997-4c198e9d7ffa</packageId>
   <packageName>Intent.EntityFrameworkCore.TemporalTables</packageName>
+  <validateFunction>const apiSettingsId = "ac0a788e-d8b3-4eea-b56d-538608f1ded9";
+let databaseSettings = application.getSettings(apiSettingsId);
+
+if(databaseSettings?.getField("00bb780c-57bf-43c1-b952-303f11096be7")?.value != "sql-server") {
+    return "Temporal tables are only available for use with SQL Server";
+}
+
+return null;
+</validateFunction>
   <properties>
     <property id="2982900b-2f11-4980-bb4d-1982c7ca755e">
       <hint>The name of the period start column. The default will be used if left blank.</hint>
