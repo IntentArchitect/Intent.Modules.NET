@@ -51,7 +51,7 @@ You can set the following properties on the queue:
 - Max Flows, configures the number of concurrent messages which can be process from the queue. (WindowSize)
 - Selector, configures a selector filter for the queue, typically used for load balancing.
 
-![Queue Modelling](images/queue-modelling.png.png)
+![Queue Modelling](images/queue-modelling.png)
 
 ## Application Settings
 
