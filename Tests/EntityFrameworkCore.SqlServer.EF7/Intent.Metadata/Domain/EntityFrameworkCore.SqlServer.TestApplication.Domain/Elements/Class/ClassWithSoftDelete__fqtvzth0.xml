@@ -113,6 +113,7 @@
       <stereotypes />
       <metadata>
         <entry key="soft-delete" value="true" />
+        <entry key="set-by-infrastructure" value="true" />
       </metadata>
       <childElements />
     </childElement>
