@@ -49,7 +49,7 @@ This service class simplifies all functions related to storing and retrieving ma
 
 When used in conjunction with our `Intent.Modules.AspNetCore.MultiTenancy` module, has support for multitenancy. You can adjust the setting as follows:
 
-![Multiteanancy Setting](./docs/images/multitenancy-settings.png)
+![Multiteanancy Setting](images/multitenancy-settings.png)
 
 The `Google Cloud Storage Data Isolation` setting can be configured to either
 
