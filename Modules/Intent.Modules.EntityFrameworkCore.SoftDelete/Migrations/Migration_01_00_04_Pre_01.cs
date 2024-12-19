@@ -34,7 +34,8 @@ namespace Intent.Modules.EntityFrameworkCore.SoftDelete.Migrations
             {
                 var attributes = package
                     .GetElementsOfType(AttributeModel.SpecializationTypeId)
-                    .Where(x => x.Metadata.Any(x => x.Key == "soft-delete" && x.Value == "true"))
+                    .Where(x => x.Metadata.Any(x => x.Key == "soft-delete" && x.Value == "true") &&
+                                x.Metadata.All(x => x.Key != "set-by-infrastructure"))
                     .ToArray();
 
                 foreach (var attribute in attributes)
