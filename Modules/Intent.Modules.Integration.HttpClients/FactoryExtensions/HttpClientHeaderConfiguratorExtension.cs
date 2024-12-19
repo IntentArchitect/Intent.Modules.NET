@@ -92,9 +92,9 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
             });
         }
 
+        [IntentIgnore]
         private static bool RequiresSecurity(ServiceProxyModel proxy, IApplication application)
         {
-
             // This will work for ALL services, but we need to exempt anonymous operations from this...
             // var targetAppId = proxy.InternalElement.MappedElement?.ApplicationId;
             // var defaultApiSecuritySetting = application.GetSolutionConfig().GetApplicationConfig(targetAppId)
