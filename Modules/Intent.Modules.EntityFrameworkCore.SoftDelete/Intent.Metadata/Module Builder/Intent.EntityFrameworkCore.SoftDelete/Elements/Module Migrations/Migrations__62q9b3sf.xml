@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ac891558-85ac-467d-8ad3-3c8fede9b9c7" type="Module Migrations" typeId="8cfd2eab-c1bf-46bc-a86f-3ed0263a380f">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c2469c4c-0dd6-4f7f-9c07-c13268331fcf</parentFolderId>
+  <packageId>c2469c4c-0dd6-4f7f-9c07-c13268331fcf</packageId>
+  <packageName>Intent.EntityFrameworkCore.SoftDelete</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
