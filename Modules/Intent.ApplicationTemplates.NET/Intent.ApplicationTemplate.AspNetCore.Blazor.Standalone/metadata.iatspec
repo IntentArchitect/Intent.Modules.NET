@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.AspNetCore.Blazor.Standalone</id>
-  <version>1.0.6</version>
+  <version>1.0.7</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <displayName>Blazor Web Application (Standalone)</displayName>
   <shortDescription>Patterns and solution project structure for a standalone Blazor web application.</shortDescription>
@@ -127,7 +127,7 @@
     <module id="Intent.Blazor.HttpClients.Dtos.FluentValidation" version="1.2.2" />
     <module id="Intent.Code.Weaving.Razor" version="1.0.0" />
     <module id="Intent.Common" version="3.7.3" />
-    <module id="Intent.Common.CSharp" version="3.8.5" />
+    <module id="Intent.Common.CSharp" version="3.8.6" />
     <module id="Intent.Common.Types" version="4.1.0" />
     <module id="Intent.Metadata.Security" version="1.0.0" />
     <module id="Intent.Metadata.WebApi" version="4.6.4" />

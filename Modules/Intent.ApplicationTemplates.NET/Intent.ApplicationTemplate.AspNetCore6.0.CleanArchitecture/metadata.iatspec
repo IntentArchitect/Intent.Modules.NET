@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</id>
-  <version>5.0.7</version>
+  <version>5.0.8</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <displayName>Clean Architecture .NET</displayName>
   <shortDescription>Web application implementation based on Robert Martin's Clean Architecture with a CQRS API and Mediator dispatch pattern in .NET</shortDescription>
@@ -672,7 +672,7 @@
     <module id="Intent.AspNetCore.Identity" version="4.1.3" />
     <module id="Intent.AspNetCore.Swashbuckle.Security" version="4.0.9" />
     <module id="Intent.Common" version="3.7.3" />
-    <module id="Intent.Common.CSharp" version="3.8.5" />
+    <module id="Intent.Common.CSharp" version="3.8.6" />
     <module id="Intent.DocumentDB.Dtos.AutoMapper" version="1.0.3" />
     <module id="Intent.Entities.Repositories.Api" version="5.1.3" />
     <module id="Intent.EntityFrameworkCore.DesignTimeDbContextFactory" version="4.2.3" />
