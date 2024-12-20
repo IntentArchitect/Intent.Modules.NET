@@ -17,12 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="docs\**" />
-    <EmbeddedResource Remove="docs\**" />
-    <None Remove="docs\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="resources\static-content\Data\WeatherForecast.cs" />
     <Compile Remove="resources\static-content\Data\WeatherForecastService.cs" />
     <Compile Remove="resources\static-content\Pages\Error.cshtml.cs" />
