@@ -43,6 +43,10 @@ namespace Intent.Modules.EntityFrameworkCore.TemporalTables.FactoryExtensions
 
                     if (file.Template is IIntentTemplate<ClassModel> template)
                     {
+                        if (existingToTableStatement is null && !template.Model.HasTemporalTable())
+                        {
+                            return;
+                        }
 
                         // use case for when there is no existing ToTable statement in the configuration
                         if (existingToTableStatement == null)
