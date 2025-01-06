@@ -4,15 +4,12 @@
     <file>
       <correlationId>Intent.Blazor.Templates.Server.AppRazorTemplate</correlationId>
       <path>MudBlazor.ExampleApp.Api/Components/App.razor</path>
-      <count>2</count>
-      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>JP Seini</updatedByDisplayName>
-      <updatedAt>2024-12-17T12:45:58.0650176Z</updatedAt>
-      <approvedByAccountName>jp.seini@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>JP Seini</approvedByDisplayName>
-      <approvedAt>2024-12-17T12:45:58.0650178Z</approvedAt>
-      <deviationsHash>894578E057A1DB7FCC8595B943E4980CBB34D1044635C0594EF67640BF02A7FF</deviationsHash>
-      <fileHash>EA641749FFBD4CF195DD8B22EA7AB62F48336C857FD9F8DFA90A6668CD96DD18</fileHash>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-01-06T12:31:47.1427081Z</updatedAt>
+      <deviationsHash>B2007D4599C2AE89B6FB63A1845047F7C1EE6BEF262F3B85AA727A372B352FF3</deviationsHash>
+      <fileHash>57C7A1B118E6D82167CB8BE67978E1ABF275632F35C97A505E2AAF3A462F7AF0</fileHash>
     </file>
   </files>
 </deviationsLog>
