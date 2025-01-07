@@ -49,10 +49,13 @@
     </childElement>
     <childElement id="9caf8457-acc5-43b0-a7bf-567270d33bef" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>13.0.3</name>
+      <display>13.0.3 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2314fc46-8574-498a-9240-dcb3459e283a</parentFolderId>
+      <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+      <packageName>Intent.CosmosDB</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>

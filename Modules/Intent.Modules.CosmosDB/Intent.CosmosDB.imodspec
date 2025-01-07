@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.CosmosDB</id>
   <version>1.2.8-pre.0</version>
@@ -182,7 +182,6 @@
     <group id="dcfa949a-c512-47c4-a644-0f2b88e44794" title="CosmosDb" externalReference="dcfa949a-c512-47c4-a644-0f2b88e44794">
       <settings>
         <setting id="6f75f245-8194-4606-b6b7-2bb226394b5f" title="Use Optimistic Concurrency" type="switch">
-          <isRequired>true</isRequired>
           <hint>Ensures updates are applied only when document etags match, for improved concurrency management</hint>
           <defaultValue>true</defaultValue>
         </setting>
@@ -223,12 +222,12 @@
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Entities.Repositories.Api" version="5.0.0" />
     <dependency id="Intent.Metadata.DocumentDB" version="1.1.8" />
-    <dependency id="Intent.Modelers.Domain" version="3.5.1" />
+    <dependency id="Intent.Modelers.Domain" version="3.12.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
@@ -239,4 +238,5 @@
   <metadata>
     <install target="Domain" src="Intent.Metadata/Module Builder/Intent.CosmosDB/Intent.CosmosDB.pkg.config" externalReference="b52e75f6-d86b-4c53-b4bd-8a8c2c267865" />
   </metadata>
+  <migrations />
 </package>
