@@ -1,15 +1,10 @@
-using System;
 using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.DocumentDB.Api;
-using Intent.Metadata.DocumentDB.Api.Extensions;
-using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.CosmosDB.Templates;
 using Intent.Modules.DocumentDB.Shared;
@@ -60,20 +55,22 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                                     !x.IsAbstract)
                         .ToArray();
 
-                    if (!classes.Any(x => x.TryGetContainerSettings(out _, out _)))
+                    if (classes.All(x => !x.TryGetContainerSettings(out _)))
                     {
                         return;
                     }
 
-                    invocation.AddArgument(new CSharpLambdaBlock("options"), a =>
+                    invocation.AddArgument(new CSharpLambdaBlock("options"), options =>
                     {
-                        var options = (CSharpLambdaBlock)a;
+                        const string defaultContainerId = "defaultContainerId";
 
-                        var hasDefaultContainerSettings = classes.Any(x => !x.TryGetContainerSettings(out _, out _));
-                        if (hasDefaultContainerSettings)
+                        var hasDefaultContainerName = classes.Any(x => !x.TryGetContainerSettings(out var containerSettings) ||
+                                                                       containerSettings.Name == null);
+                        if (hasDefaultContainerName)
                         {
+
                             options.AddStatement(
-                                "var defaultContainerId = configuration.GetValue<string>(\"RepositoryOptions:ContainerId\");");
+                                $"var {defaultContainerId} = configuration.GetValue<string>(\"RepositoryOptions:ContainerId\");");
                             options.AddIfStatement("string.IsNullOrWhiteSpace(defaultContainerId)", @if => @if
                                 .AddStatement($"throw new {template.UseType("System.Exception")}(\"\\\"RepositoryOptions:ContainerId\\\" configuration not specified\");")
                             );
@@ -81,7 +78,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
 
                         options.AddStatement("options.ContainerPerItemType = true;", s =>
                         {
-                            if (hasDefaultContainerSettings)
+                            if (hasDefaultContainerName)
                             {
                                 s.SeparatedFromPrevious();
                             }
@@ -91,14 +88,7 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                         {
                             foreach (var @class in classes)
                             {
-                                if (!@class.TryGetContainerSettings(out var containerName, out var partitionKey))
-                                {
-                                    containerName = "defaultContainerId";
-                                }
-                                else
-                                {
-                                    containerName = $"\"{containerName}\"";
-                                }
+                                @class.TryGetContainerSettings(out var containerSettings);
 
                                 var documentTypeName = template.GetCosmosDBDocumentName(@class);
                                 c.AddChainStatement(new CSharpInvocationStatement($"Configure<{documentTypeName}>"), l =>
@@ -109,10 +99,25 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
                                     var cSharpMethodChainStatement = new CSharpMethodChainStatement("c => c");
                                     configureContainer.AddArgument(cSharpMethodChainStatement.WithoutSemicolon());
 
+                                    var containerName = containerSettings?.Name != null ? $"\"{containerSettings.Name}\"" : defaultContainerId;
                                     cSharpMethodChainStatement.AddChainStatement($"WithContainer({containerName})");
-                                    if (!string.IsNullOrWhiteSpace(partitionKey))
+
+                                    if (containerSettings?.PartitionKey != null)
                                     {
-                                        cSharpMethodChainStatement.AddChainStatement($"WithPartitionKey(\"/{partitionKey}\")");
+                                        cSharpMethodChainStatement.AddChainStatement($"WithPartitionKey(\"/{containerSettings.PartitionKey}\")");
+                                    }
+
+                                    switch (containerSettings?.ThroughputType)
+                                    {
+                                        case ContainerThroughputType.Autoscale:
+                                            cSharpMethodChainStatement.AddChainStatement($"WithAutoscaleThroughput({containerSettings.AutomaticThroughputMax:D})");
+                                            break;
+                                        case ContainerThroughputType.Manual:
+                                            cSharpMethodChainStatement.AddChainStatement($"WithManualThroughput({containerSettings.ManualThroughput:D})");
+                                            break;
+                                        case ContainerThroughputType.Serverless:
+                                            cSharpMethodChainStatement.AddChainStatement($"WithServerlessThroughput({containerSettings.ManualThroughput:D})");
+                                            break;
                                     }
                                 });
                             }

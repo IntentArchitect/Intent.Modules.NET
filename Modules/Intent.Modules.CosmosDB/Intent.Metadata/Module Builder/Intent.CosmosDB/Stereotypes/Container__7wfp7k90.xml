@@ -30,7 +30,7 @@
       <placeholder />
       <valueOptions />
       <lookupTypes />
-      <isRequiredFunction>return true;</isRequiredFunction>
+      <isRequiredFunction />
     </property>
     <property id="bda56f7f-8ac6-4b36-bbc1-91bba18e71d9">
       <name>Partition Key</name>
@@ -40,6 +40,43 @@
       <placeholder />
       <valueOptions />
       <lookupTypes />
+    </property>
+    <property id="2c4ac3b3-b72b-459f-a22b-b1d6fb7fd3ea">
+      <hint>[Throughput](https://learn.microsoft.com/azure/cosmos-db/set-throughput#set-throughput-on-a-container) of the container. Defaults to parent value if available or otherwise uses the default of [400 RUs](https://github.com/IEvangelist/azure-cosmos-dotnet-repository/blob/2c2903cf59d0f5c480276afd472d502e52e49c3d/src/Microsoft.Azure.CosmosRepository/Builders/ContainerOptionsBuilder.cs#L42-L46).</hint>
+      <name>Throughput Type</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(unspecified)</placeholder>
+      <valueOptions>
+        <option>Autoscale</option>
+        <option>Manual</option>
+        <option>Serverless</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
+    <property id="55056d4b-08db-4df3-b073-ae2ccc0ac7ac">
+      <hint>[Defaults to 1000](https://github.com/IEvangelist/azure-cosmos-dotnet-repository/blob/2c2903cf59d0f5c480276afd472d502e52e49c3d/src/Microsoft.Azure.CosmosRepository/Builders/ContainerOptionsBuilder.cs#L121-L121) if unspecified.</hint>
+      <name>Maximum Throughput (RUs)</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return properties["Throughput Type"].value === "Autoscale";</isActiveFunction>
+    </property>
+    <property id="e06caad5-06a1-478b-9827-7e110f94039a">
+      <hint>[Defaults to 400](https://github.com/IEvangelist/azure-cosmos-dotnet-repository/blob/2c2903cf59d0f5c480276afd472d502e52e49c3d/src/Microsoft.Azure.CosmosRepository/Builders/ContainerOptionsBuilder.cs#L104-L104) if unspecified.</hint>
+      <name>Manual Throughput (RUs)</name>
+      <type>string</type>
+      <controlType>number</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return properties["Throughput Type"].value === "Manual";</isActiveFunction>
+      <isRequiredFunction />
     </property>
   </properties>
 </stereotypeDefinition>

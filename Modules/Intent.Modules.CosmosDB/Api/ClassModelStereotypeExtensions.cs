@@ -59,6 +59,66 @@ namespace Intent.CosmosDB.Api
                 return _stereotype.GetProperty<string>("Partition Key");
             }
 
+            public ThroughputTypeOptions ThroughputType()
+            {
+                return new ThroughputTypeOptions(_stereotype.GetProperty<string>("Throughput Type"));
+            }
+
+            public int? MaximumThroughputRUs()
+            {
+                return _stereotype.GetProperty<int?>("Maximum Throughput (RUs)");
+            }
+
+            public int? ManualThroughputRUs()
+            {
+                return _stereotype.GetProperty<int?>("Manual Throughput (RUs)");
+            }
+
+            public class ThroughputTypeOptions
+            {
+                public readonly string Value;
+
+                public ThroughputTypeOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public ThroughputTypeOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "Autoscale":
+                            return ThroughputTypeOptionsEnum.Autoscale;
+                        case "Manual":
+                            return ThroughputTypeOptionsEnum.Manual;
+                        case "Serverless":
+                            return ThroughputTypeOptionsEnum.Serverless;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsAutoscale()
+                {
+                    return Value == "Autoscale";
+                }
+                public bool IsManual()
+                {
+                    return Value == "Manual";
+                }
+                public bool IsServerless()
+                {
+                    return Value == "Serverless";
+                }
+            }
+
+            public enum ThroughputTypeOptionsEnum
+            {
+                Autoscale,
+                Manual,
+                Serverless
+            }
+
         }
 
     }

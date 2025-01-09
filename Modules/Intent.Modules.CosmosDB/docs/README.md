@@ -1,46 +1,76 @@
 ﻿# Intent.CosmosDB
 
-This module provides patterns for working with CosmosDB.
+This module provides patterns for working with Cosmos DB.
 
-## What is CosmosDB?
+## What is Cosmos DB?
 
 Azure Cosmos DB is a globally distributed, multi-model database service provided by Microsoft's Azure cloud platform. It offers a highly scalable, low-latency, and globally distributed data storage solution for modern applications that require seamless scalability and high availability. Cosmos DB supports multiple data models, including document, key-value, graph, column-family, and time-series, allowing developers to choose the best model for their specific application needs. It offers automatic and configurable data replication across Azure regions, ensuring data durability and availability even in the face of regional outages. Cosmos DB also provides comprehensive SLAs for performance, availability, and latency, making it well-suited for applications with demanding requirements. Its multi-model and globally distributed capabilities make Cosmos DB a versatile and robust choice for building responsive and resilient applications on the cloud.
 
-For more information on CosmosDB, check out their [official docs](https://learn.microsoft.com/azure/cosmos-db/).
+For more information on Cosmos DB, check out their [official docs](https://learn.microsoft.com/azure/cosmos-db/).
 
 ## What's in this module?
 
-This module consumes your `Domain Model`, which you build in the `Domain Designer` and generates the corresponding CosmosDB implementation:-
+This module consumes your `Domain Model`, which you build in the `Domain Designer` and generates the corresponding Cosmos DB implementation:
 
-* Unit of Work and associated artifacts.
-* Cosmos DBDocuments and associated artifacts.
-* Repositories and associated artifacts.
-* `app.settings` configuration.
-* Dependency Injection wiring.
+- Unit of Work and associated artifacts.
+- Cosmos DBDocuments and associated artifacts.
+- Repositories and associated artifacts.
+- `app.settings` configuration.
+- Dependency Injection wiring.
 
-These CosmosDB patterns are realized using [Azure Cosmos DB Repository .NET SDK](https://github.com/IEvangelist/azure-cosmos-dotnet-repository).
+These Cosmos DB patterns are realized using [Azure Cosmos DB Repository .NET SDK](https://github.com/IEvangelist/azure-cosmos-dotnet-repository).
 
 ## Domain Designer
 
-When designing domain models for CosmosDB your domain package must be annotated with the `Document Database` stereotype. If you have multiple Document DB technologies modules, you must explicitly indicate which Domain Packages contain CosmosDB domain models, by setting `Document Database`'s `Provider` property to CosmosDB.
+When designing domain models for Cosmos DB your domain package must be annotated with the `Document Database` stereotype. If you have multiple Document DB technologies modules, you must explicitly indicate which Domain Packages contain Cosmos DB domain models, by setting `Document Database`'s `Provider` property to Cosmos DB.
 
-![Configure CosmosDB provider](images/db-provider-cosmos-db.png)
+![Configure Cosmos DB provider](images/db-provider-cosmos-db.png)
 
-### Controlling the Cosmos DB Container and Partition Key for entities
+### Configuring Cosmos DB Containers
 
-A `Container` Stereotype can applied to `Class`es, `Folder`s and `Domain Package`s to control the Cosmos DB container to be used for particular Classes.
+A `Container` Stereotype can be applied to `Class`es, `Folder`s and `Domain Package`s to control the Cosmos DB container to be used for particular entities.
 
-![The Container Stereotype](images/container-stereotype.png)
+![The Container Stereotype in the Apply Stereotypes dialog](images/container-stereotype-selection.png)
 
-To determine the Container settings for a particular `Class`, the elements are checked in the following priority for the presence of `Container` stereotype: the `Class` itself, the any parent folders from most deeply to less deeply nested for the class, and then finally the `Domain Package` itself is checked.
+![The Container Stereotype once applied](images/container-stereotype.png)
 
-Once the stereotype is applied, you can specify settings for it:
+To determine the Container settings for a particular `Class`, the elements are checked in the following priority for the presence of `Container` stereotype: the `Class` itself, then any parent folders from most deeply to less deeply nested for the class, and then finally the `Domain Package` itself.
 
-![Container stereotype properties](images/container-stereotype-properties.png)
+#### Name
 
-If the "Partition Key" is left blank the class's "id" is used, if specified then you need to ensure that all classes under the container have an attribute named to match the stereotype's "Partition Key" value. The Software Factory will output warnings when classes do not have a matching attribute for its partition key.
+The optional `Name` property controls the name for the container.
 
-If no `Container` stereotype is found as per the above method for a particular `Class`, it uses a default container called "Container" with `id` for the partition key.
+If it has a blank value on a `Class` or any of its ancestor elements or the package, then it uses the value of the `RepositoryOptions:ContainerId` key from the `appsettings.json` file which has a default value of `Container`.
+
+#### Partition Key
+
+The optional `Partition Key` property controls the [partition key](https://learn.microsoft.com/azure/cosmos-db/partitioning-overview#choose-a-partition-key) for the container.
+
+If it has a blank value on a `Class` or any of its ancestor elements or the package, then it will use the name of the on the attribute on the same class with the `Primary Key` stereotype applied to it and the default name for these attributes is `id`.
+
+Regardless of whether the value has a leading `/`, the template will always generate a leading `/` in for the container configuration.
+
+#### Throughput
+
+The optional `Throughput Type` property controls the [throughput](https://learn.microsoft.com/azure/cosmos-db/set-throughput#set-throughput-on-a-container) for the container.
+
+If it has a blank value on a `Class` or any of its ancestor elements or the package, then no throughput is specified in the generated container configuration resulting the in the [default of manual throughput of 400 RUs](https://github.com/IEvangelist/azure-cosmos-dotnet-repository/blob/2c2903cf59d0f5c480276afd472d502e52e49c3d/src/Microsoft.Azure.CosmosRepository/Builders/ContainerOptionsBuilder.cs#L42-L46) being used.
+
+##### Autoscale
+
+When `Autoscale` is selected for the `Throughput Type` property, autoscale will be used for the generated container configuration with an argument with the value of the `Maximum Throughput (RUs)` property is it has a non-blank value.
+
+When `Maximum Throughput (RUs)` is blank then the [default of 1000 will be used](https://github.com/IEvangelist/azure-cosmos-dotnet-repository/blob/2c2903cf59d0f5c480276afd472d502e52e49c3d/src/Microsoft.Azure.CosmosRepository/Builders/ContainerOptionsBuilder.cs#L121-L121).
+
+##### Manual
+
+When `Manual` is selected for the `Throughput Type` property, manual throughput will be used for the generated container configuration with an argument with the value of the `Manual Throughput (RUs)` property is it has a non-blank value.
+
+When `Manual Throughput (RUs)` is blank then the [default of 400 will be used](https://github.com/IEvangelist/azure-cosmos-dotnet-repository/blob/2c2903cf59d0f5c480276afd472d502e52e49c3d/src/Microsoft.Azure.CosmosRepository/Builders/ContainerOptionsBuilder.cs#L104-L104).
+
+##### Serverless
+
+When `Serverless` is selected for the `Throughput Type` property, serverless throughput will be used for the generated container configuration.
 
 ## Multi Tenancy with Separate Database
 
@@ -71,8 +101,8 @@ You opt into optimistic concurrency through the  `Use Optimistic Concurrency` se
 
  The patterns in this module support this in 2 ways
 
-* Implicit optimistic concurrency
-* Explicit optimistic concurrency
+- Implicit optimistic concurrency
+- Explicit optimistic concurrency
 
 ### Implicit optimistic concurrency
 
@@ -80,11 +110,11 @@ The repositories will track the `ETags` of all read documents and ensure that an
 
 ### Explicit optimistic concurrency
 
-In this scenario you can explicitly model an `ETag` attribute of type nullable `string?` on you domain entity. e.g.:
+In this scenario you can explicitly model an `ETag` attribute of type nullable `string?` on your domain entity. e.g.:
 
 ![Sample Model](images/explicit-optomistic-concurrency.png)
 
-Now you are in full control of how you want to use the `ETag`. Typically making sure you set the `ETag` for updates to the document to be the version you read. 
+Now you are in full control of how you want to use the `ETag`. Typically making sure you set the `ETag` for updates to the document to be the version you read.
 
 ## Related Modules
 

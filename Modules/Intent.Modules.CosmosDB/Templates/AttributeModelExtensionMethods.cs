@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
 using Intent.Metadata.DocumentDB.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Templates;
@@ -34,7 +32,9 @@ namespace Intent.Modules.CosmosDB.Templates
 
         public static PrimaryKeyData GetPrimaryKeyAttribute(this ClassModel model)
         {
-            model.TryGetPartitionKeySettings(out var partitionKey);
+            var partitionKey = model.TryGetContainerSettings(out var containerSettings)
+                ? containerSettings.PartitionKey
+                : null;
             AttributeModel? idAttribute = null;
             AttributeModel? partitionKeyAttribute = null;
             var @class = model;
