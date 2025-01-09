@@ -1,3 +1,4 @@
+using System.Linq;
 using Intent.Engine;
 using Intent.EntityFrameworkCore.TemporalTables.Api;
 using Intent.Modelers.Domain.Api;
@@ -9,7 +10,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.TemporalTables.Templates.TemporalHistory;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
