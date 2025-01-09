@@ -167,8 +167,8 @@
       <childElements />
     </childElement>
     <childElement id="f3a6979e-77a3-4777-89ed-d1de168f0fb3" type="Index" typeId="436e3afe-b4ef-481c-b803-0d1e7d263561">
-      <name>IX_ChildIndices_Surname</name>
-      <display>IX_ChildIndices_Surname</display>
+      <name>IX_MultiChildIndices_Surname</name>
+      <display>IX_MultiChildIndices_Surname</display>
       <isAbstract>false</isAbstract>
       <sort-children>manually</sort-children>
       <genericTypes />

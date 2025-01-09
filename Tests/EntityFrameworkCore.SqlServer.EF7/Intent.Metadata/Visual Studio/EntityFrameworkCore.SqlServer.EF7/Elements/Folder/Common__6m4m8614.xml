@@ -53,5 +53,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="f40b40a9-9743-48c8-83f8-593304395cde" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.TemporalTables.TemporalHistory</name>
+      <display>Intent.EntityFrameworkCore.TemporalTables.TemporalHistory</display>
+      <externalReference>Intent.EntityFrameworkCore.TemporalTables</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cfacc05f-82b5-4878-93ae-36f34fd89ed1</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>
