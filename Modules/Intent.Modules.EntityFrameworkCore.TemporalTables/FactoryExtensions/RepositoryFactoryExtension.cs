@@ -94,6 +94,8 @@ namespace Intent.Modules.EntityFrameworkCore.TemporalTables.FactoryExtensions
         {
             var template = file.Template as CSharpTemplateBase<ClassModel>;
 
+            template.AddUsing("System.Linq");
+
             @interface.AddMethod($"Task<List<{GetTemporalHistoryName(template)}<{GetEntityStateName(template)}>>>", "FindHistoryAsync", method =>
             {
                 method.AddParameter("TemporalHistoryQueryOptions", "historyOptions");
@@ -121,6 +123,7 @@ namespace Intent.Modules.EntityFrameworkCore.TemporalTables.FactoryExtensions
             var template = file.Template as CSharpTemplateBase<ClassModel>;
 
             template.AddUsing("Microsoft.EntityFrameworkCore");
+            template.AddUsing("System.Linq");
 
             @class.AddMethod($"Task<List<{GetTemporalHistoryName(template)}<{GetEntityStateName(template)}>>>", "FindHistoryAsync", method =>
             {

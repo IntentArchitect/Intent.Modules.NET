@@ -27,8 +27,8 @@ namespace Intent.Modules.EntityFrameworkCore.TemporalTables.Templates.TemporalHi
                     @class.AddGenericParameter("TEntity");
 
                     @class.AddProperty("TEntity", "Entity", prop => prop.PrivateSetter());
-                    @class.AddProperty("DateTime", "ValidFrom", prop => prop.PrivateSetter());
-                    @class.AddProperty("DateTime", "ValidTo", prop => prop.PrivateSetter());
+                    @class.AddProperty(UseType("System.DateTime"), "ValidFrom", prop => prop.PrivateSetter());
+                    @class.AddProperty(UseType("System.DateTime"), "ValidTo", prop => prop.PrivateSetter());
 
                     @class.AddConstructor(ctor =>
                     {

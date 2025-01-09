@@ -34,7 +34,7 @@ namespace Intent.Modules.EntityFrameworkCore.TemporalTables.Templates.TemporalHi
             _metadataManager = metadataManager;
         }
 
-        public void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
+        public override void DoRegistration(ITemplateInstanceRegistry registry, IApplication application)
         {
             var temporalModels = _metadataManager.Domain(application).GetClassModels().Where(c => c.HasTemporalTable());
 
