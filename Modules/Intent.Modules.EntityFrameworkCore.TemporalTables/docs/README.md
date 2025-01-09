@@ -14,106 +14,33 @@ Once applied, the class will be annotated with an icon to indicate it has been c
 
 ### Optional Configuration Properties
 
-There are three optional properties available for customization of the temporal table configuration. You can leave these properties blank to use the default values:
+There are three optional properties available for customization of the temporal table configuration. You can leave these properties as is to use the default values:
 
 ![Properties](images/temporal-table-properties.png)
 
-- **Period Start Column Name**: Override the default period start column name (_PeriodStart_).
-- **Period End Column Name**: Override the default period end column name (_PeriodEnd_).
-- **History Table Name**: Override the default history table name (_{TableName}History_)
+- **Period Start Column Name**: Override the default period start column name (if left blank, the default EntityFramework Core value of _PeriodStart_ will be used).
+- **Period End Column Name**: Override the default period end column name (if left blank, the default EntityFramework Core value of _PeriodEnd_ will be used).
+- **History Table Name**: Override the default history table name (if left blank, the default EntityFramework Core value of _{TableName}History_ will be used)
 
 After configuring the temporal table, you will need to create an Entity Framework migration. This will generate the necessary schema changes in the database to reflect the temporal table configuration. Follow the usual migration creation process to achieve this.
 
 ## Access Temporal Information
 
-By default, Intent Architect does not create additional repositories for accessing the historical temporal data. To retrieve historical data, it is recommended to implement a custom repository.
+By default, Intent Architect will generated a new method `FindHistoryAsync` on the repository of the specific entity, allowing for retrieval of historic information.
 
-### Example: Accessing Historical Data for a `Product` Entity
+This methods accepts a `TemporalHistoryQueryOptions` instance as a parameter, which is used to determine how to retrieve the temporal information.
 
-Below is an example implementation of a custom repository that retrieves historical data for a Product entity.
+`TemporalHistoryQueryOptions` has three optional fields:
+- QueryType: Defaults to `All` (see below), if not supplied.
+- DateFrom: Defaults to `DateTime.MinValue` if not supplied.
+- DateTo: Defaults to `DateTime.MaxValue` if not supplied.
 
-#### Repository interface
+`QueryType` can be one of the following 5 options, which is used in conjunction with the date fields to retrieve the information:
+- **All**: The default. The date values are ignored (even if supplied) and all history rows are returned.
+- **AsOf**: Returns rows that were active (current) at the given UTC time, _DateFrom_.
+- **FromTo**:  Returns all rows that were active between the two given UTC times, _DateFrom_ and _DateTo_.
+- **Between**:  The same as `FromTo` except that rows are included that became active on the upper boundary.
+- **ContainedIn**:  Returns all rows that started being active and ended being active between the two given UTC times, _DateFrom_ and _DateTo_.
 
-The repository interface defines a method to retrieve the history of a specific product:
+Additional information on context on these types can be found on the [Entity Framework Core documentation website.](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/temporal-tables#querying-historical-data)
 
-``` csharp
-[IntentIgnore]
-public interface IProductHistoryRepository
-{
-    // Interface method to retrieve the history for a specific product
-    Task<List<ProductHistory>> GetProductHistory(Guid id, CancellationToken cancellationToken = default);
-}
-```
-
-#### Repository implementation
-
-The `ProductHistoryRepository` implements the logic to query the temporal table and return historical records:
-
-``` csharp
-[IntentIgnore]
-public class ProductHistoryRepository : IProductHistoryRepository
-{
-    private readonly ApplicationDbContext _dbContext;
-
-    public ProductHistoryRepository(ApplicationDbContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
-
-    public async Task<List<ProductHistory>> GetProductHistory(Guid id, CancellationToken cancellationToken = default)
-    {
-        // Ensure the temporal table columns (PeriodStart and PeriodEnd) match the configuration
-        // defined in the Domain Designer
-
-        // Retrieve history for the product by querying the temporal table
-        // List<new { Product Product, ValidFrom, DateTime ValidTo}>
-        var history = await _dbContext
-            .Products
-            .TemporalAll() // Retrieves all temporal versions of the product
-            .Where(p => p.Id == id)
-            .OrderBy(e => EF.Property<DateTime>(e, "PeriodStart"))
-            .Select(
-                p => new
-                {
-                    Product = p,
-                    ValidFrom = EF.Property<DateTime>(p, "PeriodStart"),
-                    ValidTo = EF.Property<DateTime>(p, "PeriodEnd")
-                })
-            .ToListAsync();
-
-        // Map the anonymous history data to a domain entity
-        return history.Select(h => new ProductHistory
-        {
-            Product = h.Product,
-            ValidFrom = h.ValidFrom,
-            ValidTo = h.ValidTo
-        }).ToList();
-    }
-}
-```
-
-#### Using the Repository in a Handler
-
-To use the repository, you can call it from a handler, for example, in a CQRS handler that retrieves the product history:
-
-``` csharp
- [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
- public async Task<List<ProductHistoryDto>> Handle(GetProductHistory request, CancellationToken cancellationToken)
- {
-    // _productHistoryRepository and _mapper injected into the handler constructor
-    List<ProductHistory>? productHistory = await _productHistoryRepository.GetProductHistory(request.ProductId, cancellationToken);
-
-    // Map the historical product data to DTOs
-    List<ProductHistoryDto>? productHistoryDtoData = productHistory.Select(h =>
-    {
-        return new ProductHistoryDto
-        {
-            Product = h.Product.MapToProductDto(_mapper),
-            ValidFrom = h.ValidFrom,
-            ValidTo = h.ValidTo,
-        };
-    }).ToList();
-
-    return productHistoryDtoData;
- }
-```

@@ -35,7 +35,8 @@ return null;
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
+      <placeholder>PeriodStart</placeholder>
+      <defaultValue>PeriodStart</defaultValue>
       <valueOptions />
       <lookupTypes />
     </property>
@@ -45,7 +46,8 @@ return null;
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
+      <placeholder>PeriodEnd</placeholder>
+      <defaultValue>PeriodEnd</defaultValue>
       <valueOptions />
       <lookupTypes />
     </property>

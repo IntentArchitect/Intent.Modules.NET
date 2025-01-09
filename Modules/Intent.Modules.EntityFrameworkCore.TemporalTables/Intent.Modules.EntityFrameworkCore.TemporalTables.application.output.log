@@ -25,6 +25,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>ad861d95-683e-461f-93ce-501309e2a358</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#70398b18-dff4-4016-a556-b39a0cf95d58</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/RepositoryFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RepositoryFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>9fba18db-714d-46c4-b79c-3ac436375c26</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -54,6 +62,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>resources/documentation.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>documentation.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>873a3523-c869-4764-a45e-f3aa8c3312c5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>873a3523-c869-4764-a45e-f3aa8c3312c5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#354e283d-f3a4-4d8d-9b7b-840b2c6cc517</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TemporalHistory/TemporalHistoryTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemporalHistory/TemporalHistoryTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>873a3523-c869-4764-a45e-f3aa8c3312c5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#354e283d-f3a4-4d8d-9b7b-840b2c6cc517</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TemporalHistory/TemporalHistoryTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemporalHistory/TemporalHistoryTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
