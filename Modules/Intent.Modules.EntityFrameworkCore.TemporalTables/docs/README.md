@@ -26,21 +26,28 @@ After configuring the temporal table, you will need to create an Entity Framewor
 
 ## Access Temporal Information
 
-By default, Intent Architect will generated a new method `FindHistoryAsync` on the repository of the specific entity, allowing for retrieval of historic information.
+By default, Intent Architect generates a new method called `FindHistoryAsync` on the repository for a specific entity, enabling the retrieval of historical data.
 
-This methods accepts a `TemporalHistoryQueryOptions` instance as a parameter, which is used to determine how to retrieve the temporal information.
+This method accepts a `TemporalHistoryQueryOptions` instance as a parameter, which defines how the temporal data should be queried.
 
-`TemporalHistoryQueryOptions` has three optional fields:
-- QueryType: Defaults to `All` (see below), if not supplied.
-- DateFrom: Defaults to `DateTime.MinValue` if not supplied.
-- DateTo: Defaults to `DateTime.MaxValue` if not supplied.
+### `TemporalHistoryQueryOptions` Fields
 
-`QueryType` can be one of the following 5 options, which is used in conjunction with the date fields to retrieve the information:
-- **All**: The default. The date values are ignored (even if supplied) and all history rows are returned.
-- **AsOf**: Returns rows that were active (current) at the given UTC time, _DateFrom_.
-- **FromTo**:  Returns all rows that were active between the two given UTC times, _DateFrom_ and _DateTo_.
-- **Between**:  The same as `FromTo` except that rows are included that became active on the upper boundary.
-- **ContainedIn**:  Returns all rows that started being active and ended being active between the two given UTC times, _DateFrom_ and _DateTo_.
+The `TemporalHistoryQueryOptions` object includes the following optional fields:
 
-Additional information on context on these types can be found on the [Entity Framework Core documentation website.](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/temporal-tables#querying-historical-data)
+- **QueryType**: Defaults to `All` (described below) if not provided.
+- **DateFrom**: Defaults to `DateTime.MinValue` if not provided.
+- **DateTo**: Defaults to `DateTime.MaxValue` if not provided.
+
+### `QueryType` Options
+
+The `QueryType` field can be set to one of the following five options, which interact with the date fields to determine which historical data is retrieved:
+
+- **All**: (Default) Ignores the date values (even if supplied) and returns all history rows.
+- **AsOf**: Returns rows that were active (current) at the specified UTC time, `_DateFrom_`.
+- **FromTo**: Returns all rows that were active between the two given UTC times, `_DateFrom_` and `_DateTo_`.
+- **Between**: Similar to `FromTo`, but includes rows that became active at the upper boundary (`_DateTo_`).
+- **ContainedIn**: Returns all rows that started and ended being active between the two given UTC times, `_DateFrom_` and `_DateTo_`.
+
+For additional context on these query types, refer to the [Entity Framework Core documentation](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/temporal-tables#querying-historical-data).
+
 
