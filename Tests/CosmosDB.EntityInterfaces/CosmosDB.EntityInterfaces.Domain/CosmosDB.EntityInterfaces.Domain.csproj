@@ -137,6 +137,31 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>University.cs</DependentUpon>
     </Compile>
+    <Compile Update="Entities\Throughput\IAutoscale.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Autoscale.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Throughput\IAutoscaleWithMaxValue.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AutoscaleWithMaxValue.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Throughput\IManual.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Manual.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Throughput\IManualWithValue.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ManualWithValue.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Throughput\IServerlessThroughput.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServerlessThroughput.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

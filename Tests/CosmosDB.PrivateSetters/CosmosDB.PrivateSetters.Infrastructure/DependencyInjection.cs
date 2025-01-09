@@ -3,11 +3,14 @@ using CosmosDB.PrivateSetters.Application.Common.Interfaces;
 using CosmosDB.PrivateSetters.Domain.Common.Interfaces;
 using CosmosDB.PrivateSetters.Domain.Repositories;
 using CosmosDB.PrivateSetters.Domain.Repositories.Folder;
+using CosmosDB.PrivateSetters.Domain.Repositories.Throughput;
 using CosmosDB.PrivateSetters.Infrastructure.Persistence;
 using CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents;
 using CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents.Folder;
+using CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents.Throughput;
 using CosmosDB.PrivateSetters.Infrastructure.Repositories;
 using CosmosDB.PrivateSetters.Infrastructure.Repositories.Folder;
+using CosmosDB.PrivateSetters.Infrastructure.Repositories.Throughput;
 using CosmosDB.PrivateSetters.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
@@ -34,6 +37,14 @@ namespace CosmosDB.PrivateSetters.Infrastructure
                 options.ContainerPerItemType = true;
 
                 options.ContainerBuilder
+                    .Configure<AutoscaleDocument>(c => c
+                        .WithContainer("PackageContainer")
+                        .WithPartitionKey("/packagePartitionKey")
+                        .WithAutoscaleThroughput())
+                    .Configure<AutoscaleWithMaxValueDocument>(c => c
+                        .WithContainer("PackageContainer")
+                        .WithPartitionKey("/packagePartitionKey")
+                        .WithAutoscaleThroughput(900))
                     .Configure<BaseTypeDocument>(c => c
                         .WithContainer(defaultContainerId))
                     .Configure<CategoryDocument>(c => c
@@ -62,6 +73,14 @@ namespace CosmosDB.PrivateSetters.Infrastructure
                         .WithContainer(defaultContainerId))
                     .Configure<InvoiceDocument>(c => c
                         .WithContainer(defaultContainerId))
+                    .Configure<ManualDocument>(c => c
+                        .WithContainer("PackageContainer")
+                        .WithPartitionKey("/packagePartitionKey")
+                        .WithManualThroughput())
+                    .Configure<ManualWithValueDocument>(c => c
+                        .WithContainer("PackageContainer")
+                        .WithPartitionKey("/packagePartitionKey")
+                        .WithManualThroughput(700))
                     .Configure<NonStringPartitionKeyDocument>(c => c
                         .WithContainer("NonStringPartitionKey")
                         .WithPartitionKey("/partInt"))
@@ -75,6 +94,10 @@ namespace CosmosDB.PrivateSetters.Infrastructure
                         .WithContainer(defaultContainerId))
                     .Configure<RegionDocument>(c => c
                         .WithContainer(defaultContainerId))
+                    .Configure<ServerlessThroughputDocument>(c => c
+                        .WithContainer("PackageContainer")
+                        .WithPartitionKey("/packagePartitionKey")
+                        .WithServerlessThroughput())
                     .Configure<UniversityDocument>(c => c
                         .WithContainer(defaultContainerId))
                     .Configure<WithGuidIdDocument>(c => c
@@ -103,6 +126,11 @@ namespace CosmosDB.PrivateSetters.Infrastructure
             services.AddScoped<IWithGuidIdRepository, WithGuidIdCosmosDBRepository>();
             services.AddScoped<IWithoutPartitionKeyRepository, WithoutPartitionKeyCosmosDBRepository>();
             services.AddScoped<IFolderContainerRepository, FolderContainerCosmosDBRepository>();
+            services.AddScoped<IAutoscaleRepository, AutoscaleCosmosDBRepository>();
+            services.AddScoped<IAutoscaleWithMaxValueRepository, AutoscaleWithMaxValueCosmosDBRepository>();
+            services.AddScoped<IManualRepository, ManualCosmosDBRepository>();
+            services.AddScoped<IManualWithValueRepository, ManualWithValueCosmosDBRepository>();
+            services.AddScoped<IServerlessThroughputRepository, ServerlessThroughputCosmosDBRepository>();
             services.AddScoped<CosmosDBUnitOfWork>();
             services.AddScoped<ICosmosDBUnitOfWork>(provider => provider.GetRequiredService<CosmosDBUnitOfWork>());
             services.AddScoped<IDomainEventService, DomainEventService>();

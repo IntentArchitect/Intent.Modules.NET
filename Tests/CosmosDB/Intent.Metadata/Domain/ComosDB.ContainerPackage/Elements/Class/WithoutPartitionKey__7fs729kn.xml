@@ -17,6 +17,9 @@
       <properties>
         <property name="7ebc3aff-936c-465b-ac34-3e52362090ef" display="Name" value="WithoutPartitionKey" isActive="true" />
         <property name="bda56f7f-8ac6-4b36-bbc1-91bba18e71d9" display="Partition Key" isActive="true" />
+        <property name="2c4ac3b3-b72b-459f-a22b-b1d6fb7fd3ea" display="Throughput Type" isActive="true" />
+        <property name="55056d4b-08db-4df3-b073-ae2ccc0ac7ac" display="Maximum Throughput (RUs)" isActive="false" />
+        <property name="e06caad5-06a1-478b-9827-7e110f94039a" display="Manual Throughput (RUs)" isActive="false" />
       </properties>
     </stereotype>
   </stereotypes>
