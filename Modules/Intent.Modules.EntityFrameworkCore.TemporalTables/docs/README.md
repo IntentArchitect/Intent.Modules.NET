@@ -43,10 +43,10 @@ The `TemporalHistoryQueryOptions` object includes the following optional fields:
 The `QueryType` field can be set to one of the following five options, which interact with the date fields to determine which historical data is retrieved:
 
 - **All**: (Default) Ignores the date values (even if supplied) and returns all history rows.
-- **AsOf**: Returns rows that were active (current) at the specified UTC time, `_DateFrom_`.
-- **FromTo**: Returns all rows that were active between the two given UTC times, `_DateFrom_` and `_DateTo_`.
-- **Between**: Similar to `FromTo`, but includes rows that became active at the upper boundary (`_DateTo_`).
-- **ContainedIn**: Returns all rows that started and ended being active between the two given UTC times, `_DateFrom_` and `_DateTo_`.
+- **AsOf**: Returns rows that were active (current) at the specified UTC time, `DateFrom`.
+- **FromTo**: Returns all rows that were active between the two given UTC times, `DateFrom` and `DateTo`.
+- **Between**: Similar to `FromTo`, but includes rows that became active at the upper boundary (`DateTo`).
+- **ContainedIn**: Returns all rows that started and ended being active between the two given UTC times, `DateFrom` and `DateTo`.
 
 For additional context on these query types, refer to the [Entity Framework Core documentation](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/temporal-tables#querying-historical-data).
 
