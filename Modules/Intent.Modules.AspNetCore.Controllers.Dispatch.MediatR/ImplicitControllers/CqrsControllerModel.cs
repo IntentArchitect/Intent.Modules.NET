@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
@@ -17,6 +18,48 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.ImplicitControl
 
 public class CqrsControllerModel : IControllerModel
 {
+    public CqrsControllerModel(IElement? folderElement, IPackage package, ISoftwareFactoryExecutionContext context)
+    {
+        string name;
+        IHttpEndpointCollectionModel endpointCollectionModel;
+
+        if (folderElement != null)
+        {
+            name = string.Concat(folderElement
+                .GetParentPath()
+                .Append(folderElement)
+                .Select(x => x.Name?.Replace(".", "_").ToPascalCase()));
+            if (!context.TryGetHttpEndpointCollection(
+                    element: folderElement,
+                    defaultBasePath: null,
+                    out endpointCollectionModel!))
+            {
+                throw new ElementException(folderElement, $"An error occured while trying to process the controller for {folderElement.Name}");
+            }
+        }
+        else
+        {
+            name = "Default";
+            if (!context.TryGetHttpEndpointCollection(
+                    package: package,
+                    defaultBasePath: null,
+                    out endpointCollectionModel!))
+            {
+                throw new Exception($"An error occured while trying to process the controller for package {package.Name}");
+            }
+        }
+
+        Id = folderElement?.Id ?? Guid.Empty.ToString();
+        Name = name;
+        Folder = folderElement?.ParentElement?.AsFolderModel();
+        Operations = endpointCollectionModel.Endpoints.Select(MapToOperation).ToList();
+        ApplicableVersions = new List<IApiVersionModel>();
+        AllowAnonymous = endpointCollectionModel.AllowAnonymous;
+        RequiresAuthorization = endpointCollectionModel.RequiresAuthorization;
+        SecurityModels = endpointCollectionModel.SecurityModels;
+    }
+    
+    [Obsolete]
     public CqrsControllerModel(IElement? folderElement, IPackage package, bool securedByDefault)
     {
         string name;

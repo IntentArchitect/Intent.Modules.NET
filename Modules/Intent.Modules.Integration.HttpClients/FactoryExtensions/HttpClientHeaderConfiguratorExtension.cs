@@ -1,9 +1,13 @@
 using System;
 using System.Buffers;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using Intent.Engine;
+using Intent.Metadata.Models;
+using Intent.Metadata.WebApi.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -95,20 +99,8 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
         [IntentIgnore]
         private static bool RequiresSecurity(ServiceProxyModel proxy, IApplication application)
         {
-            // This will work for ALL services, but we need to exempt anonymous operations from this...
-            // var targetAppId = proxy.InternalElement.MappedElement?.ApplicationId;
-            // var defaultApiSecuritySetting = application.GetSolutionConfig().GetApplicationConfig(targetAppId)
-            //     .ModuleSetting
-            //     .FirstOrDefault(p => p.Id == "4bd0b4e9-7b53-42a9-bb4a-277abb92a0eb") // APISettings
-            //     ?.GetSetting("061a559a-0d54-4eb1-8c70-ed0baa238a59"); //DefaultAPISecurityOptions
-            //
-            // if (defaultApiSecuritySetting?.Value == "secured")
-            // {
-            //     return true;
-            // }
-
             var parentSecured = default(bool?);
-            return !ServiceProxyHelpers.GetMappedEndpoints(proxy)
+            return !ServiceProxyHelpers.GetMappedEndpoints(proxy, application)
                 .All(x => !x.RequiresAuthorization && (parentSecured ??= x.InternalElement.ParentElement?.TryGetSecured(out _)) != true);
         }
     }

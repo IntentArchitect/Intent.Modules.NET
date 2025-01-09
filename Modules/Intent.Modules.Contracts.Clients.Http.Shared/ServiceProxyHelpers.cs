@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
@@ -39,5 +40,30 @@ public static class ServiceProxyHelpers
             .Cast<IElement>()
             .Where(x => x?.TryGetHttpSettings(out _) == true)
             .Select(HttpEndpointModelFactory.GetEndpoint);
+    }
+    
+    public static IEnumerable<IHttpEndpointModel> GetMappedEndpoints(ServiceProxyModel model, ISoftwareFactoryExecutionContext context)
+    {
+        // Backwards compatibility - when we didn't have operations on service proxies
+        if (model.Mapping?.Element?.IsServiceModel() == true && !model.Operations.Any())
+        {
+            return model.MappedService.Operations
+                .Where(x => x.HasHttpSettings())
+                .Select(x =>
+                {
+                    context.TryGetHttpEndpoint(x.InternalElement, null, out var endpointModel);
+                    return endpointModel!;
+                });
+        }
+
+        return model.Operations
+            .Select(x => x.Mapping?.Element)
+            .Cast<IElement>()
+            .Where(x => x?.TryGetHttpSettings(out _) == true)
+            .Select(x =>
+            {
+                context.TryGetHttpEndpoint(x, null, out var endpointModel);
+                return endpointModel!;
+            });
     }
 }

@@ -38,12 +38,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.ImplicitControl
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IControllerModel> GetModels(IApplication application)
         {
-            var securedByDefault = application.Settings.GetAPISettings().DefaultAPISecurity().AsEnum() switch
-            {
-                APISettings.DefaultAPISecurityOptionsEnum.Secured => true,
-                APISettings.DefaultAPISecurityOptionsEnum.Unsecured => false,
-                _ => throw new ArgumentOutOfRangeException()
-            };
+            // var securedByDefault = application.Settings.GetAPISettings().DefaultAPISecurity().AsEnum() switch
+            // {
+            //     APISettings.DefaultAPISecurityOptionsEnum.Secured => true,
+            //     APISettings.DefaultAPISecurityOptionsEnum.Unsecured => false,
+            //     _ => throw new ArgumentOutOfRangeException()
+            // };
 
             var elementsGroupedByParent = Enumerable.Empty<IElement>()
                 .Concat(_metadataManager.Services(application).GetCommandModels()
@@ -55,7 +55,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.MediatR.ImplicitControl
                 .GroupBy(x => x.ParentElement);
 
             return elementsGroupedByParent
-                .Select(grouping => new CqrsControllerModel(grouping.Key, grouping.First().Package, securedByDefault))
+                .Select(grouping => new CqrsControllerModel(grouping.Key, grouping.First().Package, application))
                 .ToArray<IControllerModel>();
         }
     }

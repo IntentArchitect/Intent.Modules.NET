@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Metadata.Security.Api;
@@ -19,6 +20,38 @@ public class ServiceControllerModel : IControllerModel
 {
     private readonly ServiceModel _model;
 
+    public ServiceControllerModel(ServiceModel model, ISoftwareFactoryExecutionContext context)
+    {
+        if (!context.TryGetHttpEndpointCollection(
+                element: model.InternalElement,
+                defaultBasePath: null,
+                out var endpointCollectionModel))
+        {
+            throw new ElementException(model.InternalElement, $"An error occured while trying to process the controller {model.Name}");
+        }
+        
+        if (model.HasSecured() && model.HasUnsecured())
+        {
+            throw new ElementException(model.InternalElement, $"Controller {model.Name} cannot require authorization and allow-anonymous at the same time");
+        }
+
+        _model = model;
+        RequiresAuthorization = model.HasSecured();
+        AllowAnonymous = model.HasUnsecured();
+        SecurityModels = endpointCollectionModel.SecurityModels;
+        Route = GetControllerRoute(model.GetHttpServiceSettings()?.Route());
+        Operations = endpointCollectionModel.Endpoints
+            .Select(GetOperation)
+            .ToList();
+        ApplicableVersions = model.GetApiVersionSettings()
+            ?.ApplicableVersions()
+            .Select(s => new ControllerApiVersionModel(s))
+            .Cast<IApiVersionModel>()
+            .ToList() ?? [];
+        InternalElement = model.InternalElement;
+    }
+    
+    [Obsolete]
     public ServiceControllerModel(ServiceModel model, bool securedByDefault)
     {
         if (!HttpEndpointModelFactory.TryGetCollection(

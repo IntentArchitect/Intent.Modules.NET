@@ -40,16 +40,16 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IControllerModel> GetModels(IApplication application)
         {
-            var securedByDefault = application.Settings.GetAPISettings().DefaultAPISecurity().AsEnum() switch
-            {
-                APISettings.DefaultAPISecurityOptionsEnum.Secured => true,
-                APISettings.DefaultAPISecurityOptionsEnum.Unsecured => false,
-                _ => throw new ArgumentOutOfRangeException()
-            };
+            // var securedByDefault = application.Settings.GetAPISettings().DefaultAPISecurity().AsEnum() switch
+            // {
+            //     APISettings.DefaultAPISecurityOptionsEnum.Secured => true,
+            //     APISettings.DefaultAPISecurityOptionsEnum.Unsecured => false,
+            //     _ => throw new ArgumentOutOfRangeException()
+            // };
 
             return _metadataManager.Services(application).GetServiceModels()
                 .Where(p => p.Operations.Any(q => q.HasHttpSettings()))
-                .Select(x => new ServiceControllerModel(x, securedByDefault))
+                .Select(x => new ServiceControllerModel(x, application))
                 .ToArray();
         }
     }
