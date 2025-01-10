@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="3d04d1cc-172d-4f43-a566-305a85a56daf" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Department</name>
-    <display>Department: Department   [* --&gt; 1]</display>
+    <display>Department: Department</display>
     <order>10</order>
     <typeReference id="8cba9474-152a-47fe-a7ff-4267b79caff2">
       <typeId>93d39159-a451-4130-b6d2-60fd2236ea41</typeId>

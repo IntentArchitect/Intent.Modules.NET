@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="612239a0-8eb2-4b6c-b572-c979b9e741d4" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+  <name>SuperContract</name>
+  <display>SuperContract : BaseContract</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e5f472dc-c28a-4d36-b316-501b5de28680</parentFolderId>
+  <packageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</packageId>
+  <packageName>RichDomain.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="26df010f-8806-4a63-8e83-4a2026f2d334" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="ee5d45df-ad84-4698-acd1-f9c00d708069">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>612239a0-8eb2-4b6c-b572-c979b9e741d4</parentFolderId>
+      <packageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</packageId>
+      <packageName>RichDomain.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

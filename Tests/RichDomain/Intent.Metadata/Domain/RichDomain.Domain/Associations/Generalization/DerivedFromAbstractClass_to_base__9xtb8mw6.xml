@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="24e53e6c-0bd9-456a-bd3f-5ed33c8bf54d">
-  <sourceEnd id="0cb6542c-21b2-4217-88b8-ae0b9117fd6c" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
-    <display>: DerivedClass</display>
+<association id="2c30ac8f-08ee-4e9b-b24a-adaa8fcf5a79">
+  <sourceEnd id="02c11b52-d103-4069-a1c1-bceadc24cbea" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: DerivedFromAbstractClass</display>
     <order>0</order>
-    <typeReference id="d9c6c061-dcfb-475f-82b4-8837b53b423b">
-      <typeId>76ef7be5-167f-4675-9882-42831eaa0fd1</typeId>
+    <typeReference id="252ba3ed-3413-4b76-b2fc-e90c7a5e2946">
+      <typeId>d6a02046-3378-4a7c-9d90-f53bdc23ebff</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -18,11 +18,12 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="24e53e6c-0bd9-456a-bd3f-5ed33c8bf54d" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
-    <display>extends BaseClass</display>
+  <targetEnd id="2c30ac8f-08ee-4e9b-b24a-adaa8fcf5a79" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
+    <display>extends AbstractBaseClass</display>
     <order>0</order>
-    <typeReference id="f5a33e7e-affa-4028-9a0d-18dc4943406b">
-      <typeId>c62cdadc-a810-465d-ab90-106e87cdf444</typeId>
+    <typeReference id="d3f097ff-62a4-4ca6-841d-6cfac011b20e">
+      <typeId>a91d6bef-daa7-4d29-ad49-66bb90eafed6</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

@@ -266,7 +266,7 @@
         <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c2056685-3725-4ae1-a9cc-cc7621296e32" name="Person" type="element" specialization="Class" />
+          <target id="c2056685-3725-4ae1-a9cc-cc7621296e32" name="Person" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>c2056685-3725-4ae1-a9cc-cc7621296e32</parentFolderId>
@@ -296,7 +296,7 @@
             <mappingSettingsId>d6d0abfd-893c-4bec-92cb-419934ba5ba8</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="89dbe14a-3644-4da7-a1fa-4be792da57bf" name="FirstName" type="element" specialization="Attribute" />
+              <target id="89dbe14a-3644-4da7-a1fa-4be792da57bf" name="FirstName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>35151843-f4f9-404c-b3a4-bae959276522</parentFolderId>
@@ -329,7 +329,7 @@
         <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c2056685-3725-4ae1-a9cc-cc7621296e32" name="Person" type="element" specialization="Class" />
+          <target id="c2056685-3725-4ae1-a9cc-cc7621296e32" name="Person" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>c2056685-3725-4ae1-a9cc-cc7621296e32</parentFolderId>
@@ -359,7 +359,7 @@
             <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="89dbe14a-3644-4da7-a1fa-4be792da57bf" name="FirstName" type="element" specialization="Attribute" />
+              <target id="89dbe14a-3644-4da7-a1fa-4be792da57bf" name="FirstName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>6cfdb123-1db4-4c8d-bff5-f3a634833e55</parentFolderId>
@@ -392,7 +392,7 @@
         <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c2056685-3725-4ae1-a9cc-cc7621296e32" name="Person" type="element" specialization="Class" />
+          <target id="c2056685-3725-4ae1-a9cc-cc7621296e32" name="Person" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>c2056685-3725-4ae1-a9cc-cc7621296e32</parentFolderId>
@@ -422,7 +422,7 @@
             <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="89dbe14a-3644-4da7-a1fa-4be792da57bf" name="FirstName" type="element" specialization="Attribute" />
+              <target id="89dbe14a-3644-4da7-a1fa-4be792da57bf" name="FirstName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>b7292af3-a48f-4a03-9147-2d650a24b2ea</parentFolderId>
@@ -453,7 +453,7 @@
             <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="3d04d1cc-172d-4f43-a566-305a85a56daf" name="Department" type="association" specialization="Association Target End" />
+              <target id="3d04d1cc-172d-4f43-a566-305a85a56daf" name="Department" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>b7292af3-a48f-4a03-9147-2d650a24b2ea</parentFolderId>

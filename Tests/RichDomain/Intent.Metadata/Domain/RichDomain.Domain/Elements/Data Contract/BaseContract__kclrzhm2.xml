@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="557064fb-9ebd-4361-9bfb-3b5bf69b7a3c" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+  <name>BaseContract</name>
+  <display>BaseContract</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e5f472dc-c28a-4d36-b316-501b5de28680</parentFolderId>
+  <packageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</packageId>
+  <packageName>RichDomain.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2b629e78-f5bd-429b-85e4-1ca8cdf2fa7c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="48e2f6c9-4c4e-4dbb-a2b7-5ce3afeadf5e">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>557064fb-9ebd-4361-9bfb-3b5bf69b7a3c</parentFolderId>
+      <packageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</packageId>
+      <packageName>RichDomain.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="40484588-20ae-44aa-b7a7-99964234e439" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Created</name>
+      <display>Created: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="12fde54d-a711-41ca-80bb-800957235e26">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>557064fb-9ebd-4361-9bfb-3b5bf69b7a3c</parentFolderId>
+      <packageId>116c0e9c-8dce-4f7e-8053-e0c702720ae9</packageId>
+      <packageName>RichDomain.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

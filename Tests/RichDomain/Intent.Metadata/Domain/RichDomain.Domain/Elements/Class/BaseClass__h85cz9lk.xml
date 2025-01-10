@@ -104,7 +104,7 @@
         <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c62cdadc-a810-465d-ab90-106e87cdf444" name="BaseClass" type="element" specialization="Class" />
+          <target id="c62cdadc-a810-465d-ab90-106e87cdf444" name="BaseClass" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>c62cdadc-a810-465d-ab90-106e87cdf444</parentFolderId>
@@ -134,7 +134,7 @@
             <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="80dfd18b-466e-4522-93f4-d78689219558" name="BaseAttribute" type="element" specialization="Attribute" />
+              <target id="80dfd18b-466e-4522-93f4-d78689219558" name="BaseAttribute" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>42b51d1c-4d7b-4ad3-b06d-d10db3e489ac</parentFolderId>

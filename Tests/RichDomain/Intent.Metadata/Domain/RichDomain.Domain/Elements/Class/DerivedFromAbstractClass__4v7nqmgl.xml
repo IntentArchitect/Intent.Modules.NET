@@ -68,7 +68,7 @@
         <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="d6a02046-3378-4a7c-9d90-f53bdc23ebff" name="DerivedFromAbstractClass" type="element" specialization="Class" />
+          <target id="d6a02046-3378-4a7c-9d90-f53bdc23ebff" name="DerivedFromAbstractClass" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d6a02046-3378-4a7c-9d90-f53bdc23ebff</parentFolderId>
@@ -98,7 +98,7 @@
             <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="d985d4b3-4fdf-4aec-aa48-901ea90297fd" name="DerivedAttribute" type="element" specialization="Attribute" />
+              <target id="d985d4b3-4fdf-4aec-aa48-901ea90297fd" name="DerivedAttribute" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>249dc80d-3422-4881-910c-1f5284ae837b</parentFolderId>
@@ -129,8 +129,8 @@
             <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="2c30ac8f-08ee-4e9b-b24a-adaa8fcf5a79" name="" type="association" specialization="Generalization Target End" />
-              <target id="f951f0e4-a19e-4ae4-804b-bf263132b965" name="AbstractBaseAttribute" type="element" specialization="Attribute" />
+              <target id="2c30ac8f-08ee-4e9b-b24a-adaa8fcf5a79" name="base" type="association" specialization="Generalization Target End" specializationId="4686cc1d-b4d8-4b99-b45b-f77bd5496946" />
+              <target id="f951f0e4-a19e-4ae4-804b-bf263132b965" name="AbstractBaseAttribute" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>249dc80d-3422-4881-910c-1f5284ae837b</parentFolderId>

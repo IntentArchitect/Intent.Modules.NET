@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="2c30ac8f-08ee-4e9b-b24a-adaa8fcf5a79">
-  <sourceEnd id="02c11b52-d103-4069-a1c1-bceadc24cbea" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
-    <display>: DerivedFromAbstractClass</display>
+<association id="feb9e3c2-a307-47a1-b08b-0d49834044d1">
+  <sourceEnd id="91411c43-2732-45e5-b738-a9916dd6b323" type="Data Contract Generalization Source End" typeId="12c2ffdc-9a54-4e99-9e09-a441fa260bef">
+    <display>: SuperContract</display>
     <order>0</order>
-    <typeReference id="252ba3ed-3413-4b76-b2fc-e90c7a5e2946">
-      <typeId>d6a02046-3378-4a7c-9d90-f53bdc23ebff</typeId>
+    <typeReference id="0aaf536a-04fc-4b72-919a-df97feca4a8d">
+      <typeId>612239a0-8eb2-4b6c-b572-c979b9e741d4</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -18,11 +18,12 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="2c30ac8f-08ee-4e9b-b24a-adaa8fcf5a79" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
-    <display>extends AbstractBaseClass</display>
+  <targetEnd id="feb9e3c2-a307-47a1-b08b-0d49834044d1" type="Data Contract Generalization Target End" typeId="4ea029c6-e963-46c7-8d2f-e4ea73e05a07">
+    <name>base</name>
+    <display>extends BaseContract</display>
     <order>0</order>
-    <typeReference id="d3f097ff-62a4-4ca6-841d-6cfac011b20e">
-      <typeId>a91d6bef-daa7-4d29-ad49-66bb90eafed6</typeId>
+    <typeReference id="19194b2a-1dda-474a-bfc8-d718732e7502">
+      <typeId>557064fb-9ebd-4361-9bfb-3b5bf69b7a3c</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -36,7 +37,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Generalization</associationType>
-  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <associationType>Data Contract Generalization</associationType>
+  <associationTypeId>4199ae15-0ecc-4086-82f3-bfa885c9d3e8</associationTypeId>
   <stereotypes />
 </association>

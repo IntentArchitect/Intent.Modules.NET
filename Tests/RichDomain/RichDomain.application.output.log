@@ -555,6 +555,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1004eab2-669b-46ee-8a9c-b8847d13a874</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#557064fb-9ebd-4361-9bfb-3b5bf69b7a3c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Domain/Contracts/Inheritance/BaseContract.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/BaseContract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1004eab2-669b-46ee-8a9c-b8847d13a874</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#612239a0-8eb2-4b6c-b572-c979b9e741d4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Domain/Contracts/Inheritance/SuperContract.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Inheritance/SuperContract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>35444bd6-2982-4f73-b343-d8ff07fbcd7e</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#a91d6bef-daa7-4d29-ad49-66bb90eafed6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
