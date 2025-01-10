@@ -13,8 +13,8 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices
     {
         private bool _onPageChangedProcessing = false;
         public PagedResult<InvoiceDto>? Model { get; set; }
-        public string PageSize { get; set; } = 20;
-        public string OrderBy { get; set; } = DueDate;
+        public int PageSize { get; set; } = 20;
+        public string OrderBy { get; set; } = "DueDate";
         [Inject]
         public IInvoiceService InvoiceService { get; set; } = default!;
         [Inject]
@@ -24,23 +24,10 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices
         {
             try
             {
-                await GetInvoiceDataAsync(0, PageSize, OrderBy);
-            }
-            catch (Exception e)
-            {
-                Snackbar.Add(e.Message, Severity.Error);
-            }
-            StateHasChanged();
-        }
-
-        private async Task GetInvoiceDataAsync(int pageNo, int pageSize, string sorting)
-        {
-            try
-            {
-                Model = await InvoiceService.GetInvoicesAsync(
-                    pageNo,
-                    pageSize,
-                    sorting);
+                await InvoiceService.GetInvoicesAsync(
+                    1,
+                    PageSize,
+                    OrderBy);
             }
             catch (Exception e)
             {
@@ -54,7 +41,10 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices
             try
             {
                 _onPageChangedProcessing = true;
-                await GetInvoiceDataAsync(pageNo, PageSize, OrderBy);
+                await InvoiceService.GetInvoicesAsync(
+                    pageNo,
+                    PageSize,
+                    OrderBy);
             }
             catch (Exception e)
             {

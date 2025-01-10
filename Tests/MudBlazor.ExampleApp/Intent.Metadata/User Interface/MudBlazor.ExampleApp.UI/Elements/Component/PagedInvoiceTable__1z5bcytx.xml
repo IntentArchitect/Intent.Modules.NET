@@ -326,12 +326,12 @@
     </childElement>
     <childElement id="10525f42-3fc3-428a-833a-cb9fbffcfb80" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
       <name>PageSize</name>
-      <display>PageSize: string = 20</display>
+      <display>PageSize: int = 20</display>
       <isAbstract>false</isAbstract>
       <value>20</value>
       <genericTypes />
       <typeReference id="3755ac43-bdc1-4f04-aded-ef4035d1519d">
-        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -351,9 +351,9 @@
     </childElement>
     <childElement id="fa2d8a5c-296c-4d56-ae3d-d900ea610c2b" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
       <name>OrderBy</name>
-      <display>OrderBy: string = DueDate</display>
+      <display>OrderBy: string = "DueDate"</display>
       <isAbstract>false</isAbstract>
-      <value>DueDate</value>
+      <value>"DueDate"</value>
       <genericTypes />
       <typeReference id="f5557125-616d-476d-a5ea-e78ea82490ec">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
@@ -378,7 +378,6 @@
       <name>OnInitializedAsync</name>
       <display>OnInitializedAsync(): void</display>
       <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="fde6000b-400c-42d9-9f1b-c07f41c1a93e">
         <isNavigable>true</isNavigable>
@@ -394,192 +393,7 @@
       <packageName>MudBlazor.ExampleApp.UI</packageName>
       <stereotypes />
       <metadata />
-      <childElements>
-        <childElement id="5ce6569f-e67c-4bda-8e5c-634ef581cc7e" type="Invocation" typeId="18f87cd6-d8d8-4518-8931-58653d537467">
-          <name>GetInvoiceDataAsync</name>
-          <display>[call] GetInvoiceDataAsync</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <typeReference id="f2c4db56-3f9a-4883-bbf7-8dbf865bc1da">
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <stereotypes />
-            <genericTypeParameters />
-          </typeReference>
-          <isMapped>false</isMapped>
-          <parentFolderId>4449a75d-0250-459e-9a62-e07ead12c877</parentFolderId>
-          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
-          <packageName>MudBlazor.ExampleApp.UI</packageName>
-          <traits>
-            <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
-          </traits>
-          <stereotypes />
-          <mappings>
-            <mapping type="Invocation Mapping" typeId="d5d1dd6a-15f4-4332-b531-3b74e1d97fab">
-              <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" location="[MudBlazor.ExampleApp].[User Interface].[PagedInvoiceTable]" />
-              <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" location="[MudBlazor.ExampleApp].[User Interface].[PagedInvoiceTable]" />
-              <mappedEnds>
-                <mappedEnd>
-                  <expression>{OnInitializedAsync.GetInvoiceDataAsync}</expression>
-                  <path>
-                    <target id="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" name="PagedInvoiceTable" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
-                    <target id="4ded650f-9dd2-4508-b263-ca92e8c0dadd" name="GetInvoiceDataAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
-                  </path>
-                  <sources>
-                    <source identifier="OnInitializedAsync.GetInvoiceDataAsync" mappingType="Invokable Mapping" mappingTypeId="720f119b-39b3-4f11-8d96-27fa82d1f4e2">
-                      <path>
-                        <target id="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" name="PagedInvoiceTable" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
-                        <target id="4449a75d-0250-459e-9a62-e07ead12c877" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
-                        <target id="5ce6569f-e67c-4bda-8e5c-634ef581cc7e" name="GetInvoiceDataAsync" type="element" specialization="Invocation" specializationId="18f87cd6-d8d8-4518-8931-58653d537467" />
-                      </path>
-                    </source>
-                  </sources>
-                </mappedEnd>
-                <mappedEnd>
-                  <expression>0</expression>
-                  <path>
-                    <target id="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" name="PagedInvoiceTable" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
-                    <target id="4ded650f-9dd2-4508-b263-ca92e8c0dadd" name="GetInvoiceDataAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
-                    <target id="fb5ed5fe-b4b5-463e-984f-d1586d6ffc38" name="pageNo" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
-                  </path>
-                  <sources />
-                </mappedEnd>
-                <mappedEnd>
-                  <expression>{PageSize}</expression>
-                  <path>
-                    <target id="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" name="PagedInvoiceTable" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
-                    <target id="4ded650f-9dd2-4508-b263-ca92e8c0dadd" name="GetInvoiceDataAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
-                    <target id="bf9c65db-da02-44a3-bab5-9a1759530acb" name="pageSize" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
-                  </path>
-                  <sources>
-                    <source identifier="PageSize" mappingType="Data Mapping" mappingTypeId="7ef3f515-1714-4ba4-8a33-084532aeb4dd">
-                      <path>
-                        <target id="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" name="PagedInvoiceTable" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
-                        <target id="10525f42-3fc3-428a-833a-cb9fbffcfb80" name="PageSize" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
-                      </path>
-                    </source>
-                  </sources>
-                </mappedEnd>
-                <mappedEnd>
-                  <expression>{OrderBy}</expression>
-                  <path>
-                    <target id="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" name="PagedInvoiceTable" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
-                    <target id="4ded650f-9dd2-4508-b263-ca92e8c0dadd" name="GetInvoiceDataAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
-                    <target id="314106f7-925f-418d-83cd-20888039d73f" name="sorting" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
-                  </path>
-                  <sources>
-                    <source identifier="OrderBy" mappingType="Data Mapping" mappingTypeId="7ef3f515-1714-4ba4-8a33-084532aeb4dd">
-                      <path>
-                        <target id="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" name="PagedInvoiceTable" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
-                        <target id="fa2d8a5c-296c-4d56-ae3d-d900ea610c2b" name="OrderBy" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
-                      </path>
-                    </source>
-                  </sources>
-                </mappedEnd>
-              </mappedEnds>
-            </mapping>
-          </mappings>
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="4ded650f-9dd2-4508-b263-ca92e8c0dadd" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>GetInvoiceDataAsync</name>
-      <display>GetInvoiceDataAsync(pageNo: int, pageSize: int, sorting: string): void</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-manually</sort-children>
-      <genericTypes />
-      <typeReference id="134b3ea5-016a-4535-b102-5ac9d0757048">
-        <isNavigable>true</isNavigable>
-        <isNullable>false</isNullable>
-        <isCollection>false</isCollection>
-        <isRequired>true</isRequired>
-        <stereotypes />
-        <genericTypeParameters />
-      </typeReference>
-      <isMapped>false</isMapped>
-      <parentFolderId>4d478d1c-f939-4fe0-a5b3-2e64163e99bb</parentFolderId>
-      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
-      <packageName>MudBlazor.ExampleApp.UI</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements>
-        <childElement id="fb5ed5fe-b4b5-463e-984f-d1586d6ffc38" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
-          <name>pageNo</name>
-          <display>in : pageNo: int</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <typeReference id="31d7b536-3ba1-45cc-84e2-8fc4b85bb8cf">
-            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <typePackageName>Intent.Common.Types</typePackageName>
-            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
-            <stereotypes />
-            <genericTypeParameters />
-          </typeReference>
-          <isMapped>false</isMapped>
-          <parentFolderId>4ded650f-9dd2-4508-b263-ca92e8c0dadd</parentFolderId>
-          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
-          <packageName>MudBlazor.ExampleApp.UI</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="bf9c65db-da02-44a3-bab5-9a1759530acb" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
-          <name>pageSize</name>
-          <display>in : pageSize: int</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <typeReference id="04f3ac91-cac1-453e-8391-6e97d2575805">
-            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <typePackageName>Intent.Common.Types</typePackageName>
-            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
-            <stereotypes />
-            <genericTypeParameters />
-          </typeReference>
-          <isMapped>false</isMapped>
-          <parentFolderId>4ded650f-9dd2-4508-b263-ca92e8c0dadd</parentFolderId>
-          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
-          <packageName>MudBlazor.ExampleApp.UI</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="314106f7-925f-418d-83cd-20888039d73f" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
-          <name>sorting</name>
-          <display>in : sorting: string</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <typeReference id="462eeeab-215a-4bcd-82fc-b1469f2d6f97">
-            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <typePackageName>Intent.Common.Types</typePackageName>
-            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
-            <stereotypes />
-            <genericTypeParameters />
-          </typeReference>
-          <isMapped>false</isMapped>
-          <parentFolderId>4ded650f-9dd2-4508-b263-ca92e8c0dadd</parentFolderId>
-          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
-          <packageName>MudBlazor.ExampleApp.UI</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
+      <childElements />
     </childElement>
     <childElement id="92e6a612-a88c-4416-9e13-db95ba2cd0cb" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>OnPageChanged</name>
@@ -623,103 +437,6 @@
           <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
           <packageName>MudBlazor.ExampleApp.UI</packageName>
           <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="97e51e16-cfa6-4ed9-8a21-ea6bb6c6bfe7" type="Invocation" typeId="18f87cd6-d8d8-4518-8931-58653d537467">
-          <name>GetInvoiceDataAsync</name>
-          <display>[call] GetInvoiceDataAsync</display>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <typeReference id="bfb165dc-a110-410d-b1cd-022508ec3cfa">
-            <isNavigable>true</isNavigable>
-            <isNullable>false</isNullable>
-            <isCollection>false</isCollection>
-            <isRequired>true</isRequired>
-            <stereotypes />
-            <genericTypeParameters />
-          </typeReference>
-          <isMapped>false</isMapped>
-          <parentFolderId>92e6a612-a88c-4416-9e13-db95ba2cd0cb</parentFolderId>
-          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
-          <packageName>MudBlazor.ExampleApp.UI</packageName>
-          <traits>
-            <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
-          </traits>
-          <stereotypes />
-          <mappings>
-            <mapping type="Invocation Mapping" typeId="d5d1dd6a-15f4-4332-b531-3b74e1d97fab">
-              <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" location="[MudBlazor.ExampleApp].[User Interface].[PagedInvoiceTable]" />
-              <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" location="[MudBlazor.ExampleApp].[User Interface].[PagedInvoiceTable]" />
-              <mappedEnds>
-                <mappedEnd>
-                  <expression>{OnPageChanged.GetInvoiceDataAsync}</expression>
-                  <path>
-                    <target id="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" name="PagedInvoiceTable" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
-                    <target id="4ded650f-9dd2-4508-b263-ca92e8c0dadd" name="GetInvoiceDataAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
-                  </path>
-                  <sources>
-                    <source identifier="OnPageChanged.GetInvoiceDataAsync" mappingType="Invokable Mapping" mappingTypeId="720f119b-39b3-4f11-8d96-27fa82d1f4e2">
-                      <path>
-                        <target id="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" name="PagedInvoiceTable" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
-                        <target id="92e6a612-a88c-4416-9e13-db95ba2cd0cb" name="OnPageChanged" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
-                        <target id="97e51e16-cfa6-4ed9-8a21-ea6bb6c6bfe7" name="GetInvoiceDataAsync" type="element" specialization="Invocation" specializationId="18f87cd6-d8d8-4518-8931-58653d537467" />
-                      </path>
-                    </source>
-                  </sources>
-                </mappedEnd>
-                <mappedEnd>
-                  <expression>{OnPageChanged.pageNo}</expression>
-                  <path>
-                    <target id="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" name="PagedInvoiceTable" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
-                    <target id="4ded650f-9dd2-4508-b263-ca92e8c0dadd" name="GetInvoiceDataAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
-                    <target id="fb5ed5fe-b4b5-463e-984f-d1586d6ffc38" name="pageNo" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
-                  </path>
-                  <sources>
-                    <source identifier="OnPageChanged.pageNo" mappingType="Data Mapping" mappingTypeId="7ef3f515-1714-4ba4-8a33-084532aeb4dd">
-                      <path>
-                        <target id="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" name="PagedInvoiceTable" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
-                        <target id="92e6a612-a88c-4416-9e13-db95ba2cd0cb" name="OnPageChanged" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
-                        <target id="20e910d4-0976-4457-9948-b3d38565c060" name="pageNo" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
-                      </path>
-                    </source>
-                  </sources>
-                </mappedEnd>
-                <mappedEnd>
-                  <expression>{PageSize}</expression>
-                  <path>
-                    <target id="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" name="PagedInvoiceTable" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
-                    <target id="4ded650f-9dd2-4508-b263-ca92e8c0dadd" name="GetInvoiceDataAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
-                    <target id="bf9c65db-da02-44a3-bab5-9a1759530acb" name="pageSize" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
-                  </path>
-                  <sources>
-                    <source identifier="PageSize" mappingType="Data Mapping" mappingTypeId="7ef3f515-1714-4ba4-8a33-084532aeb4dd">
-                      <path>
-                        <target id="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" name="PagedInvoiceTable" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
-                        <target id="10525f42-3fc3-428a-833a-cb9fbffcfb80" name="PageSize" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
-                      </path>
-                    </source>
-                  </sources>
-                </mappedEnd>
-                <mappedEnd>
-                  <expression>{OrderBy}</expression>
-                  <path>
-                    <target id="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" name="PagedInvoiceTable" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
-                    <target id="4ded650f-9dd2-4508-b263-ca92e8c0dadd" name="GetInvoiceDataAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
-                    <target id="314106f7-925f-418d-83cd-20888039d73f" name="sorting" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
-                  </path>
-                  <sources>
-                    <source identifier="OrderBy" mappingType="Data Mapping" mappingTypeId="7ef3f515-1714-4ba4-8a33-084532aeb4dd">
-                      <path>
-                        <target id="4d478d1c-f939-4fe0-a5b3-2e64163e99bb" name="PagedInvoiceTable" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
-                        <target id="fa2d8a5c-296c-4d56-ae3d-d900ea610c2b" name="OrderBy" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
-                      </path>
-                    </source>
-                  </sources>
-                </mappedEnd>
-              </mappedEnds>
-            </mapping>
-          </mappings>
           <metadata />
           <childElements />
         </childElement>

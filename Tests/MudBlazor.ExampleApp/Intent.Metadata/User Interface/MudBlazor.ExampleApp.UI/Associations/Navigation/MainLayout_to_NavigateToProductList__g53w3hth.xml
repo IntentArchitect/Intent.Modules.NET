@@ -21,7 +21,7 @@
   <targetEnd id="13c9f5cc-2b2b-48e6-9ce1-12be86c989af" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
     <name>NavigateToProductList</name>
     <display>[navigate] ProductList</display>
-    <order>7</order>
+    <order>3</order>
     <traits>
       <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
     </traits>
