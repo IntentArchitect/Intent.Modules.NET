@@ -196,6 +196,24 @@
             </source>
           </sources>
         </mappedEnd>
+        <mappedEnd>
+          <expression>{NavigateToPagedInvoiceTable}</expression>
+          <path>
+            <target id="40385617-a034-4086-8398-a20bfb2f4a3a" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+            <target id="fd0a5035-a146-4ac3-ab01-e2f110107efa" name="Sider" type="element" specialization="Layout Sider" specializationId="c505f35f-7148-46a3-a812-d9f53a174490" />
+            <target id="2d5d1340-de59-412e-b34c-684a16cff385" name="Navigation Menu" type="element" specialization="Navigation Menu" specializationId="d7282bf2-1626-4b8b-9446-1d530527db06" />
+            <target id="a4df4d8e-0c29-4506-9fb6-c4dd2354bad2" name="Paged Invoice List" type="element" specialization="Menu Item" specializationId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed" />
+            <target id="a4073b81-6ddd-44cb-909f-f2c97d965112" name="Link To" type="static-mappable" specialization="Link To" specializationId="a4073b81-6ddd-44cb-909f-f2c97d965112" />
+          </path>
+          <sources>
+            <source identifier="NavigateToPagedInvoiceTable" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="40385617-a034-4086-8398-a20bfb2f4a3a" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+                <target id="c3357d60-b9f4-448b-a47e-7056c6ae15aa" name="NavigateToPagedInvoiceTable" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
       </mappedEnds>
     </mapping>
   </mappings>
@@ -644,6 +662,19 @@
                   </childElements>
                 </childElement>
               </childElements>
+            </childElement>
+            <childElement id="a4df4d8e-0c29-4506-9fb6-c4dd2354bad2" type="Menu Item" typeId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed">
+              <name>Paged Invoice List</name>
+              <display>Paged Invoice List</display>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>2d5d1340-de59-412e-b34c-684a16cff385</parentFolderId>
+              <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+              <packageName>MudBlazor.ExampleApp.UI</packageName>
+              <stereotypes />
+              <metadata />
+              <childElements />
             </childElement>
           </childElements>
         </childElement>

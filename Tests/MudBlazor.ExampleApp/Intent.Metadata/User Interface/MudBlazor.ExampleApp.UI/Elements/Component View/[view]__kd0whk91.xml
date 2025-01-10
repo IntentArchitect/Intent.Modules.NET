@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d4fb96fb-30b6-43bc-8937-1fece7b9eccf" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
+  <name>[view]</name>
+  <display>[view]</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4d478d1c-f939-4fe0-a5b3-2e64163e99bb</parentFolderId>
+  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+  <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="5093b69d-74ef-4a44-8eca-7402de222a84" type="Table" typeId="eee93c29-3d58-4e42-aea9-c00451d17469">
+      <name>PaginatedTable</name>
+      <display>PaginatedTable = {Model.Data}</display>
+      <isAbstract>false</isAbstract>
+      <value>{Model.Data}</value>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d4fb96fb-30b6-43bc-8937-1fece7b9eccf</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="74533b82-2078-44e1-84bb-4cd34d00ef16" name="Interaction">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
+          <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
+          <properties>
+            <property name="fbb0d0b4-effb-4ab1-8ee2-df0d28b21163" display="On Row Click" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="f0663cd4-da7c-43cc-9cda-bbc7923d5431" name="Pagination">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
+          <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
+          <properties>
+            <property name="ffae3a34-773c-46b0-8bbf-fa2947c8e916" display="Current Page" isActive="true" />
+            <property name="26a9615e-ee5e-4c6e-874c-934949dcebb8" display="Pages Count" value="{Model.PageCount}" isActive="true" />
+            <property name="4bc0cb96-4708-4ea0-82b2-7672b4c339da" display="On Page Changed" value="{OnPageChanged}" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="69706617-d48f-468f-b3bd-0583f52043bc" type="Column" typeId="d372c640-e649-4e67-84a8-4446f45288db">
+          <name>Invoice No</name>
+          <display>Invoice No = {Model.Data.InvoiceNo}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.InvoiceNo}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5093b69d-74ef-4a44-8eca-7402de222a84</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="251e15e5-ed5a-41d3-9f86-20dd6cb20cc5" type="Column" typeId="d372c640-e649-4e67-84a8-4446f45288db">
+          <name>Invoice Date</name>
+          <display>Invoice Date = {Model.Data.InvoiceDate}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.InvoiceDate}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5093b69d-74ef-4a44-8eca-7402de222a84</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8b35f6c7-eaf0-4692-b341-751fbab7a517" type="Column" typeId="d372c640-e649-4e67-84a8-4446f45288db">
+          <name>Customer Name</name>
+          <display>Customer Name = {Model.Data.CustomerName}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.CustomerName}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5093b69d-74ef-4a44-8eca-7402de222a84</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="722b87ec-efc8-4bdc-bd97-5e170fa58ed9" type="Column" typeId="d372c640-e649-4e67-84a8-4446f45288db">
+          <name>Customer Account No</name>
+          <display>Customer Account No = {Model.Data.CustomerAccountNo}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.CustomerAccountNo}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5093b69d-74ef-4a44-8eca-7402de222a84</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8c9c0ad6-229b-415e-a926-89bd10d555ec" type="Column" typeId="d372c640-e649-4e67-84a8-4446f45288db">
+          <name>Address Line1</name>
+          <display>Address Line1 = {Model.Data.AddressLine1}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.AddressLine1}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5093b69d-74ef-4a44-8eca-7402de222a84</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3ced5dd6-b8a8-4af0-870c-eab49e6ff126" type="Column" typeId="d372c640-e649-4e67-84a8-4446f45288db">
+          <name>Address Line2</name>
+          <display>Address Line2 = {Model.Data.AddressLine2}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.AddressLine2}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5093b69d-74ef-4a44-8eca-7402de222a84</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="aabab6af-506f-4ae1-b58d-943397aef6bc" type="Column" typeId="d372c640-e649-4e67-84a8-4446f45288db">
+          <name>Address City</name>
+          <display>Address City = {Model.Data.AddressCity}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.AddressCity}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5093b69d-74ef-4a44-8eca-7402de222a84</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1e1019b3-c07f-4117-a2cc-4d5b710108b2" type="Column" typeId="d372c640-e649-4e67-84a8-4446f45288db">
+          <name>Address Country</name>
+          <display>Address Country = {Model.Data.AddressCountry}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.AddressCountry}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5093b69d-74ef-4a44-8eca-7402de222a84</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9d312e95-f273-458c-a96b-88900add3b8e" type="Column" typeId="d372c640-e649-4e67-84a8-4446f45288db">
+          <name>Address Postal</name>
+          <display>Address Postal = {Model.Data.AddressPostal}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.AddressPostal}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5093b69d-74ef-4a44-8eca-7402de222a84</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="33defe80-1331-484f-8609-d4cc05cbcc84" type="Column" typeId="d372c640-e649-4e67-84a8-4446f45288db">
+          <name>Due Date</name>
+          <display>Due Date = {Model.Data.DueDate}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.DueDate}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5093b69d-74ef-4a44-8eca-7402de222a84</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="25568526-342c-4d96-97fe-44f44087debe" type="Column" typeId="d372c640-e649-4e67-84a8-4446f45288db">
+          <name>Reference</name>
+          <display>Reference = {Model.Data.Reference}</display>
+          <isAbstract>false</isAbstract>
+          <value>{Model.Data.Reference}</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5093b69d-74ef-4a44-8eca-7402de222a84</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

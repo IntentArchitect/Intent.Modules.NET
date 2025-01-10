@@ -1,0 +1,47 @@
+@page "/invoices/paged-invoice-table"
+@using MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Invoices
+
+@if (_onPageChangedProcessing) 
+{
+    <MudProgressLinear Color="Color.Primary"
+                       Indeterminate="true"
+                       Class="my-7" />
+}
+@if (Model?.Data is not null) 
+{
+    <MudTable T="InvoiceDto"
+              Items="@Model.Data"
+              Hover="true">
+        <HeaderContent>
+            <MudTh>Invoice No</MudTh>
+            <MudTh>Invoice Date</MudTh>
+            <MudTh>Customer Name</MudTh>
+            <MudTh>Customer Account No</MudTh>
+            <MudTh>Address Line1</MudTh>
+            <MudTh>Address Line2</MudTh>
+            <MudTh>Address City</MudTh>
+            <MudTh>Address Country</MudTh>
+            <MudTh>Address Postal</MudTh>
+            <MudTh>Due Date</MudTh>
+            <MudTh>Reference</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.InvoiceNo</MudTd>
+            <MudTd>@context.InvoiceDate</MudTd>
+            <MudTd>@context.CustomerName</MudTd>
+            <MudTd>@context.CustomerAccountNo</MudTd>
+            <MudTd>@context.AddressLine1</MudTd>
+            <MudTd>@context.AddressLine2</MudTd>
+            <MudTd>@context.AddressCity</MudTd>
+            <MudTd>@context.AddressCountry</MudTd>
+            <MudTd>@context.AddressPostal</MudTd>
+            <MudTd>@context.DueDate</MudTd>
+            <MudTd>@context.Reference</MudTd>
+        </RowTemplate>
+        <PagerContent>
+            <MudPagination SelectedChanged="(value) => OnPageChanged(value)"
+                           Count="Model.PageCount"
+                           Class="pa-4" />
+        </PagerContent>
+    </MudTable>
+}

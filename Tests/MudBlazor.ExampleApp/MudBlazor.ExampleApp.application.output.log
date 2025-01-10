@@ -1548,6 +1548,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#4d478d1c-f939-4fe0-a5b3-2e64163e99bb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/Invoices/PagedInvoiceTable.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/Invoices/PagedInvoiceTable.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#4d478d1c-f939-4fe0-a5b3-2e64163e99bb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/Invoices/PagedInvoiceTable.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/Invoices/PagedInvoiceTable.razor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
       <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#82e2c720-26f3-48c1-81ef-aabb13850056</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/Products/Components/ProductAddDialog.razor</ApplicationRelativeFilePath>

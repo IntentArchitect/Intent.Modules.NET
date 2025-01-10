@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="be3e22c0-d3e6-4a43-8305-946bcf7cf26f">
-  <sourceEnd id="75654495-8980-4904-9bd0-53d6e8b98e83" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+<association id="c3357d60-b9f4-448b-a47e-7056c6ae15aa">
+  <sourceEnd id="5271f0a6-0b4d-4bd3-a66d-b0532b4d5afb" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
     <display>: MainLayout</display>
     <order>0</order>
-    <typeReference id="91a12b45-c5d7-4e3a-902f-359aeec1175c">
+    <typeReference id="6e86ea53-8400-49d7-95a4-e63388199ef1">
       <typeId>40385617-a034-4086-8398-a20bfb2f4a3a</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
@@ -18,15 +18,15 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="be3e22c0-d3e6-4a43-8305-946bcf7cf26f" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
-    <name>NavigateToInvoiceList</name>
-    <display>[navigate] InvoiceList</display>
-    <order>5</order>
+  <targetEnd id="c3357d60-b9f4-448b-a47e-7056c6ae15aa" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToPagedInvoiceTable</name>
+    <display>[navigate] PagedInvoiceTable</display>
+    <order>6</order>
     <traits>
       <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
     </traits>
-    <typeReference id="0377bfc3-890f-449b-8936-2c1120a5cfc4">
-      <typeId>a80d7708-e051-4927-b32e-c239affc1689</typeId>
+    <typeReference id="9662e66f-f929-4ba8-88f5-446a2616b8fb">
+      <typeId>4d478d1c-f939-4fe0-a5b3-2e64163e99bb</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
