@@ -24,7 +24,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices
         {
             try
             {
-                await InvoiceService.GetInvoicesAsync(
+                Model = await InvoiceService.GetInvoicesAsync(
                     1,
                     PageSize,
                     OrderBy);
