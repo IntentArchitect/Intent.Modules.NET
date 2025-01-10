@@ -36,14 +36,22 @@ namespace Intent.Modules.Entities.Templates.DataContract
                     {
                         if (Model.BaseDataContract is not null)
                         {
+                            var parameters = new List<CSharpConstructorParameter>();
                             foreach (var baseAttribute in Model.BaseDataContract.Attributes)
                             {
                                 ctor.AddParameter(GetTypeName(baseAttribute), baseAttribute.Name.ToCamelCase(), param =>
                                 {
                                     param.RepresentsModel(baseAttribute);
-                                    ctor.CallsBase(x => x.AddArgument(param.Name));
+                                    parameters.Add(param);
                                 });
                             }
+                            ctor.CallsBase(cBase => 
+                            {
+                                foreach (var p in parameters)
+                                {
+                                    cBase.AddArgument(p.Name.ToParameterName());
+                                }
+                            });
                         }
 
                         foreach (var attribute in Model.Attributes)

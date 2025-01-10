@@ -1,3 +1,7 @@
+### Version 5.1.9
+
+- Fixed: Hierarchical Data Contracts call base constructors correctly.
+
 ### Version 5.1.8
 
 - Improvement: Domain `entities` will now get a default constructor (if no other constructor is defined) to set the value of qualifying attributes to `null!`
