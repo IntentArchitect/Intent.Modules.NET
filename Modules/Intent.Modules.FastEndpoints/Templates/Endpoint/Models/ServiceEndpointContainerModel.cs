@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
@@ -10,7 +11,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint.Models;
 
 public class ServiceEndpointContainerModel : IEndpointContainerModel
 {
-    public ServiceEndpointContainerModel(ServiceModel serviceModel, bool securedByDefault)
+    public ServiceEndpointContainerModel(ServiceModel serviceModel, ISoftwareFactoryExecutionContext context)
     {
         Id = serviceModel.Id;
         Name = serviceModel.Name;
@@ -21,7 +22,7 @@ public class ServiceEndpointContainerModel : IEndpointContainerModel
                 container: this,
                 serviceModel: serviceModel,
                 operationModel: operation,
-                securedByDefault: securedByDefault,
+                context: context,
                 securityModels: SecurityModelHelpers.GetSecurityModels(operation.InternalElement).ToArray()))
             .ToArray();
         ApplicableVersions = serviceModel.GetApiVersionSettings()

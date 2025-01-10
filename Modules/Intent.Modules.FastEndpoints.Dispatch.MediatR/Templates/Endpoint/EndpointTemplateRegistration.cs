@@ -49,7 +49,7 @@ namespace Intent.Modules.FastEndpoints.Dispatch.MediatR.Templates.Endpoint
                 .Select(grouping => new MediatREndpointContainerModel(
                     parentElement: grouping.Key,
                     elements: grouping,
-                    securedByDefault: false))
+                    context: application))
                 .SelectMany(container => container.Endpoints)
                 .ToArray();
         }

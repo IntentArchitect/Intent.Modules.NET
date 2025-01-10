@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.Api;
@@ -17,7 +18,7 @@ public class ServiceEndpointModel : IEndpointModel
         IEndpointContainerModel container, 
         ServiceModel serviceModel, 
         OperationModel operationModel, 
-        bool securedByDefault,
+        ISoftwareFactoryExecutionContext context,
         IReadOnlyCollection<ISecurityModel> securityModels)
     {
         if (container is null)
@@ -33,10 +34,9 @@ public class ServiceEndpointModel : IEndpointModel
             ArgumentNullException.ThrowIfNull(operationModel);
         }
 
-        if (!HttpEndpointModelFactory.TryGetEndpoint(
+        if (!context.TryGetHttpEndpoint(
                 element: operationModel.InternalElement,
                 defaultBasePath: null,
-                securedByDefault: securedByDefault,
                 httpEndpointModel: out var httpEndpoint))
         {
             throw new InvalidOperationException("Could not obtain endpoint model");

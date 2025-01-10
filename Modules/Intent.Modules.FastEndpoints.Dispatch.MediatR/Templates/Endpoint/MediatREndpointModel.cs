@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Metadata.WebApi.Api;
 using Intent.Modelers.Services.CQRS.Api;
@@ -17,8 +18,8 @@ public class MediatREndpointContainerModel : IEndpointContainerModel
 {
     public MediatREndpointContainerModel(
         IElement? parentElement,
-        IEnumerable<IElement> elements,
-        bool securedByDefault)
+        IEnumerable<IElement> elements, 
+        ISoftwareFactoryExecutionContext context)
     {
         Id = parentElement?.Id ?? Guid.Empty.ToString();
         Name = parentElement is not null
@@ -33,7 +34,7 @@ public class MediatREndpointContainerModel : IEndpointContainerModel
             .Select(element => new MediatREndpointModel(
                 containerModel: this,
                 endpoint: element,
-                securedByDefault: securedByDefault,
+                context: context,
                 securityModels: SecurityModelHelpers.GetSecurityModels(element).ToArray()))
             .ToArray();
         ApplicableVersions = [];
@@ -52,13 +53,12 @@ public class MediatREndpointModel : IEndpointModel
     public MediatREndpointModel(
         MediatREndpointContainerModel containerModel,
         IElement endpoint,
-        bool securedByDefault,
+        ISoftwareFactoryExecutionContext context,
         IReadOnlyCollection<ISecurityModel> securityModels)
     {
-        if (!HttpEndpointModelFactory.TryGetEndpoint(
+        if (!context.TryGetHttpEndpoint(
                 element: endpoint,
                 defaultBasePath: null,
-                securedByDefault: securedByDefault,
                 httpEndpointModel: out var httpEndpoint))
         {
             throw new InvalidOperationException("Could not obtain endpoint model");
