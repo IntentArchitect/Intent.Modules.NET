@@ -97,7 +97,7 @@
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Application.Contracts.Clients" version="5.0.9" />
+    <dependency id="Intent.Application.Contracts.Clients" version="5.0.11-pre.0" />
     <dependency id="Intent.Common" version="3.7.3" />
     <dependency id="Intent.Common.CSharp" version="3.8.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
