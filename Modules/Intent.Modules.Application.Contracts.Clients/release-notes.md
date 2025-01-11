@@ -1,3 +1,7 @@
+### Version 5.0.11
+
+- Fixed: Introduce the new WebAPI module to make use of the Secure by Default setting for HTTP Clients but also to incorporate it for Controllers.
+
 ### Version 5.0.10
 
 - Improvement: Updated module icon
