@@ -1,4 +1,4 @@
-### Version 5.2.5
+### Version 5.3.0
 
 - Fixed: Introduce the new WebAPI module to make use of the Secure by Default setting for HTTP Clients but also to incorporate it for Controllers.
 

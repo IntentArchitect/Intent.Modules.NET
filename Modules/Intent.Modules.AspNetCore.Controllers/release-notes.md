@@ -1,4 +1,4 @@
-﻿### Version 7.0.1
+﻿### Version 7.1.0
 
 - Fixed: Update to the new WebAPI module version to rather make use of the Secure by Default setting for HTTP Clients so that when the setting moves, everything is still intact.
 
