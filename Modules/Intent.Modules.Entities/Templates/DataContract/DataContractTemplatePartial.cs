@@ -45,7 +45,7 @@ namespace Intent.Modules.Entities.Templates.DataContract
                                     parameters.Add(param);
                                 });
                             }
-                            ctor.CallsBase(cBase => 
+                            ctor.CallsBase(cBase =>
                             {
                                 foreach (var p in parameters)
                                 {
