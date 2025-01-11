@@ -1,5 +1,6 @@
 using AspNetCore.Controllers.Secured.Domain.Common.Interfaces;
 using AspNetCore.Controllers.Secured.Domain.Repositories;
+using AspNetCore.Controllers.Secured.Infrastructure.Configuration;
 using AspNetCore.Controllers.Secured.Infrastructure.Persistence;
 using AspNetCore.Controllers.Secured.Infrastructure.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -25,6 +26,7 @@ namespace AspNetCore.Controllers.Secured.Infrastructure
             services.AddTransient<IBuyerRepository, BuyerRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddHttpClients(configuration);
             return services;
         }
     }

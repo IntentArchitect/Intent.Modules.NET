@@ -339,6 +339,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>3b82595a-5f7e-4461-b12c-1edba61bbfdc</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClientRequestException</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Application/Common/Exceptions/HttpClientRequestException.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3b82595a-5f7e-4461-b12c-1edba61bbfdc</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.ProblemDetailsWithErrors</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Application/Common/Exceptions/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>c1880272-8655-4857-a594-1fda20cbc424</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -440,6 +456,70 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f8e6b57-615c-438f-9b5d-792b895bf97d</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#0b593d32-97b7-440c-b97c-701119128ee1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Application/IntegrationServices/Contracts/PackageLevelSecurity/Buyers/BuyerDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PackageLevelSecurity/Buyers/BuyerDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f8e6b57-615c-438f-9b5d-792b895bf97d</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#9c796b65-626b-4b8a-aaab-9fd5eb26e88c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Application/IntegrationServices/Contracts/PackageLevelSecurity/Buyers/CreateBuyerCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PackageLevelSecurity/Buyers/CreateBuyerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f8e6b57-615c-438f-9b5d-792b895bf97d</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#9c66cc17-b3bf-423a-bc55-9bd5b85f9ad3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Application/IntegrationServices/Contracts/PackageLevelSecurity/Buyers/UpdateBuyerCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PackageLevelSecurity/Buyers/UpdateBuyerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f8e6b57-615c-438f-9b5d-792b895bf97d</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#a9c77f8a-6aa5-4119-97b8-9ea150f503e7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Application/IntegrationServices/Contracts/Services/Products/CreateProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Products/CreateProductCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f8e6b57-615c-438f-9b5d-792b895bf97d</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#5c8ad975-7f07-489c-82e4-6fdf43393244</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Application/IntegrationServices/Contracts/Services/Products/ProductDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Products/ProductDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f8e6b57-615c-438f-9b5d-792b895bf97d</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#7b1061af-31a7-442e-9188-8d2d894e6ed2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Application/IntegrationServices/Contracts/Services/Products/UpdateProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Products/UpdateProductCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fcf00e22-8e3c-4115-aea8-1630c0fadfe4</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#faa43300-73dc-4623-99f0-d90d8cf7755f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Application/IntegrationServices/IBuyersService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IBuyersService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fcf00e22-8e3c-4115-aea8-1630c0fadfe4</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#5aed86f0-2fcb-4f67-b587-d9617f96074e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Application/IntegrationServices/IProductsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IProductsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -707,11 +787,43 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>cb37831c-7546-4e88-98c8-1fd881dbc199</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClientConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Infrastructure/Configuration/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>HttpClientConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a8609a21-d0c4-4fb7-8480-106a534628d1</ProjectId>
       <CorrelationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0afe9a80-9a10-4ffe-8041-02248b62e777</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#faa43300-73dc-4623-99f0-d90d8cf7755f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Infrastructure/HttpClients/BuyersServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BuyersServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0afe9a80-9a10-4ffe-8041-02248b62e777</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.JsonResponse</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Infrastructure/HttpClients/JsonResponse.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0afe9a80-9a10-4ffe-8041-02248b62e777</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#5aed86f0-2fcb-4f67-b587-d9617f96074e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.Controllers.Secured.Infrastructure/HttpClients/ProductsServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductsServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

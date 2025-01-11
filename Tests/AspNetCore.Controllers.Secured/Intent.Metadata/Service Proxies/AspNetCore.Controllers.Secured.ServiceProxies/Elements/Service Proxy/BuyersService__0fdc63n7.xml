@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="faa43300-73dc-4623-99f0-d90d8cf7755f" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>BuyersService</name>
+  <display>BuyersService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>e4251ba7-1036-4a2b-b23d-22d286ea81d2</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="28c42ab0-a0ea-4255-a7ef-7345772b1020" name="PackageLevelSecurity" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="12a7337f-1096-407c-b8f0-c3d5974158c8" name="Buyers" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>1aea9c69-da63-4e64-959d-a56c690ce1b0</parentFolderId>
+  <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+  <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="a25510d5-23b7-4702-a78d-7a03091f512a" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CreateBuyerCommand</name>
+      <display>CreateBuyerCommand(command: CreateBuyerCommand): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="af150f24-44c7-4854-85f8-a498e27859f0">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="9c796b65-626b-4b8a-aaab-9fd5eb26e88c" name="CreateBuyerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>faa43300-73dc-4623-99f0-d90d8cf7755f</parentFolderId>
+      <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+      <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="3fdc75db-083d-417c-ba01-ffe4ea231cc7" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: CreateBuyerCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="39eea956-ff90-4daa-b93f-14069ae5e885">
+            <typeId>9c796b65-626b-4b8a-aaab-9fd5eb26e88c</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>PackageLevelSecurity</typePackageName>
+            <typePackageId>28c42ab0-a0ea-4255-a7ef-7345772b1020</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a25510d5-23b7-4702-a78d-7a03091f512a</parentFolderId>
+          <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+          <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="9c796b65-626b-4b8a-aaab-9fd5eb26e88c" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="7153d077-f049-4c36-a6e2-7c730e387168" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>DeleteBuyerCommand</name>
+      <display>DeleteBuyerCommand(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="946a496a-9e65-4302-86fb-741205239bc6">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="f37c8013-7ec7-4464-9027-9178c5bd87a1" name="DeleteBuyerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>faa43300-73dc-4623-99f0-d90d8cf7755f</parentFolderId>
+      <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+      <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="adc2b18e-1225-4e57-a6db-271b5757ecbb" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="11afa6eb-bf82-4391-8e61-a05274696a89">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>7153d077-f049-4c36-a6e2-7c730e387168</parentFolderId>
+          <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+          <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="5e3d662b-9119-4672-b3f8-8384b401c30a" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="718acd2a-7b58-49f4-8209-c0ff32f66803" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>UpdateBuyerCommand</name>
+      <display>UpdateBuyerCommand(id: guid, command: UpdateBuyerCommand): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="912b4632-93f8-4466-a968-ab5befbcc000">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="9c66cc17-b3bf-423a-bc55-9bd5b85f9ad3" name="UpdateBuyerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>faa43300-73dc-4623-99f0-d90d8cf7755f</parentFolderId>
+      <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+      <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="a260700f-d7e6-4fa3-8b4c-26c3030f0037" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5d06525f-1c38-4696-89eb-49d5d6b76225">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>718acd2a-7b58-49f4-8209-c0ff32f66803</parentFolderId>
+          <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+          <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="810eb3f0-a4df-4bf1-bdd4-e8f009c8ef39" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="12e71989-518f-43d3-91bb-63c6b438b26d" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: UpdateBuyerCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="915b3847-adf7-4238-99ad-235e24de7011">
+            <typeId>9c66cc17-b3bf-423a-bc55-9bd5b85f9ad3</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>PackageLevelSecurity</typePackageName>
+            <typePackageId>28c42ab0-a0ea-4255-a7ef-7345772b1020</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>718acd2a-7b58-49f4-8209-c0ff32f66803</parentFolderId>
+          <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+          <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="9c66cc17-b3bf-423a-bc55-9bd5b85f9ad3" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8cf95c09-3e6a-4c05-8f95-d1f3028014fd" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetBuyerByIdQuery</name>
+      <display>GetBuyerByIdQuery(id: guid): BuyerDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="c335f477-dd79-4831-8c43-13778ba03109">
+        <typeId>0b593d32-97b7-440c-b97c-701119128ee1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>PackageLevelSecurity</typePackageName>
+        <typePackageId>28c42ab0-a0ea-4255-a7ef-7345772b1020</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="1d581f63-444e-478f-8d2d-6a1766aafbd0" name="GetBuyerByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>faa43300-73dc-4623-99f0-d90d8cf7755f</parentFolderId>
+      <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+      <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="e040dc3a-ffe3-4348-bcf8-57cbb5337357" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e52d60e8-69cd-4f5d-ada1-267967fdffc8">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8cf95c09-3e6a-4c05-8f95-d1f3028014fd</parentFolderId>
+          <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+          <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="e1b5bb2c-c918-464d-b065-fd0862265af8" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="4ebdef4c-4025-47fb-bbda-9b99a35f3773" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetBuyersQuery</name>
+      <display>GetBuyersQuery(): BuyerDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7c69a07b-5cf4-4191-8120-1b812f2a3dc8">
+        <typeId>0b593d32-97b7-440c-b97c-701119128ee1</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>PackageLevelSecurity</typePackageName>
+        <typePackageId>28c42ab0-a0ea-4255-a7ef-7345772b1020</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="d2d3a575-4d3a-484a-ac61-c293dae2a235" name="GetBuyersQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>faa43300-73dc-4623-99f0-d90d8cf7755f</parentFolderId>
+      <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+      <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

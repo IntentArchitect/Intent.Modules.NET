@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5aed86f0-2fcb-4f67-b587-d9617f96074e" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>ProductsService</name>
+  <display>ProductsService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>e4251ba7-1036-4a2b-b23d-22d286ea81d2</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="90a633da-261a-42ee-bf0a-bb2c83797675" name="AspNetCore.Controllers.Secured.Services" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="3bceaba7-3cce-4ed5-83f9-d6db313712cb" name="Products" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>1aea9c69-da63-4e64-959d-a56c690ce1b0</parentFolderId>
+  <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+  <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6eee5989-524a-4bf5-b63f-d090cbd58a13" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>CreateProductCommand</name>
+      <display>CreateProductCommand(command: CreateProductCommand): guid</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="0742bdff-1222-46a8-bcf1-904a3f211cee">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="a9c77f8a-6aa5-4119-97b8-9ea150f503e7" name="CreateProductCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>5aed86f0-2fcb-4f67-b587-d9617f96074e</parentFolderId>
+      <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+      <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="5cff493d-4115-4e13-a233-b1e522c2a319" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: CreateProductCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d12e0444-6eb5-45c1-988c-b994277e9b56">
+            <typeId>a9c77f8a-6aa5-4119-97b8-9ea150f503e7</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AspNetCore.Controllers.Secured.Services</typePackageName>
+            <typePackageId>90a633da-261a-42ee-bf0a-bb2c83797675</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>6eee5989-524a-4bf5-b63f-d090cbd58a13</parentFolderId>
+          <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+          <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="a9c77f8a-6aa5-4119-97b8-9ea150f503e7" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1954ea3c-e2e1-4098-81bd-31e7ac21ffff" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>DeleteProductCommand</name>
+      <display>DeleteProductCommand(id: guid): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="976d2ae0-48cc-46d8-a44e-53e34a54f13f">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="4833ed2d-0f07-4066-9deb-e7dfc8b2aa85" name="DeleteProductCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>5aed86f0-2fcb-4f67-b587-d9617f96074e</parentFolderId>
+      <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+      <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="fec11dac-47e8-4af4-8f64-17f6bd968b51" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5448bc19-1da2-4b09-b592-a7e500c2ed42">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1954ea3c-e2e1-4098-81bd-31e7ac21ffff</parentFolderId>
+          <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+          <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="7ebe941d-1a73-4d10-8212-d46fd6e3cd0b" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="044ffd4d-d11e-4c91-8e5c-feb261c12c2f" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>UpdateProductCommand</name>
+      <display>UpdateProductCommand(id: guid, command: UpdateProductCommand): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="a00cfc0d-c81c-4d48-8a6e-419e9fe2acba">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="7b1061af-31a7-442e-9188-8d2d894e6ed2" name="UpdateProductCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>5aed86f0-2fcb-4f67-b587-d9617f96074e</parentFolderId>
+      <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+      <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="86f86f95-73dc-4ae9-8d66-92778b6a51cf" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7ad4b0d6-c117-4cd9-bcaa-3d91fb8f390b">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>044ffd4d-d11e-4c91-8e5c-feb261c12c2f</parentFolderId>
+          <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+          <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="5b325c52-e6c8-4ab0-9315-bc02c105789d" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="b01e11a8-55ce-4e10-b7cf-bc90e90950f5" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: UpdateProductCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="41dcef23-9529-4e83-ad76-a56bbef7c1c9">
+            <typeId>7b1061af-31a7-442e-9188-8d2d894e6ed2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AspNetCore.Controllers.Secured.Services</typePackageName>
+            <typePackageId>90a633da-261a-42ee-bf0a-bb2c83797675</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>044ffd4d-d11e-4c91-8e5c-feb261c12c2f</parentFolderId>
+          <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+          <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="7b1061af-31a7-442e-9188-8d2d894e6ed2" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="0085bed0-e7fa-487c-a497-f822809e9e05" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetProductByIdQuery</name>
+      <display>GetProductByIdQuery(id: guid): ProductDto</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="9cad1653-b247-4434-a552-936631cabb69">
+        <typeId>5c8ad975-7f07-489c-82e4-6fdf43393244</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AspNetCore.Controllers.Secured.Services</typePackageName>
+        <typePackageId>90a633da-261a-42ee-bf0a-bb2c83797675</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="d547a720-3c5c-4dc4-8c45-ac13c770ba2d" name="GetProductByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>5aed86f0-2fcb-4f67-b587-d9617f96074e</parentFolderId>
+      <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+      <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="7353c9a5-2765-4794-8013-567be277139d" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f15348a0-5528-482c-9da4-a18fc2bc6a29">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0085bed0-e7fa-487c-a497-f822809e9e05</parentFolderId>
+          <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+          <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="e985f107-f0f7-49a6-9e55-9fb35d274bb9" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="cf2c0933-2bc5-4d64-90a8-44be2407f1ea" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>GetProductsQuery</name>
+      <display>GetProductsQuery(): ProductDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a532f136-8d20-4cc7-b0be-572eafbc265b">
+        <typeId>5c8ad975-7f07-489c-82e4-6fdf43393244</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AspNetCore.Controllers.Secured.Services</typePackageName>
+        <typePackageId>90a633da-261a-42ee-bf0a-bb2c83797675</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="8741299a-9c28-4fed-b5d8-768205a295b3" name="GetProductsQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>5aed86f0-2fcb-4f67-b587-d9617f96074e</parentFolderId>
+      <packageId>1aea9c69-da63-4e64-959d-a56c690ce1b0</packageId>
+      <packageName>AspNetCore.Controllers.Secured.ServiceProxies</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
