@@ -34,6 +34,7 @@ namespace CleanArchitecture.Dapr.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDaprSidekick(Configuration);
             services.AddControllers(
                 opt =>
                 {
@@ -49,7 +50,6 @@ namespace CleanArchitecture.Dapr.Api
             services.ConfigureProblemDetails();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
-            services.AddDaprSidekick(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

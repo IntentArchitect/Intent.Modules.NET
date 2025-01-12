@@ -33,6 +33,7 @@ namespace MultipleDocumentStores.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDaprSidekick(Configuration);
             services.AddControllers(
                 opt =>
                 {
@@ -46,7 +47,6 @@ namespace MultipleDocumentStores.Api
             services.ConfigureApiVersioning();
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
-            services.AddDaprSidekick(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

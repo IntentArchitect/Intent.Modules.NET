@@ -1,3 +1,7 @@
+### Version 2.0.8
+
+- Fixed: In Minimal hosting model cases, `AddDaprSidekick` would be introduced in the wrong location where Service Configuration is performed.
+
 ### Version 2.0.7
 
 - Improvement: Updated NuGet package versions.
