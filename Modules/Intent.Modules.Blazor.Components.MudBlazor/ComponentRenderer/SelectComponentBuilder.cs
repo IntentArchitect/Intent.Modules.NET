@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.RazorBuilder;
-using System.Linq;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
-public class SelectComponentBuilder : IRazorComponentBuilder
+public class SelectComponentBuilder : IConfigurableRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
@@ -55,5 +56,11 @@ public class SelectComponentBuilder : IRazorComponentBuilder
             }
         }
         return [htmlElement];
+    }
+
+    public static void ConfigureRazor(IRazorConfigurator configurator)
+    {
+        MudBlazorComponentConfigurators.MudSelect(configurator);
+        MudBlazorComponentConfigurators.MudSelectItem(configurator);
     }
 }

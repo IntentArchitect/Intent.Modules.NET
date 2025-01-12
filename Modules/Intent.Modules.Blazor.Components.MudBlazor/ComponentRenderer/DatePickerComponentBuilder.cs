@@ -3,11 +3,12 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
-public class DatePickerComponentBuilder : IRazorComponentBuilder
+public class DatePickerComponentBuilder : IConfigurableRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
@@ -37,5 +38,11 @@ public class DatePickerComponentBuilder : IRazorComponentBuilder
             }
         }
         return [htmlElement];
+    }
+
+    public static void ConfigureRazor(IRazorConfigurator configurator)
+    {
+        MudBlazorComponentConfigurators.MudDatePicker(configurator);
+
     }
 }

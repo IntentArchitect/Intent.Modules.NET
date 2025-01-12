@@ -4,12 +4,13 @@ using Intent.Blazor.Components.MudBlazor.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
-public class TextInputComponentBuilder : IRazorComponentBuilder
+public class TextInputComponentBuilder : IConfigurableRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
@@ -29,7 +30,7 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
         var valueMapping = _bindingManager.GetMappedEndFor(model);
         var valueBinding = _bindingManager.GetBinding(valueMapping, parentNode);
         var onValueChangedMapping = _bindingManager.GetMappedEndFor(model, "914fd4f3-75fb-4b93-9c1b-21ba304f054b"); // On Value Changed
-        var onValueChangedBinding = _bindingManager.GetBinding(onValueChangedMapping, parentNode); 
+        var onValueChangedBinding = _bindingManager.GetBinding(onValueChangedMapping, parentNode);
         htmlElement.AddAttributeIfNotEmpty("@bind-Value", onValueChangedBinding == null ? valueBinding?.ToString() : null)
             .AddAttributeIfNotEmpty("T", onValueChangedBinding != null ? "string" : null)
             .AddAttributeIfNotEmpty("Value", onValueChangedBinding != null ? valueBinding?.ToString() : null)
@@ -63,5 +64,10 @@ public class TextInputComponentBuilder : IRazorComponentBuilder
             }
         }
         return [htmlElement];
+    }
+
+    public static void ConfigureRazor(IRazorConfigurator configurator)
+    {
+        MudBlazorComponentConfigurators.MudTextField(configurator);
     }
 }

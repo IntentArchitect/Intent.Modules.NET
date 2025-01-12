@@ -4,12 +4,14 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.Interceptors;
 
-public class MudBlazorLayoutInterceptor(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template) : IRazorComponentInterceptor
+public class MudBlazorLayoutInterceptor(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template) : IConfigurableRazorComponentInterceptor
 {
     // In this interceptor we dynamically add in MudGrids as they are required, based on the present of `Layout` stereotype.
     public void Handle(IElement component, IEnumerable<IRazorFileNode> razorNodes, IRazorFileNode node)
@@ -56,7 +58,13 @@ public class MudBlazorLayoutInterceptor(IRazorComponentBuilderProvider component
         AddMudItem(component, grid, elementsToSwapParent);
     }
 
-    private bool TryGetExistingGrid(IRazorFileNode node, IElement parent, out HtmlElement grid)
+    public static void ConfigureRazor(IRazorConfigurator configurator)
+    {
+        MudBlazorComponentConfigurators.MudGrid(configurator);
+        MudBlazorComponentConfigurators.MudItem(configurator);
+    }
+
+    private static bool TryGetExistingGrid(IRazorFileNode node, IElement parent, out HtmlElement grid)
     {
         grid = node.ChildNodes.FirstOrDefault(c => c is HtmlElement { Name: "MudGrid" } && c.HasMetadata("_gridModel") && c.GetMetadata<IElement>("_gridModel") == parent) as HtmlElement;
         return grid != null;

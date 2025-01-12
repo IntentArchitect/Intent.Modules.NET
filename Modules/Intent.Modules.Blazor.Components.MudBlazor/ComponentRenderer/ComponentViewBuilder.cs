@@ -3,12 +3,13 @@ using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
-public class ComponentViewBuilder : IRazorComponentBuilder
+public class ComponentViewBuilder : IConfigurableRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
@@ -56,5 +57,11 @@ public class ComponentViewBuilder : IRazorComponentBuilder
             _componentResolver.BuildComponent(child, parentNode);
         }
         return [];
+    }
+
+    public static void ConfigureRazor(IRazorConfigurator configurator)
+    {
+        MudBlazorComponentConfigurators.MudAlert(configurator);
+        MudBlazorComponentConfigurators.MudProgressLinear(configurator);
     }
 }

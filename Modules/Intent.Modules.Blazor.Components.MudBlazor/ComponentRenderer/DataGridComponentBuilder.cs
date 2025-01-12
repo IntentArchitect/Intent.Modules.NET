@@ -1,21 +1,17 @@
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
 using System.Linq;
-using System.Threading.Tasks;
 using Intent.Blazor.Components.MudBlazor.Api;
 using Intent.Metadata.Models;
-using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.TypeResolution;
-using static Intent.Modelers.UI.Core.Api.TableModelStereotypeExtensions;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
-public class DataGridComponentBuilder : IRazorComponentBuilder
+public class DataGridComponentBuilder : IConfigurableRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
@@ -171,5 +167,18 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
 
         parentNode.AddChildNode(mudDataGrid);
         return [mudDataGrid];
+    }
+
+    public static void ConfigureRazor(IRazorConfigurator configurator)
+    {
+        MudBlazorComponentConfigurators.MudStack(configurator);
+        MudBlazorComponentConfigurators.PagerContent(configurator);
+        MudBlazorComponentConfigurators.ToolBarContent(configurator);
+        MudBlazorComponentConfigurators.DataGrid.CellTemplate(configurator);
+        MudBlazorComponentConfigurators.DataGrid.Columns(configurator);
+        MudBlazorComponentConfigurators.DataGrid.MudDataGrid(configurator);
+        MudBlazorComponentConfigurators.DataGrid.MudDataGridPager(configurator);
+        MudBlazorComponentConfigurators.DataGrid.PropertyColumn(configurator);
+        MudBlazorComponentConfigurators.DataGrid.TemplateColumn(configurator);
     }
 }

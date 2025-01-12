@@ -4,13 +4,14 @@ using System.Text.RegularExpressions;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.TypeResolution;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
-public class TableComponentBuilder : IRazorComponentBuilder
+public class TableComponentBuilder : IConfigurableRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
@@ -130,5 +131,17 @@ public class TableComponentBuilder : IRazorComponentBuilder
 
         parentNode.AddChildNode(tableCode);
         return [tableCode];
+    }
+
+    public static void ConfigureRazor(IRazorConfigurator configurator)
+    {
+        MudBlazorComponentConfigurators.MudPagination(configurator);
+        MudBlazorComponentConfigurators.MudProgressLinear(configurator);
+        MudBlazorComponentConfigurators.PagerContent(configurator);
+        MudBlazorComponentConfigurators.Table.HeaderContent(configurator);
+        MudBlazorComponentConfigurators.Table.MudTable(configurator);
+        MudBlazorComponentConfigurators.Table.MudTd(configurator);
+        MudBlazorComponentConfigurators.Table.MudTh(configurator);
+        MudBlazorComponentConfigurators.Table.RowTemplate(configurator);
     }
 }

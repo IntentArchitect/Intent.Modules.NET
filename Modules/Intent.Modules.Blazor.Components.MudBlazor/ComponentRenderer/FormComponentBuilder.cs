@@ -1,18 +1,17 @@
 using System.Collections.Generic;
-using System.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
-public class FormComponentBuilder : IRazorComponentBuilder
+public class FormComponentBuilder : IConfigurableRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
@@ -76,5 +75,11 @@ public class FormComponentBuilder : IRazorComponentBuilder
         });
         result.Add(codeBlock);
         return result;
+    }
+
+    public static void ConfigureRazor(IRazorConfigurator configurator)
+    {
+        MudBlazorComponentConfigurators.MudForm(configurator);
+        MudBlazorComponentConfigurators.MudProgressLinear(configurator);
     }
 }

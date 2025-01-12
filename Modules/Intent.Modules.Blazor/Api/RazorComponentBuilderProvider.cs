@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 
@@ -19,11 +21,17 @@ public interface IRazorComponentBuilder
     IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode);
 }
 
+public interface IConfigurableRazorComponentBuilder : IRazorComponentBuilder
+{
+    static abstract void ConfigureRazor(IRazorConfigurator configurator);
+}
+
 public class RazorComponentBuilderProvider : IRazorComponentBuilderProvider
 {
     public IRazorComponentTemplate ComponentTemplate { get; }
     private readonly Dictionary<string, IRazorComponentBuilder> _componentRenderers = new();
     private List<IRazorComponentInterceptor> _interceptors = [];
+    private static readonly HashSet<Type> ComponentTypesWhichHaveConfiguredRazor = [];
 
     public RazorComponentBuilderProvider(IRazorComponentTemplate template)
     {
@@ -60,7 +68,11 @@ public class RazorComponentBuilderProvider : IRazorComponentBuilderProvider
 
     public IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode node)
     {
-        var builtComponent = ResolveFor(component).BuildComponent(component, node);
+        var razorComponentBuilder = ResolveFor(component);
+
+
+
+        var builtComponent = razorComponentBuilder.BuildComponent(component, node);
 
         foreach (var interceptor in _interceptors)
         {
