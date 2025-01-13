@@ -1,3 +1,7 @@
+### Version 1.0.13
+
+- Fixed: Fixed an issue where Test Implementations for Composite children was not generating the correct code.
+
 ### Version 1.0.12
 
 - Improvement: Updated module icon

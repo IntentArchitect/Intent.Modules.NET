@@ -127,7 +127,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
             var dependencies = DetermineDependencies(createOperation, mapping);
             if (entity.Attributes.Count(a => a.HasStereotype("Primary Key")) != 1) return null;
 
-            var createOperaion = operations.FirstOrDefault(o => string.Compare(o.Name, $"Create{entityName}", ignoreCase: true) == 0 && ExpectedCreateParameters(o));
+            var createOperaion = operations.FirstOrDefault(o => string.Compare(o.Name, $"Create{entityName}", ignoreCase: true) == 0 && ExpectedCreateParameters(o, owningAggregate));
             if (createOperaion == null) return null;
             var getByIdOperation = operations.FirstOrDefault(o => string.Compare(o.Name, $"{getPrefix}{entityName}ById", ignoreCase: true) == 0 && ExpectedGetByIdParameters(o, entity, owningAggregate));
             if (getByIdOperation == null) return null;
@@ -137,7 +137,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                 entity,
                 dependencies,
                 createOperaion, 
-                operations.FirstOrDefault(o => string.Compare(o.Name, $"Update{entityName}", ignoreCase: true) == 0 && ExpectedUpdateParameters(o, entity)),
+                operations.FirstOrDefault(o => string.Compare(o.Name, $"Update{entityName}", ignoreCase: true) == 0 && ExpectedUpdateParameters(o, entity, owningAggregate)),
                 operations.FirstOrDefault(o => string.Compare(o.Name, $"Delete{entityName}", ignoreCase: true) == 0 && ExpectedDeleteParameters(o, entity, owningAggregate)),
                 getByIdOperation,
                 operations.FirstOrDefault(o => string.Compare(o.Name, $"{getPrefix}{entityName.Pluralize(false)}", ignoreCase: true) == 0 && ExpectedGetAllParameters(o, owningAggregate)),
@@ -174,15 +174,21 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                 o.Inputs.ElementAt(1).TypeReference?.Element?.Id == entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id;
         }
 
-        private static bool ExpectedUpdateParameters(IHttpEndpointModel o, ClassModel entity)
+        private static bool ExpectedUpdateParameters(IHttpEndpointModel o, ClassModel entity, ClassModel? owningAggregate)
         {
-            return o.Inputs.Count == 2 &&                
+            if (owningAggregate == null)
+                return o.Inputs.Count == 2 &&                
                 o.Inputs.First().TypeReference?.Element?.Id == entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id;
+            return o.Inputs.Count == 3 &&
+                o.Inputs.First().TypeReference?.Element?.Id == owningAggregate.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id &&
+                o.Inputs.ElementAt(1).TypeReference?.Element?.Id == entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id;
         }
 
-        private static bool ExpectedCreateParameters(IHttpEndpointModel o)
+        private static bool ExpectedCreateParameters(IHttpEndpointModel o, ClassModel? owningAggregate)
         {
-            return o.Inputs.Count == 1;
+            if (owningAggregate == null)
+                return o.Inputs.Count == 1;
+            return o.Inputs.Count == 2;
         }
 
         private static ClassModel? GetOwningAggregate(ClassModel entity)

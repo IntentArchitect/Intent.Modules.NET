@@ -81,7 +81,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                         method.Async();
 
                         var owningAggragateId = crudTest.OwningAggregate != null ? $"{crudTest.OwningAggregate?.Name.ToParameterName()}Id" : null;
-                        var dtoModel = crudTest.Create.Inputs.First();
+                        var dtoModel = crudTest.OwningAggregate == null ? crudTest.Create.Inputs.First() : crudTest.Create.Inputs.ElementAt(1); 
+
                         var sutId = $"{crudTest.Entity.Name.ToParameterName()}Id";
 
                         if (crudTest.Dependencies.Any() || crudTest.OwningAggregate != null)
@@ -95,11 +96,11 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
 
                         if (crudTest.ResponseDtoIdField is null)
                         {
-                            method.AddStatement($"var {sutId} = await client.{crudTest.Create.Name}Async(command);");
+                            method.AddStatement($"var {sutId} = await client.{crudTest.Create.Name}Async({(owningAggragateId != null ? $"{owningAggragateId}, " :"")}command);");
                         }
                         else
                         {
-                            method.AddStatement($"var dto = await client.{crudTest.Create.Name}Async(command);");
+                            method.AddStatement($"var dto = await client.{crudTest.Create.Name}Async({(owningAggragateId != null ? $"{owningAggragateId}, " : "")}command);");
                             method.AddStatement($"var {sutId} = dto.{crudTest.ResponseDtoIdField};");
                         }
                         method.AddStatement($"_idTracker[\"{sutId.ToPascalCase()}\"] = {sutId};");
