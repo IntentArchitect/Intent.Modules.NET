@@ -83,6 +83,10 @@ public static class RazorFileExtensions
                     {
                         property.AddAttribute(block.Template.UseType("Microsoft.AspNetCore.Components.Parameter"));
                     }
+                    if (child.AsPropertyModel().HasQueryParameter())
+                    {
+                        property.AddAttribute(block.Template.UseType("Microsoft.AspNetCore.Components.SupplyParameterFromQuery"));
+                    }
                 });
             }
 

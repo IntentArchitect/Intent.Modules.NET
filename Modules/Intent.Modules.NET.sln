@@ -330,6 +330,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFramew
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.DataMasking", "Intent.Modules.EntityFrameworkCore.DataMasking\Intent.Modules.EntityFrameworkCore.DataMasking.csproj", "{D9EE0B15-FA5D-4BAD-90C2-CF771E4B80DE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Blazor.JwtAuth", "Intent.Modules.Blazor.JwtAuth\Intent.Modules.Blazor.JwtAuth.csproj", "{AC620C37-6585-4E04-B43E-0BAEFAE34E3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -916,6 +918,10 @@ Global
 		{D9EE0B15-FA5D-4BAD-90C2-CF771E4B80DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9EE0B15-FA5D-4BAD-90C2-CF771E4B80DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9EE0B15-FA5D-4BAD-90C2-CF771E4B80DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC620C37-6585-4E04-B43E-0BAEFAE34E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC620C37-6585-4E04-B43E-0BAEFAE34E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC620C37-6585-4E04-B43E-0BAEFAE34E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC620C37-6585-4E04-B43E-0BAEFAE34E3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1078,6 +1084,7 @@ Global
 		{E734455F-4103-4EF0-932C-28948E7F2E94} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{9FBA18DB-714D-46C4-B79C-3AC436375C26} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{D9EE0B15-FA5D-4BAD-90C2-CF771E4B80DE} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{AC620C37-6585-4E04-B43E-0BAEFAE34E3C} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
