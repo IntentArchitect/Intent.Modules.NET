@@ -2,12 +2,11 @@
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
-public class CheckboxComponentBuilder : IConfigurableRazorComponentBuilder
+public class CheckboxComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
@@ -30,14 +29,9 @@ public class CheckboxComponentBuilder : IConfigurableRazorComponentBuilder
         parentNode.AddChildNode(htmlElement);
         return [htmlElement];
     }
-
-    public static void ConfigureRazor(IRazorConfigurator configurator)
-    {
-        MudBlazorComponentConfigurators.MudCheckBox(configurator);
-    }
 }
 
-public class SpacerComponentBuilder : IConfigurableRazorComponentBuilder
+public class SpacerComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
@@ -55,10 +49,5 @@ public class SpacerComponentBuilder : IConfigurableRazorComponentBuilder
         var htmlElement = new HtmlElement("MudSpacer", _componentTemplate.RazorFile);
         parentNode.AddChildNode(htmlElement);
         return [htmlElement];
-    }
-
-    public static void ConfigureRazor(IRazorConfigurator configurator)
-    {
-        MudBlazorComponentConfigurators.MudSpacer(configurator);
     }
 }

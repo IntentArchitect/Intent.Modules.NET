@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modules.Blazor.Api;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
-public class ContainerComponentBuilder : IConfigurableRazorComponentBuilder
+public class ContainerComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
@@ -34,10 +33,5 @@ public class ContainerComponentBuilder : IConfigurableRazorComponentBuilder
             }
         });
         return [htmlElement];
-    }
-
-    public static void ConfigureRazor(IRazorConfigurator configurator)
-    {
-        MudBlazorComponentConfigurators.MudContainer(configurator);
     }
 }

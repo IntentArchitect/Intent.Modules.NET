@@ -21,11 +21,6 @@ public interface IRazorComponentBuilder
     IEnumerable<IRazorFileNode> BuildComponent(IElement component, IRazorFileNode parentNode);
 }
 
-public interface IConfigurableRazorComponentBuilder : IRazorComponentBuilder
-{
-    static abstract void ConfigureRazor(IRazorConfigurator configurator);
-}
-
 public class RazorComponentBuilderProvider : IRazorComponentBuilderProvider
 {
     public IRazorComponentTemplate ComponentTemplate { get; }

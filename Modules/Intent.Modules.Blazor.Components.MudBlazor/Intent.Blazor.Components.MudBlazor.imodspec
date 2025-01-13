@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.Components.MudBlazor</id>
-  <version>1.0.0-beta.8</version>
+  <version>1.0.0-beta.9</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Automates MudBlazor components for a Blazor application</summary>
   <description>Automates MudBlazor components for a Blazor application</description>
@@ -34,6 +34,13 @@
     <dependency id="Intent.Modelers.UI.Core" version="1.0.0-beta.4" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
+  <interoperability>
+    <detect id="Intent.Code.Weaving.Razor">
+      <install>
+        <package id="Intent.Code.Weaving.Razor" version="1.0.3-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />

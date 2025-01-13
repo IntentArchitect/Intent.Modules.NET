@@ -2,12 +2,11 @@ using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
-public class CardComponentBuilder : IConfigurableRazorComponentBuilder
+public class CardComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
@@ -65,14 +64,5 @@ public class CardComponentBuilder : IConfigurableRazorComponentBuilder
         }
 
         return [card];
-    }
-
-    public static void ConfigureRazor(IRazorConfigurator configurator)
-    {
-        MudBlazorComponentConfigurators.Card.CardHeaderContent(configurator);
-        MudBlazorComponentConfigurators.Card.MudCard(configurator);
-        MudBlazorComponentConfigurators.Card.MudCardActions(configurator);
-        MudBlazorComponentConfigurators.Card.MudCardContent(configurator);
-        MudBlazorComponentConfigurators.Card.MudCardHeader(configurator);
     }
 }

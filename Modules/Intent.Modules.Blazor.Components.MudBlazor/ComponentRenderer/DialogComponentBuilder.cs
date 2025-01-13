@@ -2,12 +2,11 @@
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
-public class DialogComponentBuilder : IConfigurableRazorComponentBuilder
+public class DialogComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
@@ -66,12 +65,5 @@ public class DialogComponentBuilder : IConfigurableRazorComponentBuilder
             codeBehind.AddProperty(codeBehind.Template.UseType("MudBlazor.MudDialogInstance"), "Dialog", p => p.AddAttribute($"[{codeBehind.Template.UseType("Microsoft.AspNetCore.Components.CascadingParameter")}]"));
         });
         return [htmlElement];
-    }
-
-    public static void ConfigureRazor(IRazorConfigurator configurator)
-    {
-        MudBlazorComponentConfigurators.TitleContent(configurator);
-        MudBlazorComponentConfigurators.Dialog.DialogActions(configurator);
-        MudBlazorComponentConfigurators.Dialog.MudDialog(configurator);
     }
 }

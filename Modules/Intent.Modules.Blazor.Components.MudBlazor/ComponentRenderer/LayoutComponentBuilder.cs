@@ -2,13 +2,12 @@
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
-public class LayoutComponentBuilder : IConfigurableRazorComponentBuilder
+public class LayoutComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
@@ -99,18 +98,5 @@ public class LayoutComponentBuilder : IConfigurableRazorComponentBuilder
         //});
         return [layoutHtml];
 
-    }
-
-    public static void ConfigureRazor(IRazorConfigurator configurator)
-    {
-        MudBlazorComponentConfigurators.MudAppBar(configurator);
-        MudBlazorComponentConfigurators.MudDrawer(configurator);
-        MudBlazorComponentConfigurators.MudIconButton(configurator);
-        MudBlazorComponentConfigurators.MudLayout(configurator);
-        MudBlazorComponentConfigurators.MudMainContent(configurator);
-        MudBlazorComponentConfigurators.MudPopoverProvider(configurator);
-        MudBlazorComponentConfigurators.MudSnackbarProvider(configurator);
-        MudBlazorComponentConfigurators.MudThemeProvider(configurator);
-        MudBlazorComponentConfigurators.Dialog.MudDialogProvider(configurator);
     }
 }

@@ -5,12 +5,11 @@ using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
-using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
-public class NavigationBarComponentBuilder : IConfigurableRazorComponentBuilder
+public class NavigationBarComponentBuilder : IRazorComponentBuilder
 {
     private readonly IRazorComponentBuilderProvider _componentResolver;
     private readonly IRazorComponentTemplate _componentTemplate;
@@ -67,13 +66,6 @@ public class NavigationBarComponentBuilder : IConfigurableRazorComponentBuilder
         }
         parentNode.AddChildNode(navMenu);
         return [navMenu];
-    }
-
-    public static void ConfigureRazor(IRazorConfigurator configurator)
-    {
-        MudBlazorComponentConfigurators.MudNavMenu(configurator);
-        MudBlazorComponentConfigurators.MudMenuItem(configurator);
-        MudBlazorComponentConfigurators.MudMenu(configurator);
     }
 
     private void AddMenuItem(IHtmlElement parent, MenuItemModel menuItemModel)

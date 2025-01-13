@@ -5,7 +5,6 @@ using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 using Intent.Modules.Blazor.Components.MudBlazor.Interceptors;
-using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
@@ -46,6 +45,38 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
             DefaultRazorComponentBuilderProvider.Register(ImageModel.SpecializationTypeId, (provider, componentTemplate) => new ImageComponentBuilder(provider, componentTemplate));
 
             DefaultRazorComponentBuilderProvider.AddInterceptor((provider, componentTemplate) => new MudBlazorLayoutInterceptor(provider, componentTemplate));
+
+            application.ConfigureRazor(configurator =>
+            {
+                configurator.AddTagNameAttributeMatch("MudButton", "Href");
+                configurator.AddTagNameAttributeMatch("MudDatePicker", "@bind-Date");
+                configurator.AddTagNameAttributeMatch("MudIconButton", "Href");
+                configurator.AddTagNameAttributeMatch("MudImage", "Src");
+                configurator.AddTagNameAttributeMatch("MudMenu", "Label");
+                configurator.AddTagNameAttributeMatch("MudMenuItem", "Href");
+                configurator.AddTagNameAttributeMatch("MudPagination", "@bind-Selected");
+                configurator.AllowMatchByTagNameOnly("CardHeaderContent");
+                configurator.AllowMatchByTagNameOnly("CellTemplate");
+                configurator.AllowMatchByTagNameOnly("Columns");
+                configurator.AllowMatchByTagNameOnly("DialogActions");
+                configurator.AllowMatchByTagNameOnly("HeaderContent");
+                configurator.AllowMatchByTagNameOnly("MudCardActions");
+                configurator.AllowMatchByTagNameOnly("MudCardContent");
+                configurator.AllowMatchByTagNameOnly("MudCardHeader");
+                configurator.AllowMatchByTagNameOnly("MudDataGridPager");
+                configurator.AllowMatchByTagNameOnly("MudDialogProvider");
+                configurator.AllowMatchByTagNameOnly("MudDrawer"); // Although it seems possible to have more than one, I am guessing it's highly unusual.
+                configurator.AllowMatchByTagNameOnly("MudLayout");
+                configurator.AllowMatchByTagNameOnly("MudMainContent");
+                configurator.AllowMatchByTagNameOnly("MudNavMenu");
+                configurator.AllowMatchByTagNameOnly("MudPopoverProvider");
+                configurator.AllowMatchByTagNameOnly("MudSnackbarProvider");
+                configurator.AllowMatchByTagNameOnly("MudThemeProvider");
+                configurator.AllowMatchByTagNameOnly("PagerContent");
+                configurator.AllowMatchByTagNameOnly("RowTemplate");
+                configurator.AllowMatchByTagNameOnly("TitleContent");
+                configurator.AllowMatchByTagNameOnly("ToolBarContent");
+            });
         }
     }
 }
