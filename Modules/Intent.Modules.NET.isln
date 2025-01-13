@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.0.4" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.0.7" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" name="VisualStudio.Projects" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -150,5 +150,6 @@
     <application id="17634ccd-1315-4ace-b1cd-dccf99b6737d" name="Intent.Modules.SonarQube" relativePath="Intent.Modules.SonarQube/Intent.Modules.SonarQube.application.config" />
     <application id="f509ceb6-2825-4aa4-9dc4-b3288602e1a0" name="Intent.Modules.AspNetCore.Mvc" relativePath="Intent.Modules.AspNetCore.Mvc/Intent.Modules.AspNetCore.Mvc.application.config" />
     <application id="4d6278e1-4897-4c4f-9fb5-1db5a30c3ead" name="Intent.Modules.EntityFrameworkCore.TemporalTables" relativePath="Intent.Modules.EntityFrameworkCore.TemporalTables/Intent.Modules.EntityFrameworkCore.TemporalTables.application.config" />
+    <application id="7bda4e57-297a-4068-898e-85e199c5f5ea" name="Intent.Modules.EntityFrameworkCore.DataMasking" relativePath="Intent.Modules.EntityFrameworkCore.DataMasking/Intent.Modules.EntityFrameworkCore.DataMasking.application.config" />
   </applications>
 </solution>

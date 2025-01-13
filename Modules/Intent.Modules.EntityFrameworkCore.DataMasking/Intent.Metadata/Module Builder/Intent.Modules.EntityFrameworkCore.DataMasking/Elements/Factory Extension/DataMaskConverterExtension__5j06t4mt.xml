@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8025d14f-5449-435a-bef8-649e1901c20c" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DataMaskConverterExtension</name>
+  <display>DataMaskConverterExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>082f01f5-722f-4482-9bc4-8454b5346dd7</parentFolderId>
+  <packageId>082f01f5-722f-4482-9bc4-8454b5346dd7</packageId>
+  <packageName>Intent.Modules.EntityFrameworkCore.DataMasking</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
